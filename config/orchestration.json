@@ -1,0 +1,201 @@
+{
+  "workflow_mode": "task-centric",
+  "description": "Task-driven workflow orchestration with support for different task types",
+  
+  "task_workflows": {
+    "component_feature": {
+      "description": "Standard workflow for new component features",
+      "phases": ["consultation", "planning", "development", "review"],
+      "roles": {
+        "consultation": {
+          "role": "consultant",
+          "description": "Analyzes problems and proposes solutions",
+          "required_inputs": ["human_instruction", "component_docs"],
+          "optional_inputs": ["project_context"],
+          "input_mappings": {
+            "human_instruction": "provided_by_human",
+            "component_docs": "@documentation/{target_name}/main.md",
+            "project_context": "@prompt/config/project_context.json"
+          },
+          "output_path": "@prompt/artifacts/consultations/{target_name}/consultation_v{version}.md",
+          "templates": {
+            "standard": "@prompt/templates/consultant/standard_consultation.md",
+            "performance": "@prompt/templates/consultant/performance_analysis.md",
+            "security": "@prompt/templates/consultant/security_assessment.md"
+          }
+        },
+        "planning": {
+          "role": "planner",
+          "description": "Creates detailed development plans",
+          "required_inputs": ["consultation", "component_docs", "standards"],
+          "input_mappings": {
+            "consultation": "{consultation_artifact_path}",
+            "component_docs": "@documentation/{target_name}/main.md",
+            "standards": "@documentation/main/template_guideline.md"
+          },
+          "output_path": "@prompt/artifacts/plans/{target_name}/plan_v{version}.md",
+          "templates": {
+            "new_feature": "@prompt/templates/planner/new_feature.md",
+            "bug_fix": "@prompt/templates/planner/bug_fix.md",
+            "refactor": "@prompt/templates/planner/refactor.md"
+          }
+        },
+        "development": {
+          "role": "developer",
+          "description": "Implements the development plan",
+          "required_inputs": ["plan", "source_code"],
+          "input_mappings": {
+            "plan": "{plan_artifact_path}",
+            "source_code": "@components/{target_name}/",
+            "project_standards": "@documentation/main/"
+          },
+          "output_path": "@prompt/artifacts/developments/{target_name}/devnotes_v{version}.md",
+          "templates": {
+            "standard": "@prompt/templates/developer/standard_development.md"
+          }
+        },
+        "review": {
+          "role": "reviewer",
+          "description": "Reviews implementation against plan",
+          "required_inputs": ["plan", "dev_notes", "code_diff"],
+          "input_mappings": {
+            "plan": "{plan_artifact_path}",
+            "dev_notes": "{development_artifact_path}",
+            "code_diff": "git_diff_output",
+            "test_results": "pytest_output"
+          },
+          "output_path": "@prompt/artifacts/reviews/{target_name}/review_v{version}.md",
+          "templates": {
+            "standard": "@prompt/templates/reviewer/standard_review.md"
+          }
+        }
+      }
+    },
+    
+    "documentation_update": {
+      "description": "Workflow for documentation updates",
+      "phases": ["planning", "development", "review"],
+      "roles": {
+        "planning": {
+          "role": "planner",
+          "description": "Plans documentation updates",
+          "required_inputs": ["human_instruction", "current_docs"],
+          "input_mappings": {
+            "human_instruction": "provided_by_human",
+            "current_docs": "@documentation/{target_name}/",
+            "standards": "@documentation/general.md"
+          },
+          "output_path": "@prompt/artifacts/plans/documentation/plan_{target_name}_v{version}.md",
+          "templates": {
+            "documentation_update": "@prompt/templates/planner/documentation_update.md"
+          }
+        },
+        "development": {
+          "role": "developer",
+          "description": "Updates documentation",
+          "required_inputs": ["plan", "current_docs"],
+          "input_mappings": {
+            "plan": "{plan_artifact_path}",
+            "current_docs": "@documentation/{target_name}/"
+          },
+          "output_path": "@prompt/artifacts/developments/documentation/devnotes_{target_name}_v{version}.md",
+          "templates": {
+            "standard": "@prompt/templates/developer/standard_development.md"
+          }
+        },
+        "review": {
+          "role": "reviewer",
+          "description": "Reviews documentation updates",
+          "required_inputs": ["plan", "dev_notes", "doc_diff"],
+          "input_mappings": {
+            "plan": "{plan_artifact_path}",
+            "dev_notes": "{development_artifact_path}",
+            "doc_diff": "git_diff_output"
+          },
+          "output_path": "@prompt/artifacts/reviews/documentation/review_{target_name}_v{version}.md",
+          "templates": {
+            "standard": "@prompt/templates/reviewer/standard_review.md"
+          }
+        }
+      }
+    },
+    
+    "bug_fix": {
+      "description": "Workflow for bug fixes",
+      "phases": ["consultation", "planning", "development", "review"],
+      "roles": {
+        "consultation": {
+          "role": "consultant",
+          "description": "Analyzes bug root cause",
+          "required_inputs": ["human_instruction", "component_docs", "error_logs"],
+          "input_mappings": {
+            "human_instruction": "provided_by_human",
+            "component_docs": "@documentation/{target_name}/main.md",
+            "error_logs": "provided_by_human"
+          },
+          "output_path": "@prompt/artifacts/consultations/{target_name}/bug_analysis_v{version}.md",
+          "templates": {
+            "bug_analysis": "@prompt/templates/consultant/bug_analysis.md"
+          }
+        },
+        "planning": {
+          "role": "planner",
+          "description": "Plans bug fix implementation",
+          "required_inputs": ["consultation", "component_docs"],
+          "input_mappings": {
+            "consultation": "{consultation_artifact_path}",
+            "component_docs": "@documentation/{target_name}/main.md"
+          },
+          "output_path": "@prompt/artifacts/plans/{target_name}/bugfix_plan_v{version}.md",
+          "templates": {
+            "bug_fix": "@prompt/templates/planner/bug_fix.md"
+          }
+        },
+        "development": {
+          "role": "developer",
+          "description": "Implements bug fix",
+          "required_inputs": ["plan", "source_code"],
+          "input_mappings": {
+            "plan": "{plan_artifact_path}",
+            "source_code": "@components/{target_name}/"
+          },
+          "output_path": "@prompt/artifacts/developments/{target_name}/bugfix_devnotes_v{version}.md",
+          "templates": {
+            "standard": "@prompt/templates/developer/standard_development.md"
+          }
+        },
+        "review": {
+          "role": "reviewer",
+          "description": "Reviews bug fix implementation",
+          "required_inputs": ["plan", "dev_notes", "code_diff", "test_results"],
+          "input_mappings": {
+            "plan": "{plan_artifact_path}",
+            "dev_notes": "{development_artifact_path}",
+            "code_diff": "git_diff_output",
+            "test_results": "pytest_output"
+          },
+          "output_path": "@prompt/artifacts/reviews/{target_name}/bugfix_review_v{version}.md",
+          "templates": {
+            "standard": "@prompt/templates/reviewer/standard_review.md"
+          }
+        }
+      }
+    }
+  },
+  
+  "version_rules": {
+    "auto_increment": true,
+    "increment_logic": {
+      "breaking_change": "major",
+      "new_feature": "minor",
+      "bug_fix": "patch",
+      "refactor": "patch"
+    }
+  },
+  
+  "archive_rules": {
+    "trigger": "new_major_version",
+    "keep_active": 3,
+    "archive_after_days": 30
+  }
+}

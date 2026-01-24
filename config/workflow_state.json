@@ -1,0 +1,106 @@
+{
+  "_description": "Tracks the current state of all active development workflows",
+  "_instructions": "This file is automatically updated by the state manager",
+  "system_info": {
+    "version": "2.1.0",
+    "mode": "task-centric",
+    "last_updated": "2025-07-15T10:00:00Z",
+    "migration_date": "2025-07-15T10:00:00Z",
+    "migrated_from": "2.0.0"
+  },
+  "active_tasks": {
+    "T001": {
+      "task_type": "system_architecture",
+      "target_name": "prompt_main",
+      "target_version": "2.1.0",
+      "status": "in_progress",
+      "human_brief": "LLM Agent System Architecture Enhancement",
+      "active_phase": "review",
+      "created": "2025-07-15T10:00:00Z",
+      "folder_paths": {
+        "consultations": "artifacts/consultations/prompt/T001",
+        "plans": "artifacts/plans/prompt/T001", 
+        "developments": "artifacts/developments/prompt/T001",
+        "reviews": "artifacts/reviews/prompt/T001"
+      },
+      "history": {
+        "consultation": {
+          "status": "completed",
+          "started": "2025-07-15T09:00:00Z",
+          "completed": "2025-07-15T09:30:00Z",
+          "iterations": {
+            "1": {
+              "artifact_path": "consultation_prompt_T001_v2.1.0_i1.md",
+              "status": "active",
+              "created": "2025-07-15T09:30:00Z"
+            }
+          },
+          "latest_iteration": 1
+        },
+        "planning": {
+          "status": "completed",
+          "started": "2025-07-15T10:00:00Z",
+          "completed": "2025-07-17T19:33:34.945555",
+          "iterations": {
+            "1": {
+              "artifact_path": "plan_prompt_T001_v2.1.0_i1.md",
+              "status": "completed",
+              "created": "2025-07-15T10:00:00Z"
+            },
+            "2": {
+              "artifact_path": "plan_prompt_main_T001_v2.1.0_i2.md",
+              "status": "active",
+              "created": "2025-07-17T19:33:34.945555"
+            }
+          },
+          "latest_iteration": 2
+        },
+        "development": {
+          "status": "completed",
+          "started": "2025-07-15T20:22:01Z",
+          "completed": "2025-07-16T17:58:48Z",
+          "iterations": {
+            "1": {
+              "artifact_path": "development_prompt_T001_v2.1.0_i1.md",
+              "status": "completed",
+              "created": "2025-07-15T20:22:01Z"
+            },
+            "2": {
+              "artifact_path": "development_prompt_T001_v2.1.0_i2.md",
+              "status": "active",
+              "created": "2025-07-16T17:58:48Z"
+            }
+          },
+          "latest_iteration": 2
+        },
+        "review": {
+          "status": "in_progress",
+          "started": "2025-07-15T21:56:00Z",
+          "iterations": {
+            "1": {
+              "artifact_path": "review_prompt_T001_v2.1.0_i1.md",
+              "status": "completed",
+              "created": "2025-07-15T21:56:00Z"
+            },
+            "2": {
+              "artifact_path": "review_prompt_T001_v2.1.0_i2.md",
+              "status": "active",
+              "created": "2025-07-16T18:01:25Z"
+            }
+          },
+          "latest_iteration": 2
+        }
+      }
+    }
+  },
+  "completed_tasks": {},
+  "task_counter": 1,
+  "component_versions": {
+    "_description": "Tracks version progression for each component",
+    "prompt_main": {
+      "current": "2.1.0",
+      "next_minor": "2.2.0",
+      "next_major": "3.0.0"
+    }
+  }
+}

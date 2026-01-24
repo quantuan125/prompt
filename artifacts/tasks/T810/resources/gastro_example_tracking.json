@@ -1,0 +1,257 @@
+{
+  "records": [
+    {
+      "date": "2025-10-09",
+      "entries": {
+        "stool": [
+          {
+            "timestamp": "2025-10-09T06:33:00+02:00",
+            "label": "bm1",
+            "bristol_type": 4,
+            "features": ["soft formed stool", "easy to pass"],
+            "trigger_context": ["rescue meal after mid-sleep wake"],
+            "notes": "BM1 passed easily after rescue meal following mid-sleep gas and bloating."
+          },
+          {
+            "timestamp": "2025-10-09T10:28:00+02:00",
+            "label": "bm2",
+            "bristol_type": 3,
+            "features": ["partial evacuation", "mild strain"],
+            "trigger_context": ["black tea", "stress after waking"],
+            "notes": "BM2 partial evacuation following black tea; patient felt stress and incomplete relief."
+          },
+          {
+            "timestamp": "2025-10-09T11:00:00+02:00",
+            "label": "bm3",
+            "bristol_type": 3,
+            "features": ["small fragmented stool", "difficult to release"],
+            "trigger_context": ["continued urge after bm2"],
+            "notes": "Another partial evacuation, bowel felt irritated and difficult to release stool."
+          },
+          {
+            "timestamp": "2025-10-09T12:32:00+02:00",
+            "label": "bm4",
+            "bristol_type": 3,
+            "features": ["single large piece", "firm", "requires effort"],
+            "trigger_context": ["completion of bm2 and bm3"],
+            "notes": "Full evacuation from prior partials, completed with effort, stool firm and formed."
+          },
+          {
+            "timestamp": "2025-10-09T14:46:00+02:00",
+            "label": "bm5",
+            "bristol_type": 3,
+            "features": ["soft blob", "easy to pass"],
+            "trigger_context": ["lunch of air-fried pork paprika + apple + black tea"],
+            "notes": "BM5 soft, easy to pass; occurred after lunch, completing prior cycle."
+          }
+        ],
+        "meal": [
+          {
+            "timestamp": "2025-10-09T06:15:00+02:00",
+            "items": ["steamed broccoli", "cauliflower", "fried fish", "stir-fry pork", "1 clementine"],
+            "notes": "Rescue meal used to trigger BM1 after mid-sleep wake."
+          },
+          {
+            "timestamp": "2025-10-09T20:30:00+02:00",
+            "items": ["air-fried pork paprika", "fried eggs (small size)", "1 clementine"],
+            "notes": "Dinner caused post-meal gas and bloating; failed BM attempt in evening."
+          }
+        ],
+        "patient_state": [
+          {
+            "timestamp": "2025-10-09T21:30:00+02:00",
+            "mental": { "stress": "high" },
+            "digestion": { "bloating": "severe", "gas": "excessive" },
+            "pain": { "lower_abdomen": "moderate" },
+            "notes": "Unable to sleep due to gas and bloating; felt blocked with rectal pressure."
+          }
+        ]
+      }
+    },
+    {
+      "date": "2025-10-10",
+      "entries": {
+        "stool": [
+          {
+            "timestamp": "2025-10-10T06:45:00+02:00",
+            "label": "bm1",
+            "bristol_type": 2,
+            "features": ["hard stool", "requires straining"],
+            "trigger_context": ["mid-sleep wake", "morning discomfort"],
+            "notes": "BM1 required straining, typical of first morning partial evacuation."
+          },
+          {
+            "timestamp": "2025-10-10T13:00:00+02:00",
+            "label": "bm2",
+            "bristol_type": 6,
+            "features": ["soft", "loose flakes", "easy passage"],
+            "trigger_context": ["brunch with pork paprika + fried eggs + apple + warm water"],
+            "notes": "BM2 full evacuation after morning partial, easy to pass, loose consistency."
+          }
+        ],
+        "meal": [
+          {
+            "timestamp": "2025-10-10T07:30:00+02:00",
+            "items": ["stir-fried pork", "1 orange"],
+            "notes": "Small early meal allowed relaxation and return to sleep."
+          },
+          {
+            "timestamp": "2025-10-10T13:00:00+02:00",
+            "items": ["air-fried pork paprika", "fried eggs", "half apple"],
+            "notes": "Brunch preceding BM2; meal improved bowel motility."
+          },
+          {
+            "timestamp": "2025-10-10T20:30:00+02:00",
+            "items": ["air-fried pork paprika", "fried eggs (small)", "1 clementine"],
+            "notes": "Evening dinner; mild post-meal bloating and gas with typical rectal urge pattern."
+          }
+        ],
+        "patient_state": [
+          {
+            "timestamp": "2025-10-10T13:13:00+02:00",
+            "mental": { "stress": "low", "mood": "good" },
+            "digestion": { "bloating": "none", "tummy_pain": "none" },
+            "pain": { "headache": "none", "other_pain": "none" },
+            "notes": "Post-BM2 state; complete relief, relaxed and slightly sleepy."
+          }
+        ]
+      }
+    },
+    {
+      "date": "2025-10-11",
+      "entries": {
+        "sleep": [
+          {
+            "timestamp": "2025-10-11T06:30:00+02:00",
+            "duration_hours": 6.5,
+            "notes": "Woke mid-sleep due to gas and gurgling; total sleep below usual."
+          }
+        ],
+        "supplements": [
+          {
+            "timestamp": "2025-10-11T13:00:00+02:00",
+            "items": ["5g psyllium before lunch"],
+            "notes": "Taken to regulate stool consistency."
+          },
+          {
+            "timestamp": "2025-10-11T17:35:00+02:00",
+            "items": ["daily vitamins", "magnesium citrate"],
+            "notes": "Post-gym supplement routine."
+          }
+        ],
+        "meal": [
+          {
+            "timestamp": "2025-10-11T07:30:00+02:00",
+            "items": ["white rice", "pork liver steak", "air-fried chicken thigh", "zucchini", "carrot", "cauliflower", "2 clementines"],
+            "notes": "Morning meal after ginger + artichoke prokinetics; triggered BM1."
+          },
+          {
+            "timestamp": "2025-10-11T09:15:00+02:00",
+            "items": ["black tea"],
+            "notes": "Post-meal tea increased urge, triggered BM2."
+          },
+          {
+            "timestamp": "2025-10-11T13:30:00+02:00",
+            "items": ["air-fried chicken thigh", "pork liver steak", "1 clementine"],
+            "notes": "Lunch; followed by BM3 partial evacuation."
+          },
+          {
+            "timestamp": "2025-10-11T14:20:00+02:00",
+            "items": ["black tea"],
+            "notes": "Triggered strong urge for BM3."
+          },
+          {
+            "timestamp": "2025-10-11T15:20:00+02:00",
+            "items": ["warm water"],
+            "notes": "Consumed to facilitate BM4 passage."
+          },
+          {
+            "timestamp": "2025-10-11T17:30:00+02:00",
+            "items": ["1 small apple", "50g salted peanuts"],
+            "notes": "Snack after gym; exacerbated gas and left-sided bloating."
+          }
+        ],
+        "stool": [
+          {
+            "timestamp": "2025-10-11T08:20:00+02:00",
+            "label": "bm1",
+            "bristol_type": 3,
+            "features": ["bulky formed stool", "sausage-like with cracks"],
+            "trigger_context": ["post-meal warm water reflex"],
+            "notes": "Full evacuation, easy to pass, relief and clean wipe."
+          },
+          {
+            "timestamp": "2025-10-11T09:30:00+02:00",
+            "label": "bm2",
+            "bristol_type": 7,
+            "features": ["loose, watery", "small flakes"],
+            "trigger_context": ["black tea reflex", "post-bm1 residual clearance"],
+            "notes": "Very easy to pass, complete feeling, lightness and relaxation after."
+          },
+          {
+            "timestamp": "2025-10-11T14:45:00+02:00",
+            "label": "bm3",
+            "bristol_type": 3,
+            "features": ["firm formed", "surface cracks", "partial evacuation"],
+            "trigger_context": ["black tea", "fatty lunch"],
+            "notes": "Required mild strain, partial evacuation, residual rectal gas."
+          },
+          {
+            "timestamp": "2025-10-11T15:30:00+02:00",
+            "label": "bm4",
+            "bristol_type": 2,
+            "features": ["narrow pencil-like stool", "partial evacuation"],
+            "trigger_context": ["warm water after bm3"],
+            "notes": "Slight improvement but incomplete, residual gas and better relaxation after."
+          },
+          {
+            "timestamp": "2025-10-11T18:00:00+02:00",
+            "label": "bm5",
+            "result": "no stool",
+            "features": ["bloating", "gas trapping", "distension", "left lower pain"],
+            "trigger_context": ["apple and peanuts snack", "post-exercise fermentation"],
+            "notes": "Failed evacuation with distension and gas accumulation in lower left colon."
+          }
+        ],
+        "exercise": [
+          {
+            "timestamp": "2025-10-11T16:00:00+02:00",
+            "duration": "0.5–1 hour",
+            "activity": "gym training",
+            "notes": "Experienced residual gas and partial evacuation feeling during workout; low motivation."
+          }
+        ],
+        "patient_state": [
+          {
+            "timestamp": "2025-10-11T06:51:00+02:00",
+            "mental": { "stress": "none", "mood": "so-so" },
+            "digestion": { "bloating": "moderate", "tummy_pain": "mild" },
+            "pain": { "headache": "none", "other_pain": "mild" },
+            "notes": "Early morning pre-meal state; mild bloating and pain before breakfast."
+          },
+          {
+            "timestamp": "2025-10-11T09:35:00+02:00",
+            "mental": { "stress": "low", "mood": "relaxed" },
+            "digestion": { "bloating": "minimal", "tummy_pain": "none" },
+            "pain": { "headache": "none", "other_pain": "none" },
+            "notes": "Post-BM2; relaxed, lighter mood, reduced stress but noted sleep insufficiency."
+          },
+          {
+            "timestamp": "2025-10-11T14:50:00+02:00",
+            "mental": { "stress": "a little stressed", "mood": "so-so" },
+            "digestion": { "bloating": "mild", "tummy_pain": "none" },
+            "pain": { "headache": "none", "other_pain": "none" },
+            "notes": "After BM3; mild stress and mild bloating, still residual gas sensation."
+          },
+          {
+            "timestamp": "2025-10-11T18:15:00+02:00",
+            "mental": { "stress": "moderate", "mood": "fatigued" },
+            "digestion": { "bloating": "severe left-sided", "tummy_pain": "moderate" },
+            "pain": { "location": "lower left abdomen and back", "severity": "mild–moderate" },
+            "notes": "Severe bloating and gas after snack, left side distended and painful, expected relief after tea or next BM."
+          }
+        ]
+      }
+    }
+  ]
+}

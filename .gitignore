@@ -1,0 +1,64 @@
+# Exclude child folders of 'database'
+database/*
+
+notebooks/
+__pycache__/
+storage/
+migration/logs
+
+# Environment Variables and Sensitive Configuration
+.env
+.env.local
+.env.development
+.env.test
+.env.production
+
+# ngrok Configuration (if any local config files are created)
+ngrok.yml
+
+# Ignore everything in tv_ingest/data/
+components/tv_ingest/data/*
+tv_ingest/data/*
+# But do not ignore the directory itself (so it's included in the repo)
+!components/tv_ingest/data/
+!tv_ingest/data/
+
+# # prompt
+# prompt
+prompt/roles/VPA/trading
+
+#virtual environment
+venv/
+
+#LLM files
+.claude/
+.gemini/
+.codex/*
+!.codex/skills/
+!.codex/skills/**
+
+# Raw data files
+raw_*
+
+.vscode/
+
+# Archive folders
+**/archive/
+
+#test files
+.pytest_cache/
+
+# External development tools (should be installed in ~/tools/ instead)
+cctrace/
+tools/
+
+# Claude Code conversation exports (keep README.md but ignore export data)
+exports/*.json
+exports/*.xml
+exports/*.jsonl
+exports/*.txt
+exports/claude_export_*/
+claude_export_*/
+
+# Prompt files
+# prompt/

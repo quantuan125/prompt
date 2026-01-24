@@ -1,0 +1,10 @@
+# Tracking Entry Schema — MEDICATION (structure only, draft)
+# Skeleton only; detailed fields and vocabularies will be defined in Stories.
+
+medication_entry:
+  entry_type: "medication_taken"
+  timestamp: "2025-01-01T08:00:00Z"
+  name: "omeprazole"
+  dose: "20mg"
+  # route: optional (e.g., oral)
+  notes: null

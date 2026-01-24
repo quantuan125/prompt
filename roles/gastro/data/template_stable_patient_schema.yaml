@@ -1,0 +1,21 @@
+# Patient Profile Schema — draft example
+# Type: Patient Profile Schema (patient-managed, read-only for LLM)
+# Purpose: Show structure and key fields only; values are illustrative.
+
+patient_profile:
+  patient_id: 001
+  age: 25  # years
+  sex: "male"  
+  conditions:
+    - "IBS"
+    - "GERD"
+  medications:
+    - "none"
+  triggers:
+    - "large_meals"
+  relievers:
+    - "peppermint_tea"
+  allergies:
+    - "none"
+  notes: "Short free-text notes about history or preferences."
+  last_updated: "2025-01-01"

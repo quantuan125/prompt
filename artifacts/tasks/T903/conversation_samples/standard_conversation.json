@@ -1,0 +1,75 @@
+{
+  "runSettings": {
+    "temperature": 1.0,
+    "model": "models/gemini-1.5-pro-preview-0514",
+    "topP": 0.95,
+    "topK": 64,
+    "maxOutputTokens": 8192,
+    "safetySettings": [
+      {
+        "category": "HARM_CATEGORY_HARASSMENT",
+        "threshold": "BLOCK_NONE"
+      }
+    ],
+    "responseMimeType": "text/plain",
+    "enableCodeExecution": false,
+    "enableSearchAsATool": false,
+    "enableBrowseAsATool": false,
+    "enableAutoFunctionResponse": false
+  },
+  "systemInstruction": {
+    "text": "You are an expert trading assistant specialized in analyzing market conditions and providing actionable insights."
+  },
+  "chunkedPrompt": {
+    "chunks": [
+      {
+        "driveDocument": {
+          "id": "1vmTv3gi18q8IFXs82ZYD9EE6avcVILDn"
+        },
+        "role": "user",
+        "tokenCount": 1308
+      },
+      {
+        "driveImage": {
+          "id": "1znpCwmTL_INUGAxQGS1KduJrTnOCmzsl"
+        },
+        "role": "user",
+        "tokenCount": 259
+      },
+      {
+        "text": "Okay we have switched out to a higher timeframe. Can you analyze the current market structure?",
+        "role": "user",
+        "tokenCount": 314,
+        "branchParent": {
+          "promptId": "prompts/1hnNffr2FUOAukLQOf1lTzU_UTi6Lu22t",
+          "displayName": "Branch of Trading 260525"
+        }
+      },
+      {
+        "text": "Examining the New Context and Market Structure",
+        "role": "model",
+        "tokenCount": 4627,
+        "isThought": true,
+        "thoughtSignatures": ["market_analysis", "context_review"]
+      },
+      {
+        "text": "Okay, let's analyze this situation. Based on the higher timeframe, I can see several key levels that are important for your trading decision.",
+        "role": "model",
+        "finishReason": "STOP",
+        "tokenCount": 2183,
+        "branchChildren": [
+          {
+            "promptId": "prompts/1v1W8cnZ9xEiLef7HIyotu1CDAfTgBg5e",
+            "displayName": "Branch of Trading 270525"
+          }
+        ]
+      }
+    ],
+    "pendingInputs": [
+      {
+        "text": "",
+        "role": "user"
+      }
+    ]
+  }
+}

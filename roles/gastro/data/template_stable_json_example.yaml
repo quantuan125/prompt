@@ -1,0 +1,24 @@
+# DEPRECATED (legacy filename): use `template_stable_patient_schema.yaml`.
+# Patient Profile Schema — draft example (legacy filename)
+# Type: Patient Profile Schema (patient-managed, read-only for LLM)
+# Purpose: Show structure and key fields only; values are illustrative.
+
+patient_profile:
+  patient_id: "example-patient-001"
+  age: 34  # years
+  sex: "female"  # allowed: female | male | other | prefer_not_to_say
+  conditions:
+    - "IBS"
+    - "GERD"
+  medications:
+    - name: "omeprazole"
+      schedule: "20mg once daily"
+  triggers:
+    - "spicy_food"
+    - "large_meals"
+  relievers:
+    - "peppermint_tea"
+  allergies:
+    - "penicillin"
+  notes: "Short free-text notes about history or preferences."
+  last_updated: "2025-01-01"

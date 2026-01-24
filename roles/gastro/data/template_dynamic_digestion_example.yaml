@@ -1,0 +1,9 @@
+# Tracking Entry Schema — DIGESTION (draft example)
+# Captures core digestion symptom scores for a point in time.
+
+digestion_entry:
+  entry_type: "digestion"
+  timestamp: "2025-01-01T18:00:00Z"
+  tummy_pain: 2  # 1=no pain ... 5=extreme pain
+  bloating: 3    # 1=no bloating ... 5=extreme bloating
+  notes: "Optional notes about symptoms."

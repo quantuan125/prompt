@@ -1,0 +1,9 @@
+# Tracking Entry Schema — HYDRATION (structure only, draft)
+# Skeleton only; detailed fields and vocabularies will be defined in Stories.
+
+hydration_entry:
+  entry_type: "hydration"
+  timestamp: "2025-01-01T14:00:00Z"
+  volume_ml: 250
+  # type: optional (e.g., water, tea)
+  notes: null

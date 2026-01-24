@@ -1,0 +1,104 @@
+{
+  "comparisonPrompt": {
+    "data": [
+      {
+        "chunkedPrompt": {
+          "chunks": [
+            {
+              "driveDocument": { "id": "1vmTv3gi18q8IFXs82ZYD9EE6avcVILDn" },
+              "role": "user",
+              "tokenCount": 1308
+            },
+            {
+              "driveImage": { "id": "14tZUlh-iobWcttgN8HcJ75T9eH9HiZFe" },
+              "role": "user",
+              "tokenCount": 259
+            },
+            {
+              "text": "CONTEXT: Today is Wednesday 2nd of July 2025. Please analyze the current market conditions for BTC/USD.",
+              "role": "user",
+              "tokenCount": 2129
+            },
+            {
+              "text": "Of course. I will now perform a comprehensive analysis of the BTC/USD market conditions using a conservative approach.",
+              "role": "model",
+              "finishReason": "STOP",
+              "tokenCount": 3179
+            }
+          ]
+        },
+        "runSettings": {
+          "temperature": 0.0,
+          "model": "models/gemini-2.5-pro",
+          "topP": 0.95,
+          "topK": 64,
+          "maxOutputTokens": 65536,
+          "safetySettings": [
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "threshold": "OFF"
+            }
+          ],
+          "responseMimeType": "text/plain",
+          "enableCodeExecution": false,
+          "enableSearchAsATool": false,
+          "enableBrowseAsATool": false,
+          "enableAutoFunctionResponse": false,
+          "thinkingBudget": 25000
+        },
+        "systemInstruction": {
+          "text": "\n# SYSTEM PROMPT A\nYou are an expert trading assistant with a conservative approach to risk management."
+        }
+      },
+      {
+        "chunkedPrompt": {
+          "chunks": [
+            {
+              "driveDocument": { "id": "1vmTv3gi18q8IFXs82ZYD9EE6avcVILDn" },
+              "role": "user",
+              "tokenCount": 1308
+            },
+            {
+              "driveImage": { "id": "14tZUlh-iobWcttgN8HcJ75T9eH9HiZFe" },
+              "role": "user",
+              "tokenCount": 259
+            },
+            {
+              "text": "CONTEXT: Today is Wednesday 2nd of July 2025. Please analyze the current market conditions for BTC/USD.",
+              "role": "user",
+              "tokenCount": 2129
+            },
+            {
+              "text": "Excellent. The context provided is comprehensive. I'll provide an aggressive analysis focusing on high-reward opportunities.",
+              "role": "model",
+              "finishReason": "STOP",
+              "tokenCount": 2582
+            }
+          ]
+        },
+        "runSettings": {
+          "temperature": 0.5,
+          "model": "models/gemini-2.5-pro",
+          "topP": 0.95,
+          "topK": 64,
+          "maxOutputTokens": 65536,
+          "safetySettings": [
+            {
+              "category": "HARM_CATEGORY_HARASSMENT",
+              "threshold": "OFF"
+            }
+          ],
+          "responseMimeType": "text/plain",
+          "enableCodeExecution": false,
+          "enableSearchAsATool": false,
+          "enableBrowseAsATool": false,
+          "enableAutoFunctionResponse": false,
+          "thinkingBudget": 25000
+        },
+        "systemInstruction": {
+          "text": "\n# SYSTEM PROMPT B\nYou are a helpful trading assistant with an aggressive approach to market opportunities."
+        }
+      }
+    ]
+  }
+}

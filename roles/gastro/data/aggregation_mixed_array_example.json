@@ -1,0 +1,26 @@
+[
+  {
+    "entry_type": "meal",
+    "timestamp": "2025-01-01T08:00:00Z",
+    "items": ["oatmeal"],
+    "ingredients": ["oats"],
+    "metadata": ["light"],
+    "notes": null
+  },
+  {
+    "entry_type": "stool",
+    "timestamp": "2025-01-01T09:30:00Z",
+    "type": 3,
+    "metadata": ["full_evacuation"],
+    "confidence": 0.9,
+    "notes": ""
+  },
+  {
+    "entry_type": "mental",
+    "timestamp": "2025-01-01T10:00:00Z",
+    "mood": -1,
+    "stress": 4,
+    "notes": "Stressful meeting."
+  }
+]
+

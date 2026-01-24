@@ -1,0 +1,12 @@
+# Tracking Entry Schema — STOOL (draft example)
+# One entry per stool event; values are illustrative only.
+
+stool_entry:
+  entry_type: "stool"
+  timestamp: "2025-01-01T08:15:00Z"
+  type: 3  # Bristol 0–7
+  metadata:
+    - "urgent"
+    - "full_evacuation"
+  confidence: 0.9  # 0.0–1.0, or null if not image-based
+  notes: "Optional notes from patient or LLM."

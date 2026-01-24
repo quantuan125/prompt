@@ -1,0 +1,338 @@
+---
+artifact_type: 'PLAN'
+initiative_id: 'T102'
+initiative_code: 'CONSULTANT'
+version: '1.1.0'
+date: '2026-01-14'
+status: 'draft'
+author: 'LLM_Consultant'
+decision_owner_role: 'Client'
+---
+
+# PLAN: T102 Consultancy Development Workflows — Initiative Master Plan
+
+## I. EXECUTIVE SUMMARY
+
+This plan serves as the **parent governance document** for the T102 initiative (Consultancy Layer Architecture), tracking development workflows across all epics (T102A-SPS, T102B-REQUEST, T102C-CONCEPT, T102D-DESIGN, T102E-RESEARCH).
+
+**Initiative Goal**: Implement a robust consultancy workflow (`SPS → Request → Design`) supported by integrated templates, procedural guidelines, and a dynamic Concept workspace for ADR aggregation.
+
+**Current Phase**: Phase 0 (Foundation & Research Commission)
+
+**Industry-Standard Classification**: This document functions as a:
+- **Program/Initiative Development Plan** (SAFe terminology)
+- **Product Development Master Plan** (PMBOK/traditional)
+- **Solution Roadmap Document** (BABOK v3)
+
+**Role Boundary**:
+- `LLM_Consultant`: Initiative lead, plan authoring, consultation facilitation
+- `LLM_Researcher`: Research execution per commissioned briefs
+- `LLM_Planner`: Feature-level implementation planning (Phase 2+)
+- `LLM_Developer`: Feature implementation (Phase 2+)
+- `Client`: Decision owner and approval authority
+
+---
+
+## II. CONTEXT MATERIALS & PREREQUISITES
+
+### A. Required Reading Before Implementation
+
+**Initiative Governance**:
+- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` — Initiative SSOT
+- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` — ADR compendium
+
+**Research Briefs (Active)**:
+- `prompt/artifacts/tasks/T102/consultant/research/brief/brief_T102-RES-003_initiative-status-assessment.md` — Internal status assessment
+- `prompt/artifacts/tasks/T102/consultant/research/brief/brief_T102B-RES-001_request-artifact-analysis.md` — External industry comparison
+
+**Golden Exemplars**:
+- `prompt/artifacts/tasks/T810/consultant/request/request_T810A1-PROMPT.md` — Request artifact exemplar
+- `prompt/artifacts/tasks/T103/workspace/plan/plan_T103_adr-skills-system.md` — Plan structure exemplar
+
+### B. Working Assumptions
+
+1. **Workflow Sequencing**: Per `T102-GDR-001`, canonical sequence is SPS → Request → Design; Concept is parallel dynamic workspace.
+2. **Epic Development Pattern**: All epics follow similar Phase & Gates model per T102A exemplar.
+3. **Research-Driven Standards**: T102B1 (Request Standard) will be informed by T102B-RES-001 findings.
+4. **MVP-First Approach**: Per Client QA, deliverables should be producible at Request stage; Design reserved for complex stories.
+
+### C. Key Design Decisions (Initiative Level)
+
+**Decision 1: Multi-Workflow Support**
+- T102 will define workflow patterns for multiple development types (discovery, bug fix, enhancement, refactoring)
+- Research T102B-RES-001 Topic 9 will inform workflow typology
+
+**Decision 2: Feature-level Governance & Roadmap**
+- Optional, exception-based (not mandatory in Request artifact)
+- Triggers: complex features with multiple deliverable components, extended duration, or cross-story dependencies
+
+**Decision 3: Documentation Overhead Reduction**
+- Request artifact will be simplified uniformly (not tiered)
+- FR/IG relationship to be restructured per T102B-RES-001 findings
+- Feature-level GDRs/ADRs are exception-based per Client approval
+
+---
+
+## III. PHASE 0: FOUNDATION & RESEARCH COMMISSION (CURRENT)
+
+**Objective**: Establish initiative baseline, commission research to inform epic development, create initiative-level governance artifacts.
+
+### Phase 0 Activities
+
+#### Activity 0.1: Initiative Baseline Establishment
+- [x] SPS `sps_T102-CONSULTANT.md` updated to v1.1.0
+- [x] Initiative GDRs established (T102-GDR-001 through T102-GDR-008)
+- [x] Epic dossiers defined (T102A through T102E)
+
+#### Activity 0.2: Research Brief Development
+- [x] `brief_T102-RES-003_initiative-status-assessment.md` created
+- [x] `brief_T102B-RES-001_request-artifact-analysis.md` created and enhanced with Topic 9
+
+#### Activity 0.3: Initiative Plan Creation (In Progress)
+- [x] This file (`roadmap_T102-CDW.md`) created
+- [ ] Plan approved by Client
+
+#### Activity 0.4: Research Commission
+- [x] T102-RES-003 (Internal) commissioned and completed
+- [x] T102B-RES-001 (External) commissioned and completed
+- [x] Research findings synthesized into epic planning guidance
+
+#### Activity 0.5: Research Integration
+**Objective**: Integrate commissioned research into the **SPS Research Registers** before Phase 1 epic development.
+**Scope**:
+- Update Research Registers per `T102-ADR-006 (Research Artifacts Index)`
+**Out of Scope (Deferred)**:
+- YAML/header hygiene and register/link hygiene (moved to Activity **0.7**)
+- Initiative-level ID / RID / DID review and ADR/GDR review (moved to Activity **0.6**)
+
+**Context**:
+- T102-RES-003 identified 34% YAML non-compliance (11/32 artifacts)
+- Ghost artifacts in registers (links to non-existent files)
+- Research findings require synthesis into actionable guidance
+
+**Task List**:
+| Task | Description | Status | Deliverable |
+|:-----|:------------|:-------|:------------|
+| 0.5.1 | Update SPS III.B Research Register (add `T102-RES-003`) | Complete | SPS update |
+| 0.5.2 | Update SPS III.C.2.vii Research Register (add `T102B-RES-001`) | Complete | SPS update |
+| 0.5.3 | Create analysis file | Complete | `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-CDW_research-integration.md` |
+| 0.5.4 | Create notes file | Pending | `prompt/artifacts/tasks/T102/consultant/workspace/notes/notes_T102_phase0.md` |
+| 0.5.5 | Assess I-RID/I-ADR updates (primarily T102B scope) | Complete | Assessment: T102B scope |
+
+**Success Criteria Checklist**:
+- [x] SPS Section III.B Research Register updated (includes `T102-RES-003`)
+- [x] SPS `T102B` Epic dossier Section vii Research updated (includes `T102B-RES-001`)
+
+#### Activity 0.6: Initiative SSOT Review (IDs / RIDs / DIDs / ADRs) (Planned)
+**Objective**: Review and normalize Initiative-level SSOT governance and requirement structures across the two SSOT artifacts (`SPS` + `CONCEPT`)
+
+**Scope**:
+- Review Initiative-level **DIDs** and decision record structures per `T102-ADR-004 (Decision Records Index)`
+- Review Initiative-level **RIDs** and ID construction rules per `T102-ADR-005 (ID Specification & Rules)`
+- Review all Initiative-level **I-ADRs / I-GDRs** in `concept_T102-CONSULTANT.md` for conformance and internal consistency (table schemas, anchors, status fields, references)
+- Review Initiative-level **I-IDs / considerations** in `sps_T102-CONSULTANT.md` Section III.B for consistency with the above standards
+
+**Task List**:
+
+**Deliverable**:
+- A concrete review outcome recorded as: (a) accepted-as-is items, (b) required deltas, (c) any new follow-on activities required before hygiene
+
+#### Activity 0.7: Hygiene Sprint (YAML + Register/Link Integrity) (Deferred)
+**Objective**: Restore artifact graph integrity and YAML/header conformance after SSOT review is complete (Activity 0.6).
+
+**Scope**:
+- YAML/header hygiene for active artifacts (per Canonical YAML Header standard)
+- Fix broken register links and ghost artifacts (replace missing targets with `—` where appropriate)
+
+**Dependencies**:
+- MUST be executed after Activity 0.6 to avoid rework and conflicting standards
+
+### Phase 0 Success Criteria (Checklist)
+
+- [x] Initiative SPS stable at v1.1.0 with complete GDR register
+- [x] Research briefs created for internal status and external comparison
+- [x] Initiative plan file established
+- [x] T102-RES-003 research report complete
+- [x] T102B-RES-001 research report complete
+- [x] Phase 0 findings inform Phase 1 epic priorities
+- [x] Activity 0.5 (Research Register Integration) complete
+
+---
+
+## IV. PHASE 1: EPIC DEVELOPMENT (CURRENT)
+
+**Objective**: Execute epic development per Phase & Gates model, starting with highest-priority epics.
+
+### Epic Priority Assessment (Post-Research)
+
+| Epic | Code | Priority | Status | Rationale |
+|:---|:---|:---|:---|:---|
+| T102A | SPS | High | in-request | Foundation for all other epics; SPSST (T102A1) in development |
+| T102B | REQUEST | **Critical** | in-progress | Request standard blocks T102A1 completion; T102B1 needed first |
+| T102C | CONCEPT | Medium | proposed | Depends on SPS/Request standards |
+| T102D | DESIGN | Low | proposed | Deferred per MVP-first approach |
+| T102E | RESEARCH | Medium | proposed | Supports other epics; can proceed in parallel |
+
+### Phase 1 Activities
+
+#### Activity 1.1: T102A Epic Development (Reserved)
+**Status**: Skeleton — to be detailed when T102A becomes active focus
+**Epic**: T102A (SPS)
+**Plan Files**: TBD
+
+---
+
+#### Activity 1.2: T102B Epic Development (In Progress)
+**Status**: Active
+**Epic**: T102B (REQUEST)
+**Objective**: Develop REQUEST artifact standards based on T102B-RES-001 research findings
+
+**Phase & Gates Summary** (from SPS III.C.2.iv):
+| Phase | Title | Intent | Key Exit Milestone |
+|:------|:------|:-------|:-------------------|
+| 0 | Foundation | Complete epic definition & ADR design | T102B-ADR-001 accepted; Feature Register populated |
+| 1 | Feature Design | Develop feature templates & guidelines | Request templates validated; T810A1 serves as exemplar |
+| 2 | Integration | Validate SPS→Request→Design workflow | End-to-end workflow demonstrated |
+
+**T102B Feature Register**:
+| Feature ID | Code | Title | Status |
+|:-----------|:-----|:------|:-------|
+| T102B1 | RST | Request Structural Template | Proposed |
+| T102B2 | RSPG | Request Procedural Guideline | Proposed |
+| T102B3 | MANIFEST | Request Manifest | Proposed |
+| T102B4 | RLITE | Request Structural Template Lite | Proposed |
+
+**Plan File Register**:
+| Phase | Plan File | Status |
+|:------|:----------|:-------|
+| 0 | `plan/T102B/roadmap_T102B-REQUEST_phase0.md` | In Progress |
+| 1 | `plan/T102B/roadmap_T102B-REQUEST_phase1.md` | Skeleton |
+
+---
+
+#### Activity 1.3: T102C Epic Development (Reserved)
+**Status**: Skeleton — to be detailed when T102C becomes active focus
+**Epic**: T102C (CONCEPT)
+**Plan Files**: TBD
+
+---
+
+#### Activity 1.4: T102D Epic Development (Reserved)
+**Status**: Skeleton — to be detailed when T102D becomes active focus
+**Epic**: T102D (DESIGN)
+**Plan Files**: TBD
+
+---
+
+#### Activity 1.5: T102E Epic Development (Reserved)
+**Status**: Skeleton — to be detailed when T102E becomes active focus
+**Epic**: T102E (RESEARCH)
+**Plan Files**: TBD
+
+---
+
+### Parallel Development Tracks
+
+**Track A: T102A (SPS) + T102B (REQUEST)**
+- T102A1 (SPSST) and T102B1 (RST) develop in parallel
+- T102B-RES-001 findings inform both tracks
+
+**Track B: T102E (RESEARCH)**
+- Research workflow standards can develop independently
+- Supports all other epics
+
+---
+
+## V. RESEARCH REGISTER
+
+### Initiative-Level Research (III.B)
+
+| Research ID | Title | Status | Brief | Report |
+|:---|:---|:---|:---|:---|
+| `T102-RES-001` | Research Integration Workflow | Complete | [brief](../../research/brief/brief_T102-CONSULTANT_research-integration-workflow.md) | [report](../../research/report/report_T102-CONSULTANT_research-integration-workflow.md) |
+| `T102-RES-002` | Roadmap Viability | Complete | [brief](../../research/brief/brief_T102-CONSULTANT_roadmap-viability.md) | [report](../../research/report/report_T102-CONSULTANT_roadmap-viability.md) |
+| `T102-RES-003` | Initiative Status Assessment | **Complete** | [brief](../../research/brief/brief_T102-RES-003_initiative-status-assessment.md) | [report](../../research/report/report_T102-RES-003_initiative-status-assessment.md) |
+
+### Epic-Level Research (T102B — III.C.2.vii)
+
+| Research ID | Title | Status | Brief | Report |
+|:---|:---|:---|:---|:---|
+| `T102B-RES-001` | Request Artifact Analysis | **Complete** | [brief](../../research/brief/brief_T102B-RES-001_request-artifact-analysis.md) | [report](../../research/report/report_T102B-RES-001_request-artifact-analysis.md) |
+
+---
+
+## VI. DECISION LOG
+
+### Decision 1: Initiative Plan Naming
+**Question**: What should the T102 parent plan be named?
+**Chosen**: `roadmap_T102-CDW.md`
+**Rationale**: Per Client directive; captures initiative scope (development workflows)
+
+### Decision 2: Research Execution Sequence
+**Question**: Should T102-RES-003 and T102B-RES-001 run in parallel or sequentially?
+**Chosen**: Sequential (T102-RES-003 first)
+**Rationale**: Internal status assessment can inform external research focus
+
+### Decision 3: Feature-level Governance & Roadmap
+**Question**: Should Feature-level Governance & Roadmap be mandatory?
+**Chosen**: Optional, exception-based
+**Rationale**: Industry standards (SAFe, PRINCE2) don't mandate Feature-level phases; triggers defined for when needed
+
+### Decision 4: Multi-Workflow Support
+**Question**: Should T102 support multiple development workflow types?
+**Chosen**: Yes, to be researched in T102B-RES-001 Topic 9
+**Rationale**: Current `sps → request` workflow too heavy for bugs/enhancements
+
+### Decision 5: Hygiene Sprint Execution Mode
+**Question**: Execute Activity 0.5 sequentially or in parallel?
+**Chosen**: Parallel (via subagent)
+**Rationale**: Allows T102B consultation to proceed concurrently
+**Date**: 2026-01-14
+
+### Decision 6: T102B Plan File Naming
+**Question**: What naming pattern for T102B epic plans?
+**Chosen**: `plan_T102B-REQUEST_phase<x>.md`
+**Rationale**: Phase-specific files enable incremental planning
+**Date**: 2026-01-14
+
+### Decision 7: Phase Numbering in Governance & Roadmap
+**Question**: Should Foundation phase be numbered 0 or 1?
+**Chosen**: Phase 0 (Foundation), Phase 1 (Feature Design)
+**Rationale**: Aligns with initiative plan Phase 0/1 convention
+**Date**: 2026-01-14
+
+### Decision 8: T102B1 + T102B4 Feature Separation
+**Question**: Keep Request Standard and Request Lite as separate features?
+**Chosen**: Option A — Separate features (T102B1 + T102B4)
+**Rationale**: Clear scope boundaries, independent progress tracking, T102B4 can be deprioritized if needed
+**Date**: 2026-01-14
+
+---
+
+## VII. RISK ASSESSMENT
+
+| Risk | Likelihood | Impact | Mitigation |
+|:---|:---|:---|:---|
+| **Research delays block epic progress** | Medium | High | Commission research early; proceed with baseline assumptions if delayed |
+| **Request standard conflicts with existing exemplars** | Low | Medium | Use T810A1 as validated exemplar; changes are incremental |
+| **Epic interdependencies create bottlenecks** | Medium | Medium | Parallel development tracks (T102A+T102B, T102E independent) |
+| **Documentation overhead not reduced sufficiently** | Medium | High | T102B-RES-001 provides industry-standard alternatives |
+
+---
+
+## VIII. CHANGELOG
+
+- **v1.1.0** (2026-01-14): Post-research update
+  - Phase 0: Activity 0.4 (Research Commission) marked complete
+  - Phase 0: Activity 0.5 (Hygiene Sprint) added with consolidated tasks
+  - Phase 1: Restructured with epic-specific activities (1.1-1.5)
+  - Phase 1: Activity 1.2 (T102B) detailed with plan file register
+  - Research Register: Updated with report links; separated by scope (I-level vs E-level)
+  - Decision Log: Added Decisions 5-8
+  - T102B Feature Register: Added T102B4 (RLITE)
+
+- **v1.0.0** (2026-01-13): Initial plan creation
+  - Phase 0: Foundation & Research Commission established
+  - Research register created
+  - Decision log initialized
+  - Risk assessment included

@@ -1,0 +1,57 @@
+{
+  "_description": "Shared enums and constants used across all roles",
+  
+  "roles": [
+    "consultant",
+    "planner", 
+    "developer",
+    "reviewer"
+  ],
+  
+  "artifact_types": {
+    "consultation": {
+      "prefix": "consultation",
+      "purpose": "Architectural analysis and recommendations"
+    },
+    "plan": {
+      "prefix": "plan",
+      "purpose": "Detailed development instructions"
+    },
+    "devnotes": {
+      "prefix": "devnotes",
+      "purpose": "Implementation report and code changes"
+    },
+    "review": {
+      "prefix": "review",
+      "purpose": "Quality assurance and compliance check"
+    }
+  },
+  
+  "workflow_phases": [
+    "consultation",
+    "planning",
+    "development",
+    "review",
+    "completed"
+  ],
+  
+  "statuses": {
+    "draft": "Work in progress, not ready for next phase",
+    "ready_for_review": "Completed and ready for human review",
+    "in_progress": "Currently being worked on",
+    "completed": "Finished and approved",
+    "blocked": "Cannot proceed due to issues"
+  },
+  
+  "review_verdicts": {
+    "approved": "Implementation meets all requirements",
+    "conditional_approval": "Minor issues that don't block progress",
+    "rejected": "Major issues requiring rework"
+  },
+  
+  "change_types": {
+    "breaking": "Incompatible changes requiring major version",
+    "feature": "New functionality requiring minor version",
+    "patch": "Bug fixes or minor improvements"
+  }
+}

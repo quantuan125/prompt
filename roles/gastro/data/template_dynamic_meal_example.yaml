@@ -1,0 +1,16 @@
+# Tracking Entry Schema — MEAL (draft example)
+# One entry per meal; values are illustrative only.
+
+meal_entry:
+  entry_type: "meal"
+  timestamp: "2025-01-01T12:30:00Z"
+  items:
+    - "rice and grilled chicken"
+  ingredients:
+    - "chili"
+    - "garlic"
+  metadata:
+    - "oily"
+    - "large_portion"
+  pre_meal_prokinetics: null  # e.g., "domperidone", or null if none/unknown
+  notes: "Brief free-text notes about context."

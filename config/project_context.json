@@ -1,0 +1,72 @@
+{
+  "project_name": "Trading Journal Application",
+  "description": "Component-based Streamlit application for trading position management",
+  
+  "core_documentation": {
+    "template_guideline": "@documentation/main/template_guideline.md",
+    "process_guideline": "@documentation/main/process_guideline.md",
+    "description": "These documents define the 'what' and 'how' of our development standards"
+  },
+  
+  "architecture": {
+    "style": "component-based",
+    "framework": "Streamlit",
+    "patterns": {
+      "facade": "Used for complex domain operations",
+      "builder": "Used for UI construction", 
+      "service": "Used for business logic orchestration",
+      "repository": "Used for data persistence"
+    }
+  },
+  
+  "naming_conventions": {
+    "data_processor": {
+      "prefix": "dp_",
+      "example": "dp_tv_ingest.py",
+      "purpose": "Backend data processing logic"
+    },
+    "frontend_builder": {
+      "prefix": "fb_",
+      "example": "fb_tv_ingest.py",
+      "purpose": "UI construction and state management"
+    },
+    "service": {
+      "prefix": "svc_",
+      "example": "svc_tv_ingest.py",
+      "purpose": "Business logic orchestration"
+    },
+    "calculator": {
+      "prefix": "calc_",
+      "example": "calc_pnl.py",
+      "purpose": "Domain-specific calculations"
+    }
+  },
+  
+  "component_structure": {
+    "standard_layout": {
+      "backend/": "Contains processors, calculators, repositories",
+      "frontend_builder/": "Contains UI builders and state managers",
+      "service/": "Contains service orchestration layer",
+      "models/": "Contains data models",
+      "utils/": "Contains helper functions",
+      "tests/": "Contains unit and integration tests"
+    }
+  },
+  
+  "quality_standards": {
+    "test_coverage_minimum": 85,
+    "code_style": "PEP 8",
+    "documentation": "Google style docstrings",
+    "type_hints": "Required for all public methods"
+  },
+  
+  "active_components": [
+    "tv_ingest",
+    "closing_position",
+    "open_positions",
+    "closed_positions",
+    "analytics",
+    "calculations",
+    "sessions"
+  ]
+}

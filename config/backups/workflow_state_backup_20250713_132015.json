@@ -1,0 +1,62 @@
+{
+  "_description": "Tracks the current state of all active development workflows",
+  "_instructions": "This file is automatically updated by each role after completing their task",
+  
+  "system_info": {
+    "version": "1.0.0",
+    "mode": "semi-automatic",
+    "last_updated": "2024-01-07T10:30:00Z"
+  },
+  
+  "active_workflows": {
+    "tv_ingest": {
+      "current_phase": "development",
+      "current_version": "2.5.1",
+      "history": {
+        "consultation": {
+          "version": "2.5.0",
+          "file": "consultation_v2.5.0.md",
+          "completed": "2024-01-06T14:00:00Z",
+          "author": "consultant"
+        },
+        "planning": {
+          "version": "2.5.1", 
+          "file": "plan_v2.5.1.md",
+          "completed": "2024-01-06T16:00:00Z",
+          "author": "planner"
+        },
+        "development": {
+          "version": "2.5.1",
+          "file": "devnotes_v2.5.1.md",
+          "status": "in_progress",
+          "started": "2024-01-07T09:00:00Z",
+          "author": "developer"
+        }
+      },
+      "next_action": "Complete development, then human review before reviewer phase"
+    }
+  },
+  
+  "completed_workflows": {
+    "closing_position": {
+      "last_version": "2.4.0",
+      "completed": "2024-01-05T18:00:00Z",
+      "phases_completed": ["consultation", "planning", "development", "review"],
+      "verdict": "approved"
+    }
+  },
+  
+  "version_registry": {
+    "_description": "Tracks version progression for each component",
+    "tv_ingest": {
+      "current": "2.5.1",
+      "next_minor": "2.6.0",
+      "next_major": "3.0.0"
+    },
+    "closing_position": {
+      "current": "2.4.0",
+      "next_minor": "2.5.0",
+      "next_major": "3.0.0"
+    }
+  }
+}

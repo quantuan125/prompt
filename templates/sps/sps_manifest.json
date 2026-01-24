@@ -1,0 +1,30 @@
+{
+  "taskType": "request", 
+  "name": "Request",
+  "version": "2.3.0",
+  "status": "active",
+  "description": "A template for analyzing, refining, and validating a client's request into actionable problems for architectural planning",
+  "components": [
+    {
+      "role": "structural_template",
+      "path": "prompt/templates/request/request_structural_template.md",
+      "version": "2.3.0",
+      "changeLogPath": "prompt/templates/request/changelog/request_structural_template_changelog.md",
+      "lastUpdate": "2025-07-29"
+    },
+    {
+      "role": "procedural_guideline",
+      "path": "prompt/templates/request/request_procedural_guideline.md",
+      "version": "1.1.0",
+      "changeLogPath": "prompt/templates/request/changelog/request_procedural_guideline_changelog.md",
+      "lastUpdate": "2025-07-29"
+    },
+    {
+      "role": "system",
+      "path": ".claude/commands/consult/request.md",
+      "version": "1.0.0",
+      "changeLogPath": "prompt/roles/consultant/manifest_consultant.json",
+      "lastUpdate": "2025-07-25"
+    }
+  ]
+}

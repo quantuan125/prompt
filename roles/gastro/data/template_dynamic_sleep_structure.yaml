@@ -1,0 +1,10 @@
+# Tracking Entry Schema — SLEEP (structure only, draft)
+# Skeleton only; detailed fields and vocabularies will be defined in Stories.
+
+sleep_entry:
+  entry_type: "sleep"
+  timestamp: "2025-01-01T23:00:00Z"
+  duration_hours: 7.5
+  # quality: optional numeric or categorical score (to be defined)
+  # interruptions: optional short description or count
+  notes: null

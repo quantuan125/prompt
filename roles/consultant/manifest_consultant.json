@@ -1,0 +1,16 @@
+{
+  "documentType": "system_prompt",
+  "name": "Consultant System Prompt",
+  "version": "1.0.0",
+  "status": "active",
+  "description": "A template for analyzing, refining, and validating a client's request into actionable problems for architectural planning",
+  "components": [
+    {
+      "role": "structural_guideline",
+      "path": "prompt/roles/consultant/consultant_system.md",
+      "version": "1.0.0",
+      "changeLogPath": "prompt/roles/consultant/changelog/consultant_system_changelog.md",
+      "lastUpdate": "2025-07-26"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+# Tracking Entry Schema — MENTAL (draft example)
+# Captures mood and stress for a point in time.
+
+mental_entry:
+  entry_type: "mental"
+  timestamp: "2025-01-01T09:00:00Z"
+  mood: -1   # -2=awful ... 2=very_good
+  stress: 4  # 1=no_stress ... 5=extreme_stress
+  notes: "Optional notes about mood or stressors."
