@@ -8,7 +8,7 @@ date: '2026-01-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-roadmap_reference: 'prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md'
+roadmap_reference: 'prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md'
 ---
 
 # PHASE NOTES: T104 (CWS) — Phase 0: Initiative Scaffolding & Standards
@@ -21,7 +21,7 @@ roadmap_reference: 'prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-C
 **Status**: In Progress
 
 **What this notes file is**: a consultation record (decisions + rationale + next guidance).  
-**What this notes file is not**: a source-of-truth for standards/specs (those belong in the Roadmap and SSOT files).
+**What this notes file is not**: a source-of-truth for standards/specs (those belong in the Plan/Roadmap and SSOT files).
 
 **Key Outcomes (2026-01-16)**:
 - Confirmed terminology and heading semantics for roadmap structure: Phase → Stream → Activity → Task; `###` = Stream, `####` = Activity.
@@ -59,9 +59,8 @@ We also confirmed where T104 SSOT should live and that the initiative will expli
 #### C. Next-Activity Guidance
 
 **Next work should focus on**:
-1. Drafting `roadmap_T104-CWS_phase0.md` to formalize Phase 0 streams and deliverables.
+1. Drafting `plan_T104-CWS_phase0.md` (formerly `plan_T104-CWS_phase0.md`) to formalize Phase 0 streams and deliverables.
 2. Creating SSOT scaffolds:
    - `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md`
    - `prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md`
 3. Defining the epic register (T104A–T104E) and artifact responsibility boundaries inside the SPS.
-

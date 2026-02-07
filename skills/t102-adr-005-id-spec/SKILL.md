@@ -62,7 +62,7 @@ Use this mapping to decide *where* to look in the printed `T102-ADR-005` block. 
 
 - If you are writing in a **formal reference context** (e.g., a “References” subsection or an Inherited Considerations table), use the ADR’s required back-ticked `ID (Title)` token form.
 - If you are writing in **inline prose**, follow the ADR’s allowed informal patterns (don’t assume bare IDs are acceptable in formal contexts).
-- Check **precedence & directionality** before creating cross-scope references: do not create prohibited downstream references.
+- Check **precedence & directionality** before creating External References: do not create prohibited downstream references.
 
 ### D) Special-case guidance to apply (still SSOT-driven)
 

@@ -1,0 +1,96 @@
+---
+artifact_type: 'PROCEDURAL_GUIDELINE'
+domain: 'consultant_workspace'
+topic: 'plan_authoring'
+version: '1.0.1'
+date: '2026-02-05'
+status: 'draft'
+author: 'LLM_Consultant'
+decision_owner_role: 'Client'
+template_reference: 'prompt/templates/consultant/workspace/README.md'
+---
+
+# Plan Procedural Guideline (Consultant Workspace)
+
+## I. PURPOSE
+
+Define the **authoring rules** for PLAN workspace artifacts so they remain toolable, consistent across initiatives, and resistant to drift.
+
+This guideline is intended to be referenced by initiative plans (e.g., `T104`) and later integrated more deeply into the workspace plan templates.
+
+---
+
+## II. CORE SEMANTICS (LOCKED)
+
+### A. Timeline Hierarchy
+
+- Phase → Stream → Activity → Task
+
+---
+
+## III. REGISTER RULES
+
+### A. Status enums (Registers)
+
+- Stream Register `Status` MUST be one of: `planned`, `deffered`, `completed`, `cancelled`.
+- Activity Register `Status` MUST be one of: `planned`, `deffered`, `completed`, `cancelled`.
+- In all register tables, `Status` values MUST be wrapped in backticks.
+
+### B. Status enums (Task Registers)
+
+- Task Register `Status` MUST be one of: `planned`, `deffered`, `completed`, `cancelled`.
+- In all Task Register tables, `Status` values MUST be wrapped in backticks.
+
+---
+
+## IV. ACTIVITY AUTHORING RULES
+
+### A. Required Activity Fields
+
+Every Activity SHOULD include:
+- **Purpose**
+- **Deliverable**
+- **Scope** (what is in-scope; include “Excludes” if helpful)
+- **Inputs Required** (only when there are explicit dependencies beyond `Depends On`)
+- **Task Register**
+- **Success Criteria Checklist**
+
+### B. Task Register schema
+
+Every Activity that requires trackable work MUST include a Task Register with columns:
+
+`Task ID | Description | Status | Action`
+
+Rules:
+- `Action` MUST be set to `—` when no action has started.
+- `Action` MUST be updated with a concise outcome statement when the task moves to `completed`, `deffered`, or `cancelled`.
+- Rule of thumb: treat `Status` as lifecycle; treat `Action` as evidence trail.
+
+### C. Activity completion rule
+
+An Activity is considered done only when:
+1) its Success Criteria Checklist is verified, AND
+2) its Task Register rows are updated to a terminal status (`completed`, `deffered`, or `cancelled`) with a non-empty `Action`.
+
+---
+
+## V. STREAM AUTHORING RULES
+
+### A. Stream Context (Option A)
+
+Each Stream SHOULD include a `Context` block listing only the repo-relative paths that Activities in that Stream are expected to touch.
+
+Notes:
+- Section II of a plan can list general context inputs; do not duplicate non-touched paths in Stream Context blocks.
+- If a Stream has no file touches (e.g., “Validation-only”), state `Context: none (validation-only)`.
+
+### B. Parallelism & Dependencies Standard (Plan)
+
+- **Execution Mode**:
+  - `PARALLEL`: may be executed concurrently (subject to `Depends On`)
+  - `SEQUENTIAL`: intended ordering signal (still enforce via `Depends On` if required)
+  - `GATED`: requires explicit exit evidence before dependent work starts
+- **Depends On**:
+  - comma-separated list of prerequisite **Stream IDs** and/or **Activity IDs** (e.g., `1`, `1.1`, `2.2`)
+  - use `—` if none
+- **Rule**: `Depends On` is the enforceable constraint; `Execution Mode` is the coordination intent.

@@ -4,9 +4,18 @@
 
 | Version | Date | Type | Summary |
 |---------|------|------|---------|
+| v1.3.0 | 2026-01-24 | Major | Standardized roadmap authoring structure (Stream 3+ Context/Scope/Task Registers/Success Criteria), extracted procedural guideline, and reconciled Stream 2 statuses (2.4 deferred) |
 | v1.2.0 | 2026-01-18 | Major | Added dependency notation (Execution Mode/Depends On), clarified Stream parallelism, aligned RES-001 report naming, and updated template roadmap |
 | v1.1.0 | 2026-01-17 | Major | Added T104-RES-001 research stream and reordered Phase 0 streams |
 | v1.0.0 | 2026-01-17 | Major | Initial creation of T104 Phase 0 initiative roadmap |
+
+- **v1.3.0** (2026-01-24): Standardized roadmap authoring structure and extracted procedural guideline
+  - Standardized Stream/Activity register statuses to T102-style enums (`planned`, `deffered`, `completed`, `cancelled`) and wrapped statuses in backticks
+  - Reconciled Stream 2 status to `completed` with Activity 2.4 explicitly `deffered` (client-directed)
+  - Added Stream-level `Context` blocks and Activity-level `Scope` blocks for Streams 3–7
+  - Replaced Stream 3 “Task List” with Task Registers and added Success Criteria checklists across Streams 3–7
+  - Added missing Activity 3.3 body section (previously register-only)
+  - Created `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md` and referenced it from the roadmap (reduced embedded authoring rules)
 
 - **v1.2.0** (2026-01-18): Added dependency notation (Execution Mode/Depends On), clarified Stream parallelism, aligned RES-001 report naming, and updated template roadmap
   - Added the “Parallelism & Dependencies Standard” block to the roadmap

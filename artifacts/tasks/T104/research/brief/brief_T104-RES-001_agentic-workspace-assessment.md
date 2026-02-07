@@ -10,7 +10,7 @@ date: '2026-01-18'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-roadmap_reference: 'prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md'
+roadmap_reference: 'prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md'
 report_template: 'prompt/templates/researcher/template_research_report.md'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
 ---
@@ -151,7 +151,7 @@ Recommended precedence for this initiative:
 * SSOT Concept exemplar: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
 
 ### B. T104 Internal Artifacts (Initiative Current State)
-* Roadmap (initiative): `prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md`
+* Phase 0 Plan (initiative): `prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md`
 * Notes (initiative): `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-CWS_phase0.md`
 
 ### C. Required Internal Exemplars (Workflow Tools)

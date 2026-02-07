@@ -111,16 +111,16 @@ The research report MUST include an “Issues & Risks” section that implements
 Status = `OPEN, IN-REVIEW, RESOLVED, BLOCKED, DEFERRED`,
 priority = `Low, Medium, High`
 -->
-| ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Date |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes | Resolution Date |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 
 **Risks**
 <!-- GUIDANCE:
 Status = `OPEN, MONITORED, MITIGATED, ACCEPTED, CLOSED`,
 priority = `Low, Medium, High`
 -->
-| ID | Title | Description | Owner | Status | Priority | Proposed Date | Mitigation Date |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| ID | Title | Description | Owner | Status | Priority | Proposed Date | Mitigation Notes | Mitigation Date |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 
 **ID Rules**
 *   IDs MUST use the scoped, sequential format: `<SCOPE_ID>-ISSUE-###` and `<SCOPE_ID>-RISK-###` (e.g., `T801A-ISSUE-001`).

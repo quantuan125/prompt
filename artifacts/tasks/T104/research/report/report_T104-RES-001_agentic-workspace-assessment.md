@@ -21,9 +21,9 @@ decision_owner_role: 'Client'
 **Verdict**: **CONDITIONAL GO** — The Phase → Stream → Activity → Task roadmap model is already locked in T104, and the workflow-tool vs SSOT separation is achievable with forward-only standards. However, there is currently material governance/template drift (terminology + artifact role mismatch) that must be resolved before SSOT content merges to avoid duplication and drift.
 
 **Key Findings**:
-*   **Finding 1 (Governance Drift)**: `workspace_documentation_rules.md` currently defines Plan/Proposal/Completion roles and a Subphase-based heading hierarchy, which conflicts with T104’s locked Phase → Stream → Activity → Task semantics and its `notes_` policy. See `prompt/templates/consultant/workspace/workspace_documentation_rules.md` (lines 11–20, 58–65) and `prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md` (lines 43–49).
-*   **Finding 2 (Template Drift)**: `template_workspace_notes.md` labels itself as `NOTES` but its guidance describes a “LOG” and “Subphases”, which is inconsistent with T104’s initiative NOTES usage (“session record”) and with the roadmap’s Open Question about whether to reuse the “log template pattern” for T104B. See `prompt/templates/consultant/workspace/template_workspace_notes.md` (lines 17–33, 44–60) and `prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md` (lines 356–358).
-*   **Finding 3 (End-to-End Pipeline Gate)**: T104 Phase 0 Links Register declares a required pipeline of: Roadmap → Notes → Research Brief → Research Report → Consultant Analysis → SSOT scaffolds. This report satisfies the Research Report deliverable; the next gate artifact is the Consultant Analysis (`prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-RES-001_agentic-workspace-assessment.md`). See `prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md` (lines 336–343).
+*   **Finding 1 (Governance Drift)**: `workspace_documentation_rules.md` currently defines Plan/Proposal/Completion roles and a Subphase-based heading hierarchy, which conflicts with T104’s locked Phase → Stream → Activity → Task semantics and its `notes_` policy. See `prompt/templates/consultant/workspace/workspace_documentation_rules.md` (lines 11–20, 58–65) and `prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md` (lines 43–49).
+*   **Finding 2 (Template Drift)**: `template_workspace_notes.md` labels itself as `NOTES` but its guidance describes a “LOG” and “Subphases”, which is inconsistent with T104’s initiative NOTES usage (“session record”) and with the roadmap’s Open Question about whether to reuse the “log template pattern” for T104B. See `prompt/templates/consultant/workspace/template_workspace_notes.md` (lines 17–33, 44–60) and `prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md` (lines 356–358).
+*   **Finding 3 (End-to-End Pipeline Gate)**: T104 Phase 0 Links Register declares a required pipeline of: Roadmap → Notes → Research Brief → Research Report → Consultant Analysis → SSOT scaffolds. This report satisfies the Research Report deliverable; the next gate artifact is the Consultant Analysis (`prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-RES-001_agentic-workspace-assessment.md`). See `prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md` (lines 336–343).
 *   **Finding 4 (Boundary Clarity Exists in Templates)**: The Roadmap template includes explicit anti-drift boundaries (no RID/DR bodies; no execution logs; link to SSOT), and the Proposal/Analysis templates already express a workable separation: Proposal holds normative bodies (post-approval), Analysis is the synthesis bridge between Research and Proposal. See `prompt/templates/consultant/workspace/template_workspace_roadmap.md` (lines 23–37), `prompt/templates/consultant/workspace/template_workspace_proposal.md` (lines 21–30), `prompt/templates/consultant/workspace/template_workspace_analysis.md` (line 19).
 *   **Finding 5 (Naming/Discoverability Inconsistencies)**: T104 initiative NOTES standard uses `notes_...` (lowercase) but a T104A note records a decision “`NOTES_` replaces `completion_`” (uppercase), and there are legacy artifacts elsewhere with suffix drift (e.g., `...phase0.md.md`). This indicates a toolability risk if standards are not made strict. See `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-CWS_phase0.md` (lines 26–30), `prompt/artifacts/tasks/T104/T104A/workspace/notes/notes_T104A-ROADMAP_phase0.md` (line 27), and `prompt/artifacts/tasks/T102/T102B/workspace/roadmap/changelog_roadmap_T102B-REQUEST_phase0.md.md` (filename).
 
@@ -48,9 +48,9 @@ decision_owner_role: 'Client'
     *   `prompt/templates/consultant/workspace/template_workspace_analysis.md`
     *   `prompt/templates/researcher/template_research_report.md`
 *   **T104 initiative artifacts (current state)**:
-    *   `prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md`
+    *   `prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md`
     *   `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-CWS_phase0.md`
-    *   `prompt/artifacts/tasks/T104/workspace/roadmap/changelog_roadmap_T104-CWS_phase0.md`
+    *   `prompt/artifacts/tasks/T104/workspace/roadmap/changelog_plan_T104-CWS_phase0.md`
     *   `prompt/artifacts/tasks/T104/research/brief/brief_T104-RES-001_agentic-workspace-assessment.md`
     *   `prompt/artifacts/tasks/T104/T104A/workspace/roadmap/roadmap_T104A-ROADMAP_phase0.md`
     *   `prompt/artifacts/tasks/T104/T104A/workspace/notes/notes_T104A-ROADMAP_phase0.md`
@@ -77,7 +77,7 @@ decision_owner_role: 'Client'
 **Objective**: Establish what exists today (templates + exemplars) and what is missing or contradictory for an end-to-end agentic consultant workflow.
 
 #### A. Evidence & Forensics
-*   **Source**: `prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md` (lines 332–348).
+*   **Source**: `prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md` (lines 332–348).
 *   **Observation**: The T104 Phase 0 Links Register defines the minimum end-to-end artifact set and target locations, including Research Report + Analysis + SSOT scaffolds.
 
 *   **Source**: `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-CWS_phase0.md` (lines 23–30, 52–57).
@@ -94,15 +94,15 @@ decision_owner_role: 'Client'
 
 | Artifact Type | Role | Minimum Mandatory Sections (as used in repo) | Canonical Location (T104) | Template Exists | T104 Instance Exists | Gaps / Contradictions (evidence pointers) |
 | :--- | :--- | :--- | :--- | :---: | :---: | :--- |
-| ROADMAP | Workflow tool | Exec Summary; Context; Phase streams/activities; Links Register; Open Questions; Changelog | `prompt/artifacts/tasks/T104/workspace/roadmap/` | ✅ `template_workspace_roadmap.md` | ✅ `roadmap_T104-CWS_phase0.md` | Governance rules still reference Plan/Subphase model (`workspace_documentation_rules.md` lines 11–20, 58–65) |
+| ROADMAP | Workflow tool | Exec Summary; Context; Phase streams/activities; Links Register; Open Questions; Changelog | `prompt/artifacts/tasks/T104/workspace/roadmap/` | ✅ `template_workspace_roadmap.md` | ✅ `plan_T104-CWS_phase0.md` | Governance rules still reference Plan/Subphase model (`workspace_documentation_rules.md` lines 11–20, 58–65) |
 | NOTES | Workflow tool | Notes Summary; Session/Stream records; Decision table; Next guidance | `prompt/artifacts/tasks/T104/workspace/notes/` | ✅ `template_workspace_notes.md` | ✅ `notes_T104-CWS_phase0.md` | Notes template uses LOG/Subphase language (`template_workspace_notes.md` lines 17–33, 44–60) |
-| CHANGELOG | Workflow tool | Overview table; per-version bullet deltas | Usually co-located with artifact (e.g., roadmap changelog in `workspace/roadmap/`) | ❌ (workspace changelog template not identified) | ✅ `changelog_roadmap_T104-CWS_phase0.md` | Naming normalization risk (legacy `...md.md` file elsewhere) |
+| CHANGELOG | Workflow tool | Overview table; per-version bullet deltas | Usually co-located with artifact (e.g., roadmap changelog in `workspace/roadmap/`) | ❌ (workspace changelog template not identified) | ✅ `changelog_plan_T104-CWS_phase0.md` | Naming normalization risk (legacy `...md.md` file elsewhere) |
 | PROPOSAL | Workflow tool (normative within phase) | Exec Summary; Candidate inventory; full bodies; Issues/Risks; gate readiness | `prompt/artifacts/tasks/T104/workspace/proposal/` (implied by T104 scope + templates) | ✅ `template_workspace_proposal.md` | ❌ | T104-specific instance not yet present; boundary must be explicit per brief (brief lines 51–54) |
-| ANALYSIS | Workflow tool (synthesis bridge) | Exec Summary; findings extraction; cross-cutting synthesis; mapping to proposals | `prompt/artifacts/tasks/T104/workspace/analysis/` (declared) | ✅ `template_workspace_analysis.md` | ❌ | Roadmap declares target analysis deliverable (`roadmap_T104-CWS_phase0.md` line 341) |
+| ANALYSIS | Workflow tool (synthesis bridge) | Exec Summary; findings extraction; cross-cutting synthesis; mapping to proposals | `prompt/artifacts/tasks/T104/workspace/analysis/` (declared) | ✅ `template_workspace_analysis.md` | ❌ | Roadmap declares target analysis deliverable (`plan_T104-CWS_phase0.md` line 341) |
 | RESEARCH_BRIEF | Research artifact | Brief per template (topics, input packet, constraints) | `prompt/artifacts/tasks/T104/research/brief/` | ✅ `template_research_brief.md` | ✅ `brief_T104-RES-001_agentic-workspace-assessment.md` | None observed |
 | RESEARCH_REPORT | Research artifact | Exec Summary; Methodology; Topic Findings; Issues/Risks; Artifact Updates; Sources | `prompt/artifacts/tasks/T104/research/report/` | ✅ `template_research_report.md` | ✅ (this file) | None observed (template issues/risk schema aligned: `template_research_report.md` lines 60–71) |
-| SPS | SSOT | Governance baseline + epic register + problem framing | `prompt/artifacts/tasks/T104/ssot/` | (SSOT template exists elsewhere; not assessed here) | ❌ | Roadmap declares target (`roadmap_T104-CWS_phase0.md` line 342) |
-| CONCEPT | SSOT | ADR system placeholders + decision indices | `prompt/artifacts/tasks/T104/ssot/` | (SSOT template exists elsewhere; not assessed here) | ❌ | Roadmap declares target (`roadmap_T104-CWS_phase0.md` line 343) |
+| SPS | SSOT | Governance baseline + epic register + problem framing | `prompt/artifacts/tasks/T104/ssot/` | (SSOT template exists elsewhere; not assessed here) | ❌ | Roadmap declares target (`plan_T104-CWS_phase0.md` line 342) |
+| CONCEPT | SSOT | ADR system placeholders + decision indices | `prompt/artifacts/tasks/T104/ssot/` | (SSOT template exists elsewhere; not assessed here) | ❌ | Roadmap declares target (`plan_T104-CWS_phase0.md` line 343) |
 
 #### C. Governance Implication
 *   **Decision Impact**: Before SSOT content merges, the artifact role boundary rules must be stable enough to prevent “Notes become specs” and “Roadmap becomes execution log” drift. The Roadmap template already encodes anti-drift boundaries; governance rules are the remaining alignment point. (See Topic 2.)
@@ -137,7 +137,7 @@ decision_owner_role: 'Client'
 *(These are presented as evidence-backed candidate rules for LLM_Consultant + Client to adopt/modify; they are intended to prevent duplication/drift per the brief.)*
 
 **ROADMAP (workflow tool)**
-- MUST define Phase → Stream → Activity → Task plan structure, registers, dependencies, and deliverables. (`roadmap_T104-CWS_phase0.md` lines 45–49, 71–77; `template_workspace_roadmap.md` lines 23–37)
+- MUST define Phase → Stream → Activity → Task plan structure, registers, dependencies, and deliverables. (`plan_T104-CWS_phase0.md` lines 45–49, 71–77; `template_workspace_roadmap.md` lines 23–37)
 - MUST link to SSOT artifacts via Links Register; MUST NOT embed SSOT bodies. (`template_workspace_roadmap.md` lines 29–33)
 - MUST NOT become an execution log; execution narrative belongs in NOTES. (`template_workspace_roadmap.md` line 31)
 
@@ -156,11 +156,11 @@ decision_owner_role: 'Client'
 - MUST NOT be treated as the canonical specification; proposal/SSOT remain the normative sources. (Implied by proposal workflow and analysis template positioning: `template_workspace_proposal.md` lines 21–30; `template_workspace_analysis.md` line 19)
 
 **CHANGELOG (workflow tool; delta record per artifact)**
-- MUST capture “what changed” in a specific artifact across versions and remain delta-only (not narrative minutes). (`changelog_roadmap_T104-CWS_phase0.md` lines 5–16; `notes_T104-CWS_phase0.md` lines 42–45)
+- MUST capture “what changed” in a specific artifact across versions and remain delta-only (not narrative minutes). (`changelog_plan_T104-CWS_phase0.md` lines 5–16; `notes_T104-CWS_phase0.md` lines 42–45)
 - SHOULD use a consistent schema (overview table + detailed bullets), aligned with widely used changelog conventions. (Keep a Changelog: `https://keepachangelog.com/en/1.1.0/`)
 
 **SSOT (SPS / CONCEPT / REQUEST)**
-- MUST remain the canonical source for governance baseline, decisions, and requirements; workflow tools link to SSOT but do not replace it. (T104 Roadmap locked decisions: `roadmap_T104-CWS_phase0.md` lines 43–49; brief framing: `prompt/artifacts/tasks/T104/research/brief/brief_T104-RES-001_agentic-workspace-assessment.md` lines 49–55)
+- MUST remain the canonical source for governance baseline, decisions, and requirements; workflow tools link to SSOT but do not replace it. (T104 Roadmap locked decisions: `plan_T104-CWS_phase0.md` lines 43–49; brief framing: `prompt/artifacts/tasks/T104/research/brief/brief_T104-RES-001_agentic-workspace-assessment.md` lines 49–55)
 
 #### C. Governance Implication
 *   **Decision Impact**: T104 needs a stable mapping from prior Plan/Completion language to Roadmap/Notes/Changelog language (or a decision to keep the older model in parallel). Without this, downstream users can interpret templates inconsistently and duplicate normative content across artifacts.
@@ -172,7 +172,7 @@ decision_owner_role: 'Client'
 **Objective**: Validate and recommend a consistent naming + directory standard for T104 artifacts that reduces confusion between “notes/logs” and “changelogs”.
 
 #### A. Evidence & Forensics
-*   **Source**: `prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md` (lines 43–49).
+*   **Source**: `prompt/artifacts/tasks/T104/workspace/roadmap/plan_T104-CWS_phase0.md` (lines 43–49).
 *   **Observation**: Locked decisions include `notes_...` prefix, `changelog_...` as separate file, and SSOT location under `prompt/artifacts/tasks/T104/ssot/`.
 
 *   **Source**: `prompt/artifacts/tasks/T104/T104A/workspace/notes/notes_T104A-ROADMAP_phase0.md` (line 27).
@@ -197,7 +197,7 @@ decision_owner_role: 'Client'
 **Objective**: Validate the timeline hierarchy (Phase → Stream → Activity → Task), how it maps to governance gates, and how to prevent “Stream == gate” drift.
 
 #### A. Evidence & Forensics
-*   **Source**: `prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md` (lines 45–47, 71–77).
+*   **Source**: `prompt/artifacts/tasks/T104/workspace/roadmap/plan_T104-CWS_phase0.md` (lines 45–47, 71–77).
 *   **Observation**: Timeline semantics are locked; “Parallelism & Dependencies” standard defines `Execution Mode` and `Depends On` as enforceable constraints.
 
 *   **Source**: `prompt/templates/consultant/workspace/template_workspace_roadmap.md` (lines 34–37, 86–93).
@@ -216,12 +216,12 @@ decision_owner_role: 'Client'
 
 | Timeline Level | Meaning | Markdown Semantics (T104) | Register Placement | Gate Point | Expected Evidence Location |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| Phase | Primary governance “stage” boundary (initiative-level milestone) | In Roadmap: `#` title + Phase section under `## III. PHASE 0...` (see `roadmap_T104-CWS_phase0.md` lines 20, 67) | Stream Register + Activity Register | YES (Phase exit milestone / readiness) | Roadmap Exit Milestone bullets + linked artifacts (Research Report + Analysis + SSOT scaffolds) (`roadmap_T104-CWS_phase0.md` lines 37–41, 336–343) |
-| Stream | Grouping label for related Activities (NOT a gate) | `### Stream X: ...` (`roadmap_T104-CWS_phase0.md` line 118+) and `###` reserved for Streams (`roadmap_T104-CWS_phase0.md` line 46; `template_workspace_roadmap.md` lines 34–37) | Stream Register row + Activity Register “Stream” column | NO (unless explicitly declared `Execution Mode = GATED`) | If gated, Roadmap Stream section “Exit Evidence” checklist (pattern from template: `template_workspace_roadmap.md` lines 115–117) |
+| Phase | Primary governance “stage” boundary (initiative-level milestone) | In Roadmap: `#` title + Phase section under `## III. PHASE 0...` (see `plan_T104-CWS_phase0.md` lines 20, 67) | Stream Register + Activity Register | YES (Phase exit milestone / readiness) | Roadmap Exit Milestone bullets + linked artifacts (Research Report + Analysis + SSOT scaffolds) (`plan_T104-CWS_phase0.md` lines 37–41, 336–343) |
+| Stream | Grouping label for related Activities (NOT a gate) | `### Stream X: ...` (`plan_T104-CWS_phase0.md` line 118+) and `###` reserved for Streams (`plan_T104-CWS_phase0.md` line 46; `template_workspace_roadmap.md` lines 34–37) | Stream Register row + Activity Register “Stream” column | NO (unless explicitly declared `Execution Mode = GATED`) | If gated, Roadmap Stream section “Exit Evidence” checklist (pattern from template: `template_workspace_roadmap.md` lines 115–117) |
 | Activity | Work unit with a deliverable and success criteria | `#### Activity X.Y: ...` (`template_workspace_roadmap.md` line 119) | Activity Register row | SOMETIMES (local gate: success criteria checklist) | Activity Success Criteria checklist + deliverable link in Roadmap section |
 | Task | Checklist execution items under an Activity | Checklist items under Activity | Not required in registers (optional) | NO | Notes (session record) and/or Completion evidence links (if used) |
 
-**Anti-drift guardrail (candidate rule)**: “Stream is an organizational grouping, not a default approval gate.” If a Stream is intended to be a gate, it must declare `Execution Mode = GATED` and include explicit Exit Evidence in the Roadmap Stream section (template pattern: `template_workspace_roadmap.md` lines 115–117; dependency notation: `roadmap_T104-CWS_phase0.md` lines 71–77).
+**Anti-drift guardrail (candidate rule)**: “Stream is an organizational grouping, not a default approval gate.” If a Stream is intended to be a gate, it must declare `Execution Mode = GATED` and include explicit Exit Evidence in the Roadmap Stream section (template pattern: `template_workspace_roadmap.md` lines 115–117; dependency notation: `plan_T104-CWS_phase0.md` lines 71–77).
 
 #### C. Governance Implication
 *   **Decision Impact**: If “Stream is not a gate” is not explicitly reinforced in governance rules and Notes templates, downstream work may reintroduce “Subphase” as a hidden gate layer, confusing SSOT “Phase & Gates” mapping.
@@ -233,10 +233,10 @@ decision_owner_role: 'Client'
 **Objective**: Define update cadence and “exit evidence” rules for Roadmap/Notes/Changelog so SSOT scaffolding is not started prematurely.
 
 #### A. Evidence & Forensics
-*   **Source**: `prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md` (lines 37–41).
+*   **Source**: `prompt/artifacts/tasks/T104/workspace/roadmap/plan_T104-CWS_phase0.md` (lines 37–41).
 *   **Observation**: Phase 0 Exit Milestone explicitly requires “T104-RES-001 delivered and synthesized (research report + consultant analysis)” prior to SSOT scaffold readiness.
 
-*   **Source**: `prompt/artifacts/tasks/T104/workspace/roadmap/changelog_roadmap_T104-CWS_phase0.md` (lines 11–16).
+*   **Source**: `prompt/artifacts/tasks/T104/workspace/roadmap/changelog_plan_T104-CWS_phase0.md` (lines 11–16).
 *   **Observation**: Changelog entries are already being used to track structural updates (dependency notation, stream parallelism, template roadmap updates).
 
 #### B. Analysis
@@ -245,9 +245,9 @@ decision_owner_role: 'Client'
     *   Cadence rules (when each artifact is updated) are not yet expressed in governance rules; they are implied in the Roadmap and Notes.
 
 **Stream 2 Exit Checklist (candidate; for Phase 0 gate evidence)**:
-- [x] Research Brief exists and is linked from Roadmap Links Register (`roadmap_T104-CWS_phase0.md` lines 339–340; `prompt/artifacts/tasks/T104/research/brief/brief_T104-RES-001_agentic-workspace-assessment.md` lines 13–15)
-- [x] Research Report delivered at `prompt/artifacts/tasks/T104/research/report/report_T104-RES-001_agentic-workspace-assessment.md` (`roadmap_T104-CWS_phase0.md` line 340)
-- [ ] Consultant Analysis delivered at `prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-RES-001_agentic-workspace-assessment.md` (`roadmap_T104-CWS_phase0.md` line 341)
+- [x] Research Brief exists and is linked from Roadmap Links Register (`plan_T104-CWS_phase0.md` lines 339–340; `prompt/artifacts/tasks/T104/research/brief/brief_T104-RES-001_agentic-workspace-assessment.md` lines 13–15)
+- [x] Research Report delivered at `prompt/artifacts/tasks/T104/research/report/report_T104-RES-001_agentic-workspace-assessment.md` (`plan_T104-CWS_phase0.md` line 340)
+- [ ] Consultant Analysis delivered at `prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-RES-001_agentic-workspace-assessment.md` (`plan_T104-CWS_phase0.md` line 341)
 - [x] Report includes MUST/MUST NOT boundary candidates (Topic 2) and Phase/Stream/Activity mapping table (Topic 4)
 - [x] Report includes Issues/Risks tables in `T102-ADR-007` schema (Section IV; template: `template_research_report.md` lines 60–71)
 - [x] Report includes an epic-set sanity table (Topic 7) and identifies any boundary overlaps (Notes vs Changelog vs Analysis)
@@ -287,11 +287,11 @@ decision_owner_role: 'Client'
     *   There is not yet a single published “minimum cross-link policy” (e.g., Roadmap must link to Notes/Changelog/Research; Research must link back to Brief/Roadmap; SSOT must link to Roadmap but not duplicate operational detail). The Roadmap Links Register suggests the intended minimum set.
 
 **Minimum Cross-Link Policy (candidate; “link-don’t-duplicate” safeguard)**:
-- ROADMAP MUST include Links Register entries for Notes, Changelog, Research Brief/Report, Analysis, and SSOT targets. (Already present: `roadmap_T104-CWS_phase0.md` lines 332–348.)
+- ROADMAP MUST include Links Register entries for Notes, Changelog, Research Brief/Report, Analysis, and SSOT targets. (Already present: `plan_T104-CWS_phase0.md` lines 332–348.)
 - NOTES SHOULD reference the governing Roadmap and SSOT targets (already present: `notes_T104-CWS_phase0.md` line 11; plus “not SSOT” statement lines 23–24).
 - RESEARCH REPORT SHOULD cite the Brief version and the governing commit hash (Section VI) and SHOULD cite file/line evidence for internal claims (Topic sections).
 - ANALYSIS SHOULD reference both Research Brief and Research Report (analysis template requires both: `template_workspace_analysis.md` lines 11–13).
-- SSOT artifacts SHOULD link back to Roadmap and reference (not copy) operational details (Roadmap intent: `roadmap_T104-CWS_phase0.md` lines 43–49).
+- SSOT artifacts SHOULD link back to Roadmap and reference (not copy) operational details (Roadmap intent: `plan_T104-CWS_phase0.md` lines 43–49).
 
 **ID Placement (candidate policy)**:
 - Decision IDs (DEC-*) are first captured in NOTES (session record), then (optionally) promoted into SSOT (Concept ADR/GDR) if they become governing policy. (Notes evidence: `notes_T104-CWS_phase0.md` lines 50–57.)
@@ -307,7 +307,7 @@ decision_owner_role: 'Client'
 **Objective**: Determine whether epics are necessary and correctly separated to reflect real workflow lifecycle separation.
 
 #### A. Evidence & Forensics
-*   **Source**: `prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md` (lines 24–29, 43–49).
+*   **Source**: `prompt/artifacts/tasks/T104/workspace/roadmap/plan_T104-CWS_phase0.md` (lines 24–29, 43–49).
 *   **Observation**: The initiative explicitly scopes epics by artifact type (Roadmap, Notes, Proposal, Analysis, Changelog) and locks “define standards only” for T104E (Changelog).
 
 *   **Source**: `prompt/artifacts/tasks/T104/research/brief/brief_T104-RES-001_agentic-workspace-assessment.md` (lines 97–109).
@@ -328,7 +328,7 @@ decision_owner_role: 'Client'
 | T104B (NOTES) | Notes/session record standard (decisions + minutes) | KEEP | Notes are explicitly non-SSOT and already used in T104 (`notes_T104-CWS_phase0.md` lines 23–24); template semantics need alignment (Topic 2) | Notes template semantics decision + ID rules |
 | T104C (PROPOSAL) | Proposal/specification workflow standard | KEEP | Proposal template expresses “working index → full bodies” and explicit SSOT promotion gate (`template_workspace_proposal.md` lines 21–30) | Proposal template usage rules + approval gate statement |
 | T104D (ANALYSIS) | Research synthesis standard (bridge research→proposal) | KEEP | Analysis template explicitly positions analysis after report and before proposal updates (`template_workspace_analysis.md` line 19) | Analysis template usage rules + mapping requirements |
-| T104E (CHANGELOG) | Changelog standard (define-only) | KEEP | T104 already uses separate changelog files and defines T104E as “define standards only” (`roadmap_T104-CWS_phase0.md` lines 47–49) | Changelog schema and naming standard |
+| T104E (CHANGELOG) | Changelog standard (define-only) | KEEP | T104 already uses separate changelog files and defines T104E as “define standards only” (`plan_T104-CWS_phase0.md` lines 47–49) | Changelog schema and naming standard |
 
 #### C. Governance Implication
 *   **Decision Impact**: The epic set can be treated as a decomposition of “standards surfaces” to avoid monolithic governance changes; this supports incremental adoption.
@@ -365,19 +365,19 @@ decision_owner_role: 'Client'
 ## IV. ISSUE & RISK REGISTER (T102-ADR-007)
 
 **Issues**
- ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes |Resolution Date |
+| ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes |Resolution Date |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `T104-ISSUE-001` | Governance rules misaligned with T104 artifact roles | `workspace_documentation_rules.md` defines Plan/Proposal/Completion and Subphase heading semantics that conflict with T104 Roadmap/Notes/Changelog roles and Phase→Stream→Activity model | LLM_Consultant | OPEN | HIGH | 2026-01-18 | — | — |
-| `T104-ISSUE-002` | NOTES template uses LOG/Subphase semantics | `template_workspace_notes.md` artifact_type is NOTES but internal guidance calls it a LOG and structures content as Subphases, creating ambiguity for T104B NOTES scope | LLM_Consultant | OPEN | HIGH | 2026-01-18 | — | — |
-| `T104-ISSUE-003` | Naming/toolability drift (case + suffix) | Evidence of inconsistent naming (`notes_` vs `NOTES_`) and legacy filename suffix drift (e.g., `...md.md`) threatens automated retrieval and human discoverability | LLM_Consultant | OPEN | MEDIUM | 2026-01-18 | — | — |
-| `T104-ISSUE-004` | Missing T104 consultant analysis artifact | Roadmap declares the consultant analysis (`analysis_T104-RES-001_agentic-workspace-assessment.md`) as required Phase 0 exit evidence after report delivery | LLM_Consultant | OPEN | HIGH | 2026-01-18 | — | — |
+| `T104-ISSUE-001` | Governance rules misaligned with T104 artifact roles | `workspace_documentation_rules.md` defines Plan/Proposal/Completion and Subphase heading semantics that conflict with T104 Roadmap/Notes/Changelog roles and Phase→Stream→Activity model | LLM_Consultant | `OPEN` | `HIGH` | 2026-01-18 | — | — |
+| `T104-ISSUE-002` | NOTES template uses LOG/Subphase semantics | `template_workspace_notes.md` artifact_type is NOTES but internal guidance calls it a LOG and structures content as Subphases, creating ambiguity for T104B NOTES scope | LLM_Consultant | `OPEN` | `HIGH` | 2026-01-18 | — | — |
+| `T104-ISSUE-003` | Naming/toolability drift (case + suffix) | Evidence of inconsistent naming (`notes_` vs `NOTES_`) and legacy filename suffix drift (e.g., `...md.md`) threatens automated retrieval and human discoverability | LLM_Consultant | `OPEN` | `MEDIUM` | 2026-01-18 | — | — |
+| `T104-ISSUE-004` | Missing T104 consultant analysis artifact | Roadmap declares the consultant analysis (`analysis_T104-RES-001_agentic-workspace-assessment.md`) as required Phase 0 exit evidence after report delivery | LLM_Consultant | `OPEN` | `HIGH` | 2026-01-18 | — | — |
 
 **Risks**
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Mitigation Notes |Mitigation Date |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `T104-RISK-001` | Drift via duplication across tool artifacts | If artifact boundaries are not enforced, specs and decisions will be duplicated across Roadmap/Notes/Analysis/Proposal and later drift from SSOT | Client | OPEN | HIGH | 2026-01-18 | — | — |
-| `T104-RISK-002` | Hidden gate layer reintroduced (Stream/Subphase) | If “Stream” starts being treated as a gate (or Subphase terminology persists), SSOT Phase & Gates mapping becomes ambiguous and sequencing breaks | Client | OPEN | MEDIUM | 2026-01-18 | — | — |
-| `T104-RISK-003` | Tooling retrieval failures due to naming inconsistency | Case-sensitive and suffix-drift naming can break deterministic linking and agent retrieval, increasing hallucination/duplication risk | Client | OPEN | MEDIUM | 2026-01-18 | — | — |
+| `T104-RISK-001` | Drift via duplication across tool artifacts | If artifact boundaries are not enforced, specs and decisions will be duplicated across Roadmap/Notes/Analysis/Proposal and later drift from SSOT | Client | `OPEN` | `HIGH` | 2026-01-18 | — | — |
+| `T104-RISK-002` | Hidden gate layer reintroduced (Stream/Subphase) | If “Stream” starts being treated as a gate (or Subphase terminology persists), SSOT Phase & Gates mapping becomes ambiguous and sequencing breaks | Client | `OPEN` | `MEDIUM` | 2026-01-18 | — | — |
+| `T104-RISK-003` | Tooling retrieval failures due to naming inconsistency | Case-sensitive and suffix-drift naming can break deterministic linking and agent retrieval, increasing hallucination/duplication risk | Client | `OPEN` | `MEDIUM` | 2026-01-18 | — | — |
 
 ---
 
@@ -397,9 +397,9 @@ decision_owner_role: 'Client'
 *   **Code Commit/Tag**: `888fe41c4c8b106ff5a8e133a76fd94e971b146a`
 *   **Files Cited**:
     *   `prompt/artifacts/tasks/T104/research/brief/brief_T104-RES-001_agentic-workspace-assessment.md`
-    *   `prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS_phase0.md`
+    *   `prompt/artifacts/tasks/T104/workspace/roadmap/plan_T104-CWS_phase0.md`
     *   `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-CWS_phase0.md`
-    *   `prompt/artifacts/tasks/T104/workspace/roadmap/changelog_roadmap_T104-CWS_phase0.md`
+    *   `prompt/artifacts/tasks/T104/workspace/roadmap/changelog_plan_T104-CWS_phase0.md`
     *   `prompt/artifacts/tasks/T104/T104A/workspace/notes/notes_T104A-ROADMAP_phase0.md`
     *   `prompt/templates/consultant/workspace/workspace_documentation_rules.md`
     *   `prompt/templates/consultant/workspace/template_workspace_roadmap.md`

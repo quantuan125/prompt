@@ -182,9 +182,9 @@ This plan defines the consultancy workflow to establish a **governance foundatio
 
 | ID | Code | Name | Purpose | Owner | Status |
 |:---|:-----|:-----|:--------|:------|:-------|
-| `T903A1` | `DETECTION` | Format Detection | Auto-detection system | LLM_Developer | `complete` |
-| `T903A2` | `STANDARD` | Standard JSON Parser | Google Gemini format | LLM_Developer | `complete` |
-| `T903A3` | `COMPARISON` | Comparison JSON Parser | Multi-thread A/B testing | LLM_Developer | `complete` |
+| `T903A1` | `DETECTION` | Format Detection | Auto-detection system | LLM_Developer | `completed` |
+| `T903A2` | `STANDARD` | Standard JSON Parser | Google Gemini format | LLM_Developer | `completed` |
+| `T903A3` | `COMPARISON` | Comparison JSON Parser | Multi-thread A/B testing | LLM_Developer | `completed` |
 | `T903A4` | `PLAINTEXT` | Plain Text Log Parser | Claude Code session logs | LLM_Developer | `proposed` |
 | `T903A5` | `CLI` | Command-Line Interface | User-facing CLI | LLM_Developer | `in-progress` |
 | `T903A6` | `DOCS` | Documentation | User and developer guides | LLM_Developer | `proposed` |

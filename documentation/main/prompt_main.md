@@ -387,7 +387,7 @@ Every command file is structured into 9 logical blocks. The orchestrator concate
 | **0** | **Metadata / Header** | Title, version, status, description. | Standard YAML frontmatter. `name` should be unique. |
 | **1** | **Global / Project Context** | Domain standards and shared definitions. | This is typically injected by the session manager/CLI, not imported directly in the command file. |
 | **2** | **Role Identity & Competencies** | The agent's core persona: who it is, what it knows, and its core mandate. | **MUST** import the role's central `[role]_profile.md` file. This should be consistent across most commands for a given role. |
-| **3** | **Toolbox Declaration** | Function schemas or textual descriptions of allowed tools/APIs. | *(Future Implementation)* This block is currently a placeholder for forward compatibility. |
+| **3** | **Toolbox** | Function schemas or textual descriptions of allowed tools/APIs. | *(Future Implementation)* This block is currently a placeholder for forward compatibility. |
 | **4** | **Knowledge Base References** | A canonical list of source-of-truth documents the agent must use (e.g., manifest, TPG, TSG). | **MUST** import from a shared `knowledge_base_[artifact_type].md` file to ensure all tasks for an artifact use the same references. |
 | **5** | **Execution Protocol (Core Loop)** | The specific, numbered, step-by-step instructions for *this command's task*. | **MUST** import from a shared `execution_protocol_[artifact_type].md` |
 | **6** | **Behavioral Guardrails / Escalation** | Tone rules, refusal logic (Hard Gates), ambiguity handling, and escalation paths. | **MUST** import from a shared `guardrails_[artifact_type].md` file. Command-specific overrides can be added directly below the import if absolutely necessary. |
@@ -410,10 +410,13 @@ version: 1.1.0
 <!-- BLOCK 2: ROLE IDENTITY & COMPETENCIES -->
 @prompt/roles/consultant/consultant_profile.md
 
+<!-- BLOCK 3: TOOLBOX -->
+@prompt/roles/consultant/shared_specs/toolbox_skills.md
+
 <!-- BLOCK 4: KNOWLEDGE BASE REFERENCES -->
 @prompt/roles/consultant/shared_specs/knowledge_base_request.md
 
-<!-- BLOCK 5: EXECUTION PROTOCOL (CORE LOOP) -->
+<!-- BLOCK 5: EXECUTION PROTOCOL & SKILLS -->
 @prompt/roles/consultant/shared_specs/execution_protcol_request.md
 
 <!-- BLOCK 6: BEHAVIORAL GUARDRAILS / ESCALATION -->
@@ -421,6 +424,8 @@ version: 1.1.0
 
 <!-- BLOCK 7: QUALITY & SUCCESS CRITERIA -->
 @prompt/roles/consultant/shared_specs/quality_criteria_request.md
+
+<!-- BLOCK 8: EXAMPLARS -->
 
 <!-- BLOCK 9: I/O SPECIFICATION -->
 @prompt/roles/consultant/shared_specs/io_specification_request.md

@@ -95,31 +95,35 @@ We propose reducing the 11 FRs to 7 consolidated rules without losing agentic pr
 - ADR-004 contains the consolidated "Variance ADR Contract" (merged from duplicate proposals).
 - ADR-005 implements the consolidated 7-rule set.
 
+| ADR ID | Title | Authority STD | Status | Effective | Supersedes | Anchor |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| `T102-ADR-004` | **Decision Records Index** | `T102-STD-004 (Decision Records Standard)` | `Proposed` | Client | — | #t102-adr-004-drs-index |
+| `T102-ADR-005` | **ID Specification & Rules** | `T102-STD-005 (ID Governance Standard)` | `Proposed` | Client | — | #t102-adr-005-id-spec |
+
 ### T102-ADR-004 (Decision Records Index)
 
-* **T102-ADR-004 (Decision Records Index) {#t102-adr-004-drs-index}**
+* **T102-ADR-004 (Decision Records Index)** {#t102-adr-004-drs-index}
 
-  **Context.** Per `T102-GDR-004 (Decision Records Standard)`, GDR/ADR schemas and anchors vary across artifacts, causing drift and blocking automation.
+  * **Context** 
+    Per `T102-STD-004 (Decision Records Standard)`, ADR schemas and anchors vary across artifacts, causing drift and blocking automation.
 
-  **Decision.** Implement a unified decision record index: one table schema, shared body subheadings, and consistent anchors/links across SPS/Request/Concept/Design.
+  * **Decision** 
+    Implement a unified decision record index: one table schema, shared body subheadings, and consistent anchors/links across SPS/Request/Concept/Design. This ADR serves as the adopted normative specification for `T102-STD-004`.
 
-  **Specification**
+  * **Specification**
     * **T102-ADR-004-CLAUSE-001 (DR Index Schemas)**
-      - **GDR Index Schema**  
-        `GDR ID | **Title** | Status | Owner | Effective | Supersedes | Anchor`
-
       - **ADR Index Schema**  
-        `ADR ID | **Title** | Paired GDR | Status | Owner | Effective | Supersedes | Anchor`
+        `ADR ID | Title | Authority STD | Status | Owner | Effective | Supersedes | Anchor`
 
       - **Column Definitions**
-        1. `ID`: ID construction MUST follow `T102-ADR-005` following general format: `<SID>-<GDR/ADR>-###`
+        1. `ID`: ID construction MUST follow `T102-ADR-005` following general format: `<SID>-ADR-###`
         2. `Title`: Title Case, 2–3 words.
-        3. `Paired GDR` (ADR only): governing GDR ID (or `—` if none).
-        4. `Status`: `{Proposed, Accepted, Deprecated}`.
-        5. `Owner`: governance authority (typically `Client`) or implementation owner; if unknown use `—`.
-        6. `Effective`: ISO-8601 date `YYYY-MM-DD`.
-        7. `Supersedes`: list of superseded IDs or `—`.
-        8. `Anchor`: lower-kebab anchor derived from Title; stable.
+        3. `Status`: `{Proposed, Accepted, Deprecated}`.
+        4. `Owner`: governance authority (typically `Client`) or implementation owner; if unknown use `—`.
+        5. `Effective`: ISO-8601 date `YYYY-MM-DD`.
+        6. `Supersedes`: list of superseded IDs or `—`.
+        7. `Anchor`: lower-kebab anchor derived from Title; stable.
+        8. `Authority STD`: the governing `STD` that applies to the ADR (or that adopts the ADR as the canonical normative spec). Use `—` if none.
 
     * **T102-ADR-004-CLAUSE-002 (Placement Standards)**
       - **SPS artifacts**: section titled `"<SCOPE> Governance Decisions"` containing governance decisions only.
@@ -127,89 +131,70 @@ We propose reducing the 11 FRs to 7 consolidated rules without losing agentic pr
       - **Consistency requirement**: placement MUST follow established artifact section numbering without local deviations.
 
     * **T102-ADR-004-CLAUSE-003 (Entry Creation Workflow)**
-      To create a new GDR/ADR:
+      To create a new ADR:
       1. Add a new row to the appropriate index table using the required schema per `T102-ADR-004-CLAUSE-001`.
       2. Assign the next sequential ID for that scope.
       3. Create the matching body entry below the index using `T102-ADR-004-CLAUSE-004` structure.
       4. Ensure References follow `T102-ADR-005`.
 
     * **T102-ADR-004-CLAUSE-004 (DR Body Template)**
-
       - **Structure**:
         - **Headings**: Main bold headings (e.g. `* **Context**`) MUST be preceded by two newlines.
-        - **Body**: Content MUST start on a new line, tabbed (indented) under the heading with no space in between.
-      - **Format**: `* **<ID> (<Title>) {#<anchor>}**`
+        - **Body**: Content MUST start on a new line and INDENTED under the heading with no space in between.
+      - **Format**: `* **<ID> (<Title>)** {#<anchor>}`
       - **Required Subheadings**:
-        
-        * **Context**
-          - Why this decision is needed; the gap it resolves.
-        
-        * **Decision**
-          - What is adopted/changed and who owns it.
-        
-        * **Consequences**
-          - Impacts using `(+)`, `(±)`, `(-)` bullets.
-        
-        * **References**
-          - Canonical references/anchors per `T102-ADR-005`.
-      - **ADR additions** (ADR only):
-        
-        * **Specification**
-          - Clause list using `CLAUSE` token type or software requirement clauses (if used in that ADR).
-        
-        * **Alternatives Considered**
-          - Rejected options with rationale.
-        
-        * **Provenance**
-          - Evidence/design source repo-relative paths only.
+        * **Context** [Why this decision is needed; the gap it resolves.]
+        * **Decision** [What is adopted/changed and who owns it.]
+        * **Specification** [Clause list using `CLAUSE` token type or software requirement clauses (if used in that ADR).]
+        * **Alternatives** [Bulleted list of additional options considered with clear rejection rationales.]
+        * **Consequences** [Impacts using `(+)`, `(±)`, `(-)` bullets.]
+        * **References** [Canonical references/anchors per `T102-ADR-005`.]
+        * **Provenance** [Bulleted list of evidence/design source repo-relative paths only.]
+
 
     * **T102-ADR-004-CLAUSE-005 (Specification Clauses)**
-
       **Purpose**  
-      Standardize how ADR **Specification** sections are constructed using `DRCIDs`, without duplicating global ID semantics.
+      Standardize how ADR **Specification** sections are constructed using `CLAUSE` IDs, without duplicating global ID semantics.
 
       **Normative Reference**
       - `CLAUSE` token type construction and semantics MUST follow `T102-ADR-005-CLAUSE-005D (Specification Clause Semantics)`.
 
-      **Applicability**
-      - This rule applies to **ADR only** (not GDR).
-
       **Specification Section Structure**
       Within an ADR body, the **Specification** subsection MUST be a list of clause items, each defined as:
 
-      - Format: `n) **<DRCID> (<Title>)**`, where `<DRCID>` conforms to `T102-ADR-005-CLAUSE-005D`. 
+      - Format: `n) **<CLAUSE-ID> (<Title>)**`, where `<CLAUSE-ID>` conforms to `T102-ADR-005-CLAUSE-005D`. 
 
       **Clause Requirements**
       - Each clause MUST be a single primary normative statement (avoid compound obligations where feasible).
-      - Each DRCID clause MUST conform to `T102-ADR-005-CLAUSE-005D` (including enforceability and required normative language).
-      - If additional detail is required, it SHOULD be provided as DRCID subclauses per `T102-ADR-005-CLAUSE-005D`.
+      - Each `CLAUSE` ID MUST conform to `T102-ADR-005-CLAUSE-005D` (including enforceability and required normative language).
+      - If additional detail is required, it SHOULD be provided as subclauses per `T102-ADR-005-CLAUSE-005D`.
       - Clause Titles MUST follow the title conventions defined in `T102-ADR-005-CLAUSE-001`.
 
       **Ordering**
-      - CLAUSE-IDs MUST be sequential in the order they appear within the ADR Specification section (`001`, `002`, `003`, ...).
+      - `CLAUSE` IDs MUST be sequential in the order they appear within the ADR Specification section (`001`, `002`, `003`, ...).
       - Subclauses MUST immediately follow their parent clause.
 
       **Markdown Subclause Rendering**
-      - Subclauses SHOULD be rendered as nested bullet items under the parent clause and prefixed by their full DRCID (e.g., `<ADR-ID>-CLAUSE-002A`).
+      - Subclauses SHOULD be rendered as nested bullet items under the parent clause and prefixed by their full CLAUSE-ID (e.g., `<ADR-ID>-CLAUSE-002A`).
 
       **Referencing**
       - Other artifacts MAY reference specific ADR Specification clauses using the formal format defined in `T102-ADR-005-CLAUSE-004 (Reference Semantics)`, e.g.:  
         `Reference:` `T102-ADR-004-CLAUSE-005 (Specification Clauses)`
 
       **Non-Duplication Constraint**
-      - `T102-ADR-004` MUST NOT redefine the syntax, scope validity, or semantic authority of `DRCIDs`; those are defined in `T102-ADR-005-CLAUSE-005D`.
+      - `T102-ADR-004` MUST NOT redefine the syntax, scope validity, or semantic authority of `CLAUSE-IDs`; those are defined in `T102-ADR-005-CLAUSE-005D`.
 
     * **T102-ADR-004-CLAUSE-006 (Cross-Artifact Linking Patterns)**
 
-      - **GDR → Decision (Adoption Statement).**  
-        If a GDR formally adopts/mandates an ADR or RID, the adoption MUST be stated as the first sentence of **Decision**:  
-        - Pattern: `Adopt <ID>, <one-line rationale>...`  
-        - Example: `Adopt `T102-ADR-004`, as the single Client-owned standard for DR schemas across artifacts.`
+      - **STD → Adoption (Adoption Statement).**  
+        If a STD formally adopts/mandates an ADR or RID, the adoption MUST be stated as the first sentence of the STD body:  
+        - Pattern: `The project SHALL use <ID>...` or similar normative adoption language declaring the adopted ID.
+        - Example: `The project SHALL use `T102-ADR-004`, as the single Client-owned standard...`
 
       - **ADR → Context (Authority Citation).**  
-        If an ADR is governed by a GDR, the governing policy MUST be cited as the first sentence of **Context**:  
-        - Pattern: `Per <GDR-ID>, <one-line rationale>...`  
-        - Example: ``Per `T102-GDR-004`, a unified DR schema is required to prevent drift.``
+        If an ADR is governed by a STD, the governing policy MUST be cited as the first sentence of **Context**:  
+        - Pattern: `Per <STD-ID>, <one-line rationale>...`  
+        - Example: ``Per `T102-STD-004`, a unified DR schema is required to prevent drift.``
 
     * **T102-ADR-004-CLAUSE-007 (Anchor Title Stability)**
 
@@ -219,9 +204,9 @@ We propose reducing the 11 FRs to 7 consolidated rules without losing agentic pr
 
     * **T102-ADR-004-CLAUSE-008 (Lifecycle Coherence)**
 
-      When a GDR cited by ADRs changes **Status** or is **Superseded**, affected ADRs MUST:
-      - update the **Context** authority sentence to the new governing GDR ID/title; and
-      - add the prior GDR ID to **Supersedes/References** as appropriate; and
+      When a STD cited by ADRs changes **Status** or is **Superseded**, affected ADRs MUST:
+      - update the **Context** authority sentence to the new governing STD ID/title; and
+      - add the prior STD ID to **Supersedes/References** as appropriate; and
       - perform this update in the next modification to the ADR or in a dedicated “governance sync” change set.
 
     * **T102-ADR-004-CLAUSE-009 (Status Management)**
@@ -232,14 +217,14 @@ We propose reducing the 11 FRs to 7 consolidated rules without losing agentic pr
     * **T102-ADR-004-CLAUSE-010 (Precedence Conflicts Hierarchy)**
 
       For conflict resolution across DRIDs:
-      `Initiative GDR > Initiative ADR > Epic ADR > Feature ADR > Story ADR`
+      `Initiative STD > Initiative ADR > Epic ADR > Feature ADR > Story ADR`
 
       See `T102-ADR-003` and `T102-ADR-005` for full hierarchy and directionality constraints.
 
 
     * **T102-ADR-004-CLAUSE-011 (Consequences Scope Requirements)**
 
-      - **GDR Consequences** SHOULD cover: policy/precedence impacts; compliance expectations; migration/rollout; automation/traceability effects.
+      - **STD Consequences** SHOULD cover: policy/precedence impacts; compliance expectations; migration/rollout; automation/traceability effects.
       - **ADR Consequences** SHOULD cover: quality trade-offs; constraints introduced; operational effects; debt/risks.
 
 
@@ -263,7 +248,7 @@ We propose reducing the 11 FRs to 7 consolidated rules without losing agentic pr
       Decision records SHOULD follow a staged lifecycle:
       1. **Research (RES)** — Use `RES-SID` to commission and document evidence, options, and empirical findings for a specific scope (Initiative/Epic/Feature).
       2. **Implementation Guidance (IG)** — Encode candidate implementation patterns at the appropriate scope (typically Feature); IGs MAY evolve as research is refined.
-      3. **Decision Records (GDR/ADR)** — Promote stable, cross-cutting, or long-lived patterns into formal GDR/ADR records when:
+      3. **Decision Records (STD/ADR)** — Promote stable, cross-cutting, or long-lived patterns into formal STD/ADR records when:
           - (a) The pattern affects multiple artifacts or features; or
           - (b) The pattern requires explicit governance (ownership, status, supersedes) beyond implementation detail.
       4. **Traceability** — ADR Specifications SHOULD reference governing research and guidance in **Provenance** and **References**, rather than duplicating detailed patterns.
@@ -276,40 +261,41 @@ We propose reducing the 11 FRs to 7 consolidated rules without losing agentic pr
     * **T102-ADR-004-CLAUSE-015 (Automation & Linting Checks)**
 
       Authors SHOULD pass these checks:
-      - GDR body contains a **Decision** line matching:  
-        `` `^Adopt\s+`T[0-9]{3,}(?:[A-Z][0-9A-Z]*)?-ADR-[0-9]{3}`,\s+.+$` ``
+      - STD body contains an **Adoption** statement matching normative patterns.
       - ADR body **Context** starts with:  
-        `` `^Per\s+`T[0-9]{3,}(?:[A-Z][0-9A-Z]*)?-GDR-[0-9]{3}`,\s+.+$` ``
+        `` `^Per\s+`T[0-9]{3,}(?:[A-Z][0-9A-Z]*)?-STD-[0-9]{3}`,\s+.+$` ``
 
-  **Alternatives Considered.**
-  (a) Combine GDR & ADR in a single DR index — rejected.
+  * **Alternatives**
+    (a) Combine GDR & ADR in a single DR index — rejected.
 
-  **Consequences.**
-  (+) One schema and body pattern; shared tooling and easier authoring
-  (+) Stable anchors enable automation and cross-referencing
-  (+) Clear governance vs. implementation separation with ADR additions
-  (±) Migration effort for existing non-conforming records
-  (-) Ongoing upkeep for instructional guidelines/examples
+  * **Consequences**
+    (+) One schema and body pattern; shared tooling and easier authoring
+    (+) Stable anchors enable automation and cross-referencing
+    (+) Clear governance vs. implementation separation with ADR additions
+    (±) Migration effort for existing non-conforming records
+    (-) Ongoing upkeep for instructional guidelines/examples
 
-  **References.** 
-  `T102-GDR-004 (Decision Records Standard)`, 
-  `T102-IG-007 (ID Standard)`, 
-  `T102-IG-008 (Decision Logging)`, 
-  `T102-IG-009 (Traceability Framework)`, 
-  `T102-GDR-001 (Consultancy Operating Model Standard)`
+  * **References** 
+    `T102-STD-004 (Decision Records Standard)`, 
+    `T102-IG-007 (ID Standard)`, 
+    `T102-IG-008 (Decision Logging)`, 
+    `T102-IG-009 (Traceability Framework)`, 
+    `T102-STD-001 (Consultancy Operating Model Standard)`
 
-  **Provenance.** 
-  - `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor-adr-004-005.md`
+  * **Provenance** 
+    - `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor-adr-004-005.md`
 
 ### T102-ADR-005 (ID Specification & Rules)
 
-* **T102-ADR-005 (ID Specification & Rules) {#t102-adr-005-id-spec}**
+* **T102-ADR-005 (ID Specification & Rules)** {#t102-adr-005-id-spec}
 
-  **Context.** Per `T102-GDR-005 (ID Governance Standard)`, multiple artifact families use overlapping ID conventions (considerations, requirements, decisions) at different scopes. Without a single normative spec, authors improvise category tokens, anchors, and references, creating inconsistency and undermining inheritance, precedence, and verification.
+  * **Context** 
+    Per `T102-STD-005 (ID Governance Standard)`, multiple artifact families use overlapping ID conventions (considerations, requirements, decisions) at different scopes. Without a single normative specification, authors improvise category tokens, anchors, and references, creating inconsistency and undermining inheritance, precedence, and verification.
 
-  **Decision.** Standardize ID patterns across Initiative, Epic, Feature, and Story scopes; define category tokens, sub-ID patterns, anchors, and referencing rules. This ADR is the single specification adopted by `T102-GDR-005` as policy.
+  * **Decision** 
+    Standardize ID patterns across Initiative, Epic, Feature, and Story scopes; define category tokens, sub-ID patterns, anchors, and referencing rules. This ADR is the single specification adopted by `T102-STD-005` as its normative specification.
 
-  **Specification**
+  * **Specification**
 
     * **T102-ADR-005-CLAUSE-001 (Canonical ID Schema)**
 
@@ -357,11 +343,11 @@ We propose reducing the 11 FRs to 7 consolidated rules without losing agentic pr
       | `RID` | `IF` | **Interface** | I, E, F | Data/integration contract definition (contractual boundary). |
       | `RID` | `FR` | **Functional Requirement** | F, S | Testable system behavior (requirements language). |
       | `RID` | `NFR` | **Non-Functional Requirement** | F, S | Quality requirement expressed as testable metrics. |
-      | `DRID` | `GDR` | **Governance Decision** | I, E, F | Policy-level decision record. Governs/frames downstream decisions. |
+      | `RID` | `STD` | **Standard** | I, E, F | Normative standards registry token. Enforceable obligations MUST be encoded in `STD` or in its adopted normative specification; governance rationale belongs in ADRs. |
       | `DRID` | `ADR` | **Architectural Decision** | I, E, F, S | Technical implementation decision record. |
       | `DRCID` | `CLAUSE` | **Decision Record Clause** | I, E, F, S | ADR-internal clause ID used only within the parent ADR. Scope and authority derive from the parent ADR only; rendering is defined by `T102-ADR-004-CLAUSE-005`. |
-      | `IID` | `IG` | **Implementation Guidance** | I, E, F | Normative implementation standards/guidance: patterns, templates, examples. May be enforced via lint/review. Not a substitute for system requirements. |
-      | `IID` | `INT` | **Integration Notes** | E, F, S | Non-normative integration notes and cross-scope coordination guidance for external audiences; may carry compatibility expectations. |
+      | `IID` | `IG` | **Implementation Guidance** | I, E, F | Informative how-to guidance: patterns, templates, and examples. MUST NOT introduce new obligations. Not a substitute for system requirements. |
+      | `IID` | `INT` | **Integration Notes** | E, F, S | Non-normative integration notes and cross-scope coordination guidance for external audiences; MUST NOT introduce new obligations. |
       | `OID` | `NOTE` | **Note** | I, E, F, S | Non-normative context; do not use for obligations. |
       | `OID` | `ISSUE` | **Issue** | I, E, F | Known gap requiring resolution. |
       | `OID` | `RISK` | **Risk** | I, E, F | Potential negative event requiring mitigation. |
@@ -376,7 +362,7 @@ We propose reducing the 11 FRs to 7 consolidated rules without losing agentic pr
       - Initiative > Epic > Feature > Story
 
       **Category Precedence** (within same scope):
-      `SID > RESID > RID > DRID (GDR > ADR) > DRCID > IID (IG > INT) > OID`
+      `SID > RESID > RID > DRID (ADR) > DRCID > IID (IG > INT) > OID`
 
       **Evidence Conflict Rule**:
       If `RESID` contradicts a `RID` or `DRID`, it triggers a Review workflow (ISSUE + Change Decision). Evidence does not “silently override” obligations.
@@ -396,8 +382,10 @@ We propose reducing the 11 FRs to 7 consolidated rules without losing agentic pr
       - Dedicated sections (References, Tables): Full references required
 
       **External Reference Line**:
-      If a body references an ID from a different scope prefix (e.g., `T102A` body referencing `T102B-...`), add a standalone line at the bottom:
-      - `` `Reference:` `ID (Title)` ``  followed by one or more full references. (e.g. `Reference:` `T102B-CON-001 (Decision Storage Boundary)`)
+      If a body references an ID from a different Scope ID prefix (e.g., a `T102B` body citing `T102-...` or `T102A-...`), a standalone citation line SHALL appear at the bottom of that body:
+      - Format: `External Reference:` followed by one or more full references (`` `ID (Title)` ``).
+      - Example: `External Reference:` `T102-STD-001 (Consultancy Operating Model Standard)`
+      - This line SHALL NOT be used for references within the same Scope ID prefix. In-scope references use short-hand or full format per **Styles** above.
 
       **Constraint**:
       Normative bodies MUST NOT reference `ISSUE` or `RISK` IDs inline. Issues/Risks capture the problem; RIDs/DRIDs capture the solution.
@@ -412,7 +400,7 @@ We propose reducing the 11 FRs to 7 consolidated rules without losing agentic pr
         Assumptions MUST be defined in a table structure preceding the list of ID bodies.
 
         **Schema**:
-        `| ID | **Title** | Status | Validation Method | Timing | Owner | If Invalidated | CON Cross-Ref |`
+        `| ID | Title | Status | Validation Method | Timing | Owner | If Invalidated | CON Cross-Ref |`
 
         **Enum**:
         - Status: `{Pending, Validated, Invalidated, Modified}`
@@ -481,20 +469,20 @@ We propose reducing the 11 FRs to 7 consolidated rules without losing agentic pr
         - Location: SPS "Research & Notes" → "Notes" subheading.
         - Structure: List item per NOTE beginning with `**<SID>-NOTE-### (<Title>)** — <body>` on a single line.
         - Body: Optional short paragraphs may follow for context; target ≤200 words total per NOTE.
-        - Style: Non‑normative and descriptive; do not restate formal rules or research verbatim; use back‑ticked IDs to reference GDR/ADR/RES where helpful.
+        - Style: Non‑normative and descriptive; do not restate formal rules or research verbatim; use back‑ticked IDs to reference STD/ADR/RES where helpful.
         - Conformance: Mirrors existing examples in SPS Section III.B.7.
 
         **Notes Authoring Guidelines**
         - Purpose: Capture lightweight, non‑commissioned insights aiding authoring and reader orientation without introducing governance or architectural decisions.
         - When to add a NOTE: contextual clarifications, philosophy, industry references, or early observations prior to commissioning research.
-        - When NOT to use a NOTE: to summarize commissioned research (use RES with Brief/Report), to encode enforceable rules (use GDR/ADR), or to duplicate upstream content (link via back‑ticked IDs instead).
-        - Discipline: Keep short (≤200 words), scannable, and link‑don’t‑duplicate. If NOTE content becomes critical or frequently referenced, promote to `RES` (with brief/report) or to `GDR/ADR` as appropriate. Maintain sequential NOTE numbering without retroactively altering meaning.
+        - When NOT to use a NOTE: to summarize commissioned research (use RES with Brief/Report), to encode enforceable rules (use STD/ADR), or to duplicate upstream content (link via back‑ticked IDs instead).
+        - Discipline: Keep short (≤200 words), scannable, and link‑don’t‑duplicate. If NOTE content becomes critical or frequently referenced, promote to `RES` (with brief/report) or to `STD/ADR` as appropriate. Maintain sequential NOTE numbering without retroactively altering meaning.
 
-      * **T102-ADR-005-CLAUSE-006 (Content Quality)**
+    * **T102-ADR-005-CLAUSE-006 (Content Quality)**
 
       **Quality Criteria**:
       - **RID**: Lead with a requirement statement when applicable (SHALL/SHOULD). No justification prose (put rationale in NOTE). Prefer one primary obligation per RID.
-      - **IID-IG**: Normative implementation standards/guidance; may include templates, pseudo-code, examples; enforced via lint/review where feasible.
+      - **IID-IG**: Informative how-to guidance; may include templates, pseudo-code, and examples; MUST NOT introduce new obligations.
       - **IID-INT**: Non-normative integration notes; MUST NOT introduce new obligations (see `T102-ADR-005-CLAUSE-005C`).
       - **DRID**: Follow `T102-ADR-004` body structure strictly.
 
@@ -509,24 +497,26 @@ We propose reducing the 11 FRs to 7 consolidated rules without losing agentic pr
       - **Anchor Stability**: Anchors MUST remain stable even if Titles change slightly.
       - **Immutable IDs**: Once assigned, an ID is never reused. Deprecate it instead.
       - **Migration Tolerance**: Validators MAY allow legacy governance clause labels (e.g., `...-FR-###` inside governance ADRs) alongside `...-RULE-###` during migration, but new governance clauses SHOULD use `CLAUSE`.
+      - **Legacy Standards Migration**: Migration tolerance for legacy governance standard identifiers is defined in `T102-ADR-009-CLAUSE-005 (Migration Tolerance)`.
 
-  **Alternatives Considered.**
-  - Free-form, template-local ID schemes — rejected.
-  - Enforcing full titles in all inline mentions — rejected.
+  * **Alternatives**
+    - Free-form, template-local ID schemes — rejected.
+    - Enforcing full titles in all inline mentions — rejected.
 
-  **Consequences.**
-  (+) Predictable, machine-checkable IDs across artifacts.
-  (+) Faster audits and safer cross-linking with stable anchors.
-  (±) Requires discipline and small refactors for legacy items.
+  * **Consequences**
+    (+) Predictable, machine-checkable IDs across artifacts.
+    (+) Faster audits and safer cross-linking with stable anchors.
+    (±) Requires discipline and small refactors for legacy items.
 
-  **References.** 
-  `T102-GDR-005 (ID Governance Standard)`, 
-  `T102-ADR-003 (Explicit Inheritance Model)`, 
-  `T102-ADR-004 (Decision Records Index)`, 
-  `T102-ADR-006 (Research Artifacts Index)`
+  * **References** 
+    `T102-STD-005 (ID Governance Standard)`, 
+    `T102-ADR-003 (Explicit Inheritance Model)`, 
+    `T102-ADR-004 (Decision Records Index)`, 
+    `T102-ADR-006 (Research Artifacts Index)`,
+    `T102-CON-009 (Normative Keywords)`
 
-  **Provenance.** 
-  - `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor-adr-004-005.md`
+  * **Provenance** 
+    - `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor-adr-004-005.md`
 
 ---
 
