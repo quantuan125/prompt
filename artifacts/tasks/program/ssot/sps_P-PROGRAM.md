@@ -77,6 +77,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 |:-------|:------|:-------|:------|:----------|:-----------|:------|:------------|:----------|
 | `P-STD-001` | Program Workspace Standard | `planned` | LLM_Consultant | `P-PH000-ST001` | — | — | Review: conforms to adopted ID/path rules; adopters link-don’t-duplicate | `prompt/artifacts/tasks/program/workspace/plan/plan_P-PH000-ST001.md` |
 | `P-STD-002` | Program Status Standard | `planned` | LLM_Consultant | `P-PH000-ST001` | — | — | Review: status schema + update protocol accepted; later CI/lint possible | `prompt/artifacts/tasks/program/workspace/plan/plan_P-PH000-ST002.md` |
+| `P-STD-003` | Program Governance Standards Model | `planned` | LLM_Consultant | `P-PH000-ST001` | — | `prompt/artifacts/tasks/program/standard/P-STD-003_governance-standards-and-dr-index.md` | Review: combined governance spec aligns with ADR-004 + ADR-009; enforce adoption/authoring requirements | `T102-STD-009 (Governance Standards Model)` |
 
 #### 8. Project Guidances & Notes
 
@@ -117,4 +118,3 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 | Level | PM Type | ID | Name |
 | :--- | :--- | :--- | :--- |
 | 1 | Initiative | P | Program Governance |
-
