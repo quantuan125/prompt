@@ -88,7 +88,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 * **P-INT-001** — Adopter initiatives (e.g., `T104`) should bind via a single initiative-scoped RID that cites `P-STD-001` and `P-STD-002` once authored.
 
 **Notes**
-* **P-NOTE-001** — `P-RES-###` is planned but blocked until the `RES` token allows `P` scope under `T102-ADR-005` (planned as `P-PH000-ST001-AC001`).
+* **P-NOTE-001** — `P-RES-###` is planned but blocked until the `RES` token allows `P` scope under `T102-STD-005` (planned as `P-PH000-ST001-AC001`).
 
 #### 9. Research
 

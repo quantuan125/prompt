@@ -54,7 +54,7 @@ Synthesize findings from both commissioned research reports (T801-RES-001 Initia
 - **Plan File**: `prompt/artifacts/tasks/T801/consultant/workspace/plan/plan_T801A_phase0-1.md` (v1.3.0)
 - **Current LLM_Trader Prompt**: `prompt/roles/VPA/main_v2.1.md` — TTI protocol (lines 21-55)
 - **T810 Structural Exemplars**: SPS, Concept, Analysis patterns
-- **T102 Standards**: T102-ADR-004/005 for ID specification and decision record formatting
+- **T102 Standards**: T102-STD-004/005 for ID specification and decision record formatting
 
 ---
 

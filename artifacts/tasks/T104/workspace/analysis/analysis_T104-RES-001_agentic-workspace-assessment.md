@@ -300,7 +300,7 @@ target_plan: 'prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md'
 
 ## V. CANDIDATE ID MAPPING (RECOMMENDATIONS-ONLY)
 
-<!-- PURPOSE: Provide candidate IDs (per T102-ADR-005) that should be developed in Concept/SSOT as standards surfaces. These are placeholders for Socratic development and Client approval. -->
+<!-- PURPOSE: Provide candidate IDs (per T102-STD-005) that should be developed in Concept/SSOT as standards surfaces. These are placeholders for Socratic development and Client approval. -->
 
 ### A. Candidate Governance Decisions (T104-GDR-###)
 

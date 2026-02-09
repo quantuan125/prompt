@@ -462,7 +462,7 @@ Platform-level technical constraints that ALL features face:
 1. Remove feature-specific references to "Block 2, Block 5, Block 8" (A1's 9-block structure)
 2. Generalize to "Role Identity, Execution Protocols, Exemplars"
 3. Maintain "LLM_Gastro" terminology per client approval (Initiative is T810-GASTRO)
-4. **Remove precedence violations**: Delete `T810A-GDR-003` reference (E-RID cannot reference E-GDR per T102-ADR-005-FR-003); delete `T810A-ISSUE-004` reference (E-RID cannot reference ISSUE); delete specific IG references to avoid circular dependencies
+4. **Remove precedence violations**: Delete `T810A-GDR-003` reference (E-RID cannot reference E-GDR per T102-STD-005-FR-003); delete `T810A-ISSUE-004` reference (E-RID cannot reference ISSUE); delete specific IG references to avoid circular dependencies
 5. Generalize final sentence to describe architecture impacts without violating precedence rules
 
 **Promoted E-RID:**
@@ -862,7 +862,7 @@ NFR-009's intent is now captured by CON-004 hybrid resolution (Section 2.3):
 
 ### Context
 
-This section documents creation of 6 NEW Epic Implementation Guidance (IG) items to operationalize Quality Goals and enable GDR de-referencing from F-RIDs. Per T102-ADR-005, Implementation Guidance contains "normative authoring/process guidance" that features MUST follow. IGs prescribe HOW to achieve QG success criteria, focusing on cross-feature integrations with prescriptive patterns/thresholds.
+This section documents creation of 6 NEW Epic Implementation Guidance (IG) items to operationalize Quality Goals and enable GDR de-referencing from F-RIDs. Per T102-STD-005, Implementation Guidance contains "normative authoring/process guidance" that features MUST follow. IGs prescribe HOW to achieve QG success criteria, focusing on cross-feature integrations with prescriptive patterns/thresholds.
 
 ### IG-to-QG Mapping Strategy
 
@@ -1182,7 +1182,7 @@ QG-002/003/004/005/006 are inherent quality attributes (tone, performance, analy
 **T810A1 Request Document Updates Required:**
 - Update Inherited Considerations table to reference promoted Epic E-RIDs
 - Add feature delta for retained F-RIDs (ASSUM-004, DEP-008, CON-002/003/005, NFR-001/002/005/008/009)
-- Update all Epic RID references to proper backtick format per T102-ADR-005
+- Update all Epic RID references to proper backtick format per T102-STD-005
 
 ### Total E-RID Creation Summary
 

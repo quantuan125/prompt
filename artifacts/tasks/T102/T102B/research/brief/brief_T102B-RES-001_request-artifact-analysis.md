@@ -188,7 +188,7 @@ Internal artifact analysis (Read tool) is SECONDARY and used only to:
 ### D. Methodology "Hierarchy of Truth"
 1.  **Industry Standards** (IEEE, ISO, BABOK) — Authoritative external reference
 2.  **Industry Practice** (SAFe, Agile, Modern PRD) — Practical patterns
-3.  **T102 Governance** (`T102-ADR-001`, `T102-ADR-005`) — Internal constraints
+3.  **T102 Governance** (`T102-STD-001`, `T102-STD-005`) — Internal constraints
 4.  **Exemplar Artifacts** (`T810A1-PROMPT.md`) — Empirical success patterns
 
 ---
@@ -208,7 +208,7 @@ Internal artifact analysis (Read tool) is SECONDARY and used only to:
 ### A. Core Governance
 *   SSOT: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
 *   Concept: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
-*   T102-ADR-001: Consultancy Operating Model (workflow definition)
+*   T102-STD-001: Consultancy Operating Model (workflow definition)
 
 ### B. Primary Artifacts for Analysis
 *   `prompt/artifacts/tasks/T102/consultant/request/request_T102A-SPSST.md` (current T102A1 Request)
@@ -246,7 +246,7 @@ The research report MUST use the standard template located at:
 
 ---
 
-## VII. ISSUES & RISKS REGISTER (T102-ADR-007)
+## VII. ISSUES & RISKS REGISTER (T102-STD-007)
 
 **Issues**
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Date |

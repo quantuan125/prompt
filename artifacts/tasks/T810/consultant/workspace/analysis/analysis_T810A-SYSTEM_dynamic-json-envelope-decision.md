@@ -48,7 +48,7 @@ This analysis evaluates three JSON envelope patterns for **per-turn output** (th
 - Epic governance: `prompt/artifacts/tasks/T810/consultant/sps/sps_T810-GASTRO.md`
   - Includes `T810A-IG-004 (Tracking Payload Per-Turn Delta)` and `T810A-GDR-002 (Schema Split Architecture)`
 - Epic ADR compendium: `prompt/artifacts/tasks/T810/consultant/concept/concept_T810-GASTRO.md`
-  - ADR index structure per `T102-ADR-004` expectations; includes ADRs that constrain reporting and vocabulary governance
+  - ADR index structure per `T102-STD-004` expectations; includes ADRs that constrain reporting and vocabulary governance
 - T810A2 handoff brief: `prompt/artifacts/tasks/T810/consultant/workspace/communication/consultant/handoff_brief_T810A2-SCHEMA_to_T810A1-PROMPT_phase2.md`
   - Defines Patterns A/B/C and prior recommendation for Pattern A (MVP)
 - T810A2 request: `prompt/artifacts/tasks/T810/consultant/request/request_T810A2-SCHEMA.md`

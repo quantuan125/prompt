@@ -41,7 +41,7 @@ This recommendation is aligned to:
 - The client constraint to reduce implementation complexity and file proliferation risk while achieving Concept de-bloating.  
 
 ### D. Key gating decision this recommendation depends on
-The current system defines `CLAUSE` as **ADR-internal** (`T102-ADR-005-CLAUSE-002` / `T102-ADR-005-CLAUSE-005D`). Model D preserves that constraint by keeping `Specification/CLAUSE` content inside the ADR’s combined file (rather than attempting to introduce clause IDs in external spec modules in Phase 1).
+The current system defines `CLAUSE` as **ADR-internal** (`T102-STD-005-CLAUSE-002` / `T102-STD-005-CLAUSE-005D`). Model D preserves that constraint by keeping `Specification/CLAUSE` content inside the ADR’s combined file (rather than attempting to introduce clause IDs in external spec modules in Phase 1).
 
 This analysis assumes **no new token (e.g., `SPEC`) for Phase 1** and instead uses:
 - **ADR Index rows** referencing canonical **file path** to the combined file (defined in AC002).
@@ -56,7 +56,7 @@ This analysis assumes **no new token (e.g., `SPEC`) for Phase 1** and instead us
 - But the current ID system encodes a strong rule: **`CLAUSE` is enforceable but ADR-internal**, which constrains “spec modularization” choices.
 
 Therefore, the Phase 1 decision is not just “where text goes”; it is also “what is the stable, enforceable reference handle for the canonical spec text”:
-- `STD` already exists as the handle (`T102-ADR-009`).
+- `STD` already exists as the handle (`T102-STD-009`).
 - The adopted spec must be discoverable, stable, and referenceable at least by canonical path.
 
 ### B. What AC001 must output
@@ -74,7 +74,7 @@ Source: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.
 - Size indicator: 1,267 lines (10,274 words).
 - Contains full ADR bodies at Initiative scope and selected Epic scope bodies (not index-only).
 - Contains significant embedded clause content:
-  - `-CLAUSE-` appears ~123 times, concentrated in governance ADRs (`T102-ADR-004`, `T102-ADR-005`, `T102-ADR-009`).
+  - `-CLAUSE-` appears ~123 times, concentrated in governance ADRs (`T102-STD-004`, `T102-STD-005`, `T102-STD-009`).
 
 ### B. Why this conflicts with the Phase 1 direction
 The current Concept acts as both:
@@ -96,7 +96,7 @@ Models are evaluated against:
 3) **Drift resistance**: Does the model reduce duplication and paired-artifact drift?
 4) **Traceability & precision**: Can consumers cite a specific obligation reliably (at least by stable canonical reference)?
 5) **Compatibility with current `CLAUSE` semantics**: Does it require changing `CLAUSE` being ADR-internal?
-6) **Compatibility with `T102-ADR-009` adoption contract**: Does it preserve “STD adopts exactly one canonical spec”?
+6) **Compatibility with `T102-STD-009` adoption contract**: Does it preserve “STD adopts exactly one canonical spec”?
 7) **Migration cost / risk**: How much churn and coordination is required in Phase 1?
 8) **Tooling potential**: Does it enable future linting/automation without overhauling the system?
 
@@ -150,7 +150,7 @@ Scoring scale: **High / Medium / Low** (with short justification).
 | 3) Drift resistance | **Medium** — ADRs still risk accumulating spec-like detail unless strongly constrained. | **High** — strong with an index + modularization, but depends on defining module authority clearly. | **High** — strongest separation: standards adopt a single canonical spec; ADR bodies stay lean; Concept is links-only. | **Medium→High** — removes Concept duplication; churn is contained to one combined file per ADR, but decision/spec edits share the same file. |
 | 4) Traceability & precision | **High** — per-clause referencing exists via ADR `CLAUSE` IDs (ADR-internal). | **High (if ADR CLAUSE remains)** / **Medium (if modules lack IDs)** — depends on whether canonical obligations remain in ADR or move into modules. | **Medium→High** — can be strong if spec docs are anchor-addressable and indexed; may be weaker than `CLAUSE` IDs unless a clause-ID strategy is introduced later. | **High** — per-clause referencing remains via ADR `CLAUSE` IDs and the combined file’s canonical path is stable in Phase 1. |
 | 5) Compatibility with current `CLAUSE` semantics | **High** — fully compatible (`CLAUSE` stays ADR-internal). | **High (if ADR keeps canonical obligations)** / **Low (if modules are canonical normative text)**. | **Medium** — compatible if adopted specs are referenced by anchor (no `CLAUSE` IDs); **Low** if clause IDs are required inside spec docs without changing governance. | **High** — preserves `CLAUSE` as ADR-internal while still moving content out of Concept. |
-| 6) Compatibility with `T102-ADR-009` adoption contract | **Medium** — standards can “adopt” ADRs, but ADRs are mixed-purpose (rules+rationale). | **Medium→High** — depends on whether modules become the adopted canonical spec (then high). | **High** — directly aligned: `STD` adopts canonical spec; ADRs hold trade-offs/rationale. | **Medium→High** — `STD.Adopts` can reference the combined file as the Phase 1 canonical artifact; later separation can improve alignment without breaking the Phase 1 objective. |
+| 6) Compatibility with `T102-STD-009` adoption contract | **Medium** — standards can “adopt” ADRs, but ADRs are mixed-purpose (rules+rationale). | **Medium→High** — depends on whether modules become the adopted canonical spec (then high). | **High** — directly aligned: `STD` adopts canonical spec; ADRs hold trade-offs/rationale. | **Medium→High** — `STD.Adopts` can reference the combined file as the Phase 1 canonical artifact; later separation can improve alignment without breaking the Phase 1 objective. |
 | 7) Migration cost / risk (Phase 1) | **Low→Medium** — easiest: move ADR bodies out of Concept and index them; minimal governance change. | **Medium** — requires defining and maintaining Specs Index and module lifecycle. | **Medium→High** — requires spec doc/module authoring rules and a clear indexing contract; often implies immediate separation and more files. | **Low→Medium** — primarily “extract and link”: move existing ADR bodies out of Concept into combined files and update indexes. |
 | 8) Tooling potential | **Medium** — automation can validate ADR `CLAUSE` patterns, but modular spec detail is hard to validate if informal. | **High** — index enables validation of existence/anchors and lifecycle. | **High** — `STD` adoption contract + stable spec doc anchors create a strong validation surface for lint/review automation. | **Medium→High** — canonical path registry enables inventory and existence checks; Phase 2 can introduce richer validation once separation is adopted. |
 
@@ -182,7 +182,7 @@ Scoring scale: **High / Medium / Low** (with short justification).
   - How Concept indexes them (schema + required columns).
 - Must explicitly confirm the Phase 1 stance on clause IDs inside spec docs:
   - **Phase 1 default**: use path+anchor references (no `CLAUSE` token IDs in spec docs).
-  - If later “clause IDs” are required, that becomes a governance delta to `T102-ADR-005` (introduce a new token or broaden `CLAUSE` scope).
+  - If later “clause IDs” are required, that becomes a governance delta to `T102-STD-005` (introduce a new token or broaden `CLAUSE` scope).
 
 #### Model D
 - Must define the canonical “combined file” contract:
@@ -210,7 +210,7 @@ This recommendation assumes Phase 1 will:
 2) Treat combined ADR+Spec files as the canonical Phase 1 containers for ADR bodies and their `Specification/CLAUSE` text, referenced by:
    - Concept ADR Index rows using **repo-relative canonical path** to the combined file (whole-file granularity).
 3) Keep `CLAUSE` semantics unchanged in Phase 1:
-   - `CLAUSE` remains ADR-internal per `T102-ADR-005`,
+   - `CLAUSE` remains ADR-internal per `T102-STD-005`,
    - no attempt is made to introduce clause IDs outside the ADR combined file in Phase 1.
 
 This is “decision complete enough” to unblock AC002 (ADR Index schema + extraction conventions) without forcing an immediate new-token decision.
@@ -245,9 +245,9 @@ To proceed to AC002 and AC003, this activity requires explicit Client confirmati
 - SPS SSOT (STD index + adoption pointers): `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
 - Governance rules: `prompt/templates/consultant/workspace/workspace_documentation_rules.md`
 - Key normative specs:
-  - `T102-ADR-004 (Decision Records Index)`
-  - `T102-ADR-005 (ID Specification & Rules)`
-  - `T102-ADR-009 (Governance Standards Specification)`
+  - `T102-STD-004 (Decision Records Index)`
+  - `T102-STD-005 (ID Specification & Rules)`
+  - `T102-STD-009 (Governance Standards Specification)`
 
 ### B. External (industry grounding)
 - MADR (Markdown Architectural Decision Records): `https://adr.github.io/madr/`

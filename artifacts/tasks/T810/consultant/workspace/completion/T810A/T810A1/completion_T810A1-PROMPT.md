@@ -33,7 +33,7 @@ governance_guide: '../workspace_documentation_rules.md'
   - Added `T810A1-NOTE-001 (T810A2 Schema Handoff)` to Notes, summarizing Stable/Dynamic schema architecture, aggregation Pattern A, field classification mapping, and key integration touchpoints referencing T810A2 INT/CON items.
 - Improvement notes / next-activity guidance:
   - Keep Research/Notes entries concise and strictly non-normative; treat them as pointers into research and handoff artifacts, not as places to restate requirements.
-  - When future research or handoffs are added, maintain ID consistency per `T102-ADR-005` and ensure each entry clearly states its role in supporting specific F-RID categories (e.g., IG, INT, CON).
+  - When future research or handoffs are added, maintain ID consistency per `T102-STD-005` and ensure each entry clearly states its role in supporting specific F-RID categories (e.g., IG, INT, CON).
 - Links to canonical specs: request_T810A1-PROMPT.md Section I; brief_T810A1-PROMPT_s05-execution-protocol-clinical-validation.md; report_T810A1-PROMPT_s05-execution-protocol-clinical-validation.md; handoff_brief_T810A2-SCHEMA_to_T810A1-PROMPT_phase2.md.
 
 ### Subphase 0.2 — Analysis Artifacts
@@ -45,7 +45,7 @@ governance_guide: '../workspace_documentation_rules.md'
   - Recorded gap analyses and open questions in both analysis files, explicitly marking them as inputs to Phase 1 rather than normative specifications.
 - Improvement notes / next-activity guidance:
   - Use the two analysis artifacts as the primary reference when drafting new `T810A1-IG-*` items and updating `T810A1-INT-*`/`T810A1-CON-*` in Phase 1; keep detailed logic in IG/INT/CON sections and keep stories focused on narrative and acceptance criteria.
-  - When editing F-RIDs, maintain strict alignment with `T102-ADR-005` (ID patterns, INT cross-feature exception) and avoid duplicating T810A2 schema specifications; reference T810A2 F-RIDs and data artifacts instead.
+  - When editing F-RIDs, maintain strict alignment with `T102-STD-005` (ID patterns, INT cross-feature exception) and avoid duplicating T810A2 schema specifications; reference T810A2 F-RIDs and data artifacts instead.
   - Revisit the documented open questions with the Client before finalizing IG/INT/CON wording (e.g., gate strictness, optional field probing, long-term aggregation pattern) and then update analysis status to `approved` once confirmation is received.
 - Links to canonical specs: request_T810A1-PROMPT.md Section III.F; report_T810A1-PROMPT_s05-execution-protocol-clinical-validation.md; brief_T810A1-PROMPT_s05-execution-protocol-clinical-validation.md; handoff_brief_T810A2-SCHEMA_to_T810A1-PROMPT_phase2.md; request_T810A2-SCHEMA.md; template_dynamic_tracking_schema.yaml; field_classification_mapping.md.
 

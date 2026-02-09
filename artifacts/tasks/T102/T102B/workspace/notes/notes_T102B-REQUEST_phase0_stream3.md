@@ -44,8 +44,8 @@ Options hygiene:
 **Status**: `completed`
 
 **Key outcomes captured in this stream**:
-- E-RID compliance validated per T102-ADR-005 (Activities 3.1)
-- E-DRID compliance validated per T102-ADR-004 (Activity 3.2)
+- E-RID compliance validated per T102-STD-005 (Activities 3.1)
+- E-DRID compliance validated per T102-STD-004 (Activity 3.2)
 - RES/NOTE compliance validated; NOTEs extracted (Activity 3.3)
 - Cross-category dependency validation completed (Activity 3.0)
 - Activity restructuring: new Activities 3.5 (E-IID Compliance) and 3.6 (STD T102-STD-009 Compliance) added
@@ -71,11 +71,11 @@ The session began with a comprehensive review of the Stream 3 roadmap and the T1
 
 1. **T102B→T102D/Plan Handoff Policy**: Client identified that while `T102B-IF-003 (Request Output Contract)` defines the output payload, it does not explicitly address routing rules for Request→Design or Request→Plan handoff paths. The existing `T102B-NOTE-007 (Planner Handoff Deferral)` was deemed insufficient as it only defers the decision rather than establishing normative policy.
 
-2. **Missing E-IID Compliance Activity**: No activity in the roadmap validated E-IID items (IG, INT) against T102-ADR-005 compliance rules, particularly CLAUSE-005B (IG) and CLAUSE-005C (INT). Several INT items were identified with non-compliant MUST/SHALL language.
+2. **Missing E-IID Compliance Activity**: No activity in the roadmap validated E-IID items (IG, INT) against T102-STD-005 compliance rules, particularly CLAUSE-005B (IG) and CLAUSE-005C (INT). Several INT items were identified with non-compliant MUST/SHALL language.
 
-3. **NOTE-005 Redundancy**: `T102B-NOTE-005 (Workflow Typology Rationale)` was assessed as redundant with `T102B-ADR-004 (Request Lite Specification)` which already contains the rationale in its Context/Decision sections.
+3. **NOTE-005 Redundancy**: `T102B-NOTE-005 (Workflow Typology Rationale)` was assessed as redundant with `T102B-STD-004 (Request Lite Specification)` which already contains the rationale in its Context/Decision sections.
 
-4. **STD Body T102-STD-009 Compliance**: T102B-STD bodies do not follow the T102-ADR-009-CLAUSE-004 structure requiring Primary Obligation Sentence + Minimum Viable Conformance (MVC) bullets.
+4. **STD Body T102-STD-009 Compliance**: T102B-STD bodies do not follow the T102-STD-009-CLAUSE-004 structure requiring Primary Obligation Sentence + Minimum Viable Conformance (MVC) bullets.
 
 5. **Activity 3.7 Task Register**: The NOTES file finalization task register needed complete rebuild to match the `notes_T102-CWD_phase0_stream1.md` structural exemplar.
 
@@ -91,7 +91,7 @@ The session resolved these gaps by restructuring the Stream 3 activity sequence 
 
 **Option B — Keep IF-003 minimal; create IG for validation checklist (Selected)**
 - IF-003 contains minimal normative routing rules only.
-- New `T102B-IG-007 (Request Handoff Routing)` provides informative validation checklist per T102-ADR-005-CLAUSE-005B.
+- New `T102B-IG-007 (Request Handoff Routing)` provides informative validation checklist per T102-STD-005-CLAUSE-005B.
 - Chosen to maintain separation between normative requirements (IF) and informative guidance (IG).
 
 **Option C — Defer routing rules to T102B2 (RPG) feature**
@@ -102,7 +102,7 @@ The session resolved these gaps by restructuring the Stream 3 activity sequence 
 
 **Option A — Rewrite all non-compliant INT to SHOULD/MAY language (Selected)**
 - All INT items (INT-003, INT-004, INT-006) with MUST/SHALL language rewritten to SHOULD/MAY.
-- Maintains INT as non-normative per T102-ADR-005-CLAUSE-005C.
+- Maintains INT as non-normative per T102-STD-005-CLAUSE-005C.
 
 **Option B — Promote normative portions to RID/ADR**
 - Extract normative content to CON/ADR; keep coordination guidance in INT.
@@ -347,7 +347,7 @@ Client directed WP2 and WP3 to execute via parallel subagents with detailed inst
 
 - Roadmap: `prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T102B-REQUEST_phase0.md`
 - Proposal: `prompt/artifacts/tasks/T102/T102B/workspace/proposal/proposal_T102B-REQUEST_phase0.md`
-- T102-ADR-005 Spec: `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor-adr-004-005.md`
+- T102-STD-005 Spec: `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor-adr-004-005.md`
 - T102-STD-009 Spec: `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md`
 - Notes Exemplar: `prompt/artifacts/tasks/T102/consultant/workspace/notes/notes_T102-CWD_phase0_stream1.md`
 - Raw Transcript (SES-002): `prompt/artifacts/tasks/T102/T102B/raw/raw_T102B-REQUEST_phase0_2026-01-28_p15.txt`

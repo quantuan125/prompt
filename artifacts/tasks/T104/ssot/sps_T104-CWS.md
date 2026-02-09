@@ -83,7 +83,7 @@ Standardizing the consultant workspace directly reduces the "governance overhead
 #### 3. Project Constraints
 
 * **T104-CON-001 (Link Don't Duplicate)** — Artifacts SHALL link by ID or path rather than duplicating normative content across workflow tools and SSOT surfaces. Duplication creates drift risk; linking preserves single-source-of-truth integrity.
-  External Reference: `T102-ADR-003 (Explicit Inheritance Model)`
+  External Reference: `T102-STD-003 (Explicit Inheritance Model)`
 
 * **T104-CON-002 (Markdown Frontmatter)** — All governance artifacts SHALL remain Markdown files with YAML frontmatter. This constraint ensures toolability, schema validation, and consistent review workflows.
   External Reference: `T102-CON-001 (Markdown Frontmatter)`
@@ -114,7 +114,7 @@ Standardizing the consultant workspace directly reduces the "governance overhead
 #### 5. Dependencies
 
 * **T104-DEP-001 (T102 Standards Stack)** — T104 SHALL adopt ALL `T102` governance standards stack for ID governance, research workflow, decision records, inheritance model, and standards model. Adopted standards include: T102-STD-003/004/005/006/007/009. All `T104` IDs, research artifacts, STD entries, and decision records SHALL conform to the adopted T102 specifications.
-  External Reference: `T102-STD-003 (Inheritance Model Standard)`, `T102-STD-004 (Decision Records Standard)`, `T102-STD-005 (ID Governance Standard)`, `T102-STD-006 (Research Workflow Standard)`, `T102-STD-007 (LLM Quality Control)`, `T102-STD-009 (Governance Standards Model)`
+  External Reference: `T102-STD-003 (Inheritance Model Standard)`, `T102-STD-004 (Specification Standard & Guideline)`, `T102-STD-005 (ID Governance Standard)`, `T102-STD-006 (Research Workflow Standard)`, `T102-STD-007 (LLM Quality Control)`, `T102-STD-009 (Governance Standards Model)`
 
 * **T104-DEP-002 (Research Workflow)** — Formal research commissions SHALL follow `T102-STD-006` research workflow rules. Each research commission SHALL produce a brief and report, both indexed in SPS III.B.9 (Research) with standardized linking per the adopted specification.
   External Reference: `T102-STD-006 (Research Workflow Standard)`
@@ -151,9 +151,9 @@ Standardizing the consultant workspace directly reduces the "governance overhead
 
 | STD ID | Title | Status | Owner | Effective | Supersedes | Adopts | Verification | Governed By | Reference |
 |:-------|:------|:-------|:------|:----------|:-----------|:-------|:------------|:-----------|:----------|
-| `T104-STD-001` | **Planning Hierarchy** | `planned` | LLM_Consultant | PH001-ST002 | — | — | Review: plan artifacts comply with hierarchy schema; CI: lint prefix/nesting | `T102-ADR-009 (Governance Standards Specification)`, `T102-CON-009 (Normative Keywords)` | `T102-STD-005`, `T102-STD-009`, `T102-CON-009` |
-| `T104-STD-002` | **UID Convention** | `planned` | LLM_Consultant | PH001-ST002 | — | `T102-ADR-005 (ID Specification & Rules)` | CI: regex validation of IDs; Review: prefix compliance | `T102-ADR-009 (Governance Standards Specification)`, `T102-CON-009 (Normative Keywords)` | `T102-STD-005`, `T102-CON-009` |
-| `T104-STD-003` | **Gate Definition** | `planned` | LLM_Consultant | PH001-ST002 | — | — | Review: gate records exist with required fields; Checklist compliance | `T102-ADR-009 (Governance Standards Specification)`, `T102-CON-009 (Normative Keywords)` | `T102-STD-009`, `T102-CON-009` |
+| `T104-STD-001` | **Planning Hierarchy** | `planned` | LLM_Consultant | PH001-ST002 | — | — | Review: plan artifacts comply with hierarchy schema; CI: lint prefix/nesting | `T102-STD-009 (Governance Standards Specification)`, `T102-CON-009 (Normative Keywords)` | `T102-STD-005`, `T102-STD-009`, `T102-CON-009` |
+| `T104-STD-002` | **UID Convention** | `planned` | LLM_Consultant | PH001-ST002 | — | `T102-STD-005 (ID Specification & Rules)` | CI: regex validation of IDs; Review: prefix compliance | `T102-STD-009 (Governance Standards Specification)`, `T102-CON-009 (Normative Keywords)` | `T102-STD-005`, `T102-CON-009` |
+| `T104-STD-003` | **Gate Definition** | `planned` | LLM_Consultant | PH001-ST002 | — | — | Review: gate records exist with required fields; Checklist compliance | `T102-STD-009 (Governance Standards Specification)`, `T102-CON-009 (Normative Keywords)` | `T102-STD-009`, `T102-CON-009` |
 
 **STD Bodies**
 
@@ -164,14 +164,14 @@ Standardizing the consultant workspace directly reduces the "governance overhead
     3. Execution mode (SEQUENTIAL/PARALLEL) and dependencies explicitly declared.
     4. Handoff acknowledgments recorded per CLAUSE-006.
     5. Planner optionality triggers follow CLAUSE-005 complexity thresholds per `T104-ASSUM-001 (Planner Optionality)`.
-  - Note: `Adopts = —` is intentional until a canonical adopted spec is defined in ST002; see `T102-ADR-009-CLAUSE-004D (STD Conciseness)`.
+  - Note: `Adopts = —` is intentional until a canonical adopted spec is defined in ST002; see `T102-STD-009-CLAUSE-004D (STD Conciseness)`.
 
 * **T104-STD-002 (UID Convention)** — All T104 artifact names, IDs, and link patterns SHALL conform to the deterministic naming and ID construction rules defined in the adopted specification.
   - **Minimum Viable Conformance**:
     1. IDs match canonical regex patterns per adopted spec CLAUSE-001.
     2. Artifact files use type-specific prefixes per `T104-CON-004`.
     3. Links use relative paths with stable anchors per adopted spec CLAUSE-004.
-  - External Reference: `T102-ADR-005 (ID Specification & Rules)`
+  - External Reference: `T102-STD-005 (ID Specification & Rules)`
 
 * **T104-STD-003 (Gate Definition)** — All T104 phase gates SHALL define and record entry/exit criteria, evidence requirements, and approver signals. This standard establishes the gate schema for baseline approvals at Phase boundaries.
   - **Minimum Viable Conformance**:
@@ -180,7 +180,7 @@ Standardizing the consultant workspace directly reduces the "governance overhead
     3. Gate records captured per `T104-IF-001` schema.
     4. Escalation path defined for blocked gates.
     5. Approver role documented per `T102-IF-002` contract.
-  - Note: `Adopts = —` is intentional until a canonical adopted spec is defined in ST002; see `T102-ADR-009-CLAUSE-004D (STD Conciseness)`.
+  - Note: `Adopts = —` is intentional until a canonical adopted spec is defined in ST002; see `T102-STD-009-CLAUSE-004D (STD Conciseness)`.
 
 #### 8. Project Guidances & Notes
 
@@ -188,14 +188,14 @@ Standardizing the consultant workspace directly reduces the "governance overhead
 * **T104-IG-001 (Links Register)** — Every Plan and Roadmap artifact SHALL include a Links Register section that explicitly enumerates primary cross-references (parent plan, notes, SSOT, research inputs). This register acts as the navigation spine for agentic and human retrieval and supports `T104-QG-005 (Thin Spine)`. Authors SHALL prefer stable relative paths and SHALL NOT embed duplicate content where a link suffices.
 
 * **T104-IG-002 (Research Linking)** — Research commissions SHALL follow the Brief → Report → Analysis → Proposal/SPS linking chain. Each artifact links forward to its consumer and backward to its source. Authors SHALL NOT duplicate research findings into consuming artifacts; instead, they SHALL reference findings by ID and section. This guidance implements `T104-CON-001` and operationalizes `T104-DEP-002` for research artifacts.
-  External Reference: `T102-ADR-006 (Research Artifacts Index)`
+  External Reference: `T102-STD-006 (Research Artifacts Index)`
 
 **Integration Guidance**
 * *No initiative-scope integration guidance items.* Integration guidance (`INT`) is recommended at Epic/Feature scope where specific artifact-to-artifact integration patterns apply. See `T104-NOTE-001` for scope clarification.
 
 **Notes**
-* **T104-NOTE-001 (INT Scope)** — At initiative scope, implementation guidance (`IG`) is preferred over integration guidance (`INT`). While `T102-ADR-005` allows `INT` at all scopes, the initiative level typically lacks the artifact-to-artifact specificity that `INT` is designed to address. Epic and Feature scopes are the recommended homes for `INT` items.
-External Reference: `T102-ADR-005-CLAUSE-002`
+* **T104-NOTE-001 (INT Scope)** — At initiative scope, implementation guidance (`IG`) is preferred over integration guidance (`INT`). While `T102-STD-005` allows `INT` at all scopes, the initiative level typically lacks the artifact-to-artifact specificity that `INT` is designed to address. Epic and Feature scopes are the recommended homes for `INT` items.
+External Reference: `T102-STD-005-CLAUSE-002`
 
 * **T104-NOTE-002 (Plan Deferral)** — The activity plan template and formal step-level IDs (e.g., `T104-AC###-TK###-ST###`) are intentionally deferred to a future initiative alongside the LLM_Planner system. Phase 1 uses a skeleton plan structure without step-granularity identifiers. This deferral aligns with `T104-ASSUM-001`.
 

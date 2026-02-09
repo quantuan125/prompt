@@ -50,7 +50,7 @@ Per "red flag" test: Does IG contain constraint not in RID/ADR?
 | IG-003 | SHALL | ADR-003 | No | → SHOULD |
 | IG-004 | SHALL | ADR-004 | No | → SHOULD |
 | IG-005 | SHALL | GDR-003 | No | → SHOULD |
-| IG-006 | SHALL | T102-ADR-003 | No | → SHOULD |
+| IG-006 | SHALL | T102-STD-003 | No | → SHOULD |
 
 **Conclusion**: No red flags. All SHALL statements derive from existing governance. Convert to SHOULD per Option B+C decision.
 

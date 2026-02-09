@@ -114,7 +114,7 @@ The session performed a meta-analysis of current "roadmap" files. A critical dri
 5. Epic subconsultant enablement model (T104A, T104E).
 6. Missing industry-standard gaps assessment.
 7. T104G (COMMUNICATION) epic registration.
-8. T102-ADR-009 governance standards pattern adoption.
+8. T102-STD-009 governance standards pattern adoption.
 
 #### B. Narrative Summary (Minutes-Style)
 Synthesized 3-round dialogue covering: initial assessment of SPS underdevelopment → SPS-led standards approach with controlled interleave → Phase 1 structure with 6 streams. Key conclusion: Lead with SPS requirements population, then standards authoring, then enable subconsultants in parallel.
@@ -129,7 +129,7 @@ Synthesized 3-round dialogue covering: initial assessment of SPS underdevelopmen
 | `T104-PH001-ST000-SES002-DP004` | 4. Gate Definition Standard | → DEC003 | Client approved T104-STD-003 inclusion in Stream 2 | Client Comment 3 |
 | `T104-PH001-ST000-SES002-DP005` | 7. Communication Epic | → DEC004 | Client approved T104G registration; detailed development deferred | Client Comment 2 |
 | `T104-PH001-ST000-SES002-DP006` | 2. Phase 0 Migration Strategy | → DEC005 | Streams 4A/5/6.1/7 marked migrated; LLM_Developer responsibility | Client Comment 4 |
-| `T104-PH001-ST000-SES002-DP007` | 8. Standards Authoring Pattern | → DEC006 | Stream 2 follows T102-ADR-009 governance standards specification | Client Comment 1 |
+| `T104-PH001-ST000-SES002-DP007` | 8. Standards Authoring Pattern | → DEC006 | Stream 2 follows T102-STD-009 governance standards specification | Client Comment 1 |
 | `T104-PH001-ST000-SES002-DP008` | 6. Industry-Standard Gaps Identified | Deferred | 4 gaps identified: STD-003 approved, Status/Change/Comm deferred | Assessment section |
 
 #### D. Decisions Captured
@@ -137,11 +137,11 @@ Synthesized 3-round dialogue covering: initial assessment of SPS underdevelopmen
 | ID | Decision | Type | Status | Owner | Date | Rationale | Acceptance Signal | Evidence |
 |:---|:---------|:-----|:-------|:------|:-----|:----------|:------------------|:---------|
 | `T104-PH001-ST000-SES002-DEC001` | Create Phase 1 plan (`T104-PH001.md`) with 6 streams | Process | Confirmed | Client | 2026-01-31 | Needed to coordinate subconsultant work with stable standards contract | Explicit client approval | `raw_T104-CWS_2026-01-31_p2.txt` |
-| `T104-PH001-ST000-SES002-DEC002` | STD bodies in SPS Section III.B.7; normative specs in Concept file | Governance | Confirmed | Client | 2026-01-31 | Mirrors T102 pattern (T102-STD-005 + T102-ADR-005) | Explicit client approval | `raw_T104-CWS_2026-01-31_p2.txt` |
+| `T104-PH001-ST000-SES002-DEC002` | STD bodies in SPS Section III.B.7; normative specs in Concept file | Governance | Confirmed | Client | 2026-01-31 | Mirrors T102 pattern (T102-STD-005 + T102-STD-005) | Explicit client approval | `raw_T104-CWS_2026-01-31_p2.txt` |
 | `T104-PH001-ST000-SES002-DEC003` | T104-STD-003 (Gate Definition Standard) approved for Phase 1 Stream 2 | Governance | Confirmed | Client | 2026-01-31 | Formalizes Phase Gates as decision points | Explicit client approval | `raw_T104-CWS_2026-01-31_p2.txt` |
 | `T104-PH001-ST000-SES002-DEC004` | Register T104G (COMMUNICATION) epic in SPS; defer detailed development | Process | Confirmed | Client | 2026-01-31 | Standardizes inter-role communication artifacts | Explicit client approval | `raw_T104-CWS_2026-01-31_p2.txt` |
 | `T104-PH001-ST000-SES002-DEC005` | Phase 0 Streams 4A/5/6.1/7 marked migrated to Phase 1 | Process | Confirmed | Client | 2026-01-31 | Avoids confusion about which plan file governs what | Explicit client approval | `raw_T104-CWS_2026-01-31_p2.txt` |
-| `T104-PH001-ST000-SES002-DEC006` | Stream 2 standards authoring follows T102-ADR-009 governance standards pattern | Process | Confirmed | Client | 2026-01-31 | Ensures consistent standards structure across initiatives | Explicit client approval | `raw_T104-CWS_2026-01-31_p2.txt` |
+| `T104-PH001-ST000-SES002-DEC006` | Stream 2 standards authoring follows T102-STD-009 governance standards pattern | Process | Confirmed | Client | 2026-01-31 | Ensures consistent standards structure across initiatives | Explicit client approval | `raw_T104-CWS_2026-01-31_p2.txt` |
 | `T104-PH001-ST000-SES002-DEC007` | Subconsultant briefing uses `handoff_brief_` pattern (per T810 exemplar) | Process | Confirmed | Client | 2026-01-31 | Reusable briefing pattern for any new subconsultant | Inferred approval | `raw_T104-CWS_2026-01-31_p2.txt` |
 
 #### E. Actions
@@ -186,5 +186,5 @@ Synthesized 3-round dialogue covering: initial assessment of SPS underdevelopmen
 - Source: `prompt/artifacts/tasks/T104/T104A/raw/raw_T104A-ROADMAP_2026-01-30_p1.md`
 - Source: `prompt/artifacts/tasks/T104/raw/raw_T104-CWS_2026-01-31_p2.txt`
 - Parent Plan: `prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001.md`
-- Reference: `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md` (T102-ADR-009)
+- Reference: `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md` (T102-STD-009)
 - Reference: `prompt/artifacts/tasks/T810/consultant/workspace/communication/handoff_brief_T810A2-SCHEMA.md` (T810 exemplar)

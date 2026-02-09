@@ -417,7 +417,7 @@ The research will be considered successful if it delivers:
 #### **Gate 3: GDR Specifications Approval** (Implementation phase)
 - **Artifacts:** T102-GDR-006 draft, T102A-GDR-003 draft
 - **Stakeholder:** Client approval required for governance decisions
-- **Acceptance Criteria:** GDR specifications meet T102-ADR-004 standards and align with research recommendations
+- **Acceptance Criteria:** GDR specifications meet T102-STD-004 standards and align with research recommendations
 - **Output:** Approved GDRs ready for integration into SPS and communication to T102A subconsultant
 
 #### **Gate 4: T102-ISSUE-005 Resolution** (Completion gate)

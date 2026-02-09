@@ -18,7 +18,7 @@ target_roadmap: 'prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T10
 
 ## I. EXECUTIVE SUMMARY
 
-**Analysis Purpose**: Assess all OID (Other ID) candidates from T102B Phase 0 proposal against T102-ADR-005/006/007 compliance requirements; classify items as Phase 0 process artifacts vs T102B development items; determine SPS placement eligibility; identify additional OID items from completed Activity 2.3-2.5 work.
+**Analysis Purpose**: Assess all OID (Other ID) candidates from T102B Phase 0 proposal against T102-STD-005/006/007 compliance requirements; classify items as Phase 0 process artifacts vs T102B development items; determine SPS placement eligibility; identify additional OID items from completed Activity 2.3-2.5 work.
 
 **Source Inventory**:
 - **Proposal Section II.D**: 8 Issues, 5 Risks, 10 Notes, 2 Research entries
@@ -38,7 +38,7 @@ target_roadmap: 'prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T10
 
 ## II. COMPLIANCE FRAMEWORK
 
-### A. T102-ADR-007 (Issues & Risks Index) Requirements
+### A. T102-STD-007 (Issues & Risks Index) Requirements
 
 | Clause | Requirement | Applicability |
 |:-------|:------------|:--------------|
@@ -50,7 +50,7 @@ target_roadmap: 'prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T10
 | CLAUSE-008 | Mitigation Notes MUST cite governing E-RIDs/E-DRs via back-ticked IDs | Mitigated Risks |
 | CLAUSE-009 | Cross-scope promotion: Epic→Initiative requires ID reference, not duplication | Promotion candidates |
 
-### B. T102-ADR-005-CLAUSE-005E (Notes Semantics) Requirements
+### B. T102-STD-005-CLAUSE-005E (Notes Semantics) Requirements
 
 | Criterion | Requirement |
 |:----------|:------------|
@@ -92,7 +92,7 @@ target_roadmap: 'prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T10
 
 **ISSUE-003 (Story Register Scope)** — Assessment:
 - **Current State**: Marked `OPEN` with HIGH priority
-- **Resolution Path**: Addressed by `T102B-ADR-003 (Story FR Deferral Standard)` which defines Story Index structure
+- **Resolution Path**: Addressed by `T102B-STD-003 (Story FR Deferral Standard)` which defines Story Index structure
 - **Proposed Status**: `IN-REVIEW` — ADR-003 specification provides resolution framework; final Story Index template deferred to T102B1 Feature
 - **SPS Import**: No — Resolution mechanism exists; implementation is Feature-scoped
 
@@ -259,7 +259,7 @@ Based on Activity 2.3-2.5 deliverables, the following additional OID items shoul
 **Recommendation 1: Resolve Phase 0 Process Issues** (Priority: HIGH)
 - Mark ISSUE-005 and ISSUE-006 as `RESOLVED` with proper Resolution Notes
 - Mark RISK-002 as `MITIGATED` with Mitigation Notes
-- Update Proposal Section IV tables per T102-ADR-007
+- Update Proposal Section IV tables per T102-STD-007
 
 **Recommendation 2: Execute Deduplication** (Priority: HIGH)
 - Close T102B-RISK-004 with reference to T102-RISK-004

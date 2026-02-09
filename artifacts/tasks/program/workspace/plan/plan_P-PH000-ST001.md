@@ -21,7 +21,7 @@ parent_plan: 'prompt/artifacts/tasks/program/workspace/plan/plan_P-PH000.md'
 
 **Purpose**: Plan the program-level standards authoring stream and the prerequisite ID-governance change required to make `P-RES-###` legal at Program scope (`P`).
 
-**Hard dependency**: `T102-ADR-005` token table currently restricts `RES` to `I, E, F`. Enabling `P-RES` requires a planned change in `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`.
+**Hard dependency**: `T102-STD-005` token table currently restricts `RES` to `I, E, F`. Enabling `P-RES` requires a planned change in `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`.
 
 ---
 
@@ -35,7 +35,7 @@ parent_plan: 'prompt/artifacts/tasks/program/workspace/plan/plan_P-PH000.md'
 
 | Activity | Activity ID | Name | Status | Owner | Depends On | Deliverable | Reference |
 |:--|:--|:--|:--|:--|:--|:--|:--|
-| AC001 | `P-PH000-ST001-AC001` | Amend ID governance to allow `P-RES-###` | `planned` | LLM_Consultant | — | Planned T102 change (RES token Allowed Scope) | `T102-ADR-005` |
+| AC001 | `P-PH000-ST001-AC001` | Amend ID governance to allow `P-RES-###` | `planned` | LLM_Consultant | — | Planned T102 change (RES token Allowed Scope) | `T102-STD-005` |
 | AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` + `P-ADR-001` (Program Workspace Standard) | `planned` | LLM_Consultant | AC001 | Planned standard + paired ADR | Program SSOT |
 | AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` + `P-ADR-002` (Program Status Standard) | `planned` | LLM_Consultant | AC001 | Planned standard + paired ADR | Program SSOT |
 
@@ -47,19 +47,19 @@ parent_plan: 'prompt/artifacts/tasks/program/workspace/plan/plan_P-PH000.md'
 
 **Activity ID**: `P-PH000-ST001-AC001`
 
-**Purpose**: Enable `P-RES-###` IDs by updating the `RES` token Allowed Scope to include `P` in the canonical `T102-ADR-005` token table.
+**Purpose**: Enable `P-RES-###` IDs by updating the `RES` token Allowed Scope to include `P` in the canonical `T102-STD-005` token table.
 
 **Planned deliverable (explicit target)**:
 - Update the `RES` row in the token table inside `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`:
   - Allowed Scope: `I, E, F` → `P, I, E, F`
 
 **Planned verification**:
-- Confirm `P-RES-001` conforms to `T102-ADR-005-CLAUSE-001` Pattern 3: `^P(?:-[A-Z0-9_]+)*-[A-Z]+-\\d{3}$`
+- Confirm `P-RES-001` conforms to `T102-STD-005-CLAUSE-001` Pattern 3: `^P(?:-[A-Z0-9_]+)*-[A-Z]+-\\d{3}$`
 
 **Task Register**:
 | Task ID | Description | Status | Action |
 |:--|:--|:--|:--|
-| `P-PH000-ST001-AC001-TK001` | Locate canonical `T102-ADR-005` token table and the `RES` row | `planned` | — |
+| `P-PH000-ST001-AC001-TK001` | Locate canonical `T102-STD-005` token table and the `RES` row | `planned` | — |
 | `P-PH000-ST001-AC001-TK002` | Update `RES` Allowed Scope to include `P` | `planned` | — |
 | `P-PH000-ST001-AC001-TK003` | Validate references and patterns remain consistent after the change | `planned` | — |
 

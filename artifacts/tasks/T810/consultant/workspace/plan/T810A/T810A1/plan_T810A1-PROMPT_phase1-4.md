@@ -172,13 +172,13 @@ Phase 1.5 ensures specifications match real-world behavior before proceeding to 
 
 ### PHASE 2: Feature GDR Index Creation 📑
 
-**Objective**: Establish Section III.M with Feature-level Governance Decision Records following T102-ADR-004 pattern.
+**Objective**: Establish Section III.M with Feature-level Governance Decision Records following T102-STD-004 pattern.
 
 #### A. GDR Index Schema
 
 **Section Title**: `M. Feature Governance Decision Records`
 
-**Table Schema** (per T102-ADR-004-FR-001):
+**Table Schema** (per T102-STD-004-FR-001):
 ```
 | GDR ID | Title | Status | Owner | Effective | Supersedes | Anchor |
 |--------|-------|--------|-------|-----------|------------|--------|
@@ -218,7 +218,7 @@ Phase 1.5 ensures specifications match real-world behavior before proceeding to 
 
 #### C. GDR Body Template
 
-Each GDR SHALL follow T102-ADR-004-FR-002 structure:
+Each GDR SHALL follow T102-STD-004-FR-002 structure:
 - **Context**: Why this decision is needed; the gap it resolves (cite research deliverable)
 - **Decision**: What is adopted/changed and who owns it (Client as decision owner)
 - **Consequences**: Impacts using (+)/(±)/(-) bullets (effect on stories, implementation complexity)
@@ -935,15 +935,15 @@ Individual story phases detailed below (Sections A through G).
 | **GDR vs. ADR confusion** | Incorrect decision record placement | Medium | Follow client directive: high-level governance = GDR; implementation detail = ADR in Concept |
 | **S06 safety scope ambiguity** | Over-specification beyond CON-007 | Medium | Maintain prompt-level guidance only; no comprehensive safety framework per client directive |
 | **Implementation drift from specification** | Phase 4 rework | Low | Story-by-story handoff with validation gates |
-| **F-ID referencing violations** | Hierarchy rule violations | Low | Agent review of T102-ADR-005 before proposal; avoid F-ID → F-GDR references |
+| **F-ID referencing violations** | Hierarchy rule violations | Low | Agent review of T102-STD-005 before proposal; avoid F-ID → F-GDR references |
 
 ---
 
 ## VI. DEPENDENCIES
 
 **Internal Dependencies**:
-- T102-ADR-004 (Decision Records Index): Schema and body format for GDR creation
-- T102-ADR-005 (ID Specification & Rules): ID hierarchy and referencing rules
+- T102-STD-004 (Decision Records Index): Schema and body format for GDR creation
+- T102-STD-005 (ID Specification & Rules): ID hierarchy and referencing rules
 - T810A1-RES-001: Research findings as evidence base for all updates
 
 **External Dependencies**:
@@ -956,7 +956,7 @@ Individual story phases detailed below (Sections A through G).
 ## VII. NEXT STEPS
 
 **Immediate Actions**:
-1. **Agent Review**: Send agent to review T102-ADR-005 (ID Specification & Rules)
+1. **Agent Review**: Send agent to review T102-STD-005 (ID Specification & Rules)
 2. **Phase 1 Execution**: Audit all existing F-IDs (NFR/IF/CON/INT) and propose updates
 3. **S01-S03 Review**: Identify necessary updates to Stories 1-3 based on research
 4. **Client Approval Gate**: Present Phase 1 proposals for approval before implementation

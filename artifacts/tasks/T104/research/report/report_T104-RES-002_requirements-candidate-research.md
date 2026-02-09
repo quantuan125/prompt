@@ -21,7 +21,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 **Context**: SPS Section III.B.2–III.B.11 in `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` is structurally scaffolded but substantively empty (placeholders only). Without a structured candidate register grounded in internal decisions and aligned to T102 governance (ID spec, research index, issues/risks), the upcoming AC002 cross-category consultation risks being ad-hoc and incomplete.
 
 **Verdict**: **CONDITIONAL GO** — proceed to AC002 consultation using the candidate register in Topic 8, but treat two governance conflicts as explicit consultation agenda items:
-1) Initiative-scope `INT` token mismatch (template includes it; `T102-ADR-005` disallows it at Initiative scope).
+1) Initiative-scope `INT` token mismatch (template includes it; `T102-STD-005` disallows it at Initiative scope).
 2) `T102-DEP-003 (Role Definitions)` is referenced but not defined in the inspected T102 SPS content, which blocks clean “adopt/align” mapping.
 
 **Key Findings**:
@@ -65,9 +65,9 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 
 **Source of Truth Audit**:
 * **Canonical ID and scope rules**:
-  * `python3 prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
+  * `python3 prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
 * **Issues & risks schema**:
-  * `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (`T102-ADR-007`)
+  * `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (`T102-STD-007`)
 * **T104 current state**:
   * `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md`
   * `prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001.md`
@@ -122,7 +122,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 
 #### A. Evidence & Forensics
 * **Source**: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (T102 `STD`, `DEP`, `IF` declarations).
-* **Source**: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (`T102-ADR-006` research index; `T102-ADR-007` issues/risks index).
+* **Source**: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (`T102-STD-006` research index; `T102-STD-007` issues/risks index).
 
 #### B. Analysis
 **Cross-reference table (T102 → T104)**:
@@ -131,16 +131,16 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 |:--|:--|:--|:--|
 | `T102-STD-005 (ID Governance Standard)` | Controls all candidate ID/token construction and reference semantics in T104 | adopts | Low |
 | `T102-STD-006 (Research Workflow Standard)` | Controls how T104 research is indexed (SPS tables + Concept aggregation register) | adopts | Medium (T104 Concept register is scaffold today) |
-| `T102-ADR-005 (ID Specification & Rules)` | Canonical authority for scope/token rules, incl. `INT` scope limits | adopts | Low |
-| `T102-ADR-006 (Research Artifacts Index)` | Canonical spec for research index schema and placement | adopts | Medium |
-| `T102-ADR-007 (Issues & Risks Index)` | Canonical schema/enums for issues and risks tables | adopts | Low |
+| `T102-STD-005 (ID Specification & Rules)` | Canonical authority for scope/token rules, incl. `INT` scope limits | adopts | Low |
+| `T102-STD-006 (Research Artifacts Index)` | Canonical spec for research index schema and placement | adopts | Medium |
+| `T102-STD-007 (Issues & Risks Index)` | Canonical schema/enums for issues and risks tables | adopts | Low |
 | `T102-IF-001..004` | Defines handoffs, client review, collaboration boundaries, co-authoring | aligns-with/extends | Medium |
 | `T102-DEP-001 (Client Engagement)` | SLA expectations for decision-owner review cadence | adopts | Medium |
 | `T102-DEP-002 (Planner Integration)` | Planner system integration constraint (even if planner optional today) | aligns-with | High |
 | `T102-DEP-003 (Role Definitions)` | Referenced in T102 but not defined in inspected files | gap | High |
 
 #### C. Governance Implication
-* Where T104 templates diverge from `T102-ADR-005` (initiative `INT`), treat it as an explicit issue (`T104-ISSUE-005`) and decision point in AC002.
+* Where T104 templates diverge from `T102-STD-005` (initiative `INT`), treat it as an explicit issue (`T104-ISSUE-005`) and decision point in AC002.
 
 ---
 
@@ -263,7 +263,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 #### A. Evidence & Forensics
 * **Source**: inherited items listed in `brief_T104-RES-002_requirements-candidate-research.md` (T104-ISSUE-001..004, T104-RISK-001..003).
 * **New evidence**:
-  - `T102-ADR-005` explicitly disallows initiative-scope `INT` (scope mismatch with SPS template).
+  - `T102-STD-005` explicitly disallows initiative-scope `INT` (scope mismatch with SPS template).
   - `T102-DEP-003` referenced without definition in `sps_T102-CONSULTANT.md` (as inspected).
 
 #### B. Recommendation
@@ -287,11 +287,11 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 ---
 
 ### Topic 8: Candidate IID Register (P1)
-**Objective**: Synthesize Topics 1–7 into a draft candidate IID register conforming to `T102-ADR-005`.
+**Objective**: Synthesize Topics 1–7 into a draft candidate IID register conforming to `T102-STD-005`.
 
 #### III.B.2 — Project Assumptions (ASSUM)
 
-**ASSUM Validation Lifecycle Summary (candidates)** (per `T102-ADR-005-CLAUSE-005A`)
+**ASSUM Validation Lifecycle Summary (candidates)** (per `T102-STD-005-CLAUSE-005A`)
 
 | ID | Title | Status | Validation Method | Timing | Owner | If Invalidated | CON Cross-Ref |
 |:---|:--|:--|:--|:--|:--|:--|:--|
@@ -327,10 +327,10 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 | Candidate ID | Title | Description | Source (Topic #) | Evidence | Validation Status |
 |:--|:--|:--|:--|:--|:--|
 | `T104-DEP-001` | T102 Standards Stack | T104 adopts explained T102 governance standards (IDs, ADRs, research indexing, issues/risks schemas). | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` | candidate — to be validated in AC002 |
-| `T104-DEP-002` | Research Workflow | Formal research follows `T102-ADR-006` indexing rules (brief+report gated and indexed). | 2 | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (`T102-ADR-006`) | candidate — to be validated in AC002 |
+| `T104-DEP-002` | Research Workflow | Formal research follows `T102-STD-006` indexing rules (brief+report gated and indexed). | 2 | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (`T102-STD-006`) | candidate — to be validated in AC002 |
 | `T104-DEP-003` | Client Engagement | Decision-owner review cadence is an initiative dependency at gates. | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-DEP-001`) | candidate — to be validated in AC002 |
 | `T104-DEP-004` | Planner Integration | Maintain compatibility with future planner system consuming handoff schemas (even if planner optional today). | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-DEP-002`) | candidate — to be validated in AC002 |
-| `T104-DEP-005` | Template Alignment | T104 SPS structure and token scopes remain aligned to canonical T102 ADRs (avoid local drift). | 2 | `python3 prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py` | candidate — to be validated in AC002 |
+| `T104-DEP-005` | Template Alignment | T104 SPS structure and token scopes remain aligned to canonical T102 ADRs (avoid local drift). | 2 | `python3 prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py` | candidate — to be validated in AC002 |
 
 #### III.B.6 — Interfaces (IF)
 
@@ -356,7 +356,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 |:--|:--|:--|:--|:--|:--|
 | `T104-IG-001` | Links Register | Define a minimum cross-link policy using the Roadmap Links Register as navigation spine. | 4 | `prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS.md` | candidate — to be validated in AC002 |
 | `T104-IG-002` | Research Linking | Provide a short “how to link research” guidance: Brief → Report → Analysis → consuming IDs (link-don’t-duplicate). | 2/5 | `prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-RES-001_agentic-workspace-assessment.md` | candidate — to be validated in AC002 |
-| — | None Identified | Initiative-scope `INT` is not allowed per `T102-ADR-005-CLAUSE-002` (allowed scopes: E/F/S). | 1 | `python3 prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py` | candidate — to be validated in AC002 |
+| — | None Identified | Initiative-scope `INT` is not allowed per `T102-STD-005-CLAUSE-002` (allowed scopes: E/F/S). | 1 | `python3 prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py` | candidate — to be validated in AC002 |
 
 #### III.B.9 — Research (RES)
 
@@ -369,7 +369,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 
 | Candidate ID | Title | Description | Source (Topic #) | Evidence | Validation Status |
 |:--|:--|:--|:--|:--|:--|
-| `T104-NOTE-001` | INT Scope | Clarify that initiative-level “Integration Guidance” should not create `T104-INT-*` unless/until scope rules are reconciled; prefer `IG` at initiative scope. | 1 | `prompt/templates/consultant/sps/sps_structural_template.md`, `python3 prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py` | candidate — to be validated in AC002 |
+| `T104-NOTE-001` | INT Scope | Clarify that initiative-level “Integration Guidance” should not create `T104-INT-*` unless/until scope rules are reconciled; prefer `IG` at initiative scope. | 1 | `prompt/templates/consultant/sps/sps_structural_template.md`, `python3 prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py` | candidate — to be validated in AC002 |
 | `T104-NOTE-002` | Plan Deferral | Activity plan template formalization and step IDs are deferred to a future initiative alongside the LLM_Planner system; Phase 1 uses a skeleton only. | 2b | `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST001.md` | candidate — to be validated in AC002 |
 | `T104-NOTE-003` | Changelog Discipline | Changelog entries are delta-only and should follow “keep a changelog” style to prevent narrative logs. | 3 | https://keepachangelog.com/ | candidate — to be validated in AC002 |
 
@@ -381,7 +381,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 | `T104-ISSUE-002` | Notes Template Drift | Notes template semantics drift vs T104 NOTES usage. | 6 | `report_T104-RES-001_agentic-workspace-assessment.md` | candidate — to be validated in AC002 |
 | `T104-ISSUE-003` | Naming Inconsistency | Case/suffix drift undermines deterministic retrieval. | 6 | `report_T104-RES-001_agentic-workspace-assessment.md` | candidate — to be validated in AC002 |
 | `T104-ISSUE-004` | Missing Analysis Artifact | Analysis artifacts must exist for research commissions; enforce pattern. | 6 | `analysis_T104-RES-001_agentic-workspace-assessment.md` | candidate — to be validated in AC002 |
-| `T104-ISSUE-005` | INT Scope Mismatch | Initiative `INT` scope mismatch (template vs `T102-ADR-005`). | 6 | `python3 prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py` | candidate — to be validated in AC002 |
+| `T104-ISSUE-005` | INT Scope Mismatch | Initiative `INT` scope mismatch (template vs `T102-STD-005`). | 6 | `python3 prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py` | candidate — to be validated in AC002 |
 | `T104-ISSUE-006` | T102 DEP-003 Undefined | `T102-DEP-003` referenced but not defined in inspected T102 SPS file. | 6 | `sps_T102-CONSULTANT.md` (references) | candidate — to be validated in AC002 |
 | `T104-RISK-001` | Duplication Drift | Drift via duplication across artifacts. | 6 | inherited | candidate — to be validated in AC002 |
 | `T104-RISK-002` | Hidden Gate Layer | Streams/subphases may be misused as hidden gates. | 6 | inherited | candidate — to be validated in AC002 |
@@ -391,7 +391,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 
 ---
 
-## IV. ISSUE & RISK REGISTER (T102-ADR-007)
+## IV. ISSUE & RISK REGISTER (T102-STD-007)
 
 **Issues**
 <!-- GUIDANCE:
@@ -404,7 +404,7 @@ priority = `HIGH, MEDIUM, LOW`
 | `T104-ISSUE-002` | Notes Template Drift | Notes template uses LOG/Subphase semantics inconsistent with T104 initiative NOTES usage | LLM_Consultant | `OPEN` | `HIGH` | 2026-01-18 | — | — |
 | `T104-ISSUE-003` | Naming Inconsistency | Case and suffix drift across artifacts (toolability risk) | LLM_Consultant | `OPEN` | `MEDIUM` | 2026-01-18 | — | — |
 | `T104-ISSUE-004` | Missing Analysis Artifact | Analysis artifact coverage is incomplete across research commissions (RES-001 has analysis; ensure pattern for RES-002 onward) | LLM_Consultant | `IN-REVIEW` | `HIGH` | 2026-01-18 | `prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-RES-001_agentic-workspace-assessment.md` exists; confirm whether RES-002 requires companion analysis artifact and standardize expectation in `T104-IG-002` or `T104-STD-001` clauses | — |
-| `T104-ISSUE-005` | INT Scope Mismatch | Initiative-scope `INT` appears in SPS template but is disallowed at initiative scope per `T102-ADR-005-CLAUSE-002` | LLM_Consultant | `OPEN` | `HIGH` | 2026-02-02 | — | — |
+| `T104-ISSUE-005` | INT Scope Mismatch | Initiative-scope `INT` appears in SPS template but is disallowed at initiative scope per `T102-STD-005-CLAUSE-002` | LLM_Consultant | `OPEN` | `HIGH` | 2026-02-02 | — | — |
 | `T104-ISSUE-006` | T102 DEP-003 Undefined | `T102-DEP-003 (Role Definitions)` referenced in T102 SPS but no definition found in inspected T102 SPS content | LLM_Consultant | `OPEN` | `MEDIUM` | 2026-02-02 | — | — |
 
 **Risks**
@@ -428,8 +428,8 @@ priority = `HIGH, MEDIUM, LOW`
 | :--- | :--- | :--- | :--- |
 | `sps_T104-CWS.md` | III.B.2–III.B.11 | Populate with validated candidates during AC002 (no silent placeholders) | Topic 8 tables |
 | `sps_T104-CWS.md` | III.B.9 Research | Add rows for `T104-RES-001` and `T104-RES-002` with brief/report links | Topic 8 (RES) |
-| `sps_T104-CWS.md` | III.B.11 Issues & Risks | Add inherited + new issues/risks using `T102-ADR-007` schema/enums | Section IV |
-| `concept_T104-CWS.md` | E.3 Research Artifacts Register | Populate later per `T102-ADR-006` after adopting the pattern (dual-layer indexing) | Topic 2 / `T104-DEP-002` |
+| `sps_T104-CWS.md` | III.B.11 Issues & Risks | Add inherited + new issues/risks using `T102-STD-007` schema/enums | Section IV |
+| `concept_T104-CWS.md` | E.3 Research Artifacts Register | Populate later per `T102-STD-006` after adopting the pattern (dual-layer indexing) | Topic 2 / `T104-DEP-002` |
 
 ---
 
@@ -454,4 +454,4 @@ priority = `HIGH, MEDIUM, LOW`
   * `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST001.md`
   * `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
   * `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
-  * `prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
+  * `prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`

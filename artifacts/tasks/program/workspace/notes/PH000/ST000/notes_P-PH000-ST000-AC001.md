@@ -39,7 +39,7 @@ The consultation confirmed that program-level governance requires a deterministi
 
 The status system objective was accepted as a program concern, but implementation was deferred: Phase `PH000` locks the schema and update protocol in a dedicated Stream `P-PH000-ST002` plan, while the actual `status_program.md` artifact is deferred until the program status standard is authored.
 
-Finally, the first program research commission (`P-RES-001`) was approved in principle but identified as blocked by current ID governance: `RES` is not yet allowed at Program scope (`P`) under `T102-ADR-005`. A dedicated Stream `P-PH000-ST001` activity was planned to amend the canonical token table to allow `P-RES`.
+Finally, the first program research commission (`P-RES-001`) was approved in principle but identified as blocked by current ID governance: `RES` is not yet allowed at Program scope (`P`) under `T102-STD-005`. A dedicated Stream `P-PH000-ST001` activity was planned to amend the canonical token table to allow `P-RES`.
 
 #### C. Discussion Points (DP Table)
 | ID | Topic | Outcome | Rationale | Evidence |
@@ -56,7 +56,7 @@ Finally, the first program research commission (`P-RES-001`) was approved in pri
 | `P-PH000-ST000-AC001-DEC001` | Canonical program governance root is `prompt/artifacts/tasks/program/**` | Governance | Confirmed | Client | 2026-02-05 | Deterministic SSOT location required for program standards | Plan artifacts created under this root | Raw transcript |
 | `P-PH000-ST000-AC001-DEC002` | `P-STD` authority boundary governs `prompt/artifacts/tasks/**` only | Governance | Confirmed | Client | 2026-02-05 | Covers raw + SSOT + workspace artifacts without expanding to all of `prompt/**` | Program plans explicitly state boundary | Raw transcript |
 | `P-PH000-ST000-AC001-DEC003` | Program status system is planned in `P-PH000-ST002`; status artifact creation is deferred | Governance | Confirmed | Client | 2026-02-05 | Prevent premature SSOT creation before program status standard exists | `plan_P-PH000-ST002.md` locks schema/protocol; no status file created in PH000 | Raw transcript |
-| `P-PH000-ST000-AC001-DEC004` | `P-RES-001` commission is registered but blocked until `RES` token allows `P` scope | Governance | Confirmed | Client | 2026-02-05 | `T102-ADR-005` token table must be amended first | `P-PH000-ST001-AC001` planned to change Allowed Scope | Raw transcript |
+| `P-PH000-ST000-AC001-DEC004` | `P-RES-001` commission is registered but blocked until `RES` token allows `P` scope | Governance | Confirmed | Client | 2026-02-05 | `T102-STD-005` token table must be amended first | `P-PH000-ST001-AC001` planned to change Allowed Scope | Raw transcript |
 | `P-PH000-ST000-AC001-DEC005` | T104 adoption/binding is downstream work and depends on program standards authoring (`P-PH000-ST001`) | Planning | Confirmed | Client | 2026-02-05 | Avoid unapproved edits; ensure program standards exist before binding adopters | `plan_P-PH000-ST001.md` dependency note | Raw transcript |
 
 #### E. Actions / Carry-Forward (ACT Table)

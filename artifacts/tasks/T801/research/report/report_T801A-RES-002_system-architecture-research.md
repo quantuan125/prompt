@@ -340,7 +340,7 @@ This drift likely stems from a prior schema transition (Pine v1 to v2) where ind
 
 ---
 
-## IV. ISSUE & RISK REGISTER (T102-ADR-007)
+## IV. ISSUE & RISK REGISTER (T102-STD-007)
 
 **Issues**
 <!-- GUIDANCE:

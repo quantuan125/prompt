@@ -331,7 +331,7 @@ Research findings will directly inform:
 
 ### **Alignment with Broader Repository Context**
 
-- **T102-ADR-004/005 Standards**: Research findings may inform future Initiative T801 GDRs (I-GDRs) for cross-epic governance
+- **T102-STD-004/005 Standards**: Research findings may inform future Initiative T801 GDRs (I-GDRs) for cross-epic governance
 - **documentation/general.md**: Initiative-level standards may propagate to repository-wide best practices
 - **PineScript Filter Redesign Urgency**: Topic 1 findings unlock immediate PineScript fix (S_VWAP in daily CSV failure)
 
@@ -477,7 +477,7 @@ Research findings will be integrated into:
 - **Current TTI Protocol**: `prompt/roles/VPA/main_v2.1.md` (lines 21-55) — Current LLM-based TTI structure with indicators
 - **Problematic CSV**: `components/tv_ingest/data/BINANCE_BTCUSDT/master.csv` — S_VWAP in daily timeframe failure
 - **Parallel Research Brief**: `brief_T801A-RES-001_backend-tti-architecture.md` — Epic-level backend architecture research
-- **Governance Standards**: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (T102-ADR-004/005)
+- **Governance Standards**: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (T102-STD-004/005)
 
 ### **B. Research Topic Prioritization Rationale**
 

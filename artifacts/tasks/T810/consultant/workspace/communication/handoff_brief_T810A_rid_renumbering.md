@@ -106,7 +106,7 @@ After updates, verify:
 ## Additional Notes
 
 **Why Sequential Numbering**:
-- Per T102-ADR-005 governance standards, RIDs use sequential numbering within categories
+- Per T102-STD-005 governance standards, RIDs use sequential numbering within categories
 - QG-008 follows QG-007 (Confidence Communication) naturally
 - NFR-009 is logical as it superseded the original T810A1-NFR-009 (Probe Phase Enforcement) which was replaced by this hybrid split
 

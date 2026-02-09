@@ -12,7 +12,7 @@ target_documents:
   - 'prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md'
   - 'prompt/artifacts/tasks/T801/consultant/sps/sps_T801-TRADER.md'
 target_topics:
-  - 'T102A-ADR-001 (Governance & Roadmap standard)'
+  - 'T102A-STD-001 (Governance & Roadmap standard)'
   - 'Organization & Responsibilities baseline (III.B) and epic deltas (III.C)'
   - 'References semantics (plan files + evidence links)'
 ---
@@ -26,7 +26,7 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
 1. **Where roles/responsibilities live** (initiative baseline vs epic delta).
 2. **What “Scope & Ownership” means vs what “Org & Responsibilities” means**.
 3. **What “References” in Governance & Roadmap is for** (links to living plans and evidence, not operational detail).
-4. A revised **`T102A-ADR-001`** body (ADR-004 compliant) that becomes the canonical standard for every Epic’s Governance & Roadmap section.
+4. A revised **`T102A-STD-001`** body (ADR-004 compliant) that becomes the canonical standard for every Epic’s Governance & Roadmap section.
 
 **Industry-aligned principle (PID/Charter practice):**
 - Keep the SPS/PID view **stable and executive-readable** (governance baseline + phase gates).
@@ -36,7 +36,7 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
 
 ### A. In scope
 
-1. **Standard**: Proposed full text for `T102A-ADR-001 (Governance Snapshot Framework)` that defines:
+1. **Standard**: Proposed full text for `T102A-STD-001 (Governance Snapshot Framework)` that defines:
    - required section structure,
    - maintenance cadence,
    - boundaries between governance snapshot and living plans,
@@ -72,8 +72,8 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
 
 ## IV. ACCEPTANCE CRITERIA
 
-1. `T102A-ADR-001` is written in **ADR-004 body format** with a compliant ADR index row schema and required headings.
-2. `T102A-ADR-001` **explicitly** defines:
+1. `T102A-STD-001` is written in **ADR-004 body format** with a compliant ADR index row schema and required headings.
+2. `T102A-STD-001` **explicitly** defines:
    - Org baseline location (`III.B`) and epic delta rule (`III.C`).
    - Phase sequence as *indicative baseline* (no fixed dates; duration bands allowed).
    - Success checkpoints as *phase exits* (governance-level, evidence-linked).
@@ -81,7 +81,7 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
 3. The `T801A` Governance & Roadmap example:
    - includes Phase 0 and Phase 1 consistent with `plan_T801A_phase0-1.md`,
    - includes the required roles: `Client`, `LLM_Consultant`, `LLM_Planner`, `LLM_Researcher`, `LLM_Developer`.
-4. All dedicated “References” sections use **full reference style** (ID + title) for external IDs per `T102-ADR-005-FR-006`.
+4. All dedicated “References” sections use **full reference style** (ID + title) for external IDs per `T102-STD-005-FR-006`.
 
 ## V. SSOT-READY INSERT BLOCKS (COPY/PASTE)
 
@@ -176,54 +176,54 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
 
 **Target section:** Epic ADR body under `T102A` (exact placement to follow that file’s ADR index conventions).
 
-#### 1) Proposed Standard — `T102A-ADR-001` (Epic Governance & Roadmap)
+#### 1) Proposed Standard — `T102A-STD-001` (Epic Governance & Roadmap)
 
-##### a) Proposed ADR index row (schema per `T102-ADR-004`)
+##### a) Proposed ADR index row (schema per `T102-STD-004`)
 
 ```md
 | ADR ID | Title | Paired GDR | Status | Owner | Effective | Supersedes | Anchor |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `T102A-ADR-001` | Governance & Roadmap Snapshot | `T102A-GDR-001` | Proposed | Client | 2026-01-11 | — | #t102a-adr-001-governance-roadmap-snapshot |
+| `T102A-STD-001` | Governance & Roadmap Snapshot | `T102A-GDR-001` | Proposed | Client | 2026-01-11 | — | #t102a-std-001-governance-roadmap-snapshot |
 ```
 
-##### b) Proposed ADR body (format per `T102-ADR-004`)
+##### b) Proposed ADR body (format per `T102-STD-004`)
 
 ```md
-* **T102A-ADR-001 (Governance & Roadmap Snapshot) — {#t102a-adr-001-governance-roadmap-snapshot}**
+* **T102A-STD-001 (Governance & Roadmap Snapshot) — {#t102a-std-001-governance-roadmap-snapshot}**
 
   **Context:** Per `T102A-GDR-001`, each Epic in an SPS must include a concise governance & roadmap snapshot that preserves traceability into living plans without importing operational planning detail into the SPS.
 
-  **Decision:** Adopt `T102A-ADR-001`, establish a single, mandatory structure and maintenance policy for every Epic subsection titled **“Governance & Roadmap”**.
+  **Decision:** Adopt `T102A-STD-001`, establish a single, mandatory structure and maintenance policy for every Epic subsection titled **“Governance & Roadmap”**.
 
   **Specification:**
 
-    1) **T102A-ADR-001-FR-001 (Canonical Placement & Title)**
+    1) **T102A-STD-001-FR-001 (Canonical Placement & Title)**
        - Each Epic dossier SHALL include a subsection titled exactly: `##### iv. Governance & Roadmap`.
        - The subsection SHALL appear after `Inherited Considerations` and before `Feature Register` in the Epic dossier skeleton.
 
-    2) **T102A-ADR-001-FR-002 (Section Structure)**
+    2) **T102A-STD-001-FR-002 (Section Structure)**
        The section SHALL contain, in this order:
        - **Scope & Ownership**
        - **Phase & Gates** (table; indicative; no fixed dates)
        - **References**
 
-    3) **T102A-ADR-001-FR-003 (Scope & Ownership Rules)**
+    3) **T102A-STD-001-FR-003 (Scope & Ownership Rules)**
        - Scope & Ownership SHALL name the Decision Owner and the Epic Lead at minimum.
        - If present, Initiative Lead, Research Authority, and Technical Authority MAY be listed for clarity.
-       - Scope & Ownership SHOULD include a single baseline reference line pointing to the initiative-level Org baseline (see `T102-ADR-008`).
+       - Scope & Ownership SHOULD include a single baseline reference line pointing to the initiative-level Org baseline (see `T102-STD-008`).
 
-    4) **T102A-ADR-001-FR-004 (Baseline Alignment)**
-       - The initiative-level **Organization & Responsibilities** SHALL be defined in `III.B` and treated as the canonical source of truth (see `T102-ADR-008 (Organisation Baseline Standard)`).
+    4) **T102A-STD-001-FR-004 (Baseline Alignment)**
+       - The initiative-level **Organization & Responsibilities** SHALL be defined in `III.B` and treated as the canonical source of truth (see `T102-STD-008 (Organisation Baseline Standard)`).
        - The Epic dossier SHALL NOT duplicate baseline RACI. Instead, the Epic’s Governance & Roadmap section SHALL:
          - reference the baseline, and
          - express epic-specific execution signals via the **Phase & Gates** table (Phase Lead and gate exits).
 
-    5) **T102A-ADR-001-FR-005 (Org & Responsibilities Boundaries)**
+    5) **T102A-STD-001-FR-005 (Org & Responsibilities Boundaries)**
        - Org & Responsibilities SHALL map responsibilities only for governance events (phase/baseline approvals and handoffs).
        - Org & Responsibilities SHALL NOT include story/task-level responsibility assignment.
-       - Feature lead/ownership remains a Feature Register concern (governed by `T102A-ADR-002`).
+       - Feature lead/ownership remains a Feature Register concern (governed by `T102A-STD-002`).
 
-    6) **T102A-ADR-001-FR-006 (Phase & Gates Contract)**
+    6) **T102A-STD-001-FR-006 (Phase & Gates Contract)**
        The **Phase & Gates** table SHALL use this exact schema:
        - `Phase | Title | Intent | Key Exit Milestone | Duration Band | Gate Approver (A) | Phase Lead (R) | Plan Link`
        Fill rules:
@@ -236,16 +236,16 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
        - `Phase Lead (R)`: the accountable coordinator for producing the exit package (typically `LLM_Consultant`).
        - `Plan Link`: repo-relative link to the plan artifact governing that phase; MAY be shared across phases, but SHOULD be split per phase over time.
 
-    7) **T102A-ADR-001-FR-007 (Operational Boundaries)**
+    7) **T102A-STD-001-FR-007 (Operational Boundaries)**
        - Governance & Roadmap SHALL NOT contain sprint calendars, capacity plans, or WBS task breakdown.
        - Story-level acceptance criteria belong in Feature Requests and Stories, not in the Phase & Gates table.
 
-    8) **T102A-ADR-001-FR-008 (References Semantics)**
+    8) **T102A-STD-001-FR-008 (References Semantics)**
        - References SHOULD link to the external PM tracking system (if used) and evidence artifacts for gate completion (proposals/completions/validation notes).
        - References SHOULD include evidence links for checkpoint completion when available (proposal approvals, completion artifacts, validation notes).
        - References SHOULD NOT duplicate plan links already present in the Phase & Gates table.
 
-    9) **T102A-ADR-001-FR-009 (Maintenance Policy)**
+    9) **T102A-STD-001-FR-009 (Maintenance Policy)**
        - The Governance & Roadmap snapshot SHALL be updated only when a phase gate is approved or when a material governance baseline change occurs.
        - Day-to-day schedule drift remains in plan artifacts / external PM tools referenced from the snapshot.
 
@@ -263,10 +263,10 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
   **References:**
   `T102A-GDR-001 (Governance Snapshot Standard)`,
   `T102A-GDR-002 (Governance Freeze Standard)`,
-  `T102-ADR-004 (Decision Records Index)`,
-  `T102-ADR-005 (ID Specification & Rules)`,
-  `T102-ADR-008 (Organisation Baseline Standard)`,
-  `T102A-ADR-002 (Feature Register Standard)`,
+  `T102-STD-004 (Decision Records Index)`,
+  `T102-STD-005 (ID Specification & Rules)`,
+  `T102-STD-008 (Organisation Baseline Standard)`,
+  `T102A-STD-002 (Feature Register Standard)`,
   `T102-RES-002 (Roadmap Viability)`,
   `T102A-RES-001 (SPS Workflow Optimization)`
 
@@ -276,32 +276,32 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
   `report_T102A-SPS_sps-workflow-optimization.md`
 ```
 
-#### 2) Proposed Standard — `T102A-ADR-002` (Epic Feature Register)
+#### 2) Proposed Standard — `T102A-STD-002` (Epic Feature Register)
 
-##### a) Proposed ADR index row (schema per `T102-ADR-004`)
+##### a) Proposed ADR index row (schema per `T102-STD-004`)
 
 ```md
 | ADR ID | Title | Paired GDR | Status | Owner | Effective | Supersedes | Anchor |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `T102A-ADR-002` | Feature Register Index | `T102A-GDR-001` | Proposed | Client | 2026-01-11 | — | #t102a-adr-002-feature-register-index |
+| `T102A-STD-002` | Feature Register Index | `T102A-GDR-001` | Proposed | Client | 2026-01-11 | — | #t102a-std-002-feature-register-index |
 ```
 
-##### b) Proposed ADR body (format per `T102-ADR-004`)
+##### b) Proposed ADR body (format per `T102-STD-004`)
 
 ```md
-* **T102A-ADR-002 (Feature Register Index) — {#t102a-adr-002-feature-register-index}**
+* **T102A-STD-002 (Feature Register Index) — {#t102a-std-002-feature-register-index}**
 
   **Context:** Per `T102A-GDR-001 (Governance Snapshot Standard)`, each Epic dossier must be governance-readable while preserving traceability into living artifacts. Feature scope lists were previously embedded inside Governance & Roadmap, causing churn and mixing governance with scope inventory.
 
-  **Decision:** Adopt `T102A-ADR-002` as the mandatory standard for Epic Feature Register placement, schema, and maintenance policy.
+  **Decision:** Adopt `T102A-STD-002` as the mandatory standard for Epic Feature Register placement, schema, and maintenance policy.
 
   **Specification:**
 
-    1) **T102A-ADR-002-FR-001 (Canonical Placement & Title)**
+    1) **T102A-STD-002-FR-001 (Canonical Placement & Title)**
        - Each Epic dossier SHALL include a subsection titled exactly: `##### v. Feature Register`.
        - The subsection SHALL appear after `Governance & Roadmap` and before `Epic Requirements`.
 
-    2) **T102A-ADR-002-FR-002 (Table Contract)**
+    2) **T102A-STD-002-FR-002 (Table Contract)**
        The Feature Register table SHALL use this exact schema:
        - `ID | Code | Title | Purpose | Feature Lead (R) | Status | Canonical Link (Request)`
        Fill rules:
@@ -310,14 +310,14 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
        - `Title`: human-readable feature name.
        - `Purpose`: one sentence; scope-level, not design-level.
        - `Feature Lead (R)`: the responsible coordination role for the Feature (typically `LLM_Consultant`).
-       - `Status`: one of the allowed status values (see `T102A-ADR-002-FR-003`).
+       - `Status`: one of the allowed status values (see `T102A-STD-002-FR-003`).
        - `Canonical Link (Request)`: repo-relative link to the Feature Request artifact once created; SHALL be `—` prior to request creation.
 
-    3) **T102A-ADR-002-FR-003 (Allowed Status Values; Minimal Set)**
+    3) **T102A-STD-002-FR-003 (Allowed Status Values; Minimal Set)**
        Feature Register status SHALL be one of:
        - `proposed`, `in-request`, `approved`, `in-build`, `done`, `deferred`, `dropped`
 
-    4) **T102A-ADR-002-FR-004 (Status Transition Rules)**
+    4) **T102A-STD-002-FR-004 (Status Transition Rules)**
        - `proposed → in-request`: when a Request artifact is created (draft).
        - `in-request → approved`: when the Decision Owner approves the Request.
        - `approved → in-build`: when implementation begins.
@@ -325,7 +325,7 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
        - `* → deferred`: Decision Owner explicitly defers.
        - `* → dropped`: Decision Owner explicitly removes from scope.
 
-    5) **T102A-ADR-002-FR-005 (Change Control & Stability)**
+    5) **T102A-STD-002-FR-005 (Change Control & Stability)**
        - Adding/removing a Feature row is a governance baseline change and MUST be traceable (proposal/completion reference).
        - Feature Register SHALL remain an index only; detailed requirements/design belong in Feature Request artifacts.
 
@@ -340,8 +340,8 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
 
   **References:**
   `T102A-GDR-001 (Governance Snapshot Standard)`,
-  `T102-ADR-004 (Decision Records Index)`,
-  `T102-ADR-005 (ID Specification & Rules)`,
+  `T102-STD-004 (Decision Records Index)`,
+  `T102-STD-005 (ID Specification & Rules)`,
   `T102-RES-002 (Roadmap Viability)`
 
   **Provenance:** None
@@ -349,7 +349,7 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
 
 #### 3) Proposed Standard — `T102-GDR-008` (Organisation Baseline Requirement)
 
-##### a) Proposed GDR index row (schema per `T102-ADR-004`)
+##### a) Proposed GDR index row (schema per `T102-STD-004`)
 
 ```md
 | GDR ID | Title | Status | Owner | Effective | Supersedes | Anchor |
@@ -357,14 +357,14 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
 | `T102-GDR-008` | Organisation Baseline Standard | Proposed | Client | 2026-01-12 | — | #t102-gdr-008-organisation-baseline-standard |
 ```
 
-##### b) Proposed GDR body (format per `T102-ADR-004`)
+##### b) Proposed GDR body (format per `T102-STD-004`)
 
 ```md
 * **T102-GDR-008 (Organisation Baseline Standard) — {#t102-gdr-008-organisation-baseline-standard}**
 
   **Context:** Organization responsibilities are referenced across initiative and epic dossiers; without a stable baseline, actor labels drift and governance ownership becomes ambiguous.
 
-  **Decision:** Adopt `T102-ADR-008`, to mandate a single initiative-level `III.B.1 Organization & Responsibilities` baseline with a stable actor-to-role mapping and governance RACI.
+  **Decision:** Adopt `T102-STD-008`, to mandate a single initiative-level `III.B.1 Organization & Responsibilities` baseline with a stable actor-to-role mapping and governance RACI.
 
   **Consequences:**
   (+) Keeps actor labels consistent across epics and feature registers
@@ -375,32 +375,32 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
   `T102-GDR-003 (Inheritance Model Standard)`, `T102-GDR-001 (Operating Model Standard)`
 ```
 
-#### 4) Proposed Standard — `T102-ADR-008` (Initiative Org Baseline)
+#### 4) Proposed Standard — `T102-STD-008` (Initiative Org Baseline)
 
-##### a) Proposed ADR index row (schema per `T102-ADR-004`)
+##### a) Proposed ADR index row (schema per `T102-STD-004`)
 
 ```md
 | ADR ID | Title | Paired GDR | Status | Owner | Effective | Supersedes | Anchor |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `T102-ADR-008` | Organisation Baseline Index | `T102-GDR-008` | Proposed | Client | 2026-01-12 | — | #t102-adr-008-org-baseline-index |
+| `T102-STD-008` | Organisation Baseline Index | `T102-GDR-008` | Proposed | Client | 2026-01-12 | — | #t102-std-008-org-baseline-index |
 ```
 
-##### b) Proposed ADR body (format per `T102-ADR-004`)
+##### b) Proposed ADR body (format per `T102-STD-004`)
 
 ```md
-* **T102-ADR-008 (Organisation Baseline Index) — {#t102-adr-008-org-baseline-index}**
+* **T102-STD-008 (Organisation Baseline Index) — {#t102-std-008-org-baseline-index}**
 
   **Context:** Per `T102-GDR-008 (Organisation Baseline Standard)`, the initiative requires a stable org baseline so epic governance snapshots can reference consistent actor labels and decision rights without duplication or drift.
 
-  **Decision:** Adopt `T102-ADR-008` to standardize the structure and maintenance policy of the initiative-level `III.B` “Organization & Responsibilities” subsection.
+  **Decision:** Adopt `T102-STD-008` to standardize the structure and maintenance policy of the initiative-level `III.B` “Organization & Responsibilities” subsection.
 
   **Specification:**
 
-    1) **T102-ADR-008-FR-001 (Canonical Placement)**
+    1) **T102-STD-008-FR-001 (Canonical Placement)**
        - Each initiative SPS SHOULD include `III.B.1 Organization & Responsibilities` (baseline) as the canonical governance role mapping for the initiative.
-       - Epics SHALL reference this baseline rather than duplicating it (see `T102A-ADR-001`).
+       - Epics SHALL reference this baseline rather than duplicating it (see `T102A-STD-001`).
 
-    2) **T102-ADR-008-FR-002 (Required Content)**
+    2) **T102-STD-008-FR-002 (Required Content)**
        The baseline subsection SHALL contain, in this order:
 
        (a) **Role Definitions**
@@ -427,7 +427,7 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
        - Rows MAY be added for initiative-specific governance (e.g., “Approve architecture baseline”, “Approve data migration plan”), but SHOULD be kept stable and baseline-level.
        - RACI cells SHALL reference actors using the exact actor labels defined in the Role Definitions table above (no new actor labels introduced only inside the table).
 
-    3) **T102-ADR-008-FR-003 (Maintenance Policy)**
+    3) **T102-STD-008-FR-003 (Maintenance Policy)**
        - Update the baseline only when roles/responsibilities materially change.
        - Treat baseline edits as governance changes; maintain traceability via proposal/completion references where applicable.
 
@@ -442,9 +442,9 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
   **References:**
   `T102-GDR-008 (Organisation Baseline Standard)`,
   `T102-GDR-003 (Inheritance Model Standard)`,
-  `T102-ADR-003 (Explicit Inheritance Model)`,
-  `T102-ADR-004 (Decision Records Index)`,
-  `T102-ADR-005 (ID Specification & Rules)`
+  `T102-STD-003 (Explicit Inheritance Model)`,
+  `T102-STD-004 (Decision Records Index)`,
+  `T102-STD-005 (ID Specification & Rules)`
 
   **Provenance:**
   - `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102A_governance_&_roadmap.md`
@@ -456,11 +456,11 @@ This proposal resolves recurring confusion and drift around **Governance & Roadm
 
 1. Update this proposal as the SSOT blueprint:
    - Consolidate `##### iv. Governance & Roadmap` into **Scope & Ownership** + **Phase & Gates** + **References**.
-   - Mandate `##### v. Feature Register` and adopt `T102A-ADR-002` minimal status set.
+   - Mandate `##### v. Feature Register` and adopt `T102A-STD-002` minimal status set.
    - Standardize `III.B.1 Organization & Responsibilities` to a single combined **Role Definitions** mapping table (Actor → conventional Role Title(s) + Decision Rights) and include `LLM_Planner`.
-   - Introduce `T102-GDR-008` and re-pair `T102-ADR-008` to `T102-GDR-008` (remove incorrect pairing to `T102-GDR-003`).
+   - Introduce `T102-GDR-008` and re-pair `T102-STD-008` to `T102-GDR-008` (remove incorrect pairing to `T102-GDR-003`).
 2. Apply governance standards into initiative SSOT templates:
    - Update target SSOT file(s) to reflect the consolidated Governance & Roadmap and separated Feature Register (next target: `prompt/artifacts/tasks/T810/consultant/sps/sps_T810-GASTRO.md`).
 3. Promote standards into `T102` governance:
-   - Update `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` to include `T102A-ADR-001` updates, add `T102A-ADR-002`, add `T102-GDR-008`, and update `T102-ADR-008`, ensuring DR index schemas conform to `T102-ADR-004`.
-   - Implement `T102-GDR-008` under `III.B.9` in `prompt/artifacts/tasks/T102/consultant/sps/archive/sps_T102-CONSULTANT_v1.1.0.md` (and update any downstream ADR contexts if the governing GDR changes status/supersedes per `T102-ADR-004-FR-007`).
+   - Update `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` to include `T102A-STD-001` updates, add `T102A-STD-002`, add `T102-GDR-008`, and update `T102-STD-008`, ensuring DR index schemas conform to `T102-STD-004`.
+   - Implement `T102-GDR-008` under `III.B.9` in `prompt/artifacts/tasks/T102/consultant/sps/archive/sps_T102-CONSULTANT_v1.1.0.md` (and update any downstream ADR contexts if the governing GDR changes status/supersedes per `T102-STD-004-FR-007`).

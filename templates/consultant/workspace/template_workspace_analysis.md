@@ -329,7 +329,7 @@ target_plan: '[path to plan file for context]'
 
 ### B. E-DID Candidates (GDR/ADR)
 
-<!-- PURPOSE: Identify decisions that require formal documentation. Per T102-ADR-004, GDRs govern epic-level governance decisions and ADRs document architectural choices. ADRs typically pair with GDRs. -->
+<!-- PURPOSE: Identify decisions that require formal documentation. Per T102-STD-004, GDRs govern epic-level governance decisions and ADRs document architectural choices. ADRs typically pair with GDRs. -->
 
 #### B.1 Governance Decisions (E-GDR-###)
 <!-- PURPOSE: Epic-level governance decisions that shape development approach -->
@@ -361,7 +361,7 @@ target_plan: '[path to plan file for context]'
 
 ### C. E-OID Candidates (Issues/Risks/Notes)
 
-<!-- PURPOSE: Catalog operational items revealed by research. Per T102-ADR-007, Issues require resolution, Risks need mitigation, Notes capture lightweight insights (≤200 words per T102-ADR-006-FR-008). -->
+<!-- PURPOSE: Catalog operational items revealed by research. Per T102-STD-007, Issues require resolution, Risks need mitigation, Notes capture lightweight insights (≤200 words per T102-STD-006-FR-008). -->
 
 #### C.1 Issues (E-ISSUE-###)
 <!-- PURPOSE: Problems that require resolution before or during epic execution -->
@@ -392,7 +392,7 @@ target_plan: '[path to plan file for context]'
 ---
 
 #### C.3 Notes (E-NOTE-###)
-<!-- PURPOSE: Lightweight insights that don't fit other categories. Per T102-ADR-006-FR-008, Notes must be ≤200 words and capture observations, opportunities, or contextual information. -->
+<!-- PURPOSE: Lightweight insights that don't fit other categories. Per T102-STD-006-FR-008, Notes must be ≤200 words and capture observations, opportunities, or contextual information. -->
 
 | Candidate ID | Title | Research Source | Content Summary (≤200 words) |
 |:-------------|:------|:----------------|:-----------------------------|

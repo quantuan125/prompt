@@ -30,10 +30,10 @@ WORKFLOW:
 5. PROPOSAL becomes archival record of phase deliberation and decisions
 
 GOVERNANCE:
-- All IDs must comply with T102-ADR-005 (ID Specification)
-- All DRs must comply with T102-ADR-004 (Decision Records Index)
-- All Issues/Risks must comply with T102-ADR-007 (Issues & Risks Index)
-- All RES/NOTE-IDs must comply with T102-ADR-006 (Other IDs)
+- All IDs must comply with T102-STD-005 (ID Specification)
+- All DRs must comply with T102-STD-004 (Decision Records Index)
+- All Issues/Risks must comply with T102-STD-007 (Issues & Risks Index)
+- All RES/NOTE-IDs must comply with T102-STD-006 (Other IDs)
 -->
 
 ## I. EXECUTIVE SUMMARY
@@ -75,10 +75,10 @@ BODY REF CONVENTION:
 
 ### A. E-RID Candidates
 <!--
-PURPOSE: Epic-level requirements following T102-ADR-005 ID specification.
+PURPOSE: Epic-level requirements following T102-STD-005 ID specification.
 All E-RIDs use format: [EPIC_CODE]-[CATEGORY]-[###]
 
-ID CATEGORIES (per T102-ADR-005):
+ID CATEGORIES (per T102-STD-005):
 - ASSUM: Assumptions (factors believed true but not confirmed)
 - CON: Constraints (non-negotiable boundaries)
 - QG: Quality Goals (measurable success criteria)
@@ -141,7 +141,7 @@ PURPOSE: External prerequisites and commitments this epic relies on.
 Per ISO 29148 and BABOK v3, dependencies are external to the epic but required for success.
 
 EXAMPLES:
-- "Requires T102-ADR-004 governance rules (dependency on initiative-level standard)"
+- "Requires T102-STD-004 governance rules (dependency on initiative-level standard)"
 - "Requires client availability for Gate approval (dependency on stakeholder)"
 - "Requires Python 3.8+ for skill scripts (dependency on infrastructure)"
 -->
@@ -182,9 +182,9 @@ EXAMPLES:
 
 ### B. E-DID Candidates (GDR/ADR)
 <!--
-PURPOSE: Epic-level governance and architectural decisions following T102-ADR-004.
+PURPOSE: Epic-level governance and architectural decisions following T102-STD-004.
 
-GDR/ADR PAIRING (per T102-ADR-004):
+GDR/ADR PAIRING (per T102-STD-004):
 - Every ADR must have exactly one paired GDR
 - GDR establishes the governance rule (client-owned policy)
 - ADR documents the implementation approach (technical solution)
@@ -192,7 +192,7 @@ GDR/ADR PAIRING (per T102-ADR-004):
 
 NAMING CONVENTION:
 - GDR: [EPIC_CODE]-GDR-[###] (e.g., T102B-GDR-001)
-- ADR: [EPIC_CODE]-ADR-[###] (e.g., T102B-ADR-001)
+- ADR: [EPIC_CODE]-ADR-[###] (e.g., T102B-STD-001)
 -->
 
 #### B.1 Governance Decisions ([EPIC_CODE]-GDR-###)
@@ -217,7 +217,7 @@ GDR STATUS VALUES:
 
 #### B.2 Architectural Decisions ([EPIC_CODE]-ADR-###)
 <!--
-PURPOSE: Implementation-level decisions that document solution approach. Paired with GDRs per T102-ADR-004.
+PURPOSE: Implementation-level decisions that document solution approach. Paired with GDRs per T102-STD-004.
 
 ADR EXAMPLES:
 - "Implement GDR approval via Gate checklist in §VII" (paired with GDR on approval process)
@@ -236,25 +236,25 @@ CANONICAL LINK CONVENTION:
 
 ### C. E-OID Candidates (Issues/Risks/Research/Notes)
 <!--
-PURPOSE: Epic-level "Other IDs" following T102-ADR-006 and T102-ADR-007.
+PURPOSE: Epic-level "Other IDs" following T102-STD-006 and T102-STD-007.
 
 OTHER ID CATEGORIES:
-- ISSUE: Problems requiring resolution (T102-ADR-007)
-- RISK: Potential problems requiring monitoring/mitigation (T102-ADR-007)
-- RES: Commissioned research with brief/report pairs (T102-ADR-006)
-- NOTE: Lightweight insights ≤200 words (T102-ADR-006-FR-008)
+- ISSUE: Problems requiring resolution (T102-STD-007)
+- RISK: Potential problems requiring monitoring/mitigation (T102-STD-007)
+- RES: Commissioned research with brief/report pairs (T102-STD-006)
+- NOTE: Lightweight insights ≤200 words (T102-STD-006-FR-008)
 -->
 
 #### C.1 Issues ([EPIC_CODE]-ISSUE-###)
 <!--
-PURPOSE: Problems requiring resolution. Per T102-ADR-007 schema.
+PURPOSE: Problems requiring resolution. Per T102-STD-007 schema.
 
 ISSUE EXAMPLES:
 - "Unclear if existing SPS structure supports epic-level GDR sections"
 - "No tooling exists to validate GDR index table format"
 - "Client availability for Gate approval uncertain"
 
-ISSUE STATUS (per T102-ADR-007):
+ISSUE STATUS (per T102-STD-007):
 - OPEN: Issue identified, resolution in progress
 - RESOLVED: Issue fixed, resolution documented
 - DEFERRED: Postponed to later phase
@@ -267,14 +267,14 @@ ISSUE STATUS (per T102-ADR-007):
 
 #### C.2 Risks ([EPIC_CODE]-RISK-###)
 <!--
-PURPOSE: Potential problems requiring monitoring/mitigation. Per T102-ADR-007 schema.
+PURPOSE: Potential problems requiring monitoring/mitigation. Per T102-STD-007 schema.
 
 RISK EXAMPLES:
 - "Client may reject GDR governance overhead"
 - "E-ID proliferation may make SSOT maintenance burdensome"
 - "Phase 0 may take longer than estimated, delaying phase 1"
 
-RISK STATUS (per T102-ADR-007):
+RISK STATUS (per T102-STD-007):
 - MONITORED: Risk identified, being watched
 - MITIGATED: Risk addressed, mitigation in place
 - ACCEPTED: Risk acknowledged, no action taken
@@ -287,7 +287,7 @@ RISK STATUS (per T102-ADR-007):
 
 #### C.3 Research ([EPIC_CODE]-RES-###)
 <!--
-PURPOSE: Commissioned research with brief/report pairs. Per T102-ADR-006.
+PURPOSE: Commissioned research with brief/report pairs. Per T102-STD-006.
 
 RESEARCH WORKFLOW:
 1. Create brief in consultant/research/brief/brief_[ID].md
@@ -308,10 +308,10 @@ RESEARCH EXAMPLES:
 
 #### C.4 Notes ([EPIC_CODE]-NOTE-###)
 <!--
-PURPOSE: Lightweight insights (≤200 words) per T102-ADR-006-FR-008.
+PURPOSE: Lightweight insights (≤200 words) per T102-STD-006-FR-008.
 Contextual clarifications, philosophy, industry references, or observations.
 
-NOTE GUIDELINES (per T102-ADR-006-FR-008):
+NOTE GUIDELINES (per T102-STD-006-FR-008):
 - Keep ≤200 words (promotes concision, avoids duplication)
 - Link-don't-duplicate: Reference existing content rather than restating
 - Promote to substantive artifact if NOTE grows beyond 200 words
@@ -377,7 +377,7 @@ Include measurable criteria, verification method, and success threshold.
 
 EXAMPLE:
 * **T102B-QG-001 (GDR Locatability)**
-  Client must be able to locate any GDR in the SPS artifact in under 30 seconds using standard text search. Verification: Timed test with 5 random GDRs; success = all found in <30s average. This goal ensures the GDR index (T102B-ADR-001) and anchoring system (T102B-ADR-002) provide effective navigability. Source: T102-QG-003 (Usability).
+  Client must be able to locate any GDR in the SPS artifact in under 30 seconds using standard text search. Verification: Timed test with 5 random GDRs; success = all found in <30s average. This goal ensures the GDR index (T102B-STD-001) and anchoring system (T102B-STD-002) provide effective navigability. Source: T102-QG-003 (Usability).
 -->
 
 * **[ID] ([Title])**
@@ -391,8 +391,8 @@ PURPOSE: Full descriptions of dependencies from §II.A.4.
 Include what is depended on, provider, and consequences if not met.
 
 EXAMPLE:
-* **T102B-DEP-001 (T102-ADR-004 Governance Rules)**
-  This epic depends on the governance rules established in T102-ADR-004 (Decision Records Index). Specifically, the GDR/ADR pairing requirement, index table format, and promotion workflow. Provider: T102 initiative (parent). If not met: Cannot establish compliant E-GDRs, phase 0 blocked. Status: Met (T102-ADR-004 accepted 2025-01-10).
+* **T102B-DEP-001 (T102-STD-004 Governance Rules)**
+  This epic depends on the governance rules established in T102-STD-004 (Decision Records Index). Specifically, the GDR/ADR pairing requirement, index table format, and promotion workflow. Provider: T102 initiative (parent). If not met: Cannot establish compliant E-GDRs, phase 0 blocked. Status: Met (T102-STD-004 accepted 2025-01-10).
 -->
 
 * **[ID] ([Title])**
@@ -407,7 +407,7 @@ Include interface definition, data contracts, and integration points.
 
 EXAMPLE:
 * **T102B-IF-001 (Gate Approval Interface)**
-  Interface between LLM_Consultant and Client for E-GDR approval at phase boundaries. Contract: Consultant presents completed proposal with all E-IDs in §II; Client reviews and checks Gate checklist in §VII; approval recorded in §VII with date/signature. Integration: Client response triggers SSOT promotion (T102B-ADR-003). Frequency: Once per phase.
+  Interface between LLM_Consultant and Client for E-GDR approval at phase boundaries. Contract: Consultant presents completed proposal with all E-IDs in §II; Client reviews and checks Gate checklist in §VII; approval recorded in §VII with date/signature. Integration: Client response triggers SSOT promotion (T102B-STD-003). Frequency: Once per phase.
 -->
 
 * **[ID] ([Title])**
@@ -432,16 +432,16 @@ EXAMPLE:
 
 ## IV. E-DID BODIES (NORMATIVE)
 <!--
-PURPOSE: Full bodies for confirmed GDRs/ADRs from Section II.B following T102-ADR-004 format.
+PURPOSE: Full bodies for confirmed GDRs/ADRs from Section II.B following T102-STD-004 format.
 
-DR BODY FORMAT (per T102-ADR-004):
+DR BODY FORMAT (per T102-STD-004):
 - Context: Why this decision is needed; what problem/ambiguity it resolves
 - Decision: The ruling or solution chosen (governance for GDR, technical for ADR)
 - Consequences: Positive (+), neutral (±), and negative (-) outcomes
 - References: Related E-RIDs, I-RIDs, other DRs (use backticks for IDs)
 - Alternatives Considered (ADR only): Options evaluated and reasons for rejection
 
-INDEXING REQUIREMENT (per T102-ADR-004):
+INDEXING REQUIREMENT (per T102-STD-004):
 - All GDRs must appear in index table (§IV.A) before bodies (§IV.B)
 - All ADRs must appear in index table (§IV.C) before bodies (§IV.D)
 - Index provides quick lookup; bodies provide full context
@@ -449,7 +449,7 @@ INDEXING REQUIREMENT (per T102-ADR-004):
 
 ### A. E-GDR Index
 <!--
-PURPOSE: Master index of all E-GDRs for quick reference. Per T102-ADR-004 requirements.
+PURPOSE: Master index of all E-GDRs for quick reference. Per T102-STD-004 requirements.
 
 COLUMN DEFINITIONS:
 - GDR ID: Full E-GDR identifier (e.g., T102B-GDR-001)
@@ -482,7 +482,7 @@ GDR BODY EXAMPLE:
   (+) Creates audit trail of approval dates for compliance
   (±) Adds Gate review step to phase workflow (time cost vs. governance rigor)
   (-) Blocks SSOT promotion if client unavailable (mitigated by T102B-IF-001 scheduling)
-  **References**: `T102-GDR-001` (Client Decision Authority), `T102B-IF-001` (Gate Approval Interface), `T102B-DEP-001` (T102-ADR-004 Governance Rules)
+  **References**: `T102-GDR-001` (Client Decision Authority), `T102B-IF-001` (Gate Approval Interface), `T102B-DEP-001` (T102-STD-004 Governance Rules)
 -->
 
 * **[GDR-ID] ([Title]) {#[anchor]}**
@@ -499,10 +499,10 @@ GDR BODY EXAMPLE:
 
 ### C. E-ADR Index
 <!--
-PURPOSE: Master index of all E-ADRs for quick reference. Per T102-ADR-004 requirements.
+PURPOSE: Master index of all E-ADRs for quick reference. Per T102-STD-004 requirements.
 
 COLUMN DEFINITIONS:
-- ADR ID: Full E-ADR identifier (e.g., T102B-ADR-001)
+- ADR ID: Full E-ADR identifier (e.g., T102B-STD-001)
 - Title: Short descriptive title
 - Paired GDR: The GDR this ADR implements (e.g., T102B-GDR-001)
 - Status: Proposed / Accepted / Rejected / Superseded
@@ -514,7 +514,7 @@ CANONICAL LINK CONVENTION:
 - Format: [artifact_type]_[epic_code]#[anchor]
 
 EXAMPLE ROW:
-| T102B-ADR-001 | GDR Index Table Format | T102B-GDR-002 | Accepted | concept_T102B#adr-index-table |
+| T102B-STD-001 | GDR Index Table Format | T102B-GDR-002 | Accepted | concept_T102B#adr-index-table |
 -->
 | ADR ID | Title | Paired GDR | Status | Canonical Link |
 |:-------|:------|:-----------|:-------|:---------------|
@@ -528,7 +528,7 @@ PURPOSE: ADR bodies typically stored in Concept artifact per T102C-GDR-004.
 Include here only if Concept not yet established or for phase 0 foundational ADRs.
 
 ADR BODY EXAMPLE:
-* **T102B-ADR-001 (GDR Index Markdown Table Format) {#adr-index-table}**
+* **T102B-STD-001 (GDR Index Markdown Table Format) {#adr-index-table}**
   **Context**: T102B-GDR-002 requires a GDR index for quick reference, but does not specify format. Options include markdown table, YAML file, JSON registry, or custom tool.
   **Decision**: Implement GDR index as markdown table in SPS §IV.A with columns: GDR ID, Title, Status, Owner, Effective, Supersedes, Anchor. Format enables human readability, version control diffs, and grep-based search without custom tooling.
   **Consequences**:
@@ -543,7 +543,7 @@ ADR BODY EXAMPLE:
   **References**: `T102B-GDR-002` (GDR Index Requirement), `T102-QG-003` (Usability), `T102B-CON-001` (No New Tools Phase 0)
 
 NOTE: If ADR body is stored in Concept, include only a pointer here:
-* **T102B-ADR-002 (GDR Anchoring System)**
+* **T102B-STD-002 (GDR Anchoring System)**
   **Canonical Location**: `concept_T102B.md#adr-gdr-anchoring`
   **Summary**: [1-sentence summary of the ADR]
 -->
@@ -565,14 +565,14 @@ NOTE: If ADR body is stored in Concept, include only a pointer here:
 ## V. E-OID BODIES (NORMATIVE)
 <!--
 PURPOSE: Full bodies for Issues/Risks/Research/Notes from Section II.C.
-These follow T102-ADR-006 and T102-ADR-007 schemas.
+These follow T102-STD-006 and T102-STD-007 schemas.
 -->
 
-### A. Issues Register (T102-ADR-007)
+### A. Issues Register (T102-STD-007)
 <!--
-PURPOSE: Full register of all Issues per T102-ADR-007 schema.
+PURPOSE: Full register of all Issues per T102-STD-007 schema.
 
-COLUMN DEFINITIONS (per T102-ADR-007):
+COLUMN DEFINITIONS (per T102-STD-007):
 - ID: Full ISSUE identifier (e.g., T102B-ISSUE-001)
 - Title: Short descriptive title
 - Description: Full problem description (can be detailed)
@@ -591,7 +591,7 @@ ISSUE LIFECYCLE:
 5. OR: Issue requires external help → Status: ESCALATED
 
 EXAMPLE ROW:
-| T102B-ISSUE-001 | No GDR validation tooling | Currently no automated validation for GDR index table format; manual review required | LLM_Developer | RESOLVED | MEDIUM | 2025-01-10 | Created validation script per T102B-ADR-003; tested with 5 sample GDRs | 2025-01-12 |
+| T102B-ISSUE-001 | No GDR validation tooling | Currently no automated validation for GDR index table format; manual review required | LLM_Developer | RESOLVED | MEDIUM | 2025-01-10 | Created validation script per T102B-STD-003; tested with 5 sample GDRs | 2025-01-12 |
 -->
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes | Resolution Date |
 |:---|:------|:------------|:------|:-------|:---------|:--------------|:-----------------|:----------------|
@@ -599,11 +599,11 @@ EXAMPLE ROW:
 
 ---
 
-### B. Risks Register (T102-ADR-007)
+### B. Risks Register (T102-STD-007)
 <!--
-PURPOSE: Full register of all Risks per T102-ADR-007 schema.
+PURPOSE: Full register of all Risks per T102-STD-007 schema.
 
-COLUMN DEFINITIONS (per T102-ADR-007):
+COLUMN DEFINITIONS (per T102-STD-007):
 - ID: Full RISK identifier (e.g., T102B-RISK-001)
 - Title: Short descriptive title
 - Description: Full risk description including likelihood and impact
@@ -630,11 +630,11 @@ EXAMPLE ROW:
 
 ---
 
-### C. Research Register (T102-ADR-006)
+### C. Research Register (T102-STD-006)
 <!--
-PURPOSE: Full register of all commissioned research per T102-ADR-006.
+PURPOSE: Full register of all commissioned research per T102-STD-006.
 
-RESEARCH WORKFLOW (per T102-ADR-006):
+RESEARCH WORKFLOW (per T102-STD-006):
 1. LLM_Consultant identifies knowledge gap → Creates RES brief
 2. LLM_Researcher produces RES report with verdict/findings
 3. Report informs E-RID/E-DID creation → RES-ID referenced in E-ID "Source" field
@@ -657,12 +657,12 @@ EXAMPLE ROW:
 
 ---
 
-### D. Notes Register (T102-ADR-006-FR-008)
+### D. Notes Register (T102-STD-006-FR-008)
 <!--
 PURPOSE: Lightweight insights (≤200 words) extracted from Decision Log or consultancy dialogue.
-Per T102-ADR-006-FR-008, NOTEs are for contextual clarifications, philosophy, industry references, or observations.
+Per T102-STD-006-FR-008, NOTEs are for contextual clarifications, philosophy, industry references, or observations.
 
-NOTE GUIDELINES (per T102-ADR-006-FR-008):
+NOTE GUIDELINES (per T102-STD-006-FR-008):
 - CONCISION: Keep ≤200 words; this forces clarity and avoids duplication
 - LINK-DON'T-DUPLICATE: Reference existing content rather than restating
 - PROMOTE-IF-SUBSTANTIVE: If NOTE grows beyond 200 words, promote to substantive artifact (RES, E-RID, etc.)
@@ -676,11 +676,11 @@ NOTE CATEGORIES (examples):
 
 EXAMPLE NOTE BODY:
 * **T102B-NOTE-001 (Why GDR/ADR Pairing Matters)**
-  ISO 29148 emphasizes traceability between requirements and design decisions. In our system, GDRs (governance requirements) establish WHAT must be governed, while ADRs (architectural decisions) document HOW governance is implemented. Pairing ensures every governance rule has a documented implementation approach, and every implementation decision has a governance justification. This bidirectional traceability enables impact analysis: "If we change this GDR, which ADRs are affected?" Without pairing, governance becomes aspirational rather than operational. Industry precedent: TOGAF ADR linking, BABOK decision modeling. Per T102-ADR-004, this pairing is normative. [Word count: 98]
+  ISO 29148 emphasizes traceability between requirements and design decisions. In our system, GDRs (governance requirements) establish WHAT must be governed, while ADRs (architectural decisions) document HOW governance is implemented. Pairing ensures every governance rule has a documented implementation approach, and every implementation decision has a governance justification. This bidirectional traceability enables impact analysis: "If we change this GDR, which ADRs are affected?" Without pairing, governance becomes aspirational rather than operational. Industry precedent: TOGAF ADR linking, BABOK decision modeling. Per T102-STD-004, this pairing is normative. [Word count: 98]
 -->
 
 * **[NOTE-ID] ([Title])**
-  [≤200 words: contextual clarification, philosophy, industry reference, or observation. Link-don't-duplicate per T102-ADR-006-FR-008. Include word count at end: [Word count: ###]]
+  [≤200 words: contextual clarification, philosophy, industry reference, or observation. Link-don't-duplicate per T102-STD-006-FR-008. Include word count at end: [Word count: ###]]
 
 ---
 
@@ -740,10 +740,10 @@ BLOCKING CONDITIONS:
 - [ ] All E-ADRs reviewed and approved (§II.B.2 and §IV.C/D match; GDR pairing validated)
 
 ### Governance Compliance
-- [ ] All IDs compliant with T102-ADR-005 (ID format: [EPIC_CODE]-[CATEGORY]-[###] verified)
-- [ ] All DRs compliant with T102-ADR-004 (GDR/ADR pairing, index tables, body format verified)
-- [ ] All RES/NOTE-IDs compliant with T102-ADR-006 (research workflow, ≤200 word NOTEs verified)
-- [ ] All Issues/Risks compliant with T102-ADR-007 (schema, status values, resolution tracking verified)
+- [ ] All IDs compliant with T102-STD-005 (ID format: [EPIC_CODE]-[CATEGORY]-[###] verified)
+- [ ] All DRs compliant with T102-STD-004 (GDR/ADR pairing, index tables, body format verified)
+- [ ] All RES/NOTE-IDs compliant with T102-STD-006 (research workflow, ≤200 word NOTEs verified)
+- [ ] All Issues/Risks compliant with T102-STD-007 (schema, status values, resolution tracking verified)
 
 ### Issue Resolution
 - [ ] All Issues resolved or deferred with rationale (§V.A: no OPEN issues with Priority=HIGH)

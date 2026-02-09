@@ -76,7 +76,7 @@ This research brief commissions targeted analysis of industry best practices for
 - **Authority Model:** Client as decision owner, LLM_Consultant as artifact author
 
 ### **B. Existing Framework Integration**
-- **T102-ADR-003/004/005:** Established inheritance, decision records, and ID governance frameworks
+- **T102-STD-003/004/005:** Established inheritance, decision records, and ID governance frameworks
 - **T102-GDR-001:** Operating model with clear artifact ownership and decision precedence
 - **T102A-GDR-001:** Governance snapshot standard with external PM tool integration
 

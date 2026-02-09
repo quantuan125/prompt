@@ -57,7 +57,7 @@ decision_owner_role: '[Role]'
 
 ---
 
-## IV. ISSUE & RISK REGISTER (T102-ADR-007)
+## IV. ISSUE & RISK REGISTER (T102-STD-007)
 
 **Issues**
  ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes |Resolution Date |

@@ -395,7 +395,7 @@ Assess coordination needs focusing on **T810A1/A2 relationship** per client guid
 
 **T102 Concept (ID Specification & Decision Records)**:
 - **Path**: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
-- **Focus**: T102-ADR-005 (ID Specification), T102-ADR-004 (Decision Records)
+- **Focus**: T102-STD-005 (ID Specification), T102-STD-004 (Decision Records)
 - **Analysis Method**: Ensure GDR revision recommendations comply with Epic/Feature scope rules, precedence hierarchy, reference syntax
 
 **T102 SPS (Prompt Templates Initiative)**:
@@ -442,11 +442,11 @@ Research findings will structure Phase 3B sequential consultations:
 
 ### **Alignment with Initiative Governance**
 
-Research must respect existing E-RID hierarchy and T102-ADR-005 rules:
+Research must respect existing E-RID hierarchy and T102-STD-005 rules:
 
 **Precedence Compliance**:
 - E-RIDs (Phase 2 output) > E-GDRs (Phase 3 focus) > E-ADRs (to be created)
-- E-GDRs cannot reference downstream F-RIDs per T102-ADR-005-FR-003
+- E-GDRs cannot reference downstream F-RIDs per T102-STD-005-FR-003
 - E-GDRs MAY reference E-RIDs, Research IDs, Feature IDs (e.g., `T810A2`, `T810A3`)
 
 **Category Compliance**:
@@ -589,8 +589,8 @@ The research will be considered successful if it delivers:
 **T102 Concept Document**:
 - **Path**: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
 - **Key ADRs**:
-  - T102-ADR-005 (ID Specification & Rules) — Epic/Feature scope rules, precedence hierarchy, reference syntax
-  - T102-ADR-004 (Decision Records Index) — GDR/ADR formatting standards
+  - T102-STD-005 (ID Specification & Rules) — Epic/Feature scope rules, precedence hierarchy, reference syntax
+  - T102-STD-004 (Decision Records Index) — GDR/ADR formatting standards
 
 **T102 SPS Document**:
 - **Path**: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`

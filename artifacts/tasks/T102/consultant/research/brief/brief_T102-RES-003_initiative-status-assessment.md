@@ -54,7 +54,7 @@ decision_owner_role: 'Client'
 #### Topic 3: Decision Record Completeness ([P2])
 **Objective**: Assess GDR/ADR coverage and identify governance gaps.
 
-**Context**: `concept_T102-CONSULTANT.md` contains Initiative ADRs (T102-ADR-001 through T102-ADR-008) and Epic ADRs. Coverage and adoption status is unclear.
+**Context**: `concept_T102-CONSULTANT.md` contains Initiative ADRs (T102-STD-001 through T102-STD-008) and Epic ADRs. Coverage and adoption status is unclear.
 
 **Specific Questions**:
 *   What GDRs/ADRs are defined at Initiative level and their status?
@@ -161,7 +161,7 @@ The research report MUST use the standard template located at:
 
 ---
 
-## VII. ISSUES & RISKS REGISTER (T102-ADR-007)
+## VII. ISSUES & RISKS REGISTER (T102-STD-007)
 
 **Issues**
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Date |

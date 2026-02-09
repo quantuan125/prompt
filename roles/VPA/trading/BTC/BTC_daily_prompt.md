@@ -89,7 +89,7 @@ levels:
       SELL_1: 75.4
     session:
       PDH: 71.7
-      PDL: 60.0
+      PDL: 67.3
     active:
       L_BOS: 86.1
     inactive:
@@ -98,6 +98,7 @@ levels:
   4H:
     local: 
       H: 71.8
+      L: 67.3
     major:
       H_MAJOR: 79.4
       L_MAJOR: 70.2
@@ -108,6 +109,7 @@ levels:
       POC_2: 75.2
       POC_3: 73.8
       POC_4: 66.0
+      POC_5: 69.4
     zones:
       SELL_1: 69.2-72.0
     active:
@@ -118,7 +120,7 @@ levels:
   1H:
     major:
       H_MAJOR: 71.8
-      L_MAJOR: 69.4
+      L_MAJOR: 68.3
     sr: {}
     poc: {}
     zones:
@@ -127,9 +129,10 @@ levels:
       BUY_1: 63.0
       BUY_2: 66.9
     active:
-      L_MSB: 69.3
+      H_CHOCH: 70.0
     inactive:
       H_FSB: 71.5
+      L_MSB: 69.3
 ```
 
 

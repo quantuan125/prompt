@@ -13,12 +13,12 @@ decision_owner_role: 'Client'
 
 ## I. EXECUTIVE SUMMARY
 
-This plan defines the conversion of existing Codex skill `t102-adr-005-id-spec` to a shared SSOT and establishes a scalable ADR skills system so **both Claude Code and Codex** enforce the same T102 governance across prompt artifacts.
+This plan defines the conversion of existing Codex skill `t102-std-005-id-spec` to a shared SSOT and establishes a scalable ADR skills system so **both Claude Code and Codex** enforce the same T102 governance across prompt artifacts.
 
-**SSOT file**: `prompt/skills/t102-adr-005-id-spec/` (SSOT location)
-**Distribution (Claude Code)**: `.claude/skills/t102-adr-005-id-spec` (symlink → SSOT)
-**Distribution (Codex CLI)**: `.codex/skills/t102-adr-005-id-spec` (direct directory mirror of SSOT; see Activity 0.6)
-**Existing source**: `.codex/skills/t102-adr-005-id-spec/` (preserve by renaming to legacy before Codex mirror install)
+**SSOT file**: `prompt/skills/t102-std-005-id-spec/` (SSOT location)
+**Distribution (Claude Code)**: `.claude/skills/t102-std-005-id-spec` (symlink → SSOT)
+**Distribution (Codex CLI)**: `.codex/skills/t102-std-005-id-spec` (direct directory mirror of SSOT; see Activity 0.6)
+**Existing source**: `.codex/skills/t102-std-005-id-spec/` (preserve by renaming to legacy before Codex mirror install)
 
 **Role boundary**
 - `LLM_Consultant`: Requirements analysis, plan development, architectural guidance
@@ -37,12 +37,12 @@ This plan defines the conversion of existing Codex skill `t102-adr-005-id-spec` 
 ### A. Required Reading Before Implementation
 
 **Initiative Governance**:
-- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` — T102-ADR-005 (ID Specification & Rules) source
+- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` — T102-STD-005 (ID Specification & Rules) source
 - `documentation/general.md` — Master governance document
 
 **Existing Implementation** (Codex version):
-- `.codex/skills/t102-adr-005-id-spec/SKILL.md` — Current skill content
-- `.codex/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py` — Extraction script
+- `.codex/skills/t102-std-005-id-spec/SKILL.md` — Current skill content
+- `.codex/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py` — Extraction script
 
 **Claude Code Skills Documentation**:
 - https://code.claude.com/docs/en/skills — Official skills documentation
@@ -54,7 +54,7 @@ This plan defines the conversion of existing Codex skill `t102-adr-005-id-spec` 
 ### B. Working Assumptions
 
 1. **SSOT Architecture**: `prompt/skills/` serves as single source of truth; Claude Code receives via symlink; Codex CLI uses a directory mirror (temporary)
-2. **Codex Preservation**: Existing `.codex/skills/t102-adr-005-id-spec/` is preserved by renaming to a legacy copy before installing the SSOT-backed Codex directory
+2. **Codex Preservation**: Existing `.codex/skills/t102-std-005-id-spec/` is preserved by renaming to a legacy copy before installing the SSOT-backed Codex directory
 3. **Project Scope**: Skill operates at project level (`.claude/skills/`) for team-wide governance enforcement
 4. **Extraction Script Stability**: `print_t102_adr_005.py` requires no modifications; only path references change
 5. **Catalog Foundation**: ADR Skills Catalog created in Phase 0 with extensibility for future ADR skills
@@ -81,9 +81,9 @@ This plan defines the conversion of existing Codex skill `t102-adr-005-id-spec` 
 
 ## III. PHASE 0: ADR-005 SKILL CONVERSION (IMMEDIATE)
 
-**Objective**: Convert existing Codex `t102-adr-005-id-spec` skill to a shared SSOT with Claude Code symlink distribution and a Codex mirror adapter, establish ADR Skills Catalog, and validate functionality.
+**Objective**: Convert existing Codex `t102-std-005-id-spec` skill to a shared SSOT with Claude Code symlink distribution and a Codex mirror adapter, establish ADR Skills Catalog, and validate functionality.
 
-**Constraint**: Phase 0 MUST preserve existing `.codex/skills/t102-adr-005-id-spec/` by renaming to a legacy copy prior to installing the SSOT-backed Codex mirror directory.
+**Constraint**: Phase 0 MUST preserve existing `.codex/skills/t102-std-005-id-spec/` by renaming to a legacy copy prior to installing the SSOT-backed Codex mirror directory.
 
 ### Phase 0 Activities
 
@@ -93,16 +93,16 @@ This plan defines the conversion of existing Codex skill `t102-adr-005-id-spec` 
 
 ##### Task 0.1.1: Create SSOT directory structure
 ```bash
-mkdir -p prompt/skills/t102-adr-005-id-spec/scripts
+mkdir -p prompt/skills/t102-std-005-id-spec/scripts
 ```
 
 ##### Task 0.1.2: Copy skill content to SSOT
-**Source**: `.codex/skills/t102-adr-005-id-spec/`
-**Destination**: `prompt/skills/t102-adr-005-id-spec/`
+**Source**: `.codex/skills/t102-std-005-id-spec/`
+**Destination**: `prompt/skills/t102-std-005-id-spec/`
 
 Copy:
-- `SKILL.md` → `prompt/skills/t102-adr-005-id-spec/SKILL.md`
-- `scripts/print_t102_adr_005.py` → `prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
+- `SKILL.md` → `prompt/skills/t102-std-005-id-spec/SKILL.md`
+- `scripts/print_t102_adr_005.py` → `prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
 
 **Verification**:
 - [ ] SSOT directory exists with correct structure
@@ -117,23 +117,23 @@ Copy:
 
 ##### Task 0.2.1: Update script path reference in SSOT SKILL.md
 
-**File**: `prompt/skills/t102-adr-005-id-spec/SKILL.md`
+**File**: `prompt/skills/t102-std-005-id-spec/SKILL.md`
 
 **Line 27 change**:
 ```diff
-- `python .codex/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
-+ `python3 prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
+- `python .codex/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
++ `python3 prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
 ```
 
 ##### Task 0.2.2: Add allowed-tools to YAML frontmatter
 
-**File**: `prompt/skills/t102-adr-005-id-spec/SKILL.md`
+**File**: `prompt/skills/t102-std-005-id-spec/SKILL.md`
 
 **Frontmatter update**:
 ```yaml
 ---
-name: t102-adr-005-id-spec
-description: Use when working with files under prompt/ and you need to construct, validate, or reference RIDs (I-RID, E-RID, F-RID, S-RID) governed by T102-ADR-005, including category tokens (ASSUM, CON, QG, DEP, NOTE, RES, ISSUE, RISK, IF, FR, NFR, IG, INT) and formal reference formatting.
+name: t102-std-005-id-spec
+description: Use when working with files under prompt/ and you need to construct, validate, or reference RIDs (I-RID, E-RID, F-RID, S-RID) governed by T102-STD-005, including category tokens (ASSUM, CON, QG, DEP, NOTE, RES, ISSUE, RISK, IF, FR, NFR, IG, INT) and formal reference formatting.
 allowed-tools: Bash, Read, Grep, Glob
 ---
 ```
@@ -153,7 +153,7 @@ allowed-tools: Bash, Read, Grep, Glob
 
 ##### Task 0.3.1: Create symlink
 ```bash
-ln -s ../../prompt/skills/t102-adr-005-id-spec .claude/skills/t102-adr-005-id-spec
+ln -s ../../prompt/skills/t102-std-005-id-spec .claude/skills/t102-std-005-id-spec
 ```
 
 ##### Task 0.3.2: Configure Git for symlink tracking
@@ -168,7 +168,7 @@ ln -s ../../prompt/skills/t102-adr-005-id-spec .claude/skills/t102-adr-005-id-sp
 
 **Verification**:
 - [ ] Symlink created successfully
-- [ ] `ls -la .claude/skills/t102-adr-005-id-spec` shows symlink → `../../prompt/skills/t102-adr-005-id-spec`
+- [ ] `ls -la .claude/skills/t102-std-005-id-spec` shows symlink → `../../prompt/skills/t102-std-005-id-spec`
 - [ ] `.gitattributes` configured for symlink tracking
 
 ---
@@ -179,16 +179,16 @@ ln -s ../../prompt/skills/t102-adr-005-id-spec .claude/skills/t102-adr-005-id-sp
 
 ##### Task 0.4.1: Test extraction script
 ```bash
-python3 prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py | head -20
+python3 prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py | head -20
 ```
 
-**Expected output**: T102-ADR-005 block from concept document (starting with anchor `{#t102-adr-005-id-spec}`)
+**Expected output**: T102-STD-005 block from concept document (starting with anchor `{#t102-std-005-id-spec}`)
 
 ##### Task 0.4.2: Test skill discovery
 
 **Action**: Restart Claude Code and verify skill appears in available skills list
 
-**Expected**: Skill `t102-adr-005-id-spec` discoverable via description keywords (RID, ASSUM, CON, QG, etc.)
+**Expected**: Skill `t102-std-005-id-spec` discoverable via description keywords (RID, ASSUM, CON, QG, etc.)
 
 ##### Task 0.4.3: Test skill triggering
 
@@ -235,14 +235,14 @@ This catalog documents all ADR-based skills, their triggering conditions, scope,
 
 ## Active Skills
 
-### t102-adr-005-id-spec
+### t102-std-005-id-spec
 
-**Source ADR:** T102-ADR-005 (ID Specification & Rules)
-**SSOT Location:** `prompt/skills/t102-adr-005-id-spec/`
-**Claude Code Location:** `.claude/skills/t102-adr-005-id-spec` (symlink)
+**Source ADR:** T102-STD-005 (ID Specification & Rules)
+**SSOT Location:** `prompt/skills/t102-std-005-id-spec/`
+**Claude Code Location:** `.claude/skills/t102-std-005-id-spec` (symlink)
 **Status:** Active
 
-**Purpose:** Enforce RID construction and referencing rules per T102-ADR-005
+**Purpose:** Enforce RID construction and referencing rules per T102-STD-005
 
 **Scope:** Files under `prompt/**` directory only
 
@@ -262,8 +262,8 @@ This catalog documents all ADR-based skills, their triggering conditions, scope,
 - Blocks prohibited downstream references (precedence/directionality rules)
 
 **Maintenance:**
-- **SSOT:** `prompt/skills/t102-adr-005-id-spec/SKILL.md`
-- **Script:** `prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
+- **SSOT:** `prompt/skills/t102-std-005-id-spec/SKILL.md`
+- **Script:** `prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
 - **Updates:** Skill auto-reads latest ADR-005 from concept document; no manual sync needed
 - **Testing:** Verify extraction script after concept document structural changes
 
@@ -278,10 +278,10 @@ This catalog documents all ADR-based skills, their triggering conditions, scope,
 
 | Skill Name | Source ADR | Priority | Status | Rationale |
 |------------|------------|----------|--------|-----------|
-| `t102-adr-007-issues-risks-index` | T102-ADR-007 | High | Planned | Enforce Issues & Risks Log Standard (schema, enums, resolution notes) |
-| `t102-adr-004-drs-index` | T102-ADR-004 | Medium | Planned | Enforce Decision Records Index (GDR/ADR schema, body format, placement) |
-| `t102-adr-003-inheritance` | T102-ADR-003 | Low | Planned | Enforce Explicit Inheritance Model (Inherited Considerations tables) |
-| `t102-adr-002-yaml-header` | T102-ADR-002 | Low | Planned | Validate Canonical YAML Header (schema, format, conformance) |
+| `t102-std-007-issues-risks-index` | T102-STD-007 | High | Planned | Enforce Issues & Risks Log Standard (schema, enums, resolution notes) |
+| `t102-std-004-drs-index` | T102-STD-004 | Medium | Planned | Enforce Decision Records Index (GDR/ADR schema, body format, placement) |
+| `t102-std-003-inheritance` | T102-STD-003 | Low | Planned | Enforce Explicit Inheritance Model (Inherited Considerations tables) |
+| `t102-std-002-yaml-header` | T102-STD-002 | Low | Planned | Validate Canonical YAML Header (schema, format, conformance) |
 
 **Note**: Priority based on:
 - **High**: Recently added ADRs with immediate governance value (ADR-007)
@@ -346,7 +346,7 @@ When creating new ADR-based skills (follow Superpowers writing-skills TDD method
 - True SSOT (one file, many references)
 - Zero duplication
 - Maintain once, works everywhere
-- Aligns with "link-don't-duplicate" principle per T102-ADR-003
+- Aligns with "link-don't-duplicate" principle per T102-STD-003
 
 **Maintenance Workflow:**
 1. Edit SSOT file in `prompt/skills/[skill-name]/SKILL.md`
@@ -355,7 +355,7 @@ When creating new ADR-based skills (follow Superpowers writing-skills TDD method
 4. Test functionality after updates
 
 **Migration Notes:**
-- Existing Codex skill (`.codex/skills/t102-adr-005-id-spec/`) preserved for reference
+- Existing Codex skill (`.codex/skills/t102-std-005-id-spec/`) preserved for reference
 - Codex mirror adapter included in Phase 0 (temporary); symlink discovery is a known Codex limitation
 - Future ADR skills follow same SSOT pattern
 
@@ -369,13 +369,13 @@ When creating new ADR-based skills (follow Superpowers writing-skills TDD method
 - **Codex Skills Documentation**: https://developers.openai.com/codex/skills/
 
 - **T102 Concept Document**: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT_v*.md`
-- **T102-ADR-005**: ID Specification & Rules (RID governance)
-- **T102-ADR-003**: Explicit Inheritance Model ("link-don't-duplicate" principle)
+- **T102-STD-005**: ID Specification & Rules (RID governance)
+- **T102-STD-003**: Explicit Inheritance Model ("link-don't-duplicate" principle)
 ```
 
 **Verification**:
 - [ ] Catalog file created at correct location
-- [ ] Active Skills section documents t102-adr-005-id-spec completely
+- [ ] Active Skills section documents t102-std-005-id-spec completely
 - [ ] Planned Skills tables populated with Phase 1/2 candidates
 - [ ] Skill Development Workflow documented
 - [ ] SSOT Architecture documented
@@ -386,18 +386,18 @@ When creating new ADR-based skills (follow Superpowers writing-skills TDD method
 
 **Purpose**: Ensure Codex CLI reliably discovers the ADR skill even when it does not follow directory symlinks under `.codex/skills/`.
 
-**Approach (temporary)**: Maintain SSOT at `prompt/skills/…` and keep a **mirror copy** under `.codex/skills/t102-adr-005-id-spec/` using a local sync script.
+**Approach (temporary)**: Maintain SSOT at `prompt/skills/…` and keep a **mirror copy** under `.codex/skills/t102-std-005-id-spec/` using a local sync script.
 
 ##### Task 0.6.1: Restore Codex skill directory name (from legacy)
 
-**Goal**: Ensure the Codex-discoverable directory is named `t102-adr-005-id-spec`.
+**Goal**: Ensure the Codex-discoverable directory is named `t102-std-005-id-spec`.
 
 **Steps**:
-1. If `.codex/skills/t102-adr-005-id-spec` is a symlink, remove it.
-2. Rename `.codex/skills/t102-adr-005-id-spec-legacy` → `.codex/skills/t102-adr-005-id-spec`.
+1. If `.codex/skills/t102-std-005-id-spec` is a symlink, remove it.
+2. Rename `.codex/skills/t102-std-005-id-spec-legacy` → `.codex/skills/t102-std-005-id-spec`.
 
 **Verification**:
-- [ ] `.codex/skills/t102-adr-005-id-spec/` exists as a real directory (not a symlink)
+- [ ] `.codex/skills/t102-std-005-id-spec/` exists as a real directory (not a symlink)
 - [ ] `SKILL.md` exists inside that directory
 
 ##### Task 0.6.2: Add sync script (SSOT → Codex mirror)
@@ -405,11 +405,11 @@ When creating new ADR-based skills (follow Superpowers writing-skills TDD method
 **Goal**: Provide a deterministic, local way to keep Codex mirror content consistent with SSOT.
 
 **Script location (recommended)**:
-- `prompt/skills/t102-adr-005-id-spec/scripts/sync_to_codex_mirror.py`
+- `prompt/skills/t102-std-005-id-spec/scripts/sync_to_codex_mirror.py`
 
 **Script responsibilities**:
-- Copy `prompt/skills/t102-adr-005-id-spec/SKILL.md` → `.codex/skills/t102-adr-005-id-spec/SKILL.md`
-- Copy `prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py` → `.codex/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
+- Copy `prompt/skills/t102-std-005-id-spec/SKILL.md` → `.codex/skills/t102-std-005-id-spec/SKILL.md`
+- Copy `prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py` → `.codex/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
 - Create destination folders if missing
 - Optional safety: refuse to overwrite if destination is a symlink; emit clear errors
 
@@ -420,7 +420,7 @@ When creating new ADR-based skills (follow Superpowers writing-skills TDD method
 ##### Task 0.6.3: Define operational workflow (when to run sync)
 
 **Workflow**:
-- After any SSOT changes under `prompt/skills/t102-adr-005-id-spec/`, run the sync script.
+- After any SSOT changes under `prompt/skills/t102-std-005-id-spec/`, run the sync script.
 
 **Verification**:
 - [ ] Workflow documented (Activity 0.6.4) and repeatable
@@ -440,43 +440,43 @@ When creating new ADR-based skills (follow Superpowers writing-skills TDD method
 
 Run:
 ```bash
-ls -la prompt/skills/t102-adr-005-id-spec prompt/skills/t102-adr-005-id-spec/scripts
+ls -la prompt/skills/t102-std-005-id-spec prompt/skills/t102-std-005-id-spec/scripts
 ```
 PASS looks like:
-- `prompt/skills/t102-adr-005-id-spec/SKILL.md` exists
-- `prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py` exists
-- `prompt/skills/t102-adr-005-id-spec/scripts/sync_to_codex_mirror.py` exists
+- `prompt/skills/t102-std-005-id-spec/SKILL.md` exists
+- `prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py` exists
+- `prompt/skills/t102-std-005-id-spec/scripts/sync_to_codex_mirror.py` exists
 
 ##### Task 0.7.2: Verify Claude distribution (symlink)
 
 Run:
 ```bash
-ls -la .claude/skills/t102-adr-005-id-spec
+ls -la .claude/skills/t102-std-005-id-spec
 ```
 PASS looks like:
-- `.claude/skills/t102-adr-005-id-spec` is a symlink → `../../prompt/skills/t102-adr-005-id-spec`
+- `.claude/skills/t102-std-005-id-spec` is a symlink → `../../prompt/skills/t102-std-005-id-spec`
 
 ##### Task 0.7.3: Verify ADR-005 extraction correctness (functional)
 
 Run (avoid writing `__pycache__`):
 ```bash
-python3 -B prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py | head -n 20
-python3 -B prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py | rg -n "{#t102-adr-005-id-spec}"
-python3 -B prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py | rg -n "^\\* \\*\\*T102-ADR-006" && exit 1 || echo "PASS: no ADR-006 header in output"
+python3 -B prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py | head -n 20
+python3 -B prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py | rg -n "{#t102-std-005-id-spec}"
+python3 -B prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py | rg -n "^\\* \\*\\*T102-STD-006" && exit 1 || echo "PASS: no ADR-006 header in output"
 ```
 PASS looks like:
-- Output contains `{#t102-adr-005-id-spec}`
+- Output contains `{#t102-std-005-id-spec}`
 - Output does **not** include the next ADR header (proves extraction is ADR‑005 only)
 
 ##### Task 0.7.4: Verify Codex distribution (mirror directory; not a symlink)
 
 Run:
 ```bash
-test -d .codex/skills/t102-adr-005-id-spec && test ! -L .codex/skills/t102-adr-005-id-spec && echo "PASS: Codex mirror is a real directory"
-ls -la .codex/skills/t102-adr-005-id-spec
+test -d .codex/skills/t102-std-005-id-spec && test ! -L .codex/skills/t102-std-005-id-spec && echo "PASS: Codex mirror is a real directory"
+ls -la .codex/skills/t102-std-005-id-spec
 ```
 PASS looks like:
-- `.codex/skills/t102-adr-005-id-spec/` exists as a real directory
+- `.codex/skills/t102-std-005-id-spec/` exists as a real directory
 - `SKILL.md` and `scripts/` exist under the mirror directory
 
 ##### Task 0.7.5: Verify Codex mirror sync script (required; includes drift demonstration)
@@ -485,7 +485,7 @@ PASS looks like:
 
 Run:
 ```bash
-python3 -B prompt/skills/t102-adr-005-id-spec/scripts/sync_to_codex_mirror.py --check
+python3 -B prompt/skills/t102-std-005-id-spec/scripts/sync_to_codex_mirror.py --check
 ```
 PASS looks like:
 - Exit code `0`
@@ -497,10 +497,10 @@ Create drift by editing the **Codex mirror** (not SSOT), then prove the sync scr
 
 Run:
 ```bash
-printf "\n# DRIFT_TEST: do not commit\n" >> .codex/skills/t102-adr-005-id-spec/SKILL.md
-python3 -B prompt/skills/t102-adr-005-id-spec/scripts/sync_to_codex_mirror.py --check && exit 1 || echo "PASS: drift detected"
-python3 -B prompt/skills/t102-adr-005-id-spec/scripts/sync_to_codex_mirror.py
-python3 -B prompt/skills/t102-adr-005-id-spec/scripts/sync_to_codex_mirror.py --check
+printf "\n# DRIFT_TEST: do not commit\n" >> .codex/skills/t102-std-005-id-spec/SKILL.md
+python3 -B prompt/skills/t102-std-005-id-spec/scripts/sync_to_codex_mirror.py --check && exit 1 || echo "PASS: drift detected"
+python3 -B prompt/skills/t102-std-005-id-spec/scripts/sync_to_codex_mirror.py
+python3 -B prompt/skills/t102-std-005-id-spec/scripts/sync_to_codex_mirror.py --check
 ```
 PASS looks like:
 - `--check` fails when drift exists (non-zero)
@@ -512,11 +512,11 @@ PASS looks like:
 **Instruction (explicit)**: The two “Manual Discovery Confirmed” items in **“### Phase 0 Success Criteria (Checklist)”** are checked by the Client only. The agent MUST leave them unchecked until the Client confirms PASS.
 1) **Claude Code discovery**
 
-   - Action: Restart Claude Code; confirm `t102-adr-005-id-spec` appears in available skills.
+   - Action: Restart Claude Code; confirm `t102-std-005-id-spec` appears in available skills.
    - PASS looks like: Skill is discoverable by name/description.
 
 2) **Codex CLI discovery**
-   - Action: Restart/reload Codex; confirm `t102-adr-005-id-spec` appears in the Codex skills list.
+   - Action: Restart/reload Codex; confirm `t102-std-005-id-spec` appears in the Codex skills list.
    - PASS looks like: Skill is discoverable and usable in Codex.
 
 ##### Task 0.7.7: Update ADR Skills Catalog (required)
@@ -531,7 +531,7 @@ Update `prompt/documentation/adr_skills_catalog.md` to:
 **Goal**: Extend Phase 0 so the ADR Skills System has a dedicated, human-friendly verification system (not embedded inside the catalog), document scripts for human operation, and add **commit-time enforcement** so Codex mirror drift cannot land unnoticed.
 
 **Scope (Phase 0)**:
-- Covers `t102-adr-005-id-spec` only.
+- Covers `t102-std-005-id-spec` only.
 - **Explicit Phase 1 requirement**: Generalize this verification system to support additional ADR skills (ADR‑007/004/etc.) via a registry/pattern.
 
 ##### Task 0.8.1: Create dedicated verification runbook (human-friendly)
@@ -549,12 +549,12 @@ Update `prompt/documentation/adr_skills_catalog.md` to:
 **Location**: `prompt/documentation/scripts/skills/`
 
 Document human-operable usage for:
-- `prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
+- `prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
   - Intent (extract ADR‑005 only)
   - Inputs (`--concept-path`)
   - Expected boundary behavior (anchor present; next ADR excluded)
   - Common failure modes and remediation steps
-- `prompt/skills/t102-adr-005-id-spec/scripts/sync_to_codex_mirror.py`
+- `prompt/skills/t102-std-005-id-spec/scripts/sync_to_codex_mirror.py`
   - Intent (SSOT → Codex mirror)
   - `--check` behavior and exit codes
   - What files are copied and why
@@ -620,18 +620,18 @@ Update to:
 
 ### Phase 0 Success Criteria (Checklist)
 
-- [x] **SSOT Established**: `prompt/skills/t102-adr-005-id-spec/` contains SKILL.md and scripts/
+- [x] **SSOT Established**: `prompt/skills/t102-std-005-id-spec/` contains SKILL.md and scripts/
 - [x] **Adaptation Complete**: Script path updated, `allowed-tools` added
-- [x] **Symlink Created**: `.claude/skills/t102-adr-005-id-spec` → `../../prompt/skills/...`
-- [x] **Codex Mirror Established**: `.codex/skills/t102-adr-005-id-spec/` exists as a real directory (Codex-discoverable)
-- [x] **Codex Mirror Sync Script Added**: local script syncs SSOT → `.codex/skills/t102-adr-005-id-spec/`
+- [x] **Symlink Created**: `.claude/skills/t102-std-005-id-spec` → `../../prompt/skills/...`
+- [x] **Codex Mirror Established**: `.codex/skills/t102-std-005-id-spec/` exists as a real directory (Codex-discoverable)
+- [x] **Codex Mirror Sync Script Added**: local script syncs SSOT → `.codex/skills/t102-std-005-id-spec/`
 - [x] **Codex Mirror Sync Verified (Drift Demo)**: `--check` fails on drift; sync restores parity; `--check` passes again
 - [x] **Git Configured**: `.gitattributes` tracks Claude Code symlinks correctly
 - [x] **Extraction Validated (ADR-005 Only)**: anchor present; next ADR header excluded from output
 - [x] **Agent Behavior Scenarios Validated (Manual)**: trigger, prompt-only gate, token validation, reference formatting
 - [x] **Catalog Created**: `prompt/documentation/adr_skills_catalog.md` exists
 - [x] **Catalog Updated (Codex Mirror + Verification)**: documents Claude symlink + Codex mirror + sync script + verification commands
-- [x] **Codex Preserved**: prior Codex content preserved as `.codex/skills/t102-adr-005-id-spec-legacy` (or archived equivalent)
+- [x] **Codex Preserved**: prior Codex content preserved as `.codex/skills/t102-std-005-id-spec-legacy` (or archived equivalent)
 - [x] **Manual Discovery Confirmed (Claude Code)**: Client verified skill appears in Claude Code after restart
 - [x] **Manual Discovery Confirmed (Codex CLI)**: Client verified skill appears in Codex after restart/reload
 
@@ -651,7 +651,7 @@ Update to:
 
 #### Activity 1.1: Verification System Generalization (Required)
 
-**Objective**: Expand the Phase 0 verification system (built for `t102-adr-005-id-spec`) so it scales to additional ADR skills added in Phase 1 (ADR‑004/007/etc.).
+**Objective**: Expand the Phase 0 verification system (built for `t102-std-005-id-spec`) so it scales to additional ADR skills added in Phase 1 (ADR‑004/007/etc.).
 
 **Registry format decision (Phase 1)**:
 - Use a **Python registry module** to keep Phase 1 concise and rules-focused:
@@ -688,8 +688,8 @@ Update to:
 
 #### Activity 1.2: Medium-Priority ADR Skill (ADR-004)
 
-**Candidate**: `t102-adr-004-drs-index`
-**Source**: T102-ADR-004 (Decision Records Index)
+**Candidate**: `t102-std-004-drs-index`
+**Source**: T102-STD-004 (Decision Records Index)
 **Priority**: Medium (foundational standard, clear validation rules)
 **Scope gate**: Files under `prompt/**` only
 
@@ -705,28 +705,28 @@ Update to:
 
 **Source extraction boundary (strict)**:
 - Extract exactly the block under:
-  `* **T102-ADR-004 (Decision Records Index) {#t102-adr-004-drs-index}**`
+  `* **T102-STD-004 (Decision Records Index) {#t102-std-004-drs-index}**`
 - Stop at the next ADR header (do not include ADR-005 or anything after).
 
 **Reference formatting (delegation; avoid drift)**:
 - When ADR-004 requires RID-style formal references governed by ADR-005, do not restate those rules in the ADR-004 skill. Instead, explicitly invoke the ADR-005 skill workflow for formatting (print ADR-005 and apply its normative rules).
 
 **Deliverables**:
-- `prompt/skills/t102-adr-004-drs-index/SKILL.md`
-- `prompt/skills/t102-adr-004-drs-index/scripts/print_t102_adr_004.py` (strict extraction script)
-- Symlink: `.claude/skills/t102-adr-004-drs-index`
-- Codex mirror: `.codex/skills/t102-adr-004-drs-index/` (real directory; Codex-discoverable)
-- Codex mirror sync: `prompt/skills/t102-adr-004-drs-index/scripts/sync_to_codex_mirror.py` (SSOT → mirror; supports `--check`; mirror scope: `SKILL.md` + `print_t102_adr_004.py` only)
-- Catalog update: Move `t102-adr-004-drs-index` into **Active Skills** in `prompt/documentation/adr_skills_catalog.md`
+- `prompt/skills/t102-std-004-drs-index/SKILL.md`
+- `prompt/skills/t102-std-004-drs-index/scripts/print_t102_adr_004.py` (strict extraction script)
+- Symlink: `.claude/skills/t102-std-004-drs-index`
+- Codex mirror: `.codex/skills/t102-std-004-drs-index/` (real directory; Codex-discoverable)
+- Codex mirror sync: `prompt/skills/t102-std-004-drs-index/scripts/sync_to_codex_mirror.py` (SSOT → mirror; supports `--check`; mirror scope: `SKILL.md` + `print_t102_adr_004.py` only)
+- Catalog update: Move `t102-std-004-drs-index` into **Active Skills** in `prompt/documentation/adr_skills_catalog.md`
 
 **Activity 1.2 Success Criteria (Checklist)**:
-- [x] `prompt/skills/t102-adr-004-drs-index/SKILL.md` exists and includes the `prompt/**` scope gate and “print ADR-004 first” instruction, with explicit ADR-005 delegation when RID formatting is needed.
-- [x] `prompt/skills/t102-adr-004-drs-index/scripts/print_t102_adr_004.py` extracts **only** ADR-004 (anchor `{#t102-adr-004-drs-index}` present; next ADR excluded).
-- [x] `prompt/skills/t102-adr-004-drs-index/scripts/sync_to_codex_mirror.py` exists, supports `--check`, and mirrors only `SKILL.md` + `print_t102_adr_004.py`.
-- [x] `.claude/skills/t102-adr-004-drs-index` is a symlink resolving to `prompt/skills/t102-adr-004-drs-index`.
-- [x] `.codex/skills/t102-adr-004-drs-index/` exists as a real directory (not symlink) and matches SSOT after sync.
-- [x] `prompt/scripts/skills/adr_skills_registry.py` includes an ADR-004 entry for `t102-adr-004-drs-index` with expected anchor `{#t102-adr-004-drs-index}`.
-- [x] `prompt/documentation/adr_skills_catalog.md` uses `t102-adr-004-drs-index` as the planned name and lists ADR-004 in **Active Skills** when implemented.
+- [x] `prompt/skills/t102-std-004-drs-index/SKILL.md` exists and includes the `prompt/**` scope gate and “print ADR-004 first” instruction, with explicit ADR-005 delegation when RID formatting is needed.
+- [x] `prompt/skills/t102-std-004-drs-index/scripts/print_t102_adr_004.py` extracts **only** ADR-004 (anchor `{#t102-std-004-drs-index}` present; next ADR excluded).
+- [x] `prompt/skills/t102-std-004-drs-index/scripts/sync_to_codex_mirror.py` exists, supports `--check`, and mirrors only `SKILL.md` + `print_t102_adr_004.py`.
+- [x] `.claude/skills/t102-std-004-drs-index` is a symlink resolving to `prompt/skills/t102-std-004-drs-index`.
+- [x] `.codex/skills/t102-std-004-drs-index/` exists as a real directory (not symlink) and matches SSOT after sync.
+- [x] `prompt/scripts/skills/adr_skills_registry.py` includes an ADR-004 entry for `t102-std-004-drs-index` with expected anchor `{#t102-std-004-drs-index}`.
+- [x] `prompt/documentation/adr_skills_catalog.md` uses `t102-std-004-drs-index` as the planned name and lists ADR-004 in **Active Skills** when implemented.
 - [x] `python3 prompt/scripts/skills/verify_adr_skills.py` passes with ADR-004 included.
 - [x] `python3 prompt/scripts/skills/verify_adr_skills.py --drift-demo` passes with ADR-004 included.
 
@@ -734,13 +734,13 @@ Update to:
 
 #### Activity 1.3: High-Priority ADR Skill (ADR-007)
 
-**Candidate**: `t102-adr-007-issues-risks-index`
-**Source**: T102-ADR-007 (Issues & Risks Index)
+**Candidate**: `t102-std-007-issues-risks-index`
+**Source**: T102-STD-007 (Issues & Risks Index)
 **Priority**: High (recently added, immediate governance value)
 **Scope gate**: Files under `prompt/**` only
 
 **Core intent (procedural; SSOT-first)**:
-- Apply `T102-ADR-007 (Issues & Risks Index)` as the single source of truth for:
+- Apply `T102-STD-007 (Issues & Risks Index)` as the single source of truth for:
   - Required Issues/Risks section naming/placement by artifact type
   - Issues/Risks table schemas (columns, ordering)
   - Status/priority enums and casing
@@ -749,43 +749,43 @@ Update to:
 - This activity intentionally avoids restating ADR-007 rules in skill docs (avoid drift). The skill must print ADR-007 and treat the printed output as normative.
 
 **ADR-005 delegation (avoid drift)**:
-- When ADR-007 requires ID construction or formal reference formatting governed by `T102-ADR-005` (e.g., `ISSUE` / `RISK` IDs and any RID formal references), do not restate those rules in the ADR-007 skill. Explicitly invoke the ADR-005 workflow (`t102-adr-005-id-spec`), print ADR-005, and apply its normative rules.
+- When ADR-007 requires ID construction or formal reference formatting governed by `T102-STD-005` (e.g., `ISSUE` / `RISK` IDs and any RID formal references), do not restate those rules in the ADR-007 skill. Explicitly invoke the ADR-005 workflow (`t102-std-005-id-spec`), print ADR-005, and apply its normative rules.
 
 **Source extraction boundary (strict)**:
 - Extract exactly the block under:
-  `* **T102-ADR-007 (Issues & Risks Index) {#t102-adr-007-issues-risks-index}**`
+  `* **T102-STD-007 (Issues & Risks Index) {#t102-std-007-issues-risks-index}**`
 - Stop at the next ADR header (do not include ADR-008 or anything after).
 
 **Deliverables**:
-- `prompt/skills/t102-adr-007-issues-risks-index/SKILL.md`
-- `prompt/skills/t102-adr-007-issues-risks-index/scripts/print_t102_adr_007.py` (strict extraction script)
-- Symlink: `.claude/skills/t102-adr-007-issues-risks-index`
-- Codex mirror: `.codex/skills/t102-adr-007-issues-risks-index/` (real directory; Codex-discoverable)
-- Codex mirror sync: `prompt/skills/t102-adr-007-issues-risks-index/scripts/sync_to_codex_mirror.py` (SSOT → mirror; supports `--check`; mirror scope: `SKILL.md` + `print_t102_adr_007.py` only)
+- `prompt/skills/t102-std-007-issues-risks-index/SKILL.md`
+- `prompt/skills/t102-std-007-issues-risks-index/scripts/print_t102_adr_007.py` (strict extraction script)
+- Symlink: `.claude/skills/t102-std-007-issues-risks-index`
+- Codex mirror: `.codex/skills/t102-std-007-issues-risks-index/` (real directory; Codex-discoverable)
+- Codex mirror sync: `prompt/skills/t102-std-007-issues-risks-index/scripts/sync_to_codex_mirror.py` (SSOT → mirror; supports `--check`; mirror scope: `SKILL.md` + `print_t102_adr_007.py` only)
 - Catalog update: Add to Active Skills in `prompt/documentation/adr_skills_catalog.md`
 
 **Implementation plan (high-level)**:
-- Task 1.3.1: Confirm the ADR-007 anchor `{#t102-adr-007-issues-risks-index}` and validate the extraction stop condition (“next ADR header”).
-- Task 1.3.2: Create SSOT skill directory and author `prompt/skills/t102-adr-007-issues-risks-index/SKILL.md` (prompt-only gate; procedural/SSOT-first; ADR-005 delegation instruction).
+- Task 1.3.1: Confirm the ADR-007 anchor `{#t102-std-007-issues-risks-index}` and validate the extraction stop condition (“next ADR header”).
+- Task 1.3.2: Create SSOT skill directory and author `prompt/skills/t102-std-007-issues-risks-index/SKILL.md` (prompt-only gate; procedural/SSOT-first; ADR-005 delegation instruction).
 - Task 1.3.3: Implement `print_t102_adr_007.py` with strict extraction (anchor required; empty block fails; next ADR excluded).
 - Task 1.3.4: Implement `sync_to_codex_mirror.py` with `--check` parity mode; mirror only `SKILL.md` + `print_t102_adr_007.py`.
-- Task 1.3.5: Create `.claude/skills/t102-adr-007-issues-risks-index` symlink → SSOT.
-- Task 1.3.6: Create/update `.codex/skills/t102-adr-007-issues-risks-index/` via the sync script (real directory, not symlink).
-- Task 1.3.7: Add `t102-adr-007-issues-risks-index` to `prompt/scripts/skills/adr_skills_registry.py` (expected anchor `{#t102-adr-007-issues-risks-index}`).
+- Task 1.3.5: Create `.claude/skills/t102-std-007-issues-risks-index` symlink → SSOT.
+- Task 1.3.6: Create/update `.codex/skills/t102-std-007-issues-risks-index/` via the sync script (real directory, not symlink).
+- Task 1.3.7: Add `t102-std-007-issues-risks-index` to `prompt/scripts/skills/adr_skills_registry.py` (expected anchor `{#t102-std-007-issues-risks-index}`).
 - Task 1.3.8: Update `prompt/documentation/adr_skills_catalog.md` to list ADR-007 in **Active Skills** when implemented.
 - Task 1.3.9: Run automated verification:
   - `python3 prompt/scripts/skills/verify_adr_skills.py`
   - `python3 prompt/scripts/skills/verify_adr_skills.py --drift-demo`
 
 **Activity 1.3 Success Criteria (Checklist)**:
-- [x] Skill slug matches the ADR anchor slug exactly: `t102-adr-007-issues-risks-index` (no variations allowed).
-- [x] `prompt/skills/t102-adr-007-issues-risks-index/SKILL.md` exists and includes the `prompt/**` scope gate and “print ADR-007 first” instruction, with explicit ADR-005 delegation when ID/RID formatting is needed.
-- [x] `prompt/skills/t102-adr-007-issues-risks-index/scripts/print_t102_adr_007.py` extracts **only** ADR-007 (anchor `{#t102-adr-007-issues-risks-index}` present; next ADR excluded).
-- [x] `prompt/skills/t102-adr-007-issues-risks-index/scripts/sync_to_codex_mirror.py` exists, supports `--check`, and mirrors only `SKILL.md` + `print_t102_adr_007.py`.
-- [x] `.claude/skills/t102-adr-007-issues-risks-index` is a symlink resolving to `prompt/skills/t102-adr-007-issues-risks-index`.
-- [x] `.codex/skills/t102-adr-007-issues-risks-index/` exists as a real directory (not symlink) and matches SSOT after sync.
-- [x] `prompt/scripts/skills/adr_skills_registry.py` includes an ADR-007 entry for `t102-adr-007-issues-risks-index` with expected anchor `{#t102-adr-007-issues-risks-index}`.
-- [x] `prompt/documentation/adr_skills_catalog.md` lists ADR-007 in **Active Skills** and uses the canonical name `t102-adr-007-issues-risks-index`.
+- [x] Skill slug matches the ADR anchor slug exactly: `t102-std-007-issues-risks-index` (no variations allowed).
+- [x] `prompt/skills/t102-std-007-issues-risks-index/SKILL.md` exists and includes the `prompt/**` scope gate and “print ADR-007 first” instruction, with explicit ADR-005 delegation when ID/RID formatting is needed.
+- [x] `prompt/skills/t102-std-007-issues-risks-index/scripts/print_t102_adr_007.py` extracts **only** ADR-007 (anchor `{#t102-std-007-issues-risks-index}` present; next ADR excluded).
+- [x] `prompt/skills/t102-std-007-issues-risks-index/scripts/sync_to_codex_mirror.py` exists, supports `--check`, and mirrors only `SKILL.md` + `print_t102_adr_007.py`.
+- [x] `.claude/skills/t102-std-007-issues-risks-index` is a symlink resolving to `prompt/skills/t102-std-007-issues-risks-index`.
+- [x] `.codex/skills/t102-std-007-issues-risks-index/` exists as a real directory (not symlink) and matches SSOT after sync.
+- [x] `prompt/scripts/skills/adr_skills_registry.py` includes an ADR-007 entry for `t102-std-007-issues-risks-index` with expected anchor `{#t102-std-007-issues-risks-index}`.
+- [x] `prompt/documentation/adr_skills_catalog.md` lists ADR-007 in **Active Skills** and uses the canonical name `t102-std-007-issues-risks-index`.
 - [x] `python3 prompt/scripts/skills/verify_adr_skills.py` passes with ADR-007 included.
 - [x] `python3 prompt/scripts/skills/verify_adr_skills.py --drift-demo` passes with ADR-007 included.
 
@@ -840,7 +840,7 @@ Update to:
 
 ### Phase 1 Success Criteria
 
-- [x] ADR-004 skill (`t102-adr-004-drs-index`) created and added to Active Skills catalog
+- [x] ADR-004 skill (`t102-std-004-drs-index`) created and added to Active Skills catalog
 - [x] ADR-007 skill created and added to Active Skills catalog
 - [ ] Codex + Claude parity validated (post-additions)
 - [ ] Verification system generalized for multi-skill support (runbook + entrypoint updated)
@@ -860,7 +860,7 @@ Update to:
 - Preserve stable per-skill entrypoints (Option A): each skill keeps its own `print_t102_adr_00X.py` and `sync_to_codex_mirror.py`, but those become thin wrappers around shared implementations.
 
 **Context (existing Phase 1 assets to build on)**:
-- Active skills SSOT: `prompt/skills/t102-adr-004-drs-index/`, `prompt/skills/t102-adr-005-id-spec/`, `prompt/skills/t102-adr-007-issues-risks-index/`
+- Active skills SSOT: `prompt/skills/t102-std-004-drs-index/`, `prompt/skills/t102-std-005-id-spec/`, `prompt/skills/t102-std-007-issues-risks-index/`
 - Registry (SSOT wiring): `prompt/scripts/skills/adr_skills_registry.py`
 - Verifier (strict invariants): `prompt/scripts/skills/verify_adr_skills.py`
 - Codex mirror sync (all skills): `prompt/scripts/skills/sync_codex_mirrors.py`
@@ -885,9 +885,9 @@ Update to:
 
 **Context**:
 - Current per-skill extractors (examples):
-  - `prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
-  - `prompt/skills/t102-adr-004-drs-index/scripts/print_t102_adr_004.py`
-  - `prompt/skills/t102-adr-007-issues-risks-index/scripts/print_t102_adr_007.py`
+  - `prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
+  - `prompt/skills/t102-std-004-drs-index/scripts/print_t102_adr_004.py`
+  - `prompt/skills/t102-std-007-issues-risks-index/scripts/print_t102_adr_007.py`
 - Concept SSOT: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
 
 **Task List**:
@@ -959,9 +959,9 @@ Update to:
 
 **Context**:
 - Existing per-skill sync scripts under:
-  - `prompt/skills/t102-adr-004-drs-index/scripts/sync_to_codex_mirror.py`
-  - `prompt/skills/t102-adr-005-id-spec/scripts/sync_to_codex_mirror.py`
-  - `prompt/skills/t102-adr-007-issues-risks-index/scripts/sync_to_codex_mirror.py`
+  - `prompt/skills/t102-std-004-drs-index/scripts/sync_to_codex_mirror.py`
+  - `prompt/skills/t102-std-005-id-spec/scripts/sync_to_codex_mirror.py`
+  - `prompt/skills/t102-std-007-issues-risks-index/scripts/sync_to_codex_mirror.py`
 - Orchestrator: `prompt/scripts/skills/sync_codex_mirrors.py`
 - Verifier parity check: `prompt/scripts/skills/verify_adr_skills.py` (calls per-skill `--check`)
 
@@ -1060,8 +1060,8 @@ Update to:
 
 **Manual discovery annotation (Client-run)**:
 - Date/time:
-- Codex CLI (after restart/reload): Skills list shows `t102-adr-004-drs-index`, `t102-adr-005-id-spec`, `t102-adr-007-issues-risks-index`
-- Claude Code (after restart/reload): Skills list shows `t102-adr-004-drs-index`, `t102-adr-005-id-spec`, `t102-adr-007-issues-risks-index`
+- Codex CLI (after restart/reload): Skills list shows `t102-std-004-drs-index`, `t102-std-005-id-spec`, `t102-std-007-issues-risks-index`
+- Claude Code (after restart/reload): Skills list shows `t102-std-004-drs-index`, `t102-std-005-id-spec`, `t102-std-007-issues-risks-index`
 
 ---
 

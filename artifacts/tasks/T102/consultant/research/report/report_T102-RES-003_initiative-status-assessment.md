@@ -39,7 +39,7 @@ While the strategic verdict is "Pivot", a forensic audit reveals **weak traceabi
 - **YAML Headers**: Confirmed artifact identity/status across SPS, REQUEST, CONCEPT, DESIGN, RESEARCH artifacts
 - **Feature Registers**: Analyzed SPS Section III.C and Concept Section E.2 (Design Register)
 - **ADR/GDR Index**: Reviewed all decision records in SPS Section III.B.8 and Concept Sections III.B.1-4
-- **Issue & Risk Tables**: Examined T102-ADR-007 compliant tables for blocking items
+- **Issue & Risk Tables**: Examined T102-STD-007 compliant tables for blocking items
 - **Research Artifacts**: Traced T102-RES-001/002/003 briefs and reports
 
 **Limitations**:
@@ -122,14 +122,14 @@ Forensic comparison of "Register vs. Reality" reveals significant drift:
 
 | **GDR ID** | **Title** | **Status** | **Paired ADR** |
 |:---|:---|:---|:---|
-| T102-GDR-001 | Operating Model | **Accepted** | T102-ADR-001 |
-| T102-GDR-002 | Canonical Header | **Accepted** | T102-ADR-002 |
-| T102-GDR-003 | Inheritance Model | **Accepted** | T102-ADR-003 |
-| T102-GDR-004 | Decision Records | **Accepted** | T102-ADR-004 |
-| T102-GDR-005 | ID Governance | **Accepted** | T102-ADR-005 |
-| T102-GDR-006 | Research Workflow | **Proposed** | T102-ADR-006 |
+| T102-GDR-001 | Operating Model | **Accepted** | T102-STD-001 |
+| T102-GDR-002 | Canonical Header | **Accepted** | T102-STD-002 |
+| T102-GDR-003 | Inheritance Model | **Accepted** | T102-STD-003 |
+| T102-GDR-004 | Decision Records | **Accepted** | T102-STD-004 |
+| T102-GDR-005 | ID Governance | **Accepted** | T102-STD-005 |
+| T102-GDR-006 | Research Workflow | **Proposed** | T102-STD-006 |
 | T102-GDR-007 | LLM Quality | **Proposed** | — |
-| T102-GDR-008 | Org Baseline | **Proposed** | T102-ADR-008 |
+| T102-GDR-008 | Org Baseline | **Proposed** | T102-STD-008 |
 
 **Status**: 5/8 Accepted, 3/8 Proposed. Initiative governance 62% complete.
 
@@ -137,9 +137,9 @@ Forensic comparison of "Register vs. Reality" reveals significant drift:
 
 | **Scope** | **ADRs Defined** | **Status** | **Gap** |
 |:---|:---:|:---|:---|
-| **T102A** | T102A-ADR-001, -002 | ✓ Defined | None |
+| **T102A** | T102A-STD-001, -002 | ✓ Defined | None |
 | **T102B** | — | ✗ MISSING | **Critical gap**: No REQUEST architecture standard |
-| **T102C** | T102C-ADR-001 | ✓ Defined | Partial (Handoff snapshot pending) |
+| **T102C** | T102C-STD-001 | ✓ Defined | Partial (Handoff snapshot pending) |
 | **T102D** | — | ✗ MISSING | **Critical gap**: No Design log standard |
 | **T102E** | — | ✗ MISSING | Epic not created |
 
@@ -159,13 +159,13 @@ Forensic comparison of "Register vs. Reality" reveals significant drift:
 | **SPS→REQUEST** | Documentation overhead | Feature-level SRS breaks 300-word SPS entry into 2000+ word REQUEST (3x size) | **MEDIUM**: Increases authoring cycle; compounds with unknown T102B feature count | Deferred pending pattern ADR |
 | **SPS Feature Register** | Completeness gap | Only 1 feature registered (T102A1); expected 3+ (T102A2, T102A3 absent) | **MEDIUM**: Client may condition approval on scope clarity | Proposal artifact prepared (awaiting integration) |
 | **SPS Approval** | Long-cycle review | SPS in review since 2025-08-16 (5+ months); governance freeze applied but Feature Register incomplete | **MEDIUM**: Blocks T102A1 REQUEST approval cascade | Expand Feature Register; document explicit scope boundary |
-| **T102B Startup** | Zero planning | No features registered; no ADRs designed; research brief exists but report not delivered | **CRITICAL**: Entire epic blocked pending T102A approval + REQUEST pattern validation | Explicit phase gate: T102B starts only after T102A approval + T102B-ADR-001 design |
+| **T102B Startup** | Zero planning | No features registered; no ADRs designed; research brief exists but report not delivered | **CRITICAL**: Entire epic blocked pending T102A approval + REQUEST pattern validation | Explicit phase gate: T102B starts only after T102A approval + T102B-STD-001 design |
 
 **Critical Path Analysis**:
 ```
 SPS (review) ──APPROVE──> T102A1-SPSST REQUEST (review) ──APPROVE──>
   ├─> Stories S1-S4 Design ──COMPLETE──> Planner Handoff
-  └─> T102B-RES-001 Report ──DELIVER──> T102B-ADR-001 Design ──APPROVE──> T102B Roadmap
+  └─> T102B-RES-001 Report ──DELIVER──> T102B-STD-001 Design ──APPROVE──> T102B Roadmap
 ```
 
 **Bottleneck Severity**: The SPS→REQUEST handoff is CRITICAL; blocking both REQUEST and DESIGN advancement, and entirely preventing T102B phase 2 startup.
@@ -244,9 +244,9 @@ With duplication reduction: **11,000 → 7,700-8,800 words** (30% reduction); **
 |:---|:---|:---|:---|
 | sps_T102-CONSULTANT.md | Section III.C | Expand Feature Register: add T102A2 (SPSPG), T102A3 (SPSIC) with Status→proposed | Topic 2.C |
 | sps_T102-CONSULTANT.md | Section III.B.9 | Add T102-RISK-004, T102-RISK-005 to Risks table | Section IV |
-| concept_T102-CONSULTANT.md | Section III.B.2.ii | Create T102B-ADR-001 (REQUEST Architecture Standard) body | T102B-RES-001 report (pending) |
+| concept_T102-CONSULTANT.md | Section III.B.2.ii | Create T102B-STD-001 (REQUEST Architecture Standard) body | T102B-RES-001 report (pending) |
 | concept_T102-CONSULTANT.md | Section E.3 | Add T102-RES-003 row to Research Artifacts Register | This report |
-| roadmap_T102-CDW.md | Phase 1→2 Gate | Gate criteria: SPS approved + T102B-ADR-001 accepted + T102A1-SPSST-S2 complete | Topic 4.C |
+| roadmap_T102-CDW.md | Phase 1→2 Gate | Gate criteria: SPS approved + T102B-STD-001 accepted + T102A1-SPSST-S2 complete | Topic 4.C |
 
 ---
 
@@ -259,7 +259,7 @@ With duplication reduction: **11,000 → 7,700-8,800 words** (30% reduction); **
 **Bottleneck Cascade** (critical path):
 1. SPS approval pending (Feature Register completeness)
 2. T102A1 REQUEST approval pending SPS sign-off
-3. T102B startup blocked until: SPS approved + T102B-RES-001 delivered + T102B-ADR-001 designed
+3. T102B startup blocked until: SPS approved + T102B-RES-001 delivered + T102B-STD-001 designed
 4. T102E (RESEARCH) not created; deferred until GDR-006/007 acceptance
 
 **Prioritized Actions** (in sequence):
@@ -275,7 +275,7 @@ With duplication reduction: **11,000 → 7,700-8,800 words** (30% reduction); **
 
 **P2 (Unblock T102B — 10-16 hours)**:
 - Action 2a: Deliver T102B-RES-001 research report (validates REQUEST pattern feasibility)
-- Action 2b: Design T102B-ADR-001 (REQUEST Architecture Standard) based on research + T102A1 prototype
+- Action 2b: Design T102B-STD-001 (REQUEST Architecture Standard) based on research + T102A1 prototype
 - Action 2c: Apply duplication-reduction proof-of-concept to T102A1-SPSST REQUEST (optional; demonstrates 20-30% savings)
 
 **P3 (Phase 2+ Backlog — 12-24 hours)**:

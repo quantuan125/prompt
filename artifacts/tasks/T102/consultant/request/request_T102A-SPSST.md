@@ -308,7 +308,7 @@ To define a clear, hierarchical, and standards-aligned structure for **Epics & B
   Each Epic SHALL include a bulleted **Epic Changelog** list for logging material changes to the Epic's scope or governance, following the format `**YYYY-MM-DD** - [Change Summary]`.
 
 * **T102A1-S03-FR-09 (Epic GDR Index)**  
-  Each **Epic dossier** SHALL include an index table to record all **epic-level governance decisions** following the implementation from `T102-ADR-004 (Decision Records Index)`
+  Each **Epic dossier** SHALL include an index table to record all **epic-level governance decisions** following the implementation from `T102-STD-004 (Decision Records Index)`
 
 **Acceptance Criteria**
 
@@ -335,7 +335,7 @@ Provide industry-standard governance factors structure that applies to ALL epics
   4. **Dependencies & Interfaces** (bullets): External factors and technical contracts
   5. **Implementation Guidance** (bullets): Technical guidance for execution teams
   6. **Notes & Parking Lot**: Everything else (context, out-of-scope items, etc..)
-  7. **Initiative GDR Index**: Initiative-level governance decisions using implementation from `T102-ADR-004 (Decision Records Index)`
+  7. **Initiative GDR Index**: Initiative-level governance decisions using implementation from `T102-STD-004 (Decision Records Index)`
    
 * **T102A1-S04-FR-03** Each subsection SHALL include markdown comments explaining:
   * What content belongs in that category

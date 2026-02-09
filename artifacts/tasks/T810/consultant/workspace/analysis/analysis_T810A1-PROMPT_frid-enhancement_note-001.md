@@ -90,7 +90,7 @@ The table below maps handoff deliverables to **candidate** `T810A1-INT-*` and `T
 
 ### B. Cross-Feature Reference Considerations
 
-- **INT Exception (T102-ADR-005)**  
+- **INT Exception (T102-STD-005)**  
   - `T810A1-INT-*` items are permitted to reference other features’ F-RIDs (e.g., `T810A2-INT-*`, `T810A2-CON-*`) under the INT exception.  
   - Proposed INT updates should therefore explicitly reference relevant T810A2 items to make dependencies **visible and traceable**.
 

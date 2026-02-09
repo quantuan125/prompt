@@ -4,7 +4,7 @@
 
 | Version | Date | Type | Summary |
 |:--------|:-----|:-----|:--------|
-| v1.4.0 | 2026-01-19 | Major | T102-ADR-005 Compliance Update |
+| v1.4.0 | 2026-01-19 | Major | T102-STD-005 Compliance Update |
 | v1.3.0 | 2026-01-18 | Major | Activity 2.3 IF+IG: Confirmed 3 IF + 6 IG |
 | v1.2.0 | 2026-01-18 | Major | Activity 2.3 QG+ASSUM: Confirmed 3 QG + 3 ASSUM |
 | v1.1.0 | 2026-01-18 | Major | Activity 2.3 DEP+CON: Confirmed 5 DEP + 4 CON |
@@ -17,10 +17,10 @@
   - Research confirmed E-FR deferral aligned with IEEE 830/SAFe (FR at Feature/Story, not Epic)
   - Author: LLM_Consultant
 
-- **v1.4.0** (2026-01-19): T102-ADR-005 Compliance Update
+- **v1.4.0** (2026-01-19): T102-STD-005 Compliance Update
   - Fixed CON-004 source attribution to `T102-GDR-001` + `T102B-DEP-004`
   - Renamed IF-003 to "Request Output Contract" — corrected "Concept handoff" to "Design/Plan" per `T102-GDR-001`
-  - Removed internal `T102B-` references from Reference lines per `T102-ADR-005-RULE-004`
+  - Removed internal `T102B-` references from Reference lines per `T102-STD-005-RULE-004`
   - Added NOTE-008 (IF Schema Convention) as local standardization proposal for T102
   - Moved IG section to III.C (E-IID category) pending non-normative rewrite in Activity 2.5
   - Author: LLM_Consultant
@@ -43,7 +43,7 @@
 - **v1.1.0** (2026-01-18): Activity 2.3 DEP+CON: Confirmed 5 DEP + 4 CON
   - Confirmed 5 DEP + 4 CON
   - Removed 3 duplicates (DEP-003, QG-003, QG-004)
-  - Populated Section III.B + III.D bodies per T102-ADR-005
+  - Populated Section III.B + III.D bodies per T102-STD-005
   - Author: LLM_Consultant
 
 - **v1.0.0** (2026-01-17): Initial proposal skeleton

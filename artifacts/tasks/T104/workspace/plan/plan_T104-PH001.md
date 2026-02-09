@@ -23,7 +23,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 **Purpose**: Codify initiative-level standards (planning hierarchy, UID convention, gate definition) and populate SPS requirements to create the contract surface that enables subconsultant epic development for T104A, T104E, and future epics.
 
 **Phase 1 Objective**:
-1) Populate SPS Section III.B with initiative-level requirements (CON, QG, DEP, ASSUM) per `T102-ADR-005`.
+1) Populate SPS Section III.B with initiative-level requirements (CON, QG, DEP, ASSUM) per `T102-STD-005`.
 2) Author initiative standards: `T104-STD-001` (Planning Hierarchy), `T104-STD-002` (Timeline UID Convention), `T104-STD-003` (Gate Definition).
 3) Refactor planning artifacts migrated from Phase 0 (Streams 4A/5/6.1/7).
 4) Enable subconsultants (T104A, T104E) via handoff briefs and epic roadmap placeholders.
@@ -41,7 +41,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 - `T104-PH001-ST000-SES002-DEC003`: T104-STD-003 (Gate Definition) approved for Stream 2.
 - `T104-PH001-ST000-SES002-DEC004`: T104G (COMMUNICATION) epic registered; deferred beyond Phase 1.
 - `T104-PH001-ST000-SES002-DEC005`: Phase 0 Streams 4A/5/6.1/7 migrated to Phase 1.
-- `T104-PH001-ST000-SES002-DEC006`: Stream 2 follows `T102-ADR-009` governance standards pattern.
+- `T104-PH001-ST000-SES002-DEC006`: Stream 2 follows `T102-STD-009` governance standards pattern.
 - `T104-PH001-ST000-SES002-DEC007`: Subconsultant briefing uses `handoff_brief_` pattern (per T810 exemplar).
 
 ---
@@ -50,7 +50,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 
 **Phase 0 Plan (predecessor)**: `prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md`
 **Stream Notes (SES-002)**: `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST000.md`
-**T102-ADR-009 Reference**: `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md`
+**T102-STD-009 Reference**: `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md`
 **T810 Exemplar (handoff brief)**: `prompt/artifacts/tasks/T810/consultant/workspace/communication/handoff_brief_T810A2-SCHEMA.md`
 
 ---
@@ -118,7 +118,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 | Notes | Stream ST001 Notes | `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST001.md` |
 | SSOT | T104 SPS | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` |
 | SSOT | T104 Concept | `prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md` |
-| Reference | T102-ADR-009 Proposal | `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md` |
+| Reference | T102-STD-009 Proposal | `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md` |
 | Reference | T810 Handoff Brief Exemplar | `prompt/artifacts/tasks/T810/consultant/workspace/communication/handoff_brief_T810A2-SCHEMA.md` |
 | Governance Rules | Workspace Rules | `prompt/templates/consultant/workspace/workspace_documentation_rules.md` |
 | Procedural Guideline | Plan Authoring Rules | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |

@@ -33,7 +33,7 @@ This plan defines the consultancy workflow to establish a **comprehensive, trace
 - **Phase 1 (Future)**: Feature-level Request artifact authoring for T102B1-B4
 - **Phase 2 (Future)**: Integration and workflow operationalization
 
-**Phase 0 Objective**: Establish comprehensive T102B epic foundation grounded in T102B-RES-002 research, implement Epic Dossier sections i-v per T102A-ADR-001 + T102-ADR-003, develop all E-RIDs through Socratic dialogue, develop E-GDRs with paired E-ADRs, validate all content for T102 framework compliance, obtain Client approval, and implement into SSOT artifacts.
+**Phase 0 Objective**: Establish comprehensive T102B epic foundation grounded in T102B-RES-002 research, implement Epic Dossier sections i-v per T102A-STD-001 + T102-STD-003, develop all E-RIDs through Socratic dialogue, develop E-GDRs with paired E-ADRs, validate all content for T102 framework compliance, obtain Client approval, and implement into SSOT artifacts.
 
 **Key Exit Milestone**: Foundation Readiness — Epic `T102B` approved with:
 - Epic Dossier sections i-v complete (Purpose, Scope, Inherited Considerations, Governance & Roadmap, Feature Register)
@@ -56,7 +56,7 @@ This plan defines the consultancy workflow to establish a **comprehensive, trace
 **CRITICAL**: Before proceeding with any consultancy in this plan, LLM_Consultant MUST review the following materials to maintain contextual understanding:
 
 **Initiative Governance (SSOT Authority)**:
-- `prompt/artifacts/Activitys/T102/consultant/sps/sps_T102-CONSULTANT.md` — Initiative baseline (Section III.B, Section III.C.1-3), T102-ADR-003/004/005/006/007 standards
+- `prompt/artifacts/Activitys/T102/consultant/sps/sps_T102-CONSULTANT.md` — Initiative baseline (Section III.B, Section III.C.1-3), T102-STD-003/004/005/006/007 standards
 - `prompt/artifacts/Activitys/T102/consultant/concept/concept_T102-CONSULTANT.md` — ADR compendium and governance decisions
 
 **Structural Exemplars** (T810 GASTRO + T801 TRADER as references):
@@ -73,11 +73,11 @@ This plan defines the consultancy workflow to establish a **comprehensive, trace
 - `prompt/artifacts/Activitys/T102/consultant/workspace/plan/T102/roadmap_T102-CDW.md` — Parent initiative plan
 
 **Decision Record Standards** (MANDATORY for all SubphaseS):
-- T102-ADR-003: Explicit Inheritance Model (Inherited Considerations table structure)
-- T102-ADR-004: Decision Records Index (GDR/ADR schema, body format, placement)
-- T102-ADR-005: ID Specification & Rules (categories, hierarchy, referencing)
-- T102-ADR-006: Research Artifacts Index (RES/NOTE ID patterns, placement)
-- T102-ADR-007: Issues & Risks Index (schema, enums, status/date coupling, cross-scope promotion)
+- T102-STD-003: Explicit Inheritance Model (Inherited Considerations table structure)
+- T102-STD-004: Decision Records Index (GDR/ADR schema, body format, placement)
+- T102-STD-005: ID Specification & Rules (categories, hierarchy, referencing)
+- T102-STD-006: Research Artifacts Index (RES/NOTE ID patterns, placement)
+- T102-STD-007: Issues & Risks Index (schema, enums, status/date coupling, cross-scope promotion)
 
 ### B. Working Assumptions
 
@@ -171,7 +171,7 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 **Input Packet Files**:
 - `prompt/artifacts/Activitys/T102/consultant/sps/sps_T102-CONSULTANT.md` (Section III.B, Section III.C.1-3 for T102A/T102C patterns)
-- `prompt/artifacts/Activitys/T102/consultant/concept/concept_T102-CONSULTANT.md` (T102-ADR-003/004/005/006/007)
+- `prompt/artifacts/Activitys/T102/consultant/concept/concept_T102-CONSULTANT.md` (T102-STD-003/004/005/006/007)
 - `prompt/artifacts/Activitys/T102/T102B/research/report/report_T102B-RES-001_request-artifact-analysis.md`
 - `prompt/artifacts/Activitys/T810/consultant/request/request_T810A1-PROMPT.md` (golden exemplar)
 - `prompt/artifacts/Activitys/T102/consultant/workspace/plan/T102/roadmap_T102-CDW.md`
@@ -224,7 +224,7 @@ This dual-status approach enables systematic gap analysis while preserving exist
 - [ ] NOTES file created with YAML header and Section I (NOTES SUMMARY)
 - [ ] Stream 0 record added to Section II (Stream RECORDS) with narrative summary, decisions made, improvements & observations, next-Activity guidance
 - [ ] Review raw files and existing consultation context to extract decisions and observations
-- [ ] NOTE candidates extracted to Section III per T102-ADR-006-FR-008
+- [ ] NOTE candidates extracted to Section III per T102-STD-006-FR-008
 
 #### Output Deliverables
 
@@ -246,7 +246,7 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 ### Stream 1: Epic Dossier Foundation (SPS Sections i-v)
 
-**Objective**: Implement SPS sections i-v (Purpose → Feature Register) per T102A-ADR-001 + T102-ADR-003, establishing the structural foundation of the T102B epic dossier before E-RID development.
+**Objective**: Implement SPS sections i-v (Purpose → Feature Register) per T102A-STD-001 + T102-STD-003, establishing the structural foundation of the T102B epic dossier before E-RID development.
 
 **Constraint**: This Stream updates SSOT directly via consultancy dialogue + approval; E-RID bodies deferred to Stream 2.
 
@@ -276,8 +276,8 @@ This dual-status approach enables systematic gap analysis while preserving exist
 |:--------|:--------|:----------------|
 | i. Purpose | Epic objective (1-2 paragraphs) | T102A pattern |
 | ii. Scope | In Scope / Out of Scope lists | T102A pattern |
-| iii. Inherited Considerations | Initiative ID inheritance table | T102-ADR-003 |
-| iv. Governance & Roadmap | Phase & Gates table, Feature Register | T102A-ADR-001 |
+| iii. Inherited Considerations | Initiative ID inheritance table | T102-STD-003 |
+| iv. Governance & Roadmap | Phase & Gates table, Feature Register | T102A-STD-001 |
 | v. Epic Requirements | Placeholder for E-RIDs (populated in Stream 2) | T102A pattern |
 
 #### Activity 1.1: Epic Purpose & Scope Definition
@@ -303,7 +303,7 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 #### Activity 1.2: Inherited Considerations Table
 
-**Purpose**: Populate Inherited Considerations table per T102-ADR-003 (Explicit Inheritance Model).
+**Purpose**: Populate Inherited Considerations table per T102-STD-003 (Explicit Inheritance Model).
 
 **Target**: `sps_T102-CONSULTANT.md` Section III.C.2.iii
 
@@ -324,7 +324,7 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 #### Activity 1.3: Governance & Roadmap Framework
 
-**Purpose**: Establish Governance & Roadmap section per T102A-ADR-001 (Governance Snapshot Framework).
+**Purpose**: Establish Governance & Roadmap section per T102A-STD-001 (Governance Snapshot Framework).
 
 **Target**: `sps_T102-CONSULTANT.md` Section III.C.2.iv
 
@@ -431,7 +431,7 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 **Hard Gate**: Proposal file MUST exist before E-RID dialogue begins (Activity 2.1 prerequisite).
 
-**Category Sequencing** (per `T102-ADR-005-RULE-003` Precedence):
+**Category Sequencing** (per `T102-STD-005-RULE-003` Precedence):
 1. **E-RID** (Requirements): ASSUM → CON → QG → DEP → IF → FR → NFR
 2. **E-DRID** (Decisions): GDR → ADR pairs
 3. **E-IID** (Implementation): IG → INT (non-normative; SHOULD/MAY only)
@@ -541,9 +541,9 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 **Critical Principle**: Research provides suggested E-RIDs as **starting point**; full Socratic dialogue per category is **mandatory** to ensure comprehensive coverage beyond research suggestions.
 
-**Compliance**: All E-RID bodies MUST follow `T102-ADR-005-RULE-001 (Canonical ID Schema)` and `T102-ADR-005-RULE-006 (Content Quality)`.
+**Compliance**: All E-RID bodies MUST follow `T102-STD-005-RULE-001 (Canonical ID Schema)` and `T102-STD-005-RULE-006 (Content Quality)`.
 
-**E-RID Dialogue Sequence** (per `T102-ADR-005-RULE-002` token allowances):
+**E-RID Dialogue Sequence** (per `T102-STD-005-RULE-002` token allowances):
 
 | Order | Token | Focus | Source | Est. Count | Status |
 |:------|:------|:------|:-------|:-----------|:-------|
@@ -555,7 +555,7 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 **Rationale**: ASSUM first to surface risks early; CON frames boundaries; QG defines success; DEP maps external conditions; IF specifies contracts;
 
-**Note on IG**: Implementation Guidance (IG) is **IID category**, not RID. Per `T102-ADR-005-RULE-003`, IIDs are developed AFTER DRIDs in Activity 2.5.
+**Note on IG**: Implementation Guidance (IG) is **IID category**, not RID. Per `T102-STD-005-RULE-003`, IIDs are developed AFTER DRIDs in Activity 2.5.
 
 **Category Dialogue Method** (applies to each category):
 
@@ -576,25 +576,25 @@ This dual-status approach enables systematic gap analysis while preserving exist
 **Purpose**: Develop Epic Decision Records (E-DRIDs) — Governance Decisions (GDR) with paired Architectural Decisions (ADR). This activity also incorporates mandatory operational rules identified during Activity 2.3 IG assessment.
 
 **Compliance**:
-- **DR Body Compliance**: All GDR/ADR bodies MUST follow `T102-ADR-004` body structure
+- **DR Body Compliance**: All GDR/ADR bodies MUST follow `T102-STD-004` body structure
 - **GDR Index Compliance**: Index MUST follow schema `ID | Title | Status | Owner | Effective | Supersedes | Anchor`
 - **ADR Index Compliance**: Index MUST follow schema `ID | Title | Paired GDR | Status | Owner | Effective | Supersedes | Anchor`
 
-**Critical Input from Activity 2.3**: The IG bodies developed in Activity 2.3 contain mandatory operational rules (SHALL language) that violate `T102-ADR-005-RULE-005B` non-normative constraint. These mandatory rules SHALL be incorporated into the paired ADR specifications during this activity.
+**Critical Input from Activity 2.3**: The IG bodies developed in Activity 2.3 contain mandatory operational rules (SHALL language) that violate `T102-STD-005-RULE-005B` non-normative constraint. These mandatory rules SHALL be incorporated into the paired ADR specifications during this activity.
 
 **DRID Candidates** (seeded from research + IG mandatory content):
 
 | GDR ID | ADR ID | Title | IG Mandatory Content Source |
 |:-------|:-------|:------|:----------------------------|
-| T102B-GDR-001 | T102B-ADR-001 | Request Architecture Standard | — |
-| T102B-GDR-002 | T102B-ADR-003, T102B-ADR-004 | Workflow Typology Standard | IG-004 decision tree |
+| T102B-GDR-001 | T102B-STD-001 | Request Architecture Standard | — |
+| T102B-GDR-002 | T102B-STD-003, T102B-STD-004 | Workflow Typology Standard | IG-004 decision tree |
 | T102B-GDR-003 | — | Gate Evidence Standard | IG-005 checklist |
-| T102B-GDR-004 | T102B-ADR-002 | Section Classification Policy | IG-001 classification rules |
+| T102B-GDR-004 | T102B-STD-002 | Section Classification Policy | IG-001 classification rules |
 
 **GDR/ADR Development Task Checklist**:
-- [x] GDR Index populated (Proposal Section III.B.1) per T102-ADR-004
+- [x] GDR Index populated (Proposal Section III.B.1) per T102-STD-004
 - [x] GDR Bodies developed with Context, Decision, Consequences, References
-- [x] ADR Index populated (Proposal Section III.B.2) per T102-ADR-004
+- [x] ADR Index populated (Proposal Section III.B.2) per T102-STD-004
 - [x] ADR Bodies developed with Context, Decision, Specification, Consequences, Alternatives Considered, References, Provenance
 - [x] Mandatory IG content migrated to ADR Specification sections
 - [x] GDR→ADR pairing validated (adoption statements)
@@ -627,12 +627,12 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 #### Activity 2.6: E-OID Development (Issues/Risks/Notes Assessment & Classification)
 
-**Purpose**: Assess all OID candidates per T102-ADR-005/006/007 compliance; classify items as Phase 0 process artifacts vs T102B development items; determine SPS placement eligibility; resolve/mitigate where possible; discover additional OID items from proposal content.
+**Purpose**: Assess all OID candidates per T102-STD-005/006/007 compliance; classify items as Phase 0 process artifacts vs T102B development items; determine SPS placement eligibility; resolve/mitigate where possible; discover additional OID items from proposal content.
 
 **Compliance**:
-- Issues/Risks: `T102-ADR-007` schema, enum casing, status/date coupling
-- Notes: `T102-ADR-005-CLAUSE-005E` semantics (≤200 words, non-normative, link-don't-duplicate)
-- Cross-scope: `T102-ADR-007-CLAUSE-009` promotion/deduplication rules
+- Issues/Risks: `T102-STD-007` schema, enum casing, status/date coupling
+- Notes: `T102-STD-005-CLAUSE-005E` semantics (≤200 words, non-normative, link-don't-duplicate)
+- Cross-scope: `T102-STD-007-CLAUSE-009` promotion/deduplication rules
 
 **Task Register**:
 
@@ -651,11 +651,11 @@ This dual-status approach enables systematic gap analysis while preserving exist
 - [x] Analysis file created with OID assessment framework
 - [x] All Issues classified: Phase 0 process vs T102B development
 - [x] All Risks classified: Phase 0 process vs T102B development
-- [x] All Notes assessed per T102-ADR-005-CLAUSE-005E criteria
+- [x] All Notes assessed per T102-STD-005-CLAUSE-005E criteria
 - [x] Deduplication assessment complete (T102B vs T102 overlap)
 - [x] Additional OID items discovered from Activity 2.3-2.5 content
 - [x] Unresolved Issues/Risks targeted for resolution or SPS import
-- [x] T102-ADR-007 schema compliance verified for Issues/Risks
+- [x] T102-STD-007 schema compliance verified for Issues/Risks
 - [x] Proposal Section III.D and IV updated with final OID state
 
 #### Activity 2.7: NOTES File Update
@@ -672,12 +672,12 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 #### Activity 2.8: T102 Dependency Monitoring & GDR→STD Token Migration
 
-**Purpose**: Convert GDR tokens to STD in proposal following T102 initiative governance realignment standards per `T102-STD-009` and `T102-ADR-009`; update all cross-references; document T102 initiative dependencies.
+**Purpose**: Convert GDR tokens to STD in proposal following T102 initiative governance realignment standards per `T102-STD-009` and `T102-STD-009`; update all cross-references; document T102 initiative dependencies.
 
 **Target**: `proposal_T102B-REQUEST_phase0.md` Sections II.B, III.B, III.C, III.D
 
 **Dependency Context**:
-- T102 Stream 3 (STD Token Formalization) — `T102-STD-009` + `T102-ADR-009` — **AVAILABLE** (draft)
+- T102 Stream 3 (STD Token Formalization) — `T102-STD-009` + `T102-STD-009` — **AVAILABLE** (draft)
 - T102 Stream 4A (ADR-004 Track) — `T102-STD-004` + ADR-004 Update — **AVAILABLE** (draft)
 - T102 Stream 4B (ADR-005 Track) — `T102-STD-005` + ADR-005 Update — **AVAILABLE** (draft)
 
@@ -692,16 +692,16 @@ This dual-status approach enables systematic gap analysis while preserving exist
 | Task ID | Description | Status | Action |
 |:--------|:------------|:-------|:-------|
 | 2.8.1 | Review T102 STD baseline proposals (STD-009, ADR-009, ADR-004, ADR-005) | `completed` | STD-009/ADR-009/ADR-004/ADR-005 specs reviewed |
-| 2.8.2 | Migrate GDR Index to STD Index Schema (add Description, Adopts, Verification, Reference columns per `T102-ADR-009-CLAUSE-004`) | `completed` | 10-column STD Index Schema applied; 4 STDs populated |
+| 2.8.2 | Migrate GDR Index to STD Index Schema (add Description, Adopts, Verification, Reference columns per `T102-STD-009-CLAUSE-004`) | `completed` | 10-column STD Index Schema applied; 4 STDs populated |
 | 2.8.3 | Rename T102B-GDR-### tokens to T102B-STD-### (4 items: GDR-001→STD-001, GDR-002→STD-002, GDR-003→STD-003, GDR-004→STD-004) | `completed` | 4 tokens renamed; all cross-references updated |
-| 2.8.4 | Rewrite STD bodies with adoption statements per `T102-ADR-004-CLAUSE-006` (Pattern: "The project SHALL use `<ADR-ID>`...") | `completed` | 4 STD bodies rewritten with adoption statements |
-| 2.8.5 | Update ADR Index: replace "Paired GDR" column with "Authority STD" per `T102-ADR-004-CLAUSE-001` | `completed` | ADR Index column renamed; 4 Authority STD values populated |
-| 2.8.6 | Update ADR body Context sections with authority citations per `T102-ADR-004-CLAUSE-006` (Pattern: "Per `T102B-STD-###`, ...") | `completed` | 4 ADR Context sections updated with authority citations |
+| 2.8.4 | Rewrite STD bodies with adoption statements per `T102-STD-004-CLAUSE-006` (Pattern: "The project SHALL use `<ADR-ID>`...") | `completed` | 4 STD bodies rewritten with adoption statements |
+| 2.8.5 | Update ADR Index: replace "Paired GDR" column with "Authority STD" per `T102-STD-004-CLAUSE-001` | `completed` | ADR Index column renamed; 4 Authority STD values populated |
+| 2.8.6 | Update ADR body Context sections with authority citations per `T102-STD-004-CLAUSE-006` (Pattern: "Per `T102B-STD-###`, ...") | `completed` | 4 ADR Context sections updated with authority citations |
 | 2.8.7 | Update T102B E-RIDs that reference GDRs to reference STDs (scan CON, DEP, IF, IG bodies for `T102-GDR-###` or `T102B-GDR-###` references) | `completed` | 7 T102-GDR-001 references updated to T102-STD-001 |
 | 2.8.8 | Add T102 dependency tracking section to proposal (document Stream 3/4A/4B compliance notes) | `completed` | Section VII-A added with dependency status table |
-| 2.8.9 | Validate STD↔ADR cross-references per `T102-ADR-004-CLAUSE-008` (Lifecycle Coherence) | `completed` | All 4 STD↔ADR pairings validated bidirectional |
+| 2.8.9 | Validate STD↔ADR cross-references per `T102-STD-004-CLAUSE-008` (Lifecycle Coherence) | `completed` | All 4 STD↔ADR pairings validated bidirectional |
 
-**STD Index Schema** (per `T102-ADR-009-CLAUSE-004`):
+**STD Index Schema** (per `T102-STD-009-CLAUSE-004`):
 `| STD ID | Title | Description | Status | Owner | Effective | Supersedes | Adopts | Verification | Reference |`
 
 **Default Verification Patterns** (for T102B STDs):
@@ -755,15 +755,15 @@ This dual-status approach enables systematic gap analysis while preserving exist
 **Scope**:
 - Include: E-RID/E-DRID compliance review, RES/NOTE-ID compliance, Issue/Risk resolution, cross-category validation, NOTES finalization, Client approval gate
 - Include: GDR→STD token compliance per Activity 2.8 migration
-- Exclude: T102-ADR-006/ADR-007 CLAUSE-level compliance (pending T102 Stream 5)
+- Exclude: T102-STD-006/ADR-007 CLAUSE-level compliance (pending T102 Stream 5)
 - Exclude: SSOT implementation (deferred to Stream 4)
 - Exclude: Feature-level Request authoring (Phase 1)
 
 **Gate Criteria**: All validation activities below MUST be completed before final approval and SSOT implementation.
 
 **Dependency Notes**:
-- T102-ADR-004/ADR-005 compliance per draft specs in `proposal_T102-CWD_refactor-adr-004-005.md`; subject to T102 Stream 4A/4B changes
-- T102-ADR-006/ADR-007 compliance at ADR-ID level only; CLAUSE-level compliance deferred to T102 Stream 5
+- T102-STD-004/ADR-005 compliance per draft specs in `proposal_T102-CWD_refactor-adr-004-005.md`; subject to T102 Stream 4A/4B changes
+- T102-STD-006/ADR-007 compliance at ADR-ID level only; CLAUSE-level compliance deferred to T102 Stream 5
 
 #### Stream 3 Activity Register
 
@@ -810,7 +810,7 @@ This dual-status approach enables systematic gap analysis while preserving exist
 | QG→IG | Each QG has supporting IG implementation guidance | IG bodies cite governing QGs |
 | IF→IG | Each IF has corresponding IG validation/workflow | IG bodies cite governing IFs |
 
-**B. DRID Cross-Category Matrix (per T102-ADR-005-CLAUSE-003)**:
+**B. DRID Cross-Category Matrix (per T102-STD-005-CLAUSE-003)**:
 
 | Direction | Validation Rule | Note |
 |:----------|:----------------|:-----|
@@ -837,7 +837,7 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 #### Activity 3.1: E-RID Compliance Review
 
-**Purpose**: Review all E-RIDs for T102-ADR-005 compliance and PID-style content quality.
+**Purpose**: Review all E-RIDs for T102-STD-005 compliance and PID-style content quality.
 
 **Target**: `proposal_T102B-REQUEST_phase0.md` Section III.A (E-RID Bodies)
 
@@ -862,11 +862,11 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 #### Activity 3.2: E-DRID Compliance Review
 
-**Purpose**: Review all E-STDs and E-ADRs for T102-ADR-004 compliance.
+**Purpose**: Review all E-STDs and E-ADRs for T102-STD-004 compliance.
 
 **Target**: `proposal_T102B-REQUEST_phase0.md` Section III.B (E-DRID Bodies)
 
-**Dependency Note**: T102-ADR-004 spec per draft `proposal_T102-CWD_refactor-adr-004-005.md`; subject to T102 Stream 4A changes.
+**Dependency Note**: T102-STD-004 spec per draft `proposal_T102-CWD_refactor-adr-004-005.md`; subject to T102 Stream 4A changes.
 
 **Task Register**:
 
@@ -897,8 +897,8 @@ This dual-status approach enables systematic gap analysis while preserving exist
 **Target**: `proposal_T102B-REQUEST_phase0.md` Section II.D.3-4 (NOTEs/RES Index)
 
 **Dependency Note**:
-- T102-ADR-006 compliance at ADR-ID level only; CLAUSE-level compliance deferred to T102 Stream 5
-- NOTE-ID semantics per T102-ADR-005-CLAUSE-005E
+- T102-STD-006 compliance at ADR-ID level only; CLAUSE-level compliance deferred to T102 Stream 5
+- NOTE-ID semantics per T102-STD-005-CLAUSE-005E
 
 **Task Register**:
 
@@ -907,7 +907,7 @@ This dual-status approach enables systematic gap analysis while preserving exist
 | 3.3.1 | Validate RES index includes Brief and Report links | `completed` | RES-001 and RES-002 have Brief and Report links |
 | 3.3.2 | Validate RES linked to governing E-RIDs/E-DRs | `completed` | Linked To column populated for both RES items |
 | 3.3.3 | Review notes file for NOTE candidates | `completed` | 3 NOTEs retained; 5 removed with rationale; 3 converted to INT |
-| 3.3.4 | Extract NOTEs ≤200 words per T102-ADR-005-CLAUSE-005E | `completed` | NOTE-002, NOTE-005, NOTE-007 bodies added to Section III.D.3 |
+| 3.3.4 | Extract NOTEs ≤200 words per T102-STD-005-CLAUSE-005E | `completed` | NOTE-002, NOTE-005, NOTE-007 bodies added to Section III.D.3 |
 | 3.3.5 | Index extracted NOTEs in proposal Section II.D.3 | `completed` | NOTE index table present with SPS Placement Rationale |
 | 3.3.6 | Validate NOTE bodies are non-normative (no MUST/SHALL) | `completed` | All NOTE bodies use descriptive language only |
 
@@ -925,7 +925,7 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 **Target**: `proposal_T102B-REQUEST_phase0.md` Section IV
 
-**Dependency Note**: T102-ADR-007 compliance at ADR-ID level only; CLAUSE-level compliance deferred to T102 Stream 5.
+**Dependency Note**: T102-STD-007 compliance at ADR-ID level only; CLAUSE-level compliance deferred to T102 Stream 5.
 
 **Task Register**:
 
@@ -948,13 +948,13 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 #### Activity 3.5: E-IID Compliance Review
 
-**Purpose**: Review all E-IIDs (IG, INT) for T102-ADR-005 compliance; extend IF-003 with minimal routing rules; create new IG for handoff validation checklist.
+**Purpose**: Review all E-IIDs (IG, INT) for T102-STD-005 compliance; extend IF-003 with minimal routing rules; create new IG for handoff validation checklist.
 
 **Target**: `proposal_T102B-REQUEST_phase0.md` Section III.C (E-IID Bodies)
 
 **Compliance Rules**:
-- IG: `T102-ADR-005-CLAUSE-005B (Implementation Guidance Rules)` — informative how-to; MUST NOT introduce system requirements
-- INT: `T102-ADR-005-CLAUSE-005C (Integration Notes Rules)` — non-normative; MUST NOT use MUST/SHALL language
+- IG: `T102-STD-005-CLAUSE-005B (Implementation Guidance Rules)` — informative how-to; MUST NOT introduce system requirements
+- INT: `T102-STD-005-CLAUSE-005C (Integration Notes Rules)` — non-normative; MUST NOT use MUST/SHALL language
 
 **Task Register**:
 
@@ -976,11 +976,11 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 #### Activity 3.6: STD Body T102-STD-009 Compliance
 
-**Purpose**: Ensure all T102B-STD bodies conform to T102-ADR-009-CLAUSE-004 structure (obligation sentence + MVC bullets).
+**Purpose**: Ensure all T102B-STD bodies conform to T102-STD-009-CLAUSE-004 structure (obligation sentence + MVC bullets).
 
 **Target**: `proposal_T102B-REQUEST_phase0.md` Section III.B.1 (E-STD Bodies)
 
-**Compliance Reference**: `T102-ADR-009-CLAUSE-004 (STD Index Schema & Authoring Guidelines)` in `proposal_T102-CWD_refactor_gdrs_into_std.md`
+**Compliance Reference**: `T102-STD-009-CLAUSE-004 (STD Index Schema & Authoring Guidelines)` in `proposal_T102-CWD_refactor_gdrs_into_std.md`
 
 **Required STD Body Structure**:
 - **Primary Obligation Sentence**: `* **<SID>-STD-### (<Title>)** — <Normative obligation sentence>`
@@ -991,7 +991,7 @@ This dual-status approach enables systematic gap analysis while preserving exist
 
 | Task ID | Description | Status | Action |
 |:--------|:------------|:-------|:-------|
-| 3.6.1 | Review T102-ADR-009-CLAUSE-004 requirements | `completed` | STD structure requirements reviewed; all 4 STDs conform |
+| 3.6.1 | Review T102-STD-009-CLAUSE-004 requirements | `completed` | STD structure requirements reviewed; all 4 STDs conform |
 | 3.6.2 | Audit T102B-STD-001 body for MVC compliance | `completed` | Primary Obligation Sentence + 3 MVC bullets citing ADR-001 CLAUSEs |
 | 3.6.3 | Audit T102B-STD-002 body for MVC compliance | `completed` | Primary Obligation Sentence + 4 MVC bullets citing ADR-003/ADR-004 CLAUSEs |
 | 3.6.4 | Audit T102B-STD-003 body for MVC compliance | `completed` | Primary Obligation Sentence + 5 MVC bullets (self-contained; Adopts=—) |
@@ -1074,8 +1074,8 @@ This dual-status approach enables systematic gap analysis while preserving exist
 | Deliverable | Content | Purpose |
 |:------------|:--------|:--------|
 | Validation Reports | E-RID/E-DRID/RES/NOTE compliance reports | Ensure T102 framework compliance |
-| Updated Issues/Risks | Resolved/deferred items with notes/dates | T102-ADR-007 compliance |
-| NOTEs | Extracted non-normative context | T102-ADR-005-CLAUSE-005E compliance |
+| Updated Issues/Risks | Resolved/deferred items with notes/dates | T102-STD-007 compliance |
+| NOTEs | Extracted non-normative context | T102-STD-005-CLAUSE-005E compliance |
 | Traceability Matrix | Cross-category dependency validation | Ensure bidirectional references |
 | Client Approval | Explicit approval statement | Gate Phase 0 completion |
 
@@ -1112,8 +1112,8 @@ This dual-status approach enables systematic gap analysis while preserving exist
 - [x] GDR→STD token migration complete (Activity 2.8)
 
 ### Stream 3: Validation & Cross-Integration Review
-- [x] All E-RIDs pass T102-ADR-005 compliance (Activity 3.1)
-- [x] All E-DRIDs pass T102-ADR-004 compliance (Activity 3.2)
+- [x] All E-RIDs pass T102-STD-005 compliance (Activity 3.1)
+- [x] All E-DRIDs pass T102-STD-004 compliance (Activity 3.2)
 - [x] All RES/NOTEs pass compliance (Activity 3.3)
 - [x] Issues/Risks/OQs resolved or deferred (Activity 3.4 deferred; Activity 3.8 OQs resolved)
 - [x] Cross-category validation complete (Activity 3.0, 3.5, 3.6)

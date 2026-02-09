@@ -297,11 +297,11 @@ The shift to template-driven tracking fundamentally changes the **responsibility
 **T102 Concept Document** (GOVERNANCE):
 - **Path**: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
 - **Relevant ADRs**:
-  - T102-ADR-001: Consultancy Operating Model (Request structure)
-  - T102-ADR-002: Canonical YAML Header (frontmatter requirements)
-  - T102-ADR-003: Explicit Inheritance Model (ID referencing rules)
-  - T102-ADR-004: Decision Records Index (GDR/ADR format)
-  - T102-ADR-005: ID Specification & Rules (F-ID construction patterns)
+  - T102-STD-001: Consultancy Operating Model (Request structure)
+  - T102-STD-002: Canonical YAML Header (frontmatter requirements)
+  - T102-STD-003: Explicit Inheritance Model (ID referencing rules)
+  - T102-STD-004: Decision Records Index (GDR/ADR format)
+  - T102-STD-005: ID Specification & Rules (F-ID construction patterns)
 
 ---
 
@@ -557,7 +557,7 @@ For each tracking entry type, specify:
 
 **Document**: `request_T810A2-SCHEMA.md`
 
-**Structure** (following T102-ADR-001-FR-002):
+**Structure** (following T102-STD-001-FR-002):
 
 ```markdown
 ---

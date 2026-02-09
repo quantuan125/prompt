@@ -63,8 +63,8 @@ levels:
       POC_4: 84.4
       POC_5: 76.4
     zones:
-      SELL_1: 90.8
-      SELL_2: 85.4
+      SELL_1: 88.3
+      SELL_2: 78.9
     active:
       L_BOS: 80.6
     inactive:

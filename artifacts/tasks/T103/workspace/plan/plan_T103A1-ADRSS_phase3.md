@@ -19,7 +19,7 @@ This plan defines the next evolution of the T103 ADR Skills System:
 - **Phase 4**: Introduce a generator workflow that derives the supported ADR registry from the Concept SSOT (start with registry generation only; later expand to docs/scaffolding after stronger testing).
 
 **Non-goals**
-- Phase 3 does **not** deprecate or remove existing ADR skills (`t102-adr-004-drs-index`, `t102-adr-005-id-spec`, `t102-adr-007-issues-risks-index`). Deprecation is deferred until the new single skill is validated in real usage.
+- Phase 3 does **not** deprecate or remove existing ADR skills (`t102-std-004-drs-index`, `t102-std-005-id-spec`, `t102-std-007-issues-risks-index`). Deprecation is deferred until the new single skill is validated in real usage.
 - Phase 3 does **not** add broad “prompt-only” gates; scope gating is handled by the caller’s workflow, not by hard blocking in the skill.
 
 ---
@@ -40,9 +40,9 @@ This plan defines the next evolution of the T103 ADR Skills System:
 - Codex mirror sync (all): `prompt/scripts/skills/sync_codex_mirrors.py`
 
 **Active per-ADR skills (remain in use during Phase 3)**:
-- `prompt/skills/t102-adr-004-drs-index/`
-- `prompt/skills/t102-adr-005-id-spec/`
-- `prompt/skills/t102-adr-007-issues-risks-index/`
+- `prompt/skills/t102-std-004-drs-index/`
+- `prompt/skills/t102-std-005-id-spec/`
+- `prompt/skills/t102-std-007-issues-risks-index/`
 
 ---
 

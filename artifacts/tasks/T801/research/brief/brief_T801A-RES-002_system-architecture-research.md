@@ -36,7 +36,7 @@ This brief commissions an **internal system review** of the current Epic `T801A`
 *   **Intent (master)**: `components/tv_ingest/assets/pine/nmaq_exporter.pine` and `components/tv_ingest/utils/constant.py` define an expanded schema (base + delta/VWAP fields).
 *   **Reality (drift)**: existing CSV artifacts may reflect an older schema (fewer columns).
 
-**Target deliverable**: A research report that (1) documents the intended pipeline end-to-end, (2) produces an explicit contract inventory for ingress/storage/exports, (3) proposes a **minimal market context** payload compatible with typical trading-session prompts (VPA Type 1 + Type 2), and (4) logs discovered gaps as `T801A-ISSUE-###` / `T801A-RISK-###` per `T102-ADR-007`.
+**Target deliverable**: A research report that (1) documents the intended pipeline end-to-end, (2) produces an explicit contract inventory for ingress/storage/exports, (3) proposes a **minimal market context** payload compatible with typical trading-session prompts (VPA Type 1 + Type 2), and (4) logs discovered gaps as `T801A-ISSUE-###` / `T801A-RISK-###` per `T102-STD-007`.
 
 ---
 
@@ -212,9 +212,9 @@ The research report MUST use the standard template located at:
 
 ---
 
-## VII. ISSUES & RISKS REGISTER (T102-ADR-007)
+## VII. ISSUES & RISKS REGISTER (T102-STD-007)
 
-The research report MUST include an “Issues & Risks” section that implements `T102-ADR-007 (Issues & Risks Index)` exactly and mints IDs scoped to this Epic (`T801A-ISSUE-###`, `T801A-RISK-###`).
+The research report MUST include an “Issues & Risks” section that implements `T102-STD-007 (Issues & Risks Index)` exactly and mints IDs scoped to this Epic (`T801A-ISSUE-###`, `T801A-RISK-###`).
 
 **Issues**
 <!-- GUIDANCE:

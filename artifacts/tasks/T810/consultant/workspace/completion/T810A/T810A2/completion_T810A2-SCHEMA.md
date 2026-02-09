@@ -119,7 +119,7 @@ governance_guide: '../workspace_documentation_rules.md'
 > 2. **Epic Deliverable Validation Ownership**: DEP-002 revised to clarify T810A consultant validates deliverables for Epic governance compliance (T810A-ADR-001/002/003/004) before implementation handoff; LLM_Developer is post-consultancy implementation resource only
 > 3. **T810A3 Forward Compatibility Approach**: DEP-003 revised with T810A3 scope (Reporting & Continuity); lightweight Epic governance alignment (T810A-GDR-003, T810A-ADR-003, T810A-IG-006); accept calculated rework risk without formal research
 > 4. **Research Resource Dependency**: DEP-004 created as high-level LLM_Researcher availability dependency for on-demand research (template format selection, controlled vocabulary validation, industry standards)
-> 5. **Foundational Vocabulary Epic Governance**: DEP-005 created referencing proposed T810A-ADR-002 (Foundational Vocabulary Authority) for Epic-level controlled vocabulary governance; replaces direct Plan III.G foundational table references per T102-ADR-005 conciseness principles
+> 5. **Foundational Vocabulary Epic Governance**: DEP-005 created referencing proposed T810A-ADR-002 (Foundational Vocabulary Authority) for Epic-level controlled vocabulary governance; replaces direct Plan III.G foundational table references per T102-STD-005 conciseness principles
 >
 > **Epic Governance Proposal (T810A-ADR-002)**:
 > - **Rationale**: Plan Section III.G foundational JSON requirements table contains CLIENT-MANDATED controlled vocabularies (meal metadata, stool descriptors, numeric scale semantics) required for Cara Care dual-processing alignment (T810A-CON-002) and cross-feature aggregation compatibility (T810A-DEP-002)
@@ -130,7 +130,7 @@ governance_guide: '../workspace_documentation_rules.md'
 > **Cross-Feature F-RID Governance Compliance**:
 > - **Removed from DEP-001** (governance violation): Direct T810A1 F-RID references (T810A1-IF-006, T810A1-INT-004, T810A1-INT-005, T810A1-NFR-009)
 > - **Replaced with**: Epic governance references (T810A-DEP-004, T810A-GDR-002, T810A-IG-002/004/005)
-> - **T102-ADR-005 Compliance**: All DEP items revised for conciseness (no plan file details: "Phase 3", "Checkpoint N", "Activity X.X"); high-level Epic scope only; 2-8 word titles
+> - **T102-STD-005 Compliance**: All DEP items revised for conciseness (no plan file details: "Phase 3", "Checkpoint N", "Activity X.X"); high-level Epic scope only; 2-8 word titles
 >
 > **Research Needs Consolidated**:
 > - **RES-001 (Template Format & Controlled Vocabulary)** — CRITICAL priority; combined research run with sequential execution: Part 1 (Cara Care Vocabulary Extraction - exhaustive vocabularies for T810A-ADR-002), Part 2 (Template Format Selection - JSON vs. YAML vs. JSONL informed by Part 1 token efficiency results)
@@ -154,7 +154,7 @@ governance_guide: '../workspace_documentation_rules.md'
 > **Activity 1.4 Completion Summary**:
 >
 > **Decisions Made**:
-> 1. **NFR Abstraction Level**: All NFRs simplified to high-level quality attributes per T102-ADR-005 compliance; overly-detailed content (specific scale mappings, threshold values, implementation patterns) pushed to appropriate categories (Stories for FRs, IG for patterns, Research for decisions)
+> 1. **NFR Abstraction Level**: All NFRs simplified to high-level quality attributes per T102-STD-005 compliance; overly-detailed content (specific scale mappings, threshold values, implementation patterns) pushed to appropriate categories (Stories for FRs, IG for patterns, Research for decisions)
 > 2. **Token Efficiency Scope**: NFR-001 applies to ALL schemas (Stable + Dynamic JSON); no hard token cap; concrete thresholds deferred to Story S01 validation per NOTE-002
 > 3. **Template Format & Vocabulary Research**: RES-001 commissioned as CRITICAL priority research (Phase 2 blocking); combined research run with sequential execution: Part 1 (Cara Care Vocabulary Extraction) extracts exhaustive controlled vocabularies for T810A-ADR-002 implementation; Part 2 (Template Format Selection) evaluates JSON vs. YAML vs. JSONL for ChatGPT Project Knowledge compatibility, HYBRID annotation support, token efficiency (informed by Part 1 results)
 > 4. **Null-Before-Probe Strategy**: NOTE-003 prescriptive requirement — LLM_Gastro defaults to null for ALL fields when context insufficient BEFORE Probe triggers; Probe THEN fills mandatory nulls in second pass; prevents hallucination per T810A-QG-008
@@ -212,7 +212,7 @@ governance_guide: '../workspace_documentation_rules.md'
 >
 > 6. **High-Level Field Categorization Principles Established**: IF-004 specifies entry-type specific mapping rules (timestamp fields mandatory for all types, mental state fields mandatory for patient_state, Bristol type mandatory for stool, meal items mandatory for meal, metadata optional) per client directive (A4 approved). Exhaustive field lists deferred to Story S08 to avoid duplication while providing Phase 1 guidance.
 >
-> **T102-ADR-005 Conciseness Compliance**:
+> **T102-STD-005 Conciseness Compliance**:
 > - All IF items revised to ultra-concise format (2-8 word titles maximum)
 > - Removed plan file details (no "Story S08", "Checkpoint N" references except in "Specification details" pointer)
 > - Focused on interface contracts (WHAT data structures, WHAT field categories) not implementation (HOW to load, HOW to enforce)
@@ -232,13 +232,13 @@ governance_guide: '../workspace_documentation_rules.md'
 >
 > 3. **Cross-Feature F-RID Removal**: Removed ALL direct T810A1 F-RID references from CON-003 (T810A1-S05, T810A1-S08, T810A1-ISSUE-004) per Activity 1.5 governance compliance. Changed to "validation enforcement delegated to Epic governance per T810A-GDR-002."
 >
-> 4. **T102-ADR-005 Conciseness Compliance**: Revised all CON-001 through CON-005 to ultra-concise format: (1) Removed "Client directive (Comment N)" citations, (2) Removed implementation details and rationale lists, (3) Condensed descriptions to high-level constraint boundaries only, (4) Moved Story references to "Specification details" pointers, (5) Shortened titles (removed "Constraint" suffix per Activity 1.5 pattern).
+> 4. **T102-STD-005 Conciseness Compliance**: Revised all CON-001 through CON-005 to ultra-concise format: (1) Removed "Client directive (Comment N)" citations, (2) Removed implementation details and rationale lists, (3) Condensed descriptions to high-level constraint boundaries only, (4) Moved Story references to "Specification details" pointers, (5) Shortened titles (removed "Constraint" suffix per Activity 1.5 pattern).
 >
 > 5. **Validation Drift Risk Epic Coordination**: Value drift risk escalated from Feature-level (T810A1-ISSUE-004) to Epic-level coordination. Cross-feature impact (T810A1, T810A2, T810A3) requires Epic governance. Documented in CON-003 with Epic coordination Activity 3.4 per client directive.
 >
 > 6. **Stable JSON Workflow Scope Clarification**: CON-004 clarifies T810A2 defines Stable JSON manual update workflow entirely per client directive; workflow specification included in Story S01 scope (not delegated to external operational procedures).
 >
-> **T102-ADR-005 Conciseness Compliance**:
+> **T102-STD-005 Conciseness Compliance**:
 > - All CON titles shortened to 2-4 words max (Schema Complexity, Cara Care Vocabulary Authority, Specification-Based Validation, Manual Profile Management, Fixed Schema Keys)
 > - Removed Story/Issue references from descriptions (moved to "Specification details" pointers)
 > - Removed rationale lists and implementation details (e.g., CON-005 4-point rationale condensed to single sentence)
@@ -364,7 +364,7 @@ governance_guide: '../workspace_documentation_rules.md'
 >
 > 6. **Activity 1.7 Enhanced**: `T810A2-IG-007` (Manual Export Workflow Guidance) added to IG category for internal patient workflow implementation (JSON export format, compilation steps, file naming conventions)
 >
-> **T102-ADR-005 Compliance**:
+> **T102-STD-005 Compliance**:
 > - All INT items use correct formal F-RID references (e.g., `T810A2-IG-007`, `T810A2-S08` per FR-006)
 > - All INT items follow 2-3 word title maximum per FR-005
 > - All INT items maintain high-level patterns per approved Option A detail level
@@ -404,9 +404,9 @@ governance_guide: '../workspace_documentation_rules.md'
 > **Activity 1.10 Completion Summary**:
 >
 > **Validation Methodology**:
-> 1. **Level 1 (Structural)**: T102-ADR-005-FR-001 through FR-008 compliance validation (ID scope, terminologies, precedence/directionality, categories, title construction, references, migration/stability, INT integration exception)
+> 1. **Level 1 (Structural)**: T102-STD-005-FR-001 through FR-008 compliance validation (ID scope, terminologies, precedence/directionality, categories, title construction, references, migration/stability, INT integration exception)
 > 2. **Level 2 (Content)**: Category coherence, traceability completeness, duplication detection, logical dependency chain validation
-> 3. **Level 3 (Governance)**: E-RID content duplication check, Epic governance conflicts validation, IC table accuracy validation, Epic ADR-002 proposal validation per T102-ADR-004
+> 3. **Level 3 (Governance)**: E-RID content duplication check, Epic governance conflicts validation, IC table accuracy validation, Epic ADR-002 proposal validation per T102-STD-004
 >
 > **Validation Outcome**:
 > - ✅ **Overall Result**: PASS (with 4 corrections required)
@@ -419,7 +419,7 @@ governance_guide: '../workspace_documentation_rules.md'
 > 3. **Section X.A IG Count Correction (MINOR)**: Updated IG count from 6 to 7 items (IG-007 added in Activity 1.8)
 > 4. **IC Table Finalization (MODERATE)**: Architecture row added (4 E-ADRs including ADR-002 [PROPOSED]), IG-006 added to Implementation Guidance row, DEP-002 and DEP-005 added to Dependencies row, T810A1 feature row removed per governance rules
 >
-> **T102-ADR-005 Compliance Validation**:
+> **T102-STD-005 Compliance Validation**:
 > - ✅ FR-001: ID Scope — All 42 F-RIDs use correct `T810A2-{CAT}-{NNN}` pattern
 > - ✅ FR-002: ID Terminologies — F-ID/F-RID terminology correctly applied
 > - ✅ FR-003: Precedence & Directionality — Upstream-only references; INT exception properly documented
@@ -433,7 +433,7 @@ governance_guide: '../workspace_documentation_rules.md'
 > - ✅ **No E-RID Content Duplication**: Delta-only principle maintained across all 42 F-RIDs
 > - ✅ **No Epic Conflicts**: All T810A2 F-RIDs align with T810A GDRs, CONs, and IGs
 > - ✅ **IC Table Accuracy**: Finalized IC Table reflects actual E-RID usage (30 E-RIDs referenced across 8 categories)
-> - ✅ **Epic ADR-002 Proposal Compliant**: T102-ADR-004 format standards validated (correct structure, subsections, formal references)
+> - ✅ **Epic ADR-002 Proposal Compliant**: T102-STD-004 format standards validated (correct structure, subsections, formal references)
 >
 > **Traceability Validation**:
 > - ✅ **Epic Governance**: All 42 F-RIDs with Epic dependencies correctly reference E-GDRs, E-ADRs, E-IGs, E-RIDs
@@ -459,9 +459,9 @@ governance_guide: '../workspace_documentation_rules.md'
 >
 > **Review Criteria Validation**:
 > - ✅ **F-RID Categories Complete**: 42 F-RIDs across 9 categories (ASSUM, DEP, NFR, IF, CON, IG, INT, NOTE, RES) finalized
-> - ✅ **IC Table Finalized**: Architecture row added; 30 E-RIDs referenced across 8 categories; T102-ADR-003 compliant
+> - ✅ **IC Table Finalized**: Architecture row added; 30 E-RIDs referenced across 8 categories; T102-STD-003 compliant
 > - ✅ **No Direct Feature-to-Feature Citations**: All F-RIDs reference Epic governance only (except INT category per governance exemption)
-> - ✅ **ID Construction per T102-ADR-005**: All 8 FRs validated; 2 title violations corrected
+> - ✅ **ID Construction per T102-STD-005**: All 8 FRs validated; 2 title violations corrected
 > - ✅ **Clear E-RID → F-RID Expansion Logic**: Delta-only principle maintained; no E-RID content duplication
 > - ✅ **Research & Notes Documented**: RES-001 commissioned (CRITICAL priority); 4 NOTE items capture client directives
 >
@@ -475,7 +475,7 @@ governance_guide: '../workspace_documentation_rules.md'
 > - **Epic Consultant Coordination**: Deferred handoff brief for INT patterns and Epic ADR-002 proposal (to be coordinated via separate workflow per client directive)
 > - **Developer Readiness**: Phase 1 foundational requirements complete; Phase 2 (Schema Development & Validation) authorized
 >
-> **Blocking Issues**: NONE — All critical issues resolved (DEP-005 categorization fixed; IC table finalized; T102-ADR-005 compliance achieved)
+> **Blocking Issues**: NONE — All critical issues resolved (DEP-005 categorization fixed; IC table finalized; T102-STD-005 compliance achieved)
 >
 > **Phase 2 Transition Authorization**: ✅ **APPROVED** — Proceed to Activity 2.0 (Template Drafting & Deliverable Examples) with RES-001 research execution as critical dependency
 >

@@ -66,11 +66,11 @@ Per-skill wrappers are the stable entrypoints, but the shared entrypoints can be
 
 **Shared extractor**:
 - `python3 prompt/scripts/skills/extract_adr.py --adr-id ADR-005`
-- `python3 prompt/scripts/skills/extract_adr.py --expected-anchor "{#t102-adr-005-id-spec}"`
+- `python3 prompt/scripts/skills/extract_adr.py --expected-anchor "{#t102-std-005-id-spec}"`
 
 **Shared mirror sync (single skill)**:
-- `python3 prompt/scripts/skills/sync_to_codex_mirror.py --skill-name t102-adr-005-id-spec --check`
-- `python3 prompt/scripts/skills/sync_to_codex_mirror.py --skill-name t102-adr-005-id-spec`
+- `python3 prompt/scripts/skills/sync_to_codex_mirror.py --skill-name t102-std-005-id-spec --check`
+- `python3 prompt/scripts/skills/sync_to_codex_mirror.py --skill-name t102-std-005-id-spec`
 
 **Sync all mirrors (registry-driven)**:
 - `python3 prompt/scripts/skills/sync_codex_mirrors.py`

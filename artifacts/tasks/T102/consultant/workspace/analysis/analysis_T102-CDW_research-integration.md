@@ -8,7 +8,7 @@ date: '2026-01-13'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-purpose: 'Cross-research integration analysis for Phase 0 Research Commission to inform T102B-ADR-001 development and Request template revision'
+purpose: 'Cross-research integration analysis for Phase 0 Research Commission to inform T102B-STD-001 development and Request template revision'
 ---
 
 # INTEGRATION ANALYSIS: Phase 0 Research Report Integration
@@ -21,7 +21,7 @@ Synthesize findings from both commissioned research reports (T102-RES-003 Intern
 2. Maps findings to **proposed updates** (I-RIDs, E-ADRs, template changes)
 3. Identifies **cross-research dependencies** (how internal status informs external recommendations)
 4. Assesses **implications for Phase 1** (T102B epic development)
-5. Prepares **T102B-ADR-001 candidate content** for REQUEST Architecture Standard
+5. Prepares **T102B-STD-001 candidate content** for REQUEST Architecture Standard
 
 **Scope**
 - **T102-RES-003**: Internal initiative status assessment (artifact inventory, epic progress, governance gaps, workflow bottlenecks, documentation debt)
@@ -29,7 +29,7 @@ Synthesize findings from both commissioned research reports (T102-RES-003 Intern
 
 **Key Integration Findings**
 1. **Converging Evidence**: Both reports identify documentation overhead as critical blocker (25-40% internal debt + 10x SAFe excess externally)
-2. **REQUEST Architecture Gap**: T102B has zero ADRs; T102B-ADR-001 is prerequisite for epic development
+2. **REQUEST Architecture Gap**: T102B has zero ADRs; T102B-STD-001 is prerequisite for epic development
 3. **Workflow Bottleneck Root Cause**: SPS→REQUEST handoff undefined; only 1 REQUEST prototype exists
 4. **Template Evolution Path**: Research supports "Request Lite" variant (<200 lines) + Section J deferral to Design
 5. **Traceability Hygiene**: 11/32 artifacts lack YAML headers; register links broken; must fix before scaling
@@ -54,7 +54,7 @@ Synthesize findings from both commissioned research reports (T102-RES-003 Intern
 - **Concept**: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (v1.1.0)
 - **Request Exemplar**: `prompt/artifacts/tasks/T810/consultant/request/request_T810A1-PROMPT.md`
 - **Analysis Exemplar**: `prompt/artifacts/tasks/T801/consultant/workspace/analysis/analysis_T801A-SYSTEM_research-integration.md`
-- **T102 Standards**: T102-ADR-004/005/006/007 for governance patterns
+- **T102 Standards**: T102-STD-004/005/006/007 for governance patterns
 
 ---
 
@@ -87,7 +87,7 @@ Synthesize findings from both commissioned research reports (T102-RES-003 Intern
 | **T102D (DESIGN)** | 30% | ◐ | S2 design incomplete |
 | **T102E (RESEARCH)** | 0% | ✗ | Epic not created |
 
-**Critical Path**: T102A approval → T102B-ADR-001 design → T102B Feature Register → REQUEST template validation
+**Critical Path**: T102A approval → T102B-STD-001 design → T102B Feature Register → REQUEST template validation
 
 **Maps To**: Phase 1 Activity 1.1 (T102B Foundation), P1 Actions
 
@@ -99,13 +99,13 @@ Synthesize findings from both commissioned research reports (T102-RES-003 Intern
 
 | Scope | ADRs Defined | Gap |
 |:------|:-------------|:----|
-| **T102A** | T102A-ADR-001, -002 | None |
+| **T102A** | T102A-STD-001, -002 | None |
 | **T102B** | — | **Critical**: No REQUEST Architecture Standard |
-| **T102C** | T102C-ADR-001 | Partial (handoff pending) |
+| **T102C** | T102C-STD-001 | Partial (handoff pending) |
 | **T102D** | — | **Critical**: No Design Log Standard |
 | **T102E** | — | Epic not created |
 
-**Maps To**: T102B-ADR-001 (REQUEST Architecture), T102D-ADR-001 (Design Log)
+**Maps To**: T102B-STD-001 (REQUEST Architecture), T102D-ADR-001 (Design Log)
 
 ---
 
@@ -119,9 +119,9 @@ Synthesize findings from both commissioned research reports (T102-RES-003 Intern
 | Documentation overhead | 3x size expansion per feature | MEDIUM | Request Lite variant |
 | Feature Register incomplete | Only 1/3+ features registered | MEDIUM | Expand register |
 | SPS approval long-cycle | 5+ months in review | MEDIUM | Governance freeze |
-| T102B startup blocked | Zero planning | CRITICAL | T102B-ADR-001 design |
+| T102B startup blocked | Zero planning | CRITICAL | T102B-STD-001 design |
 
-**Maps To**: P1/P2 Actions, T102B-ADR-001
+**Maps To**: P1/P2 Actions, T102B-STD-001
 
 ---
 
@@ -209,7 +209,7 @@ Synthesize findings from both commissioned research reports (T102-RES-003 Intern
 | S7 | Research Linkage | Section I | UNIQUE strength |
 | S8 | Issues & Risks Register | Section H | PRINCE2/PMBOK aligned |
 
-**Action**: Preserve S1-S8 patterns in T102B-ADR-001
+**Action**: Preserve S1-S8 patterns in T102B-STD-001
 
 ---
 
@@ -225,7 +225,7 @@ Synthesize findings from both commissioned research reports (T102-RES-003 Intern
 | W6 | Version/Iteration Formality | LOW | Living document patterns |
 | W7 | Missing Current/Future State | LOW | BRD best practice |
 
-**Action**: Address W1, W2, W5 (HIGH) in T102B-ADR-001
+**Action**: Address W1, W2, W5 (HIGH) in T102B-STD-001
 
 ---
 
@@ -242,7 +242,7 @@ Synthesize findings from both commissioned research reports (T102-RES-003 Intern
 | P7 | Add Current/Future State | P3 | LOW | BRD best practice |
 | P8 | Living Document Pattern | P3 | LOW | Update friction |
 
-**Action**: Implement P1-P4 in T102B-ADR-001
+**Action**: Implement P1-P4 in T102B-STD-001
 
 ---
 
@@ -272,7 +272,7 @@ Synthesize findings from both commissioned research reports (T102-RES-003 Intern
 
 **Selection Criteria**: Impact, Scope, Risk, Complexity, Duration, Dependencies
 
-**Maps To**: T102-ADR-009 (Workflow Selection Criteria)
+**Maps To**: T102-STD-009 (Workflow Selection Criteria)
 
 ---
 
@@ -282,7 +282,7 @@ Synthesize findings from both commissioned research reports (T102-RES-003 Intern
 
 | Internal Finding | External Recommendation | Integration |
 |:-----------------|:-----------------------|:------------|
-| T102B has zero ADRs | Create T102B-ADR-001 | **Priority P2**: Design REQUEST Architecture |
+| T102B has zero ADRs | Create T102B-STD-001 | **Priority P2**: Design REQUEST Architecture |
 | 25-40% documentation debt | Request Lite + Section deferral | Validates P1-P4 proposals |
 | SPS→REQUEST handoff blocked | Define workflow boundaries | Informs Topic 6 integration model |
 | 11/32 YAML non-compliant | — | **Prerequisite**: Hygiene before scaling |
@@ -292,10 +292,10 @@ Synthesize findings from both commissioned research reports (T102-RES-003 Intern
 
 | External Standard | Internal Action | Artifact |
 |:------------------|:----------------|:---------|
-| SAFe Feature = name + hypothesis + AC | Create Request Lite (<200 lines) | T102B-ADR-001 |
-| IEEE 830: story-level at Design | Defer Section J to Design | T102B-ADR-001 |
-| BABOK: tiered documentation | Define workflow selection criteria | T102-ADR-009 |
-| ISO 29148: inheritance by reference | Simplify RID inheritance | T102-ADR-003 update |
+| SAFe Feature = name + hypothesis + AC | Create Request Lite (<200 lines) | T102B-STD-001 |
+| IEEE 830: story-level at Design | Defer Section J to Design | T102B-STD-001 |
+| BABOK: tiered documentation | Define workflow selection criteria | T102-STD-009 |
+| ISO 29148: inheritance by reference | Simplify RID inheritance | T102-STD-003 update |
 
 ### C. Dependency Chain
 
@@ -304,19 +304,19 @@ T102-RES-003 (Internal Status)
     │
     ├─► Hygiene Sprint Required ──────────► Activity 0.5 (prerequisite)
     │
-    ├─► T102B Epic Blocked ───────────────► T102B-ADR-001 (unlock)
+    ├─► T102B Epic Blocked ───────────────► T102B-STD-001 (unlock)
     │
     └─► Documentation Debt 25-40% ────────► Validates T102B-RES-001 proposals
 
 T102B-RES-001 (External Industry)
     │
-    ├─► Request Lite Recommended ─────────► T102B-ADR-001 Section 3 (template variant)
+    ├─► Request Lite Recommended ─────────► T102B-STD-001 Section 3 (template variant)
     │
-    ├─► Story FR Deferral ────────────────► T102B-ADR-001 Section 4 (Section J transformation)
+    ├─► Story FR Deferral ────────────────► T102B-STD-001 Section 4 (Section J transformation)
     │
-    ├─► Workflow Typology ────────────────► T102-ADR-009 (new ADR)
+    ├─► Workflow Typology ────────────────► T102-STD-009 (new ADR)
     │
-    └─► Strengths S1-S8 ──────────────────► T102B-ADR-001 (preserve patterns)
+    └─► Strengths S1-S8 ──────────────────► T102B-STD-001 (preserve patterns)
 ```
 
 ---
@@ -330,14 +330,14 @@ T102B-RES-001 (External Industry)
 | **I-ISSUE** | T102-ISSUE-006 | ADD | Traceability Hygiene (11/32 YAML non-compliant) |
 | **I-ISSUE** | T102-ISSUE-007 | ADD | Register Link Integrity (ghost artifacts) |
 | **I-RISK** | T102-RISK-006 | ADD | Template Migration (existing Requests may need update) |
-| **I-GDR** | T102-GDR-009 | PROPOSE | Workflow Selection Operating Model (pair with T102-ADR-009) |
-| **I-ADR** | T102-ADR-009 | CREATE | Workflow Selection Criteria |
+| **I-GDR** | T102-GDR-009 | PROPOSE | Workflow Selection Operating Model (pair with T102-STD-009) |
+| **I-ADR** | T102-STD-009 | CREATE | Workflow Selection Criteria |
 | **Research Register** | T102-RES-003 | ADD | SPS Section III.B |
 | **Research Register** | T102B-RES-001 | ADD | SPS Section III.C.2.vii |
 
 ### B. Epic-Level ADR Candidates
 
-#### T102B-ADR-001: REQUEST Architecture Standard
+#### T102B-STD-001: REQUEST Architecture Standard
 
 **Proposed Content**:
 
@@ -377,9 +377,9 @@ T102B-RES-001 (External Industry)
 |:-------|:------|:------------|:--------|
 | **GAP-001** | Hygiene Sprint Timing | Execute before or parallel with Phase 1? | (A) Blocking prerequisite, (B) Parallel track |
 | **GAP-002** | Request Lite Threshold | <200 lines target acceptable? | (A) Accept, (B) Different threshold |
-| **GAP-003** | Workflow Typology Formalization | New ADR or GDR extension? | (A) T102-ADR-009, (B) Extend T102-GDR-001 |
+| **GAP-003** | Workflow Typology Formalization | New ADR or GDR extension? | (A) T102-STD-009, (B) Extend T102-GDR-001 |
 | **GAP-004** | plan_T102B Location | Which directory path? | (A) `.../plan/T102B/`, (B) Alternative |
-| **GAP-005** | T102-ADR-009 Scope | Include PR templates or criteria only? | (A) Full templates, (B) Criteria only |
+| **GAP-005** | T102-STD-009 Scope | Include PR templates or criteria only? | (A) Full templates, (B) Criteria only |
 
 ### B. Primary Risks from Integration
 
@@ -399,16 +399,16 @@ T102B-RES-001 (External Industry)
 **P0 (Traceability Hygiene — 1 session)** [Activity 0.5]:
 - Fix broken register links
 - Retrofit 11 missing YAML headers
-- Update Research Registers per T102-ADR-006
+- Update Research Registers per T102-STD-006
 
 **P1 (Unblock SPS Approval — 2-3 hours)**:
 - Expand Feature Register (T102A2, T102A3)
 - Apply governance freeze per T102A-GDR-002
 
 **P2 (Unblock T102B — 10-16 hours)**:
-- Design T102B-ADR-001 (REQUEST Architecture Standard)
+- Design T102B-STD-001 (REQUEST Architecture Standard)
 - Create Request Lite template
-- Create T102-ADR-009 (Workflow Selection Criteria)
+- Create T102-STD-009 (Workflow Selection Criteria)
 
 **P3 (Phase 2+ Backlog — 12-24 hours)**:
 - Create T102E epic dossier
@@ -419,9 +419,9 @@ T102B-RES-001 (External Industry)
 
 1. **Hygiene Sprint Priority**: Blocking or parallel?
 2. **Request Lite Threshold**: Accept <200 lines?
-3. **Workflow Typology ADR**: Create T102-ADR-009?
+3. **Workflow Typology ADR**: Create T102-STD-009?
 4. **plan_T102B Location**: Confirm directory path
-5. **T102-ADR-009 Scope**: Templates or criteria only?
+5. **T102-STD-009 Scope**: Templates or criteria only?
 
 ### C. Impact Assessment
 
@@ -465,5 +465,5 @@ T102B-RES-001 (External Industry)
 ---
 
 **Document Status**: Draft
-**Approval Required**: Client review before proceeding to T102B-ADR-001 design
+**Approval Required**: Client review before proceeding to T102B-STD-001 design
 **Next Review**: Upon Client feedback on GAP-001 through GAP-005

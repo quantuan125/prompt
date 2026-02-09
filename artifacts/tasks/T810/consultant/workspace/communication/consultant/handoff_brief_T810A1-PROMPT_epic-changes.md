@@ -50,11 +50,11 @@ This handoff brief communicates comprehensive Epic-level changes from **Phases 2
    - **Usage**: Reference for implementation details not fully documented in this brief
 
 ### B. ID Specification Standards
-4. **T102-ADR-004** (Decision Records Index): Format standards for GDRs/ADRs
+4. **T102-STD-004** (Decision Records Index): Format standards for GDRs/ADRs
    - **Location**:   `prompt\artifacts\tasks\T102\consultant\concept\concept_T102-CONSULTANT.md`
    - **Usage**: Validate GDR body format compliance (Context, Decision, Consequences, References)
 
-5. **T102-ADR-005** (ID Specification & Rules): Scope IDs, precedence hierarchy, reference syntax
+5. **T102-STD-005** (ID Specification & Rules): Scope IDs, precedence hierarchy, reference syntax
    - **Location**: `prompt\artifacts\tasks\T102\consultant\concept\concept_T102-CONSULTANT.md`
    - **Usage**: Validate E-RID references use formal syntax; understand inheritance rules
 
@@ -82,7 +82,7 @@ This handoff brief communicates comprehensive Epic-level changes from **Phases 2
 | **Quality Goals** | 8 | T810A-QG-001 through QG-008 |
 | **Implementation Guidance** | 6 | T810A-IG-001 through IG-006 |
 
-**Impact on T810A1**: These 27 items must now be **inherited** (not duplicated) in T810A1 Request per T102-ADR-003 (ID Specification & Rules).
+**Impact on T810A1**: These 27 items must now be **inherited** (not duplicated) in T810A1 Request per T102-STD-003 (ID Specification & Rules).
 
 ---
 
@@ -324,7 +324,7 @@ Replace promoted F-RID citations with E-RID references throughout T810A1 Request
 
 ### B. Demoted GDR Content (Full Text from SPS)
 
-**Placement**: Add to T810A1 Request Section "Feature Governance Decisions" (follow T102-ADR-004 format).
+**Placement**: Add to T810A1 Request Section "Feature Governance Decisions" (follow T102-STD-004 format).
 
 #### **T810A1-GDR-001 (Tracking-First Clinical Protocol)**
 
@@ -432,7 +432,7 @@ Replace promoted F-RID citations with E-RID references throughout T810A1 Request
 
 **Required Action 1: Create Feature Governance Decisions Section**
 
-Add section to T810A1 Request following T102-ADR-004 (Decision Records Index) format.
+Add section to T810A1 Request following T102-STD-004 (Decision Records Index) format.
 
 **Placement**: After **Section III.J (Feature Integration Notes)**, before **Section III.K (Stories & Specification)**
 
@@ -499,7 +499,7 @@ Per `T810A-ADR-001` (Trust-and-Verify Confidence Policy):
 
 ### B. Demoted Issues & Risks Content
 
-**Placement**: Add to T810A1 Request Section "Feature Issues & Risks" with IDs updated to T810A1-* per T102-ADR-005.
+**Placement**: Add to T810A1 Request Section "Feature Issues & Risks" with IDs updated to T810A1-* per T102-STD-005.
 
 #### **Demoted Issues** (4 → T810A1)
 
@@ -565,7 +565,7 @@ Per `T810A-ADR-001` (Trust-and-Verify Confidence Policy):
 
 **Required Action: Update Existing Open Issues & Risks Section**
 
-Update **existing Section III.L (Open Issues & Risks)** with 9 demoted items (IDs updated to T810A1-* per T102-ADR-005).
+Update **existing Section III.L (Open Issues & Risks)** with 9 demoted items (IDs updated to T810A1-* per T102-STD-005).
 
 **Current Section Location**: Lines 527-554 in T810A1 Request baseline
 
@@ -624,7 +624,7 @@ After integrating Phase 2/3/4 changes, the T810A1 Request will have the followin
 
 **8. Feature Governance Decisions** (NEW Section III.K)
    - **Content**: T810A1-GDR-001 (Tracking-First Clinical Protocol), T810A1-GDR-002 (Session Workflow Architecture)
-   - **Format**: GDR Index table + full GDR bodies (Context, Decision, Consequences, References) per T102-ADR-004
+   - **Format**: GDR Index table + full GDR bodies (Context, Decision, Consequences, References) per T102-STD-004
 
 **9. Stories & Specification** (Section III.L — was III.J)
    - **RETAIN**: Stories S01-S09 (9-block implementation specifics)
@@ -726,7 +726,7 @@ After integrating Phase 2/3/4 changes, the T810A1 Request will have the followin
 - [ ] **CREATE NEW Section III.K: Feature Governance Decisions**
   - **Placement**: After NEW Section III.J (Feature Integration Notes), before NEW Section III.L (Stories)
   - **Content**: GDR Index table + T810A1-GDR-001 full body + T810A1-GDR-002 full body
-  - **Format**: Follow template from Section III.C above (T102-ADR-004 compliance)
+  - **Format**: Follow template from Section III.C above (T102-STD-004 compliance)
 
 - [ ] **UPDATE Section III.L (Stories) — S05 Execution Protocol**:
   - Replace demoted GDR-001/004 references with E-IG references:
@@ -750,8 +750,8 @@ After integrating Phase 2/3/4 changes, the T810A1 Request will have the followin
 **STEP 6: Final Validation**
 
 - [ ] **Verify section renumbering cascade**: E, F, G, H, I, J, K, L, M, N, O
-- [ ] **Verify GDR format compliance** (T102-ADR-004): Context, Decision, Consequences, References
-- [ ] **Verify RID reference syntax** (T102-ADR-005): Backticks, formal format
+- [ ] **Verify GDR format compliance** (T102-STD-004): Context, Decision, Consequences, References
+- [ ] **Verify RID reference syntax** (T102-STD-005): Backticks, formal format
 - [ ] **Verify content distribution**: 47% Epic inheritance (35 items), 53% Feature delta (42 items)
 
 ---
@@ -772,7 +772,7 @@ After integrating Phase 2/3/4 changes, the T810A1 Request will have the followin
 
 **Checkpoint 3: GDR Integration & Placement**
 - **Placement**: Confirm Section III.K placement (after J, before L)
-- **Format**: Verify GDR Index table + full bodies (Context, Decision, Consequences, References) per T102-ADR-004
+- **Format**: Verify GDR Index table + full bodies (Context, Decision, Consequences, References) per T102-STD-004
 - **S05 Updates**: Validate demoted GDR-001/004 replaced with E-IG references in Execution Protocol
 
 **Checkpoint 4: Issues & Risks Update**
@@ -804,7 +804,7 @@ T810A1 Request document integration complete when:
 
 **4. Feature Governance Decisions**
 - [ ] **Section III.K** created with T810A1-GDR-001/002 (placement: after J, before L)
-- [ ] **GDR format** compliant with T102-ADR-004 (Context, Decision, Consequences, References)
+- [ ] **GDR format** compliant with T102-STD-004 (Context, Decision, Consequences, References)
 - [ ] **S05 Execution Protocol** updated (demoted GDR-001/004 → E-IG references)
 
 **5. Issues & Risks**
@@ -813,8 +813,8 @@ T810A1 Request document integration complete when:
 - [ ] **Status/Priority/Owner** preserved from Epic versions
 
 **6. Format Compliance**
-- [ ] **T102-ADR-004** compliance (GDR bodies format)
-- [ ] **T102-ADR-005** compliance (RID reference syntax with backticks)
+- [ ] **T102-STD-004** compliance (GDR bodies format)
+- [ ] **T102-STD-005** compliance (RID reference syntax with backticks)
 - [ ] **Issues & Risks tables** follow SPS format
 
 **7. Validation**

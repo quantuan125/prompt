@@ -10,21 +10,21 @@ date: '2026-01-07'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-purpose: 'E-RID T102-ADR-005 Compliance Review for Epic T801A Phase 1 proposal'
+purpose: 'E-RID T102-STD-005 Compliance Review for Epic T801A Phase 1 proposal'
 source_proposal: 'prompt/artifacts/tasks/T801/consultant/workspace/proposal/T801A/proposal_T801A_phase1.md'
 governance_spec: 'prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md'
 ---
 
-# COMPLIANCE ANALYSIS: Task 1.3.3.1 — E-RID T102-ADR-005 Review
+# COMPLIANCE ANALYSIS: Task 1.3.3.1 — E-RID T102-STD-005 Review
 
 ## I. EXECUTIVE SUMMARY
 
 **Purpose**
-Systematic review of all 41 E-RIDs in proposal `proposal_T801A_phase1.md` (Section III) for compliance with `T102-ADR-005 (ID Specification & Rules)`.
+Systematic review of all 41 E-RIDs in proposal `proposal_T801A_phase1.md` (Section III) for compliance with `T102-STD-005 (ID Specification & Rules)`.
 
 **Dual Objective**
 1. **T801A Compliance**: Identify and remediate E-RID violations in Epic T801A proposal
-2. **T102-ADR-005 Improvement**: Refine governance rules based on practical application findings
+2. **T102-STD-005 Improvement**: Refine governance rules based on practical application findings
 
 **E-RID Inventory**
 | Category | Type | Count | Section |
@@ -51,7 +51,7 @@ Systematic review of all 41 E-RIDs in proposal `proposal_T801A_phase1.md` (Secti
 
 ## II. STRUCTURAL COMPLIANCE ANALYSIS
 
-### A. T102-ADR-005-FR-004 (Category Definitions) — ✅ COMPLIANT
+### A. T102-STD-005-FR-004 (Category Definitions) — ✅ COMPLIANT
 
 **Assessment**: All 41 E-RIDs correctly classified per category definitions.
 
@@ -69,7 +69,7 @@ Per dialogue notes (Section V.F), IG-003/005/006 use "research baseline, alterna
 
 ---
 
-### B. T102-ADR-005-FR-005 (ID Title & Construction) — ⚠️ MINOR FINDINGS
+### B. T102-STD-005-FR-005 (ID Title & Construction) — ⚠️ MINOR FINDINGS
 
 **Rule Clarification (per Client QA Comment 1)**:
 - **Target**: 2 words
@@ -99,7 +99,7 @@ Per dialogue notes (Section V.F), IG-003/005/006 use "research baseline, alterna
 
 ---
 
-### C. T102-ADR-005-FR-006 (ID References) — ⚠️ MAJOR FINDINGS
+### C. T102-STD-005-FR-006 (ID References) — ⚠️ MAJOR FINDINGS
 
 **Rule Clarification (per Client QA Comment 2)**:
 
@@ -131,13 +131,13 @@ Manual client review identified incorrect formal references in bodies. Examples:
 | Multiple | Formal references where short-hand required | Short-hand only |
 
 **Action Required**:
-1. Update `T102-ADR-005-FR-006` with new reference rules
+1. Update `T102-STD-005-FR-006` with new reference rules
 2. Systematically review all 41 E-RID bodies for reference compliance
 3. Convert all in-body formal references to short-hand format
 
 ---
 
-### D. T102-ADR-005-FR-009 (Assumption Rules) — ✅ COMPLIANT (TABLE NEEDED)
+### D. T102-STD-005-FR-009 (Assumption Rules) — ✅ COMPLIANT (TABLE NEEDED)
 
 **Assessment**: All 6 ASSUM items include required validation lifecycle fields.
 
@@ -154,7 +154,7 @@ Manual client review identified incorrect formal references in bodies. Examples:
 
 ---
 
-### E. T102-ADR-005-FR-010 (Issue/Risk Rules) — ✅ COMPLIANT
+### E. T102-STD-005-FR-010 (Issue/Risk Rules) — ✅ COMPLIANT
 
 **Rule**: Normative bodies (E-RIDs/E-GDRs/E-ADRs) MUST NOT reference `ISSUE` or `RISK` IDs in-line.
 
@@ -166,7 +166,7 @@ Manual client review identified incorrect formal references in bodies. Examples:
 
 ### A. FR-011 Content Quality Standards (Applied)
 
-**Reference**: `T102-ADR-005-FR-011 (Content Quality Standards)` — now added to governance spec.
+**Reference**: `T102-STD-005-FR-011 (Content Quality Standards)` — now added to governance spec.
 
 **Scope by ID Type**:
 
@@ -175,7 +175,7 @@ Manual client review identified incorrect formal references in bodies. Examples:
 | **RID** (ASSUM, CON, QG, DEP, IF) | ✅ Applies | Concise; requirement-focused |
 | **IID-IG** | ⚠️ Different | Detailed; expand on RIDs; implementation-specific |
 | **IID-INT/FR/NFR** | ✅ Applies | Testable; acceptance-focused |
-| **DID** (GDR, ADR) | ❌ N/A | Follow T102-ADR-004 body structure |
+| **DID** (GDR, ADR) | ❌ N/A | Follow T102-STD-004 body structure |
 
 **RID Quality Criteria (FR-011)**:
 1. **Direct Structure**: Lead with requirement statement (SHALL/SHOULD/MAY per RFC 2119)
@@ -204,8 +204,8 @@ Manual client review identified incorrect formal references in bodies. Examples:
 - Recommendation: Replace detailed constraints with cross-reference to `T801A-RES-002`
 
 **ASSUM-005 Findings** (per Client QA Comment 1):
-- Contains "Cross-reference: Extends T801A-CON-003 per `T102-ADR-005-FR-009`"
-- **ACTION**: Remove `T102-ADR-005-FR-009` reference per Client instruction
+- Contains "Cross-reference: Extends T801A-CON-003 per `T102-STD-005-FR-009`"
+- **ACTION**: Remove `T102-STD-005-FR-009` reference per Client instruction
 
 ---
 
@@ -302,7 +302,7 @@ Per FR-011, IG items follow **different** quality criteria:
 
 **Analysis**:
 
-Per T102-ADR-005-FR-004:
+Per T102-STD-005-FR-004:
 > `IF` — Interface: Data or integration interface definitions and contracts.
 
 **Industry Standard Alignment**:
@@ -459,11 +459,11 @@ Based on detailed FR-011 analysis (Section III.B), the following E-RIDs require 
 
 #### E.2 ASSUM-005 (Workflow Acceptance) — Remove FR-009 Reference
 
-**Issue**: Contains explicit `T102-ADR-005-FR-009` reference per Client QA Comment 1.
+**Issue**: Contains explicit `T102-STD-005-FR-009` reference per Client QA Comment 1.
 
 **Current Line** (to modify):
 ```markdown
-Cross-reference: Extends T801A-CON-003 per `T102-ADR-005-FR-009`.
+Cross-reference: Extends T801A-CON-003 per `T102-STD-005-FR-009`.
 ```
 
 **Proposed Change**:
@@ -586,14 +586,14 @@ Rationale: (1) simplicity — MVP focuses on core TTI calculation correctness, n
 | # | E-RID | Refactoring Action | Priority | Status |
 |:--|:------|:-------------------|:---------|:-------|
 | 1 | `ASSUM-004` | Trim constraints; reference `T801A-RES-002` | Medium | Pending |
-| 2 | `ASSUM-005` | Remove `T102-ADR-005-FR-009` reference | High | Pending |
+| 2 | `ASSUM-005` | Remove `T102-STD-005-FR-009` reference | High | Pending |
 | 3 | `CON-003` | Move rationale to V.B dialogue notes | Medium | Pending |
 | 4 | `QG-003` | Move scope simplification to V.D dialogue notes | Medium | Pending |
 | 5 | `QG-007` | Move IF Dialogue selection to V.D dialogue notes | Medium | Pending |
 | 6 | `DEP-004` | Trim; reference `IG-016` for details | Medium | Pending |
 | 7 | `CON-004` | (Optional) Trim "per research" phrase | Low | Deferred |
 
-### C. T102-ADR-005 Updates (Already Applied)
+### C. T102-STD-005 Updates (Already Applied)
 
 | Update | Location | Priority | Status |
 |:-------|:---------|:---------|:-------|
@@ -608,7 +608,7 @@ Rationale: (1) simplicity — MVP focuses on core TTI calculation correctness, n
 - ✅ Identified 6 required refactors, 1 optional refactor
 - ✅ Reference violations identified (13 violations across 9 E-RIDs)
 
-**Phase 2 — T102-ADR-005 Updates (COMPLETE)**:
+**Phase 2 — T102-STD-005 Updates (COMPLETE)**:
 - ✅ Updated FR-005 with title word count rules
 - ✅ Updated FR-006 with ID Type Taxonomy + Reference Context Rules
 - ✅ Added FR-011 Content Quality Standards
@@ -643,7 +643,7 @@ Total: 41 E-RIDs
 | Document | Path |
 |:---------|:-----|
 | Proposal | `prompt/artifacts/tasks/T801/consultant/workspace/proposal/T801A/proposal_T801A_phase1.md` |
-| T102-ADR-005 | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
+| T102-STD-005 | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
 | Plan | `prompt/artifacts/tasks/T801/consultant/workspace/plan/plan_T801A_phase0-1.md` |
 
 ---
@@ -651,6 +651,6 @@ Total: 41 E-RIDs
 **Document Status**: ✅ **COMPLETE**
 **Implementation**: ✅ All proposal updates applied (v1.12.0)
 **Verification**: ✅ All checklist items PASS
-**T102-ADR-005 Updates**: ✅ Applied (FR-005, FR-006, FR-011)
+**T102-STD-005 Updates**: ✅ Applied (FR-005, FR-006, FR-011)
 **Next Steps**:
-1. Proceed to Task 1.3.3.2 (E-DR T102-ADR-004 Compliance Review)
+1. Proceed to Task 1.3.3.2 (E-DR T102-STD-004 Compliance Review)

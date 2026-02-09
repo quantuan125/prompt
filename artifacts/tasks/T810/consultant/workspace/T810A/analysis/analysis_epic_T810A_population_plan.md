@@ -14,14 +14,14 @@ source_artifact: 'prompt/artifacts/tasks/T810/consultant/workspace/plan/T810A/ep
 
 ## EXECUTIVE SUMMARY
 
-I've conducted a comprehensive review of the Epic T810A population plan against T102-ADR-005 governance rules, Epic scope principles, and architectural coherence requirements.
+I've conducted a comprehensive review of the Epic T810A population plan against T102-STD-005 governance rules, Epic scope principles, and architectural coherence requirements.
 
 **Overall Assessment: APPROVED WITH CRITICAL REFINEMENTS REQUIRED**
 
 The migration plan demonstrates strong structural understanding and appropriate scope elevation logic. However, **5 critical gaps** and **12 refinement opportunities** require resolution before implementation to ensure governance integrity and prevent downstream coordination failures.
 
 **Key Findings:**
-- ✅ **ID Governance**: 95% compliant with T102-ADR-005 (minor corrections needed)
+- ✅ **ID Governance**: 95% compliant with T102-STD-005 (minor corrections needed)
 - ✅ **Promotion Logic**: Sound Epic-scope reasoning for 18/20 candidates
 - ⚠️ **Critical Gap**: Missing comprehensive T810A1 delta specification
 - ⚠️ **Critical Gap**: Incomplete GDR content validation (references only)
@@ -44,7 +44,7 @@ The migration plan demonstrates strong structural understanding and appropriate 
 
 ## PART 1: ID GOVERNANCE COMPLIANCE ANALYSIS
 
-### 1.1 Structural Compliance (T102-ADR-005)
+### 1.1 Structural Compliance (T102-STD-005)
 
 **Finding: COMPLIANT with minor corrections**
 
@@ -70,9 +70,9 @@ The migration plan demonstrates strong structural understanding and appropriate 
 
 **Finding: NEEDS CLARIFICATION**
 
-The plan states (Section 3): "Keep decisions as Epic-level GDRs; remove F-RID references; ensure formal references per T102-ADR-005."
+The plan states (Section 3): "Keep decisions as Epic-level GDRs; remove F-RID references; ensure formal references per T102-STD-005."
 
-**Issue**: T102-ADR-005-FR-003 establishes precedence hierarchy:
+**Issue**: T102-STD-005-FR-003 establishes precedence hierarchy:
 > I-RIDs > I-GDRs > I-ADRs > **E-RIDs > E-GDRs > E-ADRs** > F-RIDs > F-GDRs > F-ADRs
 
 This means **E-GDRs** (Epic Governance Decisions) should be **higher** in precedence than **E-RIDs** (Epic Requirements/IGs/QGs).
@@ -778,14 +778,14 @@ The plan proposes promoting 20+ F-RIDs from T810A1 to Epic scope, but **does not
 **Questions requiring clarification:**
 
 1. After promotion, what **remains** in T810A1 as feature-specific requirements?
-2. How will T810A1 reference inherited E-RIDs? (T102-ADR-003 Explicit Inheritance Model)
+2. How will T810A1 reference inherited E-RIDs? (T102-STD-003 Explicit Inheritance Model)
 3. Who validates that A1's post-migration content is now "delta only"?
 4. What's the coordination mechanism with the T810A1 subconsultant?
 
 **Recommendation**: Add new risk:
 
 ```markdown
-**T810A-RISK-006 (T810A1 Delta Specification Coordination)** — Risk that post-migration T810A1 Request artifact contains duplicate content (promoted E-RIDs repeated in F-RID sections) or missing references (inherited E-RIDs not properly cited), creating maintenance burden and governance confusion. Mitigation: Explicit coordination step with T810A1 subconsultant to rewrite A1 Request with "Inherited Considerations" table per `T102-ADR-003`; validation checklist to confirm delta-only content.
+**T810A-RISK-006 (T810A1 Delta Specification Coordination)** — Risk that post-migration T810A1 Request artifact contains duplicate content (promoted E-RIDs repeated in F-RID sections) or missing references (inherited E-RIDs not properly cited), creating maintenance burden and governance confusion. Mitigation: Explicit coordination step with T810A1 subconsultant to rewrite A1 Request with "Inherited Considerations" table per `T102-STD-003`; validation checklist to confirm delta-only content.
 ```
 
 **Status**: OPEN | **Priority**: High | **Owner**: LLM_Consultant
@@ -841,7 +841,7 @@ Add as new section in migration plan:
 - [ ] All 6 Epic GDRs rewritten to reference only E-RIDs, Research IDs, and Feature IDs (no F-RIDs)
 - [ ] GDR content abstracted (no "Block 4", "S05", "2-loop pattern" or other feature-specific references)
 - [ ] Epic Issues/Risks rewritten to reference E-RIDs and Feature IDs (no F-RIDs)
-- [ ] All E-RID references use formal syntax per T102-ADR-005-FR-006
+- [ ] All E-RID references use formal syntax per T102-STD-005-FR-006
 
 ### 9.2 T810A1 Request Delta Specification
 
@@ -850,7 +850,7 @@ Add as new section in migration plan:
 - [ ] T810A1 retains ONLY feature-specific requirements (delta content)
 - [ ] T810A1 references inherited E-RIDs where needed (not duplicating definitions)
 
-### 9.3 ID Governance Compliance (T102-ADR-005)
+### 9.3 ID Governance Compliance (T102-STD-005)
 
 - [ ] All E-RID IDs follow regex patterns: `^T\d{3}[A-Z]-{CATEGORY}-\d{3}$`
 - [ ] Category tokens valid for Epic scope (no FR/NFR/IF/INT at Epic level)
@@ -964,7 +964,7 @@ The original plan proposed 5 steps. I recommend **8 steps with explicit gates**:
 *Owner: Consultant | Consumer: T810A1 Subconsultant*
 
 - Brief subconsultant on promoted E-RIDs (provide complete list with IDs + titles)
-- Explain inheritance model per T102-ADR-003 (delta-only content)
+- Explain inheritance model per T102-STD-003 (delta-only content)
 - Provide "Inherited Considerations" table template
 - Identify which T810A1 items remain feature-specific (not promoted)
 
@@ -990,7 +990,7 @@ The original plan proposed 5 steps. I recommend **8 steps with explicit gates**:
 - Execute complete checklist from §5.4
 - Verify Epic SPS integrity (all E-RIDs present, GDRs clean, Issues/Risks Epic-scoped)
 - Verify T810A1 delta specification (inheritance table complete, no duplication)
-- Verify ID governance compliance (T102-ADR-005 rules)
+- Verify ID governance compliance (T102-STD-005 rules)
 - Document any variances as Issues
 
 **→ GATE 5: Migration Validation Passed**
@@ -1177,7 +1177,7 @@ How soon do you anticipate starting development on T810A2 (PATIENT), T810A3 (REP
 
 For the Epic ADRs we're creating (Conversational Loop Pattern, Report Token Efficiency, Knowledge Base File Organization):
 
-- Do you want **full ADR development now** (Context, Decision, Alternatives, Consequences per T102-ADR-004)?
+- Do you want **full ADR development now** (Context, Decision, Alternatives, Consequences per T102-STD-004)?
 - Or **title + anchor placeholders** with content developed when needed for specific feature planning?
 
 ### **Question 3: Validation Authority & Gate Approval**
@@ -1208,7 +1208,7 @@ What's your preference for Epic T810A governance stance: **prescriptive**, **bal
 
 This comprehensive analysis reviewed the Epic T810A population plan across 7 dimensions:
 
-1. **ID Governance Compliance**: 95% compliant with T102-ADR-005; minor corrections needed
+1. **ID Governance Compliance**: 95% compliant with T102-STD-005; minor corrections needed
 2. **Promotion Candidates**: 18/20 candidates appropriate for Epic scope; 2 require refinement
 3. **GDR E-RID Mappings**: All mappings structurally correct; content abstraction required for 6 GDRs
 4. **Issues & Risks Triage**: 7/9 appropriately Epic-scoped; 2 require scope decisions; 1 new risk identified
@@ -1243,7 +1243,7 @@ This comprehensive analysis reviewed the Epic T810A population plan across 7 dim
 
 - [Epic SPS Integrity](#91-epic-sps-integrity)
 - [T810A1 Delta Specification](#92-t810a1-request-delta-specification)
-- [ID Governance Compliance](#93-id-governance-compliance-t102-adr-005)
+- [ID Governance Compliance](#93-id-governance-compliance-t102-std-005)
 - [Cross-Feature Coordination](#94-cross-feature-coordination)
 - [Documentation Completeness](#95-documentation-completeness)
 

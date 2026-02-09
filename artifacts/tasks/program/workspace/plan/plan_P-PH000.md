@@ -45,7 +45,7 @@ ssot_sps_target: 'prompt/artifacts/tasks/program/ssot/sps_P-PROGRAM.md'
 | Stream | ID | Name | Execution Mode | Depends On | Status | Key Deliverables |
 |:--|:--|:--|:--|:--|:--|:--|
 | 0 | `P-PH000-ST000` | Bootstrap Consultation + Program SPS Shell + Research Commission | SEQUENTIAL | — | `planned` | Stream plans + notes for AC001; `sps_P-PROGRAM.md`; planned `P-RES-001` commission |
-| 1 | `P-PH000-ST001` | Program Standards + ID Governance Enablement | SEQUENTIAL | ST000 | `planned` | Planned `P-RES` enablement (T102-ADR-005 change); planned `P-STD-001` / `P-STD-002` authoring activities |
+| 1 | `P-PH000-ST001` | Program Standards + ID Governance Enablement | SEQUENTIAL | ST000 | `planned` | Planned `P-RES` enablement (T102-STD-005 change); planned `P-STD-001` / `P-STD-002` authoring activities |
 | 2 | `P-PH000-ST002` | Program Status System (Schema + Protocol + Artifact) | SEQUENTIAL | ST001 | `planned` | Status schema + update protocol plan; planned `status_program.md` authoring activity |
 
 ### Activity Register
@@ -55,7 +55,7 @@ ssot_sps_target: 'prompt/artifacts/tasks/program/ssot/sps_P-PROGRAM.md'
 | 0 | AC001 | `P-PH000-ST000-AC001` | Program bootstrap consultation + decisions capture | `completed` | LLM_Consultant | — | `notes_P-PH000*.md` + `notes_P-PH000-ST000-AC001.md` |
 | 0 | AC002 | `P-PH000-ST000-AC002` | Create Program SPS shell (`sps_P-PROGRAM.md`) | `completed` | LLM_Consultant | AC001 | `sps_P-PROGRAM.md` |
 | 0 | AC003 | `P-PH000-ST000-AC003` | Commission `P-RES-001` (PM tooling + orchestration status research) | `planned` | LLM_Consultant | ST001-AC001 | Planned research brief/report paths only (no file creation) |
-| 1 | AC001 | `P-PH000-ST001-AC001` | Amend ID governance to allow `P-RES-###` | `planned` | LLM_Consultant | — | Planned change to `T102-ADR-005` token table (in `concept_T102-CONSULTANT.md`) |
+| 1 | AC001 | `P-PH000-ST001-AC001` | Amend ID governance to allow `P-RES-###` | `planned` | LLM_Consultant | — | Planned change to `T102-STD-005` token table (in `concept_T102-CONSULTANT.md`) |
 | 1 | AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` + `P-ADR-001` (Program Workspace Standard) | `planned` | LLM_Consultant | AC001 | Planned bodies (SSOT) |
 | 1 | AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` + `P-ADR-002` (Program Status Standard) | `planned` | LLM_Consultant | AC001 | Planned bodies (SSOT) |
 | 2 | AC001 | `P-PH000-ST002-AC001` | Define program status schema + update protocol (decision-complete) | `planned` | LLM_Consultant | ST001-AC003 | `plan_P-PH000-ST002.md` sectioned specification |

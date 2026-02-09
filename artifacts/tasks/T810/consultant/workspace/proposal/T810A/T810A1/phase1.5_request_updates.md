@@ -20,7 +20,7 @@ This document proposes updates to `request_T810A1-PROMPT.md` based on Phase 1.5 
 - **TASK 2**: 4 open issues + 5 risks based on conversation gap analysis
 - **TASK 3**: 10 F-ID proposals (4 revisions + 6 new) addressing critical gaps
 
-All proposals follow T102-ADR-005 ID specification rules and avoid F-ID → F-GDR referencing.
+All proposals follow T102-STD-005 ID specification rules and avoid F-ID → F-GDR referencing.
 
 ---
 
@@ -88,7 +88,7 @@ All proposals follow T102-ADR-005 ID specification rules and avoid F-ID → F-GD
 
 ### A. F-ID Construction Rules Summary
 
-Per T102-ADR-005 (ID Specification & Rules):
+Per T102-STD-005 (ID Specification & Rules):
 - **Precedence**: F-IDs rank HIGHER than F-GDRs → F-IDs CANNOT reference F-GDRs
 - **Allowed Categories**: NFR, IF, CON, INT, DEP
 - **Construction Pattern**: `{FEATURE_ID}-{CATEGORY}-{NNN}`
@@ -473,7 +473,7 @@ Per T102-ADR-005 (ID Specification & Rules):
 
 ### A. ID Hierarchy Compliance
 
-**Verified Compliance with T102-ADR-005**:
+**Verified Compliance with T102-STD-005**:
 - ✅ All F-IDs follow pattern `T810A1-PROMPT-{CATEGORY}-{NNN}`
 - ✅ No F-ID references F-GDR (F-IDs are higher precedence)
 - ✅ F-IDs reference T810A2-SCHEMA, T810A3-REPORT (allowed - dependencies)

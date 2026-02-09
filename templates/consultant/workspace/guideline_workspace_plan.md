@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.0.1'
-date: '2026-02-05'
+version: '1.2.0'
+date: '2026-02-08'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -38,7 +38,7 @@ This guideline is intended to be referenced by initiative plans (e.g., `T104`) a
 
 ### B. Status enums (Task Registers)
 
-- Task Register `Status` MUST be one of: `planned`, `deffered`, `completed`, `cancelled`.
+- Task Register `Status` MUST be one of: `planned`, `deffered`, `completed`, `cancelled`, `failed`.
 - In all Task Register tables, `Status` values MUST be wrapped in backticks.
 
 ---
@@ -63,14 +63,14 @@ Every Activity that requires trackable work MUST include a Task Register with co
 
 Rules:
 - `Action` MUST be set to `—` when no action has started.
-- `Action` MUST be updated with a concise outcome statement when the task moves to `completed`, `deffered`, or `cancelled`.
+- `Action` MUST be updated with a concise outcome statement when the task moves to `completed`, `deffered`, `cancelled`, or `failed`.
 - Rule of thumb: treat `Status` as lifecycle; treat `Action` as evidence trail.
 
 ### C. Activity completion rule
 
 An Activity is considered done only when:
 1) its Success Criteria Checklist is verified, AND
-2) its Task Register rows are updated to a terminal status (`completed`, `deffered`, or `cancelled`) with a non-empty `Action`.
+2) its Task Register rows are updated to a terminal status (`completed`, `deffered`, `cancelled`, or `failed`) with a non-empty `Action`.
 
 ---
 
@@ -94,3 +94,37 @@ Notes:
   - comma-separated list of prerequisite **Stream IDs** and/or **Activity IDs** (e.g., `1`, `1.1`, `2.2`)
   - use `—` if none
 - **Rule**: `Depends On` is the enforceable constraint; `Execution Mode` is the coordination intent.
+
+---
+
+## VI. GATE RULES
+
+### A. Purpose
+
+A Gate is a named checkpoint in the plan where work pauses for stakeholder review
+before dependent work proceeds. Gates produce no deliverable — they produce a
+review decision.
+
+### B. Gate ID Format
+
+`<Activity-ID>-GATE-###` (e.g., `T102-PH001-ST001-AC006-GATE-001`)
+
+### C. Gate Fields
+
+Every Gate MUST include:
+- **Entry Criteria**: What must be ready for the gate review
+- **Reviewer**: Role responsible for the review decision
+- **Exit Criteria**: What approval/evidence is needed to pass
+
+### D. Placement in Task Register
+
+Gates appear in the Task Register as a special row type:
+- Status enum: `planned` (awaiting review), `completed` (gate passed), or `failed` (gate failed)
+- Gates MUST be listed in dependency order alongside tasks
+- Downstream tasks that depend on the gate MUST use `Depends On: GATE-###`
+
+### E. Gate vs Task Distinction
+
+- A **Task** produces a deliverable (artifact, update, code)
+- A **Gate** produces a review decision (pass/fail)
+- Gates MUST NOT be used as tasks; tasks MUST NOT be used as gates

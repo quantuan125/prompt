@@ -158,7 +158,7 @@ Propose weights (Client confirm as Gate before scoring):
 
 **Mandatory Decision Record Choice (fixed by QA)**
 - Create **`T810A-ADR-005`** in `prompt/artifacts/tasks/T810/consultant/concept/concept_T810-GASTRO.md`.
-- `T810A-ADR-005` MUST follow `T102-ADR-004 (Decision Records Index)` formatting rules (index row + body + stable anchor).
+- `T810A-ADR-005` MUST follow `T102-STD-004 (Decision Records Index)` formatting rules (index row + body + stable anchor).
 
 **Dependency Rule (completion gate)**
 - Subphase 2.2 MUST NOT complete until Subphase 2.1 is completed, because:
@@ -177,7 +177,7 @@ Propose weights (Client confirm as Gate before scoring):
   - Update `T810A-GDR-002 (Schema Split Architecture)` to explicitly mention adoption of `T810A-ADR-005` and resolve any conflicts introduced by the legacy “single-entry” phrasing.
 
 **ID Amendment Rule**
-- All amended Epic and Feature items MUST comply with `T102-ADR-005 (ID Specification & Rules)` (directionality, category tokens, ID formatting, and reference formatting).
+- All amended Epic and Feature items MUST comply with `T102-STD-005 (ID Specification & Rules)` (directionality, category tokens, ID formatting, and reference formatting).
 
 ---
 
@@ -279,5 +279,5 @@ Propose weights (Client confirm as Gate before scoring):
 
 1. Confirm decision criteria weights (Gate).
 2. Execute Subphase 2.1 analysis and present scored comparison.
-3. Draft and ratify `T810A-ADR-005`; amend Epic governance (`T810A-IG-004`, `T810A-GDR-002`) per `T102-ADR-004` / `T102-ADR-005`.
+3. Draft and ratify `T810A-ADR-005`; amend Epic governance (`T810A-IG-004`, `T810A-GDR-002`) per `T102-STD-004` / `T102-STD-005`.
 4. Implement A1 + A2 updates and publish the joint handoff brief.

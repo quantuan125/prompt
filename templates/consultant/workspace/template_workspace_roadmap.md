@@ -12,6 +12,9 @@ author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
 template_reference: 'prompt/templates/consultant/workspace/template_workspace_roadmap.md'
+procedural_guideline: 'prompt/templates/consultant/workspace/guideline_workspace_roadmap.md'
+ssot_sps_target: '[path/to/sps.md OR —]'
+ssot_concept_target: '[path/to/concept.md OR —]'
 parent_roadmap: '[path/to/parent/roadmap.md OR —]'
 parent_activity: '[Activity ID in parent roadmap OR —]'
 ---
@@ -25,6 +28,11 @@ ROLE
     - Define Phase → Stream → Activity → Task structure
     - Provide Stream + Activity registers (toolable tables)
     - Provide concise objectives, deliverables, and success criteria
+
+  Variant: Initiative Master Roadmap (“Thin Spine”)
+    - Phase register + links + compact epic status snapshot
+    - MUST remain thin; no Streams/Activities/Tasks
+    - Points to phase plans / epic roadmaps for operational detail
 
 BOUNDARIES (ANTI-DRIFT)
   - Roadmaps MUST NOT contain full F-RID/E-RID bodies or SSOT decision bodies.
@@ -96,13 +104,13 @@ HEADING SEMANTICS (LOCKED)
 
 | Stream | Name | Objective | Status | Owner | Execution Mode | Depends On | Start | Target | Completion | Key Deliverables |
 |:------|:-----|:----------|:-------|:------|:--------------|:----------|:------|:-------|:-----------|:----------------|
-| 1 | **[Stream Name]** | [1-sentence objective] | Planned | LLM_Consultant | PARALLEL | — | — | — | — | `[deliverable]` |
+| 1 | **[Stream Name]** | [1-sentence objective] | `planned` | LLM_Consultant | PARALLEL | — | — | — | — | `[deliverable]` |
 
 ### Activity Register
 
 | Stream | Activity | Name | Status | Owner | Execution Mode | Depends On | Start | Target | Completion | Deliverable(s) |
 |:-------|:---------|:-----|:-------|:------|:--------------|:----------|:------|:-------|:-----------|:--------------|
-| 1 | 1.1 | **[Activity Name]** | Planned | LLM_Consultant | PARALLEL | — | — | — | — | `[path/to/deliverable.md]` |
+| 1 | 1.1 | **[Activity Name]** | `planned` | LLM_Consultant | PARALLEL | — | — | — | — | `[path/to/deliverable.md]` |
 
 ---
 
@@ -167,4 +175,3 @@ HEADING SEMANTICS (LOCKED)
 ## VI. CHANGELOG
 
 `[path/to/changelog_roadmap_<id>_phase<#>.md]`
-

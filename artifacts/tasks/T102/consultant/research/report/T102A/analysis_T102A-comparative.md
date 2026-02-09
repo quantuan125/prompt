@@ -25,14 +25,14 @@ The T102A epic demonstrates **foundational structure** but exhibits **significan
 
 - **1 Epic GDR**: T102A-GDR-001 (Governance Snapshot Standard)
 - **Structure**: Basic 6-column table format
-- **Corresponding ADR**: T102A-ADR-001 exists in `concept_T102-CONSULTANT.md:363-407`
+- **Corresponding ADR**: T102A-STD-001 exists in `concept_T102-CONSULTANT.md:363-407`
 
 ### T102C Exemplar Standard
 (from raw consultation files)
 
 - **5 Epic GDRs**: Comprehensive coverage addressing artifact boundaries, scaling, handoff authority, decision canonicalization, and readiness aggregation
 - **Enhanced Structure**: 7-column table with Status, Owner, Effective date, Supersedes, and Anchor columns
-- **Corresponding ADR**: T102C-ADR-001 with detailed architectural framework
+- **Corresponding ADR**: T102C-STD-001 with detailed architectural framework
 
 ### Gap Analysis
 
@@ -159,7 +159,7 @@ T102-GDR-003 (Inheritance Model Standard) - lines 175-179
   ├─ Requires structured inheritance tables
   └─ T102A inherited considerations table PRESENT but incomplete hints
 
-T102-GDR-004 (Decision Records Standard) - lines 181-194
+T102-GDR-004 (Specification Standard & Guideline) - lines 181-194
   ├─ Defines GDR/ADR index schemas and body formats
   └─ T102A-GDR-001 body PARTIALLY conforms (missing Specification subsection)
 
@@ -170,7 +170,7 @@ T102-GDR-005 (ID Governance Standard) - lines 196-210
 
 ### Section III.B.1 Analysis (Concept ADR Index)
 
-The Concept document shows T102A-ADR-001 (`concept_T102-CONSULTANT.md:363-407`) which:
+The Concept document shows T102A-STD-001 (`concept_T102-CONSULTANT.md:363-407`) which:
 - ✓ Has proper ADR structure with Context/Decision/Specification/Consequences
 - ✓ Includes Specification with FR-## sub-IDs (FR-001 through FR-004)
 - ✗ Missing explicit "Alternatives Considered" subsection
@@ -187,7 +187,7 @@ The Concept document shows T102A-ADR-001 (`concept_T102-CONSULTANT.md:363-407`) 
 | **Risk Mitigation** | All 3 risks MITIGATED with detailed strategies | 1 risk MONITORED with no mitigation plan | **MEDIUM** - Unclear risk management |
 | **GDR Body Structure** | Full ADR-004 compliance: Context/Decision/Specification/Alternatives/Consequences/References/Provenance | Partial compliance: Missing Specification FRs, Alternatives, Provenance | **HIGH** - Governance decision incompleteness |
 | **I-GDR Integration** | Explicit references to T102-GDR-001 through T102-GDR-006 | Missing references to T102-GDR-001 (Operating Model) | **MEDIUM** - Workflow alignment ambiguity |
-| **Corresponding ADR** | T102C-ADR-001 provides comprehensive architectural framework | T102A-ADR-001 provides focused governance snapshot framework | **LOW** - Appropriate scope difference |
+| **Corresponding ADR** | T102C-STD-001 provides comprehensive architectural framework | T102A-STD-001 provides focused governance snapshot framework | **LOW** - Appropriate scope difference |
 
 ---
 

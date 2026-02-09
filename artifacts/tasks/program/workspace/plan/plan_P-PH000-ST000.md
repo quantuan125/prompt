@@ -109,7 +109,7 @@ raw_source:
 
 **Purpose**: Register the first program-scoped research commission to inform program status orchestration design and future automation candidates.
 
-**Dependency (hard)**: This activity is blocked until `P-PH000-ST001-AC001` enables `P-RES-###` by updating the `RES` token allowed scope in `T102-ADR-005`.
+**Dependency (hard)**: This activity is blocked until `P-PH000-ST001-AC001` enables `P-RES-###` by updating the `RES` token allowed scope in `T102-STD-005`.
 
 **Deliverables (planned; not created in this phase)**:
 - `prompt/artifacts/tasks/program/research/brief/brief_P-RES-001_pm-tooling-status-orchestration.md`
@@ -123,7 +123,7 @@ raw_source:
 | Task ID | Description | Status | Action |
 |:--|:--|:--|:--|
 | `P-PH000-ST000-AC003-TK001` | Define research purpose, deliverables, and scope (mirror T104 research commissioning rigor) | `planned` | — |
-| `P-PH000-ST000-AC003-TK002` | Require Issues & Risks section in report per `T102-ADR-007` | `planned` | — |
+| `P-PH000-ST000-AC003-TK002` | Require Issues & Risks section in report per `T102-STD-007` | `planned` | — |
 
 **Success Criteria Checklist**:
 - [ ] Activity entry exists in the plan with clear dependency and planned deliverables

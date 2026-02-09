@@ -273,7 +273,7 @@ flowchart TD
 3. **5xx resend**: Up to 3 retries (4 total deliveries)
 4. **Timezone formatting bug**: `str.format()` always UTC+0
 
-**Assessment**: The TradingView constraints are **platform operational realities**, not **design decisions we are making**. Per `T102-ADR-005-FR-004`:
+**Assessment**: The TradingView constraints are **platform operational realities**, not **design decisions we are making**. Per `T102-STD-005-FR-004`:
 - **CON (Constraint)**: "Non-negotiable boundary or limitation that must be respected"
 - **ASSUM (Assumption)**: "Something believed true but requiring validation"
 
@@ -562,7 +562,7 @@ Per Client direction, update plan file Activity 1.3.3 with specific resolution t
 - 8 Issues (ISSUE-001 to ISSUE-008)
 - 8 Risks (RISK-001 to RISK-008)
 
-**Format**: Per T102-ADR-007 schema.
+**Format**: Per T102-STD-007 schema.
 
 ##### Task 1.3.3.2: HIGH Priority Resolution Planning
 
@@ -726,9 +726,9 @@ Per Client direction, update plan file Activity 1.3.3 with specific resolution t
 
 | Standard | Application |
 |:---------|:------------|
-| T102-ADR-005 | E-RID ID construction and category definitions |
-| T102-ADR-004 | E-GDR/E-ADR body format and cross-artifact linking |
-| T102-ADR-007 | Issues & Risks register schema |
+| T102-STD-005 | E-RID ID construction and category definitions |
+| T102-STD-004 | E-GDR/E-ADR body format and cross-artifact linking |
+| T102-STD-007 | Issues & Risks register schema |
 
 ---
 

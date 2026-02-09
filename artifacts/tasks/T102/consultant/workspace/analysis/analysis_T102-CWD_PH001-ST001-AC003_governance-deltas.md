@@ -39,10 +39,10 @@ Delta table schema: `Section | Location | Current State | Required Delta | Prior
 | Initiative ADR Index | `concept_T102-CONSULTANT.md` → `III.B.1` | Already uses Model D schema (`Authority STD` + `Canonical Path`) | No change | P2 |
 | Epic ADR Index (T102A) | `concept_T102-CONSULTANT.md` → `III.B.2.i` | Already uses Model D schema | No change | P2 |
 | Epic ADR Index (T102B) | `concept_T102-CONSULTANT.md` → `III.B.2.ii` | Still uses old schema (`Paired GDR` + `Anchor`) and table is empty | Replace schema with Model D schema: `ADR ID | Title | Authority STD | Status | Owner | Effective | Supersedes | Canonical Path` | P1 |
-| Epic ADR Index (T102C) | `concept_T102-CONSULTANT.md` → `III.B.2.iii` | Uses old schema (`Paired GDR` + `Anchor`) and has an entry for `T102C-ADR-001` with anchor addressing | Replace schema with Model D schema and update the `T102C-ADR-001` row to use the extraction inventory canonical path | P1 |
+| Epic ADR Index (T102C) | `concept_T102-CONSULTANT.md` → `III.B.2.iii` | Uses old schema (`Paired GDR` + `Anchor`) and has an entry for `T102C-STD-001` with anchor addressing | Replace schema with Model D schema and update the `T102C-STD-001` row to use the extraction inventory canonical path | P1 |
 | Feature ADR Index | `concept_T102-CONSULTANT.md` → `III.B.3` | Already uses Model D schema | No change | P2 |
 | Inline ADR bodies (all scopes) | `concept_T102-CONSULTANT.md` → `III.B` | ADR bodies (including `Specification/CLAUSE`) are embedded inline under the indexes | Extract into combined files under `prompt/artifacts/tasks/T102/consultant/standards/` and remove inline bodies from Concept (execution in ST003) | P1 |
-| ADR Index schema clause wording | `concept_T102-CONSULTANT.md` → `T102-ADR-004-CLAUSE-001` | Clause text still describes an ADR Index schema with `Anchor` column | Treat as a governance-text delta; **defer** content update timing to ST002/ST003 (recorded as OQ/Deferred item; do not silently rewrite in ST001 close-out) | P2 |
+| ADR Index schema clause wording | `concept_T102-CONSULTANT.md` → `T102-STD-004-CLAUSE-001` | Clause text still describes an ADR Index schema with `Anchor` column | Treat as a governance-text delta; **defer** content update timing to ST002/ST003 (recorded as OQ/Deferred item; do not silently rewrite in ST001 close-out) | P2 |
 
 ## III. MIGRATION CHANGESET PLAN (TK002)
 

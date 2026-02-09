@@ -61,7 +61,7 @@
      - '../request/request_structural_template.md'
    ```
 
-   Add a short line in **References**: “**Header spec:** see `T102-ADR-002` (adopted by `T102-GDR-002`).”  
+   Add a short line in **References**: “**Header spec:** see `T102-STD-002` (adopted by `T102-GDR-002`).”  
 2. **Remove “Part 0 — SAD-lite” from Request** and paste it (unaltered) into the **Concept** for this feature; in Request, keep a “**Concept References**” subsection with repo-relative anchors to the Concept ADR sections.  
 3. **Fix the “Inherited Considerations” block**
 
@@ -74,7 +74,7 @@
 5. **Add a consolidated “Acceptance Criteria Register”** (one table) with **Gherkin** scenarios per **Story** in §J; cross-link each to FR/NFR/IF items and keep it human-first but testable. 
 6. **Convert informal mentions to compliant anchors**
 
-   * Where you mention headers/IDs/DRs, add anchors to **`T102-ADR-002`**, **`T102-ADR-004`**, **`T102-ADR-005`** and to **SPS GDRs** in the Initiative GDR Index.  
+   * Where you mention headers/IDs/DRs, add anchors to **`T102-STD-002`**, **`T102-STD-004`**, **`T102-STD-005`** and to **SPS GDRs** in the Initiative GDR Index.  
 
 ---
 
@@ -92,11 +92,11 @@
 
 ### Quick compliance map (what each standard enforces)
 
-* **`T102-ADR-001` (Operating Model):** Request = **BRD/SRS only**; Concept = **ADR/solution** (options, matrices, C4). 
-* **`T102-GDR-002` + `T102-ADR-002` (Header):** One canonical header; **no local restatements**; strict enums/regex.  
-* **`T102-ADR-003` (Inheritance):** Exact columns; **≤5** IDs; **ID-only** references (no prose duplication). 
-* **`T102-ADR-004` (DR Index):** One schema/body pattern; **repo-relative anchors**; GDR≠ADR separation. 
-* **`T102-ADR-005` (ID Spec):** Scope regex (IID/EID/FID/SID); category tokens (FR/NFR/IF/INT…); anchor stability. 
+* **`T102-STD-001` (Operating Model):** Request = **BRD/SRS only**; Concept = **ADR/solution** (options, matrices, C4). 
+* **`T102-GDR-002` + `T102-STD-002` (Header):** One canonical header; **no local restatements**; strict enums/regex.  
+* **`T102-STD-003` (Inheritance):** Exact columns; **≤5** IDs; **ID-only** references (no prose duplication). 
+* **`T102-STD-004` (DR Index):** One schema/body pattern; **repo-relative anchors**; GDR≠ADR separation. 
+* **`T102-STD-005` (ID Spec):** Scope regex (IID/EID/FID/SID); category tokens (FR/NFR/IF/INT…); anchor stability. 
 
 ---
 

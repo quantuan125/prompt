@@ -23,7 +23,7 @@ decision_owner_role: 'Client'
 *   **Finding 1 (E-RID Coverage Gap)**: T102B has **0 `IF`** and **0 `IG`** defined; interfaces are currently misfiled as `T102B-DEP-004`, and Implementation Guidance is an empty placeholder. This materially blocks downstream Request authoring standardization.
 *   **Finding 2 (Governance Snapshot Gap)**: T102B has an empty Phase/Gates table and no epic governance decisions index; this is misaligned with the Phase 0 plan and the T102A governance snapshot exemplar.
 *   **Finding 3 (Feature Register Incompleteness)**: `T102B4 (RLITE)` is referenced as approved in Phase 1 planning artifacts, but is missing from the SSOT Feature Register for T102B.
-*   **Finding 4 (Issue/Risk Governance Drift)**: T102B “Issues & Risks” tables in SSOT do **not** follow `T102-ADR-007` schema/enums, and there is an **ID collision** between SSOT’s `T102B-ISSUE-001..003` set and RES-001’s `T102B-ISSUE-001..003` set (different semantics).
+*   **Finding 4 (Issue/Risk Governance Drift)**: T102B “Issues & Risks” tables in SSOT do **not** follow `T102-STD-007` schema/enums, and there is an **ID collision** between SSOT’s `T102B-ISSUE-001..003` set and RES-001’s `T102B-ISSUE-001..003` set (different semantics).
 *   **Finding 5 (Dependency/Interface Clarification Needed)**: The SPS→Request interface contract exists at T102A (`T102A-IF-001`) and the initiative-level interfaces exist (`T102-IF-001..004`), but T102B lacks explicit epic-level interface definitions to operationalize intake/output constraints and evidence requirements.
 
 ---
@@ -35,7 +35,7 @@ decision_owner_role: 'Client'
 **Source of Truth Audit**:
 *   **SSOT / Governance**:
     *   `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (T102A exemplar + T102B current dossier)
-    *   `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (T102-ADR-003/004/005/006/007 standards)
+    *   `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (T102-STD-003/004/005/006/007 standards)
 *   **Research Inputs**:
     *   `prompt/artifacts/tasks/T102/T102B/research/report/report_T102B-RES-001_request-artifact-analysis.md` (W1–W7, P1–P8, S1–S8, and issue/risk candidates)
 *   **Exemplars**:
@@ -81,7 +81,7 @@ decision_owner_role: 'Client'
 
 **Inherited Considerations (initiative-level IDs) — Epic-specific elaboration needs**
 *   T102B inherited considerations currently omit initiative-level interface rules (`T102-IF-001..004`) and omit key constraints (`T102-CON-002`, `T102-CON-004`) and quality goals (`T102-QG-001`, `T102-QG-003`), despite these governing Request authoring and gate discipline.
-*   Recommendation: Update the T102B inherited considerations table to emphasize the most critical ≤5 IDs per category per `T102-ADR-003-FR-001`, and ensure interface inheritance is represented (then elaborate via T102B-IF candidates).
+*   Recommendation: Update the T102B inherited considerations table to emphasize the most critical ≤5 IDs per category per `T102-STD-003-FR-001`, and ensure interface inheritance is represented (then elaborate via T102B-IF candidates).
 
 #### C. Governance Implication
 *   **Decision Impact**: Phase 0 must prioritize creation of `T102B-IF-*` and `T102B-IG-*` candidates before Phase 1 template authoring, otherwise the Request standard cannot define intake/output contracts or operational authoring rules.
@@ -90,12 +90,12 @@ decision_owner_role: 'Client'
 ---
 
 ### Topic 2: ADR/GDR Inventory Assessment (epic-level governance + architecture)
-**Objective**: Identify governance decisions requiring formal epic GDRs and architectural decisions requiring epic ADRs; recommend pairing per `T102-ADR-004`.
+**Objective**: Identify governance decisions requiring formal epic GDRs and architectural decisions requiring epic ADRs; recommend pairing per `T102-STD-004`.
 
 #### A. Evidence & Forensics
 *   **Source**: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (T102B “Epic Governance Decisions” is empty).
 *   **Source**: `prompt/artifacts/tasks/T102/T102B/research/report/report_T102B-RES-001_request-artifact-analysis.md` (recommends 4 epic ADR candidates: ADR-001..004).
-*   **Standard**: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (`T102-ADR-004` pairing and precedence; `T102-ADR-005` ID rules).
+*   **Standard**: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (`T102-STD-004` pairing and precedence; `T102-STD-005` ID rules).
 
 #### B. Analysis
 
@@ -103,18 +103,18 @@ decision_owner_role: 'Client'
 
 | Candidate ID | Type | Title | Why Needed Now | Primary Source | Pairing Recommendation | Priority |
 |:---|:---|:---|:---|:---|:---|:---|
-| `T102B-GDR-001` | GDR | Request Governance Snapshot Standard | Define what “Phase 0 complete” means for Request epic | T102A pattern (`T102A-GDR-001/002`) | Pair with `T102B-ADR-001` | HIGH |
-| `T102B-GDR-002` | GDR | Workflow Typology Standard | Formalize when to use Full Request vs RLITE vs PR-only | RES-001 Topic 9 | Pair with `T102B-ADR-004` (and/or ADR-005 if created) | HIGH |
-| `T102B-GDR-003` | GDR | Gate Evidence Standard | Make gate evidence expectations explicit (RPG-dependent) | Existing T102B risks + Phase0 plan | Pair with `T102B-ADR-001` | MEDIUM |
-| `T102B-GDR-004` | GDR | Section Classification Policy | Mandatory/Optional/Deferred sections become governance, not preference | RES-001 P4 | Pair with `T102B-ADR-002` | MEDIUM |
-| `T102B-ADR-001` | ADR | Request Architecture Standard | Defines the structural architecture of Request artifact family | RES-001 recommendation | Pair with `T102B-GDR-001` | HIGH |
-| `T102B-ADR-002` | ADR | Section Classification Standard | Implements mandatory/optional/deferred section schema | RES-001 P4 | Pair with `T102B-GDR-004` | MEDIUM |
-| `T102B-ADR-003` | ADR | Story FR Deferral Standard | Operationalizes deferral of story-level FRs beyond Request | RES-001 W2/P2 | Pair with `T102B-GDR-002` | HIGH |
-| `T102B-ADR-004` | ADR | Request Lite Specification | Defines RLITE structure + selection criteria | RES-001 P1 + Phase1 plan | Pair with `T102B-GDR-002` | HIGH |
+| `T102B-GDR-001` | GDR | Request Governance Snapshot Standard | Define what “Phase 0 complete” means for Request epic | T102A pattern (`T102A-GDR-001/002`) | Pair with `T102B-STD-001` | HIGH |
+| `T102B-GDR-002` | GDR | Workflow Typology Standard | Formalize when to use Full Request vs RLITE vs PR-only | RES-001 Topic 9 | Pair with `T102B-STD-004` (and/or ADR-005 if created) | HIGH |
+| `T102B-GDR-003` | GDR | Gate Evidence Standard | Make gate evidence expectations explicit (RPG-dependent) | Existing T102B risks + Phase0 plan | Pair with `T102B-STD-001` | MEDIUM |
+| `T102B-GDR-004` | GDR | Section Classification Policy | Mandatory/Optional/Deferred sections become governance, not preference | RES-001 P4 | Pair with `T102B-STD-002` | MEDIUM |
+| `T102B-STD-001` | ADR | Request Architecture Standard | Defines the structural architecture of Request artifact family | RES-001 recommendation | Pair with `T102B-GDR-001` | HIGH |
+| `T102B-STD-002` | ADR | Section Classification Standard | Implements mandatory/optional/deferred section schema | RES-001 P4 | Pair with `T102B-GDR-004` | MEDIUM |
+| `T102B-STD-003` | ADR | Story FR Deferral Standard | Operationalizes deferral of story-level FRs beyond Request | RES-001 W2/P2 | Pair with `T102B-GDR-002` | HIGH |
+| `T102B-STD-004` | ADR | Request Lite Specification | Defines RLITE structure + selection criteria | RES-001 P1 + Phase1 plan | Pair with `T102B-GDR-002` | HIGH |
 
 **Precedence Clarification**
 *   Apply default precedence: Initiative GDR > Initiative ADR > Epic GDR > Epic ADR > Feature ADR > Story ADR.
-*   For T102B, ensure Epic ADRs do not conflict with Concept’s decision-canonicalization standard (Concept as ADR store). If conflict exists, create variance ADR with explicit citation per `T102-ADR-003`.
+*   For T102B, ensure Epic ADRs do not conflict with Concept’s decision-canonicalization standard (Concept as ADR store). If conflict exists, create variance ADR with explicit citation per `T102-STD-003`.
 
 #### C. Governance Implication
 *   **Decision Impact**: Without GDR/ADR pairing, Request standardization will remain “template changes” without a governance anchor, increasing churn and undermining gate discipline.
@@ -273,7 +273,7 @@ decision_owner_role: 'Client'
 
 #### C. Governance Implication
 *   **Decision Impact**: Phase 0 must include an explicit “ID reconciliation” decision to prevent collision and preserve stability (no renumbering without Client decision).
-*   **Risk**: If Issue/Risk governance drift persists, cross-scope promotion and auditability per `T102-ADR-007` will remain blocked.
+*   **Risk**: If Issue/Risk governance drift persists, cross-scope promotion and auditability per `T102-STD-007` will remain blocked.
 
 ---
 
@@ -401,7 +401,7 @@ decision_owner_role: 'Client'
 **Proposed Phase & Gates Table (for SSOT Governance & Roadmap)**
 | Phase | Title | Intent | Key Exit Milestone | Duration Band | Gate Approver (A) | Phase Lead (R) | Plan Link |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 0 | Foundation | Establish epic dossier and decision foundation | Foundation Readiness: Epic `T102B` approved with dossier sections i–v complete; E-RIDs across 6 categories drafted; E-GDR/E-ADR inventory accepted; Issues/Risks normalized to `T102-ADR-007`; research indexed | — | `Client` | `LLM_Consultant` | `prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T102B-REQUEST_Phase0.md` |
+| 0 | Foundation | Establish epic dossier and decision foundation | Foundation Readiness: Epic `T102B` approved with dossier sections i–v complete; E-RIDs across 6 categories drafted; E-GDR/E-ADR inventory accepted; Issues/Risks normalized to `T102-STD-007`; research indexed | — | `Client` | `LLM_Consultant` | `prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T102B-REQUEST_Phase0.md` |
 | 1 | Feature Design | Produce the feature templates and guidelines | Template Validation: RST/RPG/MANIFEST/RLITE authored and validated against exemplar; RLITE <200 lines verified | — | `Client` | `LLM_Consultant` | `prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T102B-REQUEST_Phase1.md` |
 | 2 | Integration | Validate end-to-end handoffs and readiness criteria | Integration Readiness: SPS→Request→Concept linkage validated; approval evidence and handoff payloads proven; migration notes captured if needed | — | `Client` | `LLM_Consultant` | — |
 
@@ -417,7 +417,7 @@ decision_owner_role: 'Client'
 
 ---
 
-## IV. ISSUE & RISK REGISTER (T102-ADR-007)
+## IV. ISSUE & RISK REGISTER (T102-STD-007)
 
 **Issues**
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes | Resolution Date |
@@ -450,7 +450,7 @@ decision_owner_role: 'Client'
 | `T102B` | SPS III.C.2.iv | Add `T102B4 (RLITE)` to Feature Register. | Topic 7 |
 | `T102B-IF-001..003` | SPS III.C.2.vi | Create explicit interface definitions (intake, approval output, handoff). | Topic 3/4 |
 | `T102B-IG-001..006` | SPS III.C.2.vi | Create IG inventory with operational rules + acceptance checks. | Topic 6/4 |
-| `T102B` | SPS III.C.2.ix | Refactor Issues/Risks tables to `T102-ADR-007` schema; resolve ID collision with RES-001. | Topic 4 + Section IV |
+| `T102B` | SPS III.C.2.ix | Refactor Issues/Risks tables to `T102-STD-007` schema; resolve ID collision with RES-001. | Topic 4 + Section IV |
 | `T102B-RES-002` | SPS III.C.2.vii | Add RES-002 entry to Research table (brief/report links) and link to consuming IDs. | This report |
 
 ---

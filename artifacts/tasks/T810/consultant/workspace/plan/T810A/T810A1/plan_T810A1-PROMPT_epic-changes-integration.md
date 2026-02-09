@@ -17,7 +17,7 @@ source_handoff: 'handoff_brief_T810A1-PROMPT_epic-changes.md'
 
 ## I. EXECUTIVE SUMMARY
 
-This plan defines how to integrate Epic T810A Phase 2/3/4 changes into the T810A1 Request (`request_T810A1-PROMPT.md`) in a way that is fully compliant with `T102-ADR-004 (Decision Records Index)` and `T102-ADR-005 (ID Specification & Rules)`. It translates the epic-level handoff brief into concrete editing steps and design proposals that an LLM_Developer can follow without re-running the full analysis.
+This plan defines how to integrate Epic T810A Phase 2/3/4 changes into the T810A1 Request (`request_T810A1-PROMPT.md`) in a way that is fully compliant with `T102-STD-004 (Decision Records Index)` and `T102-STD-005 (ID Specification & Rules)`. It translates the epic-level handoff brief into concrete editing steps and design proposals that an LLM_Developer can follow without re-running the full analysis.
 
 The plan focuses on four main outcomes:
 - Clean separation between **inherited Epic governance** (27 E‑RIDs + Epic GDRs/RES/ADRs) and **feature-specific deltas** (T810A1 F‑RIDs and F‑GDRs).
@@ -31,7 +31,7 @@ The plan focuses on four main outcomes:
 
 | Phase | Objective | Key Deliverables | Duration Estimate |
 |:------|:----------|:----------------|:------------------|
-| **Phase 0** | Standards & Baseline Review | T102-ADR-004/005 checklist; confirmed Epic vs Feature authority set | 0.5–1.0 h |
+| **Phase 0** | Standards & Baseline Review | T102-STD-004/005 checklist; confirmed Epic vs Feature authority set | 0.5–1.0 h |
 | **Phase 1** | Section Restructuring & Inheritance Table | New Sections III.E/III.F; 8-row Inherited Considerations table | 1.5–2.0 h |
 | **Phase 2** | F‑RID Cleanup & Renumbering | Updated ASSUM/DEP/NFR/CON sections; manual old→new mapping | 2.0–3.0 h |
 | **Phase 3** | Governance Integration (F‑GDRs + Story References) | New Feature Governance Decisions section; updated S05/S06/S07/S08 refs | 2.0–3.0 h |
@@ -44,9 +44,9 @@ The plan focuses on four main outcomes:
 
 ## III. PHASE 0 — STANDARDS & BASELINE REVIEW
 
-**Objective:** Ensure all later edits obey `T102-ADR-004` and `T102-ADR-005` and that the T810A1 team has a shared understanding of which rules live at Epic vs Feature scope.
+**Objective:** Ensure all later edits obey `T102-STD-004` and `T102-STD-005` and that the T810A1 team has a shared understanding of which rules live at Epic vs Feature scope.
 
-### A. T102-ADR-004 (Decision Records Index) — Implementation Rules
+### A. T102-STD-004 (Decision Records Index) — Implementation Rules
 
 **Scope in this plan**
 - Applies to:  
@@ -78,7 +78,7 @@ The plan focuses on four main outcomes:
    - Place Feature GDRs in a dedicated section `Feature Governance Decisions` within the Request; do not scatter them into stories.  
    - Use ID-only references in stories (e.g., `` `T810A1-GDR-001` ``) and let readers navigate to the GDR body.
 
-### B. T102-ADR-005 (ID Specification & Rules) — Implementation Rules
+### B. T102-STD-005 (ID Specification & Rules) — Implementation Rules
 
 **Scope in this plan**
 - Governs all IDs in the updated Request: E‑RIDs, F‑RIDs, F‑GDRs, Issues, Risks, Stories, etc.
@@ -291,7 +291,7 @@ The plan focuses on four main outcomes:
 - After Phase 1 renumbering, this section is targeted to be **Section III.K**, but final letter should be validated once all headings are in place.
 
 **Index table**
-- Add a table following T102-ADR-004 FR‑001:
+- Add a table following T102-STD-004 FR‑001:
 
 | GDR ID | Title | Status | Owner | Effective | Supersedes | Anchor |
 |:-------|:------|:-------|:------|:----------|:-----------|:-------|
@@ -389,7 +389,7 @@ The plan focuses on four main outcomes:
 
 **Objective:** Perform a full-document sanity check on IDs and references and create a concise checklist for LLM_Developer to validate after implementation.
 
-### A. Validation Checklist (Per T102-ADR-004/005)
+### A. Validation Checklist (Per T102-STD-004/005)
 
 1. **Section structure**
    - [ ] Section III.E is table-only `Inherited Considerations` with 8 rows and 35 inherited items.  
@@ -406,7 +406,7 @@ The plan focuses on four main outcomes:
    - [ ] Stories S05–S07 point to Epic QGs/IGs/ADRs instead of deleted NFR/CON IDs.
 
 4. **Feature Governance Decisions**
-   - [ ] New Feature Governance Decisions section exists with T102-ADR-004-compliant index and bodies for `T810A1-GDR-001/002`.  
+   - [ ] New Feature Governance Decisions section exists with T102-STD-004-compliant index and bodies for `T810A1-GDR-001/002`.  
    - [ ] S05 and related stories use `T810A1-GDR-001/002` consistently when referring to Feature-level policies.
 
 5. **Issues & Risks**
@@ -414,7 +414,7 @@ The plan focuses on four main outcomes:
    - [ ] Table formats match T102 Issues/Risks guidance.
 
 6. **ID semantics**
-   - [ ] All IDs follow `T102-ADR-005` category tokens and patterns.  
+   - [ ] All IDs follow `T102-STD-005` category tokens and patterns.  
    - [ ] All ID references in prose and tables use backticks.
 
 ### B. Handoff Notes for LLM_Developer

@@ -493,7 +493,7 @@ Research findings will be integrated into Phase 1 workflow:
 - **Plan File**: `prompt/artifacts/tasks/T801/consultant/workspace/plan/plan_T801A_phase0-1.md` (v1.2.0)
 - **Current TTI Protocol**: `prompt/roles/VPA/main_v2.1.md` (lines 21-55) — Current LLM-based TTI structure
 - **Current CSV Structure**: `components/tv_ingest/data/BINANCE_BTCUSDT/master.csv` — TradingView webhook data
-- **Governance Standards**: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (T102-ADR-004/005)
+- **Governance Standards**: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (T102-STD-004/005)
 
 ### **B. Research Topic Prioritization Rationale**
 

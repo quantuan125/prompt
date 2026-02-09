@@ -358,7 +358,7 @@ Locate **Section 8** (Traceability & ID Governance) around line 986-991.
 ```markdown
 ## 8. Traceability & ID Governance
 
-- Follow T102-ADR-005: scope ID regex, category tokens, and reference rules.
+- Follow T102-STD-005: scope ID regex, category tokens, and reference rules.
 - GDRs stay at Epic scope; ADRs for design/implementation go to `concept_T810-GASTRO.md` under Epic ADR Index.
 - T810A1 Inherited Considerations table provided in Phase 5 coordination brief.
 ```
@@ -367,7 +367,7 @@ Locate **Section 8** (Traceability & ID Governance) around line 986-991.
 ```markdown
 ## 8. Traceability & ID Governance
 
-- Follow T102-ADR-005: scope ID regex, category tokens, and reference rules.
+- Follow T102-STD-005: scope ID regex, category tokens, and reference rules.
 - GDRs stay at Epic scope; ADRs for design/implementation go to `concept_T810-GASTRO.md` under Epic ADR Index.
 - T810A1 Inherited Considerations table provided in Phase 5 coordination brief.
 

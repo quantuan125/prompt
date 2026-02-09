@@ -16,7 +16,7 @@ target_section: 'III.J (Stories & Specification) - Stories 1-3'
 
 ## I. EXECUTIVE SUMMARY
 
-This revision replaces the prior Phase 3.1 proposal. Each Story FR is now a standalone, testable requirement with pragmatic acceptance criteria. Inline prose uses informal references (e.g., `T810A-GDR-006`) while formal citations appear only under each Story’s "References" section as back‑ticked `ID (Title)` tokens per `T102-ADR-005`.
+This revision replaces the prior Phase 3.1 proposal. Each Story FR is now a standalone, testable requirement with pragmatic acceptance criteria. Inline prose uses informal references (e.g., `T810A-GDR-006`) while formal citations appear only under each Story’s "References" section as back‑ticked `ID (Title)` tokens per `T102-STD-005`.
 
 Key updates:
 - S01: Explicit timestamp format `DD-MM-YYYYTHH:MM:00+02:00`; clarified stance and privacy.

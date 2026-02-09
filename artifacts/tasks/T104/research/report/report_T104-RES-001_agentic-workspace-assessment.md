@@ -249,7 +249,7 @@ decision_owner_role: 'Client'
 - [x] Research Report delivered at `prompt/artifacts/tasks/T104/research/report/report_T104-RES-001_agentic-workspace-assessment.md` (`plan_T104-CWS_phase0.md` line 340)
 - [ ] Consultant Analysis delivered at `prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-RES-001_agentic-workspace-assessment.md` (`plan_T104-CWS_phase0.md` line 341)
 - [x] Report includes MUST/MUST NOT boundary candidates (Topic 2) and Phase/Stream/Activity mapping table (Topic 4)
-- [x] Report includes Issues/Risks tables in `T102-ADR-007` schema (Section IV; template: `template_research_report.md` lines 60–71)
+- [x] Report includes Issues/Risks tables in `T102-STD-007` schema (Section IV; template: `template_research_report.md` lines 60–71)
 - [x] Report includes an epic-set sanity table (Topic 7) and identifies any boundary overlaps (Notes vs Changelog vs Analysis)
 
 **Update Cadence Rules (candidate; “who updates what when”)**
@@ -279,7 +279,7 @@ decision_owner_role: 'Client'
 *   **Observation**: Notes use stable DEC-IDs for decisions (DEC-0.S1-### style) and record decisions as a table (traceable, scannable).
 
 *   **Source**: `prompt/templates/researcher/template_research_report.md` (lines 60–71).
-*   **Observation**: Research reports must include Issues/Risks in the `T102-ADR-007` schema (now aligned in the template).
+*   **Observation**: Research reports must include Issues/Risks in the `T102-STD-007` schema (now aligned in the template).
 
 #### B. Analysis
 *   **Synthesis**: The project already uses a consistent pattern: structured tables for traceable IDs (DEC tables in Notes; Issues/Risks tables in Research/SSOT contexts). The key is to keep normative content out of the trace logs and rely on references.
@@ -362,7 +362,7 @@ decision_owner_role: 'Client'
 
 ---
 
-## IV. ISSUE & RISK REGISTER (T102-ADR-007)
+## IV. ISSUE & RISK REGISTER (T102-STD-007)
 
 **Issues**
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes |Resolution Date |

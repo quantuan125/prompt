@@ -18,20 +18,20 @@ target_artifacts: 'sps_T810-GASTRO.md, concept_T810-GASTRO.md'
 
 This handoff brief contains client-approved Phase 3B+3C proposals for Epic GDR alignment and Epic ADR creation. **LLM_Developer** is authorized to implement these changes to both SPS and Concept artifacts.
 
-**Scope**: Implement 4 revised Epic GDRs with Epic-level language and 3 new Epic ADRs with complete T102-ADR-004 format compliance.
+**Scope**: Implement 4 revised Epic GDRs with Epic-level language and 3 new Epic ADRs with complete T102-STD-004 format compliance.
 
 **Source Authority**: All content in this brief has been extracted from `proposal_T810A-SYSTEM_phase3.md` (Phase 3B+3C client-approved proposals).
 
 **Implementation Sequence**:
 1. **SPS Updates** (Section II): Epic GDR revisions with renumbered IDs
 2. **Concept Updates** (Section III): Epic ADR additions with full drafts
-3. **Format Validation** (Section IV): T102-ADR-004/005 compliance verification
+3. **Format Validation** (Section IV): T102-STD-004/005 compliance verification
 
 **Critical Standards**:
-- All GDRs use **E-RID references only** (no F-RID citations) per T102-ADR-005-FR-003
+- All GDRs use **E-RID references only** (no F-RID citations) per T102-STD-005-FR-003
 - All subheadings use **colons** (not periods): `**Context:**` `**Decision:**` `**Consequences:**` etc.
 - All GDRs compressed to **~100 words** (concise, direct, authoritative)
-- All ADR **Provenance** sections list **file names only** per T102-ADR-004-FR-012
+- All ADR **Provenance** sections list **file names only** per T102-STD-004-FR-012
 
 **Research Foundation**: All GDR/ADR decisions grounded in `T810A-RES-001 (System Architecture & Clinical Validation)`
 
@@ -433,7 +433,7 @@ This handoff brief contains client-approved Phase 3B+3C proposals for Epic GDR a
 
 Before marking implementation complete, validate compliance with the following standards:
 
-### IV.A. T102-ADR-004 Format Standards
+### IV.A. T102-STD-004 Format Standards
 
 **GDR Requirements**:
 - [ ] All GDR titles follow pattern: `* **T810A-GDR-### (Title)** {#anchor}`
@@ -452,7 +452,7 @@ Before marking implementation complete, validate compliance with the following s
 - [ ] **References** section uses comma-separated backticked items
 - [ ] **Provenance** section lists **file names only** (no descriptions)
 
-### IV.B. T102-ADR-005 Cross-Reference Standards
+### IV.B. T102-STD-005 Cross-Reference Standards
 
 **GDR→ADR Adoption Pattern**:
 - [ ] All GDRs with linked ADRs include "Adopt `<ADR-ID>`..." statement in **Decision** subsection
@@ -504,7 +504,7 @@ After completing implementation:
 
 **Implementation Questions**: Contact LLM_Consultant for clarifications before modifying any content.
 
-**Format Questions**: Refer to T102-ADR-004 and T102-ADR-005 specifications in plan file Section 1.1.
+**Format Questions**: Refer to T102-STD-004 and T102-STD-005 specifications in plan file Section 1.1.
 
 **Critical Requirement**: Implement content EXACTLY as written. These are final, client-approved drafts requiring no modifications.
 

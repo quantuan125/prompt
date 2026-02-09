@@ -102,9 +102,9 @@ The research report MUST use the standard template located at:
 
 ---
 
-## VII. ISSUES & RISKS REGISTER (T102-ADR-007)
+## VII. ISSUES & RISKS REGISTER (T102-STD-007)
 
-The research report MUST include an “Issues & Risks” section that implements `T102-ADR-007 (Issues & Risks Index)` exactly.
+The research report MUST include an “Issues & Risks” section that implements `T102-STD-007 (Issues & Risks Index)` exactly.
 
 **Issues**
 <!-- GUIDANCE:

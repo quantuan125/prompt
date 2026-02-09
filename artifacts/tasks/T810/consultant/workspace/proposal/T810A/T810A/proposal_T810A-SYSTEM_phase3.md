@@ -23,7 +23,7 @@ This proposal serves as the dynamic consultation workspace for Phase 3B Epic GDR
 - **GDR Scope Reduction**: 6 GDRs → 4 E-GDRs (demoted GDR-001/004 to T810A1 per research)
 - **Priority Sequencing**: GDR-002 → 003 → 006 → 005 (HIGH → HIGH → HIGH → MEDIUM)
 - **ADR Strategy**: Stub creation in Phase 3B; full draft development in Phase 3C
-- **Format Compliance**: All proposals follow T102-ADR-004 (Decision Records Index) standards
+- **Format Compliance**: All proposals follow T102-STD-004 (Decision Records Index) standards
 
 **Target Artifacts**:
 - **GDR Revisions**: `sps_T810-GASTRO.md` Section III.C.1.vii
@@ -182,7 +182,7 @@ Should numeric confidence thresholds (e.g., 70%, 90%) be retained as internal gu
 ```
 
 **Key Abstraction Changes**:
-- Added list item format `* **...` per T102-ADR-004-FR-002
+- Added list item format `* **...` per T102-STD-004-FR-002
 - Added periods after all bold subheading labels (**Context.**, **Decision.**, **Consequences.**, **References.**)
 - Moved all content inside bold subheadings (nothing outside)
 - Added **Consequences.** section with (+)/(±)/(-) bullets
@@ -413,7 +413,7 @@ Where should "session initialization" and "end-of-day aggregation" be governed?
 ```
 
 **Key Abstraction Changes**:
-- Added list item format `* **...` per T102-ADR-004-FR-002
+- Added list item format `* **...` per T102-STD-004-FR-002
 - Added periods after all bold subheading labels
 - Moved all content inside bold subheadings
 - Added **Consequences.** section with (+)/(±)/(-) bullets from original GDR-003
@@ -573,7 +573,7 @@ Should "first-person voice" and "100-200 token" target be Epic-level rules?
 ```
 
 **Key Abstraction Changes**:
-- Added list item format `* **...` per T102-ADR-004-FR-002
+- Added list item format `* **...` per T102-STD-004-FR-002
 - Added periods after all bold subheading labels
 - Moved all content inside bold subheadings
 - Added **Consequences.** section with (+)/(±)/(-) bullets from original GDR-006
@@ -790,7 +790,7 @@ Should "first-person voice" and "100-200 token" target be Epic-level rules?
 ```
 
 **Key Abstraction Changes**:
-- Added list item format `* **...` per T102-ADR-004-FR-002
+- Added list item format `* **...` per T102-STD-004-FR-002
 - Added periods after all bold subheading labels
 - Moved all content inside bold subheadings
 - Added **Consequences.** section with (+)/(±)/(-) bullets from original GDR-005
@@ -896,7 +896,7 @@ Should Epic GDRs ever cite Feature IDs directly?
   - **Cons**: Violates traceability rules; creates coupling
 - **Option B**: Require E-RID substitution or cross-reference to Epic artifacts (IG/QG/DEP/ASSUM/CON) only
   - **Pros**: Governance hygiene; proper precedence hierarchy
-  - **Cons**: None (aligns with T102-ADR-005)
+  - **Cons**: None (aligns with T102-STD-005)
 
 **Research Recommendation**: **Option B** (E-RID only)
 
@@ -936,7 +936,7 @@ Should Epic GDRs ever cite Feature IDs directly?
 - [ ] E-RID reference compliance confirmed (no F-RID citations in GDR bodies)
 
 **Authorization to Proceed**:
-- [ ] **Phase 3C**: Expand ADR stubs into full drafts with T102-ADR-004 compliance
+- [ ] **Phase 3C**: Expand ADR stubs into full drafts with T102-STD-004 compliance
 - [ ] **Phase 3D**: Renumber GDRs (002→001, 003→002, 006→003, 005→004); handle demoted GDR-001/004
 - [ ] **Phase 3E**: Implement in SPS/Concept artifacts; draft T810A1 coordination brief
 
@@ -948,7 +948,7 @@ Should Epic GDRs ever cite Feature IDs directly?
 
 To ensure Phase 3C (ADR full drafts) addresses all requirements and risks:
 
-1. **ADR Specification Depth**: For Phase 3C full ADR drafts, should Specification sections include detailed FR-### functional requirements (similar to T102-ADR-004 exemplar) or high-level content descriptions?
+1. **ADR Specification Depth**: For Phase 3C full ADR drafts, should Specification sections include detailed FR-### functional requirements (similar to T102-STD-004 exemplar) or high-level content descriptions?
 
 2. **Numeric Threshold Calibration** (ADR-002): Should internal numeric ranges (70%, 90%) be treated as fixed thresholds or guideline ranges subject to feature-specific calibration?
 

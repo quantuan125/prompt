@@ -32,7 +32,7 @@ completion_log: '../../completion/T810A/T810A2/completion_T810A2-SCHEMA.md'
 6. **Constraints** (Section III.H) — T810A2-CON-### items
 7. **Feature Integration Notes** (Section III.I) — T810A2-INT-### items
 
-**Consultation Approach**: Delta-only F-RID proposal following T102-ADR-003 (Explicit Inheritance Model). T810A2 inherits all E-RIDs/E-GDRs from T810A Epic; this proposal specifies only feature-specific expansions and deltas.
+**Consultation Approach**: Delta-only F-RID proposal following T102-STD-003 (Explicit Inheritance Model). T810A2 inherits all E-RIDs/E-GDRs from T810A Epic; this proposal specifies only feature-specific expansions and deltas.
 
 **Traceability Foundation**: All F-RIDs traceable to:
 - **Handoff Brief v1.0.0**: `handoff_brief_T810A2-PATIENT_v1.0.0.md`
@@ -56,7 +56,7 @@ completion_log: '../../completion/T810A/T810A2/completion_T810A2-SCHEMA.md'
 3. **Finalization Rule Applied**: Included E-RIDs referenced in T810A2 F-RIDs; excluded unreferenced E-RIDs
 4. **Validation**: Architecture row added (E-ADRs), IG-006 added, T810A1 row removed per governance rules
 
-**Per T102-ADR-003-FR-001 (Table Contracts):**
+**Per T102-STD-003-FR-001 (Table Contracts):**
 
 | Source Artifact | Source ID | Category | Inherited Rule IDs |
 |:----------------|:----------|:---------|:-------------------|
@@ -73,7 +73,7 @@ completion_log: '../../completion/T810A/T810A2/completion_T810A2-SCHEMA.md'
 1. ✅ **Architecture Row ADDED**: 4 E-ADRs included (ADR-001, ADR-002 [PROPOSED], ADR-003, ADR-004)
 2. ✅ **IG-006 ADDED**: Session Context Handoff added to Implementation Guidance row
 3. ✅ **DEP-002, DEP-005 ADDED**: Long-term Analysis and Clinical Safety Framework dependencies added
-4. ✅ **T810A1 Feature Row REMOVED**: Direct cross-feature F-RID references eliminated per T102-ADR-003 governance rules
+4. ✅ **T810A1 Feature Row REMOVED**: Direct cross-feature F-RID references eliminated per T102-STD-003 governance rules
 
 ---
 
@@ -530,10 +530,10 @@ Deferred to post-MVP for extensive validation.
 
 **Review Criteria for Client Approval**:
 
-1. [ ] Inherited Considerations table correctly references governing E-RIDs/E-GDRs per T102-ADR-003
+1. [ ] Inherited Considerations table correctly references governing E-RIDs/E-GDRs per T102-STD-003
 2. [ ] No F-RID duplicates E-RID content (delta-only principle maintained)
 3. [ ] All F-RID categories (ASSUM, DEP, NFR, IF, CON, INT) complete and coherent
-4. [ ] F-RID IDs follow T102-ADR-005 construction pattern: `T810A2-{CATEGORY}-{NNN}`
+4. [ ] F-RID IDs follow T102-STD-005 construction pattern: `T810A2-{CATEGORY}-{NNN}`
 5. [ ] Traceability matrix demonstrates clear E-RID → F-RID expansion logic
 6. [ ] No conflicts identified with T810A1 F-RIDs (integration alignment validated)
 7. [ ] Client directives (foundational JSON requirements, Cara Care exemplar, HYBRID annotation) reflected in F-RIDs

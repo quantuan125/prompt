@@ -46,7 +46,7 @@
 ### B. Gap analysis against your artifacts
 
 * **Concept (ADR compendium):** Strong separation of decisions is intended, but current draft needs an **explicit ADR index pattern** and **ID rules** surfaced (ADR-004/005). 
-* **SPS (governance-only):** SPS has adopted Canonical Header via **GDR-002** and Decision Records Standard via **GDR-004**—Concept should **link**, not duplicate. 
+* **SPS (governance-only):** SPS has adopted Canonical Header via **GDR-002** and Specification Standard & Guideline via **GDR-004**—Concept should **link**, not duplicate. 
 * **Request (SRS/BRD):** Keep it solution-agnostic and link to **Concept ADRs** where necessary; avoid diagrams/rationales (“SAD-lite”) in the Request. 
 
 ### C. Integration effectiveness (SPS ↔ Concept ↔ Request)
@@ -85,7 +85,7 @@
 
 ### A. T102C-CST (Concept Structural Template) — design principles
 
-* **Header:** Adopt `T102-ADR-002` Canonical Header; do not restate—**link to ADR-002** and **SPS GDR-002** adoption note.
+* **Header:** Adopt `T102-STD-002` Canonical Header; do not restate—**link to ADR-002** and **SPS GDR-002** adoption note.
 * **Core sections:**
 
   1. **Stakeholders/Concerns/Viewpoints** (per 42010, compact table)

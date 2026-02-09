@@ -31,7 +31,7 @@ This Request specifies **T102B1 (RST)** — the normative structural template fo
 
 ## II. TABLE OF CONTENTS
 
-- [I. Executive Summary](#i-executive-summary)
+- [I. Executive Summary](#i-executive-summary) 
 - [II. Table of Contents](#ii-table-of-contents)
 - [III. Core Content](#iii-core-content)
   - [A. Problem Definition](#a-problem-definition) — `[M]`
@@ -142,7 +142,7 @@ We believe **consistent, lightweight Request authoring** will be achieved if **T
 | ID | Objective | Aligned QG | Measurement |
 |:---|:----------|:-----------|:------------|
 | OBJ-001 | Reduce authoring overhead | T102B-QG-001 | RLITE derivation enables <200 line variant |
-| OBJ-002 | Eliminate content duplication | T102B-QG-002 | No parallel FR/IG sections in RST |
+| OBJ-002 | Eliminate content duplication | T102B-QG-002 | No parallel FR\/IG sections in RST |
 | OBJ-003 | Enable completeness validation | T102B-QG-003 | Mandatory section checklist passes gate |
 | OBJ-004 | Maintain industry alignment | T102B-DEP-002 | ISO 29148/BABOK v3 mapping documented |
 
@@ -166,8 +166,6 @@ We believe **consistent, lightweight Request authoring** will be achieved if **T
 
 <!-- T102-ADR-003 Explicit Inheritance Model -->
 <!-- T102-ADR-005 Reference Semantics: formal references in tables use `ID (Title)` -->
-
-This Request follows **explicit ID referencing**: higher-precedence rules are implicitly inherited, but only the most critical inherited items are explicitly emphasized here (ID references only; no upstream text restatement).
 
 | Source Artifact | Scope ID | Category | Inherited Rule IDs |
 |:--------------|:---------|:---------|:-------------------|
@@ -288,12 +286,6 @@ Additional authoring rules and non-normative analysis from AC002 are maintained 
 ### J. Story Index `[O]`
 
 <!-- P2 Proposal: Story Index navigation only; FR bodies deferred to Design -->
-
-Applicability: This Request has `story_count = 4`, so Story Index is required per `T102B-ADR-002-CLAUSE-004`.
-
-Definition: `story_count` is the number of Story rows in the Story Index table (excluding the header row).
-
-This section is navigation only and SHALL NOT include detailed story-level FR bodies or story-level acceptance criteria (deferred to `T102D (DESIGN)` per `T102B-ADR-003`).
 
 | Story ID | Title | Purpose summary | Design Link |
 |:---------|:------|:---------------|:------------|

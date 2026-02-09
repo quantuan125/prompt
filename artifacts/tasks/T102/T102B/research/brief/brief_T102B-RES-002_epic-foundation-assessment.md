@@ -57,16 +57,16 @@ T102A has more comprehensive coverage with 6 IG items (T102A-IG-001 through IG-0
 - 0 ADRs (no architectural decisions documented)
 
 T102B-RES-001 recommends:
-- T102B-ADR-001: Request Architecture Standard (from Topic 7 P1-P4 proposals)
-- T102B-ADR-002: Section Classification Standard (from Topic 6 mandatory/optional/deferred sections)
-- T102B-ADR-003: Story FR Deferral Standard (from Topic 3 SAFe alignment)
-- T102B-ADR-004: Request Lite Specification (from Topic 3 feature variant)
+- T102B-STD-001: Request Architecture Standard (from Topic 7 P1-P4 proposals)
+- T102B-STD-002: Section Classification Standard (from Topic 6 mandatory/optional/deferred sections)
+- T102B-STD-003: Story FR Deferral Standard (from Topic 3 SAFe alignment)
+- T102B-STD-004: Request Lite Specification (from Topic 3 feature variant)
 
 T102A has:
 - 2 GDRs (T102A-GDR-001: Governance Snapshot Standard, T102A-GDR-002: Governance Freeze Standard)
-- Multiple ADRs in Concept (T102A-ADR-001: Governance Snapshot Framework)
+- Multiple ADRs in Concept (T102A-STD-001: Governance Snapshot Framework)
 
-Per T102-ADR-004 pattern, GDRs should pair with ADRs where governance decisions require architectural specification.
+Per T102-STD-004 pattern, GDRs should pair with ADRs where governance decisions require architectural specification.
 
 **Specific Questions**:
 *   What epic-level governance decisions need GDR documentation for T102B?
@@ -75,7 +75,7 @@ Per T102-ADR-004 pattern, GDRs should pair with ADRs where governance decisions 
 *   What decision precedence applies? (Initiative GDR > Initiative ADR > Epic GDR > Epic ADR > Feature ADR)
 *   Are there additional governance decisions beyond RES-001 recommendations that require GDR/ADR documentation?
 
-**Deliverable**: GDR/ADR candidate inventory with pairing recommendations per T102-ADR-004 pattern, including Context/Decision/Consequences framework for each candidate.
+**Deliverable**: GDR/ADR candidate inventory with pairing recommendations per T102-STD-004 pattern, including Context/Decision/Consequences framework for each candidate.
 
 ---
 
@@ -99,7 +99,7 @@ T102A-IF-001 defines SPS output contract: "(a) Initiative & Epic-level IDs/GDRs/
 *   What IF (interface) E-RIDs formalize these dependencies?
 *   Are there circular dependencies requiring resolution between T102A/T102B/T102C?
 *   Does T102B require explicit handoff protocol specification (similar to T102A-IF-001)?
-*   What dependencies exist on T102-ADR-003 (Inheritance Model), T102-ADR-004 (Decision Records), T102-ADR-005 (ID Specification)?
+*   What dependencies exist on T102-STD-003 (Inheritance Model), T102-STD-004 (Decision Records), T102-STD-005 (ID Specification)?
 
 **Deliverable**: Integration dependency graph mapping T102B dependencies to T102A/T102C with E-DEP and E-IF candidate specifications.
 
@@ -128,7 +128,7 @@ Current T102B has:
 
 **Sub-Topic 4B: NOTE-ID Assessment (NEW - Client Mandated)**
 *   Are existing T102B-NOTE-001 through NOTE-004 still relevant and accurate? (Keep/Modify/Remove assessment)
-*   Which RES-001 S1-S8 strengths warrant NOTE documentation (≤200 words per T102-ADR-006-FR-008)?
+*   Which RES-001 S1-S8 strengths warrant NOTE documentation (≤200 words per T102-STD-006-FR-008)?
 *   What contextual clarifications, philosophy, or industry references from RES-001 research should be captured as NOTEs?
 *   Do any research findings warrant NOTE promotion to SPS level (Initiative scope) vs. Epic scope?
 *   What NOTE candidates emerge from Topic 1-3 findings (gap analysis, GDR/ADR inventory, integration dependencies)?
@@ -271,7 +271,7 @@ Plan file (`roadmap_T102B-REQUEST_phase0.md`) currently uses Phase 0 structure w
 
 ### D. Methodology "Hierarchy of Truth"
 Define how to resolve conflicts between sources:
-1.  **T102 Governance** (T102-ADR-003/004/005/006/007 in Concept) — Authoritative standards for ID construction, decision records, inheritance, research artifacts, issues & risks
+1.  **T102 Governance** (T102-STD-003/004/005/006/007 in Concept) — Authoritative standards for ID construction, decision records, inheritance, research artifacts, issues & risks
 2.  **T102A Exemplar** (SPS Section III.C.1) — Proven pattern baseline for epic structure (Purpose, Scope, Inherited Considerations, Governance & Roadmap, Feature Register, Epic Requirements, Research & Notes, Governance Decisions, Issues & Risks)
 3.  **T102B-RES-001** (External research report) — Industry-validated findings on Request artifact strengths/weaknesses/proposals
 4.  **Existing T102B Dossier** (SPS Section III.C.2) — Current state baseline for gap analysis
@@ -298,7 +298,7 @@ Define how to resolve conflicts between sources:
 *   SSOT: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
     - Focus: Section III.B (Initiative Considerations), Section III.C.1 (T102A Epic - exemplar), Section III.C.2 (T102B Epic - current state)
 *   Concept: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
-    - Focus: T102-ADR-003 (Inheritance Model), T102-ADR-004 (Decision Records), T102-ADR-005 (ID Specification), T102-ADR-006 (Research Artifacts), T102-ADR-007 (Issues & Risks)
+    - Focus: T102-STD-003 (Inheritance Model), T102-STD-004 (Decision Records), T102-STD-005 (ID Specification), T102-STD-006 (Research Artifacts), T102-STD-007 (Issues & Risks)
 
 ### B. Primary Artifacts for Analysis
 *   External Research: `prompt/artifacts/tasks/T102/T102B/research/report/report_T102B-RES-001_request-artifact-analysis.md`
@@ -333,7 +333,7 @@ The research report MUST use the standard template located at:
 2.  **Section II (Methodology Audit)**: Confirm adherence to Read-only constraint; list all files examined
 3.  **Section III (Topic Findings)**:
     *   **Topic 1**: Gap matrix table comparing T102B current to T102A baseline by E-RID category (ASSUM/CON/QG/DEP/IF/IG)
-    *   **Topic 2**: GDR/ADR candidate inventory with Context/Decision/Consequences framework per T102-ADR-004
+    *   **Topic 2**: GDR/ADR candidate inventory with Context/Decision/Consequences framework per T102-STD-004
     *   **Topic 3**: Integration dependency graph mapping T102B dependencies to T102A/T102C with E-DEP/E-IF specifications
     *   **Topic 4**: THREE deliverables:
         - E-RID candidate table organized by category with RES-001 source mapping
@@ -343,20 +343,20 @@ The research report MUST use the standard template located at:
     *   **Topic 6**: E-IG candidate inventory with Operational Rules and Acceptance Checks
     *   **Topic 7**: Phase & Gates validation report with recommended structure and Feature Register completeness assessment
 4.  **Section VI (Governance Implications)**: Summarize findings per topic with decision impact and risk assessment
-5.  **Section VII (Issues & Risks Register)**: Per T102-ADR-007 schema with ID/Title/Description/Owner/Status/Priority/Proposed Date
+5.  **Section VII (Issues & Risks Register)**: Per T102-STD-007 schema with ID/Title/Description/Owner/Status/Priority/Proposed Date
 6.  **Completeness**: Do NOT delete empty sections. If a topic has no implications, explicitly state "None identified."
 
 ---
 
-## VII. ISSUES & RISKS REGISTER (T102-ADR-007)
+## VII. ISSUES & RISKS REGISTER (T102-STD-007)
 
-The research report MUST include an "Issues & Risks" section that implements `T102-ADR-007 (Issues & Risks Index)` exactly.
+The research report MUST include an "Issues & Risks" section that implements `T102-STD-007 (Issues & Risks Index)` exactly.
 
 **Issues**
 <!-- GUIDANCE:
 Status = `OPEN, IN-REVIEW, RESOLVED, BLOCKED, DEFERRED`,
 Priority = `HIGH, MEDIUM, LOW`
-Per T102-ADR-007: Status/date coupling rule: OPEN ⇒ Resolution Notes/Date = `—`; RESOLVED/BLOCKED/DEFERRED ⇒ date present
+Per T102-STD-007: Status/date coupling rule: OPEN ⇒ Resolution Notes/Date = `—`; RESOLVED/BLOCKED/DEFERRED ⇒ date present
 -->
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes | Resolution Date |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -365,7 +365,7 @@ Per T102-ADR-007: Status/date coupling rule: OPEN ⇒ Resolution Notes/Date = `�
 <!-- GUIDANCE:
 Status = `OPEN, MONITORED, MITIGATED, ACCEPTED, CLOSED`,
 Priority = `HIGH, MEDIUM, LOW`
-Per T102-ADR-007: Status/date coupling rule: OPEN ⇒ Mitigation Notes/Date = `—`; MITIGATED/ACCEPTED/CLOSED ⇒ date present
+Per T102-STD-007: Status/date coupling rule: OPEN ⇒ Mitigation Notes/Date = `—`; MITIGATED/ACCEPTED/CLOSED ⇒ date present
 -->
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Mitigation Notes | Mitigation Date |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
@@ -404,7 +404,7 @@ Research report successfully meets client needs if ALL criteria below are satisf
 **GDR/ADR Inventory**:
 *   ✅ At least 3-4 GDR candidates identified with Context/Decision/Consequences framework
 *   ✅ At least 4 ADR candidates identified (minimum: ADR-001 through ADR-004 from RES-001)
-*   ✅ GDR/ADR pairing recommendations per T102-ADR-004 pattern
+*   ✅ GDR/ADR pairing recommendations per T102-STD-004 pattern
 
 **Integration Dependencies**:
 *   ✅ Integration dependency map covers T102A (SPS) and T102C (Concept) interfaces

@@ -22,7 +22,7 @@ Scope is registry-driven (see `prompt/scripts/skills/adr_skills_registry.py`).
 - `python3 prompt/scripts/skills/extract_adr.py --adr-id ADR-005`
 
 **Usage (by explicit anchor, strict)**:
-- `python3 prompt/scripts/skills/extract_adr.py --expected-anchor "{#t102-adr-005-id-spec}"`
+- `python3 prompt/scripts/skills/extract_adr.py --expected-anchor "{#t102-std-005-id-spec}"`
 
 **Optional input override**:
 - `python3 prompt/scripts/skills/extract_adr.py --adr-id ADR-005 --concept-path path/to/concept.md`
@@ -33,7 +33,7 @@ Each ADR skill ships its own extraction wrapper under `prompt/skills/<skill>/scr
 These wrappers preserve stable, per-skill entrypoints while delegating extraction to the shared core.
 
 Example (ADR-005):
-- **Script**: `prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
+- **Script**: `prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
 
 **Intent**:
 - Print **only** the relevant ADR block from the Concept file.
@@ -52,7 +52,7 @@ Example (ADR-005):
 
 **Common failure modes**:
 1. “start marker not found”
-   - Cause: the anchor `{#t102-adr-005-id-spec}` was renamed/moved in the Concept file.
+   - Cause: the anchor `{#t102-std-005-id-spec}` was renamed/moved in the Concept file.
    - Fix: update the anchor constant in the script or restore the anchor in the Concept document.
 2. “empty block”
    - Cause: anchor was found but the region extracted is blank (usually a formatting change).
@@ -69,10 +69,10 @@ Example (ADR-005):
 - Designed to be used both directly (CLI) and by per-skill wrapper scripts.
 
 **Usage (check-only, drift detection)**:
-- `python3 prompt/scripts/skills/sync_to_codex_mirror.py --skill-name t102-adr-005-id-spec --check`
+- `python3 prompt/scripts/skills/sync_to_codex_mirror.py --skill-name t102-std-005-id-spec --check`
 
 **Usage (sync / repair drift)**:
-- `python3 prompt/scripts/skills/sync_to_codex_mirror.py --skill-name t102-adr-005-id-spec`
+- `python3 prompt/scripts/skills/sync_to_codex_mirror.py --skill-name t102-std-005-id-spec`
 
 ### Per-skill wrapper scripts (stable entrypoints)
 
@@ -80,10 +80,10 @@ Each ADR skill ships its own Codex mirror sync script under `prompt/skills/<skil
 These wrappers preserve stable, per-skill entrypoints while delegating sync logic to the shared core.
 
 Example (ADR-005):
-- **Script**: `prompt/skills/t102-adr-005-id-spec/scripts/sync_to_codex_mirror.py`
+- **Script**: `prompt/skills/t102-std-005-id-spec/scripts/sync_to_codex_mirror.py`
 
 **Intent**:
-- Keep Codex’s `.codex/skills/t102-adr-005-id-spec/` mirror directory in sync with SSOT under `prompt/skills/t102-adr-005-id-spec/`.
+- Keep Codex’s `.codex/skills/t102-std-005-id-spec/` mirror directory in sync with SSOT under `prompt/skills/t102-std-005-id-spec/`.
 - Codex CLI does not reliably consume symlinks under `.codex/skills/`, so this uses a real directory.
 
 **What is copied (current scope)**:

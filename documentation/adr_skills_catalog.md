@@ -10,15 +10,15 @@ This catalog documents ADR-based skills, their triggering conditions, scope, dis
 
 ## Active Skills
 
-### t102-adr-005-id-spec
+### t102-std-005-id-spec
 
-**Source ADR:** T102-ADR-005 (ID Specification & Rules)  
-**SSOT Location:** `prompt/skills/t102-adr-005-id-spec/`  
-**Claude Code Location:** `.claude/skills/t102-adr-005-id-spec` (symlink)  
-**Codex Location:** `.codex/skills/t102-adr-005-id-spec` (mirror directory; maintained by sync script)  
+**Source ADR:** T102-STD-005 (ID Specification & Rules)  
+**SSOT Location:** `prompt/skills/t102-std-005-id-spec/`  
+**Claude Code Location:** `.claude/skills/t102-std-005-id-spec` (symlink)  
+**Codex Location:** `.codex/skills/t102-std-005-id-spec` (mirror directory; maintained by sync script)  
 **Status:** Active
 
-**Purpose:** Enforce RID construction and referencing rules per T102-ADR-005
+**Purpose:** Enforce RID construction and referencing rules per T102-STD-005
 
 **Scope:** Files under `prompt/**` directory only
 
@@ -37,9 +37,9 @@ This catalog documents ADR-based skills, their triggering conditions, scope, dis
 - Blocks prohibited downstream references (precedence/directionality rules)
 
 **Maintenance:**
-- **SSOT:** `prompt/skills/t102-adr-005-id-spec/SKILL.md`
-- **Script:** `prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
-- **Codex Mirror Sync:** `prompt/skills/t102-adr-005-id-spec/scripts/sync_to_codex_mirror.py`
+- **SSOT:** `prompt/skills/t102-std-005-id-spec/SKILL.md`
+- **Script:** `prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
+- **Codex Mirror Sync:** `prompt/skills/t102-std-005-id-spec/scripts/sync_to_codex_mirror.py`
 - **Updates:** Edit SSOT, then run the sync script to refresh the Codex mirror
 - **Testing:** Re-run extraction script if Concept document structure changes
 
@@ -48,15 +48,15 @@ This catalog documents ADR-based skills, their triggering conditions, scope, dis
 - Script reference: `prompt/documentation/scripts/skills/adr_skills_scripts_reference.md`
 - Entrypoint: `python3 prompt/scripts/skills/verify_adr_skills.py`
 
-### t102-adr-004-drs-index
+### t102-std-004-drs-index
 
-**Source ADR:** T102-ADR-004 (Decision Records Index)  
-**SSOT Location:** `prompt/skills/t102-adr-004-drs-index/`  
-**Claude Code Location:** `.claude/skills/t102-adr-004-drs-index` (symlink)  
-**Codex Location:** `.codex/skills/t102-adr-004-drs-index` (mirror directory; maintained by sync script)  
+**Source ADR:** T102-STD-004 (Decision Records Index)  
+**SSOT Location:** `prompt/skills/t102-std-004-drs-index/`  
+**Claude Code Location:** `.claude/skills/t102-std-004-drs-index` (symlink)  
+**Codex Location:** `.codex/skills/t102-std-004-drs-index` (mirror directory; maintained by sync script)  
 **Status:** Active
 
-**Purpose:** Apply the normative DR Index schema + DR body requirements per T102-ADR-004
+**Purpose:** Apply the normative DR Index schema + DR body requirements per T102-STD-004
 
 **Scope:** Files under `prompt/**` directory only
 
@@ -73,9 +73,9 @@ This catalog documents ADR-based skills, their triggering conditions, scope, dis
 - When ADR-004 requires RID-style formal references governed by ADR-005, explicitly invokes the ADR-005 skill workflow (print ADR-005 and apply its rules)
 
 **Maintenance:**
-- **SSOT:** `prompt/skills/t102-adr-004-drs-index/SKILL.md`
-- **Script:** `prompt/skills/t102-adr-004-drs-index/scripts/print_t102_adr_004.py`
-- **Codex Mirror Sync:** `prompt/skills/t102-adr-004-drs-index/scripts/sync_to_codex_mirror.py`
+- **SSOT:** `prompt/skills/t102-std-004-drs-index/SKILL.md`
+- **Script:** `prompt/skills/t102-std-004-drs-index/scripts/print_t102_adr_004.py`
+- **Codex Mirror Sync:** `prompt/skills/t102-std-004-drs-index/scripts/sync_to_codex_mirror.py`
 - **Updates:** Edit SSOT, then run the sync script to refresh the Codex mirror
 
 **Verification (current):**
@@ -83,15 +83,15 @@ This catalog documents ADR-based skills, their triggering conditions, scope, dis
 - Script reference: `prompt/documentation/scripts/skills/adr_skills_scripts_reference.md`
 - Entrypoint: `python3 prompt/scripts/skills/verify_adr_skills.py`
 
-### t102-adr-007-issues-risks-index
+### t102-std-007-issues-risks-index
 
-**Source ADR:** T102-ADR-007 (Issues & Risks Index)  
-**SSOT Location:** `prompt/skills/t102-adr-007-issues-risks-index/`  
-**Claude Code Location:** `.claude/skills/t102-adr-007-issues-risks-index` (symlink)  
-**Codex Location:** `.codex/skills/t102-adr-007-issues-risks-index` (mirror directory; maintained by sync script)  
+**Source ADR:** T102-STD-007 (Issues & Risks Index)  
+**SSOT Location:** `prompt/skills/t102-std-007-issues-risks-index/`  
+**Claude Code Location:** `.claude/skills/t102-std-007-issues-risks-index` (symlink)  
+**Codex Location:** `.codex/skills/t102-std-007-issues-risks-index` (mirror directory; maintained by sync script)  
 **Status:** Active
 
-**Purpose:** Apply the normative Issues & Risks section/table standard per T102-ADR-007
+**Purpose:** Apply the normative Issues & Risks section/table standard per T102-STD-007
 
 **Scope:** Files under `prompt/**` directory only
 
@@ -108,9 +108,9 @@ This catalog documents ADR-based skills, their triggering conditions, scope, dis
 - When ADR-007 requires ID construction or RID formal references governed by ADR-005 (e.g., `ISSUE` / `RISK` IDs), explicitly invokes the ADR-005 skill workflow (print ADR-005 and apply its rules)
 
 **Maintenance:**
-- **SSOT:** `prompt/skills/t102-adr-007-issues-risks-index/SKILL.md`
-- **Script:** `prompt/skills/t102-adr-007-issues-risks-index/scripts/print_t102_adr_007.py`
-- **Codex Mirror Sync:** `prompt/skills/t102-adr-007-issues-risks-index/scripts/sync_to_codex_mirror.py`
+- **SSOT:** `prompt/skills/t102-std-007-issues-risks-index/SKILL.md`
+- **Script:** `prompt/skills/t102-std-007-issues-risks-index/scripts/print_t102_adr_007.py`
+- **Codex Mirror Sync:** `prompt/skills/t102-std-007-issues-risks-index/scripts/sync_to_codex_mirror.py`
 - **Updates:** Edit SSOT, then run the sync script to refresh the Codex mirror
 
 **Verification (current):**
@@ -124,8 +124,8 @@ This catalog documents ADR-based skills, their triggering conditions, scope, dis
 
 | Skill Name | Source ADR | Priority | Status | Rationale |
 |------------|------------|----------|--------|-----------|
-| `t102-adr-003-inheritance` | T102-ADR-003 | Low | Planned | Enforce Explicit Inheritance Model (Inherited Considerations tables) |
-| `t102-adr-002-yaml-header` | T102-ADR-002 | Low | Planned | Validate Canonical YAML Header (schema, format, conformance) |
+| `t102-std-003-inheritance` | T102-STD-003 | Low | Planned | Enforce Explicit Inheritance Model (Inherited Considerations tables) |
+| `t102-std-002-yaml-header` | T102-STD-002 | Low | Planned | Validate Canonical YAML Header (schema, format, conformance) |
 
 ---
 

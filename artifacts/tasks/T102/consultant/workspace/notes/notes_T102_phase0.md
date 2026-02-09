@@ -51,7 +51,7 @@ Phase 0 consultation for initiative T102 (Consultancy Development Workflows) add
    - **Recommendation**: Design reserved for high-risk stories requiring detailed architectural decisions, significant integration complexity, or ADR variance documentation
 
 4. **RID Repetition (Comment 2)**:
-   - **Observation**: Per T102-ADR-005, RIDs defined at scope levels (I-RID, E-RID, F-RID, S-RID) with current pattern requiring repetition
+   - **Observation**: Per T102-STD-005, RIDs defined at scope levels (I-RID, E-RID, F-RID, S-RID) with current pattern requiring repetition
    - **Industry Standard**: ISO 29148 and BABOK v3 use inheritance by reference, not repetition
    - **Proposal**: Request should inherit E-RIDs via table reference, focus on truly feature-specific F-RIDs, NOT redefine ASSUM/CON/QG/DEP unchanged at Epic level
 
@@ -175,13 +175,13 @@ Phase 0 consultation for initiative T102 (Consultancy Development Workflows) add
 
 **Decision 5: T801/T801A Dependency**:
 - **Context**: T801/T801A waiting for T102B standards
-- **Decision**: T801/T801A to wait for T102B-ADR-001 formalization before proceeding
+- **Decision**: T801/T801A to wait for T102B-STD-001 formalization before proceeding
 - **Implication**: T102B development is blocking dependency for T801 Request artifacts
 
 **Decision 6: Workflow Typology Formalization**:
 - **Question**: Should multi-workflow typology (Topic 9) be ADR or GDR?
 - **Status**: Open for next session
-- **Options**: T102-ADR-009 (new Initiative ADR) OR integrate into T102-GDR-001 (Operating Model)
+- **Options**: T102-STD-009 (new Initiative ADR) OR integrate into T102-GDR-001 (Operating Model)
 
 ---
 
@@ -193,7 +193,7 @@ Phase 0 consultation for initiative T102 (Consultancy Development Workflows) add
 | 2 | Feature-level GDR/ADR exception-based approach | Approved | 2026-01-13 | Industry standard analysis |
 | 3 | Request Lite <200 lines threshold | Approved | 2026-01-13 | T102B-RES-001 findings |
 | 4 | Story FR deferral to Design | Approved | 2026-01-13 | T102B-RES-001 findings |
-| 5 | T801/T801A to wait for T102B-ADR-001 | Approved | 2026-01-13 | Dependency analysis |
+| 5 | T801/T801A to wait for T102B-STD-001 | Approved | 2026-01-13 | Dependency analysis |
 | 6 | Workflow Typology formalization (ADR vs GDR) | Open | - | Pending next session |
 
 ---
@@ -220,7 +220,7 @@ Phase 0 consultation for initiative T102 (Consultancy Development Workflows) add
 **Context**: Topic 9 established development workflow categories (Discovery, Bug Fix, Enhancement, Refactoring, Technical Debt) with different documentation requirements.
 
 **Options**:
-- (A) T102-ADR-009 (new Initiative ADR) - More formal, architectural decision
+- (A) T102-STD-009 (new Initiative ADR) - More formal, architectural decision
 - (B) Integrate into T102-GDR-001 (Operating Model) - Extends existing governance
 - (C) T102B-ADR (Epic-level) - Specific to Request artifact scope
 
@@ -233,8 +233,8 @@ Phase 0 consultation for initiative T102 (Consultancy Development Workflows) add
 **Context**: T102-RES-003 identified governance layer at 80% complete but execution layer at 25-30%. Research findings may require I-RID/I-ADR modifications.
 
 **Specific Items to Assess**:
-- T102-ADR-003 (Explicit Inheritance Model) - Does "list IDs only" guidance need strengthening?
-- T102-ADR-005 (ID Specification Standard) - Are RID category definitions clear enough given repetition concerns?
+- T102-STD-003 (Explicit Inheritance Model) - Does "list IDs only" guidance need strengthening?
+- T102-STD-005 (ID Specification Standard) - Are RID category definitions clear enough given repetition concerns?
 - T102-GDR-001 (Operating Model) - Should workflow typology be integrated here?
 
 ---
@@ -254,7 +254,7 @@ Phase 0 consultation for initiative T102 (Consultancy Development Workflows) add
 ## VI. NEXT STEPS
 
 1. **Client Decision Required**: Resolve open questions (Hygiene Sprint, Workflow Typology, I-RID/I-ADR updates)
-2. **T102B-ADR-001 Design**: Design Request Architecture Standard informed by T102B-RES-001 findings
+2. **T102B-STD-001 Design**: Design Request Architecture Standard informed by T102B-RES-001 findings
 3. **Request Lite Template**: Create simplified Request template for <200 line features
 4. **SPS Feature Register Expansion**: Add T102A2, T102A3 features (P1 action from T102-RES-003)
 5. **Workflow Selection Decision Tree**: Define criteria for workflow selection (Discovery vs PR-only)

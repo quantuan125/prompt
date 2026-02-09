@@ -54,7 +54,7 @@ target_section: 'III.C.1 (Epic: T801A)'
 **Status**: Category confirmed pending cross-category review
 
 **T102 Compliance Analysis**:
-Per `T102-ADR-005-FR-004`, CON = "Non-negotiable boundary or limitation that must be respected". Items allowing deviation with approval are NOT true constraints and must be reclassified.
+Per `T102-STD-005-FR-004`, CON = "Non-negotiable boundary or limitation that must be respected". Items allowing deviation with approval are NOT true constraints and must be reclassified.
 
 **Category Reclassification Decisions**:
 
@@ -114,7 +114,7 @@ Per `T102-ADR-005-FR-004`, CON = "Non-negotiable boundary or limitation that mus
 **Status**: Category confirmed pending cross-category review
 
 **T102 Compliance Analysis**:
-Per `T102-ADR-005-FR-009 (Assumption Rules)`, ASSUM items follow validation lifecycle with status tracking (Pending/Validated/Invalidated/Modified). Validation timing and method specified per assumption.
+Per `T102-STD-005-FR-009 (Assumption Rules)`, ASSUM items follow validation lifecycle with status tracking (Pending/Validated/Invalidated/Modified). Validation timing and method specified per assumption.
 
 **Category Refinement Decisions**:
 
@@ -124,7 +124,7 @@ Per `T102-ADR-005-FR-009 (Assumption Rules)`, ASSUM items follow validation life
 | ASSUM-002 | PA Detection Feasibility | Qualitative language maintained; simpler alternatives may be explored | RETAINED |
 | ASSUM-003 | OBV Data Availability | Reframed to "Volume Integration Value" — core assumption is value-add, not exportability | REFINED + RISK FLAGGED |
 | ASSUM-004 | Platform Reliability | Merged with ASSUM-006 (webhook constraints) → "External Platform Sufficiency" | MERGED |
-| ASSUM-005 | Operational Acceptance | Explicit CON-003 cross-reference added per T102-ADR-005-FR-009 | RETAINED + CROSS-REF |
+| ASSUM-005 | Operational Acceptance | Explicit CON-003 cross-reference added per T102-STD-005-FR-009 | RETAINED + CROSS-REF |
 | ASSUM-006 | Webhook Rate Constraints | Merged into ASSUM-004 | → ASSUM-004 |
 | NEW | LLM Performance Stability | Added from dialogue discovery (GAP-ASSUM-D) | ADDED as ASSUM-006 |
 
@@ -136,9 +136,9 @@ Per `T102-ADR-005-FR-009 (Assumption Rules)`, ASSUM items follow validation life
 
 3. **ASSUM-004/006 Merge**: Both addressed TradingView platform constraints. Merged into single "External Platform Sufficiency" assumption covering reliability, rate limits, and payload capacity.
 
-4. **ASSUM-005 CON Cross-Reference**: Per T102-ADR-005-FR-009, ASSUM items extending CON items SHOULD explicitly reference the governing CON-ID. ASSUM-005 now references T801A-CON-003.
+4. **ASSUM-005 CON Cross-Reference**: Per T102-STD-005-FR-009, ASSUM items extending CON items SHOULD explicitly reference the governing CON-ID. ASSUM-005 now references T801A-CON-003.
 
-5. **Validation Lifecycle**: Per T102-ADR-005-FR-009, each ASSUM specifies validation method, responsible party, and timing (typically Feature SRS development or implementation testing).
+5. **Validation Lifecycle**: Per T102-STD-005-FR-009, each ASSUM specifies validation method, responsible party, and timing (typically Feature SRS development or implementation testing).
 
 **Gap Items Assessed**:
 
@@ -163,7 +163,7 @@ Per `T102-ADR-005-FR-009 (Assumption Rules)`, ASSUM items follow validation life
 **Cross-Category Implications Discovered**:
 - **DEP**: DEP-004 (Expanded Data Structure) discovered — master.csv requires multi-candle historical data
 - **QG**: QG-007 (Consolidated Output Artifact) discovered — combine market data + TTI output for trader convenience
-- **CON**: ASSUM-005 explicitly extends CON-003 (cross-reference per T102-ADR-005-FR-009)
+- **CON**: ASSUM-005 explicitly extends CON-003 (cross-reference per T102-STD-005-FR-009)
 - **RISK**: T801A-RISK-009 (Volume Integration Risk) created — ASSUM-003 high-risk item
 
 **Ownership Confirmed**:
@@ -178,7 +178,7 @@ Per `T102-ADR-005-FR-009 (Assumption Rules)`, ASSUM items follow validation life
 **Status**: Category confirmed pending cross-category review
 
 **T102 Compliance Analysis**:
-Per T102-ADR-005 category definitions, QG = "Measurable acceptance criteria that define success." Unlike ASSUM (beliefs) or CON (boundaries), QG items define testable targets the Epic must achieve.
+Per T102-STD-005 category definitions, QG = "Measurable acceptance criteria that define success." Unlike ASSUM (beliefs) or CON (boundaries), QG items define testable targets the Epic must achieve.
 
 **Category Refinement Decisions**:
 
@@ -249,7 +249,7 @@ Per T102-ADR-005 category definitions, QG = "Measurable acceptance criteria that
 **Status**: Category confirmed pending T801A-RES-002 research for IF-001 finalization
 
 **T102 Compliance Analysis**:
-Per T102-ADR-005 category definitions, IF = "Interface contracts defining handoffs between system components." IF items specify input/output contracts, data formats, and consumption behavior.
+Per T102-STD-005 category definitions, IF = "Interface contracts defining handoffs between system components." IF items specify input/output contracts, data formats, and consumption behavior.
 
 **Category Refinement Decisions**:
 
@@ -313,7 +313,7 @@ Per T102-ADR-005 category definitions, IF = "Interface contracts defining handof
 **Status**: Category confirmed with 16 IG items (1 partial pending T801A-RES-002)
 
 **T102 Compliance Analysis**:
-Per T102-ADR-005-FR-004 category definitions, IG = "Normative authoring/process guidance (internal); not a design choice." IG items provide implementation patterns and execution guidance for downstream Feature development.
+Per T102-STD-005-FR-004 category definitions, IG = "Normative authoring/process guidance (internal); not a design choice." IG items provide implementation patterns and execution guidance for downstream Feature development.
 
 **Research-Derived IG (IG-001 to IG-006) — Confirmed with Refinements**:
 
@@ -368,7 +368,7 @@ Per T102-ADR-005-FR-004 category definitions, IG = "Normative authoring/process 
 
 **Design Choice Assessment**:
 
-Per T102-ADR-005-FR-004, IG is "not a design choice." Items with specific algorithm prescriptions were assessed and generalized:
+Per T102-STD-005-FR-004, IG is "not a design choice." Items with specific algorithm prescriptions were assessed and generalized:
 
 | IG | Classification | Resolution |
 |:---|:---------------|:-----------|
@@ -404,7 +404,7 @@ Per Client Comment 2, IG dialogue confirmed research integration supports the fo
 
 **Dialogue Date**: 2026-01-03
 **Activity**: Subphase 1.2 (Epic Governance Decisions)
-**Purpose**: Develop E-GDR bodies with paired E-ADR specifications per T102-ADR-004 compliance
+**Purpose**: Develop E-GDR bodies with paired E-ADR specifications per T102-STD-004 compliance
 
 **Research Baseline Presentation**:
 - **Initial Candidates**: 5 GDRs + 5 ADRs from analysis file (research integration + IG dialogue)
@@ -446,14 +446,14 @@ Per Client Comment 2, IG dialogue confirmed research integration supports the fo
 - **Flexible Guidances (SHOULD/MAY)**: Swing-point PA detection, OBV volume confirmation, weighted voting formula, 20/50 MA crossover
 - **Deviation Workflow**: Mandatory baselines require Client approval; flexible guidances require documented rationale per IG-008
 
-**T102-ADR-004 Compliance Validation**:
+**T102-STD-004 Compliance Validation**:
 - **FR-001 (DR Index Schema)**: ✅ All 6 GDR + 6 ADR entries follow required schema (ID, Title, Status, Owner, Effective, Supersedes, Anchor)
 - **FR-002 (Decision Records Body)**: ✅ All bodies use required format with proper anchors and subheading structure
 - **FR-005 (Cross-Artifact Linking)**: ✅ GDRs include "Adopt `<ADR-ID>`..." statements in Decision section; ADRs include "Per `<GDR-ID>`..." citations in Context section
 - **FR-006 (Anchor Title Stability)**: ✅ All anchors use lower-kebab format prefixed with ID (e.g., `#t801a-gdr-001-hybrid-tti-architecture`)
 
 **Key Outcomes**:
-1. **Complete GDR/ADR Bodies**: All 6 GDRs (Section IV.B) and 6 ADRs (Section IV.D) developed with full T102-ADR-004 compliance
+1. **Complete GDR/ADR Bodies**: All 6 GDRs (Section IV.B) and 6 ADRs (Section IV.D) developed with full T102-STD-004 compliance
 2. **Research Baseline Classification**: Explicit mandatory vs flexible distinction guides Feature-level development per QG-008
 3. **Minimal Complexity Preserved**: Playground deployment (ADR-003) scoped to branch strategy; no over-engineering
 4. **Partial Items Tracked**: ADR-001/ADR-004 to be finalized after T801A-RES-002 commission (Activity 1.3.1)
@@ -524,7 +524,7 @@ Per Client Comment 2, IG dialogue confirmed research integration supports the fo
 
 **ASSUM-004 Elevation Assessment**:
 - **Question**: Should ASSUM-004 be elevated to CON given TradingView constraints?
-- **Decision**: Maintain as ASSUM per T102-ADR-005 semantics
+- **Decision**: Maintain as ASSUM per T102-STD-005 semantics
 - **Rationale**: TradingView constraints are environmental facts we cannot negotiate; ASSUMPTION is whether constraints are sufficient for our use case (validatable)
 - **Action**: Updated ASSUM-004 with explicit constraint documentation + validation criteria + fallback strategy
 

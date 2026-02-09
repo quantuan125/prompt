@@ -1,11 +1,11 @@
-# Analysis: T102-ADR-005 Refactor & Governance Review
+# Analysis: T102-STD-005 Refactor & Governance Review
 
 **Date:** 2026-01-19
 **Author:** Antigravity (Consultant)
 **Subject:** Independent Assessment of Governance Rules and ADR-005 Refactor Proposal
 
 ## I. Executive Summary
-The proposal to refactor `T102-ADR-005` from 11 Functional Requirements (FRs) to ~7 is **sound and recommended**. The consolidation reduces verbosity without compromising the agentic precision required for regex-based parsing and validation. The proposed taxonomy aligns well with the "Identity & Schema" consolidation.
+The proposal to refactor `T102-STD-005` from 11 Functional Requirements (FRs) to ~7 is **sound and recommended**. The consolidation reduces verbosity without compromising the agentic precision required for regex-based parsing and validation. The proposed taxonomy aligns well with the "Identity & Schema" consolidation.
 
 However, specific attention must be paid to the **Precedence Hierarchy** and the **Semantics of Categories** (specifically `IG`, `INT`, and `ASSUM`) to ensure the distinction between "Requirements" (What), "Decisions" (Policy), and "Implementation" (How) remains distinct.
 
@@ -38,7 +38,7 @@ However, specific attention must be paid to the **Precedence Hierarchy** and the
     *   `DRID` (GDR/ADR) represents a **Legislated Decision** (Policy). It implies "We have debated options and selected this path."
     *   `IID` (IG) represents **Guidance**. It implies "Here is the standard way to do X."
     *   While an `IG` describes *how* to implement something, an `ADR` validates *that* it is the chosen standard.
-*   **Workflow (The Proviso)**: `T102-ADR-004-FR-013` describes a **Promotion Workflow** where `IG` (candidate pattern) $\to$ `ADR` (formal decision).
+*   **Workflow (The Proviso)**: `T102-STD-004-FR-013` describes a **Promotion Workflow** where `IG` (candidate pattern) $\to$ `ADR` (formal decision).
     *   **In Time**: `IG` might come first (as a draft/pilot).
     *   **In Authority**: Once promoted, the `ADR` is the authority. The `IG` becomes the "body of knowledge" referenced by the `ADR`, or the `ADR` supersedes it.
 *   **Recommendation**: Maintain `RID > DRID > IID`.
@@ -195,15 +195,15 @@ However, specific attention must be paid to the **Precedence Hierarchy** and the
 *   `INT` (F): **Debatable**. As per Q2, if replacing with `IG`, moot. If keeping, Epic level needs integration too.
 
 #### 5. ADR vs. IG/FR Tokens (The "Specification" Pattern)
-**Client Question**: "ADR > IID (IG > FR)? If we have a detailed ADR (like T102-ADR-005) with FRs inside, do we need separate IG/FR? Is existing usage of 'FR' inside ADRs confusing?"
+**Client Question**: "ADR > IID (IG > FR)? If we have a detailed ADR (like T102-STD-005) with FRs inside, do we need separate IG/FR? Is existing usage of 'FR' inside ADRs confusing?"
 
 **Analysis**:
-*   **The Pattern**: `T102-ADR-005` is a **Governance Standard Document** disguised as an `ADR`.
+*   **The Pattern**: `T102-STD-005` is a **Governance Standard Document** disguised as an `ADR`.
     *   It contains **Rules** (which it calls `FRs`). In this context, `FR-001` means "Functional Rule 001", not "Functional Requirement of the Software".
 *   **Confusion Risk**: **High**. Using `FR` for "Governance Rules" AND "Software Requirements" confuses agents and people.
 *   **Recommendation**:
     *   **Rename Inner Rules**: In a Governance ADR/Standard, use `STD` (Standard) or `RULE` tokens, NOT `FR`.
-    *   **Example**: `T102-ADR-005-RULE-001`.
+    *   **Example**: `T102-STD-005-RULE-001`.
 *   **Software FRs**: Reserve `FR` token strictly for "Software Functional Requirements" (e.g., "User clicks button").
 *   **Detail Balance**:
     *   `ADR` should record the **Decision** ("We will use Regex IDs").
@@ -218,7 +218,7 @@ However, specific attention must be paid to the **Precedence Hierarchy** and the
 
 The review of the Workflow Optimization report yields findings that directly support the governance refactor:
 *   **Traceability over Duplication**: "Use references rather than duplication to manage traceability."
-    *   **Support**: Validates `T102-ADR-005-FR-004` (Reference Semantics).
+    *   **Support**: Validates `T102-STD-005-FR-004` (Reference Semantics).
 *   **Standardized ID Schemes**: Explicit support for `FR-` (Functional), `ASSUM-` (Assumption) prefixing as an industry best practice (ISO 29148).
     *   **Support**: Validates the Token Taxonomy approach in `FR-002`.
 *   **Decision Logging**: Identifying `GDR/ADR` structures (Context, Decision, Consequences) as a "strong implementation pattern."
@@ -227,7 +227,7 @@ The review of the Workflow Optimization report yields findings that directly sup
 
 ---
 
-## V. Consolidated Recommendations for T102-ADR-005 Refactor
+## V. Consolidated Recommendations for T102-STD-005 Refactor
 
 ### 1. Precedence & Governance Layout
 *   **Explicit Precedence Chain**: `SID (Goal) > RESID (Truth) > RID (Law: CON/NFR/GDR) > IID (Execution: IG/FR)`.
@@ -244,5 +244,5 @@ The review of the Workflow Optimization report yields findings that directly sup
 ### 3. Naming & Content Quality
 *   **Refinement of Category Semantics**: Split `ASSUM` out if the table schema and lifecycle rules are hefty to maintain rigor.
 *   **Expand IG Scope**: Explicitly allow `IG` at Initiative/Epic levels for standards enforcement.
-*   **Policy Naming**: Rename inner "FRs" within Governance Standard ADRs to `RULE` or `STD` (e.g., `T102-ADR-005-RULE-001`) to prevent confusion with Software Requirements.
+*   **Policy Naming**: Rename inner "FRs" within Governance Standard ADRs to `RULE` or `STD` (e.g., `T102-STD-005-RULE-001`) to prevent confusion with Software Requirements.
 *   **Detail Balance**: Maintain the pattern where the `ADR` records the decision to adopt a standard, while the `IG/STD` contains the actual technical specification.

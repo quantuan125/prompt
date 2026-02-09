@@ -120,57 +120,57 @@ The current system lacks a formalized, end-to-end workflow for transforming a cl
 
 | STD ID | Title | Status | Owner | Effective | Supersedes | Adopts | Verification | Reference |
 |:-------|:----------|:-------|:------|:----------|:-----------|:-------------------------|:------------|:----------|
-| `T102-STD-001` | **Operating Model Standard** | `Proposed` | Client | — | `T102-GDR-001` | `T102-ADR-001 (Consultancy Operating Model)` | CI/Lint + Review MUST verify: workflow sequencing, authority/ownership rules, and approval gates align to the adopted spec. | `T102-STD-009 (Governance Standards Model)` |
-| `T102-STD-002` | **Canonical Header Standard** | `Proposed` | Client | — | `T102-GDR-002` | `T102-ADR-002 (Canonical YAML Header)` | CI/Lint + Review MUST verify: artifact YAML headers conform to the adopted schema across SPS/Request/Concept/Design. | `T102-STD-009 (Governance Standards Model)` |
-| `T102-STD-003` | **Inheritance Model Standard** | `Proposed` | Client | — | `T102-GDR-003` | `T102-ADR-003 (Explicit Inheritance Model)` | CI/Lint + Review MUST verify: explicit inheritance tables/ID references and variance handling conform to the adopted spec. | `T102-STD-009 (Governance Standards Model)` |
-| `T102-STD-004` | **Decision Records Standard** | `Proposed` | Client | — | `T102-GDR-004` | `T102-ADR-004 (Decision Records Index)` | CI/Lint + Review MUST verify: correct index schemas, required body subheadings, and valid authority citations per adopted spec. | `T102-STD-009 (Governance Standards Model)` |
-| `T102-STD-005` | **ID Governance Standard** | `Proposed` | Client | — | `T102-GDR-005` | `T102-ADR-005 (ID Specification & Rules)` | CI/Lint + Review MUST verify: valid IDs/tokens per adopted spec, correct formal vs. shorthand reference usage, and RFC2119 keyword constraints via `T102-CON-009`. | `T102-STD-009 (Governance Standards Model)`, `T102-CON-009 (Normative Keywords)` |
-| `T102-STD-006` | **Research Workflow Standard** | `Proposed` | Client | — | `T102-GDR-006` | `T102-ADR-006 (Research Artifacts Index)` | CI/Lint + Review MUST verify: brief/report gating, indexing/traceability rules, and integration placement conform to the adopted spec. | `T102-STD-009 (Governance Standards Model)` |
+| `T102-STD-001` | **Operating Model Standard** | `Proposed` | Client | — | `T102-GDR-001` | `T102-STD-001 (Consultancy Operating Model)` | CI/Lint + Review MUST verify: workflow sequencing, authority/ownership rules, and approval gates align to the adopted spec. | `T102-STD-009 (Governance Standards Model)` |
+| `T102-STD-002` | **Canonical Header Standard** | `Proposed` | Client | — | `T102-GDR-002` | `T102-STD-002 (Canonical YAML Header)` | CI/Lint + Review MUST verify: artifact YAML headers conform to the adopted schema across SPS/Request/Concept/Design. | `T102-STD-009 (Governance Standards Model)` |
+| `T102-STD-003` | **Inheritance Model Standard** | `Proposed` | Client | — | `T102-GDR-003` | `T102-STD-003 (Explicit Inheritance Model)` | CI/Lint + Review MUST verify: explicit inheritance tables/ID references and variance handling conform to the adopted spec. | `T102-STD-009 (Governance Standards Model)` |
+| `T102-STD-004` | **Specification Standard & Guideline** | `Proposed` | Client | — | `T102-GDR-004` | — | CI/Lint + Review MUST verify: canonical combined-file structure, `T102-STD-004-CLAUSE-*` conformance, and nested rationale record `T102-STD-004-ADR-001`. | `T102-STD-009 (Governance Standards Model)` |
+| `T102-STD-005` | **ID Governance Standard** | `Proposed` | Client | — | `T102-GDR-005` | `T102-STD-005 (ID Specification & Rules)` | CI/Lint + Review MUST verify: valid IDs/tokens per adopted spec, correct formal vs. shorthand reference usage, and RFC2119 keyword constraints via `T102-CON-009`. | `T102-STD-009 (Governance Standards Model)`, `T102-CON-009 (Normative Keywords)` |
+| `T102-STD-006` | **Research Workflow Standard** | `Proposed` | Client | — | `T102-GDR-006` | `T102-STD-006 (Research Artifacts Index)` | CI/Lint + Review MUST verify: brief/report gating, indexing/traceability rules, and integration placement conform to the adopted spec. | `T102-STD-009 (Governance Standards Model)` |
 | `T102-STD-007` | **LLM Quality Control** | `Proposed` | Client | — | `T102-GDR-007` | — | CI/Lint + Review MUST verify: source verification, human-in-the-loop review, traceability/logging, and disclosure safeguards are present per the standard (adopted spec intentionally deferred during migration). | `T102-STD-009 (Governance Standards Model)` |
-| `T102-STD-008` | **Organisation Baseline Standard** | `Proposed` | Client | — | `T102-GDR-008` | `T102-ADR-008 (Organisation Baseline Standard)` | CI/Lint + Review MUST verify: a single initiative-level organisation baseline exists with stable actor-to-role mapping and governance ownership. | `T102-STD-009 (Governance Standards Model)` |
-| `T102-STD-009` | **Governance Standards Model** | `Proposed` | Client | — | — | `T102-ADR-009 (Governance Standards Specification)` | CI/Lint + Review MUST verify: required STD fields, valid `Adopts`, and RFC2119 keyword constraint via `T102-CON-009`. | `T102-STD-005 (ID Governance Standard)`, `T102-CON-009 (Normative Keywords)` |
+| `T102-STD-008` | **Organisation Baseline Standard** | `Proposed` | Client | — | `T102-GDR-008` | `T102-STD-008 (Organisation Baseline Standard)` | CI/Lint + Review MUST verify: a single initiative-level organisation baseline exists with stable actor-to-role mapping and governance ownership. | `T102-STD-009 (Governance Standards Model)` |
+| `T102-STD-009` | **Governance Standards Model** | `Proposed` | Client | — | — | `T102-STD-009 (Governance Standards Specification)` | CI/Lint + Review MUST verify: required STD fields, valid `Adopts`, and RFC2119 keyword constraint via `T102-CON-009`. | `T102-STD-005 (ID Governance Standard)`, `T102-CON-009 (Normative Keywords)` |
 
 
 * **T102-STD-001 (Operating Model Standard)** — The project SHALL follow the consultancy operating model, approval gates, and decision precedence defined in the adopted normative specification.
   - **Minimum Viable Conformance**:
-    1) SPS is governance-only and establishes initiative/epic governance boundaries (`T102-ADR-001-CLAUSE-001`).
-    2) Request is requirements-only and MUST NOT embed decision records (`T102-ADR-001-CLAUSE-002`).
-    3) Concept is the architecture decision workspace/ADR compendium (`T102-ADR-001-CLAUSE-003`).
-    4) Design captures story-level decisions and records variances when deviating (`T102-ADR-001-CLAUSE-004`).
+    1) SPS is governance-only and establishes initiative/epic governance boundaries (`T102-STD-001-CLAUSE-001`).
+    2) Request is requirements-only and MUST NOT embed decision records (`T102-STD-001-CLAUSE-002`).
+    3) Concept is the architecture decision workspace/ADR compendium (`T102-STD-001-CLAUSE-003`).
+    4) Design captures story-level decisions and records variances when deviating (`T102-STD-001-CLAUSE-004`).
 
 * **T102-STD-002 (Canonical Header Standard)** — All artifacts SHALL include a canonical YAML header that conforms to the adopted normative specification.
   - **Minimum Viable Conformance**:
-    1) Use only the canonical header key set (and required scope keys when applicable) (`T102-ADR-002-CLAUSE-001`).
-    2) Enforce canonical formats/enums for header values (e.g., IDs, status, dates, versions) (`T102-ADR-002-CLAUSE-002`).
-    3) Provide canonical schema examples/reference as required (`T102-ADR-002-CLAUSE-003`).
+    1) Use only the canonical header key set (and required scope keys when applicable) (`T102-STD-002-CLAUSE-001`).
+    2) Enforce canonical formats/enums for header values (e.g., IDs, status, dates, versions) (`T102-STD-002-CLAUSE-002`).
+    3) Provide canonical schema examples/reference as required (`T102-STD-002-CLAUSE-003`).
 
 * **T102-STD-003 (Inheritance Model Standard)** — Downstream artifacts SHALL implement explicit inheritance by ID referencing and variance handling as defined in the adopted normative specification.
   - **Minimum Viable Conformance**:
-    1) Include the Inherited Considerations table using the required schema/columns (`T102-ADR-003-CLAUSE-001`).
-    2) Follow precedence and document deviations as local variance ADRs (`T102-ADR-003-CLAUSE-002`).
-    3) Apply delta-only authoring rules (do not restate upstream text; emphasize ≤5 critical inherited IDs) (`T102-ADR-003-CLAUSE-003`).
+    1) Include the Inherited Considerations table using the required schema/columns (`T102-STD-003-CLAUSE-001`).
+    2) Follow precedence and document deviations as local variance ADRs (`T102-STD-003-CLAUSE-002`).
+    3) Apply delta-only authoring rules (do not restate upstream text; emphasize ≤5 critical inherited IDs) (`T102-STD-003-CLAUSE-003`).
 
-* **T102-STD-004 (Decision Records Standard)** — The project SHALL use the unified decision record index schemas, body templates, and linking rules defined in the adopted normative specification.
+* **T102-STD-004 (Specification Standard & Guideline)** — The project SHALL use the unified decision record index schemas, body templates, and linking rules defined in the adopted normative specification.
   - **Minimum Viable Conformance**:
-    1) Use the standardized DR index schemas (GDR/ADR) and column definitions (`T102-ADR-004-CLAUSE-001`).
-    2) Follow placement standards for DR indices across artifact families (`T102-ADR-004-CLAUSE-002`).
-    3) Create/update DR entries using the defined workflow and body template (`T102-ADR-004-CLAUSE-003`, `T102-ADR-004-CLAUSE-004`).
-    4) Maintain stable anchors per the anchor stability rules (`T102-ADR-004-CLAUSE-007`).
+    1) Use the standardized DR index schemas (GDR/ADR) and column definitions (`T102-STD-004-CLAUSE-001`).
+    2) Follow placement standards for DR indices across artifact families (`T102-STD-004-CLAUSE-002`).
+    3) Create/update DR entries using the defined workflow and body template (`T102-STD-004-CLAUSE-003`, `T102-STD-004-CLAUSE-004`).
+    4) Maintain stable anchors per the anchor stability rules (`T102-STD-004-CLAUSE-007`).
 
 * **T102-STD-005 (ID Governance Standard)** — The project SHALL use the canonical ID schema, token taxonomy, and reference semantics defined in the adopted normative specification.
   - **Minimum Viable Conformance**:
-    1) IDs MUST conform to the canonical schema and formatting rules (`T102-ADR-005-CLAUSE-001`).
-    2) Tokens, taxonomy, and allowed scope usage MUST follow the canonical table (`T102-ADR-005-CLAUSE-002`).
-    3) Precedence, inheritance directionality, and variance requirements MUST be followed (`T102-ADR-005-CLAUSE-003`).
-    4) Formal vs shorthand reference usage MUST follow the reference semantics rules (`T102-ADR-005-CLAUSE-004`).
+    1) IDs MUST conform to the canonical schema and formatting rules (`T102-STD-005-CLAUSE-001`).
+    2) Tokens, taxonomy, and allowed scope usage MUST follow the canonical table (`T102-STD-005-CLAUSE-002`).
+    3) Precedence, inheritance directionality, and variance requirements MUST be followed (`T102-STD-005-CLAUSE-003`).
+    4) Formal vs shorthand reference usage MUST follow the reference semantics rules (`T102-STD-005-CLAUSE-004`).
 
 * **T102-STD-006 (Research Workflow Standard)** — Formal research artifacts SHALL be indexed and referenced using the Research Artifacts Index architecture defined in the adopted normative specification.
   - **Minimum Viable Conformance**:
-    1) Use the `RES-###` ID pattern integration rules (`T102-ADR-006-CLAUSE-001`).
-    2) Maintain the required research table schemas (local + Concept aggregation) (`T102-ADR-006-CLAUSE-002`).
-    3) Apply placement decision criteria for inline vs indexed vs external research (`T102-ADR-006-CLAUSE-003`).
-    4) Follow the index maintenance protocol (`T102-ADR-006-CLAUSE-004`).
-    5) Reference research findings by `RES-###` IDs (link-don’t-duplicate) (`T102-ADR-006-CLAUSE-005`).
+    1) Use the `RES-###` ID pattern integration rules (`T102-STD-006-CLAUSE-001`).
+    2) Maintain the required research table schemas (local + Concept aggregation) (`T102-STD-006-CLAUSE-002`).
+    3) Apply placement decision criteria for inline vs indexed vs external research (`T102-STD-006-CLAUSE-003`).
+    4) Follow the index maintenance protocol (`T102-STD-006-CLAUSE-004`).
+    5) Reference research findings by `RES-###` IDs (link-don’t-duplicate) (`T102-STD-006-CLAUSE-005`).
 
 * **T102-STD-007 (LLM Quality Control)** — Any LLM-generated factual claims integrated into governance artifacts SHALL be validated using mandatory quality control safeguards (adopted canonical spec intentionally deferred during migration).
   - **Minimum Viable Conformance**:
@@ -182,19 +182,19 @@ The current system lacks a formalized, end-to-end workflow for transforming a cl
 
 * **T102-STD-008 (Organisation Baseline Standard)** — The project SHALL maintain a single initiative-level organisation baseline with stable actor-to-role mapping and governance RACI as defined in the adopted normative specification.
   - **Minimum Viable Conformance**:
-    1) Maintain canonical placement of the organisation baseline in the initiative SPS (`T102-ADR-008-CLAUSE-001`).
-    2) Include the required Role Definitions table and Governance RACI using the mandated schemas (`T102-ADR-008-CLAUSE-002`).
-    3) Follow the maintenance policy to avoid drift and unnecessary churn (`T102-ADR-008-CLAUSE-003`).
+    1) Maintain canonical placement of the organisation baseline in the initiative SPS (`T102-STD-008-CLAUSE-001`).
+    2) Include the required Role Definitions table and Governance RACI using the mandated schemas (`T102-STD-008-CLAUSE-002`).
+    3) Follow the maintenance policy to avoid drift and unnecessary churn (`T102-STD-008-CLAUSE-003`).
 
 * **T102-STD-009 (Governance Standards Model)** — The project SHALL use `STD` as the authoritative registry token for enforceable standards, replacing `GDR`. Each `STD` item MUST: 
   (a) state a concise obligation and 
   (b) declare exactly one adopted canonical normative specification that contains the detailed rules. Rationale, trade-offs, and alternatives MUST be captured in `ADR` records, not inside `STD` bodies. 
   - **Minimum Viable Conformance**:
-    1) `STD` semantics and scope MUST follow the defined token rules (`T102-ADR-009-CLAUSE-001`).
-    2) `STD` adoption contract MUST be enforced (single canonical adopted spec) (`T102-ADR-009-CLAUSE-002`).
-    3) `STD` precedence and variance requirements MUST be applied (`T102-ADR-009-CLAUSE-003`).
-    4) `STD` index schema and authoring guidelines MUST be followed (`T102-ADR-009-CLAUSE-004`).
-    5) Migration tolerance MUST be applied as specified (`T102-ADR-009-CLAUSE-005`).
+    1) `STD` semantics and scope MUST follow the defined token rules (`T102-STD-009-CLAUSE-001`).
+    2) `STD` adoption contract MUST be enforced (single canonical adopted spec) (`T102-STD-009-CLAUSE-002`).
+    3) `STD` precedence and variance requirements MUST be applied (`T102-STD-009-CLAUSE-003`).
+    4) `STD` index schema and authoring guidelines MUST be followed (`T102-STD-009-CLAUSE-004`).
+    5) Migration tolerance MUST be applied as specified (`T102-STD-009-CLAUSE-005`).
 
 #### 8. Project Guidances & Notes
 <!-- Technical guidance for execution teams -->
@@ -324,7 +324,7 @@ To refactor and formalize the **SPS (Synthesized Problem Statement)** artifact a
 | SPS | T102 | Quality Goals | `T102-QG-001 (Client Readability)`, `T102-QG-002 (End-to-End Traceability)`, `T102-QG-003 (Low-Disruption Implementation)` |
 | SPS | T102 | Interfaces | `T102-IF-004 (Co-authoring Consultancy)` |
 | SPS | T102 | Implementation Guidance | `T102-IG-001 (Comment Blocks)`, `T102-IG-002 (Asset Management)`, `T102-IG-003 (Metadata Architecture)`, `T102-IG-005 (Canonical Header)`, `T102-IG-010 (Inheritance Model)` |
-| SPS | T102 | Governance | `T102-GDR-001 (Operating Model Standard)`, `T102-GDR-002 (Canonical Header Standard)`, `T102-GDR-003 (Inheritance Model Standard)`, `T102-GDR-004 (Decision Records Standard)`, `T102-STD-005 (ID Governance Standard)` |
+| SPS | T102 | Governance | `T102-GDR-001 (Operating Model Standard)`, `T102-GDR-002 (Canonical Header Standard)`, `T102-GDR-003 (Inheritance Model Standard)`, `T102-GDR-004 (Specification Standard & Guideline)`, `T102-STD-005 (ID Governance Standard)` |
 
 ##### iv. Governance & Roadmap
 
@@ -433,7 +433,7 @@ To refactor and formalize the **SPS (Synthesized Problem Statement)** artifact a
 
 * **T102A-GDR-001 (Governance Snapshot Standard) {#t102a-gdr-001-governance-snapshot}**
   **Context** External research and internal standards indicate governance documents should present a milestone-level roadmap while keeping operational details external. The initiative prohibits formal planning artifacts in-repo according to `T102-CON-004`. To preserve governance oversight, each SPS Epic needs a concise, standardized **Governance & Roadmap** snapshot with links to external PM tools and Concept ADRs. This follows existing governance/ADR conventions and placement rules.
-  **Decision** Adopt `T102A-ADR-001 (Governance Snapshot Framework)` as mandatory epic section structure. All epics SHALL include governance snapshot with phase sequence, milestones, and success checkpoints; detailed plans remain external in PM tools according to `T102A-CON-001`
+  **Decision** Adopt `T102A-STD-001 (Governance Snapshot Framework)` as mandatory epic section structure. All epics SHALL include governance snapshot with phase sequence, milestones, and success checkpoints; detailed plans remain external in PM tools according to `T102A-CON-001`
   **Consequences**
   (+) Aligns with PRINCE2/PMI/SAFe industry standards for PID/Charter documents
   (+) Provides executive visibility into epic progress without operational detail overhead
@@ -561,7 +561,7 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
 | 2 | **Integration** | Validate SPS→Request→Design/Plan workflow | Package Completeness: End-to-end workflow demonstrated | — | `Client` | `LLM_Consultant` | TBD |
 
 **References**
-- Master Initiative Roadmap: [roadmap_T102-CWD.md](../workspace/plan/T102/roadmap_T102-CWD.md)
+- Master Initiative Roadmap: [roadmap_T102-CDW.md](../workspace/roadmap/roadmap_T102-CDW.md)
 - External PM Tracking: ticktick (client PM tool)
 
 ##### v. Feature Register
@@ -598,8 +598,8 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
 
   * **T102B-CON-003 (Template Variant Boundary)** — `T102B4 (RLITE)` artifacts SHALL NOT expand beyond their defined scope (<200 lines) by accretion per `T102B-RES-001` — P1. Authors SHALL NOT add sections incrementally until RLITE becomes a de facto Full Request. Scope expansion requires explicit workflow transition via `T102B-IG-004` decision tree. This constraint prevents risk of workflow undifferentiation.
 
-  * **T102B-CON-004 (Decision Storage Boundary)** — Request artifacts SHALL NOT embed ADR body content. All architectural and governance decisions SHALL be stored canonically in Concept artifacts per `T102-STD-001` and `T102B-DEP-004`. Request artifacts MAY reference Concept ADRs via formal ID citation per `T102-ADR-005`. This constraint eliminates content duplication and ensures single source of truth for decisions.
-    External Reference: `T102-STD-001 (Consultancy Operating Model Standard)`, `T102-ADR-003 (Explicit Inheritance Model)`, `T102-ADR-005 (ID Specification & Rules)`
+  * **T102B-CON-004 (Decision Storage Boundary)** — Request artifacts SHALL NOT embed ADR body content. All architectural and governance decisions SHALL be stored canonically in Concept artifacts per `T102-STD-001` and `T102B-DEP-004`. Request artifacts MAY reference Concept ADRs via formal ID citation per `T102-STD-005`. This constraint eliminates content duplication and ensures single source of truth for decisions.
+    External Reference: `T102-STD-001 (Consultancy Operating Model Standard)`, `T102-STD-003 (Explicit Inheritance Model)`, `T102-STD-005 (ID Specification & Rules)`
 
 * **Quality Goals**
   * **T102B-QG-001 (Adoption Friction Reduction)** — `T102B4 (RLITE)` artifacts SHALL remain within size constraints per `T102B-CON-003` and reduce authoring overhead for simple features per `T102B-RES-001` — W5, P1. Adoption friction is measured by: (a) author time-to-complete, (b) RLITE vs Full Request selection ratio for eligible features.
@@ -609,7 +609,7 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
 
   * **T102B-QG-003 (Artifact Completeness)** — Request artifacts SHALL pass completeness validation against section classification (mandatory sections populated) before Request approval gate. Completeness evidence includes:
     (a) all mandatory sections contain substantive content,
-    (b) Inherited Considerations table populated per `T102-ADR-003`,
+    (b) Inherited Considerations table populated per `T102-STD-003`,
     (c) navigation structures (Story Index if applicable) populated.
 
 * **Dependencies**
@@ -622,7 +622,7 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
   * **T102B-DEP-003 (RLITE Depends On RST)** — Feature `T102B4 (RLITE)` is a governed subset of `T102B1 (RST)` architecture per `T102B-RES-001` — P1. RLITE SHALL NOT be developed until RST section classification decisions are complete. RLITE inherits RST mandatory section definitions and applies reduction rules per `T102B-IG-001`. This dependency establishes the `T102B1` → `T102B4` feature sequencing constraint for Phase 1.
 
   * **T102B-DEP-004 (Concept Boundary Alignment)** — Request workflow operates within the requirements-only boundary. Request artifacts remain focused on WHAT is required; HOW decisions (architectural specifications) SHALL be stored in Concept artifacts. Request→Concept handoff transfers requirements for solution design; no design content returns to Request.
-    External Reference: `T102-STD-001 (Consultancy Operating Model Standard)`, `T102-ADR-003 (Explicit Inheritance Model)`
+    External Reference: `T102-STD-001 (Consultancy Operating Model Standard)`, `T102-STD-003 (Explicit Inheritance Model)`
 
   * **T102B-DEP-005 (Migration Discipline)** — Structural changes to Request templates or standards SHALL include migration notes documenting:
     (a) affected artifacts,
@@ -654,7 +654,7 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
     | `approver_role` | YAML header | **Yes** | Decision owner role (e.g., `Client`) |
     | `validation_checklist` | Section VI | **Yes** | All mandatory items passed |
     | `story_index` | Section (TBD) | Conditional | Required for multi-story features |
-    | `inherited_considerations` | Section (TBD) | **Yes** | Per `T102-ADR-003` |
+    | `inherited_considerations` | Section (TBD) | **Yes** | Per `T102-STD-003` |
 
   * **T102B-IF-003 (Request Output Contract)** — Request artifacts SHALL provide trace links and ID references required for downstream ingestion (Design or Plan). The output contract ensures downstream workflows can ingest feature-level requirements without content duplication. Request SHALL NOT embed decision content; architectural decisions referenced in Request SHALL have canonical bodies in Concept per `T102B-CON-004` and `T102-STD-001`.
 
@@ -684,24 +684,24 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
 
 | STD ID | Title | Status | Owner | Effective | Supersedes | Adopts | Verification | Reference |
 |:-------|:------|:-------|:------|:----------|:-----------|:-------|:-------------|:----------|
-| `T102B-STD-001` | **Request Governance Snapshot Standard** | Proposed | Client | — | — | `T102B-ADR-001 (Request Architecture Standard)` | Review MUST verify: Phase 0 completion criteria checklist passed, Feature Register populated | `T102-STD-009 (Governance Standards Model)` |
-| `T102B-STD-002` | **Workflow Typology Standard** | Proposed | Client | — | — | `T102B-ADR-003 (Story FR Deferral Standard)`, `T102B-ADR-004 (Request Lite Specification)` | Review MUST verify: workflow selection rationale documented, RLITE boundary (<200 lines) enforced | `T102-STD-009 (Governance Standards Model)` |
+| `T102B-STD-001` | **Request Governance Snapshot Standard** | Proposed | Client | — | — | `T102B-STD-001 (Request Architecture Standard)` | Review MUST verify: Phase 0 completion criteria checklist passed, Feature Register populated | `T102-STD-009 (Governance Standards Model)` |
+| `T102B-STD-002` | **Workflow Typology Standard** | Proposed | Client | — | — | `T102B-STD-003 (Story FR Deferral Standard)`, `T102B-STD-004 (Request Lite Specification)` | Review MUST verify: workflow selection rationale documented, RLITE boundary (<200 lines) enforced | `T102-STD-009 (Governance Standards Model)` |
 | `T102B-STD-003` | **Gate Evidence Standard** | Proposed | Client | — | — | — | Review MUST verify: gate evidence checklist items present, approval signature recorded | `T102-STD-009 (Governance Standards Model)` |
-| `T102B-STD-004` | **Section Classification Policy** | Proposed | Client | — | — | `T102B-ADR-002 (Section Classification Standard)` | Review MUST verify: section classification applied per adopted spec, mandatory sections populated | `T102-STD-009 (Governance Standards Model)` |
+| `T102B-STD-004` | **Section Classification Policy** | Proposed | Client | — | — | `T102B-STD-002 (Section Classification Standard)` | Review MUST verify: section classification applied per adopted spec, mandatory sections populated | `T102-STD-009 (Governance Standards Model)` |
 
-* **T102B-STD-001 (Request Governance Snapshot Standard)** — The project SHALL use `T102B-ADR-001 (Request Architecture Standard)` as the specification for Request artifact family architecture, SPS intake alignment, and Phase 0 completion criteria. All Request workflow artifacts SHALL conform to the architecture standard before Feature design begins.
+* **T102B-STD-001 (Request Governance Snapshot Standard)** — The project SHALL use `T102B-STD-001 (Request Architecture Standard)` as the specification for Request artifact family architecture, SPS intake alignment, and Phase 0 completion criteria. All Request workflow artifacts SHALL conform to the architecture standard before Feature design begins.
   - **Minimum Viable Conformance**:
-    1) Request artifact family follows the hierarchical architecture (RST, RLITE, RPG, MANIFEST) per `T102B-ADR-001-CLAUSE-001`.
-    2) Inheritance model uses ID-reference-only with no content duplication per `T102B-ADR-001-CLAUSE-002`.
-    3) Phase 0 completion criteria satisfied before Feature design begins per `T102B-ADR-001-CLAUSE-003`.
+    1) Request artifact family follows the hierarchical architecture (RST, RLITE, RPG, MANIFEST) per `T102B-STD-001-CLAUSE-001`.
+    2) Inheritance model uses ID-reference-only with no content duplication per `T102B-STD-001-CLAUSE-002`.
+    3) Phase 0 completion criteria satisfied before Feature design begins per `T102B-STD-001-CLAUSE-003`.
   External Reference: `T102-STD-001 (Operating Model Standard)`
 
-* **T102B-STD-002 (Workflow Typology Standard)** — The project SHALL use `T102B-ADR-003 (Story FR Deferral Standard)` and `T102B-ADR-004 (Request Lite Specification)` as the specifications for Request workflow typology. Three workflow variants are established: Full Request, RLITE, and PR-only.
+* **T102B-STD-002 (Workflow Typology Standard)** — The project SHALL use `T102B-STD-003 (Story FR Deferral Standard)` and `T102B-STD-004 (Request Lite Specification)` as the specifications for Request workflow typology. Three workflow variants are established: Full Request, RLITE, and PR-only.
   - **Minimum Viable Conformance**:
-    1) Story Index used for navigation; story-level FR bodies deferred to Design per `T102B-ADR-003-CLAUSE-001`, `T102B-ADR-003-CLAUSE-002`.
-    2) RLITE artifacts remain under 200 lines and do not expand by accretion per `T102B-ADR-004-CLAUSE-001`.
-    3) RLITE contains mandatory sections only per the defined section list per `T102B-ADR-004-CLAUSE-002`.
-    4) Workflow selection follows the decision tree criteria per `T102B-ADR-004-CLAUSE-004`, `T102B-ADR-004-CLAUSE-005`.
+    1) Story Index used for navigation; story-level FR bodies deferred to Design per `T102B-STD-003-CLAUSE-001`, `T102B-STD-003-CLAUSE-002`.
+    2) RLITE artifacts remain under 200 lines and do not expand by accretion per `T102B-STD-004-CLAUSE-001`.
+    3) RLITE contains mandatory sections only per the defined section list per `T102B-STD-004-CLAUSE-002`.
+    4) Workflow selection follows the decision tree criteria per `T102B-STD-004-CLAUSE-004`, `T102B-STD-004-CLAUSE-005`.
 
 * **T102B-STD-003 (Gate Evidence Standard)** — Request approval gates SHALL require documented evidence across four categories before an artifact is approved. The approver MUST record approval status, date, and role in artifact metadata. If any mandatory evidence item is incomplete, the author MUST either remediate or obtain a documented waiver with rationale before approval.
   - **Minimum Viable Conformance**:
@@ -712,23 +712,23 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
     5) Authors SHOULD follow `T102B-IG-005` for detailed checklist items and remediation guidance.
   External Reference: `T102-STD-009 (Governance Standards Model)`
 
-* **T102B-STD-004 (Section Classification Policy)** — The project SHALL use `T102B-ADR-002 (Section Classification Standard)` as the specification for Request section classification schema, ensuring artifact completeness per `T102B-QG-003`. Section classification is a governance decision, not author preference.
+* **T102B-STD-004 (Section Classification Policy)** — The project SHALL use `T102B-STD-002 (Section Classification Standard)` as the specification for Request section classification schema, ensuring artifact completeness per `T102B-QG-003`. Section classification is a governance decision, not author preference.
   - **Minimum Viable Conformance**:
-    1) Three classification categories applied: Mandatory, Optional, Deferred per `T102B-ADR-002-CLAUSE-001`.
-    2) Full Request section list followed per canonical table per `T102B-ADR-002-CLAUSE-002`.
-    3) RLITE section list followed per canonical table per `T102B-ADR-002-CLAUSE-003`.
-    4) Validation rules enforced: empty mandatory sections fail gate per `T102B-ADR-002-CLAUSE-004`.
+    1) Three classification categories applied: Mandatory, Optional, Deferred per `T102B-STD-002-CLAUSE-001`.
+    2) Full Request section list followed per canonical table per `T102B-STD-002-CLAUSE-002`.
+    3) RLITE section list followed per canonical table per `T102B-STD-002-CLAUSE-003`.
+    4) Validation rules enforced: empty mandatory sections fail gate per `T102B-STD-002-CLAUSE-004`.
   External Reference: `T102-STD-009 (Governance Standards Model)`
 
 ##### viii. Epic Development Guidances
 
 * **Implementation Guidance**
-  * **T102B-IG-001 (Section Classification)** — Request authors SHOULD apply the section classification schema defined in `T102B-ADR-002` when authoring Request artifacts. This guidance provides the authoring workflow for applying classification rules; the canonical section lists, classification categories, and validation rules are specified in `T102B-ADR-002`. Authors SHOULD consult `T102B-ADR-002` for definitive section requirements per Request variant (Full Request vs RLITE).
+  * **T102B-IG-001 (Section Classification)** — Request authors SHOULD apply the section classification schema defined in `T102B-STD-002` when authoring Request artifacts. This guidance provides the authoring workflow for applying classification rules; the canonical section lists, classification categories, and validation rules are specified in `T102B-STD-002`. Authors SHOULD consult `T102B-STD-002` for definitive section requirements per Request variant (Full Request vs RLITE).
 
   * **T102B-IG-002 (FR/IG Consolidation)** — Request authors SHOULD avoid content duplication between Functional Requirements (FR) sections and Implementation Guidance (IG) sections per `T102B-QG-002`. The "requirements-with-guidance" pattern consolidates requirement statements with inline authoring hints rather than separating into parallel sections. Detailed implementation patterns belong in Feature-level IGs or ADRs, not in FR bodies.
 
-  * **T102B-IG-003 (Story Index Deferral)** — Request artifacts SHOULD include a Story Index for multi-story features, providing story identification and navigation structure. Story-level FR bodies and detailed acceptance criteria are deferred to `T102D (DESIGN)` workflows per `T102B-CON-002` and `T102B-ADR-003`. The Story Index contains: Story ID, Title, Purpose summary, and Concept/Design link (populated post-handoff). This pattern mitigates Documentation Trap risk.
-    Reference: `T102B-ADR-003 (Story FR Deferral Standard)`
+  * **T102B-IG-003 (Story Index Deferral)** — Request artifacts SHOULD include a Story Index for multi-story features, providing story identification and navigation structure. Story-level FR bodies and detailed acceptance criteria are deferred to `T102D (DESIGN)` workflows per `T102B-CON-002` and `T102B-STD-003`. The Story Index contains: Story ID, Title, Purpose summary, and Concept/Design link (populated post-handoff). This pattern mitigates Documentation Trap risk.
+    Reference: `T102B-STD-003 (Story FR Deferral Standard)`
 
   * **T102B-IG-005 (Gate Evidence Checklist)** — Authors SHOULD use the following checklist to prepare Request artifacts for approval gate per `T102B-STD-003`. Each category lists recommended evidence items; items marked **(Proposed Normative)** are candidates for future elevation to STD-003 MUST requirements.
 
@@ -736,23 +736,23 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
     |:---------|:---------------|:------|
     | **Governance** | Inherited Considerations populated; STD/ADR references valid; GDR→STD migration complete | **(Proposed Normative)**: Inherited Considerations validation |
     | **Content** | All mandatory sections contain substantive content; FR/NFR statements testable per ISO 29148 principles; no placeholder-only mandatory sections | **(Proposed Normative)**: Testable requirements check |
-    | **Structure** | YAML header complete per MANIFEST schema; Story Index populated (if >1 story); section classification applied per `T102B-ADR-002` | — |
+    | **Structure** | YAML header complete per MANIFEST schema; Story Index populated (if >1 story); section classification applied per `T102B-STD-002` | — |
     | **Process** | Validation checklist passed; approver sign-off recorded with role and date; workflow selection rationale documented in frontmatter | — |
 
     **Common Pitfalls**:
     - Inherited Considerations table left empty (copy from SPS Epic Dossier)
-    - Story Index included for single-story features (omit per `T102B-ADR-002-CLAUSE-003`)
+    - Story Index included for single-story features (omit per `T102B-STD-002-CLAUSE-003`)
     - Approval gate attempted without mandatory section content (run section classification check first)
 
     **Remediation Guidance**:
     - If governance evidence missing: review `T102B-IG-006` for inheritance referencing patterns
-    - If content evidence missing: review section classification per `T102B-ADR-002` for mandatory section list
+    - If content evidence missing: review section classification per `T102B-STD-002` for mandatory section list
     - If waiver needed: document rationale per `T102B-STD-003` waiver mechanism
 
     Reference: `T102B-STD-003 (Gate Evidence Standard)`, `T102B-QG-003 (Artifact Completeness)`
 
-  * **T102B-IG-006 (Inheritance Referencing)** — Request authors SHOULD use reference-only inheritance per `T102-ADR-003`. Inherited initiative and epic-level IDs SHOULD be cited by ID reference in the Inherited Considerations table; content SHOULD NOT be duplicated from parent artifacts. When referencing inherited IDs in Request body text, use short-hand format per `T102-ADR-005`. Full reference format is required only in dedicated Reference sections.
-    External Reference: `T102-ADR-003 (Explicit Inheritance Model)`, `T102-ADR-005 (ID Specification & Rules)`
+  * **T102B-IG-006 (Inheritance Referencing)** — Request authors SHOULD use reference-only inheritance per `T102-STD-003`. Inherited initiative and epic-level IDs SHOULD be cited by ID reference in the Inherited Considerations table; content SHOULD NOT be duplicated from parent artifacts. When referencing inherited IDs in Request body text, use short-hand format per `T102-STD-005`. Full reference format is required only in dedicated Reference sections.
+    External Reference: `T102-STD-003 (Explicit Inheritance Model)`, `T102-STD-005 (ID Specification & Rules)`
 
   * **T102B-IG-007 (Handoff Routing)** — Authors SHOULD use the following validation checklist when preparing approved Request artifacts for downstream handoff per `T102B-IF-003`. This checklist operationalizes the routing rules defined in IF-003 and supports gate evidence preparation per `T102B-STD-003`.
 
@@ -807,7 +807,7 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
 
     **Story Index Mapping**:
     - Request Story Index (if present) maps to Concept Design Log Register entries
-    - Story-level detail deferred to Design phase per `T102B-CON-002` and `T102B-ADR-003`
+    - Story-level detail deferred to Design phase per `T102B-CON-002` and `T102B-STD-003`
 
     **Change Control**:
     - Post-Concept-approval Request changes SHOULD be coordinated with T102C epic owners
@@ -839,7 +839,7 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
     - T102A/T102C MAY adopt via future consultation
     - T102 governance decision determines initiative-wide adoption
 
-    External Reference: `T102-ADR-005-CLAUSE-002 (Taxonomy & Terminology)`, `T102B-IF-001`, `T102B-IF-002`, `T102B-IF-003`
+    External Reference: `T102-STD-005-CLAUSE-002 (Taxonomy & Terminology)`, `T102B-IF-001`, `T102B-IF-002`, `T102B-IF-003`
 
   * **T102B-INT-004 (T102 ADR vs IG Framework Coordination)** — Non-normative coordination note proposing the ADR vs IG decision framework for T102 initiative consideration. This framework was adopted for T102B governance during Phase 0 consultation.
 
@@ -849,7 +849,7 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
     - Red flag: IG with new normative constraint not in RID SHOULD be escalated to ADR or CON
 
     **T102B Adoption Evidence**:
-    - T102B-ADR-001 through ADR-004 represent real decisions (Options A/B/C considered)
+    - T102B-STD-001 through ADR-004 represent real decisions (Options A/B/C considered)
     - T102B-IG-001 through IG-006 provide "how-to" referencing governing ADRs
     - IG bodies use SHOULD/MAY; MUST/SHALL reserved for ADR CLAUSE content
 
@@ -857,12 +857,12 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
     - T102A/T102C MAY adopt this framework for consistency
     - T102 governance decision determines initiative-wide adoption
 
-    External Reference: `T102-ADR-005-CLAUSE-005B (Implementation Guidance Rules)`, `T102-ADR-005-CLAUSE-005C (Integration Notes Rules)`, `T102B-NOTE-009`
+    External Reference: `T102-STD-005-CLAUSE-005B (Implementation Guidance Rules)`, `T102-STD-005-CLAUSE-005C (Integration Notes Rules)`, `T102B-NOTE-009`
 
   * **T102B-INT-005 (T102 IG Non-Normative Coordination)** — Non-normative coordination note proposing that T102 initiative clarify IG items use SHOULD/MAY language only, with MUST/SHALL reserved for ADR Specification clauses.
 
     **Current State**:
-    - T102-ADR-005-CLAUSE-005B permits: "IG MAY use MUST/SHALL when defining authoring standards intended to be enforceable"
+    - T102-STD-005-CLAUSE-005B permits: "IG MAY use MUST/SHALL when defining authoring standards intended to be enforceable"
     - This permissiveness creates ambiguity on IG vs ADR authority boundaries
 
     **Proposed Clarification** (for T102 consideration):
@@ -880,12 +880,12 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
     - T102A/T102C MAY adopt this clarification for consistency
     - T102 governance decision determines initiative-wide adoption
 
-    External Reference: `T102-ADR-005-CLAUSE-005B`, `T102B-NOTE-010`
+    External Reference: `T102-STD-005-CLAUSE-005B`, `T102B-NOTE-010`
 
   * **T102B-INT-006 (Category Promotion Coordination)** — Non-normative coordination note proposing a cross-category promotion standard for informative items (NOTE/IG/INT) to normative items (RID/DRID). This addresses a governance gap identified during T102B Phase 0 consultation.
 
     **Governance Gap**:
-    - `T102-ADR-007-CLAUSE-009` defines cross-scope promotion (Epic→Initiative)
+    - `T102-STD-007-CLAUSE-009` defines cross-scope promotion (Epic→Initiative)
     - No standard exists for cross-category promotion (NOTE→IG→ADR)
 
     **Proposed Promotion Path** (for T102 consideration):
@@ -904,7 +904,7 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
     - T102B applies this pattern for Phase 0 OID assessment
     - T102 governance decision determines initiative-wide adoption
 
-    External Reference: `T102-ADR-007-CLAUSE-009 (Cross-Scope Promotion)`, `T102-ADR-005-CLAUSE-002`
+    External Reference: `T102-STD-007-CLAUSE-009 (Cross-Scope Promotion)`, `T102-STD-005-CLAUSE-002`
 
 ##### ix. Epic Research & Notes
 
@@ -924,7 +924,7 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
 |:---|:------|:------------|:------|:-------|:---------|:--------------|:-----------------|:----------------|
 | `T102B-ISSUE-001` | YAML Keys Finalization | Finalize exact Request YAML key set & enums | Client | `OPEN` | `HIGH` | 2026-01-17 | — | — |
 | `T102B-ISSUE-002` | Manifest Format Decision | Decide manifest format (`.json` vs `.md`) and storage path | Client | `OPEN` | `HIGH` | 2026-01-17 | — | — |
-| `T102B-ISSUE-003` | Story Register Scope | Reduce story detail to Story Index; defer FRs downstream | Client | `IN-REVIEW` | `HIGH` | 2026-01-17 | Resolution framework established via `T102B-ADR-003 (Story FR Deferral Standard)`; final Story Index template deferred to T102B1 Feature | — |
+| `T102B-ISSUE-003` | Story Register Scope | Reduce story detail to Story Index; defer FRs downstream | Client | `IN-REVIEW` | `HIGH` | 2026-01-17 | Resolution framework established via `T102B-STD-003 (Story FR Deferral Standard)`; final Story Index template deferred to T102B1 Feature | — |
 | `T102B-ISSUE-004` | ID Collision With RES-001 | SSOT Issue IDs (001-003) collide semantically with RES-001 Issue IDs; requires renumbering decision | Client | `OPEN` | `MEDIUM` | 2026-01-17 | — | — |
 | `T102B-ISSUE-005` | Missing IF Inventory | No explicit interface contracts exist for SPS intake or Concept handoff | Client | `RESOLVED` | `HIGH` | 2026-01-17 | Addressed by Activity 2.3; see `T102B-IF-001 (SPS Intake Contract)`, `T102B-IF-002 (Approved Request Output)`, `T102B-IF-003 (Request Output Contract)` | 2026-01-20 |
 | `T102B-ISSUE-006` | Missing IG Inventory | No implementation guidance exists to operationalize authoring rules | Client | `RESOLVED` | `HIGH` | 2026-01-17 | Addressed by Activity 2.3; see `T102B-IG-001` through `T102B-IG-006` in Proposal Section III.C | 2026-01-20 |
@@ -936,8 +936,8 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
 |:---|:------|:------------|:------|:-------|:---------|:--------------|:-----------------|:----------------|
 | `T102B-RISK-001` | Intake Drift | SPS Feature bundle may evolve without Request alignment checks; Request becomes stale | Client | `MONITORED` | `HIGH` | 2026-01-17 | Monitoring via `T102B-IF-001 (SPS Intake Contract)`, `T102B-INT-001 (SPS→Request Coordination)`; ongoing alignment checks required | — |
 | `T102B-RISK-002` | Gate Evidence Undefined | Approval criteria remain implicit; inconsistent gate enforcement | Client | `MITIGATED` | `MEDIUM` | 2026-01-17 | Gate evidence framework established; see `T102B-STD-003 (Gate Evidence Standard)`, `T102B-IG-005 (Gate Evidence Checklist)`; operational enforcement deferred to Phase 1 RPG development | 2026-01-22 |
-| `T102B-RISK-003` | Documentation Trap | Story-level FRs at Request stage block MVP delivery; over-specification | Client | `MONITORED` | `HIGH` | 2026-01-17 | Mitigated via `T102B-CON-002 (No Story FR Mandate)`, `T102B-ADR-003 (Story FR Deferral Standard)`; ongoing monitoring required to prevent documentation creep | — |
-| `T102B-RISK-005` | Workflow Undifferentiation | Heavyweight docs applied to lightweight changes; adoption friction | Client | `MONITORED` | `MEDIUM` | 2026-01-17 | Mitigated via `T102B-ADR-004 (Request Lite Specification)`, `T102B-IG-004 (Request Lite Selection)`; ongoing monitoring for RLITE adoption patterns | — |
+| `T102B-RISK-003` | Documentation Trap | Story-level FRs at Request stage block MVP delivery; over-specification | Client | `MONITORED` | `HIGH` | 2026-01-17 | Mitigated via `T102B-CON-002 (No Story FR Mandate)`, `T102B-STD-003 (Story FR Deferral Standard)`; ongoing monitoring required to prevent documentation creep | — |
+| `T102B-RISK-005` | Workflow Undifferentiation | Heavyweight docs applied to lightweight changes; adoption friction | Client | `MONITORED` | `MEDIUM` | 2026-01-17 | Mitigated via `T102B-STD-004 (Request Lite Specification)`, `T102B-IG-004 (Request Lite Selection)`; ongoing monitoring for RLITE adoption patterns | — |
 
 #### 3. `T102C` Epic: `CONCEPT` — Conceptual Solution Workflow
 ```yaml
@@ -975,7 +975,7 @@ To establish and deliver a comprehensive Concept workflow that operates as a dyn
 | SPS | T102 | Quality Goals | `T102-QG-001 (Client Readability)`, `T102-QG-002 (End-to-End Traceability)` |
 | SPS | T102 | Dependencies | `T102-DEP-002 (Planner Integration)`, `T102-DEP-003 (Role Definitions)` |
 | SPS | T102 | Implementation Guides | `T102-IG-005 (Canonical Header)`, `T102-IG-009 (Traceability Framework)`, `T102-IG-010 (Inheritance Model)` |
-| SPS | T102 | Governances | `T102-GDR-001 (Operating Model Standard)`, `T102-GDR-002 (Canonical Header Standard)`, `T102-GDR-004 (Decision Records Standard)`, `T102-STD-005 (ID Governance Standard)`, `T102-GDR-006 (Governance Snapshot Standard)` |
+| SPS | T102 | Governances | `T102-GDR-001 (Operating Model Standard)`, `T102-GDR-002 (Canonical Header Standard)`, `T102-GDR-004 (Specification Standard & Guideline)`, `T102-STD-005 (ID Governance Standard)`, `T102-GDR-006 (Governance Snapshot Standard)` |
 
 ##### iv. Governance & Roadmap
 
@@ -1016,7 +1016,7 @@ To establish and deliver a comprehensive Concept workflow that operates as a dyn
 
 * **Constraints**
   <!-- Non-negotiable restrictions or limitations on possible solutions. -->
-  * **T102C-CON-001 (ADR Authority)** — Dynamic workspace must not override established GDRs from SPS; variances require explicit citation per `T102-ADR-003`
+  * **T102C-CON-001 (ADR Authority)** — Dynamic workspace must not override established GDRs from SPS; variances require explicit citation per `T102-STD-003`
   * **T102C-CON-002 (Integration Stability)** — Changes to Concept structure must not break existing workflow handoffs during active development
 
 * **Quality Goals**
@@ -1069,16 +1069,16 @@ To establish and deliver a comprehensive Concept workflow that operates as a dyn
 
 * **T102C-GDR-001 (Artifact Boundary Standard) {#t102c-gdr-001-artifact-boundary}**
   **Context:** Architectural evolution from Feature-scoped to multi-PM-scope Concept created boundary ambiguity between Request (BRD/SRS) and Concept (ADD) artifacts, risking decision duplication and authority confusion.
-  **Decision:** Adopt existing `T102-ADR-003/004/005` framework as authoritative boundary specification: Request = stable requirements (zero embedded ADRs), Concept = dynamic decision workspace (canonical ADR repository), with traceability via ID referencing not content duplication.
+  **Decision:** Adopt existing `T102-STD-003`/`T102-STD-004`/`T102-STD-005` framework as authoritative boundary specification: Request = stable requirements (zero embedded ADRs), Concept = dynamic decision workspace (canonical ADR repository), with traceability via ID referencing not content duplication.
   **Consequences:**
   (+) Eliminates decision storage ambiguity between Request and Concept artifacts
   (+) Leverages proven inheritance and canonicalization frameworks
   (+) Maintains clear artifact ownership without authority conflicts
   (±) Requires disciplined adherence to link-don't-duplicate principle
   References:
-  `T102-ADR-003 (Explicit Inheritance Model)`,
-  `T102-ADR-004 (Decision Records Index)`,
-  `T102-ADR-005 (ID Specification & Usage Rules)`,
+  `T102-STD-003 (Explicit Inheritance Model)`,
+  `T102-STD-004 (Specification Standard & Guideline)`,
+  `T102-STD-005 (ID Specification & Usage Rules)`,
   `T102C-QG-002 (Cross Traceability)`
 
 * **T102C-GDR-002 (Document Scaling Deferral) {#t102c-gdr-002-scaling-deferral}**
@@ -1111,14 +1111,14 @@ To establish and deliver a comprehensive Concept workflow that operates as a dyn
 
 * **T102C-GDR-004 (Decision Canonicalization Standard) {#t102c-gdr-004-decision-canonicalization}**
   **Context:** Multi-scope ADR management requires canonical storage location to prevent decision drift and ensure single source of truth across PM scopes.
-  **Decision:** Adopt `T102-ADR-004` as authoritative decision canonicalization standard: ALL ADRs (Initiative/Epic/Feature) stored in Concept with references from Request/Design artifacts; Story-level ADRs remain in Design Log per `T102D` scope.
+  **Decision:** Adopt `T102-STD-004` as authoritative decision canonicalization standard: ALL ADRs (Initiative/Epic/Feature) stored in Concept with references from Request/Design artifacts; Story-level ADRs remain in Design Log per `T102D` scope. Canonical rationale for this standard is maintained as `T102-STD-004-ADR-001`.
   **Consequences:**
   (+) Establishes single source of truth for all architectural decisions
   (+) Eliminates decision duplication between Request and Concept artifacts
   (+) Enables consistent audit trail across all PM scopes
   (±) Requires strict adherence to reference-only pattern in downstream artifacts
   **References:** 
-  `T102-ADR-004 (Decision Records Index)`, 
+  `T102-STD-004 (Specification Standard & Guideline)`, 
   `T102-GDR-001 (Operating Model Standard)`, 
   `T102C-QG-001 (ADR Centralization)`
 
@@ -1152,7 +1152,7 @@ To establish and deliver a comprehensive Concept workflow that operates as a dyn
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Mitigation Notes | Mitigation Date |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
 | `T102C-RISK-001` | Context Overload | LLM_Consultant cannot effectively manage stable/dynamic document updates simultaneously, causing drift or omissions. Future document splitting considerations remain open if context bloat becomes critical for agent performance. | Client | `MITIGATED` | `MEDIUM` | 2025-09-27 | MITIGATED through `T102C-GDR-001` boundary separation and "link-don't-duplicate" principle. External research validated this approach. | 2025-09-28 |
-| `T102C-RISK-002` | Decision Authority Confusion | ADRs stored in Concept become disconnected from governing GDRs, creating unclear decision authority and conflicts. | Client | `MITIGATED` | `LOW` | 2025-09-27 | MITIGATED through `T102C-GDR-004` canonical storage standard and `T102-ADR-003` explicit inheritance model. | 2025-09-28 |
+| `T102C-RISK-002` | Decision Authority Confusion | ADRs stored in Concept become disconnected from governing GDRs, creating unclear decision authority and conflicts. | Client | `MITIGATED` | `LOW` | 2025-09-27 | MITIGATED through `T102C-GDR-004` canonical storage standard and `T102-STD-003` explicit inheritance model. | 2025-09-28 |
 | `T102C-RISK-003` | Integration Complexity | Cross-epic integration requirements (T102B/T102D) create development dependencies that delay epic completion. | Client | `MITIGATED` | `LOW` | 2025-09-27 | MITIGATED through completed `T102C` governance framework providing stable foundation. `T102B` and `T102D` epics can reference T102C. | 2025-09-28 | 
 
 ##### x. Epic Changelog

@@ -16,20 +16,20 @@ target_section: 'III.M (Feature Governance Decision Records)'
 
 ## I. EXECUTIVE SUMMARY
 
-This document proposes 6 Feature-level Governance Decision Records (F-GDRs) for inclusion in `request_T810A1-PROMPT.md` Section III.M. All GDRs have been expanded from draft proposals to full ADR format following T102-ADR-004-FR-002 specifications.
+This document proposes 6 Feature-level Governance Decision Records (F-GDRs) for inclusion in `request_T810A1-PROMPT.md` Section III.M. All GDRs have been expanded from draft proposals to full ADR format following T102-STD-004-FR-002 specifications.
 
 **Key Changes from Draft Proposals**:
 - Complete ADR body structure (Context, Decision, Consequences, References)
-- **Removed all story-level FR references** per T102-ADR-005 precedence rules
+- **Removed all story-level FR references** per T102-STD-005 precedence rules
 - Referenced only F-IDs (Feature-level requirements) and Research IDs
 - Added Phase 1.5 empirical findings where relevant
 - Consequences structured with (+)/(±)/(-) notation
 
 **Compliance**:
-- ✅ T102-ADR-004-FR-001: GDR Index Schema with required columns
-- ✅ T102-ADR-004-FR-002: Decision Records Body with shared subheadings
-- ✅ T102-ADR-005-FR-003: Precedence & Directionality (F-GDRs reference F-IDs only, not S-IDs)
-- ✅ T102-ADR-005-FR-006: ID References using back-ticked `ID (Title)` tokens
+- ✅ T102-STD-004-FR-001: GDR Index Schema with required columns
+- ✅ T102-STD-004-FR-002: Decision Records Body with shared subheadings
+- ✅ T102-STD-005-FR-003: Precedence & Directionality (F-GDRs reference F-IDs only, not S-IDs)
+- ✅ T102-STD-005-FR-006: ID References using back-ticked `ID (Title)` tokens
 
 ---
 
@@ -308,7 +308,7 @@ This document proposes 6 Feature-level Governance Decision Records (F-GDRs) for 
 
 ## III. IMPLEMENTATION NOTES
 
-### A. Compliance with T102-ADR-005 (ID Specification & Rules)
+### A. Compliance with T102-STD-005 (ID Specification & Rules)
 
 **FR-003 (Precedence & Directionality)**:
 - ✅ All GDRs reference **only F-IDs** (Feature-level requirements) and Research IDs
@@ -328,11 +328,11 @@ This document proposes 6 Feature-level Governance Decision Records (F-GDRs) for 
 - Research IDs: RES-001, RES-002
 - NO references to: S-IDs (story-level FRs), F-GDRs (GDRs don't reference each other in v1)
 
-### B. Compliance with T102-ADR-004 (Decision Records Index)
+### B. Compliance with T102-STD-004 (Decision Records Index)
 
 **FR-001 (DR Index Schema)**:
 - ✅ 7 columns: GDR ID | Title | Status | Owner | Effective | Supersedes | Anchor
-- ✅ ID Pattern: `T810A1-GDR-###` per T102-ADR-005-FR-002
+- ✅ ID Pattern: `T810A1-GDR-###` per T102-STD-005-FR-002
 - ✅ Status: "Proposed" (pending Client approval)
 - ✅ Owner: "Client" (decision owner per artifact header)
 - ✅ Effective: "2025-10-11" (today's date, becomes active upon approval)
@@ -343,7 +343,7 @@ This document proposes 6 Feature-level Governance Decision Records (F-GDRs) for 
 - ✅ Title format: `* **T810A1-GDR-### (Title) {#anchor}**`
 - ✅ Shared subheadings: Context, Decision, Consequences, References
 - ✅ Consequences notation: (+) positive, (±) neutral/mixed, (-) negative/trade-off
-- ✅ References: Back-ticked `ID (Title)` tokens per T102-ADR-005-FR-006
+- ✅ References: Back-ticked `ID (Title)` tokens per T102-STD-005-FR-006
 
 ### C. Integration with Phase 1.5 F-IDs
 
@@ -386,7 +386,7 @@ Before implementing GDRs in request document, please confirm:
 
 2. **Phase 1.5 Integration**: Are the Phase 1.5 F-ID incorporations (NFR-001, NFR-008, NFR-009, INT-004, IF-006, CON-008, INT-005) correctly reflected in GDR bodies?
 
-3. **Story-Level Reference Removal**: Confirm that removing all story-level FR references (S-IDs) from GDRs is correct per T102-ADR-005 precedence rules, even when GDRs logically govern story-level implementation?
+3. **Story-Level Reference Removal**: Confirm that removing all story-level FR references (S-IDs) from GDRs is correct per T102-STD-005 precedence rules, even when GDRs logically govern story-level implementation?
 
 4. **GDR vs. ADR Distinction**: Should any of these GDRs actually be Feature ADRs (F-ADRs) instead of F-GDRs? Current understanding: GDRs = governance/policy decisions, ADRs = architectural/implementation decisions. All 6 proposals are governance-level, so F-GDR classification seems correct.
 
@@ -420,4 +420,4 @@ Before implementing GDRs in request document, please confirm:
 
 ## VI. CHANGELOG
 
-- **v1.0.0** (2025-10-11): Initial Phase 2 GDR expansion proposals with complete ADR body structure per T102-ADR-004-FR-002, removed all story-level FR references per T102-ADR-005-FR-003, integrated Phase 1.5 F-ID updates, and structured consequences with (+)/(±)/(-) notation
+- **v1.0.0** (2025-10-11): Initial Phase 2 GDR expansion proposals with complete ADR body structure per T102-STD-004-FR-002, removed all story-level FR references per T102-STD-005-FR-003, integrated Phase 1.5 F-ID updates, and structured consequences with (+)/(±)/(-) notation

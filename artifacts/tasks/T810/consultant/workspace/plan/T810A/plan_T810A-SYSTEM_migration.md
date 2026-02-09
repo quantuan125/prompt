@@ -14,16 +14,16 @@ decision_owner_role: 'Client'
 ## 1. Context & Sources
 - Epic dossier: `prompt/artifacts/tasks/T810/consultant/sps/sps_T810-GASTRO.md`
 - Feature request (T810A1): `prompt/artifacts/tasks/T810/consultant/request/request_T810A1-PROMPT.md`
-- Templates & rules: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`, `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (T102-ADR-004, T102-ADR-005)
+- Templates & rules: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`, `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (T102-STD-004, T102-STD-005)
 - Concept ADR index (for future ADR placement): `prompt/artifacts/tasks/T810/consultant/concept/concept_T810-GASTRO.md`
 
 ### 1.1 Core Implementation Standards
 
-* **T102-ADR-004 (Decision Records Index) {#t102-adr-004-drs-index}**
+* **T102-STD-004-ADR-001 (Decision Records Index) {#t102-std-004-drs-index}**
 
   **Specification**
 
-    1) **T102-ADR-004-FR-001 (DR Index Schema)**
+    1) **T102-STD-004-FR-001 (DR Index Schema)**
     `<GDR/ADR> ID | Title | Status | Owner | Effective | Supersedes | Anchor`
        -  `ID`: Pattern T102-GDR-### (initiative GDRs), T102-ADR-### (initiative ADRs), <E-ID>-ADR-### (epic), <F-ID>-ADR-### (feature)
        -  `Title`: Descriptive name using Title Case, 2-8 words maximum for readability
@@ -33,12 +33,12 @@ decision_owner_role: 'Client'
        -  `Supersedes`: List of superseded IDs or — for new decisions
        -  `Anchor:` Lower-kebab format of title, stable across potential file splits
 
-    2) **T102-ADR-004-FR-002 (Decision Records Body)**
+    2) **T102-STD-004-FR-002 (Decision Records Body)**
        - Placement: Construct directly below the `DR Index Schema` table.
        - Title format: Start the body with a single list item using this exact pattern:
          Examples:
-         * **T102-GDR-004 (Decision Records Standard) — {#t102-gdr-004-drs-standard}**
-         * **T102-ADR-004 (Decision Records Index) — {#t102-adr-004-drs-index}**
+         * **T102-GDR-004 (Specification Standard & Guideline) — {#t102-gdr-004-drs-standard}**
+         * **T102-STD-004 (Decision Records Index) — {#t102-std-004-drs-index}**
          Rules:
          - ID: literal token at start; Title: Title Case; Anchor: lower-kebab derived from title, prefixed with the ID in lower-kebab form.
          - Keep one space before the anchor block; include braces `{#...}` exactly.
@@ -52,71 +52,71 @@ decision_owner_role: 'Client'
          - **Alternatives Considered:** Rejected options with rationale.
          - **Provenance:** Evidence/design sources supporting the decision.
 
-    3) **T102-ADR-004-FR-003 (Placement Standards)**
+    3) **T102-STD-004-FR-003 (Placement Standards)**
        - SPS artifacts: Section titled "<SCOPE> Governance Decisions" containing governance decisions only
        - Concept artifacts: Section titled "<SCOPE> Architectural Decisions" with mirror sections for Epic/Feature areas as needed
        - Consistency requirement: All placement follows established artifact section numbering without local deviations
 
-    4) **T102-ADR-004-FR-004 (Entry Creation Workflow)** Add a new row to the appropriate index table, assign the next sequential ID, and create the matching body section using the required template. 
+    4) **T102-STD-004-FR-004 (Entry Creation Workflow)** Add a new row to the appropriate index table, assign the next sequential ID, and create the matching body section using the required template. 
 
-    5) **T102-ADR-004-FR-005 (Cross-Artifact Linking)**
+    5) **T102-STD-004-FR-005 (Cross-Artifact Linking)**
        - **GDR → Decision (Adoption Statement).** If a GDR formally adopts or mandates an ADR, the adoption MUST be stated in **Decision** using this informal reference pattern (single line):
           + Pattern: "Adopt `<ADR-ID>`, <one-line rationale>..."
-          + Example: "Adopt `T102-ADR-004` as the single, Client-owned standard for decision record schemas across artifacts."
+          + Example: "Adopt `T102-STD-004` as the single, Client-owned standard for decision record schemas across artifacts."
        - **ADR → Context (Authority Citation).** If an ADR is governed by a GDR, the governing policy MUST be cited in **Context** using this informal reference pattern as the first sentence of Context:
           + Pattern: "Per `<GDR-ID>`, <one-line rationale>..."
           + Example: "Per `T102-GDR-004`, a unified DR schema is required to prevent drift."
 
-    6) **T102-ADR-004-FR-006 (Anchor Title Stability)**
+    6) **T102-STD-004-FR-006 (Anchor Title Stability)**
       - **Anchor & title stability.** Use lower-kebab anchors derived from Title; anchors remain stable across file moves/splits.
 
-    7) **T102-ADR-004-FR-007 (Lifecycle Coherence)**
+    7) **T102-STD-004-FR-007 (Lifecycle Coherence)**
       When a GDR that is cited by ADRs changes **Status** or is **Superseded**, affected ADRs MUST:
          + update the **Context** authority sentence to the new governing GDR ID/title; and
          + add the prior GDR ID to **Supersedes/References** as appropriate.
          + Perform this update in the next modification to the ADR or in a dedicated “governance sync” change set.
 
-    8) **T102-ADR-004-FR-008 (Status Management)**
+    8) **T102-STD-004-FR-008 (Status Management)**
       `Proposed → Accepted → Deprecated` lifecycle; document superseded IDs in the **Supersedes** column and, in body text where applicable.
 
-    9) **T102-ADR-004-FR-009 (Precedence Hierarchy)**
-      Initiative GDR > Initiative ADR > Epic ADR > Feature ADR > Story ADR for conflict resolution. (See `T102-ADR-003` and `T102-ADR-005` for details.)
+    9) **T102-STD-004-FR-009 (Precedence Hierarchy)**
+      Initiative GDR > Initiative ADR > Epic ADR > Feature ADR > Story ADR for conflict resolution. (See `T102-STD-003` and `T102-STD-005` for details.)
 
-    10) **T102-ADR-004-FR-010 (Automation Linting)**
+    10) **T102-STD-004-FR-010 (Automation Linting)**
        Authors SHOULD pass the following checks:
         - GDR body contains a **Decision** line matching regex: `` `^Adopt\s+`T[0-9]{3,}(?:[A-Z][0-9A-Z]*)?-ADR-[0-9]{3}`,\s+.+$` ``
         - ADR body **Context** starts with: `` `^Per\s+`T[0-9]{3,}(?:[A-Z][0-9A-Z]*)?-GDR-[0-9]{3}`,\s+.+$` ``
 
-    11) **T102-ADR-004-FR-011 (Consequences Scope)**
+    11) **T102-STD-004-FR-011 (Consequences Scope)**
         -  **GDR Consequences:** Policy/precedence impacts; compliance expectations; migration & rollout; automation/traceability effects. 
         -  **ADR Consequences:** Quality trade-offs; constraints introduced; operational effects; debt/risks.
 
-    12) **T102-ADR-004-FR-012 (References & Provenance )**
-      - **References** in both records include formal reference following `T102-ADR-005-FR-006`
+    12) **T102-STD-004-FR-012 (References & Provenance )**
+      - **References** in both records include formal reference following `T102-STD-005-FR-006`
       - **Provenance** store relevant file names only. 
 
 
-* **T102-ADR-005 (ID Specification & Rules) {#t102-adr-005-id-spec}**
+* **T102-STD-005 (ID Specification & Rules) {#t102-std-005-id-spec}**
 
   **Specification**
 
-    1) **T102-ADR-005-FR-001 (ID Scope)**
+    1) **T102-STD-005-FR-001 (ID Scope)**
       - I-ID (initiative): `^T\d{3}$` (e.g., `T102`).
       - E-ID (epic): `^T\d{3}[A-Z]$` (e.g., `T102A`).
       - F-ID (feature): `^T\d{3}[A-Z]-[A-Z0-9_]+$` (e.g., `T102A-SPSST`).
       - S-ID (story): `^T\d{3}[A-Z]-[A-Z0-9_]+-S\d+$` (e.g., `T102A-SPSST-S3`).
 
-    2) **T102-ADR-005-FR-002 (ID Terminologies)**
+    2) **T102-STD-005-FR-002 (ID Terminologies)**
       - Scope IDs: `I-ID`/`E-ID`/`F-ID`/`S-ID` are artifact identifiers (initiative/epic/feature/story), e.g., `I-ID = T102`, `F-ID = T102A-SPSST`.
       - Rule IDs: `I-RID`/`E-RID`/`F-RID`/`S-RID` are conS-IDeration/rule identifiers defined by category tokens at each scope (e.g., `T102-QG-02`, `T102A-SPSST-NFR-002`).
       - Decision Record IDs: `I-GDR`/`E-GDR`/`F-GDR`/`S-GDR` denotes governance decisions; `I-ADR`/`E-ADR`/`F-ADR`/`S-ADR` denotes architecture decision at each scope. 
       - Usage guidance: Use `<SCOPE>ID` when referring to artifact scope; use `<RULE>-ID` when referring to rule items; use `<SCOPE>-ADR/GDR` for decision records.
 
-    3) **T102-ADR-005-FR-003 (Precedence & Directionality)**
+    3) **T102-STD-005-FR-003 (Precedence & Directionality)**
       - Precedence: I-RIDs > I-GDRs > I-ADRs > E-RIDs > E-GDRs > E-ADRs > F-RIDs > F-GDRs > F-ADRs > S-RIDs > S-GDRs > S-ADRs.
       - Directionality: Upstream never references downstream. Lower/equal scopes MAY reference higher/equal scopes; higher MUST NOT reference lower. Variances MUST cite the overridden upstream item.
 
-    4) **T102-ADR-005-FR-004 (ID Categories)**
+    4) **T102-STD-005-FR-004 (ID Categories)**
       - Token map and definitions:
         - DR Category:
           - `GDR` — Governance: Policy-level governance decision record.
@@ -128,7 +128,7 @@ decision_owner_role: 'Client'
           - `DEP` — Dependency: External condition, interface, asset, or approval required.
           - `IG` — Implementation Guidance: Normative authoring/process guidance; not a design choice.
           - `NOTE` — Note: Informational remark to aid context or authoring; non‑normative.
-          - `RES` — Research: Formally commissioned research with approved brief and validated report artifacts; traceable via Research Artifacts Index per `T102-ADR-006`.
+          - `RES` — Research: Formally commissioned research with approved brief and validated report artifacts; traceable via Research Artifacts Index per `T102-STD-006`.
           - `ISSUE` — Open Issue: Known gap requiring decision or action; tracked to resolution.
           - `RISK` — Risk: Potential negative event with likelihood/impact; track mitigation/acceptance.
         - Sub Category
@@ -141,23 +141,23 @@ decision_owner_role: 'Client'
         - Feature (F‑ID): additive from Epic: `FR`, `NFR`, `IF`, `INT`, `CON`, `RES`.
         - Story (S‑ID): inherits Feature tokens.
       - Universal construction: `{SCOPE_ID}-{CATEGORY}-{NNN}` for all Rule IDs and Decision Record IDs.
-      - ADR sub-IDs within a decision: append `-FR-{NNN}` (e.g., `T102-ADR-003-FR-001`).
+      - ADR sub-IDs within a decision: append `-FR-{NNN}` (e.g., `T102-STD-003-FR-001`).
 
-    5) **T102-ADR-005-FR-005 (ID Title & Construction)**
+    5) **T102-STD-005-FR-005 (ID Title & Construction)**
       - General format: `* **<ID> (<Title>)** — <concise description>` on a single line.
-      - Scope: Applies to I‑ID/E‑ID/F‑ID/S‑ID items when introduced; for ADRs/GDRs use the body title pattern in `T102-ADR-004`.
+      - Scope: Applies to I‑ID/E‑ID/F‑ID/S‑ID items when introduced; for ADRs/GDRs use the body title pattern in `T102-STD-004`.
       - Examples:
         - **T102-QG-001 (Client Readability)** — Artifacts are understandable by non‑technical stakeholders (aim ≥ "clear" on internal rubric).
         - **T102A-DEP-001 (Planner Integration)** — Planner consumes Concept + referenced Design Logs; align handoff schema.
         - **T102A-SPSST-NFR-002 (Author Usability)** — Section names/order intuitive for non‑technical authors.
         - **T102A-SPSST-S3-FR-001 (Epic Dossier Schema)** — Epic block includes YAML header, standardized subsections, and Feature Register.
-      - Relation to DRs: For the ADR/GDR body section heading, follow `T102-ADR-004-FR-002 (Decision Records Body)` for the exact list‑item title and anchor format.
+      - Relation to DRs: For the ADR/GDR body section heading, follow `T102-STD-004-FR-002 (Decision Records Body)` for the exact list‑item title and anchor format.
 
-    6) **T102-ADR-005-FR-006 (ID References)**
+    6) **T102-STD-005-FR-006 (ID References)**
       - Formal (References subsections; Inherited ConS-IDerations tables): back‑ticked `ID (Title)` tokens, e.g., `T102-CON-001 (Format Requirements)`.
       - Informal (inline prose): flexible between formal reference and bare back‑ticked ID tokens, e.g., `T102-CON-001`.
 
-    7)  **T102-ADR-005-FR-007 (Migration & Stability)**
+    7)  **T102-STD-005-FR-007 (Migration & Stability)**
       - Keep anchors stable when moving content; deprecate IDs via index when replaced. If titles change, anchors remain unchanged.
 
 
@@ -167,7 +167,7 @@ Goal: Extract cross-cutting requirements from T810A1 that should govern all chil
 
 ## 2. Promotion Candidates (Feature → Epic)
 
-**Approach**: Promote Feature-level RIDs from T810A1 to Epic-level governance where they set cross-feature policy/quality bars per T102-ADR-005.
+**Approach**: Promote Feature-level RIDs from T810A1 to Epic-level governance where they set cross-feature policy/quality bars per T102-STD-005.
 
 **Detailed Analysis**: See `proposal_T810A-GASTRO_phase2_v1.0.0.md` for comprehensive architectural analysis, scope justifications, and promotion rationales.
 
@@ -284,12 +284,12 @@ Goal: Extract cross-cutting requirements from T810A1 that should govern all chil
 4. **Draft Revised Epic GDR Language** (in proposal file)
    - Epic-level language (remove feature-specific details per research)
    - Apply consistent abstraction patterns: "Block 4" → "designated knowledge storage"
-   - E-RID references only (no F-RID citations per T102-ADR-005)
+   - E-RID references only (no F-RID citations per T102-STD-005)
    - **Target**: Concise, direct, authoritative GDR body per client guidance
 
 5. **Draft Epic ADR Stub** (if required for this GDR)
    - **ADR Stub Components**: Title + Anchor + Content Scope Outline + Key Decisions
-   - **Format Compliance**: Follow T102-ADR-004 structure (Context, Decision, Specification, Consequences, Alternatives Considered, References)
+   - **Format Compliance**: Follow T102-STD-004 structure (Context, Decision, Specification, Consequences, Alternatives Considered, References)
    - **Deferred to Phase 3C**: Full ADR body text with detailed specifications
    - **Target Artifact**: `concept_T810-GASTRO.md` Section III.B.1 (Epic ADR Index) after Phase 3C approval
 
@@ -311,7 +311,7 @@ Goal: Extract cross-cutting requirements from T810A1 that should govern all chil
 
 ### 3.3 Phase 3C: Epic ADR Full Draft Development
 
-**Objective**: Expand ADR stubs from Phase 3B into full Epic ADR drafts compliant with T102-ADR-004 format.
+**Objective**: Expand ADR stubs from Phase 3B into full Epic ADR drafts compliant with T102-STD-004 format.
 
 **ADR Development Sequence**:
 
@@ -348,7 +348,7 @@ Goal: Extract cross-cutting requirements from T810A1 that should govern all chil
 - **Linked GDR**: GDR-006 (revised)
 - **Sequencing**: Coordinate with A3 aggregation design → finalize voice/length guidance → update A1 trigger/validation flows
 
-**ADR Format Compliance** (T102-ADR-004):
+**ADR Format Compliance** (T102-STD-004):
 - **Required Sections**:
   - **Context**: Why this decision is needed; the gap it resolves
   - **Decision**: What is adopted/changed and who owns it
@@ -361,7 +361,7 @@ Goal: Extract cross-cutting requirements from T810A1 that should govern all chil
 **Target Artifact**: `prompt/artifacts/tasks/T810/consultant/concept/concept_T810-GASTRO.md` Section III.B.1 (Epic ADR Index)
 
 **Success Criteria**:
-- [ ] All 3 ADRs drafted with complete T102-ADR-004 sections
+- [ ] All 3 ADRs drafted with complete T102-STD-004 sections
 - [ ] ADR content aligns with GDR abstraction decisions from Phase 3B
 - [ ] Cross-ADR consistency validated (no contradictions)
 - [ ] ADR Index table updated in Concept artifact with proper anchors
@@ -424,7 +424,7 @@ Goal: Extract cross-cutting requirements from T810A1 that should govern all chil
 **Epic GDR Section Updates** (`sps_T810-GASTRO.md` Section III.C.1.vii):
 - **Remove**: Original GDR-001 (Tracking-First Protocol), GDR-004 (Session Workflow Architecture) — demoted to T810A1
 - **Add**: Revised GDR-001/002/003/004 (renumbered from 002/003/006/005) with Epic-level language from Phase 3B
-- **References**: Update all GDR "References" subsections with E-RID formal syntax per T102-ADR-005
+- **References**: Update all GDR "References" subsections with E-RID formal syntax per T102-STD-005
 
 **SPS Changelog Entry** (Section IV):
 ```markdown
@@ -443,14 +443,14 @@ Goal: Extract cross-cutting requirements from T810A1 that should govern all chil
 - T810A-ADR-005 (GI Knowledge Sources Catalog)
 - T810A-ADR-006 (Dual-Purpose Reporting Policy)
 
-**Reference Compliance**: All E-GDRs now reference E-RIDs only (no F-RID citations); formal syntax per T102-ADR-005
+**Reference Compliance**: All E-GDRs now reference E-RIDs only (no F-RID citations); formal syntax per T102-STD-005
 ```
 
 #### **3.5.2 Concept Artifact Updates**
 
 **Concept Document**: `prompt/artifacts/tasks/T810/consultant/concept/concept_T810-GASTRO.md`
 
-**ADR Body Sections**: Add full ADR drafts from Phase 3C with T102-ADR-004 format compliance
+**ADR Body Sections**: Add full ADR drafts from Phase 3C with T102-STD-004 format compliance
 
 **Success Criteria**:
 - [ ] All 3 Epic ADRs added to Concept artifact with proper anchors
@@ -465,7 +465,7 @@ Goal: Extract cross-cutting requirements from T810A1 that should govern all chil
 
 **Scope**:
 - SPS updates: 4 revised Epic GDRs with renumbered IDs (001-004)
-- Concept updates: 3 new Epic ADRs with full T102-ADR-004 format compliance (ADR-001, ADR-003, ADR-004)
+- Concept updates: 3 new Epic ADRs with full T102-STD-004 format compliance (ADR-001, ADR-003, ADR-004)
 - Format validation requirements and post-implementation actions
 
 **Status**: ✅ Brief created; ready for LLM_Developer implementation
@@ -474,7 +474,7 @@ Goal: Extract cross-cutting requirements from T810A1 that should govern all chil
 - [x] Developer handoff brief drafted with complete implementation instructions
 - [x] All 4 revised GDR content included (exact text from approved proposals)
 - [x] All 3 Epic ADR full drafts included (exact text from approved proposals)
-- [x] Format validation checklist provided (T102-ADR-004/005 compliance)
+- [x] Format validation checklist provided (T102-STD-004/005 compliance)
 
 ---
 
@@ -488,13 +488,13 @@ Goal: Extract cross-cutting requirements from T810A1 that should govern all chil
 
 **Phase 2 Changes (E-RID Promotion)**:
 - **Promoted E-RIDs** (27 total): 4 ASSUM, 5 DEP, 4 CON, 8 QG, 6 IG
-- **Inherited Considerations Table**: T810A1 Request must add table referencing all 27 Epic E-RIDs per T102-ADR-003
+- **Inherited Considerations Table**: T810A1 Request must add table referencing all 27 Epic E-RIDs per T102-STD-003
 - **F-RID Reference Updates**: Replace promoted F-RID refs with E-RID refs in T810A1 Request where applicable
 
 **Phase 3 Changes (GDR Demotion + E-RID Substitution)**:
 - **Demoted Epic GDRs**: GDR-001 (Tracking-First Protocol) → T810A1-GDR-001, GDR-004 (Session Workflow Architecture) → T810A1-GDR-004
 - **Demoted GDR Content**: Provide full current text from SPS for integration into T810A1 Request
-- **Placement Guidance**: Add T810A1-GDR-001/004 to Request Section "Feature Governance Decisions" (follow T102-ADR-004 format)
+- **Placement Guidance**: Add T810A1-GDR-001/004 to Request Section "Feature Governance Decisions" (follow T102-STD-004 format)
 - **E-RID Reference Updates in S05**: Replace direct GDR body references with E-IG/E-QG refs where implementation details moved
   - Example: Replace "Probe phase SHALL ask ≥2 clarifying questions per GDR-001" → "Probe phase SHALL enforce minimum probing per T810A-IG-002"
 - **Numeric Confidence Prohibition**: Maintain in user-facing text; allow machine-only in JSON per T810A-ADR-001
@@ -520,7 +520,7 @@ Goal: Extract cross-cutting requirements from T810A1 that should govern all chil
 **GDR Content Integrity**:
 - [x] GDR-001/002/003/004 (renumbered): All F-RID references replaced with E-RID references
 - [x] Original GDR-001/004: Removed from Epic GDR section (demoted to T810A1)
-- [x] All revised GDRs use formal reference syntax per T102-ADR-005-FR-006
+- [x] All revised GDRs use formal reference syntax per T102-STD-005-FR-006
 
 **Epic ADR Integration**:
 - [x] T810A-ADR-001 created with proper linking to GDR-001 (renumbered from 002)
@@ -552,7 +552,7 @@ Goal: Extract cross-cutting requirements from T810A1 that should govern all chil
 Phase 3 Consultation complete when:
 - ✅ **Phase 3A**: Research analysis accepted (E-GDR vs. F-GDR classification validated)
 - ✅ **Phase 3B**: 4 E-GDRs revised with Epic-level language; 3 ADR full drafts created; 5 critical questions resolved
-- ✅ **Phase 3C**: 3 Epic ADRs fully drafted with T102-ADR-004 compliance (combined with Phase 3B per client approval)
+- ✅ **Phase 3C**: 3 Epic ADRs fully drafted with T102-STD-004 compliance (combined with Phase 3B per client approval)
 - ✅ **Phase 3D**: GDR renumbering plan finalized (priority-first: 002→001, 003→002, 006→003, 005→004); demoted GDR content preserved for T810A1 handoff
 - ✅ **Phase 3E (Partial)**: LLM_Developer handoff brief created with complete implementation instructions
 - ⏸️ **Phase 3E (T810A1 Handoff)**: Deferred to Phase 5 per client guidance (after Phase 4 Epic Issues & Risks)
@@ -662,7 +662,7 @@ Phase 3 Consultation complete when:
 4. `T810A1-RISK-004` (formerly T810A-RISK-004): Minimum 2-Loop Pattern Non-Compliance
 5. `T810A1-RISK-005` (formerly T810A-RISK-005): Stable JSON Manual Update Friction
 
-**Placement Guidance** (T810A1 subconsultant): Add to T810A1 Request Section "Feature Issues & Risks" with IDs updated to T810A1-* per T102-ADR-005 Feature scope standards.
+**Placement Guidance** (T810A1 subconsultant): Add to T810A1 Request Section "Feature Issues & Risks" with IDs updated to T810A1-* per T102-STD-005 Feature scope standards.
 
 ---
 
@@ -738,7 +738,7 @@ Phase 4 complete when:
 - **Implementation Guidance (6 E-RIDs)**: T810A-IG-001 through IG-006
 
 **T810A1 Integration Requirements**:
-1. **Inherited Considerations Table**: Add table in T810A1 Request referencing all 27 Epic E-RIDs per T102-ADR-003
+1. **Inherited Considerations Table**: Add table in T810A1 Request referencing all 27 Epic E-RIDs per T102-STD-003
 2. **F-RID Reference Updates**: Replace promoted F-RID references with E-RID references throughout Request
 3. **Feature Delta Retention**: Maintain Feature-specific implementation details (S01-S10 Stories, F-IFs, F-INTs, F-CONs, F-NFRs) that were NOT promoted
 
@@ -763,7 +763,7 @@ Phase 4 complete when:
   - **Content**: Preserve full current GDR-004 text from SPS for T810A1 integration
 
 **T810A1 Integration Requirements**:
-1. **Feature Governance Decisions Section**: Add T810A1-GDR-001/002 to Request Section "Feature Governance Decisions" (follow T102-ADR-004 format)
+1. **Feature Governance Decisions Section**: Add T810A1-GDR-001/002 to Request Section "Feature Governance Decisions" (follow T102-STD-004 format)
 2. **E-RID Reference Updates in S05**: Replace direct GDR body references with E-IG/E-QG refs where implementation details moved
    - Example: Replace "Probe phase SHALL ask ≥2 clarifying questions per GDR-001" → "Probe phase SHALL enforce minimum probing per T810A-IG-002"
 3. **Numeric Confidence Prohibition**: Maintain in user-facing text; allow machine-only in JSON per T810A-ADR-001
@@ -797,7 +797,7 @@ Phase 4 complete when:
 **Rationale**: Comprehensive analysis showed 78% Feature-specific (T810A1 implementation details); RISK-004 directly tied to demoted GDR-001 (2-loop pattern).
 
 **T810A1 Integration Requirements**:
-1. **Feature Issues & Risks Section**: Add to T810A1 Request Section "Feature Issues & Risks" with IDs updated to T810A1-* per T102-ADR-005
+1. **Feature Issues & Risks Section**: Add to T810A1 Request Section "Feature Issues & Risks" with IDs updated to T810A1-* per T102-STD-005
 2. **Current Content Preservation**: Maintain existing Issue/Risk descriptions; update references from T810A-* to T810A1-*
 3. **Status Maintenance**: Preserve current Status/Priority/Owner fields
 
@@ -1054,11 +1054,11 @@ Phase 6 complete when:
 
 5) Coordination with T810A1 subconsultant
 - Completed in Phase 5 (T810A1 Subconsultant Coordination & Handoff)
-- Confirm that promoted items remain referenced in A1 as inherited (delta-only) per T102-ADR-003; avoid duplication in A1.
+- Confirm that promoted items remain referenced in A1 as inherited (delta-only) per T102-STD-003; avoid duplication in A1.
 - If A1 needs additional feature-specific detail beyond Epic guidance, document locally as F-RIDs.
 
 ## 8. Traceability & ID Governance
-- Follow T102-ADR-005: scope ID regex, category tokens, and reference rules.
+- Follow T102-STD-005: scope ID regex, category tokens, and reference rules.
 - GDRs stay at Epic scope; ADRs for design/implementation go to `concept_T810-GASTRO.md` under Epic ADR Index.
 - T810A1 Inherited Considerations table provided in Phase 5 coordination brief.
 

@@ -17,13 +17,13 @@ parent_activity: '1.2'
 
 ## I. EXECUTIVE SUMMARY
 
-This plan details **Phase 1 (Feature Design)** activities for Epic T102B (REQUEST), focusing on developing individual feature templates and guidelines based on T102B-ADR-001 specifications.
+This plan details **Phase 1 (Feature Design)** activities for Epic T102B (REQUEST), focusing on developing individual feature templates and guidelines based on T102B-STD-001 specifications.
 
 **Phase 1 Objective**: Develop feature templates & guidelines; exit with Request templates validated using T810A1 as exemplar.
 
 **Key Exit Milestone**: Template Validation — Request templates (RST, RSPG, MANIFEST, RLITE) enable feature specification; T810A1 serves as validated exemplar.
 
-**Prerequisites**: Phase 0 complete (T102B-ADR-001 accepted, Feature Register populated)
+**Prerequisites**: Phase 0 complete (T102B-STD-001 accepted, Feature Register populated)
 
 ---
 
@@ -33,7 +33,7 @@ This plan details **Phase 1 (Feature Design)** activities for Epic T102B (REQUES
 
 **Status**: Skeleton
 **Feature**: T102B1 (RST) — Request Structural Template
-**Objective**: Develop revised Request template per T102B-ADR-001 specifications
+**Objective**: Develop revised Request template per T102B-STD-001 specifications
 
 **Task List** (TBD):
 - Task 1.1.1: Create Request template structure per ADR Section classification
@@ -43,7 +43,7 @@ This plan details **Phase 1 (Feature Design)** activities for Epic T102B (REQUES
 - Task 1.1.5: Validate against T810A1 exemplar
 
 **Success Criteria** (TBD):
-- [ ] Request template compliant with T102B-ADR-001
+- [ ] Request template compliant with T102B-STD-001
 - [ ] Section classification (Mandatory/Optional/Deferred) enforced
 - [ ] T810A1 passes validation against new template
 
@@ -91,7 +91,7 @@ This plan details **Phase 1 (Feature Design)** activities for Epic T102B (REQUES
 
 **Status**: Skeleton
 **Feature**: T102B4 (RLITE) — Request Structural Template Lite
-**Objective**: Develop lightweight Request variant (<200 lines) per T102B-ADR-001
+**Objective**: Develop lightweight Request variant (<200 lines) per T102B-STD-001
 
 **Task List** (TBD):
 - Task 1.4.1: Create Request Lite template with mandatory sections only
@@ -101,7 +101,7 @@ This plan details **Phase 1 (Feature Design)** activities for Epic T102B (REQUES
 
 **Success Criteria** (TBD):
 - [ ] Request Lite template <200 lines
-- [ ] Mandatory sections only (per T102B-ADR-001)
+- [ ] Mandatory sections only (per T102B-STD-001)
 - [ ] Selection guidance documented
 
 ---
@@ -117,7 +117,7 @@ This plan details **Phase 1 (Feature Design)** activities for Epic T102B (REQUES
 ### Validation
 - [ ] T810A1 passes validation against new Request template
 - [ ] Request Lite <200 lines verified
-- [ ] All templates compliant with T102B-ADR-001
+- [ ] All templates compliant with T102B-STD-001
 
 ### Phase 1 Exit Gate
 - [ ] All features status = "approved"

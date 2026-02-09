@@ -471,7 +471,7 @@ decision_owner_role: 'Client'
   `T810A1-GDR-001 (Tracking-First Clinical Protocol)`,
   `T810A1-GDR-002 (Session Workflow Architecture)`,
   `T810A1-CON-003 (Tooling Deferral)`,
-  `T102-ADR-004 (Decision Records Index)`
+  `T102-STD-004 (Decision Records Index)`
 
 
 ### C. Readiness Snapshot (Lean, manual)

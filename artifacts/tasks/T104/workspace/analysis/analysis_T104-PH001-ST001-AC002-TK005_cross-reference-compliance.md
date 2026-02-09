@@ -60,7 +60,7 @@ Checklist (from TK005 Step 1):
 - [x] **All External Ref items have proper “External Reference:” citation lines**
   - Evidence: No blank “External Reference:” lines remain in `sps_T104-CWS.md` after TK006 remediation (see Section VII).
 
-- [x] **ID tokens follow `T102-ADR-005-CLAUSE-001` patterns (regex compliance)**
+- [x] **ID tokens follow `T102-STD-005-CLAUSE-001` patterns (regex compliance)**
   - Evidence: 45/45 tokenized `T104-*` IDs match the canonical tokenized pattern (0 invalid).
 
 - [x] **No dangling or broken references**
@@ -78,23 +78,23 @@ Checklist (from TK005 Step 1):
 
 | ADR Clause | Compliance Check | Result | Evidence / Notes |
 |:-----------|:-----------------|:-------|:-----------------|
-| `T102-ADR-005-CLAUSE-001` | All IDs match canonical regex patterns | PASS | Tokenized IDs validated (0 invalid) |
-| `T102-ADR-005-CLAUSE-001` | ID bodies follow markdown format | PASS | All body entries follow `* **ID (Title)** — ...` format |
-| `T102-ADR-005-CLAUSE-001` | Titles conform to word-count constraints (RID/IID/OID: 2–3 words) | PASS | Resolved in TK006 by renaming the ISSUE title (see GAP-ADR5-003). |
-| `T102-ADR-005-CLAUSE-002` | Category tokens used correctly per allowed scope | PASS | No invalid token usage detected for IID/RID/OID at initiative scope |
-| `T102-ADR-005-CLAUSE-003` | Inheritance directionality: downstream only | PASS | No higher-scope artifacts referencing lower-scope IDs detected within AC002 scope |
-| `T102-ADR-005-CLAUSE-004` | External Reference lines present for cross-scope-root references | PASS | Resolved in TK006 (see GAP-ADR5-001). |
-| `T102-ADR-005-CLAUSE-004` | No inline ISSUE/RISK references in normative bodies | PASS | Resolved in TK006 by removing the inline ISSUE link from `T104-CON-005` (see GAP-ADR5-002). |
-| `T102-ADR-005-CLAUSE-005A` | ASSUM items include validation lifecycle table | PASS | Table present under III.B.2 assumptions |
-| `T102-ADR-005-CLAUSE-005E` | NOTE items follow ≤200 words rule and non-normative style | PASS | NOTE word counts: NOTE-001=50, NOTE-002=45, NOTE-003=40 |
-| `T102-ADR-005-CLAUSE-006` | RIDs lead with requirement statement (SHALL/SHOULD); no justification prose | PASS (provisional) | No “justification paragraphs” detected inside RID bodies; verify during TK006 edits if bodies are modified |
-| `T102-ADR-003-CLAUSE-001` | Inherited Considerations tables use correct schema (if applicable) | N/A | No inherited-considerations tables in III.B.2–III.B.11 |
-| `T102-ADR-004-CLAUSE-004` | External Reference citation format correct | PASS | Resolved in TK006 (see GAP-ADR5-001). |
-| `T102-ADR-007-CLAUSE-002/003` | ISSUE Status/Priority enums match spec | PASS | Resolved in TK006 (see GAP-ADR7-002). |
-| `T102-ADR-007-CLAUSE-004/005` | RISK Status/Priority enums match spec | PASS | Resolved in TK006 (see GAP-ADR7-002). |
-| `T102-ADR-007-CLAUSE-007/008` | Resolution/Mitigation Notes coupling rules enforced | PASS | Resolved in TK006 by converting affected risks from `OPEN` → `MONITORED` (see GAP-ADR7-001). |
-| `T102-ADR-009-CLAUSE-004A` | STD index uses correct schema with all required columns | PASS | Resolved in TK006 by adding `Governed By` column (see GAP-ADR9-001). |
-| `T102-ADR-009-CLAUSE-004C` | STD bodies include primary obligation sentence and MVC | PASS | STD bodies include primary obligation sentence and MVC lists (`sps_T104-CWS.md:160`) |
+| `T102-STD-005-CLAUSE-001` | All IDs match canonical regex patterns | PASS | Tokenized IDs validated (0 invalid) |
+| `T102-STD-005-CLAUSE-001` | ID bodies follow markdown format | PASS | All body entries follow `* **ID (Title)** — ...` format |
+| `T102-STD-005-CLAUSE-001` | Titles conform to word-count constraints (RID/IID/OID: 2–3 words) | PASS | Resolved in TK006 by renaming the ISSUE title (see GAP-ADR5-003). |
+| `T102-STD-005-CLAUSE-002` | Category tokens used correctly per allowed scope | PASS | No invalid token usage detected for IID/RID/OID at initiative scope |
+| `T102-STD-005-CLAUSE-003` | Inheritance directionality: downstream only | PASS | No higher-scope artifacts referencing lower-scope IDs detected within AC002 scope |
+| `T102-STD-005-CLAUSE-004` | External Reference lines present for cross-scope-root references | PASS | Resolved in TK006 (see GAP-ADR5-001). |
+| `T102-STD-005-CLAUSE-004` | No inline ISSUE/RISK references in normative bodies | PASS | Resolved in TK006 by removing the inline ISSUE link from `T104-CON-005` (see GAP-ADR5-002). |
+| `T102-STD-005-CLAUSE-005A` | ASSUM items include validation lifecycle table | PASS | Table present under III.B.2 assumptions |
+| `T102-STD-005-CLAUSE-005E` | NOTE items follow ≤200 words rule and non-normative style | PASS | NOTE word counts: NOTE-001=50, NOTE-002=45, NOTE-003=40 |
+| `T102-STD-005-CLAUSE-006` | RIDs lead with requirement statement (SHALL/SHOULD); no justification prose | PASS (provisional) | No “justification paragraphs” detected inside RID bodies; verify during TK006 edits if bodies are modified |
+| `T102-STD-003-CLAUSE-001` | Inherited Considerations tables use correct schema (if applicable) | N/A | No inherited-considerations tables in III.B.2–III.B.11 |
+| `T102-STD-004-CLAUSE-004` | External Reference citation format correct | PASS | Resolved in TK006 (see GAP-ADR5-001). |
+| `T102-STD-007-CLAUSE-002/003` | ISSUE Status/Priority enums match spec | PASS | Resolved in TK006 (see GAP-ADR7-002). |
+| `T102-STD-007-CLAUSE-004/005` | RISK Status/Priority enums match spec | PASS | Resolved in TK006 (see GAP-ADR7-002). |
+| `T102-STD-007-CLAUSE-007/008` | Resolution/Mitigation Notes coupling rules enforced | PASS | Resolved in TK006 by converting affected risks from `OPEN` → `MONITORED` (see GAP-ADR7-001). |
+| `T102-STD-009-CLAUSE-004A` | STD index uses correct schema with all required columns | PASS | Resolved in TK006 by adding `Governed By` column (see GAP-ADR9-001). |
+| `T102-STD-009-CLAUSE-004C` | STD bodies include primary obligation sentence and MVC | PASS | STD bodies include primary obligation sentence and MVC lists (`sps_T104-CWS.md:160`) |
 | `guideline_ssot_sps.md IV.B` | Item classification matches boundary rules | PASS (provisional) | No misclassifications identified during this pass |
 
 **Additional ADR-009 note (not in the checklist row above)**:
@@ -132,13 +132,13 @@ Checklist (from TK005 Step 1):
 
 | Gap ID | Category | Title | Description | Disposition | Notes |
 |:-------|:---------|:------|:------------|:------------|:------|
-| GAP-ADR7-001 | `RISK` | Coupling Violations | OPEN risks contained mitigation notes (must be `—`), violating `T102-ADR-007-CLAUSE-005` coupling rules | Resolved (TK006) | Remediated by converting affected risks from `OPEN` → `MONITORED` and keeping `Mitigation Date = —` |
-| GAP-ADR7-002 | `ISSUE/RISK` | Priority Enums | `Priority` values used `High/Medium` instead of required backticked enums per `T102-ADR-007-CLAUSE-002/004` | Resolved (TK006) | Normalized to backticked `HIGH|MEDIUM|LOW` across Issues + Risks |
-| GAP-ADR9-001 | `STD` | STD Index Schema | T104 STD index table missing required `Governed By` column per `T102-ADR-009-CLAUSE-004A` | Resolved (TK006) | Added `Governed By` column and populated minimally; updated `T104-STD-002` to adopt `T102-ADR-005` |
+| GAP-ADR7-001 | `RISK` | Coupling Violations | OPEN risks contained mitigation notes (must be `—`), violating `T102-STD-007-CLAUSE-005` coupling rules | Resolved (TK006) | Remediated by converting affected risks from `OPEN` → `MONITORED` and keeping `Mitigation Date = —` |
+| GAP-ADR7-002 | `ISSUE/RISK` | Priority Enums | `Priority` values used `High/Medium` instead of required backticked enums per `T102-STD-007-CLAUSE-002/004` | Resolved (TK006) | Normalized to backticked `HIGH|MEDIUM|LOW` across Issues + Risks |
+| GAP-ADR9-001 | `STD` | STD Index Schema | T104 STD index table missing required `Governed By` column per `T102-STD-009-CLAUSE-004A` | Resolved (TK006) | Added `Governed By` column and populated minimally; updated `T104-STD-002` to adopt `T102-STD-005` |
 | GAP-ADR5-001 | `DEP` | External Reference Formatting | `T104-DEP-001` had a blank `External Reference:` line and did not enumerate all referenced T102 STDs mentioned in-body | Resolved (TK006) | Consolidated to a single well-formed `External Reference:` line listing `T102-STD-003/004/005/006/007/009` |
-| GAP-ADR5-002 | `CON` | Prohibited ISSUE Link | Normative RID body `T104-CON-005` referenced an `ISSUE` inline, prohibited by `T102-ADR-005-CLAUSE-004` | Resolved (TK006) | Removed inline ISSUE reference from `T104-CON-005`; issue traceability remains in the Issues table row |
-| GAP-ADR5-003 | `ISSUE` | Title Word Count | `T104-ISSUE-006` title exceeded the 2–3 word constraint (`T102-ADR-005-CLAUSE-001`) | Resolved (TK006) | Renamed title to `DEP-003 Alignment` (ID remained stable) |
-| GAP-ADR9-002 | `STD` | Adoption Contract | `T104-STD-001` and `T104-STD-003` had `Adopts = —`, conflicting with ADR-009’s “exactly one adopted spec” rule | Resolved (TK006; migration exception) | Kept `Adopts = —` as an explicit migration exception; STD bodies now declare intent per `T102-ADR-009-CLAUSE-004D (STD Conciseness)` until ST002 defines canonical adopted specs |
+| GAP-ADR5-002 | `CON` | Prohibited ISSUE Link | Normative RID body `T104-CON-005` referenced an `ISSUE` inline, prohibited by `T102-STD-005-CLAUSE-004` | Resolved (TK006) | Removed inline ISSUE reference from `T104-CON-005`; issue traceability remains in the Issues table row |
+| GAP-ADR5-003 | `ISSUE` | Title Word Count | `T104-ISSUE-006` title exceeded the 2–3 word constraint (`T102-STD-005-CLAUSE-001`) | Resolved (TK006) | Renamed title to `DEP-003 Alignment` (ID remained stable) |
+| GAP-ADR9-002 | `STD` | Adoption Contract | `T104-STD-001` and `T104-STD-003` had `Adopts = —`, conflicting with ADR-009’s “exactly one adopted spec” rule | Resolved (TK006; migration exception) | Kept `Adopts = —` as an explicit migration exception; STD bodies now declare intent per `T102-STD-009-CLAUSE-004D (STD Conciseness)` until ST002 defines canonical adopted specs |
 | GAP-TRC-001 | `STD/ASSUM` | Missing Traceability | `T104-STD-001` did not cite `T104-ASSUM-001` (preferred traceability link) | Resolved (TK006) | Added minimal directional traceability link inside `T104-STD-001` MVC list |
 | GAP-TRC-002 | `QG/CON` | Missing Traceability | Neither `T104-QG-001` nor `T104-CON-004` linked to the other | Resolved (TK006) | Added a single directional link: `T104-CON-004` now cites `T104-QG-001` |
 | GAP-TRC-003 | `QG/IG` | Missing Traceability | Neither `T104-QG-005` nor `T104-IG-001` linked to the other | Resolved (TK006) | Added minimal directional link: `T104-IG-001` now cites `T104-QG-005` |

@@ -21,7 +21,7 @@ decision_owner_role: 'Client'
 
 **Key Findings**:
 *   **Finding 1**: T102 Request's hybrid BRD/SRS structure aligns well with ISO/IEC/IEEE 29148:2018 patterns but includes significant content that exceeds typical feature-level specification granularity (story-level FR/ACs at Request stage).
-*   **Finding 2**: The RID traceability system (T102-ADR-005) is industry-leading for manual documentation but creates repetition overhead when inheriting from Epic scope.
+*   **Finding 2**: The RID traceability system (T102-STD-005) is industry-leading for manual documentation but creates repetition overhead when inheriting from Epic scope.
 *   **Finding 3**: SAFe Feature specifications are significantly lighter than T102 Request (name + benefit hypothesis + acceptance criteria vs. 11 major sections), suggesting a "Request Lite" variant would better serve MVP workflows.
 *   **Finding 4**: Industry standards support workflow typology differentiation - bug fixes, enhancements, and refactoring typically use lightweight PR templates rather than full SRS/BRD documentation.
 *   **Finding 5**: The golden exemplar (T810A1-PROMPT) demonstrates effective patterns including clear stakeholder mapping, robust NFR specifications, and comprehensive governance decisions (GDRs).
@@ -261,7 +261,7 @@ T102 Request significantly exceeds SAFe's recommended feature-level documentatio
 | S5: NFR Operational Rules | T810A1-NFR-001 through NFR-005 with detailed operational rules | EXCEEDS IEEE 830 NFR format |
 | S6: Implementation Guidance | T810A1-IG-001 through IG-008 with acceptance checks | EXCEEDS typical SRS - bridges to implementation |
 | S7: Research Linkage | T810A1-RES-001 with brief/report structure | UNIQUE - formal research artifact integration |
-| S8: Issues & Risks Register | Section H with standardized columns per T102-ADR-007 | INDUSTRY-ALIGNED with PRINCE2/PMBOK risk management |
+| S8: Issues & Risks Register | Section H with standardized columns per T102-STD-007 | INDUSTRY-ALIGNED with PRINCE2/PMBOK risk management |
 
 **What Makes T810A1 Effective as Golden Exemplar**:
 1. **Balance of Abstraction**: High-level business view (Part 1) transitions smoothly to technical requirements (Part 2)
@@ -639,7 +639,7 @@ Links to issue tickets, if any.
 
 ---
 
-## IV. ISSUE & RISK REGISTER (T102-ADR-007)
+## IV. ISSUE & RISK REGISTER (T102-STD-007)
 
 **Issues**
 

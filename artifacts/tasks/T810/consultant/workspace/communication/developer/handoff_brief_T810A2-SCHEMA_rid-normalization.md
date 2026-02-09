@@ -16,7 +16,7 @@ target_role: 'LLM_Developer'
 
 ## I. PURPOSE & SCOPE
 
-- **Goal**: Align all `T810A2` F-RIDs (ASSUM/DEP/NFR/IF/CON/IG/INT/NOTE/RES) and their content with `T102-ADR-005` and the latest consultancy decisions, without changing client-approved meaning.
+- **Goal**: Align all `T810A2` F-RIDs (ASSUM/DEP/NFR/IF/CON/IG/INT/NOTE/RES) and their content with `T102-STD-005` and the latest consultancy decisions, without changing client-approved meaning.
 - **Artifacts in Scope**:
   - `prompt/artifacts/tasks/T810/consultant/workspace/proposal/T810A/T810A2/proposal_T810A2-SCHEMA_phase1.md`
   - (Forward-looking) `prompt/artifacts/tasks/T810/consultant/request/request_T810A2-SCHEMA.md` when drafted; mirror same F-RID structure and content.
@@ -25,10 +25,10 @@ target_role: 'LLM_Developer'
 ## II. GOVERNING RULES & ASSUMPTIONS
 
 1. **ID Pattern & Scope**
-   - Treat `T810A2-{CATEGORY}-{NNN}` (e.g., `T810A2-NFR-001`) as the **canonical F-RID shape** per updated `T102-ADR-005` (no `-SCHEMA` suffix in the scope ID).
+   - Treat `T810A2-{CATEGORY}-{NNN}` (e.g., `T810A2-NFR-001`) as the **canonical F-RID shape** per updated `T102-STD-005` (no `-SCHEMA` suffix in the scope ID).
    - Do not change existing ID tokens unless strictly necessary for de-duplication or deprecated-item annotation.
 
-2. **Category Roles (per T102-ADR-005 + client decisions)**
+2. **Category Roles (per T102-STD-005 + client decisions)**
    - `ASSUM`: Unverified beliefs shaping design (no hard SHALL rules).
    - `DEP`: External prerequisites (Epic decisions, research, platform).
    - `NFR`: High-level quality attributes only; **no implementation “how”**; may reference IG.
@@ -192,7 +192,7 @@ target_role: 'LLM_Developer'
      - Accurately describes bottom-up influence, cross-feature F-RID references, and non-prescriptive status.
      - **Actions**:
        - Ensure language stays descriptive (no SHALL on feature behavior).
-       - Confirm it references `T102-ADR-005` only implicitly via ID usage, not by redefining ID rules.
+       - Confirm it references `T102-STD-005` only implicitly via ID usage, not by redefining ID rules.
        - Preserve the documented **INT governance exception** (bottom-up influence + cross-feature F-RID references) exactly as written; do not tighten it into a general rule for other categories.
 
 2. `T810A2-INT-001`–`INT-005`
@@ -210,10 +210,10 @@ target_role: 'LLM_Developer'
 
 ### G. Epic ADR T810A-ADR-002 (Foundational Vocabulary Authority)
 
-**Objective**: Ensure the proposed Epic ADR in Section XI of the proposal conforms to `T102-ADR-004` and cleanly reflects T810A2’s completed F-RID set.
+**Objective**: Ensure the proposed Epic ADR in Section XI of the proposal conforms to `T102-STD-004` and cleanly reflects T810A2’s completed F-RID set.
 
 1. **DR Index Row**
-   - Verify the index row under “Epic ADR Index Entry (Proposed)” matches `T102-ADR-004-FR-001`:
+   - Verify the index row under “Epic ADR Index Entry (Proposed)” matches `T102-STD-004-FR-001`:
      - Columns: `ADR ID | Title | Status | Owner | Effective | Supersedes | Anchor`.
      - Values:
        - ID: `T810A-ADR-002`
@@ -225,7 +225,7 @@ target_role: 'LLM_Developer'
        - Anchor: `#t810a-adr-002-vocabulary-authority`
 
 2. **ADR Body Heading Format**
-   - Update the body heading to follow `T102-ADR-004-FR-002` exactly:
+   - Update the body heading to follow `T102-STD-004-FR-002` exactly:
      - Current: `* **T810A-ADR-002 (Foundational Vocabulary Authority)** {#t810a-adr-002-vocabulary-authority}`
      - Target:  `* **T810A-ADR-002 (Foundational Vocabulary Authority) — {#t810a-adr-002-vocabulary-authority}**`
    - Keep the anchor value unchanged to preserve anchor stability.
@@ -304,22 +304,22 @@ target_role: 'LLM_Developer'
 
 ---
 
-## VII. GLOBAL GOVERNANCE UPDATES: T102-ADR-004 & T102-ADR-005
+## VII. GLOBAL GOVERNANCE UPDATES: T102-STD-004 & T102-STD-005
 
 **Purpose**: Encode the agreed industry-standard workflows and INT governance exception directly into the global T102 standards so future features can reuse them.
 
 **Target Artifact**: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`  
-Sections: `T102-ADR-004 (Decision Records Index)` and `T102-ADR-005 (ID Specification & Rules)`
+Sections: `T102-STD-004 (Decision Records Index)` and `T102-STD-005 (ID Specification & Rules)`
 
-### A. T102-ADR-004 — Decision Promotion Workflow (RES → IG → ADR)
+### A. T102-STD-004 — Decision Promotion Workflow (RES → IG → ADR)
 
 **Objective**: Add an explicit functional requirement describing when to move from research and IGs into formal GDR/ADRs, and how to use Feature vs Epic scope.
 
-1. **Add New FR Under T102-ADR-004**
+1. **Add New FR Under T102-STD-004**
    - Insert a new item after the existing FR-012:
-     - **ID**: `T102-ADR-004-FR-013 (Decision Promotion Workflow)`
+     - **ID**: `T102-STD-004-FR-013 (Decision Promotion Workflow)`
      - **Suggested Text** (adapt wording to house style):
-       - “**T102-ADR-004-FR-013 (Decision Promotion Workflow)** — Decision records SHOULD follow a staged lifecycle:
+       - “**T102-STD-004-FR-013 (Decision Promotion Workflow)** — Decision records SHOULD follow a staged lifecycle:
          1) **Research (RES)** — Use `RES` F-RIDs to commission and document evidence, options, and empirical findings for a specific scope (Initiative/Epic/Feature).
          2) **Implementation Guidance (IG)** — Encode candidate implementation patterns as `IG` F-RIDs at the appropriate scope (typically Feature); IGs MAY evolve as research is refined.
          3) **Decision Records (GDR/ADR)** — Promote stable, cross-cutting or long-lived patterns into formal GDR/ADR records when:
@@ -336,30 +336,30 @@ Sections: `T102-ADR-004 (Decision Records Index)` and `T102-ADR-005 (ID Specific
 3. **No Immediate Changes to Existing T102 ADR Bodies**
    - This FR only defines the workflow; do not retroactively restructure existing T102 ADRs in this pass.
 
-### B. T102-ADR-005 — INT Integration Exception (Dedicated FR)
+### B. T102-STD-005 — INT Integration Exception (Dedicated FR)
 
 **Objective**: Formalize the special behavior of `INT` F-RIDs: bottom-up, cross-feature, suggestive integration notes that may reference other features’ F-RIDs.
 
-1. **Add New FR Under T102-ADR-005**
-   - Insert a new item after `T102-ADR-005-FR-007`:
-     - **ID**: `T102-ADR-005-FR-008 (INT Integration Exception)`
+1. **Add New FR Under T102-STD-005**
+   - Insert a new item after `T102-STD-005-FR-007`:
+     - **ID**: `T102-STD-005-FR-008 (INT Integration Exception)`
      - **Suggested Text**:
-       - “**T102-ADR-005-FR-008 (INT Integration Exception)** — At Feature scope, `INT` (Integration) F-RIDs have a specialized role:
+       - “**T102-STD-005-FR-008 (INT Integration Exception)** — At Feature scope, `INT` (Integration) F-RIDs have a specialized role:
          - **Bottom-Up Influence**: Feature-level INT items operate primarily as bottom-up integration proposals feeding higher-scope governance (Epic GDRs/ADRs/IGs). They are not direct implementation specifications for Story behavior.
-         - **Cross-Feature References Permitted**: INT F-RIDs MAY reference other Feature F-RIDs directly (e.g., `T810A1-NFR-009`, `T810A3-*`) when used as integration design notes for Epic coordination. This is a scoped exception to the general upstream-only directionality rule in `T102-ADR-005-FR-003`.
+         - **Cross-Feature References Permitted**: INT F-RIDs MAY reference other Feature F-RIDs directly (e.g., `T810A1-NFR-009`, `T810A3-*`) when used as integration design notes for Epic coordination. This is a scoped exception to the general upstream-only directionality rule in `T102-STD-005-FR-003`.
          - **Suggestive, Not Prescriptive**: INT items SHOULD describe ideal integration patterns (e.g., data flow, sequencing, dependency patterns) and SHOULD avoid embedding Story-level acceptance criteria or strict SHALL requirements. Prescriptive behavior MUST be expressed in higher-scope GDR/ADRs or in Feature-level `CON`/`IG` F-RIDs.
          - **Governance Loop**: Epic consultants SHOULD review INT items when evolving Epic-level E-RIDs/E-ADRs/E-GDRs and, once decisions are adopted, affected INT items SHOULD be updated to reference the new governance rather than acting as standalone sources of truth.”
 
 2. **Align With FR-003 (Precedence & Directionality)**
    - Add a short note to the narrative text under FR-003 (not a new ID) to cross-reference FR-008:
-     - Example: “For the scoped exception related to Feature-level INT items, see `T102-ADR-005-FR-008 (INT Integration Exception)`.”
+     - Example: “For the scoped exception related to Feature-level INT items, see `T102-STD-005-FR-008 (INT Integration Exception)`.”
 
 3. **No Changes to Other Categories**
    - Ensure that the exception is clearly limited to `INT` at Feature scope; other categories (`ASSUM`, `CON`, `NFR`, `IF`, `IG`, etc.) remain governed strictly by FR-003.
 
 ### C. Developer Implementation Notes (T102 Concept File)
 
-1. Apply the FR additions and narrative tweaks only in `concept_T102-CONSULTANT.md` under the existing T102-ADR-004 and T102-ADR-005 sections; do not create separate files.
+1. Apply the FR additions and narrative tweaks only in `concept_T102-CONSULTANT.md` under the existing T102-STD-004 and T102-STD-005 sections; do not create separate files.
 2. Keep anchors and existing ADR IDs stable; new FRs are list items within the ADR body, not new ADRs.
 3. Use existing formatting conventions from the T102 Concept (Markdown bullet and heading styles).
 

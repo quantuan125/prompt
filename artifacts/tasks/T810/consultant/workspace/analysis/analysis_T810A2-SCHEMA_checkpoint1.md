@@ -17,10 +17,10 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: Systematic holistic validation of all Phase 1 F-RIDs for T102-ADR-005 compliance, Epic T810A governance alignment, and Checkpoint 1 readiness.
+**Purpose**: Systematic holistic validation of all Phase 1 F-RIDs for T102-STD-005 compliance, Epic T810A governance alignment, and Checkpoint 1 readiness.
 
 **Validation Scope**:
-- **Level 1**: Structural Validation (T102-ADR-005-FR-001 through FR-008 compliance)
+- **Level 1**: Structural Validation (T102-STD-005-FR-001 through FR-008 compliance)
 - **Level 2**: Content Validation (category coherence, traceability completeness, no duplication)
 - **Level 3**: Governance Validation (E-RID alignment, no conflicts with Epic SPS T810A)
 
@@ -36,7 +36,7 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 
 ---
 
-## II. LEVEL 1: STRUCTURAL VALIDATION (T102-ADR-005 COMPLIANCE)
+## II. LEVEL 1: STRUCTURAL VALIDATION (T102-STD-005 COMPLIANCE)
 
 ### A. FR-001: ID Scope Compliance
 
@@ -93,7 +93,7 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 
 ### D. FR-004: ID Categories Compliance
 
-**Validation**: Ensure only allowed category tokens used per T102-ADR-005-FR-004
+**Validation**: Ensure only allowed category tokens used per T102-STD-005-FR-004
 
 **Allowed Feature Tokens**: ASSUM, CON, QG, DEP, IG, NOTE, RES, ISSUE, RISK (inherited from Epic) + FR, NFR, IF, INT, CON, RES (feature-specific)
 
@@ -118,7 +118,7 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 
 ### E. FR-005: ID Title & Construction Compliance
 
-**Validation**: Ensure all F-RID titles use 2-3 word max per T102-ADR-005-FR-005
+**Validation**: Ensure all F-RID titles use 2-3 word max per T102-STD-005-FR-005
 
 **Review Findings** (systematic scan of all 42 F-RIDs):
 
@@ -221,7 +221,7 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 
 **Review Findings**:
 - ✅ **New F-RIDs**: All 42 F-RIDs are new (no migrations from existing Feature RIDs) — FR-007 not applicable
-- ✅ **Epic ADR Proposal**: T810A-ADR-002 proposed with anchor `#t810a-adr-002-vocabulary-authority` — compliant with lower-kebab format per T102-ADR-004
+- ✅ **Epic ADR Proposal**: T810A-ADR-002 proposed with anchor `#t810a-adr-002-vocabulary-authority` — compliant with lower-kebab format per T102-STD-004
 
 **Compliance Status**: **PASS (N/A)** — No migration scenarios; anchors stable
 
@@ -343,7 +343,7 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 
 **Review Findings**:
 
-**A. E-RID Duplication Check** (Delta-Only Principle per T102-ADR-003):
+**A. E-RID Duplication Check** (Delta-Only Principle per T102-STD-003):
 - ✅ **ASSUM Category**: All 7 items represent T810A2-specific assumptions (schema complexity, vocabulary completeness, template self-documentation, numeric scale interpretation, vocabulary familiarity, English-only, manual workflow) — NO duplication of E-ASSUM-001/002/003/004
 - ✅ **DEP Category**: All 5 items represent T810A2-specific dependencies (Epic coordination, deliverable validation, forward compatibility, research resource, platform capability) — NO duplication of E-DEP-001/002/003/004/005
 - ✅ **NFR Category**: All 5 items represent T810A2-specific quality attributes (token efficiency, schema clarity, vocabulary completeness, clinical validity, schema maintenance) — NO duplication of Epic QG items
@@ -454,7 +454,7 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 - ✅ **IG-007** (Manual Export Workflow): T810A2-specific patient export instructions pattern — NO E-RID duplication
 
 **F. INT Category (5 F-RIDs vs 0 E-INTs)**:
-- ✅ **All INT Items**: T810A2-specific cross-feature integration patterns — NO E-RID duplication (INT category not used at Epic scope per T102-ADR-005)
+- ✅ **All INT Items**: T810A2-specific cross-feature integration patterns — NO E-RID duplication (INT category not used at Epic scope per T102-STD-005)
 
 **Compliance Status**: **PASS** — No E-RID content duplication; delta-only principle maintained
 
@@ -576,11 +576,11 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 
 ### D. Epic ADR-002 Proposal Validation
 
-**Validation**: Ensure proposed T810A-ADR-002 (Foundational Vocabulary Authority) complies with T102-ADR-004 format standards
+**Validation**: Ensure proposed T810A-ADR-002 (Foundational Vocabulary Authority) complies with T102-STD-004 format standards
 
 **Proposal Location**: Proposal Section XI (lines 413-529)
 
-**T102-ADR-004 Compliance Check**:
+**T102-STD-004 Compliance Check**:
 
 **A. ADR Index Entry** (Proposal Section XI line 426):
 - ✅ **ID**: `T810A-ADR-002` — correct Epic ADR pattern
@@ -593,7 +593,7 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 
 **B. ADR Body Structure** (Proposal Section XI lines 433-529):
 
-**Required Subsections per T102-ADR-004-FR-002**:
+**Required Subsections per T102-STD-004-FR-002**:
 - ✅ **Title Line**: `* **T810A-ADR-002 (Foundational Vocabulary Authority) — {#t810a-adr-002-vocabulary-authority}**` — compliant format
 - ✅ **Context**: Present (lines 435-436) — explains gap/rationale
 - ✅ **Decision**: Present (lines 438-440) — states what is adopted
@@ -611,11 +611,11 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 - ✅ **FR-005 (Cara Care Alignment)**: Primary exemplar, supplementary research, patient familiarity
 - ✅ **FR-006 (Maintenance Governance)**: Owner, updates, triggers, documentation, traceability
 
-**D. Cross-Artifact Linking Validation** (per T102-ADR-004-FR-005):
+**D. Cross-Artifact Linking Validation** (per T102-STD-004-FR-005):
 - ✅ **GDR → Decision Adoption**: No governing GDR for ADR-002 (new governance proposal from T810A2 Feature consultation)
 - ✅ **ADR → Context Authority**: Context cites T810A-GDR-002 (Schema Split Architecture) as governing policy — compliant
 
-**Compliance Status**: **PASS** — Epic ADR-002 proposal complies with T102-ADR-004 format standards
+**Compliance Status**: **PASS** — Epic ADR-002 proposal complies with T102-STD-004 format standards
 
 **Coordination Requirement**: Epic T810A consultant must review and approve ADR-002 adoption per Checkpoint 1 handoff brief (deferred to Epic consultant per client directive)
 
@@ -655,7 +655,7 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 
 **Current State**:
 - **ID**: T810A2-DEP-005
-- **Current Title**: "ChatGPT Project Knowledge Platform & Vocabulary Authority" (8 words) ❌ Violates T102-ADR-005-FR-005 (2-3 word max)
+- **Current Title**: "ChatGPT Project Knowledge Platform & Vocabulary Authority" (8 words) ❌ Violates T102-STD-005-FR-005 (2-3 word max)
 - **Current Content** (Proposal Section IV lines 136-143): Contains TWO distinct concerns:
   1. Platform Capability (lines 136-142): ChatGPT Project Knowledge technical constraints
   2. Vocabulary Authority (line 143): Controlled vocabulary governance dependency on `T810A-ADR-002`
@@ -696,7 +696,7 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 
 **Current State**:
 - **ID**: T810A2-RES-001
-- **Current Title**: "Template Format & Controlled Vocabulary Research" (6 words) ❌ Violates T102-ADR-005-FR-005 (2-3 word max)
+- **Current Title**: "Template Format & Controlled Vocabulary Research" (6 words) ❌ Violates T102-STD-005-FR-005 (2-3 word max)
 
 **Proposed Fix**:
 - **New Title**: "Template & Vocabulary Research" (3 words) ✅
@@ -744,7 +744,7 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 - Add IG-006 to Implementation Guidance row
 - Remove T810A1 Feature row
 
-**Impact**: Improves IC Table accuracy; aligns with T102-ADR-003 governance rules
+**Impact**: Improves IC Table accuracy; aligns with T102-STD-003 governance rules
 
 **File Modifications Required**:
 1. **Proposal File Section II**: Replace entire IC Table with finalized version (Section V)
@@ -755,7 +755,7 @@ purpose: 'Checkpoint 1 Preparation — Holistic F-RID Validation'
 
 **Overall Compliance**: **PASS (with 4 corrections required)**
 
-**Level 1 (Structural - T102-ADR-005 Compliance)**:
+**Level 1 (Structural - T102-STD-005 Compliance)**:
 - ✅ FR-001: ID Scope Compliance — PASS
 - ✅ FR-002: ID Terminologies — PASS
 - ✅ FR-003: Precedence & Directionality — PASS

@@ -8,7 +8,7 @@ date: '2026-01-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-roadmap_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CWD_phase0.md'
+roadmap_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/roadmap/plan_T102-PH000.md'
 ---
 
 # PHASE NOTES INDEX: T102 (CWD) — Phase 0: Governance Realignment (STD + ADR)
@@ -25,7 +25,7 @@ Non-normative rule:
 - NOTES files record consultation memory (minutes, decisions, action items, open questions).
 - NOTES files MUST NOT introduce new obligations; normative rules belong in STD/ADR/RID artifacts.
 
-ID conventions (NOTES-local, not part of T102-ADR-005 unless later promoted):
+ID conventions (NOTES-local, not part of T102-STD-005 unless later promoted):
 - Session ID: `T102-SES-###` (sequence, no reuse).
 - Decision ID: `T102-DEC-###` (sequence, no reuse).
   - Decisions SHOULD carry `Type` and `Status` to support later promotion and supersession.
@@ -47,7 +47,7 @@ ID conventions (NOTES-local, not part of T102-ADR-005 unless later promoted):
 
 | Item | Path |
 |:--|:--|
-| Roadmap (Phase 0) | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CWD_phase0.md` |
+| Roadmap (Phase 0) | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/plan_T102-PH000.md` |
 | Stream 1 Notes | `prompt/artifacts/tasks/T102/consultant/workspace/notes/notes_T102-CWD_phase0_stream1.md` |
 | ADR-004/ADR-005 Proposal Draft | `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor-adr-004-005.md` |
 | Raw Consultation Transcript (2026-01-22) | `prompt/artifacts/tasks/T102/consultant/raw/raw_T102-CDW_phase0_2026-01-22_p5.md` |
@@ -100,4 +100,4 @@ AUTHORING GUIDELINES (ACTIONS)
 
 | OQ-ID | Question | Owner | Status | Notes |
 |:--|:--|:--|:--|:--|
-| `OQ-001` | When to formalize NOTES-local IDs (`SES`, `DEC`) into T102-ADR-005 taxonomy | Client | Open | Keep NOTES-local until stable; formalize only when enforcement is required. |
+| `OQ-001` | When to formalize NOTES-local IDs (`SES`, `DEC`) into T102-STD-005 taxonomy | Client | Open | Keep NOTES-local until stable; formalize only when enforcement is required. |

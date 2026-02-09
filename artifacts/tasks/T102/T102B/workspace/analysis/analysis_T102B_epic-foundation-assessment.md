@@ -131,9 +131,9 @@ target_plan: 'prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T102B-
 - **Alignment**: T102A has GDR-001/002; T102B should adopt similar governance snapshot pattern
 
 **Actionable Insights**:
-- **Insight 1**: T102B-GDR-001 (Request Governance Snapshot Standard) pairs with T102B-ADR-001 (Request Architecture Standard)
-- **Insight 2**: T102B-GDR-002 (Workflow Typology Standard) pairs with T102B-ADR-004 (Request Lite Specification)
-- **Insight 3**: T102B-GDR-004 (Section Classification Policy) pairs with T102B-ADR-002 (Section Classification Standard)
+- **Insight 1**: T102B-GDR-001 (Request Governance Snapshot Standard) pairs with T102B-STD-001 (Request Architecture Standard)
+- **Insight 2**: T102B-GDR-002 (Workflow Typology Standard) pairs with T102B-STD-004 (Request Lite Specification)
+- **Insight 3**: T102B-GDR-004 (Section Classification Policy) pairs with T102B-STD-002 (Section Classification Standard)
 
 **Recommendation**: Develop all 4 GDRs with paired ADRs in Subphase 2 via Socratic dialogue.
 
@@ -345,7 +345,7 @@ target_plan: 'prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T102B-
 - **Dependency 2**: T102B-DEP-006 (Concept Boundary Alignment)
   - **Nature**: Workflow boundary — Request artifacts must remain requirements-only
   - **Impact**: ADR bodies must be stored in Concept, not embedded in Request
-  - **Mitigation**: Reference Concept ADRs via ID citation per T102-ADR-003
+  - **Mitigation**: Reference Concept ADRs via ID citation per T102-STD-003
   - **E-ID Candidate**: T102B-DEP-006
 
 **Interface Points Identified**:
@@ -479,10 +479,10 @@ target_plan: 'prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T102B-
 
 | Candidate ID | Title | Paired GDR | Research Source | Decision Context | Priority |
 |:-------------|:------|:-----------|:----------------|:-----------------|:---------|
-| T102B-ADR-001 | Request Architecture Standard | T102B-GDR-001 | RES-001 P1-P4 + RES-002 Topic 2 | Defines the structural architecture of Request artifact family | H |
-| T102B-ADR-002 | Section Classification Standard | T102B-GDR-004 | RES-001 P4 + RES-002 Topic 2 | Implements mandatory/optional/deferred section schema | M |
-| T102B-ADR-003 | Story FR Deferral Standard | T102B-GDR-002 | RES-001 W2/P2 + RES-002 Topic 5 | Operationalizes deferral of story-level FRs beyond Request | H |
-| T102B-ADR-004 | Request Lite Specification | T102B-GDR-002 | RES-001 P1 + RES-002 Topic 5 | Defines RLITE structure + selection criteria | H |
+| T102B-STD-001 | Request Architecture Standard | T102B-GDR-001 | RES-001 P1-P4 + RES-002 Topic 2 | Defines the structural architecture of Request artifact family | H |
+| T102B-STD-002 | Section Classification Standard | T102B-GDR-004 | RES-001 P4 + RES-002 Topic 2 | Implements mandatory/optional/deferred section schema | M |
+| T102B-STD-003 | Story FR Deferral Standard | T102B-GDR-002 | RES-001 W2/P2 + RES-002 Topic 5 | Operationalizes deferral of story-level FRs beyond Request | H |
+| T102B-STD-004 | Request Lite Specification | T102B-GDR-002 | RES-001 P1 + RES-002 Topic 5 | Defines RLITE structure + selection criteria | H |
 
 **Total Candidates**: 4
 **Recommendation**: Develop ADR-001, ADR-003, ADR-004 as high priority paired with their GDRs.
@@ -606,7 +606,7 @@ target_plan: 'prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T102B-
 - **Timing**: Subphase 2 Activity 2.4
 - **Dependencies**: E-RID development (Activity 2.3) should complete first
 - **Success Criteria**: All 4 GDRs have Context/Decision/Consequences; all 4 ADRs have paired GDR citation
-- **E-ID Impact**: T102B-GDR-001-004, T102B-ADR-001-004
+- **E-ID Impact**: T102B-GDR-001-004, T102B-STD-001-004
 
 ---
 
@@ -623,7 +623,7 @@ target_plan: 'prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T102B-
 
 - Seed **8 E-DID candidates** from Section V.B:
   - E-GDR: T102B-GDR-001-004
-  - E-ADR: T102B-ADR-001-004
+  - E-ADR: T102B-STD-001-004
 
 - Seed **19 E-OID candidates** from Section V.C:
   - E-ISSUE: T102B-ISSUE-001-008

@@ -4,7 +4,7 @@
 
 1) **P-STD-003-CLAUSE-001 (Index Schemas)**
 
-   - Program standards MUST maintain a `STD` index schema per `T102-ADR-009-CLAUSE-004A`.
+   - Program standards MUST maintain a `STD` index schema per `T102-STD-009-CLAUSE-004A`.
    - Program decision records MUST maintain ADR index schema and column definitions per `T102-ADR-004-CLAUSE-001`.
 
 2) **P-STD-003-CLAUSE-002 (Placement Standards)**
@@ -14,13 +14,13 @@
 
 3) **P-STD-003-CLAUSE-003 (Adoption Contract)**
 
-   - Every Program `STD` entry MUST declare exactly one adopted normative specification per `T102-ADR-009-CLAUSE-002`.
+   - Every Program `STD` entry MUST declare exactly one adopted normative specification per `T102-STD-009-CLAUSE-002`.
    - Adopted specifications are incorporated by reference; `STD` bodies MUST remain concise and avoid duplicating full specs.
 
 4) **P-STD-003-CLAUSE-004 (STD Authoring Requirements)**
 
-   - STD body construction, MVC conciseness, and drift controls MUST follow `T102-ADR-009-CLAUSE-004C` through `T102-ADR-009-CLAUSE-004E`.
-   - STD index column guidance (including `Governed By` and `Reference` constraints) MUST follow `T102-ADR-009-CLAUSE-004B`.
+   - STD body construction, MVC conciseness, and drift controls MUST follow `T102-STD-009-CLAUSE-004C` through `T102-STD-009-CLAUSE-004E`.
+   - STD index column guidance (including `Governed By` and `Reference` constraints) MUST follow `T102-STD-009-CLAUSE-004B`.
 
 5) **P-STD-003-CLAUSE-005 (Decision Record Body + Specification Clauses)**
 
@@ -29,12 +29,12 @@
 
 6) **P-STD-003-CLAUSE-006 (Precedence, Variance, Lifecycle)**
 
-   - Precedence and variance requirements MUST follow `T102-ADR-004-CLAUSE-010` and `T102-ADR-009-CLAUSE-003`.
+   - Precedence and variance requirements MUST follow `T102-ADR-004-CLAUSE-010` and `T102-STD-009-CLAUSE-003`.
    - Lifecycle coherence and status management MUST follow `T102-ADR-004-CLAUSE-008` and `T102-ADR-004-CLAUSE-009`.
 
 7) **P-STD-003-CLAUSE-007 (Migration Tolerance)**
 
-   - Any migration tolerance or alias window for legacy governance IDs MUST follow `T102-ADR-009-CLAUSE-005`.
+   - Any migration tolerance or alias window for legacy governance IDs MUST follow `T102-STD-009-CLAUSE-005`.
 
 ## Decision Record
 
@@ -42,13 +42,13 @@
 
   * **Context**
 
-    Per `T102-STD-004 (Decision Records Standard)`, consistent decision record schemas and linking patterns are required to prevent governance drift across artifacts. Program standards must unify the Decision Records Index (`T102-ADR-004`) with the Governance Standards Specification (`T102-ADR-009`) so initiatives can adopt a single, stable governance model without duplicating rule bodies.
+    Per `T102-STD-004 (Decision Records Standard)`, consistent decision record schemas and linking patterns are required to prevent governance drift across artifacts. Program standards must unify the Decision Records Index (`T102-ADR-004`) with the Governance Standards Specification (`T102-STD-009`) so initiatives can adopt a single, stable governance model without duplicating rule bodies.
 
   * **Decision**
 
     Adopt a program-level combined governance model that:
     1) Uses the Decision Records Index requirements from `T102-ADR-004`, and
-    2) Uses the Standards authoring, adoption, and drift controls from `T102-ADR-009`.
+    2) Uses the Standards authoring, adoption, and drift controls from `T102-STD-009`.
 
     This combined model is captured as `P-STD-003` and serves as the governing standard for program-level standards and decision record authoring across `prompt/artifacts/tasks/**`.
 
@@ -66,12 +66,12 @@
   * **References**
 
     `T102-ADR-004 (Decision Records Index)`,
-    `T102-ADR-009 (Governance Standards Specification)`,
+    `T102-STD-009 (Governance Standards Specification)`,
     `T102-STD-004 (Decision Records Standard)`,
     `T102-STD-009 (Governance Standards Model)`,
-    `T102-ADR-005 (ID Specification & Rules)`
+    `T102-STD-005 (ID Specification & Rules)`
 
   * **Provenance**
 
     - `prompt/artifacts/tasks/T102/consultant/standards/T102-ADR-004_decision-records-index.md`
-    - `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md#t102-adr-009-governance-standards-spec`
+    - `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md#t102-std-009-governance-standards-spec`

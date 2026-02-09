@@ -4,8 +4,8 @@ initiative_id: 'T102'
 initiative_code: 'CWD'
 phase: '1'
 stream: 'ST001'
-version: '0.5.0'
-date: '2026-02-06'
+version: '0.6.0'
+date: '2026-02-08'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -24,14 +24,15 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 
 **Stream**: `T102-PH001-ST001`  
 **Role**: Navigation surface only (register + links). One Notes file per Activity to prevent drift/context rot.  
-**Status**: `in_progress` (AC001–AC005 completed; AC006 in progress)
+**Status**: `completed` (AC001–AC006 completed)
 
 **Key outcomes (high-level)**:
 - Model D (Combined ADR+Spec Files) is locked as the authoritative Phase 1 “where-spec-lives” model.
 - Concept direction confirmed: `T102C (CONCEPT)` functions as an index-only hub (ADR indexes + registers + canonical links), avoiding embedded long-form spec text (including ADR bodies and detailed `CLAUSE` content).
 - Packaging decision recorded: execution of Concept rollout occurs in Stream 3 (`T102-PH001-ST003`), enabling ST002 + ST003 parallel execution post-ST001 close.
-- Plan amendment (2026-02-06): AC005 added — T102-ADR-004 Redesign & Golden Exemplar. Comprehensive CLAUSE review + guideline/template alignment before ST003 extraction begins.
+- Plan amendment (2026-02-06): AC005 added — T102-STD-004 Redesign & Golden Exemplar. Comprehensive CLAUSE review + guideline/template alignment before ST003 extraction begins.
 - Plan amendment (2026-02-06): AC006 added — STD-Contains-CLAUSE Governance Migration (Option C). Front-run Phase 2 target: rebuild golden exemplar as `T102-STD-004`; reparent CLAUSE under STD as STDCID; all streams blocked until AC006 completes.
+- Close-out (2026-02-08): AC006 completed — gate passed; validation evidence recorded; ST002/ST003 unblocked.
 
 ---
 
@@ -43,8 +44,9 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 | AC002 | `T102-PH001-ST001-AC002` | ADR Index Schema + Extraction Conventions (Model D) | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC002.md` |
 | AC003 | `T102-PH001-ST001-AC003` | Prerequisite governance deltas (Concept-scoped) | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC003.md` |
 | AC004 | `T102-PH001-ST001-AC004` | Rollout packaging decision (activate ST003) | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC003.md` |
-| AC005 | `T102-PH001-ST001-AC005` | T102-ADR-004 Redesign & Golden Exemplar | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC005.md` |
-| AC006 | `T102-PH001-ST001-AC006` | STD-Contains-CLAUSE Governance Migration | `in_progress` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC006.md` |
+| AC005 | `T102-PH001-ST001-AC005` | T102-STD-004 Redesign & Golden Exemplar | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC005.md` |
+| AC006 | `T102-PH001-ST001-AC006` | STD-Contains-CLAUSE Governance Migration | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC006.md` |
+| AC007 | `T102-PH001-ST001-AC007` | STD-004 Retitle + Staged Script Execution Hardening | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC007.md` |
 
 ---
 
@@ -75,3 +77,4 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 | v0.3.0 | 2026-02-06 | Plan Amendment | Registered AC005 (ADR-004 Redesign & Golden Exemplar); updated stream status to in_progress; linked plan amendment session and implementation plan |
 | v0.4.0 | 2026-02-06 | Completion | Marked AC005 as completed; golden exemplar created; guideline v2.0.0; template updated; self-consistency validated; ST001 stream completed |
 | v0.5.0 | 2026-02-06 | Plan Amendment | Reopened stream (`completed` → `in_progress`); registered AC006 (STD-Contains-CLAUSE Governance Migration) per Just-In-Time §5.1; linked plan amendment session and implementation plan |
+| v0.6.0 | 2026-02-08 | Completion | Marked AC006 as completed and closed ST001; recorded unblocking of ST002/ST003 |

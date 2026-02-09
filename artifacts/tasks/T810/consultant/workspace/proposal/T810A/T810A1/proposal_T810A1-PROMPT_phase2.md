@@ -821,7 +821,7 @@ Tracking entries may contain numeric confidence fields where defined (for exampl
 ## XII. CROSS-BLOCK VALIDATION CHECKLIST
 
 This section will be used in Subphase 2.11 to ensure:
-- All F-RIDs referenced in this proposal are valid, correctly categorized, and consistent with `T102-ADR-005`.
+- All F-RIDs referenced in this proposal are valid, correctly categorized, and consistent with `T102-STD-005`.
 - Each block correctly implements its governing F-RIDs and Epic governance items without conflicts or duplication.
 - Cross-feature integration notes with T810A2 and T810A3 are consistent (schemas, aggregation patterns, vocabulary authority, conflict resolution).
 - The 9-block structure remains intact and aligned with `T810A1-ADR-001`.

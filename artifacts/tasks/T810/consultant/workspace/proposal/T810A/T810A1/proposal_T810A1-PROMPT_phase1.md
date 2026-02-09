@@ -94,7 +94,7 @@ This proposal presents the Phase 1 consultancy outcomes for enhancing T810A1-PRO
 
 ### A. Category Rationale
 
-**Implementation Guidance (IG)** provides normative internal authoring/process guidance per T102-ADR-005-FR-004. IG items:
+**Implementation Guidance (IG)** provides normative internal authoring/process guidance per T102-STD-005-FR-004. IG items:
 - Govern HOW to implement F-RIDs (not WHAT to implement)
 - Are internal to T810A1 (feature-scoped, not cross-feature)
 - Use directive language (SHALL/SHOULD) for process adherence
@@ -298,7 +298,7 @@ This proposal presents the Phase 1 consultancy outcomes for enhancing T810A1-PRO
 **Classification Note** (per Client QA Question 1):
 - **Reclassified**: T810A1-GDR-003 → T810A1-ADR-001 (9-Block Architecture Assignment)
 - **Rationale**: Structural/architectural decision (component boundaries, modular organization) per industry-standard ADR classification
-- **Governance Model**: Per T102-ADR-004, ADRs govern "architecture and design choices," GDRs govern "workflow and process standards"
+- **Governance Model**: Per T102-STD-004, ADRs govern "architecture and design choices," GDRs govern "workflow and process standards"
 - **Precedent**: T810A-ADR-001/002/003/004 establish architectural patterns (confidence, vocabulary, reporting, knowledge catalog)
 - **Location**: `concept_T810-GASTRO.md` Section III.B.3 (Feature Architectural Decisions), not Request Section G
 
@@ -383,7 +383,7 @@ This proposal presents the Phase 1 consultancy outcomes for enhancing T810A1-PRO
   `T810A1-GDR-001 (Tracking-First Clinical Protocol)`,
   `T810A1-GDR-002 (Session Workflow Architecture)`,
   `T810A1-CON-003 (Tooling Deferral)`,
-  `T102-ADR-004 (Decision Records Index)`
+  `T102-STD-004 (Decision Records Index)`
 
 ---
 
@@ -411,7 +411,7 @@ This proposal presents the Phase 1 consultancy outcomes for enhancing T810A1-PRO
 
 ## VI. COMPLIANCE VERIFICATION
 
-### A. T102-ADR-005 Standards Compliance
+### A. T102-STD-005 Standards Compliance
 
 | Standard | Requirement | Verification |
 |:---------|:-----------|:------------|
@@ -428,7 +428,7 @@ This proposal presents the Phase 1 consultancy outcomes for enhancing T810A1-PRO
 | IV.A (Subphase 1.1) | F-RID inventory review | ✅ Section II.A-D |
 | IV.B (Subphase 1.2) | Create 7+ T810A1-IG items | ✅ Section III.B (IG-001 to IG-008) |
 | IV.C (Subphase 1.3) | Enhance 3 INT + create 2 INT + 2 CON | ✅ Section IV.A-C |
-| Success Criteria | All F-RIDs follow T102-ADR-005 | ✅ Verified in VI.A |
+| Success Criteria | All F-RIDs follow T102-STD-005 | ✅ Verified in VI.A |
 | Success Criteria | IG items reference T810A1-RES-001 | ✅ All IG items cite research |
 | Success Criteria | INT items cross-reference T810A2-INT | ✅ All INT items cite T810A2 |
 
@@ -482,18 +482,18 @@ This proposal presents the Phase 1 consultancy outcomes for enhancing T810A1-PRO
   - **RECLASSIFIED**: T810A1-GDR-003 → T810A1-ADR-001 (9-Block Architecture Assignment):
     - **Classification Rationale**: Structural/architectural decision (component boundaries, modular organization) per industry-standard ADR classification
     - **Location Change**: From Request Section G (Feature Governance Decisions) to Concept Section III.B.3 (Feature Architectural Decisions)
-    - **Governance Model**: Per T102-ADR-004, ADRs govern "architecture and design choices," GDRs govern "workflow and process standards"
+    - **Governance Model**: Per T102-STD-004, ADRs govern "architecture and design choices," GDRs govern "workflow and process standards"
     - **Precedent**: T810A-ADR-001/002/003/004 establish architectural patterns; T810A1-ADR-001 follows this pattern
   - **UPDATED**: All cross-references from `T810A1-GDR-003` to `T810A1-ADR-001` (mapping summary, proposal references)
   - **UPDATED**: Section V title changed from "NEW GDR ITEM" to "NEW ADR ITEM (Concept: III.B.3)"
   - **UPDATED**: Mapping Summary table to reflect Concept document as target location
 
 - **v1.0.2** (2025-12-09): Client QA feedback round 2 integration:
-  - **RESTRUCTURED**: T810A1-GDR-003 to follow `T102-ADR-004` governance format:
+  - **RESTRUCTURED**: T810A1-GDR-003 to follow `T102-STD-004` governance format:
     - Added GDR Index Table (ID, Title, Status, Owner, Effective, Supersedes, Anchor)
     - Restructured body with Context, Decision, Consequences, References sections
     - **Decision section** now outlines each block separately (not grouped in table) with Story ID, scope, development status, and governing F-RID references per block
-  - **RATIONALE**: Per `T102-ADR-004-FR-002` (Decision Records Body), GDR bodies must follow structured format with individual block specifications
+  - **RATIONALE**: Per `T102-STD-004-FR-002` (Decision Records Body), GDR bodies must follow structured format with individual block specifications
 
 - **v1.0.1** (2025-12-09): Client QA feedback round 1 integration:
   - **ADDED**: T810A1-GDR-003 (9-Block Architecture Assignment) to Section V — establishes canonical Story-to-Block mapping and IG coverage matrix per client requirement
@@ -502,4 +502,4 @@ This proposal presents the Phase 1 consultancy outcomes for enhancing T810A1-PRO
   - **REMOVED**: Open questions section (client answers received: A=approved, B=prompt-based sufficient, C=mandatory-only approved, D=qualitative sufficient)
   - **UPDATED**: Mapping Summary to include GDR-003
 
-- **v1.0.0** (2025-12-09): Initial Phase 1 proposal creation. Completes Subphase 1.1 (F-RID Inventory Review), Subphase 1.2 (7 IG items specified), and Subphase 1.3 (3 INT enhanced + 2 INT created + 1 CON created). All F-RIDs follow T102-ADR-005 standards. Research-driven (T810A1-RES-001) and handoff-driven (T810A1-NOTE-001) implications integrated.
+- **v1.0.0** (2025-12-09): Initial Phase 1 proposal creation. Completes Subphase 1.1 (F-RID Inventory Review), Subphase 1.2 (7 IG items specified), and Subphase 1.3 (3 INT enhanced + 2 INT created + 1 CON created). All F-RIDs follow T102-STD-005 standards. Research-driven (T810A1-RES-001) and handoff-driven (T810A1-NOTE-001) implications integrated.

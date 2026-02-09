@@ -185,24 +185,24 @@ OQ001 and OQ002 from Session 1 were deferred to the consolidated AC002 (design w
 **Primary focus**: Confirm AC002 canonicalization decisions and standards-first inputs; amend AC002 planning content accordingly; defer AC002 implementation to the next session.
 
 #### A. Agenda / Topics
-1. Confirm AC002 is standards-first and MUST start from `T102B-ADR-002` (canonical Full Request section list) with traceability in Request v0.2.
-2. Resolve `T102B-ADR-002` “Conditional” inconsistency without introducing a fourth classification type.
-3. Confirm Section J disposition and trigger rule per `T102B-ADR-003` (Story Index navigation-only; required-if `story_count > 1`).
+1. Confirm AC002 is standards-first and MUST start from `T102B-STD-002` (canonical Full Request section list) with traceability in Request v0.2.
+2. Resolve `T102B-STD-002` “Conditional” inconsistency without introducing a fourth classification type.
+3. Confirm Section J disposition and trigger rule per `T102B-STD-003` (Story Index navigation-only; required-if `story_count > 1`).
 4. Confirm FR/IG consolidation pattern: FR with inline guidance per `T102B-IG-002`.
 5. Confirm immediate documentation actions: update AC002 content in Stream plan; record this Plan Amendment session in AC001 notes.
 
 #### B. Narrative Summary (Minutes-Style)
-The client reviewed the AC002 scope and confirmed that AC002 MUST be grounded in `T102B-ADR-002` as the canonical specification for Full Request sections, with `request_T102B1-RST.md` v0.2 explicitly traceable to ADR-002. The client approved resolving ADR-002’s “Conditional” inconsistency by keeping the taxonomy strictly Mandatory/Optional/Deferred (no fourth “C” type) and expressing conditionality as explicit applicability validation rules.
+The client reviewed the AC002 scope and confirmed that AC002 MUST be grounded in `T102B-STD-002` as the canonical specification for Full Request sections, with `request_T102B1-RST.md` v0.2 explicitly traceable to ADR-002. The client approved resolving ADR-002’s “Conditional” inconsistency by keeping the taxonomy strictly Mandatory/Optional/Deferred (no fourth “C” type) and expressing conditionality as explicit applicability validation rules.
 
-For Section J, the client confirmed Option A (Story Index only) and approved a concrete trigger rule: Story Index is required if `story_count > 1`, with story-level FR bodies and story-level acceptance criteria deferred beyond Request per `T102B-ADR-003`. The client also approved the FR/IG consolidation pattern as FR with inline guidance (requirements-with-guidance) per `T102B-IG-002`. No AC002 implementation work (ADR clause edits or Request v0.2 retrofit) was performed in this session; those actions are deferred to the next session.
+For Section J, the client confirmed Option A (Story Index only) and approved a concrete trigger rule: Story Index is required if `story_count > 1`, with story-level FR bodies and story-level acceptance criteria deferred beyond Request per `T102B-STD-003`. The client also approved the FR/IG consolidation pattern as FR with inline guidance (requirements-with-guidance) per `T102B-IG-002`. No AC002 implementation work (ADR clause edits or Request v0.2 retrofit) was performed in this session; those actions are deferred to the next session.
 
 #### C. Discussion Points
 
 | ID | Topic | Outcome | Rationale | Evidence |
 |:---|:------|:--------|:----------|:---------|
-| `T102B-PH001-ST001-AC001-DP012` | AC002 standards-first grounding | → DEC015 | AC002 must be driven by approved epic standards rather than the AC001 provisional A–J structure | Client QA (2026-02-06); `T102B-ADR-002`, `T102B-ADR-003`, `T102B-ADR-004` |
-| `T102B-PH001-ST001-AC001-DP013` | ADR-002 “Conditional” inconsistency | → DEC016, DEC017 | Prevent taxonomy drift while still enabling required-if rules | Client QA (2026-02-06); `T102B-ADR-002-CLAUSE-001` |
-| `T102B-PH001-ST001-AC001-DP014` | Section J disposition + trigger rule | → DEC018 | Preserve navigation value without reintroducing story-level specification at Request stage | Client QA (2026-02-06); `T102B-ADR-003-CLAUSE-001`, `CLAUSE-002` |
+| `T102B-PH001-ST001-AC001-DP012` | AC002 standards-first grounding | → DEC015 | AC002 must be driven by approved epic standards rather than the AC001 provisional A–J structure | Client QA (2026-02-06); `T102B-STD-002`, `T102B-STD-003`, `T102B-STD-004` |
+| `T102B-PH001-ST001-AC001-DP013` | ADR-002 “Conditional” inconsistency | → DEC016, DEC017 | Prevent taxonomy drift while still enabling required-if rules | Client QA (2026-02-06); `T102B-STD-002-CLAUSE-001` |
+| `T102B-PH001-ST001-AC001-DP014` | Section J disposition + trigger rule | → DEC018 | Preserve navigation value without reintroducing story-level specification at Request stage | Client QA (2026-02-06); `T102B-STD-003-CLAUSE-001`, `CLAUSE-002` |
 | `T102B-PH001-ST001-AC001-DP015` | FR/IG consolidation | → DEC019 | Eliminate duplication (W1) while keeping authoring guidance colocated with requirements | Client QA (2026-02-06); `T102B-IG-002` |
 | `T102B-PH001-ST001-AC001-DP016` | Immediate documentation remediation scope | → ACT009–ACT012 | Plan and notes must reflect locked decisions before AC002 execution begins | This session |
 
@@ -210,10 +210,10 @@ For Section J, the client confirmed Option A (Story Index only) and approved a c
 
 | ID | Decision | Type | Status | Owner | Date | Rationale | Acceptance Signal | Evidence |
 |:---|:---------|:-----|:-------|:------|:-----|:----------|:------------------|:---------|
-| `T102B-PH001-ST001-AC001-DEC015` | AC002 MUST treat `T102B-ADR-002` Full Request section list as canonical; Request v0.2 MUST be traceable to ADR-002 | Governance | Confirmed | Client | 2026-02-06 | Ensures epic standards are the SSOT for RST structure; prevents drift from AC001 provisional structure | Client QA #3 (“ADR-002 list is canonical… traceable…”) | `prompt/artifacts/tasks/T102/T102B/standards/T102B-ADR-002_section-classification-standard.md` |
-| `T102B-PH001-ST001-AC001-DEC016` | Section classification taxonomy SHALL remain strictly Mandatory/Optional/Deferred (no 4th “C” type) | Governance | Confirmed | Client | 2026-02-06 | Keeps classification simple and consistent with ADR-002 CLAUSE-001; avoids added governance/training burden | Client QA #1 (“Approved option A”) | `prompt/artifacts/tasks/T102/T102B/standards/T102B-ADR-002_section-classification-standard.md` |
-| `T102B-PH001-ST001-AC001-DEC017` | “Conditional” SHALL be expressed as Optional + explicit applicability validation rule(s) (e.g., required-if), not as a classification category | Governance | Confirmed | Client | 2026-02-06 | Resolves ADR-002 inconsistency while preserving ternary taxonomy | Client QA #1 (“Approved option A”) | Client QA (2026-02-06); `T102B-ADR-002-CLAUSE-004` |
-| `T102B-PH001-ST001-AC001-DEC018` | Section J disposition confirmed: Option A (Story Index navigation-only), required-if `story_count > 1`; story FR bodies/ACs deferred per ADR-003 | Content | Confirmed | Client | 2026-02-06 | Addresses W2 documentation trap risk; preserves story navigation value for multi-story features | Client QA #2 (“Approved option A”) | `prompt/artifacts/tasks/T102/T102B/standards/T102B-ADR-003_story-fr-deferral-standard.md` |
+| `T102B-PH001-ST001-AC001-DEC015` | AC002 MUST treat `T102B-STD-002` Full Request section list as canonical; Request v0.2 MUST be traceable to ADR-002 | Governance | Confirmed | Client | 2026-02-06 | Ensures epic standards are the SSOT for RST structure; prevents drift from AC001 provisional structure | Client QA #3 (“ADR-002 list is canonical… traceable…”) | `prompt/artifacts/tasks/T102/T102B/standards/T102B-STD-002_section-classification-standard.md` |
+| `T102B-PH001-ST001-AC001-DEC016` | Section classification taxonomy SHALL remain strictly Mandatory/Optional/Deferred (no 4th “C” type) | Governance | Confirmed | Client | 2026-02-06 | Keeps classification simple and consistent with ADR-002 CLAUSE-001; avoids added governance/training burden | Client QA #1 (“Approved option A”) | `prompt/artifacts/tasks/T102/T102B/standards/T102B-STD-002_section-classification-standard.md` |
+| `T102B-PH001-ST001-AC001-DEC017` | “Conditional” SHALL be expressed as Optional + explicit applicability validation rule(s) (e.g., required-if), not as a classification category | Governance | Confirmed | Client | 2026-02-06 | Resolves ADR-002 inconsistency while preserving ternary taxonomy | Client QA #1 (“Approved option A”) | Client QA (2026-02-06); `T102B-STD-002-CLAUSE-004` |
+| `T102B-PH001-ST001-AC001-DEC018` | Section J disposition confirmed: Option A (Story Index navigation-only), required-if `story_count > 1`; story FR bodies/ACs deferred per ADR-003 | Content | Confirmed | Client | 2026-02-06 | Addresses W2 documentation trap risk; preserves story navigation value for multi-story features | Client QA #2 (“Approved option A”) | `prompt/artifacts/tasks/T102/T102B/standards/T102B-STD-003_story-fr-deferral-standard.md` |
 | `T102B-PH001-ST001-AC001-DEC019` | FR/IG consolidation pattern confirmed: FR with inline guidance (requirements-with-guidance) per `T102B-IG-002` | Content | Confirmed | Client | 2026-02-06 | Addresses W1 duplication while preserving authoring guidance | Client QA #2 (“FR with inline guidance approved”) | `prompt/artifacts/tasks/T102/T102B/workspace/proposal/proposal_T102B-REQUEST_phase0.md` (IG-002 definition) |
 
 #### E. Actions / Carry-Forward

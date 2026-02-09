@@ -36,7 +36,7 @@ This plan defines the consultancy workflow to establish a **lean, traceable foun
 **CRITICAL**: Before proceeding with any consultancy task in this plan, LLM_Consultant MUST review the following materials to maintain contextual understanding:
 
 **Initiative Governance**:
-- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` — ID specification standards (T102-ADR-004/005)
+- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` — ID specification standards (T102-STD-004/005)
 - `documentation/general.md` — Master governance document for entire repository
 
 **Structural Exemplars** (T810 GASTRO as reference):
@@ -53,8 +53,8 @@ This plan defines the consultancy workflow to establish a **lean, traceable foun
 - `prompt/roles/VPA/main_v2.1.md` — LLM_Trader system prompt with TTI protocol
 
 **Decision Record Standards** (MANDATORY for Phase 1):
-- T102-ADR-004: Decision Records Index (schema, body format, placement)
-- T102-ADR-005: ID Specification & Rules (categories, hierarchy, referencing)
+- T102-STD-004: Decision Records Index (schema, body format, placement)
+- T102-STD-005: ID Specification & Rules (categories, hierarchy, referencing)
 
 **Research Integration Analysis** (Subphase 1.0 source):
 - `prompt/artifacts/tasks/T801/consultant/workspace/analysis/analysis_T801A-SYSTEM_research-integration.md` — Cross-research findings mapped to E-RIDs
@@ -299,7 +299,7 @@ target_section: 'III.C.1 (Epic: T801A)'
 **Hard Gate**: This subphase MUST run “with the proposal open” (Activity 1.0.2). The proposal file is the live note capture + working index during dialogue.
 
 **Compliance**
-- **ID Compliance**: All RID/GDR/ADR bodies MUST follow `T102-ADR-005-FR-005 (ID Title & Construction)` (`prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`).
+- **ID Compliance**: All RID/GDR/ADR bodies MUST follow `T102-STD-005-FR-005 (ID Title & Construction)` (`prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`).
 
 #### A. Category Dialogue Method (Applies to Each Category)
 
@@ -394,19 +394,19 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 **Objective**: Develop Epic Governance Decision Records (E-GDRs) with paired Architectural Decision Record (E-ADR) references.
 
 **Compliance**
-- **DR Body Compliance**: All GDR/ADR bodies MUST follow `T102-ADR-004-FR-002 (Decision Records Body)` (`prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`).
+- **DR Body Compliance**: All GDR/ADR bodies MUST follow `T102-STD-004-FR-002 (Decision Records Body)` (`prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`).
 
 **GDR/ADR Development Checklist**
 - [x] Research Baseline Presentation (6 GDR candidates from analysis + IG dialogue + GAP-GDR-A)
 - [x] GDR-to-E-RID Traceability Validation (each GDR references supporting E-RIDs)
 - [x] Socratic Dialogue (5 clarifying questions on governance scope, pairing model, specification depth, playground scope, research timing)
-- [ ] GDR Index Population (Section IV.A per T102-ADR-004-FR-001)
-- [ ] GDR Body Development (per T102-ADR-004-FR-002: Context, Decision, Consequences, References)
-- [ ] Cross-Artifact Linking (GDR→ADR adoption statements per T102-ADR-004-FR-005)
+- [ ] GDR Index Population (Section IV.A per T102-STD-004-FR-001)
+- [ ] GDR Body Development (per T102-STD-004-FR-002: Context, Decision, Consequences, References)
+- [ ] Cross-Artifact Linking (GDR→ADR adoption statements per T102-STD-004-FR-005)
 - [ ] ADR-to-GDR Pairing Validation (each ADR paired with governing GDR)
-- [ ] ADR Index Population (Section IV.C per T102-ADR-004-FR-001)
-- [ ] ADR Body Development (per T102-ADR-004-FR-002: Context, Decision, Specification, Consequences, Alternatives Considered, References, Provenance)
-- [ ] GDR Context Citation (ADR→GDR per T102-ADR-004-FR-005)
+- [ ] ADR Index Population (Section IV.C per T102-STD-004-FR-001)
+- [ ] ADR Body Development (per T102-STD-004-FR-002: Context, Decision, Specification, Consequences, Alternatives Considered, References, Provenance)
+- [ ] GDR Context Citation (ADR→GDR per T102-STD-004-FR-005)
 - [ ] E-RID Cross-Reference Validation (ADR specifications reference implementing E-RIDs)
 - [ ] Confirmation & Refinement
 
@@ -438,16 +438,16 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 
 ### Subphase 1.3: Assessment & Finalization
 
-**Objective**: Commission research for partial items, conduct risk assessment per T102-ADR-007, perform cross-category compliance review per T102-ADR-005/T102-ADR-004, and prepare proposal for Client approval.
+**Objective**: Commission research for partial items, conduct risk assessment per T102-STD-007, perform cross-category compliance review per T102-STD-005/T102-STD-004, and prepare proposal for Client approval.
 
 **File**: `prompt/artifacts/tasks/T801/consultant/workspace/proposal/T801A/proposal_T801A_phase1.md`
 
 **Activity Sequence**: 1.3.1 (Research Gate) → 1.3.2 (Risk Assessment) → 1.3.3 (Cross-Category Compliance) → 1.3.4 (Final Preparation)
 
 **Compliance References**:
-- E-RID Compliance: `T102-ADR-005 (ID Specification & Rules)`
-- E-DR Compliance: `T102-ADR-004 (Decision Records Index)`
-- Issues/Risks Compliance: `T102-ADR-007 (Issues & Risks Index)`
+- E-RID Compliance: `T102-STD-005 (ID Specification & Rules)`
+- E-DR Compliance: `T102-STD-004 (Decision Records Index)`
+- Issues/Risks Compliance: `T102-STD-007 (Issues & Risks Index)`
 
 #### Activity 1.3.1: Research Commission Gate
 
@@ -483,13 +483,13 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 
 #### Activity 1.3.2: Risk & Open Issue Assessment
 
-**Purpose**: Consolidate and assess all Issues & Risks per `T102-ADR-007 (Issues & Risks Index)`, prioritize resolution approaches, and integrate into proposal Section VI.
+**Purpose**: Consolidate and assess all Issues & Risks per `T102-STD-007 (Issues & Risks Index)`, prioritize resolution approaches, and integrate into proposal Section VI.
 
 **Status**: ⏳ PENDING CONSULTATION
 
 **Reference**: 
 - `prompt\artifacts\tasks\T801\consultant\workspace\proposal\T801A\proposal_T801A_phase1.md` Section VI (Issues & Risks Register)
-- `prompt\artifacts\tasks\T102\consultant\concept\concept_T102-CONSULTANT.md` (T102-ADR-007)
+- `prompt\artifacts\tasks\T102\consultant\concept\concept_T102-CONSULTANT.md` (T102-STD-007)
 
 ##### Task 1.3.2.1: Issues/Risks Register Review
 
@@ -502,7 +502,7 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 
 ##### Task 1.3.2.2: Issue Resolution Consultation
 
-**Consultation Guidelines** (per T102-ADR-007-FR-002/003/007 and `prompt/artifacts/tasks/T801/consultant/workspace/analysis/analysis_T801A-RES-002_system-architecture-research.md`):
+**Consultation Guidelines** (per T102-STD-007-FR-002/003/007 and `prompt/artifacts/tasks/T801/consultant/workspace/analysis/analysis_T801A-RES-002_system-architecture-research.md`):
 
 1. **Status Progression**: Review each Issue and determine appropriate status:
    - `OPEN` → Item requires action; not yet being addressed
@@ -520,7 +520,7 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
    - **MEDIUM Priority**: May be deferred to Feature scope with documented rationale
 
 4. **E-RID Impact Assessment**: For each Issue, identify:
-   - Which E-RIDs/E-DRs govern the issue (to be cited by the Issue row; see `T102-ADR-005-FR-010`)
+   - Which E-RIDs/E-DRs govern the issue (to be cited by the Issue row; see `T102-STD-005-FR-010`)
    - Whether resolution requires modifying governing E-RIDs/E-DRs (note: governing items MUST NOT reference Issue/Risk IDs)
 
 **Execution Checklist** — ✅ COMPLETE (2026-01-06):
@@ -528,7 +528,7 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 - [x] Classify each Issue: 4 RESOLVED, 4 DEFERRED
 - [x] Populate Resolution Notes with governing E-RID citations
 - [x] Populate Resolution Dates (ISO-8601)
-- [x] Create Feature-Level subsection per T102-ADR-007-FR-009
+- [x] Create Feature-Level subsection per T102-STD-007-FR-009
 - [x] Promote ISSUE-007/008 to `T801A2-ISSUE-001/002`
 - [x] Update proposal changelog (v1.10.0)
 
@@ -536,7 +536,7 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 
 ##### Task 1.3.2.3: Risk Mitigation Consultation
 
-**Consultation Guidelines** (per T102-ADR-007-FR-004/005/008 and `prompt/artifacts/tasks/T801/consultant/workspace/analysis/analysis_T801A-RES-002_system-architecture-research.md`):
+**Consultation Guidelines** (per T102-STD-007-FR-004/005/008 and `prompt/artifacts/tasks/T801/consultant/workspace/analysis/analysis_T801A-RES-002_system-architecture-research.md`):
 
 1. **Status Progression**: Review each Risk and determine appropriate status:
    - `OPEN` → Risk identified; mitigation not yet planned
@@ -554,7 +554,7 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
    - **MEDIUM Priority**: May be monitored with documented trigger conditions
 
 4. **E-RID Impact Assessment**: For each Risk, identify:
-   - Which E-RIDs/E-DRs govern the mitigation (to be cited by the Risk row; see `T102-ADR-005-FR-010`)
+   - Which E-RIDs/E-DRs govern the mitigation (to be cited by the Risk row; see `T102-STD-005-FR-010`)
    - Whether additional governing E-RIDs/E-DRs are needed (note: governing items MUST NOT reference Issue/Risk IDs)
    - Fallback strategies documented in related ASSUM items (cited from the Risk row)
 
@@ -573,8 +573,8 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 
 **Consultation Action**: Validate that Issue/Risk resolutions are properly cross-referenced:
 - [x] Each Issue/Risk row cites governing E-RIDs/E-DRs via `Description` and/or `Resolution Notes` / `Mitigation Notes`
-- [x] Status/date coupling satisfied per `T102-ADR-007` (OPEN ⇒ notes/date = `—`; closed statuses ⇒ date present)
-- [x] No E-RID/E-DR bodies reference Issue/Risk IDs (per `T102-ADR-005-FR-010`)
+- [x] Status/date coupling satisfied per `T102-STD-007` (OPEN ⇒ notes/date = `—`; closed statuses ⇒ date present)
+- [x] No E-RID/E-DR bodies reference Issue/Risk IDs (per `T102-STD-005-FR-010`)
 - [x] No conflicts between Issue resolutions and confirmed E-RIDs
 
 ##### Task 1.3.2.5: Open Questions Consultation
@@ -595,9 +595,9 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 - E-DR Bodies: `proposal_T801A_phase1.md` Section IV
 - T102 Specifications: `concept_T102-CONSULTANT.md`
 
-##### Task 1.3.3.1: E-RID T102-ADR-005 Compliance Review
+##### Task 1.3.3.1: E-RID T102-STD-005 Compliance Review
 
-**Consultation Scope**: Review all 41 E-RIDs across 6 categories for T102-ADR-005 compliance.
+**Consultation Scope**: Review all 41 E-RIDs across 6 categories for T102-STD-005 compliance.
 
 **Structural Compliance Checklist**:
 - [ ] **FR-004 (Category Definitions)**: Each E-RID correctly classified per category definition
@@ -618,23 +618,23 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 - [ ] **No Justification Prose**: Remove "rationale" and "because" explanations from normative bodies
 - [ ] **Cross-Reference Only**: No inline duplication of content from other E-RIDs
 
-##### Task 1.3.3.2: E-DR T102-ADR-004 Compliance Review
+##### Task 1.3.3.2: E-DR T102-STD-004 Compliance Review
 
-**Consultation Scope**: Review all 6 GDRs + 6 ADRs for T102-ADR-004 compliance.
+**Consultation Scope**: Review all 6 GDRs + 6 ADRs for T102-STD-004 compliance.
 
-**GDR Compliance Checklist** (per T102-ADR-004-FR-001/002/005):
+**GDR Compliance Checklist** (per T102-STD-004-FR-001/002/005):
 - [x] **Index Schema**: GDR Index follows `ID | Title | Status | Owner | Effective | Supersedes | Anchor`
 - [x] **Body Structure**: Each GDR has Context, Decision, Consequences, References
 - [x] **Adoption Statement**: Decision section contains adoption statement per FR-005
 - [x] **FR-006 (Anchor Stability)**: All anchors use lower-kebab format prefixed with ID
 - [x] **FR-010 (Automation Linting)**: Decision bodies contain required adoption/citation patterns
-- [x] **FR-012 (References Format)**: References sections use formal `ID (Title)` format per T102-ADR-005-FR-006
+- [x] **FR-012 (References Format)**: References sections use formal `ID (Title)` format per T102-STD-005-FR-006
 
-**ADR Compliance Checklist** (per T102-ADR-004-FR-001/002/005):
+**ADR Compliance Checklist** (per T102-STD-004-FR-001/002/005):
 - [x] **Index Schema**: ADR Index follows `ID | Title | Paired GDR | Status | Canonical Link`
 - [x] **Body Structure**: Each ADR has Context, Decision, Specification, Consequences, Alternatives Considered, References, Provenance
 - [x] **Context Citation**: Context section begins with `Per <GDR-ID>...` per FR-005
-- [x] **Specification FRs**: Specification section uses FR-### sub-IDs per `T102-ADR-005-FR-004`
+- [x] **Specification FRs**: Specification section uses FR-### sub-IDs per `T102-STD-005-FR-004`
 - [x] **FR-006 (Anchor Stability)**: All anchors use lower-kebab format prefixed with ID
 - [x] **FR-012 (References & Provenance)**: References use formal format; Provenance lists source files
 
@@ -646,7 +646,7 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 
 ##### Task 1.3.3.3: Cross-Category Dependency Validation
 
-**Consultation Scope**: Validate cross-category references are complete and bidirectional; verify OID category completeness per T102-ADR-005/006.
+**Consultation Scope**: Validate cross-category references are complete and bidirectional; verify OID category completeness per T102-STD-005/006.
 
 **A. RID Cross-Category Matrix (Bidirectional)**:
 
@@ -660,7 +660,7 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 | QG→IG | Each QG has supporting IG implementation guidance | IG bodies cite governing QGs |
 | IF→IG | Each IF has corresponding IG validation/workflow | IG bodies cite governing IFs |
 
-**B. DID Cross-Category Matrix (per T102-ADR-005-FR-003)**:
+**B. DID Cross-Category Matrix (per T102-STD-005-FR-003)**:
 
 | Direction | Validation Rule | Note |
 |:----------|:----------------|:-----|
@@ -668,12 +668,12 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 | ADR→RID | Each ADR Specification references implementing E-RIDs | DIDs reference RIDs only |
 | GDR→RID | GDR References cite governing RIDs | DIDs reference RIDs only |
 
-**C. OID Category Completeness (per T102-ADR-005-FR-004 + T102-ADR-006)**:
+**C. OID Category Completeness (per T102-STD-005-FR-004 + T102-STD-006)**:
 
-- [ ] **RES Completeness**: All commissioned research indexed in Section VIII per T102-ADR-006-FR-002
-- [ ] **ISSUE Completeness**: All unresolved gaps tracked in Section VI.A per T102-ADR-007
-- [ ] **RISK Completeness**: All identified risks tracked in Section VI.B per T102-ADR-007
-- [ ] **NOTE Completeness**: Relevant non-normative context captured per T102-ADR-006-FR-007/008
+- [ ] **RES Completeness**: All commissioned research indexed in Section VIII per T102-STD-006-FR-002
+- [ ] **ISSUE Completeness**: All unresolved gaps tracked in Section VI.A per T102-STD-007
+- [ ] **RISK Completeness**: All identified risks tracked in Section VI.B per T102-STD-007
+- [ ] **NOTE Completeness**: Relevant non-normative context captured per T102-STD-006-FR-007/008
 
 **D. Gap Identification Checklist**:
 
@@ -687,13 +687,13 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 **Gate Criteria**: All items below MUST be checked before proceeding to Activity 1.3.4:
 
 **E-RID Compliance (Task 1.3.3.1)**:
-- [x] All 41 E-RIDs pass T102-ADR-005 structural compliance
+- [x] All 41 E-RIDs pass T102-STD-005 structural compliance
 - [x] All E-RID bodies meet PID-style content quality standards
 - [x] All cross-references valid per FR-006
 
 **E-DR Compliance (Task 1.3.3.2)**:
-- [x] All 6 GDRs pass T102-ADR-004 structural compliance
-- [x] All 6 ADRs pass T102-ADR-004 structural compliance
+- [x] All 6 GDRs pass T102-STD-004 structural compliance
+- [x] All 6 ADRs pass T102-STD-004 structural compliance
 - [x] All GDR→ADR pairings complete with adoption/citation statements
 
 **Cross-Category Validation (Task 1.3.3.3)**:
@@ -701,10 +701,10 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 - [x] DID cross-category matrix validated (DIDs→RIDs only)
 - [x] OID category completeness verified (RES, ISSUE, RISK, NOTE)
 - [x] No orphan RIDs or missing reverse references
-- [x] All Issues/Risks have appropriate status per T102-ADR-007
+- [x] All Issues/Risks have appropriate status per T102-STD-007
 
 **Issues/Risks Compliance (from Task 1.3.3.3)**:
-- [x] All 17 Issues/Risks have appropriate status per T102-ADR-007
+- [x] All 17 Issues/Risks have appropriate status per T102-STD-007
 - [x] All Resolution/Mitigation Notes complete for closed items
 - [x] No conflicts between Issue resolutions and confirmed E-RIDs
 
@@ -887,8 +887,8 @@ Baseline derived from `prompt/artifacts/tasks/T801/consultant/workspace/analysis
 
 - **v1.18.0** (2026-01-05): Subphase 1.3 restructuring + plan optimization per QA feedback:
   - **Activity Resequencing**: Activities 1.3.2 ↔ 1.3.3 swapped — Risk Assessment now 1.3.2, Cross-Category Compliance now 1.3.3 (industry-standard sequencing: Issues/Risks may affect E-RIDs)
-  - **Activity 1.3.2 (Risk Assessment)**: Replaced detailed ID lists with T102-ADR-007 consultation guidelines; marked PENDING CONSULTATION
-  - **Activity 1.3.3 (Cross-Category Compliance)**: Added separate E-DR compliance task (T102-ADR-004); added PID-style content quality standards; consolidated success criteria checklist; marked PENDING CONSULTATION
+  - **Activity 1.3.2 (Risk Assessment)**: Replaced detailed ID lists with T102-STD-007 consultation guidelines; marked PENDING CONSULTATION
+  - **Activity 1.3.3 (Cross-Category Compliance)**: Added separate E-DR compliance task (T102-STD-004); added PID-style content quality standards; consolidated success criteria checklist; marked PENDING CONSULTATION
   - **Subphase Consolidation**: Subphases 1.4 + 1.5 merged into single Subphase 1.4 (Client Approval & SSOT Implementation) with dual-gate checkpoint (Gate A: Approval, Gate B: Implementation)
   - **Subphase 1.1 Optimization**: Replaced detailed candidate inventory tables (Activities 1.1.1-1.1.6) with references to proposal/analysis files per Option B (keep category sequence + dialogue focus summaries)
   - **Token Optimization**: ~2500 tokens removed from Subphase 1.1 via reference pointers

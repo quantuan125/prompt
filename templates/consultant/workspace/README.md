@@ -28,7 +28,7 @@ Based on `prompt/artifacts/tasks/T801/consultant/workspace/plan/plan_T801A_phase
 
 **Compliance**:
 - Follows T102 artifact standards (YAML header, Links Register, Changelog)
-- References T102-ADR-004 through T102-ADR-007 for governance compliance
+- References T102-STD-004 through T102-STD-007 for governance compliance
 - Aligns with `workspace_documentation_rules.md` (Plans are roadmaps only; no full RID/DR bodies)
 
 **Usage Notes**:

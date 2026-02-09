@@ -59,26 +59,26 @@ This plan outlines the systematic consultancy approach to enhance T810A1-PROMPT 
 
 ---
 
-### B. T102-ADR-005 (ID Specification & Rules) — MANDATORY IMPLEMENTATION RULES
+### B. T102-STD-005 (ID Specification & Rules) — MANDATORY IMPLEMENTATION RULES
 
 **Context**: Per `T102-GDR-005`, multiple artifact families use overlapping ID conventions. This ADR is the single normative specification for all ID patterns.
 
 **CRITICAL SPECIFICATIONS FOR THIS PLAN**:
 
-#### B.1. T102-ADR-005-FR-001 (ID Scope)
+#### B.1. T102-STD-005-FR-001 (ID Scope)
 - **F-ID (feature)**: `^T\d{3}[A-Z]\d$` (e.g., `T810A1`)
 - **S-ID (story)**: `^T\d{3}[A-Z]\d-S\d+$` (e.g., `T810A1-S05`)
 
-#### B.2. T102-ADR-005-FR-002 (ID Terminologies)
+#### B.2. T102-STD-005-FR-002 (ID Terminologies)
 - **F-RID**: Feature-level Rule IDs defined by category tokens (e.g., `T810A1-IG-001`, `T810A1-INT-003`)
 - **F-GDR/F-ADR**: Feature-level decision records
 
-#### B.3. T102-ADR-005-FR-003 (Precedence & Directionality)
+#### B.3. T102-STD-005-FR-003 (Precedence & Directionality)
 - **Precedence**: I-RIDs > E-RIDs > E-GDRs > E-ADRs > F-RIDs > F-GDRs > F-ADRs > S-RIDs
 - **Directionality**: Lower/equal scopes MAY reference higher/equal; higher MUST NOT reference lower
 - **INT Exception**: Per FR-008, Feature-level INT items MAY reference other Feature F-RIDs
 
-#### B.4. T102-ADR-005-FR-004 (ID Categories) — Feature Scope Tokens
+#### B.4. T102-STD-005-FR-004 (ID Categories) — Feature Scope Tokens
 | Category | Token | Definition |
 |:---------|:------|:-----------|
 | Functional Requirement | `FR` | Behavior the system must provide; testable acceptance |
@@ -90,18 +90,18 @@ This plan outlines the systematic consultancy approach to enhance T810A1-PROMPT 
 | Research | `RES` | Formally commissioned research with brief + report |
 | Note | `NOTE` | Informational remark; non-normative |
 
-#### B.5. T102-ADR-005-FR-005 (ID Title & Construction)
+#### B.5. T102-STD-005-FR-005 (ID Title & Construction)
 - **Format**: `* **<ID> (<Title>)** — <concise description>`
 - **Title**: Max 2-3 words
 - **Examples**:
   - `* **T810A1-IG-001 (Phase Gating Protocol)** — LLM_Gastro SHALL enforce explicit confirmation gates...`
   - `* **T810A1-INT-006 (Schema Loading Sequence)** — Session initialization SHALL load Stable + Dynamic schemas...`
 
-#### B.6. T102-ADR-005-FR-006 (ID References)
+#### B.6. T102-STD-005-FR-006 (ID References)
 - **Formal**: Back-ticked `ID (Title)` tokens (e.g., `T810A-GDR-001 (Trust-and-Verify Workflow)`)
 - **Informal**: Bare back-ticked ID tokens (e.g., `T810A-GDR-001`)
 
-#### B.7. T102-ADR-005-FR-008 (INT Integration Exception)
+#### B.7. T102-STD-005-FR-008 (INT Integration Exception)
 - **Cross-Feature References Permitted**: INT F-RIDs MAY reference other Feature F-RIDs (e.g., `T810A2-INT-001`) as integration design notes
 - **Suggestive, Not Prescriptive**: INT items SHOULD describe ideal patterns, SHOULD avoid Story-level acceptance criteria
 - **Governance Loop**: Epic consultants SHOULD review INT items when evolving E-RIDs/E-ADRs/E-GDRs
@@ -151,7 +151,7 @@ This plan outlines the systematic consultancy approach to enhance T810A1-PROMPT 
 
 #### A. Create `T810A1-NOTE-001` Entry
 
-**Action**: Add handoff brief summary to Notes subsection following T102-ADR-005-FR-005 format:
+**Action**: Add handoff brief summary to Notes subsection following T102-STD-005-FR-005 format:
 
 ```markdown
 **Notes**
@@ -255,7 +255,7 @@ This plan outlines the systematic consultancy approach to enhance T810A1-PROMPT 
 - [ ] T810A2 Request document reviewed for INT cross-references
 - [ ] Research report reviewed for integration patterns
 - [ ] Handoff brief reviewed for schema specifications
-- [ ] T102-ADR-005 rules confirmed and applied
+- [ ] T102-STD-005 rules confirmed and applied
 
 ---
 
@@ -307,7 +307,7 @@ This plan outlines the systematic consultancy approach to enhance T810A1-PROMPT 
 **Classification Rationale** (per Client QA Question 1):
 - **Decision Nature**: Structural/architectural (component boundaries, modular organization)
 - **Industry Standard**: Modular architecture assignments universally documented as ADRs
-- **Governance Model**: Per T102-ADR-004, ADRs govern "architecture and design choices," GDRs govern "workflow and process standards"
+- **Governance Model**: Per T102-STD-004, ADRs govern "architecture and design choices," GDRs govern "workflow and process standards"
 - **Precedent**: T810A-ADR-001/002/003/004 establish architectural patterns (confidence, vocabulary, reporting, knowledge)
 
 **ADR-001 Key Content**:
@@ -501,12 +501,12 @@ Based on T810A1-RES-001 findings, the following existing F-RIDs require review/e
 - [ ] **T810A1-GDR-003 (9-Block Architecture Assignment) created with Story-Block mapping and IG Coverage Matrix**
 - [ ] F.6 subsection created with 7 T810A1-IG items (IG-001 to IG-007)
 - [ ] **All IG items include Block Applicability section per T810A1-GDR-003**
-- [ ] All IG items follow T102-ADR-005-FR-005 format
+- [ ] All IG items follow T102-STD-005-FR-005 format
 - [ ] IG items reference T810A1-RES-001 findings appropriately
 - [ ] F.7 subsection enhanced with T810A2-INT cross-references
 - [ ] 3 existing INT items enhanced (INT-001, INT-003, INT-005)
 - [ ] 2 new INT items created (INT-006, INT-007)
-- [ ] All INT items comply with T102-ADR-005-FR-008 (suggestive, cross-feature refs permitted)
+- [ ] All INT items comply with T102-STD-005-FR-008 (suggestive, cross-feature refs permitted)
 - [ ] T810A1-CON-004 created as high-level constraint (implementation details in IG-007/INT-007)
 
 ---
@@ -787,7 +787,7 @@ Based on T810A1-RES-001 findings, the following existing F-RIDs require review/e
 **Duration**: 90-120 minutes (Request optimization + Phase 2 proposal refinement + MVP architecture)
 
 **Client-Approved Decisions** (from QA Round 4):
-- **CON-005 Addition**: Approved per T102-ADR-005-FR-005 format
+- **CON-005 Addition**: Approved per T102-STD-005-FR-005 format
 - **MVP Architecture**: Option 3 (Hybrid Tiered) — Core prompt (≤8,000 chars) + Extended Knowledge files
 - **Request Simplification**: Task 0 findings approved (consolidate IG bodies, remove INT redundancies)
 - **Phase 2 Refinement**: Both Block 5 gate templates AND Block 8 anti-pattern exemplars
@@ -798,9 +798,9 @@ Based on T810A1-RES-001 findings, the following existing F-RIDs require review/e
 
 **Target Section**: Request `### F.3. Constraints`
 
-**Purpose**: Add MVP deployment constraint governing ChatGPT system prompt size limit per T102-ADR-005-FR-005 format.
+**Purpose**: Add MVP deployment constraint governing ChatGPT system prompt size limit per T102-STD-005-FR-005 format.
 
-**T102-ADR-005-FR-005 Format Requirements**:
+**T102-STD-005-FR-005 Format Requirements**:
 - **Format**: `* **<ID> (<Title>)** — <concise description>`
 - **Title**: Max 2-3 words
 - **ID Pattern**: `T810A1-CON-005` (Feature-level Constraint)
@@ -831,7 +831,7 @@ Based on T810A1-RES-001 findings, the following existing F-RIDs require review/e
 1. The system prompt itself (Blocks 5, 6, 8)
 2. The exemplars (Block 8)
 
-**Consolidation Strategy** (per T102-ADR-005 — IG items provide directional guidance, not procedural specifications):
+**Consolidation Strategy** (per T102-STD-005 — IG items provide directional guidance, not procedural specifications):
 
 | Current Pattern | Proposed Pattern | Estimated Savings |
 |:----------------|:-----------------|:------------------|
@@ -846,7 +846,7 @@ Based on T810A1-RES-001 findings, the following existing F-RIDs require review/e
 **Preservation Rules**:
 - **KEEP**: Core directive (SHALL statement), key pattern name, cross-references, Block Applicability section
 - **MOVE**: Detailed procedures, example phrasing, step-by-step sequences → System prompt (Phase 2 proposal)
-- **FORMAT**: Consolidated body follows T102-ADR-005-FR-005 (concise description with reference pointers)
+- **FORMAT**: Consolidated body follows T102-STD-005-FR-005 (concise description with reference pointers)
 
 **Deliverable**: Simplified IG-001 through IG-007 bodies in Phase 1 proposal for Request population
 
@@ -1086,7 +1086,7 @@ Before moving from Analyze → Probe or Probe → Coach:
 
 ### Phase 3 Success Criteria
 
-- [ ] `T810A1-CON-005` created per T102-ADR-005-FR-005 format
+- [ ] `T810A1-CON-005` created per T102-STD-005-FR-005 format
 - [ ] `T810A1-CON-005` remains a strict platform constraint (no tier packaging details)
 - [ ] `T810A1-IG-008` added for Hybrid Tiered MVP deployment packaging and governance traceability
 - [ ] IG-001 through IG-007 bodies consolidated (reference pointers, ~4,000 char savings)
@@ -1098,7 +1098,7 @@ Before moving from Analyze → Probe or Probe → Coach:
 - [ ] Hybrid Tiered Architecture documented with reduction strategy
 - [ ] Phase 2 proposal Subphase 2.1 blocks split into Tier 1 vs Tier 2 subsections (per-block)
 - [ ] Phase 2 proposal includes an IG Implementation Guidance Annex (to avoid IG filename references)
-- [ ] All changes follow T102-ADR-005 standards
+- [ ] All changes follow T102-STD-005 standards
 - [ ] Phase 1 and Phase 2 proposals updated for client review
 
 ---
@@ -1117,7 +1117,7 @@ Before moving from Analyze → Probe or Probe → Coach:
 - [ ] F.7 subsection enhanced with T810A2-INT cross-references
 - [ ] 2 new INT items created (INT-006, INT-007)
 - [ ] T810A1-CON-004 created as high-level constraint
-- [ ] All IDs follow T102-ADR-005 standards
+- [ ] All IDs follow T102-STD-005 standards
 - [ ] Phase 1 proposal approved by client
 
 **Phase 2 Complete When**:
@@ -1129,7 +1129,7 @@ Before moving from Analyze → Probe or Probe → Coach:
 - [ ] Draft content ready for `gastro_system.md` finalization and Story-level refinement
 
 **Phase 3 Complete When**:
-- [ ] T810A1-CON-005 (System Prompt Limit) created per T102-ADR-005-FR-005
+- [ ] T810A1-CON-005 (System Prompt Limit) created per T102-STD-005-FR-005
 - [ ] Request F-RID simplification completed (~5,100 char savings):
   - [ ] IG-001 to IG-007 bodies consolidated to reference pointers
   - [ ] INT-001 to INT-007 redundant cross-reference lines removed
@@ -1150,7 +1150,7 @@ Before moving from Analyze → Probe or Probe → Coach:
 | Risk | Impact | Likelihood | Mitigation |
 |:-----|:-------|:-----------|:-----------|
 | **IG items too prescriptive** | Conflicts with Story-level flexibility | Medium | Use "SHOULD" language where appropriate; mark as guidance, not absolute requirement |
-| **INT cross-references create circular dependencies** | Maintenance overhead | Low | Follow T102-ADR-005-FR-008 governance loop; update INT when E-RIDs evolve |
+| **INT cross-references create circular dependencies** | Maintenance overhead | Low | Follow T102-STD-005-FR-008 governance loop; update INT when E-RIDs evolve |
 | **Draft system prompt incomplete** | Story development blocked | Medium | Mark draft as foundational; Stories refine Block-specific content |
 | **T810A2 schema changes after handoff** | Integration drift | Low | T810A2 handoff accepted as stable for MVP; post-MVP changes follow governance |
 
@@ -1159,7 +1159,7 @@ Before moving from Analyze → Probe or Probe → Coach:
 ## IX. DEPENDENCIES
 
 **Internal Dependencies**:
-- T102-ADR-005: ID Specification & Rules (formatting standards)
+- T102-STD-005: ID Specification & Rules (formatting standards)
 - T810A-GDR-001/002: Epic governance patterns
 - T810A-ADR-001/002: Epic architectural patterns
 - T810A1-RES-001: Research findings integration
@@ -1205,7 +1205,7 @@ Before moving from Analyze → Probe or Probe → Coach:
 
 ## XI. APPENDICES
 
-### A. T102-ADR-005 Category Reference (Feature Scope)
+### A. T102-STD-005 Category Reference (Feature Scope)
 
 | Token | Full Name | Definition | Used In |
 |:------|:----------|:-----------|:--------|
@@ -1249,13 +1249,13 @@ Before moving from Analyze → Probe or Probe → Coach:
 
 - **v1.0.4** (2025-12-12): Client QA feedback round 4 integration — **PHASE 3 CREATION**:
   - **ADDED**: Phase 3 (Section VII) — Request Optimization & MVP Deployment:
-    - **Subphase 3.0**: T810A1-CON-005 (System Prompt Limit) creation per T102-ADR-005-FR-005
+    - **Subphase 3.0**: T810A1-CON-005 (System Prompt Limit) creation per T102-STD-005-FR-005
     - **Subphase 3.1**: Request F-RID simplification (IG body consolidation ~4,000 chars, INT redundancy removal ~500 chars, GDR-001/NFR-001 dedup ~600 chars)
     - **Subphase 3.2**: Block 5 Phase Transition Gates template addition (per Task 1 Gap 1)
     - **Subphase 3.3**: Block 8 Anti-Pattern Exemplars addition (per Task 1 Gap 2)
     - **Subphase 3.4**: Section XV MVP Deployment Considerations (Hybrid Tiered Architecture)
   - **CLIENT DECISIONS** (QA Round 4):
-    - **Q1**: T810A1-CON-005 approved per T102-ADR-005-FR-005 format
+    - **Q1**: T810A1-CON-005 approved per T102-STD-005-FR-005 format
     - **Q2**: Option 3 (Hybrid Tiered Architecture) approved for MVP deployment
     - **Q3**: Task 0 simplifications approved (IG consolidation, INT cleanup, GDR/NFR dedup)
     - **Q4**: Both Block 5 AND Block 8 refinements approved
@@ -1308,4 +1308,4 @@ Before moving from Analyze → Probe or Probe → Coach:
   - **UPDATED**: Next Steps to show current progress and Phase 2 roadmap
   - Duration estimate for Phase 2 updated: 120-180 minutes (from 60-90)
 
-- **v1.0.0** (2025-12-08): Initial consultancy plan creation for T810A1-PROMPT F-RID enhancement. Defines Phases 0-2 for research/handoff integration, IG category creation, INT enhancement, and draft system prompt generation. Incorporates T102-ADR-005 as mandatory implementation rules. Client-approved decisions: Pattern A (aggregation), Option A (field classification depth), T810A2 trust level.
+- **v1.0.0** (2025-12-08): Initial consultancy plan creation for T810A1-PROMPT F-RID enhancement. Defines Phases 0-2 for research/handoff integration, IG category creation, INT enhancement, and draft system prompt generation. Incorporates T102-STD-005 as mandatory implementation rules. Client-approved decisions: Pattern A (aggregation), Option A (field classification depth), T810A2 trust level.

@@ -36,9 +36,9 @@
 - **v3.0.0** (2026-01-15): Complete plan restructuring per approved consultancy dialogue revisions
   - **MAJOR CHANGE**: Reduced from 5 PHASES to 4 PHASES; removed separate SSOT Implementation Phase (deferred to Developer handoff post-approval)
   - **Phase 0 (Research Commission)**: Internal research focus; T102B-RES-002 commissioned with 5 topics (E-RID Gap Analysis, ADR/GDR Inventory, Integration Dependency Mapping, RES-001 Actionable Items, Workflow Typology); Analysis file scoped to `analysis_T102B-RES-002_epic-foundation-assessment.md`
-  - **Phase 1 (Epic Dossier Foundation)**: NEW Phase to establish SPS sections i-v (Purpose, Scope, Inherited Considerations, Governance & Roadmap, Feature Register) per T102A-ADR-001 + T102-ADR-003; Epic Requirements placeholder deferred to Phase 2
-  - **Phase 2 (Proposal Initialization & E-ID Development)**: Resequenced; E-ID seeding strategy updated to Option C (dual-status: existing + research-suggested); E-RID dialogue sequence revised (DEP → CON → ASSUM → QG → IF → IG) with sources mapped to SPS sections and RES-001 findings; ADR candidates table added (T102B-ADR-001 through T102B-ADR-004)
-  - **Phase 3 (Validation & Cross-Integration Review)**: Added T102-ADR-006 compliance validation (Activity 3.3: RES/NOTE-ID Compliance Review); comprehensive validation activities (8 activities: E-RID, E-DR, RES/NOTE, Issue/Risk Resolution, OQ Resolution, NOTE Extraction, Cross-Category Validation, Client Approval)
+  - **Phase 1 (Epic Dossier Foundation)**: NEW Phase to establish SPS sections i-v (Purpose, Scope, Inherited Considerations, Governance & Roadmap, Feature Register) per T102A-STD-001 + T102-STD-003; Epic Requirements placeholder deferred to Phase 2
+  - **Phase 2 (Proposal Initialization & E-ID Development)**: Resequenced; E-ID seeding strategy updated to Option C (dual-status: existing + research-suggested); E-RID dialogue sequence revised (DEP → CON → ASSUM → QG → IF → IG) with sources mapped to SPS sections and RES-001 findings; ADR candidates table added (T102B-STD-001 through T102B-STD-004)
+  - **Phase 3 (Validation & Cross-Integration Review)**: Added T102-STD-006 compliance validation (Activity 3.3: RES/NOTE-ID Compliance Review); comprehensive validation activities (8 activities: E-RID, E-DR, RES/NOTE, Issue/Risk Resolution, OQ Resolution, NOTE Extraction, Cross-Category Validation, Client Approval)
   - **Workspace File Register**: Added LOG file (`log_T102B-REQUEST_Stage0.md`, artifact_type: 'LOG') for decision log + minutes
   - **Context Materials**: Added Section II.C (Key Design Decisions) documenting Epic Dossier sequencing, E-ID seeding strategy (Option C), and RES-002 research topics
   - **Links Register**: Added T810 SPS exemplar link; updated paths for analysis file
@@ -58,6 +58,6 @@
 
 - **v1.0.0** (2026-01-14): Initial Stage 0 plan creation
   - Phase 0: Epic Foundation activities defined
-  - Phase 1: T102B-ADR-001 design activities defined
+  - Phase 1: T102B-STD-001 design activities defined
   - Phase 2: Epic Requirements consultation activities defined
   - Success criteria checklist established

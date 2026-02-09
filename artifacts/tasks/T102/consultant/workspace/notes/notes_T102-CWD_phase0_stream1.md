@@ -9,7 +9,7 @@ date: '2026-01-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-roadmap_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CWD_phase0.md'
+roadmap_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/roadmap/plan_T102-PH000.md'
 notes_index_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/notes/notes_T102-CWD_phase0.md'
 ---
 
@@ -109,9 +109,9 @@ AUTHORING GUIDELINES (DECISIONS TABLE)
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | `T102-DEC-001` | Adopt Drift Control Option C: replace governance-shaped GDR with reference-style `STD` | Governance | Accepted | Client | 2026-01-22 | `prompt/artifacts/tasks/T102/consultant/raw/raw_T102-CDW_phase0_2026-01-22_p5.md#L651` | — |
 | `T102-DEC-002` | Adopt Normativity Option 2: `STD` is normative reference; `IG` is informative how-to; `INT` is non-normative integration notes | Governance | Accepted | Client | 2026-01-22 | `prompt/artifacts/tasks/T102/consultant/raw/raw_T102-CDW_phase0_2026-01-22_p5.md#L1059` | — |
-| `T102-DEC-003` | Restrict `STD` allowed scopes to I/E/F only | Governance | Accepted | Client | 2026-01-22 | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CWD_phase0.md#L24` | — |
-| `T102-DEC-004` | Allow shorthand references inline; require full references in dedicated references/index sections | Governance | Accepted | Client | 2026-01-22 | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CWD_phase0.md#L25` | — |
-| `T102-DEC-005` | Provenance MUST use repo-relative paths only | Governance | Accepted | Client | 2026-01-22 | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CWD_phase0.md#L23` | — |
+| `T102-DEC-003` | Restrict `STD` allowed scopes to I/E/F only | Governance | Accepted | Client | 2026-01-22 | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/plan_T102-PH000.md#L24` | — |
+| `T102-DEC-004` | Allow shorthand references inline; require full references in dedicated references/index sections | Governance | Accepted | Client | 2026-01-22 | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/plan_T102-PH000.md#L25` | — |
+| `T102-DEC-005` | Provenance MUST use repo-relative paths only | Governance | Accepted | Client | 2026-01-22 | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/plan_T102-PH000.md#L23` | — |
 
 #### D. Actions / Next-Activity Guidance
 
@@ -124,6 +124,6 @@ AUTHORING GUIDELINES (DECISIONS TABLE)
 
 ## III. REFERENCES (REPO-RELATIVE ONLY)
 
-- Roadmap: `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CWD_phase0.md`
+- Roadmap: `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/plan_T102-PH000.md`
 - Phase Notes Index: `prompt/artifacts/tasks/T102/consultant/workspace/notes/notes_T102-CWD_phase0.md`
 - Raw consultation transcript: `prompt/artifacts/tasks/T102/consultant/raw/raw_T102-CDW_phase0_2026-01-22_p5.md`

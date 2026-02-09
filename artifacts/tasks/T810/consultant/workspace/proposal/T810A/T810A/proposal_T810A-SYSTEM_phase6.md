@@ -410,7 +410,7 @@ S10 (Integration) | T810A1-INT-002/004/005 | → T810A-IG-004/005/006 | Referenc
 
 ### Context
 
-This subsection ensures all 6 Epic GDRs can properly reference promoted E-RIDs without broken references, circular dependencies, or precedence violations per T102-ADR-005-FR-003.
+This subsection ensures all 6 Epic GDRs can properly reference promoted E-RIDs without broken references, circular dependencies, or precedence violations per T102-STD-005-FR-003.
 
 ### Validation Method: GDR Dependency Tracing
 
@@ -537,7 +537,7 @@ GDR-006 (Dual-Purpose Clinical Reporting) | T810A1-INT-002, IF-005, NFR-002, DEP
 - [ ] No precedence violations (GDRs not referencing lower-scope items inappropriately)
 - [ ] GDR content abstracted to Epic level (no "Block 4", A1-specific workflow steps, etc.)
 - [ ] GDR architectural details moved to Epic ADRs with proper linking (if Decision D-6 = create ADRs now)
-- [ ] Formal reference syntax used per T102-ADR-005 (backticks, ID + Title format)
+- [ ] Formal reference syntax used per T102-STD-005 (backticks, ID + Title format)
 
 ## VI. SECTION 5.5: IMPLEMENTATION SEQUENCE DEPENDENCY ANALYSIS
 
@@ -1045,7 +1045,7 @@ This subsection ensures post-migration validation checklist covers all critical 
 #### Category 2: E-RID Formal Compliance
 
 **Validation Checks:**
-- [ ] All E-RID IDs follow T102-ADR-005 format: `{SCOPE_ID}-{CATEGORY}-{NNN}` (e.g., T810A-QG-001)
+- [ ] All E-RID IDs follow T102-STD-005 format: `{SCOPE_ID}-{CATEGORY}-{NNN}` (e.g., T810A-QG-001)
 - [ ] All E-RID titles present in format: `**<ID> (<Title>)** — <description>` on single line
 - [ ] Category tokens correct for Epic scope: ASSUM, DEP, CON, QG, IG (no FR/NFR/IF/INT at Epic level)
 - [ ] Numbering sequential within categories (no gaps: QG-001, QG-002, QG-003... not QG-001, QG-003, QG-007)
@@ -1054,7 +1054,7 @@ This subsection ensures post-migration validation checklist covers all critical 
 #### Category 3: Cross-Reference Integrity
 
 **Validation Checks:**
-- [ ] All E-RID internal references use backtick format: `T810A-QG-001 (Title)` or `T810A-QG-001` per T102-ADR-005-FR-006
+- [ ] All E-RID internal references use backtick format: `T810A-QG-001 (Title)` or `T810A-QG-001` per T102-STD-005-FR-006
 - [ ] All GDR E-RID references updated from F-RIDs to E-RIDs (no T810A1-NFR-* in GDR bodies)
 - [ ] All E-RID → GDR references valid (Epic RIDs can reference Epic GDRs per precedence rules)
 - [ ] No circular references (E-RID references GDR that references same E-RID)

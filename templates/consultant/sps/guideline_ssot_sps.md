@@ -24,15 +24,15 @@ The SPS template and this guideline are governed by the following ADRs (ADR-ID o
 
 | SPS Section / Concern | Relevant ADR IDs |
 | --- | --- |
-| SPS role + artifact boundary (SPS vs Request vs Concept vs Design) | `T102-ADR-001` |
-| Canonical YAML header patterns (identity, status, dates, enums) | `T102-ADR-002` |
-| Inheritance model + Inherited Considerations tables | `T102-ADR-003` |
-<!-- | Decision record index conventions (where referenced/linked) | `T102-ADR-004` | -->
-| ID taxonomy, formatting, and reference semantics | `T102-ADR-005` |
-| Research index conventions (RES tables + link-don’t-duplicate) | `T102-ADR-006` |
-| Issues & Risks table conventions | `T102-ADR-007` |
-| Organisation baseline (Role Definitions + RACI stability) | `T102-ADR-008` |
-| Governance Standards Specification | `T102-ADR-009` |
+| SPS role + artifact boundary (SPS vs Request vs Concept vs Design) | `T102-STD-001` |
+| Canonical YAML header patterns (identity, status, dates, enums) | `T102-STD-002` |
+| Inheritance model + Inherited Considerations tables | `T102-STD-003` |
+<!-- | Decision record index conventions (where referenced/linked) | `T102-STD-004` | -->
+| ID taxonomy, formatting, and reference semantics | `T102-STD-005` |
+| Research index conventions (RES tables + link-don’t-duplicate) | `T102-STD-006` |
+| Issues & Risks table conventions | `T102-STD-007` |
+| Organisation baseline (Role Definitions + RACI stability) | `T102-STD-008` |
+| Governance Standards Specification | `T102-STD-009` |
 
 ## III. TEMPLATE RULES (LOCKED)
 
@@ -151,7 +151,7 @@ Rule of thumb:
 - `Reference` lists the upstream IDs this standard relies on (do not duplicate their body text).
 
 Legacy note:
-- Some older SPS drafts used `GDR` indices inside SPS. Under the current operating model, enforceable governance uses `STD`, and architectural decisions are canonized in Concept as ADRs. See `T102-ADR-001`, `T102-ADR-004`.
+- Some older SPS drafts used `GDR` indices inside SPS. Under the current operating model, enforceable governance uses `STD`, and architectural decisions are canonized in Concept as ADRs. See `T102-STD-001`, `T102-STD-004`.
 
 #### 8. Project Guidances & Notes
 

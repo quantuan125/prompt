@@ -34,6 +34,24 @@ This guideline is intended to be referenced by initiative roadmaps (e.g., `T104`
   - a **Task Register** (preferred), and/or
   - a short checklist (only when a full Task Register is unnecessary)
 
+### C. Roadmap Types (Thin Spine vs Phase Execution)
+
+Roadmaps may be authored in one of two common shapes:
+
+1) **Initiative Master Roadmap (“Thin Spine”)**
+   - Purpose: a phase register + links + compact epic status snapshot (navigation spine).
+   - MUST remain thin: no Stream/Activity/Task execution detail.
+   - Points to phase plans and/or epic roadmaps for operational detail.
+
+2) **Phase Roadmap / Phase Plan (Execution Surface)**
+   - Purpose: operational sequencing for a specific phase.
+   - MAY include Stream Register, Activity Register, and Activity Task Registers.
+   - Uses the Phase → Stream → Activity → Task hierarchy for toolable coordination.
+
+**Recommended frontmatter pointers (optional)**:
+- `procedural_guideline`: canonical pointer to this guideline.
+- `ssot_sps_target`, `ssot_concept_target`: pointers to SSOT surfaces (when applicable).
+
 ---
 
 ## III. REGISTER RULES
@@ -102,4 +120,3 @@ Notes:
   - comma-separated list of prerequisite **Stream IDs** and/or **Activity IDs** (e.g., `1`, `1.1`, `2.2`)
   - use `—` if none
 - **Rule**: `Depends On` is the enforceable constraint; `Execution Mode` is the coordination intent.
-

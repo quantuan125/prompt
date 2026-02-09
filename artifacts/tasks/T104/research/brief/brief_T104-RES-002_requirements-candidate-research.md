@@ -26,7 +26,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 1. Inventories every empty SPS Section III.B category against internal project decisions, raw transcripts, and the T102 initiative's established standards/interfaces.
 2. Grounds proposed candidates against industry-standard PM documents and tools (both traditional and LLM-agentic) for the discovery and define phase of software engineering consultancy workflows.
 3. Assesses whether the current 7-epic set (T104A–T104G) is appropriate for T104's PM-heavy, timeline-horizon scope or whether specific epics should be deferred to future initiatives.
-4. Synthesizes findings into a draft candidate IID register conforming to `T102-ADR-005 (ID Specification & Rules)`.
+4. Synthesizes findings into a draft candidate IID register conforming to `T102-STD-005 (ID Specification & Rules)`.
 
 **Target Deliverable**: A research report consumed by `LLM_Consultant` to:
 - Pre-fill a candidate register for AC002 consultation (all candidates marked "to be validated").
@@ -34,7 +34,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 - Identify any new issues/risks beyond those inherited from `T104-RES-001`.
 - Deliver a clear Keep/Defer/Merge/Remove recommendation per epic.
 
-**Research Focus Note**: This brief primarily targets **RID candidates** (ASSUM, CON, QG, DEP, IF, STD) and **OID candidates** (NOTE, ISSUE, RISK) at initiative scope. IID candidates (IG, INT) should only be proposed if critically important. Any `INT` items proposed must follow `T102-ADR-005-CLAUSE-005C (Integration Notes Rules)` strictly — INT at initiative scope is reserved for non-normative cross-initiative integration guidance (e.g., proposed additional RIDs for T102 or new initiatives that may cover needs identified by T104 RIDs). The research report must not propose INT items as a substitute for normative requirements.
+**Research Focus Note**: This brief primarily targets **RID candidates** (ASSUM, CON, QG, DEP, IF, STD) and **OID candidates** (NOTE, ISSUE, RISK) at initiative scope. IID candidates (IG, INT) should only be proposed if critically important. Any `INT` items proposed must follow `T102-STD-005-CLAUSE-005C (Integration Notes Rules)` strictly — INT at initiative scope is reserved for non-normative cross-initiative integration guidance (e.g., proposed additional RIDs for T102 or new initiatives that may cover needs identified by T104 RIDs). The research report must not propose INT items as a substitute for normative requirements.
 
 ## II. RESEARCH SCOPE & TOPICS
 
@@ -143,19 +143,19 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 **Deliverable**: A Keep/Defer/Merge/Remove recommendation table per epic with rationale, impact assessment, and dependency implications.
 
 #### Topic 8: Candidate IID Register (P1)
-**Objective**: Synthesize all findings from Topics 1–7 into a draft candidate register conforming to `T102-ADR-005 (ID Specification & Rules)`.
+**Objective**: Synthesize all findings from Topics 1–7 into a draft candidate register conforming to `T102-STD-005 (ID Specification & Rules)`.
 **Context**: This register is the primary input to AC002 consultation. Every candidate must be marked "to be validated" and traceable to its source evidence.
 
-**Construction Rules** (per `T102-ADR-005`):
+**Construction Rules** (per `T102-STD-005`):
 * All IDs MUST match Pattern 2: `^T\d{3}(?:[A-Z]\d*)?(?:-[A-Z0-9_]+)*-[A-Z]+-\d{3}$`
 * Markdown format: `* **<ID> (<Title>)** — <Description>`
 * Title constraints: RIDs/OIDs: 2–3 words (hyphenated compounds = 1 word)
-* Category tokens MUST be selected from the allowed set for Initiative scope per `T102-ADR-005-CLAUSE-002`
-* ASSUM candidates MUST include the lifecycle table per `T102-ADR-005-CLAUSE-005A`
-* INT candidates (if any) MUST follow `T102-ADR-005-CLAUSE-005C` — non-normative cross-initiative integration only
-* NOTE candidates MUST follow `T102-ADR-005-CLAUSE-005E` — ≤200 words, non-normative, link-don't-duplicate
+* Category tokens MUST be selected from the allowed set for Initiative scope per `T102-STD-005-CLAUSE-002`
+* ASSUM candidates MUST include the lifecycle table per `T102-STD-005-CLAUSE-005A`
+* INT candidates (if any) MUST follow `T102-STD-005-CLAUSE-005C` — non-normative cross-initiative integration only
+* NOTE candidates MUST follow `T102-STD-005-CLAUSE-005E` — ≤200 words, non-normative, link-don't-duplicate
 * ISSUE/RISK candidates continue sequential numbering from RES-001's last used numbers (T104-ISSUE-004, T104-RISK-003)
-* Reference semantics per `T102-ADR-005-CLAUSE-004`: formal references in tables, short-hand in prose
+* Reference semantics per `T102-STD-005-CLAUSE-004`: formal references in tables, short-hand in prose
 
 **Deliverable**: A complete candidate register table per III.B section with: ID × Title × Description × Source Evidence × Validation Status ("candidate — to be validated in AC002").
 
@@ -164,8 +164,8 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 ## III. CONSTRAINTS, ASSUMPTIONS & METHODOLOGY
 
 ### A. Constraints
-* **ID Conformance**: All proposed candidate IDs MUST conform to `T102-ADR-005 (ID Specification & Rules)`. The researcher MUST load the current T102-ADR-005 specification (via `python3 prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`) and use it as the authoritative reference for ID construction, token selection, and reference semantics.
-* **RID Focus**: The primary focus is RID candidates (ASSUM, CON, QG, DEP, IF, STD) and OID candidates (NOTE, ISSUE, RISK). IID candidates (IG, INT) should only be proposed if critically important. INT items at initiative scope are reserved for non-normative cross-initiative integration guidance per `T102-ADR-005-CLAUSE-005C`.
+* **ID Conformance**: All proposed candidate IDs MUST conform to `T102-STD-005 (ID Specification & Rules)`. The researcher MUST load the current T102-STD-005 specification (via `python3 prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`) and use it as the authoritative reference for ID construction, token selection, and reference semantics.
+* **RID Focus**: The primary focus is RID candidates (ASSUM, CON, QG, DEP, IF, STD) and OID candidates (NOTE, ISSUE, RISK). IID candidates (IG, INT) should only be proposed if critically important. INT items at initiative scope are reserved for non-normative cross-initiative integration guidance per `T102-STD-005-CLAUSE-005C`.
 * **Candidate-only**: All proposed items are candidates for AC002 consultation validation. The researcher MUST NOT present candidates as approved or final.
 * **No SSOT modification**: This research produces a report only; it does not modify the SPS or any other SSOT artifact.
 * **Repo-first evidence**: Internal claims MUST cite specific repo files.
@@ -184,7 +184,7 @@ If sources conflict, the report MUST:
 3. Recommend a resolution (do not silently override).
 
 Recommended precedence for this research:
-1. **`T102-ADR-005` specification** — Canonical authority for all ID construction and referencing rules.
+1. **`T102-STD-005` specification** — Canonical authority for all ID construction and referencing rules.
 2. **Project governance standards already adopted** (T102 SSOT + standards + ADRs).
 3. **Client decisions captured in session notes** (SES001/SES002 decisions are confirmed commitments).
 4. **Internal exemplars in this repo** (how the project actually operates today).
@@ -225,7 +225,7 @@ Recommended precedence for this research:
 * ST001 Consultation Dialogue: `prompt/artifacts/tasks/T104/raw/raw_T104-CWS_2026-02-02_p3.txt`
 
 ### E. ID Governance
-* T102-ADR-005 Specification (load via script): `python3 prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
+* T102-STD-005 Specification (load via script): `python3 prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
 
 ### F. Templates & Standards
 * SPS Structural Template: `prompt/templates/consultant/sps/sps_structural_template.md`
@@ -256,9 +256,9 @@ The research report MUST use the standard template located at:
 3. **Candidate Register (Topic 8)**: MUST use the following table format per III.B section:
    | Candidate ID | Title | Description | Source (Topic #) | Evidence | Validation Status |
    |:--|:--|:--|:--|:--|:--|
-   - All Candidate IDs MUST conform to `T102-ADR-005-CLAUSE-001` (Pattern 2).
-   - All titles MUST conform to `T102-ADR-005-CLAUSE-001` title constraints (2–3 words for RIDs/OIDs).
-   - ASSUM candidates MUST additionally include the lifecycle table per `T102-ADR-005-CLAUSE-005A`.
+   - All Candidate IDs MUST conform to `T102-STD-005-CLAUSE-001` (Pattern 2).
+   - All titles MUST conform to `T102-STD-005-CLAUSE-001` title constraints (2–3 words for RIDs/OIDs).
+   - ASSUM candidates MUST additionally include the lifecycle table per `T102-STD-005-CLAUSE-005A`.
    - Validation Status for all candidates: `candidate — to be validated in AC002`.
 
 4. **Epic Assessment (Topic 7)**: MUST use the following table format:
@@ -269,9 +269,9 @@ The research report MUST use the standard template located at:
 
 ---
 
-## VII. ISSUES & RISKS REGISTER (T102-ADR-007)
+## VII. ISSUES & RISKS REGISTER (T102-STD-007)
 
-The research report MUST include an "Issues & Risks" section that implements `T102-ADR-007 (Issues & Risks Index)` exactly.
+The research report MUST include an "Issues & Risks" section that implements `T102-STD-007 (Issues & Risks Index)` exactly.
 
 **Inherited from RES-001** (carry forward; update status if new evidence warrants):
 
@@ -327,8 +327,8 @@ Map research findings to the specific governance artifacts and activities they i
 ## IX. SUCCESS CRITERIA
 
 * The report provides a candidate IID register covering every III.B category (III.B.2–III.B.11) with at least one candidate per non-empty category, or an explicit "none identified" with rationale.
-* All candidate IDs conform to `T102-ADR-005` (Pattern 2, correct tokens for Initiative scope, correct title constraints).
-* ASSUM candidates include lifecycle tables per `T102-ADR-005-CLAUSE-005A`.
+* All candidate IDs conform to `T102-STD-005` (Pattern 2, correct tokens for Initiative scope, correct title constraints).
+* ASSUM candidates include lifecycle tables per `T102-STD-005-CLAUSE-005A`.
 * The T102 cross-integration inventory identifies all relevant T102 standards, interfaces, and dependencies with explicit dependency types and timing risk assessment.
 * The PM tools mapping covers at least two established frameworks (PRINCE2, PMI/PMBOK or equivalent) and at least one software engineering discovery/define methodology.
 * The agentic tools survey identifies at least three emerging pattern categories relevant to T104.

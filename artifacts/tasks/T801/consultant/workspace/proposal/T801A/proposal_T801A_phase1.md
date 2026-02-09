@@ -896,7 +896,7 @@ priority = `Low, Medium, High`
 
 ### Feature-Level Deferred Items
 
-**Purpose**: Aggregate Issues/Risks deferred from Epic scope to specific Feature development phases per T102-ADR-007-FR-009.
+**Purpose**: Aggregate Issues/Risks deferred from Epic scope to specific Feature development phases per T102-STD-007-FR-009.
 
 #### T801A2 (PineScript) Feature Issues
 <!-- GUIDANCE:
@@ -962,31 +962,31 @@ priority = `Low, Medium, High`
   - **Cross-Category Gaps Fixed**: Added explicit cross-references to DEP-001 (CON-001, ASSUM-004), DEP-003 (CON-003, ASSUM-005), IF-003 (IG-013, IG-014)
   - **Activity 1.3.3 Complete**: All E-RID, E-DR, and cross-category compliance verified
   - **OID Completeness**: RES, ISSUE, RISK categories complete; no NOTE items required
-- **v1.13.0** (2026-01-09): Task 1.3.3.2 E-DR T102-ADR-004/005 Compliance Updates:
+- **v1.13.0** (2026-01-09): Task 1.3.3.2 E-DR T102-STD-004/005 Compliance Updates:
   - **FR-001 (ADR Index)**: Added Owner, Effective, Supersedes, Anchor columns to E-ADR Index; retained Paired GDR
-  - **FR-006 (T102-ADR-005)**: Standardized ~85 bare ID references to fully-qualified short-hand in Section IV (GDR + ADR bodies)
+  - **FR-006 (T102-STD-005)**: Standardized ~85 bare ID references to fully-qualified short-hand in Section IV (GDR + ADR bodies)
   - **Alternatives Considered**: Set to "None" per consultancy QA (fabricated content removed from all 6 ADRs)
   - **Content Quality**: Trimmed verbose Context sections in GDR-005/GDR-006 (~30% reduction); trimmed ADR-001 FR-006
-  - **T102-ADR-004 Amendment**: FR-001 updated with separate GDR/ADR schema tables in concept file (v1.1.0)
+  - **T102-STD-004 Amendment**: FR-001 updated with separate GDR/ADR schema tables in concept file (v1.1.0)
 - **v1.12.1** (2026-01-09): Task 1.3.3.1 Additional E-RID Compliance Fixes:
   - **FR-006**: Replaced all unscoped local alias references (e.g., `IF-002`, `QG-007`) with fully-qualified `T801A-...` IDs within Section III
   - **FR-006**: Added external-only `Reference:` lines for E-RIDs that cite outside-Epic IDs (QG-005, IG-008)
   - **FR-009**: Extended ASSUM table with `If Invalidated` (Fallback/Escalation/Mitigation) response column
   - **FR-005**: Renamed QG-003/QG-004/IG-016 titles to meet 2–3 word minimum/maximum
   - **Clean-up**: Removed duplicate HTTP response guidance block in IG-015
-- **v1.12.0** (2026-01-08): Task 1.3.3.1 E-RID T102-ADR-005 Compliance Updates:
+- **v1.12.0** (2026-01-08): Task 1.3.3.1 E-RID T102-STD-005 Compliance Updates:
   - **FR-005**: Shortened IF-001/IF-002 titles to ≤3 words
   - **FR-006**: Standardized 13 in-body references to short-hand format
   - **FR-009**: Added ASSUM Validation Lifecycle Summary table above Section III.A
   - **FR-011**: Content refactoring for 6 E-RIDs (ASSUM-004/005, CON-003, QG-003/007, DEP-004)
   - **IF-001 Refactor**: Moved validation behavior content to IG-015
-- **v1.11.0** (2026-01-06): Activity 1.3.2 Risk Mitigation per T102-ADR-007:
+- **v1.11.0** (2026-01-06): Activity 1.3.2 Risk Mitigation per T102-STD-007:
   - **Section VI.B (Risks) Finalized**: All 9 Epic-level Risks updated with final statuses (5 MITIGATED, 2 ACCEPTED, 2 promoted to Feature) and Mitigation Notes citing governing E-RIDs
   - **T801A1 Feature Risks Added**: RISK-006/009 promoted to `T801A1-RISK-001/002` for T801A1 (Backend) Feature scope
   - **Activity 1.3.2 Status**: Task 1.3.2.3 (Risk Mitigation) complete; proceeding to Task 1.3.2.4 (Cross-Reference Validation)
-- **v1.10.0** (2026-01-06): Activity 1.3.2 Issue Resolution per T102-ADR-007:
+- **v1.10.0** (2026-01-06): Activity 1.3.2 Issue Resolution per T102-STD-007:
   - **Section VI.A (Issues) Finalized**: All 8 Epic-level Issues updated with final statuses (4 RESOLVED, 4 DEFERRED) and Resolution Notes citing governing E-RIDs
-  - **Feature-Level Subsection Created**: New "Feature-Level Deferred Items" subsection added per T102-ADR-007-FR-009
+  - **Feature-Level Subsection Created**: New "Feature-Level Deferred Items" subsection added per T102-STD-007-FR-009
   - **T801A2 Feature Issues Added**: ISSUE-007/008 promoted to `T801A2-ISSUE-001/002` for T801A2 (PineScript) Feature scope
   - **Activity 1.3.2 Status**: Task 1.3.2.2 (Issue Resolution) complete; proceeding to Task 1.3.2.3 (Risk Mitigation)
 - **v1.9.0** (2026-01-05): T801A-RES-002 research integration + Activity 1.3.1/1.3.3 completion:
