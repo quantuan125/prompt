@@ -17,7 +17,7 @@
 ### consultant/standards
 - `T102-STD-005_id-specification-rules.md`
 - `T102-STD-009_governance-standards-specification.md`
-- `T102-STD-004_decision-records-standard.md`
+- `T102-STD-004_specification-standard-and-guideline.md`
 
 ### T102B/standards
 - `T102B-STD-001_request-architecture-standard.md`

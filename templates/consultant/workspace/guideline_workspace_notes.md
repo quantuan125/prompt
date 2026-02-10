@@ -12,7 +12,7 @@
 A Stream Notes Register is the navigation surface for a stream.
 
 - **File name**: `notes_<INIT>-PH###-ST###.md` (e.g., `notes_T104-PH001-ST001.md`)
-- **Role**: register only (summary + links). MUST NOT embed long-form records.
+- **Role**: register + optional stream-level sessions. Register section MUST NOT embed Activity-level long-form records. Stream-level sessions (§1.3) are the exception for meta/cross-activity content.
 - **Minimum sections**:
   1) Stream Summary
   2) Activity Notes Register (table)
@@ -24,6 +24,16 @@ An Activity Notes file contains the detailed records for a single plan Activity.
 - **File name**: `notes_<INIT>-PH###-ST###-AC###.md` (e.g., `notes_T104-PH001-ST001-AC002.md`)
 - **Recommended location**: `prompt/artifacts/tasks/<INIT>/workspace/notes/PH###/ST###/`
 - **Role**: the authoritative history/evidence surface for consultation outcomes tied to that Activity.
+
+### 1.3 Stream-Level Notes (Sessions)
+Stream-level sessions capture meta-discussions that span multiple activities within a stream (e.g., readiness assessments, cross-activity dependency analysis, pre-execution planning). These sessions do not belong to any single Activity.
+
+- **Location**: Embedded within the Stream Notes Register file (`notes_<INIT>-PH###-ST###.md`) under a dedicated `## III. STREAM-LEVEL SESSIONS` section, placed after the Activity Notes Register table.
+- **ID prefix**: `<INIT>-PH###-ST###` (stream-scoped, no AC component).
+  - Example: `T104-PH001-ST002-DP001`, `T104-PH001-ST002-DEC001`
+- **Session entry format**: Same structure as §6 (Agenda, Narrative, DP, DEC, ACT, OQ, Handoff).
+- **Constraint**: Stream-level sessions MUST NOT duplicate Activity-level decisions. They capture cross-activity coordination, meta-analysis, and stream-scoped planning only.
+- **When to use**: When a consultation session concerns the stream as a whole (readiness reviews, scope alignment, cross-activity planning) rather than a specific Activity's deliverables.
 
 ---
 
@@ -110,6 +120,8 @@ A Stream Notes Register row SHALL be added only when its corresponding Activity 
 When a consultation session concerns plan structure changes (activity consolidation, renumbering, scope adjustment) rather than new design/requirements work, the session SHALL be appended to the most recent completed Activity's notes file as a **Plan Amendment** session entry.
 
 **Rationale**: Plan amendments arise from completed work revealing the need for structural changes. Recording the amendment decision trail in the most recent completed Activity's notes preserves causal linkage without creating orphan notes files for activities that don't yet exist.
+
+**Stream-level alternative**: If the plan amendment concerns a stream that has no completed Activities (all `planned`), the session MAY be recorded as a stream-level session (§1.3) in the Stream Notes Register file instead.
 
 **Rule**:
 - Plan amendment sessions use the standard session entry structure (§6) with the heading suffix `(Plan Amendment)`.

@@ -240,6 +240,7 @@ The current system lacks a formalized, end-to-end workflow for transforming a cl
 | `T102-RES-001` | **Research Integration Workflow** | Established three-tier placement strategy, LLM quality control framework, RES-### ID system; recommended dedicated Epic T102E for implementation | `T102-ISSUE-005`, `T102-GDR-006`, `T102-GDR-007` | [brief](../research/brief/brief_T102-CONSULTANT_research-integration-workflow.md) | [report](../research/report/report_T102-CONSULTANT_research-integration-workflow.md) |
 | `T102-RES-002` | **Roadmap Viability** | Confirmed governance snapshot approach aligns with PRINCE2/PMI/SAFe standards; validated hybrid model with governance milestones in SPS and operational plans external | `T102A-GDR-001`, `T102C-GDR-003`, `T102C-GDR-005` | [brief](../research/brief/brief_T102-CONSULTANT_roadmap-viability.md) | [report](../research/report/report_T102-CONSULTANT_roadmap-viability.md) |
 | `T102-RES-003` | **Initiative Status Assessment** | Assessed initiative status, bottlenecks, and documentation debt; identified YAML/header and register integrity gaps requiring follow-on hygiene work | `T102-GDR-002`, `T102-ISSUE-005` | [brief](../research/brief/brief_T102-RES-003_initiative-status-assessment.md) | [report](../research/report/report_T102-RES-003_initiative-status-assessment.md) |
+| `T102-RES-004` | **Issues & Risks Architecture** | Evaluated I&R hosting architecture across SPS/Request/Concept and recommended SPS-only baseline with hybrid exception path and `T102-STD-007` amendment deltas | `T102-STD-007`, `T102-ISSUE-004`, `T102-RISK-004` | [brief](../research/brief/brief_T102-RES-004_issues-risks-architecture.md) | [report](../research/report/report_T102-RES-004_issues-risks-architecture.md) |
 
 
 #### 10. Issues & Risks
@@ -337,7 +338,7 @@ To refactor and formalize the **SPS (Synthesized Problem Statement)** artifact a
 **Phase & Gates**
 | Phase | Title | Intent | Key Exit Milestone | Duration Band | Gate Approver (A) | Phase Lead (R) | Plan Link |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| 1 | Foundation | Complete epic definition & baseline establishment | Foundation Readiness: Epic `T102A` approved with stable E-IDs and GDRs; SPSST design baseline complete and validated through iterative consultancy | 2-3w | `Client` | `LLM_Consultant` | — |
+| 1 | Foundation | Complete epic definition & baseline establishment | Foundation Readiness: Epic `T102A` approved with stable E-IDs and GDRs; SPSST design baseline complete and validated through iterative consultancy | 2-3w | `Client` | `LLM_Consultant` | [plan_T102A-PH001.md](../../T102A/workspace/plan/plan_T102A-PH001.md) |
 | 2 | Template Design | Develop & validate `T102A-SPSST` structural template | Template Validation: SPSST enables functional SPS creation; this document (`sps_T102-CONSULTANT.md`) serves as validated working exemplar | 3-4w | `Client` | `LLM_Consultant` | — |
 | 3 | Process Design | Develop `T102A-SPSPG` procedural guideline | Process Usability: SPSPG enables consistent, client-friendly SPS authoring; authoring workflow integrates with downstream Request handoff per `T102-GDR-001` | 2-3w | `Client` | `LLM_Consultant` | — |
 | 4 | Integration | Develop `T102A-MANIFEST` & package validation | Package Completeness: MANIFEST enables template versioning, lineage tracking, and adoption measurement; all features pass integration checklist | 1-2w | `Client` | `LLM_Consultant` | — |
@@ -930,6 +931,8 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
 | `T102B-ISSUE-006` | Missing IG Inventory | No implementation guidance exists to operationalize authoring rules | Client | `RESOLVED` | `HIGH` | 2026-01-17 | Addressed by Activity 2.3; see `T102B-IG-001` through `T102B-IG-006` in Proposal Section III.C | 2026-01-20 |
 | `T102B-ISSUE-007` | Missing Phase & Gates Snapshot | SSOT Governance & Roadmap table was empty | LLM_Consultant | `RESOLVED` | `HIGH` | 2026-01-15 | Populated in Subphase 1 Activity 1.4 with Phase 0/1A/1B/2 structure | 2026-01-17 |
 | `T102B-ISSUE-008` | Feature Register Missing RLITE | T102B4 (RLITE) was missing from SSOT Feature Register | LLM_Consultant | `RESOLVED` | `HIGH` | 2026-01-15 | T102B4 added in Subphase 1 Activity 1.5 with `in-discovery` status | 2026-01-17 |
+| `T102B-ISSUE-009` | Story Index Schema Promotion | Promote Story Index schema alignment tracking from Feature scope to Epic scope during AC002.1 remediation | LLM_Consultant | `IN-REVIEW` | `MEDIUM` | 2026-02-10 | Promoted from `T102B1-ISSUE-001`; supersession target for cross-scope governance tracking under `T102B-STD-002 (Section Classification Standard)` and `T102B-STD-003 (Story FR Deferral Standard)` | — |
+| `T102B-ISSUE-010` | Classification Marker Promotion | Promote section-classification marker consistency tracking from Feature scope to Epic scope during AC002.1 remediation | LLM_Consultant | `IN-REVIEW` | `LOW` | 2026-02-10 | Promoted from `T102B1-ISSUE-002`; supersession target for epic-level marker and applicability governance under `T102B-STD-002 (Section Classification Standard)` | — |
 
 **Risks**
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Mitigation Notes | Mitigation Date |
@@ -938,6 +941,7 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
 | `T102B-RISK-002` | Gate Evidence Undefined | Approval criteria remain implicit; inconsistent gate enforcement | Client | `MITIGATED` | `MEDIUM` | 2026-01-17 | Gate evidence framework established; see `T102B-STD-003 (Gate Evidence Standard)`, `T102B-IG-005 (Gate Evidence Checklist)`; operational enforcement deferred to Phase 1 RPG development | 2026-01-22 |
 | `T102B-RISK-003` | Documentation Trap | Story-level FRs at Request stage block MVP delivery; over-specification | Client | `MONITORED` | `HIGH` | 2026-01-17 | Mitigated via `T102B-CON-002 (No Story FR Mandate)`, `T102B-STD-003 (Story FR Deferral Standard)`; ongoing monitoring required to prevent documentation creep | — |
 | `T102B-RISK-005` | Workflow Undifferentiation | Heavyweight docs applied to lightweight changes; adoption friction | Client | `MONITORED` | `MEDIUM` | 2026-01-17 | Mitigated via `T102B-STD-004 (Request Lite Specification)`, `T102B-IG-004 (Request Lite Selection)`; ongoing monitoring for RLITE adoption patterns | — |
+| `T102B-RISK-006` | Request-Template Drift Promotion | Promote self-hosting drift monitoring from Feature scope to Epic scope so Request and template structures remain aligned across AC003/AC004 | LLM_Consultant | `MONITORED` | `LOW` | 2026-02-10 | Promoted from `T102B1-RISK-001`; monitor via `T102B-STD-002 (Section Classification Standard)` traceability checks during AC003/AC004 execution | — |
 
 #### 3. `T102C` Epic: `CONCEPT` — Conceptual Solution Workflow
 ```yaml
@@ -1409,4 +1413,5 @@ By signing off, stakeholders agree that the problems and requirements detailed i
 ## IX. CHANGELOG
 
 *   **v1.1.0:** Initial SPS creation documenting the problem of linking two templates.
+*   **v1.2.0:** Registered T102A and T102B phase 1 planning links; updated T102A status and roadmap reference.
 

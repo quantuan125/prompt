@@ -1,5 +1,5 @@
-version: '0.10.0'
-date: '2026-02-09'
+version: '0.14.0'
+date: '2026-02-10'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -79,7 +79,8 @@ Decisions below are treated as authoritative for Phase 1 planning as of **2026-0
 | 1 | `T102-PH001-ST001` | Template Redesign + Spec Modularization (Merged ST006+ST007) | GATED | ST000 | `completed` | `plan_T102-PH001-ST001.md`; Model D decision locked; ADR Index schema + extraction inventory; governance deltas + packaging decision recorded + AC005: ADR-004 golden exemplar + AC006: STD-Contains-CLAUSE governance migration + AC007: STD-004 retitle + global reference propagation + migration script hardening |
 | 2 | `T102-PH001-ST002` | T102-STD Baselining & Adoption Closure | PARALLEL | ST001 | `planned` | `plan_T102-PH001-ST002.md`; STD adoption/verification gaps resolved; SSOT references aligned (including ADR-009 exemplar reconciliation) |
 | 3 | `T102-PH001-ST003` | SSOT Refactor Rollout & Validation (Model D, Concept) | GATED | ST001 | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST003.md`; Model D rollout executed + validation checklist evidence |
-| 4 | `T102-PH001-ST004` | Initiative Research Commissioning | PARALLEL | — | `planned` | `plan_T102-PH001-ST004.md`; commission `T102-RES-004/005/006/007` (brief + report + integration recommendations) |
+| 4 | `T102-PH001-ST004` | Initiative Research Commissioning | PARALLEL | — | `in_progress` | `plan_T102-PH001-ST004.md`; commission `T102-RES-004/005/006` (brief + report + integration recommendations) |
+| 5 | `T102-PH001-ST005` | Standards Amendment Execution (Research-Driven) | GATED | ST004 (gate-level per AC); coordination with ST002 | `planned` | `plan_T102-PH001-ST005.md`; STD-007/003/006/001 clause amendments per research integration recommendations |
 
 **Gates (Phase 1)**:
 - **No SSOT refactor rollout work** begins until `T102-PH001-ST001-AC002` (ADR Index schema + extraction conventions), `T102-PH001-ST001-AC003` (governance deltas + bounded rollout changeset plan), `T102-PH001-ST001-AC005` (golden exemplar accepted), and `T102-PH001-ST001-AC006` (STD-Contains-CLAUSE governance migration) are completed. (Satisfied 2026-02-08.)
@@ -87,6 +88,13 @@ Decisions below are treated as authoritative for Phase 1 planning as of **2026-0
 - **All streams (ST002, ST003) were blocked** until ST001-AC006 completed (STD-contains-CLAUSE migration must land first). (Unblocked 2026-02-08.)
 - ST002-AC002-TK005 (ADR-009 exemplar reconciliation) is blocked until ST003-AC001 completes and delivers `T102-STD-009`.
 - ST002-AC004 (SSOT alignment plan) depends on ST003-AC001 for the final STD file inventory.
+- **ST005 activities are individually gated** on their corresponding ST004 research GATE-003 approvals:
+  - ST005-AC001 depends on ST004-AC001 GATE-003 (passed 2026-02-09)
+  - ST005-AC002 depends on ST004-AC002 GATE-003 (passed 2026-02-10)
+  - ST005-AC003 depends on ST004-AC002 GATE-003 (passed 2026-02-10)
+  - ST005-AC004 depends on ST004-AC003 GATE-003 (passed 2026-02-10)
+  - ST005-AC005 depends on ST004-AC002 GATE-003 (passed 2026-02-10)
+- ST005 has a coordination dependency (non-blocking) on ST002: amendments should align with ST002's normalized adoption/verification pattern.
 
 ### Activity Register (Phase-level)
 
@@ -104,10 +112,14 @@ Decisions below are treated as authoritative for Phase 1 planning as of **2026-0
 | 2 | AC003 | `T102-PH001-ST002-AC003` | SSOT alignment (SPS + Concept reference hygiene) | `planned` | LLM_Consultant | AC002 | SSOT reference alignment changeset plan |
 | 3 | AC001 | `T102-PH001-ST003-AC001` | Execute STD Migration for Remaining Standards | `completed` | LLM_Developer | ST001-AC007 | 16 STD files migrated + Concept indexes normalized + inline bodies removed |
 | 3 | AC002 | `T102-PH001-ST003-AC002` | Validation & Handoff | `completed` | LLM_Consultant | AC001 | Verification checklist evidence + closure note + ST002 unblock |
-| 4 | AC001 | `T102-PH001-ST004-AC001` | Commission `T102-RES-004` (Issues & Risks Architecture) | `planned` | LLM_Consultant | — | Brief + report + integration recommendations |
-| 4 | AC002 | `T102-PH001-ST004-AC002` | Commission `T102-RES-005` (Inherited Considerations Viability) | `planned` | LLM_Consultant | — | Brief + report + integration recommendations |
-| 4 | AC003 | `T102-PH001-ST004-AC003` | Commission `T102-RES-006` (Research Index Placement & Governance) | `planned` | LLM_Consultant | — | Brief + report + integration recommendations |
-| 4 | AC004 | `T102-PH001-ST004-AC004` | Commission `T102-RES-007` (Concept Role + Dynamic SSOT Registers) | `planned` | LLM_Consultant | — | Brief + report + integration recommendations |
+| 4 | AC001 | `T102-PH001-ST004-AC001` | Commission `T102-RES-004` (Issues & Risks Architecture) | `completed` | LLM_Consultant | — | Brief + report + integration recommendations |
+| 4 | AC002 | `T102-PH001-ST004-AC002` | Commission `T102-RES-005` (Cross-Scope Coordination Architecture) | `completed` | LLM_Consultant | — | Brief + report + integration recommendations (absorbs Research Index Placement) |
+| 4 | AC003 | `T102-PH001-ST004-AC003` | Commission `T102-RES-006` (Concept Role + Dynamic SSOT Registers) | `in_progress` | LLM_Consultant | AC001 (GATE-002), AC002 (GATE-002) | Brief + report + integration recommendations |
+| 5 | AC001 | `T102-PH001-ST005-AC001` | Amend `T102-STD-007` (Issues & Risks Index) | `planned` | LLM_Consultant | ST004-AC001 GATE-003 (passed) | `T102-STD-007` v2.0.0 (Deltas 1-4 from RES-004) |
+| 5 | AC002 | `T102-PH001-ST005-AC002` | Amend `T102-STD-003` (Explicit Inheritance Model) | `planned` | LLM_Consultant | ST004-AC002 GATE-003 (passed) | `T102-STD-003` v2.0.0 (Deltas A1-A4 from RES-005) |
+| 5 | AC003 | `T102-PH001-ST005-AC003` | Amend `T102-STD-006` (Research Artifacts Index) | `planned` | LLM_Consultant | ST004-AC002 GATE-003 (passed) | `T102-STD-006` v2.0.0 (Deltas B1-B4 from RES-005) |
+| 5 | AC004 | `T102-PH001-ST005-AC004` | Amend `T102-STD-001` (Consultancy Operating Model) | `planned` | LLM_Consultant | ST004-AC003 GATE-003 (passed 2026-02-10) | `T102-STD-001` amended (Deltas A1-A5 from RES-006) |
+| 5 | AC005 | `T102-PH001-ST005-AC005` | Amend `T102-STD-005` (ID Specification & Rules) | `planned` | LLM_Consultant | ST004-AC002 GATE-003 (passed) | `T102-STD-005` amended (Deltas C1-C2 from RES-005) |
 
 ---
 
@@ -120,12 +132,14 @@ Decisions below are treated as authoritative for Phase 1 planning as of **2026-0
 | Plan | Stream 2 Plan (PH001-ST002) | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST002.md` |
 | Plan | Stream 3 Plan (PH001-ST003) | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST003.md` |
 | Plan | Stream 4 Plan (PH001-ST004) | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST004.md` |
+| Plan | Stream 5 Plan (PH001-ST005) | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md` |
 | Plan (parent) | T102 Master Plan | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST000.md` |
 | Roadmap (predecessor) | Phase 0 Roadmap | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/plan_T102-PH000.md` |
 | SSOT | T102 SPS | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` |
 | SSOT | T102 Concept | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
 | Proposal | ADR-004/ADR-005 Proposal | `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor-adr-004-005.md` |
 | Proposal | STD Migration Proposal | `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md` |
+| Analysis | RES-006 integration analysis | `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-006_integration-impact.md` |
 | Governance Rules | Workspace Rules | `prompt/templates/consultant/workspace/workspace_documentation_rules.md` |
 | Procedural Guideline | Roadmap Authoring Rules | `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md` |
 
@@ -156,3 +170,7 @@ Decisions below are treated as authoritative for Phase 1 planning as of **2026-0
 | v0.8.0 | 2026-02-08 | Amendment | Registered AC007 completion in ST001. Updated ST003 activity register to reflect major plan rewrite (v1.0.0). Added cross-stream dependency: ST002-AC002/AC004 depends on ST003-AC001. Added Phase 1 decision 10 (epic-level STD naming). |
 | v0.9.0 | 2026-02-09 | Plan Amendment | Reframed ST004 as a research commissioning program stream; expanded commissioned initiative research to `T102-RES-004/005/006/007` and updated Phase-level Activity Register accordingly. |
 | v0.10.0 | 2026-02-09 | Completion | ST003 closed: AC001 (`completed`) + AC002 (`completed`); Stream Register ST003 → `completed`; 17 STD files validated; ST002 dependencies unblocked; deferred P-STD-003 orphan refs noted in AC002 closure |
+| v0.11.0 | 2026-02-09 | Plan Amendment | Resequenced ST004 research program: collapsed old `T102-RES-006` into expanded `T102-RES-005`, renumbered former `T102-RES-007` to `T102-RES-006`, and reduced ST004 activity rows from AC001-AC004 to AC001-AC003. |
+| v0.12.0 | 2026-02-09 | Plan Amendment | Registered `T102-PH001-ST005` (Standards Amendment Execution, Research-Driven): 4 activities (AC001 STD-007 from RES-004, AC002-AC004 skeleton from RES-005/006); gate dependencies on ST004 per-AC GATE-003; coordination link with ST002; ST004-AC001 status aligned to `in_progress`. |
+| v0.13.0 | 2026-02-10 | Update | ST004: AC001 → completed, AC002 → completed, AC003 → in_progress; ST004 stream → in_progress. ST005: populated AC002/AC003 skeletons from RES-005 deltas; registered new AC005 (STD-005, Deltas C1-C2 per DEC007); updated gate dependency notes (ST004-AC002 GATE-003 passed). |
+| v0.14.0 | 2026-02-10 | Update | ST004-AC003 GATE-003 passed; ST005-AC004 gate dependency satisfied; RES-006 integration analysis added to Links; ST005 plan updated to v3.0.0 with AC004 fully populated |

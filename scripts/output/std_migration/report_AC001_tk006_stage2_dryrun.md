@@ -94,7 +94,7 @@
   - token_replacements: 12
 - `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
   - token_replacements: 93
-- `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md`
+- `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
   - token_replacements: 13
 - `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`
   - token_replacements: 3
@@ -3070,7 +3070,7 @@
  
  | STD ID | Title | Status | Owner | Effective | Supersedes | Current DR | Canonical Path |
  | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
- | `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
+ | `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
  
  
 -* **T102-STD-001 (Consultancy Operating Model)** {#t102-std-001-consultancy-model}
@@ -4899,11 +4899,11 @@
  ##### x. Epic Changelog
 ```
 
-### `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md`
+### `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
 
 ```diff
---- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
-+++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
+--- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
++++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
 @@ -9,7 +9,7 @@
       `ADR ID | Title | Authority STD | Status | Owner | Effective | Supersedes | Canonical Path`
  
@@ -5891,9 +5891,9 @@
  
  #### G. Session Handoff Pack
 @@ -143,8 +143,8 @@
- | 005 | References/Provenance are STD-level `##` sections (not inside DR body) | **Pass** | `rg` lines 217/226 show `## References` and `## Provenance` at top level in `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
- | 006 | No orphan `T102-STD-004` references remain inside STD-004 | **Pass** | `rg "T102-STD-004" .../T102-STD-004_decision-records-standard.md` → `OK_NO_T102_ADR_004_IN_STD_004` |
- | 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_decision-records-standard.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
+ | 005 | References/Provenance are STD-level `##` sections (not inside DR body) | **Pass** | `rg` lines 217/226 show `## References` and `## Provenance` at top level in `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
+ | 006 | No orphan `T102-STD-004` references remain inside STD-004 | **Pass** | `rg "T102-STD-004" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_T102_ADR_004_IN_STD_004` |
+ | 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
 -| 008 | ADR-005 taxonomy reflects `STDCID` + legacy `DRCID` + precedence update | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `STDCID` row + `[LEGACY — migration to STDCID in progress]` and precedence: `SID > RESID > RID > STDCID > DRID > DRCID [legacy]...` |
 -| 009 | ADR-005 semantics define standard nested ADR construction (`CLAUSE-005F`) | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `T102-STD-005-CLAUSE-005F (Standard Decision Record Semantics)` with format `<STD-ID>-ADR-###` |
 +| 008 | ADR-005 taxonomy reflects `STDCID` + legacy `DRCID` + precedence update | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `STDCID` row + `[LEGACY — migration to STDCID in progress]` and precedence: `SID > RESID > RID > STDCID > DRID > DRCID [legacy]...` |
@@ -6047,7 +6047,7 @@
 -| `T102-PH001-ST001-AC006-TK004` | ADR-005 Semantics Update (CLAUSE-005D + CLAUSE-005F) — Enhanced | `completed` | LLM_Consultant | TK003 | STD-CLAUSE construction + alias window; Standard Decision Record semantics (`<STD-ID>-ADR-###`) | — | Updated `T102-STD-005-CLAUSE-005D` and added `T102-STD-005-CLAUSE-005F` in `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`. |
 +| `T102-PH001-ST001-AC006-TK003` | ADR-005 Taxonomy Update (STDCID) — Enhanced | `completed` | LLM_Consultant | TK002 | `STDCID` added; `DRCID` marked legacy; `DRID` expanded for STD-nested ADR; category precedence updated | — | Updated taxonomy + precedence in `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` (STDCID + `[LEGACY] DRCID`; DRID allows `<STD-ID>-ADR-###`). |
 +| `T102-PH001-ST001-AC006-TK004` | ADR-005 Semantics Update (CLAUSE-005D + CLAUSE-005F) — Enhanced | `completed` | LLM_Consultant | TK003 | STD-CLAUSE construction + alias window; Standard Decision Record semantics (`<STD-ID>-ADR-###`) | — | Updated `T102-STD-005-CLAUSE-005D` and added `T102-STD-005-CLAUSE-005F` in `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`. |
- | `T102-PH001-ST001-AC006-TK005` | Golden Exemplar Rebuild (STD-004) ★ CRITICAL — Enhanced | `completed` | LLM_Consultant | TK004 | `T102-STD-004` combined file created with nested ADR + STD-level References/Provenance | — | Created `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md`; removed legacy ADR-004 exemplar; nested `T102-STD-004-ADR-001`; STD-level `## References`/`## Provenance`. |
+ | `T102-PH001-ST001-AC006-TK005` | Golden Exemplar Rebuild (STD-004) ★ CRITICAL — Enhanced | `completed` | LLM_Consultant | TK004 | `T102-STD-004` combined file created with nested ADR + STD-level References/Provenance | — | Created `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`; removed legacy ADR-004 exemplar; nested `T102-STD-004-ADR-001`; STD-level `## References`/`## Provenance`. |
  | `T102-PH001-ST001-AC006-GATE-001` | Client Review of Golden Exemplar | `passed` | Client | TK005 | Review decision (pass/fail) | — | Passed (2026-02-08); evidence recorded in `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC006.md` (TK011 checklist). |
  | `T102-PH001-ST001-AC006-TK006` | SPS Update — Enhanced | `completed` | LLM_Consultant | GATE-001 | SPS references updated to `T102-STD-004-CLAUSE-*` + nested ADR ID | — | Updated `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` to reference `T102-STD-004-CLAUSE-*` and `T102-STD-004-ADR-001`. |
 @@ -101,7 +101,7 @@
@@ -6349,7 +6349,7 @@
 -- [x] `T102-STD-005-CLAUSE-005D` updated; nested ADR semantics defined via `T102-STD-005-CLAUSE-005F`
 +- [x] `T102-STD-005-CLAUSE-002` taxonomy updated to add `STDCID` and mark `DRCID` as legacy
 +- [x] `T102-STD-005-CLAUSE-005D` updated; nested ADR semantics defined via `T102-STD-005-CLAUSE-005F`
- - [x] `T102-STD-004_decision-records-standard.md` exists; Spec-first; all 17 CLAUSEs use `T102-STD-004-CLAUSE-*`
+ - [x] `T102-STD-004_specification-standard-and-guideline.md` exists; Spec-first; all 17 CLAUSEs use `T102-STD-004-CLAUSE-*`
  - [x] SPS + Concept indexes updated to reference `T102-STD-004-CLAUSE-*` and list `T102-STD-004` under a dedicated Initiative STD Index
  - [x] Guideline/template aligned to STD+DR model; migration script + reports exist for ST003 reuse
 @@ -289,7 +289,7 @@
@@ -15958,7 +15958,7 @@
 -- `T102-STD-009_governance-standards-specification.md`
 +- `T102-STD-005_id-specification-rules.md`
 +- `T102-STD-009_governance-standards-specification.md`
- - `T102-STD-004_decision-records-standard.md`
+ - `T102-STD-004_specification-standard-and-guideline.md`
  
  ### T102B/standards
 -- `T102B-STD-001_request-architecture-standard.md`
@@ -17652,7 +17652,7 @@
 --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/scripts/output/std_migration/report_AC007_stage1_apply.md
 +++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/scripts/output/std_migration/report_AC007_stage1_apply.md
 @@ -39,23 +39,23 @@
- +| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
+ +| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
   
   
 - * **T102-STD-001 (Consultancy Operating Model)** {#t102-std-001-consultancy-model}
@@ -17708,7 +17708,7 @@
 --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/scripts/output/std_migration/report_AC007_stage1_dry_run.md
 +++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/scripts/output/std_migration/report_AC007_stage1_dry_run.md
 @@ -39,23 +39,23 @@
- +| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
+ +| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
   
   
 - * **T102-STD-001 (Consultancy Operating Model)** {#t102-std-001-consultancy-model}
@@ -18301,9 +18301,9 @@
   | `T102-PH001-ST001-AC005-DEC014` | ST003 migration scope: all T102 scope levels (initiative + epic); T102 only (not other initiatives) | Scope | Confirmed | Client | 2026-02-06 | Complete T102 migration (both `T102-*` and `T102B-*`/`T102C-*` files) while containing blast radius to T102 | Explicit approval | Client answer: "All scope levels but in T102 only" |
  @@ -217,7 +217,7 @@
 @@ -1378,8 +1378,8 @@
- -| 007 | No orphan `T102-ADR-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-ADR-004-CLAUSE-" .../T102-STD-004_decision-records-standard.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
- +| 006 | No orphan `T102-STD-004` references remain inside STD-004 | **Pass** | `rg "T102-STD-004" .../T102-STD-004_decision-records-standard.md` → `OK_NO_T102_ADR_004_IN_STD_004` |
- +| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_decision-records-standard.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
+ -| 007 | No orphan `T102-ADR-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-ADR-004-CLAUSE-" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
+ +| 006 | No orphan `T102-STD-004` references remain inside STD-004 | **Pass** | `rg "T102-STD-004" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_T102_ADR_004_IN_STD_004` |
+ +| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
 - | 008 | ADR-005 taxonomy reflects `STDCID` + legacy `DRCID` + precedence update | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `STDCID` row + `[LEGACY — migration to STDCID in progress]` and precedence: `SID > RESID > RID > STDCID > DRID > DRCID [legacy]...` |
 - | 009 | ADR-005 semantics define standard nested ADR construction (`CLAUSE-005F`) | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `T102-STD-005-CLAUSE-005F (Standard Decision Record Semantics)` with format `<STD-ID>-ADR-###` |
 + | 008 | ADR-005 taxonomy reflects `STDCID` + legacy `DRCID` + precedence update | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `STDCID` row + `[LEGACY — migration to STDCID in progress]` and precedence: `SID > RESID > RID > STDCID > DRID > DRCID [legacy]...` |
@@ -19995,7 +19995,7 @@
 +    `T102-STD-005 (ID Specification & Rules)`,
      `T102-RES-002 (Roadmap Viability)`
  @@ -83,8 +83,8 @@
-  --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
+  --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
 @@ -6202,20 +6202,20 @@
  @@ -44,7 +44,7 @@
      * **References** 
@@ -20040,7 +20040,7 @@
 +    `T102-STD-005 (ID Specification & Rules)`,
      `T102-RES-002 (Roadmap Viability)`
  @@ -83,8 +83,8 @@
-  --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
+  --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
 @@ -6265,11 +6265,11 @@
  @@ -29,7 +29,7 @@
      * **References**
@@ -20466,9 +20466,9 @@
  @@ -1335,7 +1335,7 @@
    | 5 | `plan_T102-PH001-ST003.md` | Dependency + extraction pattern update | TK002 |
 @@ -7143,8 +7143,8 @@
- +-| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_decision-records-standard.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
-  +| 006 | No orphan `T102-STD-004` references remain inside STD-004 | **Pass** | `rg "T102-STD-004" .../T102-STD-004_decision-records-standard.md` → `OK_NO_T102_ADR_004_IN_STD_004` |
-  +| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_decision-records-standard.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
+ +-| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
+  +| 006 | No orphan `T102-STD-004` references remain inside STD-004 | **Pass** | `rg "T102-STD-004" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_T102_ADR_004_IN_STD_004` |
+  +| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
 -  | 008 | ADR-005 taxonomy reflects `STDCID` + legacy `DRCID` + precedence update | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `STDCID` row + `[LEGACY — migration to STDCID in progress]` and precedence: `SID > RESID > RID > STDCID > DRID > DRCID [legacy]...` |
 -  | 009 | ADR-005 semantics define standard nested ADR construction (`CLAUSE-005F`) | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `T102-STD-005-CLAUSE-005F (Standard Decision Record Semantics)` with format `<STD-ID>-ADR-###` |
 +  | 008 | ADR-005 taxonomy reflects `STDCID` + legacy `DRCID` + precedence update | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `STDCID` row + `[LEGACY — migration to STDCID in progress]` and precedence: `SID > RESID > RID > STDCID > DRID > DRCID [legacy]...` |
@@ -22130,8 +22130,8 @@
 -     `T102-STD-005 (ID Specification & Rules)`,
 +     `T102-STD-005 (ID Specification & Rules)`,
  @@ -6159,8 +6159,8 @@
-   --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
-   +++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
+   --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
+   +++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
 @@ -11558,21 +11558,21 @@
  @@ -6195,7 +6195,7 @@
       * **References** 
@@ -22174,8 +22174,8 @@
 -     `T102-STD-005 (ID Specification & Rules)`,
 +     `T102-STD-005 (ID Specification & Rules)`,
  @@ -6231,8 +6231,8 @@
-   --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
-   +++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
+   --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
+   +++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
 @@ -11614,21 +11614,21 @@
  @@ -6258,7 +6258,7 @@
       * **References**
@@ -22839,9 +22839,9 @@
   | `T102-PH001-ST001-AC005-DEC014` | ST003 migration scope: all T102 scope levels (initiative + epic); T102 only (not other initiatives) | Scope | Confirmed | Client | 2026-02-06 | Complete T102 migration (both `T102-*` and `T102B-*`/`T102C-*` files) while containing blast radius to T102 | Explicit approval | Client answer: "All scope levels but in T102 only" |
  @@ -217,7 +217,7 @@
 @@ -1370,8 +1370,8 @@
- -| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_decision-records-standard.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
- +| 006 | No orphan `T102-STD-004` references remain inside STD-004 | **Pass** | `rg "T102-STD-004" .../T102-STD-004_decision-records-standard.md` → `OK_NO_T102_ADR_004_IN_STD_004` |
- +| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_decision-records-standard.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
+ -| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
+ +| 006 | No orphan `T102-STD-004` references remain inside STD-004 | **Pass** | `rg "T102-STD-004" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_T102_ADR_004_IN_STD_004` |
+ +| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
 - | 008 | ADR-005 taxonomy reflects `STDCID` + legacy `DRCID` + precedence update | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `STDCID` row + `[LEGACY — migration to STDCID in progress]` and precedence: `SID > RESID > RID > STDCID > DRID > DRCID [legacy]...` |
 - | 009 | ADR-005 semantics define standard nested ADR construction (`CLAUSE-005F`) | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `T102-STD-005-CLAUSE-005F (Standard Decision Record Semantics)` with format `<STD-ID>-ADR-###` |
 + | 008 | ADR-005 taxonomy reflects `STDCID` + legacy `DRCID` + precedence update | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `STDCID` row + `[LEGACY — migration to STDCID in progress]` and precedence: `SID > RESID > RID > STDCID > DRID > DRCID [legacy]...` |
@@ -24533,7 +24533,7 @@
 +    `T102-STD-005 (ID Specification & Rules)`,
      `T102-RES-002 (Roadmap Viability)`
  @@ -83,8 +83,8 @@
-  --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
+  --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
 @@ -6194,20 +6194,20 @@
  @@ -44,7 +44,7 @@
      * **References** 
@@ -24578,7 +24578,7 @@
 +    `T102-STD-005 (ID Specification & Rules)`,
      `T102-RES-002 (Roadmap Viability)`
  @@ -83,8 +83,8 @@
-  --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
+  --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
 @@ -6257,11 +6257,11 @@
  @@ -29,7 +29,7 @@
      * **References**

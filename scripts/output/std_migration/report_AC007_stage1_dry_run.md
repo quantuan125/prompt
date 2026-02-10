@@ -9,7 +9,7 @@
 - Safety cap (`max-files-changed`): 10
 - Include paths:
   - `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
-  - `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md`
+  - `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
 - Exclude globs:
   - `**/scripts/output/**`
   - `**/workspace/scripts/report_*.md`
@@ -18,7 +18,7 @@
 
 - `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
   - title_rewrites: 5
-- `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md`
+- `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
   - dr_anchor_regenerations: 1
   - title_rewrites: 2
   - token_replacements: 2
@@ -35,8 +35,8 @@
  
  | STD ID | Title | Status | Owner | Effective | Supersedes | Current DR | Canonical Path |
  | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
--| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
-+| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
+-| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
++| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
  
  
  * **T102-STD-001 (Consultancy Operating Model)** {#t102-std-001-consultancy-model}
@@ -77,11 +77,11 @@
    `T102-RES-002 (Roadmap Viability)`
 ```
 
-### `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md`
+### `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
 
 ```diff
---- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
-+++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
+--- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
++++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
 @@ -1,5 +1,5 @@
 -# T102-STD-004 — Specification Standard & Guideline
 -{#t102-std-004-specification-standard-and-guideline}

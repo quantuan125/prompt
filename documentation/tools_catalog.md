@@ -50,7 +50,7 @@ python3 prompt/scripts/migrations/migrate_adr_to_std.py \
   --replace-token "t102-std-004-adr-001-decision-records-standard=t102-std-004-adr-001-specification-standard-and-guideline" \
   --root prompt \
   --include-path prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md \
-  --include-path prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md \
+  --include-path prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md \
   --dry-run \
   --max-files-changed 10 \
   --report-path prompt/scripts/output/std_migration/report_AC007_stage1_dry_run.md

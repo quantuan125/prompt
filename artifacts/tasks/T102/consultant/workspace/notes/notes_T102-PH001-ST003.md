@@ -43,7 +43,7 @@ phase_plan_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/plan/pla
 - Phase plan: `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001.md`
 - ST001 stream plan (predecessor): `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST001.md`
 - Migration script: `prompt/scripts/migrations/migrate_adr_to_std.py`
-- Golden exemplar: `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md`
+- Golden exemplar: `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
 - Concept (SSOT target): `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
 - Notes guideline: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
 

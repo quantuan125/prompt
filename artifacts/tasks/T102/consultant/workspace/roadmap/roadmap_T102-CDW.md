@@ -2,8 +2,8 @@
 artifact_type: 'ROADMAP'
 initiative_id: 'T102'
 initiative_code: 'CDW'
-version: '0.1.0'
-date: '2026-02-07'
+version: '0.2.0'
+date: '2026-02-09'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -54,9 +54,24 @@ roadmap_changelog: 'prompt/artifacts/tasks/T102/consultant/workspace/roadmap/cha
 
 | Epic ID | Epic Code | Plan Phase | Dossier Status | Canonical Link(s) |
 |:--|:--|:--|:--|:--|
-| `T102A` | `SPS` | `PH000` | `review` | `prompt/artifacts/tasks/T102/consultant/request/request_T102A-SPSST.md` |
+| `T102A` | `SPS` | `PH001` | `review` | `prompt/artifacts/tasks/T102/T102A/workspace/plan/plan_T102A-PH001.md` |
 | `T102B` | `REQUEST` | `PH001` | `draft` | `prompt/artifacts/tasks/T102/T102B/workspace/roadmap/roadmap_T102B-REQUEST_phase0.md` |
 | `T102C` | `CONCEPT` | `PH000` | `draft` | `prompt/artifacts/tasks/T102/consultant/research/report/report_T102C-CONCEPT_handoff-aggregation.md` |
+
+---
+
+## III-B. EPIC PROGRESS CHECKPOINTS
+
+| Epic | Phase | Key Milestone | Success Criteria | Status |
+|:-----|:------|:-------------|:-----------------|:-------|
+| `T102A` | PH001 (Foundation) | **Foundation Readiness** | Epic dossier approved; E-IDs stable; GDRs resolved; STDs baselined per STD-Contains-CLAUSE model | `planned` |
+| `T102A` | PH002 (Template Design) | **Template Validation** | SPSST enables functional SPS creation; `sps_T102-CONSULTANT.md` serves as validated exemplar | `planned` |
+| `T102A` | PH003 (Process Design) | **Process Usability** | SPSPG enables consistent SPS authoring; workflow integrates with downstream Request handoff | `planned` |
+| `T102A` | PH004 (Integration) | **Package Completeness** | MANIFEST enables template versioning; all features pass integration checklist | `planned` |
+| `T102B` | PH001-ST001 (RST Dev) | **RST Spec Approved** | `request_T102B1-RST.md` v1.0; self-hosted validation complete | `in_progress` |
+| `T102B` | PH001-ST002 (RLITE Dev) | **RLITE Spec Approved** | RLITE template under 200 lines; governed subset of RST | `planned` |
+| `T102B` | PH001-ST003 (RPG Dev) | **RPG Approved** | Request Procedural Guideline complete | `planned` |
+| `T102B` | PH001-ST004 (MANIFEST Dev) | **MANIFEST Approved** | Request Manifest schema defined | `planned` |
 
 ---
 
@@ -68,6 +83,7 @@ roadmap_changelog: 'prompt/artifacts/tasks/T102/consultant/workspace/roadmap/cha
 | Changelog | Roadmap Changelog | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/changelog_roadmap_T102-CDW_phase0.md` |
 | Plan | Phase 0 Plan | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH000.md` |
 | Plan | Phase 1 Plan | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001.md` |
+| Epic Plan | T102A (SPS) Phase 1 | `prompt/artifacts/tasks/T102/T102A/workspace/plan/plan_T102A-PH001.md` |
 | SSOT | SPS | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` |
 | SSOT | Concept | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
 | Roadmap (predecessor) | Phase 0 Roadmap (CWD) | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/plan_T102-PH000.md` |
@@ -82,3 +98,4 @@ roadmap_changelog: 'prompt/artifacts/tasks/T102/consultant/workspace/roadmap/cha
 | Version | Date | Type | Summary |
 |---:|:---:|:---:|:---|
 | v0.1.0 | 2026-02-07 | Initial | Created T102 initiative master roadmap spine (phase register + compact epic status + links) |
+| v0.2.0 | 2026-02-09 | Update | Added Epic Progress Checkpoints (T102A phases + T102B streams); updated T102A plan phase to PH001; added T102A phase plan link |

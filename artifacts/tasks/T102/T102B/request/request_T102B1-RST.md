@@ -4,8 +4,8 @@ initiative_id: 'T102'
 epic_id: 'T102B'
 feature_id: 'T102B1'
 feature_code: 'RST'
-version: '0.2.1'
-date: '2026-02-06'
+version: '0.3.0'
+date: '2026-02-10'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -19,7 +19,7 @@ plan_reference: 'prompt/artifacts/tasks/T102/T102B/workspace/plan/plan_T102B-PH0
 
 This Request specifies **T102B1 (RST)** — the normative structural template for Request artifacts within the T102 consultancy workflow. RST defines the canonical section structure, classification schema (Mandatory/Optional/Deferred), and content patterns for feature-level specification documents.
 
-**Traceability**: This Request (v0.2.1) is structurally traceable to `T102B-ADR-002 (Section Classification Standard)` and explicitly emphasizes inherited Initiative/Epic rules per `T102-ADR-003 (Explicit Inheritance Model)` and `T102-ADR-005 (ID Specification & Rules)`.
+**Traceability**: This Request (v0.3.0) is structurally traceable to `T102B-STD-002 (Section Classification Standard)` and explicitly emphasizes inherited Initiative/Epic rules per `T102-STD-003 (Explicit Inheritance Model)` and `T102-STD-005 (ID Specification & Rules)`.
 
 **Problem**: Current Request artifacts exhibit structural inconsistencies that create documentation overhead, blocking MVP delivery. Key issues include FR/IG duplication, premature story-level specification, and unclear section requirements.
 
@@ -40,17 +40,18 @@ This Request specifies **T102B1 (RST)** — the normative structural template fo
   - [D. Stakeholders](#d-stakeholders) — `[O]`
   - [E. Inherited Considerations](#e-inherited-considerations) — `[M]`
   - [F. Feature Requirements](#f-feature-requirements) — `[M]`
-  - [G. Governance Decisions](#g-governance-decisions) — `[O]`
-  - [H. Issues & Risks](#h-issues--risks) — `[O]`
-  - [I. Research & Notes](#i-research--notes) — `[O]`
+  - [G. Governance Standards](#g-governance-standards) — `[O]`
+  - [H. Feature Guidance & Notes](#h-feature-guidance--notes) — `[O]`
+  - [I. Research](#i-research) — `[O]`
   - [J. Story Index](#j-story-index) — `[O]`
-- [IV. Acceptance Criteria](#iv-acceptance-criteria)
-- [V. Approval Gate](#v-approval-gate)
-- [VI. Appendix](#vi-appendix)
+  - [K. Acceptance Criteria](#k-acceptance-criteria) — `[M]`
+- [IV. Approval Gate](#iv-approval-gate)
+- [V. Appendix](#v-appendix)
+- [VI. Changelog](#vi-changelog)
 
 **Classification Legend**: `[M]` Mandatory | `[O]` Optional | `[D]` Deferred to Design
 
-**Applicability rule** (Full Request): Story Index (Section J) is `[O]` by classification, but is **required** if `story_count > 1` per `T102B-ADR-002-CLAUSE-004`.
+**Applicability rule** (Full Request): Story Index (Section J) is `[O]` by classification, but is **required** if `story_count > 1` per `T102B-STD-002-CLAUSE-004`.
 
 ---
 
@@ -109,7 +110,7 @@ A normative Request Structural Template (RST) that:
 
 | Item | Description |
 |:-----|:------------|
-| Section structure | Define canonical sections A-J for Request artifacts |
+| Section structure | Define canonical sections A-K for Request artifacts |
 | Section classification | Establish Mandatory/Optional/Deferred taxonomy per section |
 | YAML header schema | Define required header keys and validation rules |
 | FR/IG consolidation | Design pattern eliminating content duplication |
@@ -164,8 +165,8 @@ We believe **consistent, lightweight Request authoring** will be achieved if **T
 
 ### E. Inherited Considerations `[M]`
 
-<!-- T102-ADR-003 Explicit Inheritance Model -->
-<!-- T102-ADR-005 Reference Semantics: formal references in tables use `ID (Title)` -->
+<!-- T102-STD-003 Explicit Inheritance Model -->
+<!-- T102-STD-005 Reference Semantics: formal references in tables use `ID (Title)` -->
 
 | Source Artifact | Scope ID | Category | Inherited Rule IDs |
 |:--------------|:---------|:---------|:-------------------|
@@ -181,7 +182,7 @@ We believe **consistent, lightweight Request authoring** will be achieved if **T
 | SPS | `T102B` | Dependencies | `T102B-DEP-001 (SPS Intake Alignment)`, `T102B-DEP-002 (Industry Standards)`, `T102B-IF-001 (SPS Intake Contract)`, `T102B-IF-002 (Approved Request Output)`, `T102B-IF-003 (Request Output Contract)` |
 | SPS | `T102B` | Implementation Guides | `T102B-IG-001 (Section Classification)`, `T102B-IG-002 (FR/IG Consolidation)`, `T102B-IG-003 (Story Index Deferral)`, `T102B-IG-005 (Gate Evidence Checklist)`, `T102B-IG-006 (Inheritance Referencing)` |
 | SPS | `T102B` | Governances | `T102B-STD-001 (Request Governance Snapshot Standard)`, `T102B-STD-002 (Workflow Typology Standard)`, `T102B-STD-003 (Gate Evidence Standard)`, `T102B-STD-004 (Section Classification Policy)` |
-| SPS | `T102B` | Architecture | `T102B-ADR-001 (Request Architecture Standard)`, `T102B-ADR-002 (Section Classification Standard)`, `T102B-ADR-003 (Story FR Deferral Standard)`, `T102B-ADR-004 (Request Lite Specification)` |
+| SPS | `T102B` | Architecture | `T102B-STD-001 (Request Governance Snapshot Standard)`, `T102B-STD-002 (Section Classification Standard)`, `T102B-STD-003 (Story FR Deferral Standard)`, `T102B-STD-004 (Request Lite Specification)` |
 
 Source locations:
 - Initiative + Epic dossier: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (see Epic `T102B` Section III.C.2)
@@ -194,92 +195,90 @@ Source locations:
 
 #### F.1 Assumptions
 
-| ID | Assumption | Validation Method |
-|:---|:-----------|:------------------|
-| `T102B1-ASSUM-001` | Existing Request exemplars provide sufficient pattern evidence | Review of T102A-SPSST, T810A1-PROMPT |
-| `T102B1-ASSUM-002` | Section classification (M/O/D) is sufficient granularity | Pilot authoring feedback |
+| ID | Title | Status | Validation Method | Timing | Owner | If Invalidated | CON Cross-Ref | Reference |
+|:---|:------|:-------|:------------------|:-------|:------|:---------------|:--------------|:----------|
+| `T102B1-ASSUM-001` | Existing Exemplar Sufficiency | `Pending` | Review T102A-SPSST and T810A1-PROMPT patterns for reusable structure signals | AC003 drafting | LLM_Consultant | Escalate as Issue and update structure guidance | `T102B1-CON-001` | `T102B-RES-001` |
+| `T102B1-ASSUM-002` | Classification Granularity Sufficiency | `Pending` | Validate M/O/D sufficiency during AC003 and AC004 template/self-hosting checks | AC004 validation | LLM_Consultant | Escalate as Issue and propose classification variance ADR | `T102B1-CON-002` | `T102B-STD-002-CLAUSE-001` |
 
 #### F.2 Constraints
 
-| ID | Constraint | Rationale |
-|:---|:-----------|:----------|
-| `T102B1-CON-001` | RST SHALL use standard Markdown/YAML only | Inherits `T102B-CON-001` |
-| `T102B1-CON-002` | RST SHALL NOT mandate story-level FR bodies | Inherits `T102B-CON-002`; addresses W2 |
-| `T102B1-CON-003` | RST SHALL NOT embed ADR content | Inherits `T102B-CON-004` |
+| ID | Title | Description | Reference | Verification | Status | Note |
+|:---|:------|:------------|:----------|:-------------|:-------|:-----|
+| `T102B1-CON-001` | Markdown/YAML Only | RST SHALL use standard Markdown/YAML only | `T102B-CON-001` | Manual lint/readability review | `Draft` | Inherited constraint |
+| `T102B1-CON-002` | No Story FR Mandate | RST SHALL NOT mandate story-level FR bodies | `T102B-CON-002` | Story Index contains navigation only | `Draft` | Addresses W2 |
+| `T102B1-CON-003` | No Embedded ADR Bodies | RST SHALL NOT embed ADR bodies in Request artifacts | `T102B-CON-004` | Request sections contain references only | `Draft` | Link-don't-duplicate policy |
 
 #### F.3 Functional Requirements
 
-| ID | Requirement | Addresses | Acceptance Check |
-|:---|:------------|:----------|:-----------------|
-| `T102B1-FR-001` | RST SHALL define canonical section structure (A-J) with explicit purpose per section | W4, W5 | Template contains all sections with purpose comments |
-| `T102B1-FR-002` | RST SHALL classify each section as Mandatory, Optional, or Deferred | W4, P4 | Classification marker present per section |
-| `T102B1-FR-003` | RST SHALL consolidate FR and IG content into unified requirements sections | W1, P3 | No separate "Implementation Guidance" section exists |
-| `T102B1-FR-004` | RST SHALL define Story Index pattern for navigation without story-level FR bodies | W2, P2 | Section J contains index table only |
-| `T102B1-FR-005` | RST SHALL define YAML header schema with required keys | S4 (preserve) | Header schema documented with key definitions |
-| `T102B1-FR-006` | RST SHALL include per-section instructional comments | S6 (preserve) | Each section contains `<!-- PURPOSE -->` and `*[Instructions]*` |
-| `T102B1-FR-007` | RST SHALL support Mandatory-only subset for RLITE derivation | P1 | Mandatory sections identifiable; total enables <200 lines |
-| `T102B1-FR-008` | RST SHALL distinguish normative requirements from inline authoring guidance using consistent formatting markers | W1, P3 | Guidance pattern documented and used consistently in template |
+| ID | Title | Description | Reference | Verification | Status | Note |
+|:---|:------|:------------|:----------|:-------------|:-------|:-----|
+| `T102B1-FR-001` | Canonical Structure | RST SHALL define canonical section structure (A-K) with explicit purpose per section | `T102B-STD-002-CLAUSE-002` | Template contains all sections with purpose comments | `Draft` | Addresses W4/W5 |
+| `T102B1-FR-002` | Section Classification | RST SHALL classify each section as Mandatory, Optional, or Deferred where applicable | `T102B-STD-002-CLAUSE-001` | Classification markers present in template | `Draft` | Addresses W4/P4 |
+| `T102B1-FR-003` | FR/IG Consolidation | RST SHALL consolidate FR and IG content into unified requirement surfaces | `T102B-IG-002` | No standalone implementation-guidance major section exists | `Draft` | Addresses W1/P3 |
+| `T102B1-FR-004` | Story Index Deferral | RST SHALL define Story Index navigation without story-level FR bodies | `T102B-STD-003-CLAUSE-001` | Section J contains index table only | `Draft` | Addresses W2/P2 |
+| `T102B1-FR-005` | YAML Header Schema | RST SHALL define YAML header schema with required keys | `T102-IG-005` | Header schema documented with key definitions | `Draft` | Preserves S4 |
+| `T102B1-FR-006` | Instructional Comments | RST SHALL include per-section instructional comments | `T102-CON-001` | Each section contains purpose/instruction guidance | `Draft` | Preserves S6 |
+| `T102B1-FR-007` | RLITE Derivation Support | RST SHALL support Mandatory-only subset for RLITE derivation | `T102B-STD-004-CLAUSE-001` | Mandatory sections identifiable; subset remains under RLITE line target | `Draft` | Addresses P1 |
+| `T102B1-FR-008` | Normative Guidance Separation | RST SHALL distinguish normative requirements from inline authoring guidance | `T102B-IG-002` | Guidance pattern is documented and consistently applied | `Draft` | Addresses W1/P3 |
 
 #### F.4 Non-Functional Requirements
 
-| ID | Requirement | Quality Attribute | Acceptance Check |
-|:---|:------------|:------------------|:-----------------|
-| `T102B1-NFR-001` | RST SHALL be parsable by standard Markdown/YAML tooling | Compatibility | No custom syntax or extensions |
-| `T102B1-NFR-002` | RST section names SHALL be intuitive for non-technical stakeholders | Usability | Plain language section headers |
-| `T102B1-NFR-003` | RST SHALL preserve stable IDs across template versions | Maintainability | ID schema documented; no sequential numbering |
-| `T102B1-NFR-004` | RST SHALL align conceptually with ISO 29148, BABOK v3, SAFe patterns | Standards Alignment | Industry mapping documented per section |
+| ID | Title | Description | Reference | Verification | Status | Note |
+|:---|:------|:------------|:----------|:-------------|:-------|:-----|
+| `T102B1-NFR-001` | Parser Compatibility | RST SHALL be parsable by standard Markdown/YAML tooling | `T102B-CON-001` | No custom syntax/extensions are present | `Draft` | Compatibility |
+| `T102B1-NFR-002` | Section Readability | RST section names SHALL be intuitive for non-technical stakeholders | `T102-QG-001` | Section headings are plain language | `Draft` | Usability |
+| `T102B1-NFR-003` | ID Stability | RST SHALL preserve stable IDs across template versions | `T102-STD-005-CLAUSE-007` | Existing IDs remain stable across amendments | `Draft` | Maintainability |
+| `T102B1-NFR-004` | Standards Alignment | RST SHALL align conceptually with ISO 29148, BABOK v3, SAFe patterns | `T102B-RES-001` | Industry mapping is present in supporting analysis | `Draft` | Standards alignment |
 
 #### F.5 Interfaces
 
-| ID | Interface | Direction | Contract |
-|:---|:----------|:----------|:---------|
-| `T102B1-IF-001` | SPS Feature Bundle | SPS → RST-based Request | Per `T102B-IF-001` |
-| `T102B1-IF-002` | Approved Request Output | RST-based Request → Concept | Per `T102B-IF-002`, `T102B-IF-003` |
-| `T102B1-IF-003` | RLITE Derivation | RST → RLITE | Mandatory sections subset |
+| ID | Title | Description | Reference | Verification | Status | Note |
+|:---|:------|:------------|:----------|:-------------|:-------|:-----|
+| `T102B1-IF-001` | SPS Intake Interface | SPS Feature bundle feeds RST-based Request authoring | `T102B-IF-001` | Intake fields map to Request header/core sections | `Draft` | Upstream contract |
+| `T102B1-IF-002` | Request Output Interface | Approved Request output feeds Concept intake | `T102B-IF-002`, `T102B-IF-003` | Handoff fields remain complete for Concept | `Draft` | Downstream contract |
+| `T102B1-IF-003` | RLITE Derivation Interface | RST Mandatory subset supports RLITE derivation | `T102B-STD-004-CLAUSE-002` | Mandatory-only subset can be extracted deterministically | `Draft` | Variant boundary |
 
 ---
 
-### G. Governance Decisions `[O]`
+### G. Governance Standards `[O]`
 
-<!-- T102-ADR-004 Decision Records Index -->
+<!-- T102-STD-009-CLAUSE-004A STD index schema -->
 
-| GDR ID | Title | Status | Owner | Effective | Reference |
-|:-------|:------|:-------|:------|:----------|:----------|
-| — | — | — | — | — | — |
+| STD ID | Title | Status | Owner | Effective | Supersedes | Adopts | Verification | Governed By | Reference |
+|:-------|:------|:-------|:------|:----------|:-----------|:-------|:-------------|:------------|:----------|
+| `T102B-STD-002` | **Section Classification Standard** | `Adopted` | Client | — | — | `T102B-STD-002 (Section Classification Standard)` | Validate Request structure against A-K + major section rules | `T102-STD-009`, `T102-STD-005` | `T102B-STD-003`, `T102B-STD-004` |
 
-*No feature-level GDRs required at this stage. Epic-level standards (`T102B-STD-001` through `STD-004`) govern RST development.*
-
----
-
-### H. Issues & Risks `[O]`
-
-<!-- T102-ADR-007 Issues & Risks Schema -->
-
-#### Issues
-
-| ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes |Resolution Date |
-|:---|:------|:------------|:------|:-------|:---------|:--------------|:----------------|:--------------|
-| `T102B1-ISSUE-001` | Story Index schema | Align Story Index table schema to `T102B-ADR-003-CLAUSE-001` and `T102B-ADR-002-CLAUSE-002` | LLM_Consultant | `OPEN` | `MEDIUM` | 2026-02-06 | — | — |
-| `T102B1-ISSUE-002` | Classification markers | Standardize `[M]`/`[O]`/`[D]` marker usage and applicability rules (no “Conditional” type) | LLM_Consultant | `OPEN` | `LOW` | 2026-02-06 | — | — |
-
-#### Risks
-
-| ID | Title | Description | Owner | Status | Priority | Proposed Date | Mitigation Notes |Mitigation Date |
-|:---|:------|:------------|:------|:-------|:---------|:--------------|:----------------|:--------------|
-| `T102B1-RISK-001` | Self-hosting circularity | `request_T102B1-RST.md` may drift from the final `request_structural_template.md` structure during iterative refinement | LLM_Consultant | `MONITORED` | `LOW` | 2026-02-05 | Keep `T102B-ADR-002` canonical; ensure Request v0.2+ remains traceable; re-check during AC003/AC004 | — |
+*Additional governing standards are inherited via Section E and referenced by ID (link-don't-duplicate).*
 
 ---
 
-### I. Research & Notes `[O]`
+### H. Feature Guidance & Notes `[O]`
 
-<!-- T102 Research Linkage Pattern -->
+<!-- T102-STD-005 IID/NOTE semantics -->
+
+#### Implementation Guidance (IG)
+
+No feature-scoped IG entries are instantiated in this Request. Implementation guidance remains governed at Epic scope (`T102B-IG-*`) and is applied during template authoring in AC003.
+
+#### Integration Guidance (INT)
+
+No feature-scoped INT entries are populated in AC002.1. Integration guidance population is deferred to AC004 task `T102B-PH001-ST001-AC004-TK017`.
+
+#### Notes
+
+* **T102B1-NOTE-001 (Remediation Evidence Links)** — AC002 non-normative rationale and industry mapping remain in `proposal_T102B1-RST_non_normative.md`. Issues/Risks hosting architecture rationale is governed by `analysis_T102-RES-004_issues-risks-architecture.md` and corresponding report artifacts; this section captures references only (no duplicated policy prose).
+
+---
+
+### I. Research `[O]`
+
+<!-- T102 research linkage pattern -->
 
 | Research ID | Title | Summary | Report Link |
 |:------------|:------|:--------|:------------|
 | `T102B-RES-001` | Request Artifact Analysis | Industry standards comparison; W1-W7 weaknesses; P1-P8 proposals | [report_T102B-RES-001](../research/report/report_T102B-RES-001_request-artifact-analysis.md) |
 | `T102B-RES-002` | Epic Foundation Assessment | E-RID candidates; governance gaps | [report_T102B-RES-002](../research/report/report_T102B-RES-002_epic-foundation-assessment.md) |
-Additional authoring rules and non-normative analysis from AC002 are maintained in:
-- [proposal_T102B1-RST_non_normative.md](../workspace/proposal/T102B1/proposal_T102B1-RST_non_normative.md)
+| `T102-RES-004` | Issues & Risks Architecture | Accepted cross-scope Issues/Risks architecture and promotion guidance supporting AC002.1 remediation | [report_T102-RES-004](../../consultant/research/report/report_T102-RES-004_issues-risks-architecture.md) |
 
 ---
 
@@ -289,23 +288,23 @@ Additional authoring rules and non-normative analysis from AC002 are maintained 
 
 | Story ID | Title | Purpose summary | Design Link |
 |:---------|:------|:---------------|:------------|
-| `T102B1-S01` | RST specification refinement | Canonicalize sections/classification and industry mapping; align to `T102B-ADR-002` | [notes](../workspace/notes/PH001/ST001/notes_T102B-PH001-ST001-AC002.md) |
+| `T102B1-S01` | RST specification refinement | Canonicalize sections/classification and industry mapping; align to `T102B-STD-002` | [notes](../workspace/notes/PH001/ST001/notes_T102B-PH001-ST001-AC002.md) |
 | `T102B1-S02` | RST template formalization | Author `request_structural_template.md` per approved specification | — |
 | `T102B1-S03` | RST self-validation & retrofit | Retrofit this Request to v1.0 full and validate against template | — |
 | `T102B1-S04` | Client approval gate | Obtain approval statement and close Stream ST001 | — |
 
-*Story-level FRs and detailed ACs are deferred to Design phase per `T102B-CON-002` and `T102B-ADR-003`.*
+*Story-level FRs and detailed ACs are deferred to Design phase per `T102B-CON-002` and `T102B-STD-003`.*
 
 ---
 
-## IV. ACCEPTANCE CRITERIA
+### K. Acceptance Criteria `[M]`
 
 <!-- ISO 29148 Verification; Feature-level ACs -->
 
 | ID | Criterion | Verification Method |
 |:---|:----------|:--------------------|
 | `T102B1-AC-001` | RST template file exists at `prompt/templates/request/request_structural_template.md` | File presence check |
-| `T102B1-AC-002` | RST defines sections A-J with purpose and instructional content | Template inspection |
+| `T102B1-AC-002` | RST defines sections A-K with purpose and instructional content | Template inspection |
 | `T102B1-AC-003` | Each RST section has explicit M/O/D classification | Classification markers present |
 | `T102B1-AC-004` | RST contains no separate "Implementation Guidance" section | Template inspection |
 | `T102B1-AC-005` | RST Section J implements Story Index pattern (no story FR bodies) | Template inspection |
@@ -315,18 +314,19 @@ Additional authoring rules and non-normative analysis from AC002 are maintained 
 
 ---
 
-## V. APPROVAL GATE
+## IV. APPROVAL GATE
 
 <!-- T102B-STD-003 Gate Evidence Standard -->
-<!-- T102B-ADR-002-CLAUSE-004 Validation Rules -->
+<!-- T102B-STD-002-CLAUSE-004 Validation Rules -->
 
 ### A. Gate Checklist
 
 - [ ] All `[M]` sections contain substantive content (no placeholder-only mandatory sections).
 - [ ] Section classification markers applied consistently; no “Conditional” classification type (applicability is expressed as rules).
-- [ ] Inherited Considerations table conforms to `T102-ADR-003-CLAUSE-001` (schema) and `CLAUSE-003` (ID-only emphasis).
-- [ ] Story Index is present and populated if `story_count > 1` per `T102B-ADR-002-CLAUSE-004`.
-- [ ] Issues & Risks tables conform to `T102-ADR-007` schemas and enums.
+- [ ] Inherited Considerations table conforms to `T102-STD-003-CLAUSE-001` (schema) and `CLAUSE-003` (ID-only emphasis).
+- [ ] Story Index is present and populated if `story_count > 1` per `T102B-STD-002-CLAUSE-004`.
+- [ ] Governance Standards section follows `T102-STD-009-CLAUSE-004A` index schema.
+- [ ] Feature Guidance & Notes section includes `IG` / `INT` / `NOTE` subheadings with non-normative content only.
 - [ ] Industry alignment mapping is available (conceptual; no compliance matrix) in [proposal_T102B1-RST_non_normative.md](../workspace/proposal/T102B1/proposal_T102B1-RST_non_normative.md).
 - [ ] No ADR bodies are embedded in this Request (reference-only per `T102B-CON-004`).
 
@@ -342,15 +342,11 @@ Additional authoring rules and non-normative analysis from AC002 are maintained 
 
 ---
 
-## VI. APPENDIX
+## V. APPENDIX
 
 ### A. Amendment Log
 
-| Date | Requester | Affected Section | Summary |
-|:-----|:----------|:-----------------|:--------|
-| 2026-02-05 | LLM_Consultant | Initial | v0.1 created per AC001; lightweight structure using industry-standard SRS/BRD hybrid |
-| 2026-02-06 | LLM_Consultant | AC002 | v0.2: ADR-002 canonicalization; inheritance table schema; Story Index applicability; industry mapping; gate section added |
-| 2026-02-06 | LLM_Consultant | Cleanup | v0.2.1: moved non-normative authoring rules/analysis to proposal; Request tightened to ADR-002 section specs |
+Version history moved to `## VI. CHANGELOG` per `T102B-STD-002-CLAUSE-005`.
 
 ### B. References
 
@@ -358,9 +354,21 @@ Additional authoring rules and non-normative analysis from AC002 are maintained 
 |:---|:------|:-----|
 | REF-001 | T102B-RES-001 Report | `prompt/artifacts/tasks/T102/T102B/research/report/report_T102B-RES-001_request-artifact-analysis.md` |
 | REF-002 | T102B-RES-002 Report | `prompt/artifacts/tasks/T102/T102B/research/report/report_T102B-RES-002_epic-foundation-assessment.md` |
-| REF-003 | T102B Epic Dossier | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` Section III.C.2 |
-| REF-004 | ST001 Plan | `prompt/artifacts/tasks/T102/T102B/workspace/plan/plan_T102B-PH001-ST001.md` |
-| REF-005 | T102B-ADR-002 | `prompt/artifacts/tasks/T102/T102B/standards/T102B-ADR-002_section-classification-standard.md` |
-| REF-006 | T102B-ADR-003 | `prompt/artifacts/tasks/T102/T102B/standards/T102B-ADR-003_story-fr-deferral-standard.md` |
-| REF-007 | T102B-ADR-004 | `prompt/artifacts/tasks/T102/T102B/standards/T102B-ADR-004_request-lite-specification.md` |
-| REF-008 | AC002 Non-Normative Proposal | `prompt/artifacts/tasks/T102/T102B/workspace/proposal/T102B1/proposal_T102B1-RST_non_normative.md` |
+| REF-003 | T102-RES-004 Report | `prompt/artifacts/tasks/T102/consultant/research/report/report_T102-RES-004_issues-risks-architecture.md` |
+| REF-004 | T102B Epic Dossier | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` Section III.C.2 |
+| REF-005 | ST001 Plan | `prompt/artifacts/tasks/T102/T102B/workspace/plan/plan_T102B-PH001-ST001.md` |
+| REF-006 | T102B-STD-002 | `prompt/artifacts/tasks/T102/T102B/standards/T102B-STD-002_section-classification-standard.md` |
+| REF-007 | T102B-STD-003 | `prompt/artifacts/tasks/T102/T102B/standards/T102B-STD-003_story-fr-deferral-standard.md` |
+| REF-008 | T102B-STD-004 | `prompt/artifacts/tasks/T102/T102B/standards/T102B-STD-004_request-lite-specification.md` |
+| REF-009 | AC002 Non-Normative Proposal | `prompt/artifacts/tasks/T102/T102B/workspace/proposal/T102B1/proposal_T102B1-RST_non_normative.md` |
+
+---
+
+## VI. CHANGELOG
+
+| Date | Requester | Affected Section | Summary |
+|:-----|:----------|:-----------------|:--------|
+| 2026-02-05 | LLM_Consultant | Initial | v0.1 created per AC001; lightweight structure using industry-standard SRS/BRD hybrid |
+| 2026-02-06 | LLM_Consultant | AC002 | v0.2: `T102B-STD-002` canonicalization; inheritance table schema; Story Index applicability; industry mapping; gate section added |
+| 2026-02-06 | LLM_Consultant | Cleanup | v0.2.1: moved non-normative authoring rules/analysis to proposal; Request tightened to `T102B-STD-002` section specs |
+| 2026-02-10 | LLM_Consultant | AC002.1 | v0.3.0: A-K structure adopted; G/H/I/K remediated; Section F RID tables standardized; major sections renumbered; changelog section added |

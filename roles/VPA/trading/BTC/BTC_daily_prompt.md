@@ -33,6 +33,7 @@ levels:
       SR_3: 93.7
       SR_4: 82.5
       SR_5: 71.3
+      SR_6: 58.7
     poc:
       POC_1: 118.0
       POC_2: 104.7
@@ -74,7 +75,7 @@ levels:
   1D:
     major:
       H_MAJOR: 90.6
-      L_MAJOR: 86.1
+      L_MAJOR: 60.0
     sr:
       SR_1: 93.4
       SR_2: 89.5
@@ -84,55 +85,51 @@ levels:
       POC_2: 82.8
       POC_3: 78.8
       POC_4: 70.8
-      POC_5: 68.1
     zones:
       SELL_1: 75.4
     session:
-      PDH: 71.7
-      PDL: 67.3
+      PDH: 72.3
+      PDL: 68.9
     active:
       L_BOS: 86.1
     inactive:
       L_MSB: 89.3
 
   4H:
-    local: 
-      H: 71.8
-      L: 67.3
     major:
-      H_MAJOR: 79.4
-      L_MAJOR: 70.2
+      H_MAJOR: 72.3
+      L_MAJOR: 67.3
     sr:
       {}
     poc:
-      POC_1: 86.4
-      POC_2: 75.2
-      POC_3: 73.8
-      POC_4: 66.0
-      POC_5: 69.4
+      POC_1: 75.2
+      POC_2: 73.8
+      POC_3: 69.8
+      POC_4: 68.0
+      POC_5: 64.9
     zones:
-      SELL_1: 69.2-72.0
+      SELL_1: 72.0
+      BUY_1: 62.9
+      NEUTRAL: 69.8
     active:
-      L_BOS: 74.6
+      H_FSB: 71.8
     inactive:
-      L_BOS: 86.1
+      L_BOS: 74.6
 
   1H:
     major:
-      H_MAJOR: 71.8
+      H_MAJOR: 71.5
       L_MAJOR: 68.3
     sr: {}
     poc: {}
     zones:
-      SELL_1: 70.7
-      SELL_2: 69.6
-      BUY_1: 63.0
-      BUY_2: 66.9
+      SELL_1: 70.3-70.7
+      BUY_1: 68.5
     active:
-      H_CHOCH: 70.0
+      L_BOS: 70.0
     inactive:
-      H_FSB: 71.5
-      L_MSB: 69.3
+      H_FSB: 71.6
+      H_CHOCH: 70.0
 ```
 
 
@@ -155,10 +152,10 @@ Generate a detailed technical context with description for each of the relevant 
 * Always reference indicators following this format: `<TF>_<indicators>`. (e.g: `1W_20EMA`, `1H_9/21EMA`, `1H_200MA/EMA`, `1H_RSI-MA`)
 * You must use and expand the following provided technical descriptions for each timeframes from traders with additional details based on the materials, context and images given:
 
-  - **1W**: After topping at `1M.major_H_MAJOR`, price broke down with volume and below the  `1M_ascending_channel` + the ascending `1W_50EMA/MA` historic dynamic bull-market support bands, marking the end of the bull runs, into monthly support/demand zone at `1M.zones.BUY_2` where it found `1W.major.L_MAJOR` and consolidated multi weeks. Price then recovered slightly but topped at `1W.major.H_MAJOR` confluenced with the descending 1W_21/50EMA before rolling over below the 1W range low with a confirmed `1W.active.L_BOS` supported by 1W volume spike and now retest the next base at `1M.zones.BUY_1` demand + `1M.major.L_MAJOR` support confluenced with the raising 1W_200EMA/MA. 
-  - **1D**: After topping at 1W.major.H_MAJOR with a daily bullish counter-trend, price rolled over with a confirmed `1D.inactive.L_MSB`, followed immediately by a `1D.active.L_BOS` supported by increasing 1D_bearish_HVCs and capped by 1D_9EMA + M_VWAP to break decisively below `1W.major.L_MAJOR` and now grinding below `1M.zones.BUY_1` demand + `1M.major.L_MAJOR` with next support at `1M.poc.POC_5`.
-  - **4H**: Strong downtrend with the latest `4H.active.L_BOS` supported by 4H_bearish_HVCs down below `1M.zones.BUY_1` demand + `1M.major.L_MAJOR` where it found a bottom at `4H.major.L_MAJOR`. Price however continues grinding down lower with 10 consective bearish candles below its own range low, extending further into oversold RSI territory (>20) and extended further away from W_VWAP + 4H_9EMA that has been capping this entire bearish move. 
-  - **1H**: Price also in a strong downtrend capped by its 1H_9EMA + S_VWAP and supported by multiple increasing 1H_bearish_HVCs with OBV + CDV confirmation resulting in the latest `1H.active.L_BOS`, where price recently retested and rejected at this broken level and continue further down to retest `1H/4H.major.L_MAJOR` and attempt another bearish BOS. However with this LL there are some signals of bullish divergence on the RSI. 
+  - **1W**: After topping at `1M.major_H_MAJOR`, price broke down with volume and below the  `1M_ascending_channel` + the ascending `1W_50EMA/MA` historic dynamic bull-market support bands, marking the end of the bull runs, into monthly support/demand zone at `1M.zones.BUY_2` where it found `1W.major.L_MAJOR` and consolidated multi weeks. Price then recovered slightly but topped at `1W.major.H_MAJOR` confluenced with the descending 1W_21/50EMA before rolling over below the 1W range low with a confirmed `1W.active.L_BOS` supported by 1W volume spike followed by a 1W_bearish_hammer_HVC with volume highest of the year, closing price below the `1M.zones.BUY_1` demand + `1M.major.L_MAJOR` support, just above the confluenced raising 1W_200EMA/MA. 
+  - **1D**: After topping at `1W.major.H_MAJOR`, price rolled over with a confirmed `1D.inactive.L_MSB`, followed immediately by a `1D.active.L_BOS` supported by increasing 1D_bearish_HVCs and capped by 1D_9EMA + M_VWAP to break decisively below `1M.major.L_MAJOR` + `1M.zones.BUY_1` demand with retest into `1M.poc.POC_5` where it bottomed at `1D.major.L_MAJOR`on oversold RSI with a 1D_bearish_engulfing_SHVC of highest volume in a year.  Price is currently recovering and retesting the descending W/M_VWAP + 1D_9EMA. 
+  - **4H**: After the bottoming at `1D.major.L_MAJOR`, price established a counter-trend recovery that put in a higher low at `4H.major.L_MAJOR` and recovered during the weekends to reclaim 4H_9EMA and continue higher to swept the high at `4H.active.H_FSB` with a retest of `4H.zones.SELL_1` supply, establishing a top at `4H.major.H_MAJOR` at precisely this retest location and then rolled down in pre-market today on low volume. Price is currently below the `4H.zones.NEUTRAL` mid-range level and the cluster of 4H_9/21EMA plus W_VWAP. 
+  - **1H**: Price was recovering in the weekend and remains within the 4H range and swept the `4H.major.H_MAJOR` in Asia session with a 1H_bearish_inverted-hammer_HVC with volume spike before rolling over with a confirmed `1H.active.L_BOS` active below the `4H.zones.NEUTRAL` range with 1H bearish crossover of 9/21EMA supported by CVD and OBV confirmation . Price then bottomed at `1H.major.L_MAJOR` during the retest of `1H.zones.BUY_1` demand into the US open market on volume spike and currently retesting the broken `1H.active.L_BOS` level confluenced with S_VWAP + 1H_9/21EMA 
 
 ## EXAMPLE: 
 
@@ -212,17 +209,17 @@ For each plan describes the following with reference to their corresponding key 
 ## INSTRUCTION:
 For today's session you must generate the following plans as minimum. You must skip plans with "NONE" description and you may generate additional trading plans if they are missed or not considered on the 1H chart:
 **SHORT**
-- WHITE_A: short continuation at retest of broken 1H/4H_L_MAJOR with extension to 1H_SELL_2 supply confluenced with descending 1H_9EMA + S_VWAP. Trigger on a confirmed 1H_L_BOS and entry on a confirmed `LTF_L_MSB` at the retest location. 
-- ORANGE_A: short reversal if price established a 1H bullish counter trend above 1H_H_MAJOR and toward the broken 1M_L_MAJOR + 4H_L_MAJOR confluenced with W_VWAP + 1H_50EMA descending supported by TTF bearish divergence signals and weaken bullish VPA. Entry on a confirmed `TTF_L_MSB` at retest location. 
-- PURPLE_A: short fade with `H_FSB` at the top of 1H_H_MAJOR range + 1H_SELL_1 supply confluenced with 1H_21EMA descending. Entry on a confirmed `LTF_L_MSB` at retest location.
-- PINK_A: short monmentum scalp if price remains below S_VWAP + 1H_9EMA + 4H_L_MAJOR. Entry with a confirmed `LTF_L_BOS/MSB` on the retest of the broken level with LTF bearish strucutre confluenced with bearish crossover and descending `LTF_9/21EMA`
-- RED_A: Short break and retest below 1H/4H_L_MAJOR with strong TTF VPA signal with a confirm `1H_L_BOS`. Entry on low volume retest of broken level with `LTF_L_MSB/BOS`.
+- WHITE_A: short continuation at retest of broken 1H_L_MAJOR + 4H_NEUTRAL with extension to 1H_SELL_1 supply confluenced with descending 1H_21EMA + S_VWAP. Trigger on a confirmed 1H_L_BOS (active) and entry on a confirmed `LTF_L_MSB` at the retest location. 
+- ORANGE_A: short reversal if price established a 1H bullish counter trend above 4H_H_MAJOR and toward the broken 1M_L_MAJOR + 1D_SELL_1 supply supported by TTF bearish divergence signals and weaken bullish VPA. Entry on a confirmed `TTF_L_MSB` at retest location. 
+- PURPLE_A: short fade with `H_FSB` at the top of 1H_H_MAJOR with extension to 4H_H_MAJOR  confluenced with descending 1H_200MA/EMA. Entry on a confirmed `LTF_L_MSB` at retest location.
+- PINK_A: short monmentum scalp if price remains below S_VWAP + 1H_9EMA + 4H_NEUTRAL. Entry with a confirmed `LTF_L_BOS/MSB` on the retest of the broken level with LTF bearish strucutre confluenced with bearish crossover and descending `LTF_9/21EMA`
+- RED_A: Short momentum break and retest below 1H_L_MAJOR with strong TTF VPA signal with a confirm `1H_L_BOS`. Entry on low volume retest of broken level with `LTF_L_MSB/BOS`.
 
 **LONG**
-- BLUE_A: long fade bottom of 1H/4H_L_MAJOR range with `L_FSB` to reclaim 1H_L_MAJOR/4H_L_MAJOR supported by LTF bullish divergences signals and weaken bearish VPA. Entry on a confirmed `LTF_H_MSB`.  
-- TEAL_A: long counter-trend scalp if price reclaim the 1H_L_MAJOR/4H_L_MAJOR broken level and sustain above S_VWAP + 1H_9EMA. Entry with a confirmed `LTF_H_BOS/MSB` on a retest of LTF strucutre confluenced with bullish crossover and raising `LTF_9/21EMA`.
-- YELLOW_A: long major reversal at current 1M support/demand location if price breaks the 1H bearish trend supported by TTF bullish divergences. Entry on confirmed `TTF_H_MSB` with a reclaim of 1H_9/21EMA + S_VWAP and a pullback to value zone with LTF bullish signal.  
-- GREEN_A: long break and retest above 1H_H_MAJOR with reclaim of 1H.inactive.L_BOS level with confirmed `1H_H_BOS` supported by strong TTF VPA signal. Entry on a low volume retest of the broken level with a confirmed `LTF_H_MSB/BOS`. 
+- BLUE_A: long fade with `L_FSB` at 1H_L_MAJOR with extension to 4H_L_MAJOR range low supported by LTF bullish divergences signals and weaken bearish VPA. Entry on a confirmed `LTF_H_MSB`.  
+- TEAL_A: long counter-trend scalp if price reclaim the broken 1H_L_BOS + 4H_NEUTRAL level and sustain above S_VWAP + 1H_9EMA. Entry with a confirmed `LTF_H_BOS/MSB` on a retest of LTF strucutre confluenced with bullish crossover and raising `LTF_9/21EMA`.
+- YELLOW_A: long major reversal at 4H_BUY_1 demand with extension to 1D_L_MAJOR if price breaks the 1H bearish trend supported by TTF bullish divergences. Entry on confirmed `TTF_H_MSB` and a pullback to value zone with LTF bullish signal.  
+- GREEN_A: long break and retest above 4H_H_MAJOR + 4H_SELL_1 supply with a confirmed `1H_H_BOS` supported by strong TTF VPA signal. Entry on a low volume retest of the broken level with a confirmed `LTF_H_MSB/BOS`. 
 - <OTHERS>
 
 ## EXAMPLE: 

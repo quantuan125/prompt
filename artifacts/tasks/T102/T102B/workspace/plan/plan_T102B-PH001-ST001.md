@@ -9,8 +9,8 @@ stream: '1'
 stream_id: 'T102B-PH001-ST001'
 feature_id: 'T102B1'
 feature_code: 'RST'
-version: '2.3.0'
-date: '2026-02-08'
+version: '2.4.0'
+date: '2026-02-10'
 status: 'in_progress'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -41,7 +41,7 @@ parent_plan: 'prompt/artifacts/tasks/T102/T102B/workspace/plan/plan_T102B-PH001.
 Decisions resolved during stream execution.
 
 1) **Activity consolidation** (v2.0.0): AC002–AC005 (industry mapping, classification, FR/IG, Story Index) consolidated into single AC002 ("RST Specification Refinement") per `T102B-PH001-ST001-AC001-DEC008`. Design decisions are requirements refinements within the Request specification surface, not separate Design artifacts.
-2) **Canonical Request section list** (2026-02-06): Treat `T102B-STD-002` Full Request Section List as canonical for RST; `request_T102B1-RST.md` v0.2 MUST be traceable to ADR-002.
+2) **Canonical Request section list** (2026-02-06): Treat `T102B-STD-002` Full Request Section List as canonical for RST; `request_T102B1-RST.md` v0.2 MUST be traceable to STD-002.
 3) **Section classification schema** (2026-02-06): Ternary taxonomy (Mandatory/Optional/Deferred) per `T102B-STD-002-CLAUSE-001`. “Conditional” is NOT a classification type; applicability SHALL be expressed as validation rule(s).
 4) **Section J redesign** (2026-02-06): Option A — Story Index only (navigation). Story Index is REQUIRED if `story_count > 1`. No story-level FR bodies/ACs in Request per `T102B-STD-003`.
 5) **FR/IG merge pattern** (2026-02-06): FR with inline guidance (“requirements-with-guidance”) per `T102B-IG-002`.
@@ -49,7 +49,7 @@ Decisions resolved during stream execution.
 7) **Section G redesign** (2026-02-08): "Governance Decisions" → "Governance Standards" using STD index schema per `T102-STD-009-CLAUSE-004A`. GDR pattern deprecated at feature level.
 8) **Section H removal** (2026-02-08): "Issues & Risks" removed from Request template. Feature-level items promoted to epic scope. Hosting architecture deferred to `T102-RES-004`.
 9) **Feature Guidance & Notes section** (2026-02-08): New `### H. Feature Guidance & Notes [O]` inserted in Request. Hosts non-normative IID tokens (IG, INT, NOTE) under `####` subheadings.
-10) **Acceptance Criteria relocation** (2026-02-08): Moved from `## IV.` major section to `### K.` under Core Content. ADR-002 amended per D8/D12/D13.
+10) **Acceptance Criteria relocation** (2026-02-08): Moved from `## IV.` major section to `### K.` under Core Content. STD-002 amended per D8/D12/D13.
 11) **Canonical section list A-K** (2026-02-08): Full Request Core Content sections expanded from A-J to A-K. G renamed, H replaced, K added from former `## IV.`.
 12) **Issues & Risks research** (2026-02-08): Hosting architecture elevated to `T102-RES-004` at initiative scope. New `T102-PH001-ST004` research stream commissioned per `T102-STD-006`.
 13) **Unified RID schema** (2026-02-08): Section F tables standardized to `| ID | Title | Description | Reference | Verification | Status | Note |`. ASSUM retains lifecycle schema per `T102-STD-005-CLAUSE-005A` with added Reference column.
@@ -82,7 +82,7 @@ Decisions resolved during stream execution.
 |:--|:--|:--|:--|:--|:--|:--|
 | AC001 | `T102B-PH001-ST001-AC001` | RST requirements analysis & initial request | `completed` | LLM_Consultant | ST000 | `request_T102B1-RST.md` (v0.1 lightweight) |
 | AC002 | `T102B-PH001-ST001-AC002` | RST specification refinement | `completed` | LLM_Consultant | AC001 | `request_T102B1-RST.md` (v0.2.1 — decisions resolved) |
-| AC002.1 | `T102B-PH001-ST001-AC002.1` | RST Specification Remediation | `planned` | LLM_Consultant | AC002 | `request_T102B1-RST.md` v0.3.0 + `T102B-STD-002` v2.0 + plan amendments + `plan_T102-PH001-ST004.md` |
+| AC002.1 | `T102B-PH001-ST001-AC002.1` | RST Specification Remediation | `completed` | LLM_Consultant | AC002 | `request_T102B1-RST.md` v0.3.0 + `T102B-STD-002` v2.0 + plan amendments + `plan_T102-PH001-ST004.md` |
 | AC003 | `T102B-PH001-ST001-AC003` | RST template formalization | `planned` | LLM_Consultant | AC002.1 | `template_request_structural.md` |
 | AC004 | `T102B-PH001-ST001-AC004` | RST self-validation & retrofit | `planned` | LLM_Consultant | AC003 | `request_T102B1-RST.md` (v1.0 full) |
 | AC005 | `T102B-PH001-ST001-AC005` | Client approval gate | `planned` | Client | AC004 | Approval statement |
@@ -149,7 +149,7 @@ Decisions resolved during stream execution.
   - Applicability rules that replace “Conditional” classification (e.g., Story Index required-if trigger)
   - FR/IG consolidation pattern selection and documentation (FR with inline guidance)
   - Section J disposition (Story Index navigation-only) and Story Index schema per `T102B-STD-003`
-  - Canonical section list decision: ADR-002 is authoritative; Request v0.2 MUST be traceable to it
+  - Canonical section list decision: STD-002 is authoritative; Request v0.2 MUST be traceable to it
   - Resolution of OQ001 (v0.1 structure sufficiency) and OQ002 (Story Index scope)
 - Out of scope: Template file authoring (AC003), RLITE template (ST002), formal clause-by-clause compliance mapping
 
@@ -171,23 +171,23 @@ Decisions resolved during stream execution.
 
 | Task ID | Description | Status | Action |
 |:--|:--|:--|:--|
-| T102B-PH001-ST001-AC002-TK001 | Confirm canonical Full Request section list per `T102B-STD-002-CLAUSE-002` and define how RST expresses it (headings + traceability requirement) | `completed` | Request TOC (v0.2.1) mirrors ADR-002-CLAUSE-002; traceability statement in Executive Summary |
-| T102B-PH001-ST001-AC002-TK002 | Reconcile ADR-002 internal inconsistency: replace "Conditional" with Optional + explicit applicability validation rule(s) | `completed` | ADR-002 Alternatives rejects "Conditional"; Request encodes Story Index applicability rule (required-if `story_count > 1`) |
-| T102B-PH001-ST001-AC002-TK003 | Define section classification taxonomy (M/O/D) and validation rules per `T102B-STD-002-CLAUSE-001` and `CLAUSE-004` | `completed` | Request TOC uses `[M]`/`[O]` markers; classification legend documented; ADR-002-CLAUSE-001 defines categories |
+| T102B-PH001-ST001-AC002-TK001 | Confirm canonical Full Request section list per `T102B-STD-002-CLAUSE-002` and define how RST expresses it (headings + traceability requirement) | `completed` | Request TOC (v0.2.1) mirrors STD-002-CLAUSE-002; traceability statement in Executive Summary |
+| T102B-PH001-ST001-AC002-TK002 | Reconcile STD-002 internal inconsistency: replace "Conditional" with Optional + explicit applicability validation rule(s) | `completed` | STD-002 Alternatives rejects "Conditional"; Request encodes Story Index applicability rule (required-if `story_count > 1`) |
+| T102B-PH001-ST001-AC002-TK003 | Define section classification taxonomy (M/O/D) and validation rules per `T102B-STD-002-CLAUSE-001` and `CLAUSE-004` | `completed` | Request TOC uses `[M]`/`[O]` markers; classification legend documented; STD-002-CLAUSE-001 defines categories |
 | T102B-PH001-ST001-AC002-TK004 | Define Story Index disposition and rules per `T102B-STD-003`: navigation-only; required-if `story_count > 1`; schema includes Design Link placeholder | `completed` | Request Section J: navigation-only, `story_count = 4`, Design Link column present, deferral to T102D stated |
 | T102B-PH001-ST001-AC002-TK005 | Define FR/IG consolidation pattern as FR with inline guidance per `T102B-IG-002` (normative vs guidance formatting rules) | `completed` | Requirements-with-guidance pattern documented in `proposal_T102B1-RST_non_normative.md` §III; no separate IG section in Request |
 | T102B-PH001-ST001-AC002-TK006 | Review T102B-RES-001 industry standards analysis and existing v0.1 standard references | `completed` | Proposal §IV references RES-001 topics as evidence pointers per section |
-| T102B-PH001-ST001-AC002-TK007 | Map ADR-002 canonical sections to industry standard references (ISO 29148, BABOK v3, SAFe) at a conceptual level (no compliance matrix) | `completed` | Full mapping table in `proposal_T102B1-RST_non_normative.md` §IV covering A–J plus AC/Gate |
+| T102B-PH001-ST001-AC002-TK007 | Map STD-002 canonical sections to industry standard references (ISO 29148, BABOK v3, SAFe) at a conceptual level (no compliance matrix) | `completed` | Full mapping table in `proposal_T102B1-RST_non_normative.md` §IV covering A–J plus AC/Gate |
 | T102B-PH001-ST001-AC002-TK008 | Define RLITE derivation feasibility check: confirm Mandatory subset aligns to `T102B-STD-004-CLAUSE-002` and can remain <200 lines per `CLAUSE-001` | `completed` | RLITE feasibility documented in `proposal_T102B1-RST_non_normative.md` §V; `[M]` markers enable derivation |
-| T102B-PH001-ST001-AC002-TK009 | Update `request_T102B1-RST.md` with resolved AC002 decisions; restructure/annotate to be traceable to ADR-002; version → v0.2 | `completed` | Request updated to v0.2.1; Amendment Log documents v0.2 and v0.2.1 changes; non-normative content separated to proposal |
+| T102B-PH001-ST001-AC002-TK009 | Update `request_T102B1-RST.md` with resolved AC002 decisions; restructure/annotate to be traceable to STD-002; version → v0.2 | `completed` | Request updated to v0.2.1; Amendment Log documents v0.2 and v0.2.1 changes; non-normative content separated to proposal |
 
 **Success Criteria Checklist**:
-- [x] ADR-002 Full Request section list is treated as canonical (RST structure is traceable to ADR-002)
-- [x] Classification taxonomy is explicit and limited to M/O/D per ADR-002 (no "C" type)
+- [x] STD-002 Full Request section list is treated as canonical (RST structure is traceable to STD-002)
+- [x] Classification taxonomy is explicit and limited to M/O/D per STD-002 (no "C" type)
 - [x] "Conditional" applicability is expressed as validation rule(s) (e.g., Story Index required-if) rather than taxonomy expansion
-- [x] Story Index schema and deferral boundary documented per ADR-003; trigger is `story_count > 1`
+- [x] Story Index schema and deferral boundary documented per STD-003; trigger is `story_count > 1`
 - [x] FR/IG consolidation pattern documented as FR with inline guidance per IG-002 (eliminates W1)
-- [x] RLITE derivation feasibility check defined per ADR-004 (<200 lines; mandatory subset)
+- [x] RLITE derivation feasibility check defined per STD-004 (<200 lines; mandatory subset)
 - [x] Industry alignment documented per canonical section (ISO 29148, BABOK v3, SAFe)
 - [x] `request_T102B1-RST.md` updated to v0.2 with all decisions reflected
 
@@ -197,7 +197,7 @@ Decisions resolved during stream execution.
 
 **Activity ID**: `T102B-PH001-ST001-AC002.1`
 
-**Purpose**: Apply structural corrections identified during AC002 client re-review (Session 2, 2026-02-08). Amend the governing ADR-002 specification, restructure the Request artifact, register the T102-RES-004 research stream, and update downstream activity task registers.
+**Purpose**: Apply structural corrections identified during AC002 client re-review (Session 2, 2026-02-08). Amend the governing STD-002 specification, restructure the Request artifact, register the T102-RES-004 research stream, and update downstream activity task registers. The accepted `T102-RES-004` integration analysis (2026-02-09) is treated as supporting evidence for the planned Section H disposition and cross-scope promotion steps.
 
 **Deliverables**:
 - `prompt/artifacts/tasks/T102/T102B/standards/T102B-STD-002_section-classification-standard.md` v2.0 (A-K section list + major section restructure + Changelog)
@@ -206,12 +206,13 @@ Decisions resolved during stream execution.
 - `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST004.md` (new research stream plan)
 
 **Scope**:
-- In scope: ADR-002 amendment, Request section restructuring (G/H/K/F tables/TOC/Gate/Changelog), initiative plan ST004 registration, ST004 stream plan creation, SPS Issues/Risks promotion, AC003/AC004 task register updates
-- Out of scope: AC002.1 does NOT execute AC004-deferred items (marker removal, Problem Statement rewrite, INT population, T102-RES-004 absorption)
+- In scope: STD-002 amendment, Request section restructuring (G/H/K/F tables/TOC/Gate/Changelog), initiative plan ST004 registration, ST004 stream plan creation, SPS Issues/Risks promotion, AC003/AC004 task register updates
+- Out of scope: AC002.1 does NOT execute AC004-deferred items (marker removal, Problem Statement rewrite, INT population, T102-RES-004 absorption) and does not draft/modify `T102-STD-007` clause text (initiative-level downstream work).
 
 **Inputs Required**:
 - AC002 deliverable (`request_T102B1-RST.md` v0.2.1)
 - Locked decisions D1-D13 from Session 2 consultation
+- `T102-RES-004` integration analysis: `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-004_issues-risks-architecture.md` (accepted evidence, 2026-02-09)
 - `T102-STD-009` (STD index schema reference)
 - `T102-STD-005` (ID spec, NOTE structure, IID tokens)
 - `T102-STD-006` (research commissioning workflow)
@@ -223,30 +224,30 @@ Decisions resolved during stream execution.
 
 | Task ID | Description | Status | Action |
 |:--|:--|:--|:--|
-| TK001 | Amend `T102B-STD-002-CLAUSE-002`: Replace A-J section list with A-K per D12. G→"Governance Standards" (STD index, ADR-009 ref). Remove H "Issues & Risks". Insert new H "Feature Guidance & Notes" (IID tokens: IG/INT/NOTE under `####`). I→"Research" (renamed from "Research & Notes"). Add K "Acceptance Criteria" (moved from `## IV.`). | `planned` | — |
-| TK002 | Amend `T102B-STD-002-CLAUSE-005`: Remove `## IV. Acceptance Criteria` from Full Request Major Sections table. Renumber: Approval Gate→IV (was V), Appendix→V (was VI). Add `## VI. Changelog` as Mandatory. Update Core Content note to reference A-K (was A-J). | `planned` | — |
-| TK003 | Add `## Changelog` section to `T102B-STD-002` with version history (v1.0.0 initial, v2.0.0 AC002.1 amendment) | `planned` | — |
-| TK004 | Update `request_T102B1-RST.md` Section G: Replace "Governance Decisions" heading + GDR table with "Governance Standards" heading + STD index schema per `T102-STD-009-CLAUSE-004A` | `planned` | — |
-| TK005 | Update `request_T102B1-RST.md`: Remove entire Section H "Issues & Risks" (heading, comment, Issues table, Risks table) | `planned` | — |
-| TK006 | Update `request_T102B1-RST.md`: Insert new `### H. Feature Guidance & Notes [O]` with `#### Implementation Guidance (IG)`, `#### Integration Guidance (INT)`, `#### Notes` subheadings. Place `T102B1-NOTE-001` in Notes subsection. | `planned` | — |
-| TK007 | Update `request_T102B1-RST.md` Section F: Standardize all RID tables to unified schema `| ID | Title | Description | Reference | Verification | Status | Note |`. ASSUM keeps CLAUSE-005A lifecycle schema with added Reference column. Migrate existing content to new columns. | `planned` | — |
-| TK008 | Update `request_T102B1-RST.md`: Remove free-form proposal pointer from Research section (moved to `T102B1-NOTE-001` in TK006). Rename `### I. Research & Notes` → `### I. Research`. | `planned` | — |
-| TK009 | Update `request_T102B1-RST.md`: Remove `## IV. ACCEPTANCE CRITERIA` major section. Insert content as `### K. Acceptance Criteria [M]` at end of `## III. CORE CONTENT`. Update `T102B1-AC-002` to reference A-K. | `planned` | — |
-| TK010 | Update `request_T102B1-RST.md`: Renumber `## V. APPROVAL GATE` → `## IV.`, `## VI. APPENDIX` → `## V.`. Add `## VI. CHANGELOG` with version history migrated from `### A. Amendment Log`. Clear Amendment Log content. Update Gate Checklist (remove ADR-007 check, add ADR-009 + Feature Guidance checks). Update Appendix References table. | `planned` | — |
-| TK011 | Update `request_T102B1-RST.md`: Update TOC to reflect A-K sections and renumbered major sections. Bump YAML version → v0.3.0, date → 2026-02-08. | `planned` | — |
-| TK012 | Register `T102-PH001-ST004` (Initiative Research Commissioning) in `plan_T102-PH001.md`: Add to Stream Register (PARALLEL, `planned`), add 4 activities to Phase-level Activity Register (AC001-AC004 for T102-RES-004 brief/approval/report/integration), add to Links Register, bump version, add changelog entry. | `planned` | — |
-| TK013 | Create `plan_T102-PH001-ST004.md` stream plan file. Structure: YAML header, Executive Summary (T102-RES-004 commissioning per ADR-006), Activity Register (AC001-AC004), Activity detail blocks with task registers per AC, Links Register, Changelog. Research scope: Issues & Risks architecture — hosting options (SPS/Request/Concept/Workspace/Hybrid), content-type filtering, lifecycle management, scope-level tracking files, ADR-007 update recommendations, cross-scope promotion. | `planned` | — |
-| TK014 | Promote `T102B1-ISSUE-001`, `T102B1-ISSUE-002`, `T102B1-RISK-001` to epic scope in SPS dossier (`sps_T102-CONSULTANT.md` T102B section). Verify current max ISSUE/RISK IDs before assigning sequential numbers. Add supersession notes referencing originating feature-level IDs. | `planned` | — |
-| TK015 | Update AC003 task register in this plan: Revise TK008 description (G→"Governance Standards" per ADR-009). Change TK009 description (H→"Feature Guidance & Notes" with IG/INT/NOTE `####` instructions). Add TK017 ("Author Section K Acceptance Criteria template"). Update TK012 to reference A-K. Update TK014 to validate A-K completeness. | `planned` | — |
-| TK016 | Update AC004 task register in this plan: Add TK015 (`[M]`/`[O]` marker removal from request headings), TK016 (Problem Statement table→narrative), TK017 (INT items population in Section H), TK018 (T102-RES-004 report absorption — DEFERRED, blocked on T102-PH001-ST004). | `planned` | — |
+| TK001 | Amend `T102B-STD-002-CLAUSE-002`: Replace A-J section list with A-K per D12. G→"Governance Standards" (STD index, STD-009 ref). Remove H "Issues & Risks". Insert new H "Feature Guidance & Notes" (IID tokens: IG/INT/NOTE under `####`). I→"Research" (renamed from "Research & Notes"). Add K "Acceptance Criteria" (moved from `## IV.`). | `completed` | Updated `T102B-STD-002-CLAUSE-002` to A-K with revised G/H/I/K definitions. |
+| TK002 | Amend `T102B-STD-002-CLAUSE-005`: Remove `## IV. Acceptance Criteria` from Full Request Major Sections table. Renumber: Approval Gate→IV (was V), Appendix→V (was VI). Add `## VI. Changelog` as Mandatory. Update Core Content note to reference A-K (was A-J). | `completed` | Full Request major sections updated to I–VI with mandatory changelog and explicit A-K core-content note. |
+| TK003 | Add `## Changelog` section to `T102B-STD-002` with version history (v1.0.0 initial, v2.0.0 AC002.1 amendment) | `completed` | Added `## Changelog` section with `v1.0.0` and `v2.0.0` entries. |
+| TK004 | Update `request_T102B1-RST.md` Section G: Replace "Governance Decisions" heading + GDR table with "Governance Standards" heading + STD index schema per `T102-STD-009-CLAUSE-004A` | `completed` | Section G replaced with Governance Standards section using STD index schema columns. |
+| TK005 | Update `request_T102B1-RST.md`: Remove entire Section H "Issues & Risks" (heading, comment, Issues table, Risks table) | `completed` | Legacy feature-scoped Issues/Risks section removed from Request; replacement Section H added via TK006. |
+| TK006 | Update `request_T102B1-RST.md`: Insert new `### H. Feature Guidance & Notes [O]` with `#### Implementation Guidance (IG)`, `#### Integration Guidance (INT)`, `#### Notes` subheadings. Place `T102B1-NOTE-001` in Notes subsection. | `completed` | New Section H inserted with IG/INT/Notes subheadings and `T102B1-NOTE-001` evidence note. |
+| TK007 | Update `request_T102B1-RST.md` Section F: Standardize all RID tables to unified schema `| ID | Title | Description | Reference | Verification | Status | Note |`. ASSUM keeps CLAUSE-005A lifecycle schema with added Reference column. Migrate existing content to new columns. | `completed` | Section F tables migrated to unified RID schema; Assumptions table uses lifecycle schema plus Reference column. |
+| TK008 | Update `request_T102B1-RST.md`: Remove free-form proposal pointer from Research section (moved to `T102B1-NOTE-001` in TK006). Rename `### I. Research & Notes` → `### I. Research`. | `completed` | Section I renamed to Research; free-form proposal pointer removed and captured in `T102B1-NOTE-001`. |
+| TK009 | Update `request_T102B1-RST.md`: Remove `## IV. ACCEPTANCE CRITERIA` major section. Insert content as `### K. Acceptance Criteria [M]` at end of `## III. CORE CONTENT`. Update `T102B1-AC-002` to reference A-K. | `completed` | Acceptance Criteria moved under Core Content as Section K; `T102B1-AC-002` updated to A-K wording. |
+| TK010 | Update `request_T102B1-RST.md`: Renumber `## V. APPROVAL GATE` → `## IV.`, `## VI. APPENDIX` → `## V.`. Add `## VI. CHANGELOG` with version history migrated from `### A. Amendment Log`. Clear Amendment Log content. Update Gate Checklist (remove STD-007 check, add STD-009 + Feature Guidance checks). Update Appendix References table. | `completed` | Major sections renumbered to IV/V/VI; changelog migrated; amendment log cleared; gate checklist and references table aligned to new structure. |
+| TK011 | Update `request_T102B1-RST.md`: Update TOC to reflect A-K sections and renumbered major sections. Bump YAML version → v0.3.0, date → 2026-02-08. | `completed` | TOC updated to A-K + renumbered major sections; metadata updated to `version: 0.3.0` and `date: 2026-02-10`. |
+| TK012 | Register `T102-PH001-ST004` (Initiative Research Commissioning) in `plan_T102-PH001.md`: Add to Stream Register (PARALLEL, `planned`), add activities to Phase-level Activity Register, add to Links Register, bump version, add changelog entry. | `completed` | Completed in `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001.md` (ST004 registered; date 2026-02-09) |
+| TK013 | Create `plan_T102-PH001-ST004.md` stream plan file. Structure: YAML header, Executive Summary, Activity Register, Activity detail blocks, Links Register, Changelog. | `completed` | Completed in `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST004.md` (date 2026-02-09) |
+| TK014 | Promote `T102B1-ISSUE-001`, `T102B1-ISSUE-002`, `T102B1-RISK-001` to epic scope in SPS dossier (`sps_T102-CONSULTANT.md` T102B section). Verify current max ISSUE/RISK IDs before assigning sequential numbers. Add supersession notes referencing originating feature-level IDs. | `completed` | Added `T102B-ISSUE-009`, `T102B-ISSUE-010`, and `T102B-RISK-006` with supersession notes referencing the originating feature-level IDs. |
+| TK015 | Update AC003 task register in this plan: Revise TK008 description (G→"Governance Standards" per STD-009). Change TK009 description (H→"Feature Guidance & Notes" with IG/INT/NOTE `####` instructions). Add TK017 ("Author Section K Acceptance Criteria template"). Update TK012 to reference A-K. Update TK014 to validate A-K completeness. | `completed` | AC003 register updated for G/H/K and A-K completeness language (including TK017 and revised section naming). |
+| TK016 | Update AC004 task register in this plan: Add TK015 (`[M]`/`[O]` marker removal from request headings), TK016 (Problem Statement table→narrative), TK017 (INT items population in Section H), TK018 (T102-RES-004 report absorption; dependency resolved 2026-02-09). | `completed` | AC004 register includes TK015–TK018 deferred/remediation follow-up tasks. |
 
 **Success Criteria Checklist**:
-- [ ] ADR-002 amended to v2.0 with A-K canonical section list and updated major sections
-- [ ] ADR-002 has `## Changelog` section
-- [ ] Request v0.3.0 reflects all structural corrections (G renamed, H removed/replaced, F standardized, K added, Changelog added, TOC/Gate updated)
-- [ ] T102-PH001-ST004 registered in initiative plan with stream plan file created
-- [ ] Promoted Issues/Risks recorded in SPS dossier with supersession notes
-- [ ] AC003/AC004 task registers updated to reflect amended section structure
+- [x] STD-002 amended to v2.0 with A-K canonical section list and updated major sections
+- [x] STD-002 has `## Changelog` section
+- [x] Request v0.3.0 reflects all structural corrections (G renamed, H removed/replaced, F standardized, K added, Changelog added, TOC/Gate updated)
+- [x] T102-PH001-ST004 registered in initiative plan with stream plan file created
+- [x] Promoted Issues/Risks recorded in SPS dossier with supersession notes
+- [x] AC003/AC004 task registers updated to reflect amended section structure
 
 ---
 
@@ -264,7 +265,7 @@ Decisions resolved during stream execution.
 
 **Inputs Required**:
 - AC001 deliverable (`request_T102B1-RST.md` v0.1)
-- AC002 deliverable (`request_T102B1-RST.md` v0.2.1 with resolved design decisions)
+- AC002.1 deliverable (`request_T102B1-RST.md` v0.3.0 with structural remediation decisions)
 - AC002 non-normative proposal (`prompt/artifacts/tasks/T102/T102B/workspace/proposal/T102B1/proposal_T102B1-RST_non_normative.md` — industry alignment mapping §IV, requirements-with-guidance pattern §III, RLITE feasibility §V)
 
 **Execution Mode**: Hybrid — development-mode (LLM_Consultant drafts full template) → consultation review (Client reviews as single deliverable)
@@ -282,7 +283,7 @@ Decisions resolved during stream execution.
 | T102B-PH001-ST001-AC003-TK007 | Author Section F (Feature Requirements) using approved consolidated pattern | `planned` | — |
 | T102B-PH001-ST001-AC003-TK008 | Author Section G (Governance Standards) per T102-STD-009 STD index schema with instructions | `planned` | — |
 | T102B-PH001-ST001-AC003-TK009 | Author Section H (Feature Guidance & Notes) with IG/INT/NOTE #### subheading instructions | `planned` | — |
-| T102B-PH001-ST001-AC003-TK010 | Author Section I (Research & Notes) with instructions | `planned` | — |
+| T102B-PH001-ST001-AC003-TK010 | Author Section I (Research) with instructions | `planned` | — |
 | T102B-PH001-ST001-AC003-TK011 | Author Section J per approved disposition (Story Index or removal) | `planned` | — |
 | T102B-PH001-ST001-AC003-TK012 | Add section classification markers (M/O/D) per section (A-K) | `planned` | — |
 | T102B-PH001-ST001-AC003-TK013 | Add industry standard references per section | `planned` | — |
@@ -306,7 +307,7 @@ Decisions resolved during stream execution.
 
 **Activity ID**: `T102B-PH001-ST001-AC004`
 
-**Purpose**: Validate RST template by retrofitting `request_T102B1-RST.md` from refined (v0.2) to full structure (v1.0), demonstrating template utility and completeness.
+**Purpose**: Validate RST template by retrofitting `request_T102B1-RST.md` from remediated (v0.3.0) to full structure (v1.0), demonstrating template utility and completeness.
 
 **Deliverable**: `prompt/artifacts/tasks/T102/T102B/request/request_T102B1-RST.md` (v1.0 — full structure)
 
@@ -315,7 +316,7 @@ Decisions resolved during stream execution.
 - Out of scope: Other request artifacts
 
 **Inputs Required**:
-- AC002 deliverable (v0.2 request with resolved decisions)
+- AC002.1 deliverable (v0.3.0 request with structural remediation decisions)
 - AC003 deliverable (RST template)
 
 **Execution Mode**: Hybrid — development-mode (LLM_Consultant drafts) → consultation review (Client reviews)
@@ -324,16 +325,16 @@ Decisions resolved during stream execution.
 
 | Task ID | Description | Status | Action |
 |:--|:--|:--|:--|
-| T102B-PH001-ST001-AC004-TK001 | Map v0.2 content to new template sections | `planned` | — |
+| T102B-PH001-ST001-AC004-TK001 | Map v0.3.0 content to new template sections | `planned` | — |
 | T102B-PH001-ST001-AC004-TK002 | Retrofit Section A (Problem Definition) | `planned` | — |
 | T102B-PH001-ST001-AC004-TK003 | Retrofit Section B (Scope) | `planned` | — |
 | T102B-PH001-ST001-AC004-TK004 | Retrofit Section C (Business Objectives) | `planned` | — |
 | T102B-PH001-ST001-AC004-TK005 | Retrofit Section D (Stakeholders) | `planned` | — |
 | T102B-PH001-ST001-AC004-TK006 | Retrofit Section E (Inherited Considerations) | `planned` | — |
 | T102B-PH001-ST001-AC004-TK007 | Retrofit Section F (Feature Requirements) using consolidated pattern | `planned` | — |
-| T102B-PH001-ST001-AC004-TK008 | Retrofit Section G (Governance Decisions) | `planned` | — |
-| T102B-PH001-ST001-AC004-TK009 | Retrofit Section H (Issues & Risks) | `planned` | — |
-| T102B-PH001-ST001-AC004-TK010 | Retrofit Section I (Research & Notes) | `planned` | — |
+| T102B-PH001-ST001-AC004-TK008 | Retrofit Section G (Governance Standards) | `planned` | — |
+| T102B-PH001-ST001-AC004-TK009 | Retrofit Section H (Feature Guidance & Notes) | `planned` | — |
+| T102B-PH001-ST001-AC004-TK010 | Retrofit Section I (Research) | `planned` | — |
 | T102B-PH001-ST001-AC004-TK011 | Retrofit Section J per approved disposition | `planned` | — |
 | T102B-PH001-ST001-AC004-TK012 | Validate all Mandatory sections complete | `planned` | — |
 | T102B-PH001-ST001-AC004-TK013 | Document validation findings (gaps, issues, improvements) | `planned` | — |
@@ -341,7 +342,7 @@ Decisions resolved during stream execution.
 | T102B-PH001-ST001-AC004-TK015 | Remove `[M]`/`[O]`/`[D]` classification markers from Request `###` section headings (markers kept in template only) | `planned` | — |
 | T102B-PH001-ST001-AC004-TK016 | Convert Problem Statement (Section A.1) from W1-W7 table to concise narrative paragraph with `T102B-RES-001` reference | `planned` | — |
 | T102B-PH001-ST001-AC004-TK017 | Populate INT items (`T102B1-INT-001`, `T102B1-INT-002`) in Section H for cross-epic coordination (T102A alignment, T102B4 RLITE dependency) | `planned` | — |
-| T102B-PH001-ST001-AC004-TK018 | Absorb `T102-RES-004` report findings: finalize Issues & Risks disposition per research recommendations (DEFERRED — blocked on `T102-PH001-ST004` completion) | `planned` | — |
+| T102B-PH001-ST001-AC004-TK018 | Absorb `T102-RES-004` integration recommendations: verify Section H removal/promotion outcomes and document exception mechanism per `analysis_T102-RES-004_issues-risks-architecture.md` (dependency resolved 2026-02-09) | `planned` | — |
 
 **Success Criteria Checklist**:
 - [ ] All request content migrated to new template structure
@@ -392,11 +393,11 @@ Design decisions to be resolved during AC002 (RST Specification Refinement). Dec
 
 | Decision ID | Topic | Options | Recommendation | Status | Resolved In |
 |:--|:--|:--|:--|:--|:--|
-| DEC-T102B-PH001-ST001-001 | Section J redesign | (A) Story Index only, (B) Story Index + summary FRs, (C) Full deferral / removal | Option A per ADR-003 | `confirmed` | Consultation (2026-02-06) |
+| DEC-T102B-PH001-ST001-001 | Section J redesign | (A) Story Index only, (B) Story Index + summary FRs, (C) Full deferral / removal | Option A per STD-003 | `confirmed` | Consultation (2026-02-06) |
 | DEC-T102B-PH001-ST001-002 | FR/IG merge pattern | (A) Single section, (B) FR with inline guidance, (C) IG subsection | Option B per IG-002 | `confirmed` | Consultation (2026-02-06) |
-| DEC-T102B-PH001-ST001-003 | Section classification taxonomy | (A) Binary M/O, (B) Ternary M/O/D | Option B per ADR-002 | `confirmed` | Consultation (2026-02-06) |
+| DEC-T102B-PH001-ST001-003 | Section classification taxonomy | (A) Binary M/O, (B) Ternary M/O/D | Option B per STD-002 | `confirmed` | Consultation (2026-02-06) |
 | DEC-T102B-PH001-ST001-004 | “Conditional” applicability handling | (A) Add 4th type “C”, (B) Optional + applicability rule (e.g., required-if) | Option B (no “C”) | `confirmed` | Consultation (2026-02-06) |
-| DEC-T102B-PH001-ST001-005 | Canonical Full Request section list | (A) A–J canonical, (B) ADR-002 list canonical, (C) Hybrid | Option B (ADR-002 list canonical; Request traceable) | `confirmed` | Consultation (2026-02-06) |
+| DEC-T102B-PH001-ST001-005 | Canonical Full Request section list | (A) A–J canonical, (B) STD-002 list canonical, (C) Hybrid | Option B (STD-002 list canonical; Request traceable) | `confirmed` | Consultation (2026-02-06) |
 
 ---
 
@@ -455,6 +456,8 @@ Design decisions to be resolved during AC002 (RST Specification Refinement). Dec
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-02-04 | Initial | Stream 1 plan created; 8 activities defined with detailed task registers; design decisions pending resolution during execution |
 | v2.0.0 | 2026-02-05 | Major Amendment | Consolidated AC002–AC005 into single AC002 ("RST Specification Refinement") per DEC008; renumbered AC006→AC003, AC007→AC004, AC008→AC005; marked AC001 completed; updated all registers, dependencies, and success criteria. Evidence: `notes_T102B-PH001-ST001-AC001.md` Session 2 (Plan Amendment) |
-| v2.1.0 | 2026-02-06 | Amendment | Updated AC002 plan content to be standards-first (ADR-002 canonical section list + traceability), locked consultation decisions (Section J, FR/IG, M/O/D taxonomy, "Conditional" remediation), and updated decision/OQ registers accordingly |
+| v2.1.0 | 2026-02-06 | Amendment | Updated AC002 plan content to be standards-first (STD-002 canonical section list + traceability), locked consultation decisions (Section J, FR/IG, M/O/D taxonomy, "Conditional" remediation), and updated decision/OQ registers accordingly |
 | v2.2.0 | 2026-02-07 | Amendment | Closed AC002: Activity Register → `completed`; all 9 tasks → `completed` with action summaries; success criteria ticked; OQ-004 resolved (Design Link = TBD). Updated AC003: added TK015 (notes title fix), TK016 (OQ-004 encoding); added proposal to Inputs Required; execution mode refined to dev-first then single-deliverable review. Updated stream-level success criteria, decision summary §6, and links register. |
 | v2.3.0 | 2026-02-08 | Plan Amendment | AC002 re-review remediation: Registered AC002.1 subactivity (16 tasks); updated AC003 dependency (AC002→AC002.1); updated AC003 task register (TK008/TK009 revised, TK017 added for Section K); updated AC004 task register (TK015-TK018 added for deferred items); added decisions 7-13 to Stream Decision Summary |
+| v2.3.1 | 2026-02-09 | Amendment | Post-RES-004 integration alignment: added integration analysis as AC002.1 input; marked AC002.1 TK012/TK013 completed with evidence; strengthened TK005/TK014 actions using accepted integration guidance; removed stale ST004 blocking language from AC004 TK018; renamed AC004 G/H tasks to match Governance Standards + Feature Guidance & Notes |
+| v2.4.0 | 2026-02-10 | Completion | Closed AC002.1: updated `T102B-STD-002` to v2.0 (A-K + major section restructure + changelog), remediated `request_T102B1-RST.md` to v0.3.0, promoted feature Issues/Risks to epic scope in SPS with supersession notes, and completed AC003/AC004 register alignment for post-remediation execution. |

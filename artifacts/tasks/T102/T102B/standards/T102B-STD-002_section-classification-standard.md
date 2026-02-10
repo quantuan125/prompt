@@ -16,11 +16,12 @@
    | C. Business Objectives | Mandatory | Include success signals; benefit hypothesis encouraged |
    | D. Stakeholders | Optional | Required for cross-team features; may be role-based or persona-based |
    | E. Inherited Considerations | Mandatory | Per `T102-STD-003` (Explicit Inheritance Model) table contract |
-   | F. Feature Requirements | Mandatory | Includes assumptions/constraints/FR/NFR/interfaces (as applicable) |
-   | G. Governance Decisions | Optional | DR index only; Request SHALL NOT embed ADR bodies per `T102B-CON-004` |
-   | H. Issues & Risks | Optional | Per `T102-STD-007` schema |
-   | I. Research & Notes | Optional | Link to RES artifacts; include industry alignment mapping |
+   | F. Feature Requirements | Mandatory | Includes assumptions/constraints/FR/NFR/interfaces (as applicable); RID tables align to unified schema |
+   | G. Governance Standards | Optional | STD index schema per `T102-STD-009-CLAUSE-004A`; Request SHALL NOT embed ADR bodies per `T102B-CON-004` |
+   | H. Feature Guidance & Notes | Optional | Non-normative IID tokens (`IG`, `INT`, `NOTE`) under `####` subheadings |
+   | I. Research | Optional | Link to RES artifacts |
    | J. Story Index | Optional | Required if `story_count > 1` per CLAUSE-004 |
+   | K. Acceptance Criteria | Mandatory | Feature-level ACs only (no story-level AC bodies) |
 
 3) **T102B-STD-002-CLAUSE-003 (RLITE Section List)**
    This table classifies items under the major **Core Content** wrapper only. Major section structure (YAML + major `##` sections) is specified in CLAUSE-005.
@@ -40,9 +41,10 @@
 
 5) **T102B-STD-002-CLAUSE-005 (Major Section Structure — Documentation Standards)**
    Per `T102-CON-003 (Documentation Standards)`, major section structure SHALL follow `prompt/documentation/main/prompt_main.md`.
-   - This ADR’s section lists (CLAUSE-002/003) intentionally classify **Core Content** only.
+   - This standard's section lists (CLAUSE-002/003) intentionally classify **Core Content** only.
    - **Additive convention (T102B Request-family artifacts)**: Major `##` section headings SHALL use **Capital Roman numerals** (e.g., `## I. ...`, `## II. ...`) as shown in the tables below. This convention is additive to the heading rules in `prompt_main.md`.
    - YAML Header is required front matter and is not a `##` heading.
+   - Full Request Core Content wrapper (`## III. Core Content`) SHALL contain Sections A-K per `T102B-STD-002-CLAUSE-002`.
 
    **Full Request — Major Sections**
    | Major Section | Classification | Notes |
@@ -51,9 +53,9 @@
    | `## I. Executive Summary` | Mandatory | Feature purpose (1–2 paragraphs) + problem/outcome framing |
    | `## II. Table of Contents` | Optional | Recommended for Full Request readability |
    | `## III. Core Content` | Mandatory | Wrapper containing CLAUSE-002 sections |
-   | `## IV. Acceptance Criteria` | Mandatory | Feature-level ACs only (no story-level AC bodies) |
-   | `## V. Approval Gate` | Mandatory | Checklist + sign-off (evidence per `T102B-STD-003`) |
-   | `## VI. Appendix` | Optional | Amendments, references, validation checklist, and other supporting info |
+   | `## IV. Approval Gate` | Mandatory | Checklist + sign-off (evidence per `T102B-STD-003`) |
+   | `## V. Appendix` | Optional | References and other supporting info |
+   | `## VI. Changelog` | Mandatory | Version history for structural amendments and remediation updates |
 
    **RLITE — Major Sections**
    | Major Section | Classification | Notes |
@@ -91,3 +93,10 @@
 ## Provenance
 
 - `prompt/artifacts/tasks/T102/T102B/research/report/report_T102B-RES-001_request-artifact-analysis.md`
+
+## Changelog
+
+| Version | Date | Type | Summary |
+|:--|:--|:--|:--|
+| v1.0.0 | 2026-02-06 | Initial | Initial section classification standard for Full Request and RLITE variants |
+| v2.0.0 | 2026-02-10 | Amendment | AC002.1 remediation: Full Request section list updated to A-K; G/H/I semantics revised; major section structure renumbered; mandatory `## VI. Changelog` added |

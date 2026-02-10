@@ -1337,7 +1337,7 @@
  | 7 | `concept_T102-CONSULTANT.md` | CLAUSE-002/005D + STD Index + cross-refs | TK003, TK004, TK007 |
 -| 8 | `T102-STD-004_decision-records-index.md` | **DELETE** (renamed to STD-004) | TK005 |
 +| 8 | `T102-STD-004_decision-records-index.md` | **DELETE** (renamed to STD-004) | TK005 |
- | 9 | `T102-STD-004_decision-records-standard.md` | **CREATE** (golden exemplar v2) | TK005 |
+ | 9 | `T102-STD-004_specification-standard-and-guideline.md` | **CREATE** (golden exemplar v2) | TK005 |
  | 10 | `sps_T102-CONSULTANT.md` | STD-004 entry + CLAUSE refs | TK006 |
  | 11 | `guideline_combined_adr_spec_file.md` | STD model, Spec-first (v3.0.0) | TK008 |
 ```
@@ -1351,25 +1351,25 @@
  **Downstream AC006 execution targets (post-doc-sync):**
  - `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (taxonomy/semantics updates + STD Index + cross-ref updates)
  - `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (STD-004 references update)
--- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-index.md` → `T102-STD-004_decision-records-standard.md` (golden exemplar rebuild)
-+- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-index.md` → `T102-STD-004_decision-records-standard.md` (golden exemplar rebuild)
+-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-index.md` → `T102-STD-004_specification-standard-and-guideline.md` (golden exemplar rebuild)
++- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-index.md` → `T102-STD-004_specification-standard-and-guideline.md` (golden exemplar rebuild)
  - `prompt/templates/consultant/standards/guideline_standard_specs.md` + `prompt/templates/consultant/standards/template_standard_specs.md` (rename + update per TK008)
  - `prompt/artifacts/tasks/T102/consultant/workspace/scripts/` (new; migration script per TK009)
  
 @@ -137,21 +137,21 @@
  | # | Check | Result | Evidence |
  |:--|:------|:-------|:---------|
- | 001 | STD-004 golden exemplar file exists | **Pass** | `test -f .../T102-STD-004_decision-records-standard.md` → `OK_STD_004_EXISTS` |
+ | 001 | STD-004 golden exemplar file exists | **Pass** | `test -f .../T102-STD-004_specification-standard-and-guideline.md` → `OK_STD_004_EXISTS` |
 -| 002 | Old ADR-004 golden exemplar file is removed | **Pass** | `test ! -f .../T102-STD-004_decision-records-index.md` → `OK_ADR_004_REMOVED` |
 +| 002 | Old ADR-004 golden exemplar file is removed | **Pass** | `test ! -f .../T102-STD-004_decision-records-index.md` → `OK_ADR_004_REMOVED` |
- | 003 | Canonical combined-file headings exist in required order | **Pass** | `rg` shows: `#` (line 1), `{#...}` (line 2), `## Specification` (line 4), `## Decision Record` (line 196), `## References` (line 217), `## Provenance` (line 226) in `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
+ | 003 | Canonical combined-file headings exist in required order | **Pass** | `rg` shows: `#` (line 1), `{#...}` (line 2), `## Specification` (line 4), `## Decision Record` (line 196), `## References` (line 217), `## Provenance` (line 226) in `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
 -| 004 | Nested ADR exists as `<STD-ID>-ADR-001` under `## Decision Record` | **Pass** | `rg` line 198: `* **T102-STD-004-ADR-001 (Specification Standard & Guideline)** {#t102-std-004-adr-001-specification-standard-and-guideline}` |
 +| 004 | Nested ADR exists as `<STD-ID>-ADR-001` under `## Decision Record` | **Pass** | `rg` line 198: `* **T102-STD-004-ADR-001 (Specification Standard & Guideline)** {#t102-std-004-adr-001-specification-standard-and-guideline}` |
- | 005 | References/Provenance are STD-level `##` sections (not inside DR body) | **Pass** | `rg` lines 217/226 show `## References` and `## Provenance` at top level in `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
--| 006 | No orphan `T102-STD-004` references remain inside STD-004 | **Pass** | `rg "T102-STD-004" .../T102-STD-004_decision-records-standard.md` → `OK_NO_T102_ADR_004_IN_STD_004` |
--| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_decision-records-standard.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
-+| 006 | No orphan `T102-STD-004` references remain inside STD-004 | **Pass** | `rg "T102-STD-004" .../T102-STD-004_decision-records-standard.md` → `OK_NO_T102_ADR_004_IN_STD_004` |
-+| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_decision-records-standard.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
+ | 005 | References/Provenance are STD-level `##` sections (not inside DR body) | **Pass** | `rg` lines 217/226 show `## References` and `## Provenance` at top level in `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
+-| 006 | No orphan `T102-STD-004` references remain inside STD-004 | **Pass** | `rg "T102-STD-004" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_T102_ADR_004_IN_STD_004` |
+-| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
++| 006 | No orphan `T102-STD-004` references remain inside STD-004 | **Pass** | `rg "T102-STD-004" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_T102_ADR_004_IN_STD_004` |
++| 007 | No orphan `T102-STD-004-CLAUSE-*` references remain inside STD-004 | **Pass** | `rg "T102-STD-004-CLAUSE-" .../T102-STD-004_specification-standard-and-guideline.md` → `OK_NO_ADR_CLAUSE_IN_STD_004` |
  | 008 | ADR-005 taxonomy reflects `STDCID` + legacy `DRCID` + precedence update | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `STDCID` row + `[LEGACY — migration to STDCID in progress]` and precedence: `SID > RESID > RID > STDCID > DRID > DRCID [legacy]...` |
  | 009 | ADR-005 semantics define standard nested ADR construction (`CLAUSE-005F`) | **Pass** | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` contains `T102-STD-005-CLAUSE-005F (Standard Decision Record Semantics)` with format `<STD-ID>-ADR-###` |
  | 010 | SPS references STD-004 by `STD-004-CLAUSE-*` and `STD-004-ADR-001` | **Pass** | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` line 126 includes `T102-STD-004-CLAUSE-*` and `T102-STD-004-ADR-001` |
@@ -1407,7 +1407,7 @@
 +  --replace-token "t102-std-004-adr-001-specification-standard-and-guideline=t102-std-004-adr-001-specification-standard-and-guideline" \
    --root prompt \
    --include-path prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md \
-   --include-path prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md \
+   --include-path prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md \
 @@ -70,11 +70,11 @@
  ```bash
  python3 prompt/scripts/migrations/migrate_adr_to_std.py \
@@ -1424,7 +1424,7 @@
 +  --replace-token "t102-std-004-adr-001-specification-standard-and-guideline=t102-std-004-adr-001-specification-standard-and-guideline" \
    --root prompt \
    --include-path prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md \
-   --include-path prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md \
+   --include-path prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md \
 @@ -102,7 +102,7 @@
  4) **Legacy-anchor absence check (Stage 1 files)**
  
@@ -1432,7 +1432,7 @@
 -rg -n "t102-std-004-specification-standard-and-guideline|t102-std-004-adr-001-specification-standard-and-guideline" \
 +rg -n "t102-std-004-specification-standard-and-guideline|t102-std-004-adr-001-specification-standard-and-guideline" \
    prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md \
-   prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
+   prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
  ```
 @@ -122,11 +122,11 @@
  ```bash
@@ -1550,7 +1550,7 @@
 @@ -166,9 +166,9 @@
  
  **Deliverable**:
- - New combined file: `T102-STD-004_decision-records-standard.md`
+ - New combined file: `T102-STD-004_specification-standard-and-guideline.md`
 -- Old combined file removed (renamed): `T102-STD-004_decision-records-index.md`
 +- Old combined file removed (renamed): `T102-STD-004_decision-records-index.md`
  - Canonical combined-file structure (in order):
@@ -5916,7 +5916,7 @@
 +  --replace-token "t102-std-004-adr-001-specification-standard-and-guideline=t102-std-004-adr-001-specification-standard-and-guideline" \
    --root prompt \
    --include-path prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md \
-   --include-path prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md \
+   --include-path prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md \
 ```
 
 ### `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/scripts/output/std_migration/report_AC007_extra_analysis_adr004_to_std004_apply.md`
@@ -6114,9 +6114,9 @@
   
   | STD ID | Title | Status | Owner | Effective | Supersedes | Current DR | Canonical Path |
   | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
---| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
-+-| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
- +| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
+--| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
++-| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
+ +| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
   
   
 @@ -44,7 +44,7 @@
@@ -6156,8 +6156,8 @@
     `T102-STD-005 (ID Specification & Rules)`,
     `T102-RES-002 (Roadmap Viability)`
 @@ -83,8 +83,8 @@
- --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
- +++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
+ --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
+ +++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
  @@ -1,5 +1,5 @@
 --# T102-STD-004 — Specification Standard & Guideline
 --{#t102-std-004-specification-standard-and-guideline}
@@ -6186,9 +6186,9 @@
   
   | STD ID | Title | Status | Owner | Effective | Supersedes | Current DR | Canonical Path |
   | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
---| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
-+-| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
- +| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md` |
+--| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
++-| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
+ +| `T102-STD-004` | **Specification Standard & Guideline** | Proposed | Client | — | — | `T102-STD-004-ADR-001` | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
   
   
 @@ -44,7 +44,7 @@
@@ -6228,8 +6228,8 @@
     `T102-STD-005 (ID Specification & Rules)`,
     `T102-RES-002 (Roadmap Viability)`
 @@ -83,8 +83,8 @@
- --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
- +++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_decision-records-standard.md
+ --- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
+ +++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md
  @@ -1,5 +1,5 @@
 --# T102-STD-004 — Specification Standard & Guideline
 --{#t102-std-004-specification-standard-and-guideline}
