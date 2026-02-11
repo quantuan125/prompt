@@ -9,7 +9,7 @@ stream: '1'
 stream_id: 'T102B-PH001-ST001'
 feature_id: 'T102B1'
 feature_code: 'RST'
-version: '2.4.0'
+version: '2.4.1'
 date: '2026-02-10'
 status: 'in_progress'
 author: 'LLM_Consultant'
@@ -83,9 +83,10 @@ Decisions resolved during stream execution.
 | AC001 | `T102B-PH001-ST001-AC001` | RST requirements analysis & initial request | `completed` | LLM_Consultant | ST000 | `request_T102B1-RST.md` (v0.1 lightweight) |
 | AC002 | `T102B-PH001-ST001-AC002` | RST specification refinement | `completed` | LLM_Consultant | AC001 | `request_T102B1-RST.md` (v0.2.1 — decisions resolved) |
 | AC002.1 | `T102B-PH001-ST001-AC002.1` | RST Specification Remediation | `completed` | LLM_Consultant | AC002 | `request_T102B1-RST.md` v0.3.0 + `T102B-STD-002` v2.0 + plan amendments + `plan_T102-PH001-ST004.md` |
+| AC002.2 | `T102B-PH001-ST001-AC002.2` | RST Post-Amendment Conformance Gate | `planned` | LLM_Consultant | AC002.1 + `T102-PH001-ST005` | Conformance note + acceptance-level gate evidence |
 | AC003 | `T102B-PH001-ST001-AC003` | RST template formalization | `planned` | LLM_Consultant | AC002.1 | `template_request_structural.md` |
 | AC004 | `T102B-PH001-ST001-AC004` | RST self-validation & retrofit | `planned` | LLM_Consultant | AC003 | `request_T102B1-RST.md` (v1.0 full) |
-| AC005 | `T102B-PH001-ST001-AC005` | Client approval gate | `planned` | Client | AC004 | Approval statement |
+| AC005 | `T102B-PH001-ST001-AC005` | Client approval gate | `planned` | Client | AC004 + AC002.2 | Approval statement |
 
 ---
 
@@ -207,7 +208,7 @@ Decisions resolved during stream execution.
 
 **Scope**:
 - In scope: STD-002 amendment, Request section restructuring (G/H/K/F tables/TOC/Gate/Changelog), initiative plan ST004 registration, ST004 stream plan creation, SPS Issues/Risks promotion, AC003/AC004 task register updates
-- Out of scope: AC002.1 does NOT execute AC004-deferred items (marker removal, Problem Statement rewrite, INT population, T102-RES-004 absorption) and does not draft/modify `T102-STD-007` clause text (initiative-level downstream work).
+- Out of scope: AC002.1 does NOT execute AC004-deferred items (marker removal, Problem Statement rewrite, INT population, T102-RES-004 absorption), does not draft/modify `T102-STD-007` clause text (initiative-level downstream work), and does not perform post-ST005 conformance validation (handled in AC002.2).
 
 **Inputs Required**:
 - AC002 deliverable (`request_T102B1-RST.md` v0.2.1)
@@ -248,6 +249,46 @@ Decisions resolved during stream execution.
 - [x] T102-PH001-ST004 registered in initiative plan with stream plan file created
 - [x] Promoted Issues/Risks recorded in SPS dossier with supersession notes
 - [x] AC003/AC004 task registers updated to reflect amended section structure
+
+---
+
+### Activity AC002.2: RST Post-Amendment Conformance Gate
+
+**Activity ID**: `T102B-PH001-ST001-AC002.2`
+
+**Purpose**: Provide a hard-gated conformance pass that executes **after** `T102-PH001-ST005` clause amendments are approved, ensuring T102B RST artifacts remain aligned to the amended initiative-level standards (notably `T102-STD-003`, `T102-STD-006`, and `T102-STD-005` INT constraints). This activity exists because AC002.1 remediation was completed prior to final ST005 drafting, and therefore requires an explicit post-amendment verification checkpoint.
+
+**Deliverables**:
+- `prompt/artifacts/tasks/T102/T102B/workspace/notes/PH001/ST001/notes_T102B-PH001-ST001-AC002.2.md` (conformance note + evidence)
+
+**Scope**:
+- In scope: Validate that template/retrofit guidance and affected Request surfaces are compatible with amended standards; record evidence; issue narrowly scoped follow-up deltas for AC003/AC004 (or downstream remediation) if needed.
+- Out of scope: Drafting the amended standards (ST005 scope) and broad SSOT rollout into SPS/Concept (initiative-level downstream work).
+
+**Hard gate dependency** (acceptance-level): This activity MUST NOT execute until the relevant ST005 activities are approved (per-AC GATE-001), at minimum:
+- `T102-PH001-ST005-AC002` (amend `T102-STD-003`)
+- `T102-PH001-ST005-AC003` (amend `T102-STD-006`)
+- `T102-PH001-ST005-AC005` (amend `T102-STD-005`, as applicable)
+
+**Inputs Required** (analysis-first evidence):
+- `analysis_T102-RES-005_cross-scope-coordination-architecture.md` (accepted evidence, 2026-02-10)
+- `analysis_T102-RES-006_integration-impact.md` (accepted evidence, 2026-02-10)
+- Amended standards outputs from `T102-PH001-ST005` (final versions approved via per-AC GATE-001)
+- Current T102B artifacts: `T102B-STD-002`, `request_T102B1-RST.md`, and the AC003 template artifact (once created)
+
+**Task Register**:
+
+| Task ID | Description | Status | Action |
+|:--|:--|:--|:--|
+| TK001 | Record T102-PH001-ST005 amendment versions used for validation (STD-003, STD-006, STD-005) and gate evidence (approval dates) | `planned` | — |
+| TK002 | Validate/adjust Section E expectations against amended `T102-STD-003` (exact schema + “minimum viable embedded coordination” rule) | `planned` | — |
+| TK003 | Validate/adjust research indexing expectations against amended `T102-STD-006` (filename discipline + source pointers + link integrity protocol) | `planned` | — |
+| TK004 | Validate INT usage constraints relevant to Section H “Feature Guidance & Notes” against amended `T102-STD-005` (promotion loop + anti-pattern boundaries) | `planned` | — |
+| TK005 | Record conformance evidence and any follow-up remediation items (execute vs defer) | `planned` | — |
+
+**Success Criteria Checklist**:
+- [ ] Conformance note recorded with ST005 versions + evidence
+- [ ] Any required follow-up deltas identified and dispositioned (execute vs defer)
 
 ---
 
@@ -408,6 +449,7 @@ Design decisions to be resolved during AC002 (RST Specification Refinement). Dec
 - [x] Section classification (M/O/D) defined and applied
 - [x] FR/IG consolidation design approved
 - [x] Section J disposition decided
+- [ ] Post-amendment conformance validated (AC002.2; hard-gated on `T102-PH001-ST005`)
 - [ ] `template_request_structural.md` authored
 - [ ] `request_T102B1-RST.md` retrofitted to v1.0 (full structure)
 - [ ] Self-validation demonstrates template utility
@@ -424,6 +466,7 @@ Design decisions to be resolved during AC002 (RST Specification Refinement). Dec
 | Parent | Phase 1 Plan | `prompt/artifacts/tasks/T102/T102B/workspace/plan/plan_T102B-PH001.md` |
 | Sibling | Stream 0 Plan | `prompt/artifacts/tasks/T102/T102B/workspace/plan/plan_T102B-PH001-ST000.md` |
 | Sibling | Stream 2 Plan | `prompt/artifacts/tasks/T102/T102B/workspace/plan/plan_T102B-PH001-ST002.md` |
+| Dependency | T102 Stream 5 Plan (ST005) | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md` |
 | Deliverable | RST Request | `prompt/artifacts/tasks/T102/T102B/request/request_T102B1-RST.md` |
 | Deliverable | RST Template | `prompt/templates/request/request_structural_template.md` |
 | Research | T102B-RES-001 | `prompt/artifacts/tasks/T102/T102B/research/report/report_T102B-RES-001_request-artifact-analysis.md` |
@@ -432,6 +475,7 @@ Design decisions to be resolved during AC002 (RST Specification Refinement). Dec
 | SSOT | T102 Concept | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
 | Notes | AC001 Notes | `prompt/artifacts/tasks/T102/T102B/workspace/notes/PH001/ST001/notes_T102B-PH001-ST001-AC001.md` |
 | Notes | AC002 Notes | `prompt/artifacts/tasks/T102/T102B/workspace/notes/PH001/ST001/notes_T102B-PH001-ST001-AC002.md` |
+| Notes | AC002.2 Notes | `prompt/artifacts/tasks/T102/T102B/workspace/notes/PH001/ST001/notes_T102B-PH001-ST001-AC002.2.md` |
 | Proposal | RST Non-Normative | `prompt/artifacts/tasks/T102/T102B/workspace/proposal/T102B1/proposal_T102B1-RST_non_normative.md` |
 | Notes | AC002 Session 2 Transcript | `prompt/artifacts/tasks/T102/T102B/raw/PH001/ST001/raw_T102B-PH001-ST001-AC002_2026-02-07_p2.txt` |
 
@@ -461,3 +505,4 @@ Design decisions to be resolved during AC002 (RST Specification Refinement). Dec
 | v2.3.0 | 2026-02-08 | Plan Amendment | AC002 re-review remediation: Registered AC002.1 subactivity (16 tasks); updated AC003 dependency (AC002→AC002.1); updated AC003 task register (TK008/TK009 revised, TK017 added for Section K); updated AC004 task register (TK015-TK018 added for deferred items); added decisions 7-13 to Stream Decision Summary |
 | v2.3.1 | 2026-02-09 | Amendment | Post-RES-004 integration alignment: added integration analysis as AC002.1 input; marked AC002.1 TK012/TK013 completed with evidence; strengthened TK005/TK014 actions using accepted integration guidance; removed stale ST004 blocking language from AC004 TK018; renamed AC004 G/H tasks to match Governance Standards + Feature Guidance & Notes |
 | v2.4.0 | 2026-02-10 | Completion | Closed AC002.1: updated `T102B-STD-002` to v2.0 (A-K + major section restructure + changelog), remediated `request_T102B1-RST.md` to v0.3.0, promoted feature Issues/Risks to epic scope in SPS with supersession notes, and completed AC003/AC004 register alignment for post-remediation execution. |
+| v2.4.1 | 2026-02-10 | Plan Amendment | Registered AC002.2 as a post-ST005 conformance gate (analysis-first evidence) and added acceptance-level dependency from AC005 on AC002.2 to enforce hard-gated validation prior to final stream approval. |

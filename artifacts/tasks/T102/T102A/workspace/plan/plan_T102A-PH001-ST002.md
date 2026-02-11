@@ -7,8 +7,8 @@ epic_code: 'SPS'
 phase: '1'
 stream: '2'
 stream_id: 'T102A-PH001-ST002'
-version: '0.1.0'
-date: '2026-02-09'
+version: '0.2.0'
+date: '2026-02-11'
 status: 'planned'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -42,6 +42,8 @@ depends_on: 'T102A-PH001-ST000'
 - `prompt/artifacts/tasks/T102/T102A/standards/T102A-STD-002_feature-register-index.md`
 - `prompt/templates/consultant/sps/sps_structural_template.md`
 - `prompt/templates/consultant/sps/guideline_ssot_sps.md`
+- `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md` (STD-003 schema enforcement deltas; coordination architecture boundary)
+- `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md` (pending initiative-level STD amendments — known incoming changes)
 
 ### Activity Register
 
@@ -80,12 +82,14 @@ depends_on: 'T102A-PH001-ST000'
 | T102A-PH001-ST002-AC001-TK003 | Assess whether `T102A-GDR-002` requires dedicated STD file creation (`T102A-STD-003` candidate) | `planned` | — |
 | T102A-PH001-ST002-AC001-TK004 | Cross-reference template/guideline sections against STD coverage and flag gaps | `planned` | — |
 | T102A-PH001-ST002-AC001-TK005 | Produce remediation recommendations and implementation sequence | `planned` | — |
+| T102A-PH001-ST002-AC001-TK006 | Cross-reference T102A STD gaps against `T102-PH001-ST005` pending amendments (STD-001/003/005/006/007); flag overlaps to avoid duplicate remediation; focus T102A gap analysis on T102A-specific STD files only | `planned` | — |
 
 **Success Criteria Checklist**:
 - [ ] Structural compliance report completed for all existing T102A STD files
 - [ ] Missing mandatory sections identified and cataloged
 - [ ] `T102A-GDR-002` migration recommendation documented
 - [ ] Template/guideline to STD coverage gap matrix produced
+- [ ] ST005 pending amendments cross-referenced; T102A gap analysis scoped to T102A-specific standards only
 - [ ] Remediation action list approved for AC002
 
 ### Activity AC002: STD CLAUSE Spec Authoring
@@ -109,6 +113,8 @@ depends_on: 'T102A-PH001-ST000'
 | T102A-PH001-ST002-AC002-TK003 | Ensure all new/amended files reference `T102-STD-009` governance model where applicable | `planned` | — |
 | T102A-PH001-ST002-AC002-TK004 | Run structural checklist for all changed files and prepare evidence | `planned` | — |
 
+**Coordination note**: New/amended T102A CLAUSEs should anticipate the `T102-STD-003` v2 schema rules being drafted in `T102-PH001-ST005-AC002` (exact column names, exact category enums, "minimum viable" embedded coordination rule). If ST005-AC002 completes before AC002 execution, align T102A CLAUSE authoring to the amended STD-003. If not, draft with best available schema and revalidate post-`T102A-PH001-GATE-001`.
+
 **Success Criteria Checklist**:
 - [ ] New STD files authored for all approved gap items
 - [ ] Existing T102A STD files amended per AC001 recommendations
@@ -128,6 +134,8 @@ depends_on: 'T102A-PH001-ST000'
 | Standard | Governance standards specification | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-009_governance-standards-specification.md` |
 | Template | SPS structural template | `prompt/templates/consultant/sps/sps_structural_template.md` |
 | Guideline | SPS authoring guideline | `prompt/templates/consultant/sps/guideline_ssot_sps.md` |
+| Analysis (input) | RES-005 integration analysis | `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md` |
+| Plan (dependency) | T102 ST005 Standards Amendment | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md` |
 
 ---
 
@@ -135,4 +143,5 @@ depends_on: 'T102A-PH001-ST000'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.2.0 | 2026-02-11 | Plan Amendment | Added RES-005 analysis and ST005 plan to context inputs; added TK006 to AC001 for ST005 pending amendments cross-reference; added coordination note to AC002 for STD-003 schema alignment. Evidence: `T102A-PH001-SES001` |
 | v0.1.0 | 2026-02-09 | Initial | Created ST002 stream scaffold with standards stack review and clause authoring activities |

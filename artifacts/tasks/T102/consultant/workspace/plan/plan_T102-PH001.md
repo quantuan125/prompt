@@ -1,5 +1,5 @@
-version: '0.14.0'
-date: '2026-02-10'
+version: '0.15.0'
+date: '2026-02-11'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -81,6 +81,7 @@ Decisions below are treated as authoritative for Phase 1 planning as of **2026-0
 | 3 | `T102-PH001-ST003` | SSOT Refactor Rollout & Validation (Model D, Concept) | GATED | ST001 | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST003.md`; Model D rollout executed + validation checklist evidence |
 | 4 | `T102-PH001-ST004` | Initiative Research Commissioning | PARALLEL | — | `in_progress` | `plan_T102-PH001-ST004.md`; commission `T102-RES-004/005/006` (brief + report + integration recommendations) |
 | 5 | `T102-PH001-ST005` | Standards Amendment Execution (Research-Driven) | GATED | ST004 (gate-level per AC); coordination with ST002 | `planned` | `plan_T102-PH001-ST005.md`; STD-007/003/006/001 clause amendments per research integration recommendations |
+| 6 | `T102-PH001-ST006` | Option (c) Transition Execution (Concept I&R Aggregation + Hygiene) | GATED | ST005 (gate-level per AC) | `planned` | `plan_T102-PH001-ST006.md`; Concept hygiene + Concept I&R aggregation (pointers-only) + SPS pointer blocks + T102A owner brief |
 
 **Gates (Phase 1)**:
 - **No SSOT refactor rollout work** begins until `T102-PH001-ST001-AC002` (ADR Index schema + extraction conventions), `T102-PH001-ST001-AC003` (governance deltas + bounded rollout changeset plan), `T102-PH001-ST001-AC005` (golden exemplar accepted), and `T102-PH001-ST001-AC006` (STD-Contains-CLAUSE governance migration) are completed. (Satisfied 2026-02-08.)
@@ -95,6 +96,7 @@ Decisions below are treated as authoritative for Phase 1 planning as of **2026-0
   - ST005-AC004 depends on ST004-AC003 GATE-003 (passed 2026-02-10)
   - ST005-AC005 depends on ST004-AC002 GATE-003 (passed 2026-02-10)
 - ST005 has a coordination dependency (non-blocking) on ST002: amendments should align with ST002's normalized adoption/verification pattern.
+- **ST006 execution is gated on ST005 approvals**: any Concept I&R aggregation register implementation is treated as non-conformant until the required ST005 per-standard approvals (GATE-001) are recorded. (See: `plan_T102-PH001-ST006.md`.)
 
 ### Activity Register (Phase-level)
 
@@ -120,6 +122,11 @@ Decisions below are treated as authoritative for Phase 1 planning as of **2026-0
 | 5 | AC003 | `T102-PH001-ST005-AC003` | Amend `T102-STD-006` (Research Artifacts Index) | `planned` | LLM_Consultant | ST004-AC002 GATE-003 (passed) | `T102-STD-006` v2.0.0 (Deltas B1-B4 from RES-005) |
 | 5 | AC004 | `T102-PH001-ST005-AC004` | Amend `T102-STD-001` (Consultancy Operating Model) | `planned` | LLM_Consultant | ST004-AC003 GATE-003 (passed 2026-02-10) | `T102-STD-001` amended (Deltas A1-A5 from RES-006) |
 | 5 | AC005 | `T102-PH001-ST005-AC005` | Amend `T102-STD-005` (ID Specification & Rules) | `planned` | LLM_Consultant | ST004-AC002 GATE-003 (passed) | `T102-STD-005` amended (Deltas C1-C2 from RES-005) |
+| 6 | AC001 | `T102-PH001-ST006-AC001` | Concept Link-Integrity Hygiene (Registers) | `planned` | LLM_Consultant | — | Concept register links corrected + verification checklist evidence |
+| 6 | AC002 | `T102-PH001-ST006-AC002` | Concept I&R Aggregation Register (Pointers-Only) | `planned` | LLM_Consultant | ST005-AC001/AC004/AC005 GATE-001 (required); ST005-AC003 GATE-001 (conditional) | Updated Concept with I&R aggregation register section |
+| 6 | AC003 | `T102-PH001-ST006-AC003` | SPS Pointer Blocks to Concept I&R Aggregation | `planned` | LLM_Consultant | ST006-AC002 | Updated SPS with minimal pointer blocks (no duplicated canonical content) |
+| 6 | AC004 | `T102-PH001-ST006-AC004` | T102A Owner Communication Brief (Option (c) Impacts) | `planned` | LLM_Consultant | — | Comm brief under `prompt/artifacts/tasks/T102/T102A/workspace/communication/` |
+| 6 | AC005 | `T102-PH001-ST006-AC005` | Gate: Client Acceptance of Option (c) Transition Execution Output | `planned` | Client | AC001–AC004 | Acceptance record + ready-for-downstream confirmation |
 
 ---
 
@@ -133,6 +140,7 @@ Decisions below are treated as authoritative for Phase 1 planning as of **2026-0
 | Plan | Stream 3 Plan (PH001-ST003) | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST003.md` |
 | Plan | Stream 4 Plan (PH001-ST004) | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST004.md` |
 | Plan | Stream 5 Plan (PH001-ST005) | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md` |
+| Plan | Stream 6 Plan (PH001-ST006) | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST006.md` |
 | Plan (parent) | T102 Master Plan | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST000.md` |
 | Roadmap (predecessor) | Phase 0 Roadmap | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/plan_T102-PH000.md` |
 | SSOT | T102 SPS | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` |
@@ -174,3 +182,4 @@ Decisions below are treated as authoritative for Phase 1 planning as of **2026-0
 | v0.12.0 | 2026-02-09 | Plan Amendment | Registered `T102-PH001-ST005` (Standards Amendment Execution, Research-Driven): 4 activities (AC001 STD-007 from RES-004, AC002-AC004 skeleton from RES-005/006); gate dependencies on ST004 per-AC GATE-003; coordination link with ST002; ST004-AC001 status aligned to `in_progress`. |
 | v0.13.0 | 2026-02-10 | Update | ST004: AC001 → completed, AC002 → completed, AC003 → in_progress; ST004 stream → in_progress. ST005: populated AC002/AC003 skeletons from RES-005 deltas; registered new AC005 (STD-005, Deltas C1-C2 per DEC007); updated gate dependency notes (ST004-AC002 GATE-003 passed). |
 | v0.14.0 | 2026-02-10 | Update | ST004-AC003 GATE-003 passed; ST005-AC004 gate dependency satisfied; RES-006 integration analysis added to Links; ST005 plan updated to v3.0.0 with AC004 fully populated |
+| v0.15.0 | 2026-02-11 | Plan Amendment | Registered ST006 to execute Option (c) transition work (Concept hygiene + Concept I&R aggregation) gated on ST005 approvals; added ST006 activities and plan link. |

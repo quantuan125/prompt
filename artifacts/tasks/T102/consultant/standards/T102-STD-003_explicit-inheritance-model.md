@@ -8,8 +8,11 @@
       - Source Artifact: one of `{SPS, CONCEPT, REQUEST, DESIGN}`.
       - Scope ID: [I-SID|E-SID|F-SID|S-SID]
       - Use repo-relative anchors when available (e.g., `SPS#t102-gdr-003-inheritance-model`).
-      - Category: one of `{Assumptions, Constraints, Quality Goals, Dependencies, Implementation Guides, Notes, Governances, Architecture}`   
-      - Inherited Rule IDs: back-ticked list of `ID (Title)` tokens; **≤5 items**;
+      - Category: one of `{Assumptions, Constraints, Quality Goals, Dependencies, Implementation Guides, Notes, Governances, Architecture}`
+      - Inherited Rule IDs: back-ticked list of `ID (Title)` tokens; **≤5 items**.
+      - Column names and ordering MUST match exactly as specified above; ad-hoc column additions are prohibited.
+      - Category enum values MUST match exactly as specified above (e.g., `Governances` not `Governance`).
+      - Empty table disposition: If no critical inherited IDs apply at a given scope, the table MAY be omitted and replaced with a one-line note: "No critical inherited items at this scope."
 
     2) **T102-STD-003-CLAUSE-002 (Precedence)**
     **I-SID  > E-SID > F-SID >  S-SID**; variances require a local ADR that cites the parent.
@@ -17,8 +20,13 @@
     3) **T102-STD-003-CLAUSE-003 (Authoring Rules)**
       - Do **not** restate parent text; list IDs only (delta-only).
       - Prefer the **most critical ≤5** inherited IDs for scanability.
+      - At Feature scope, the table SHOULD contain only critical upstream IDs that directly govern Feature requirements and/or gate decisions; general-purpose "safety listing" of all known IDs is an anti-pattern and SHOULD NOT be used.
       - Link by anchor; avoid raw URLs.
       - When deviating, create a **variance ADR** in the local artifact.
+
+    4) **T102-STD-003-CLAUSE-004 (Coordination Architecture Boundary)**
+      - Inherited Considerations tables MUST serve as a local emphasis layer for embedded scanability and MUST NOT be treated as the cross-scope coordination inventory.
+      - Cross-scope inventories, drift detection, and aggregation registers SHOULD live in Concept as pointers-only audit-surface registers.
 
 ## Decision Record
 
@@ -30,7 +38,7 @@
   * **Decision**
     Implement **Explicit ID Referencing** in addition to delta-only across all PM scopes:
         **Why**: Prevent rule duplication and governance drift that creates inconsistent decision authority and audit trail gaps across artifact hierarchy
-        **What**: Each PM scope **implicitly inherits all higher-precedence rules** per the hierarchy (I-RIDs through S-ADRs) but **explicitly emphasizes only critical inherited items** via "Inherited Considerations" tables using ID references. All scopes record **only deltas/overrides** without restating upstream content verbatim. **Upstream scopes never reference downstream rules** - inheritance flows unidirectionally from higher or equal to lower precedence only.
+        **What**: Each PM scope **implicitly inherits all higher-precedence rules** per the hierarchy (I-RIDs through S-ADRs) but **explicitly emphasizes only critical inherited items** via "Inherited Considerations" tables using ID references. All scopes record **only deltas/overrides** without restating upstream content verbatim. Embedded tables are an emphasis layer (not the cross-scope inventory). **Upstream scopes never reference downstream rules** - inheritance flows unidirectionally from higher or equal to lower precedence only.
         **Benefit**: Maintains single source of truth for governance while providing scannable inheritance visibility without verbose duplication
 
   * **Alternatives Considered**

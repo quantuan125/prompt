@@ -43,7 +43,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 - `T104-PH001-ST000-SES002-DEC005`: Phase 0 Streams 4A/5/6.1/7 migrated to Phase 1.
 - `T104-PH001-ST000-SES002-DEC006`: Stream 2 follows `T102-STD-009` governance standards pattern.
 - `T104-PH001-ST000-SES002-DEC007`: Subconsultant briefing uses `handoff_brief_` pattern (per T810 exemplar).
-- `T104-PH001-ST002-DEC008`: T104-PH001-ST007 (Directory Restructuring) introduced as new implementation stream, gated on AC000 Client approval.
+- `T104-PH001-ST002-SES001-DEC008`: T104-PH001-ST007 (Directory Restructuring) introduced as new implementation stream, gated on AC000 Client approval.
 
 ---
 
@@ -79,7 +79,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | 0 | AC001 | `T104-PH001-ST000-AC001` | Conduct Phase 1 planning consultation (SES-002) and create phase plan | `completed` | LLM_Consultant | PH000 | `plan_T104-PH001.md`; notes SES-002 record |
 | 0 | AC002 | `T104-PH001-ST000-AC002` | Update notes file (normalize Stream 0 notes naming + IDs) and create notes guideline | `completed` | LLM_Developer | AC001 | `notes_T104-PH001-ST000.md`; `guideline_workspace_notes.md` |
-| 0 | AC003 | `T104-PH001-ST000-AC003` | Plan amendment: align ST002/ST003/ST004/ST005 to support T104A/B/F parallel work | `completed` | LLM_Consultant | AC002 | `plan_T104-PH001.md`; `plan_T104-PH001-ST003.md`; `plan_T104-PH001-ST004.md`; `plan_T104-PH001-ST005.md`; `prompt/artifacts/tasks/T104/workspace/notes/ST000/notes_T104-PH001-ST000-AC003.md` |
+| 0 | AC003 | `T104-PH001-ST000-AC003` | Plan amendment: align ST002/ST003/ST004/ST005 to support T104A/B/F parallel work | `completed` | LLM_Consultant | AC002 | `plan_T104-PH001.md`; `plan_T104-PH001-ST003.md`; `plan_T104-PH001-ST004.md`; `plan_T104-PH001-ST005.md`; `prompt/artifacts/tasks/T104/workspace/notes/PH001/ST000/notes_T104-PH001-ST000-AC003.md` |
 | 1 | AC000 | `T104-PH001-ST001-AC000` | SPS Structural Migration | `completed` | LLM_Developer | — | `sps_T104-CWS.md` aligned to updated SPS template |
 | 1 | AC001 | `T104-PH001-ST001-AC001` | Commission `T104-RES-002` (Requirements Candidate Research) | `completed` | LLM_Consultant | — | `T104-RES-002` brief + report; SPS Research table entry |
 | 1 | AC002 | `T104-PH001-ST001-AC002` | Initiative Considerations Consultation (cross-category) | `completed` | LLM_Consultant | AC000, AC001 | SPS III.B.2–11 populated (IID-level items); `notes_T104-PH001-ST001.md` |

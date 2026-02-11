@@ -72,7 +72,9 @@
 
    **Directionality**: Inheritance flows downstream with scopes only.
    - Correct: Story references Feature; Feature references Epic; Epic references Initiative; Initiative references Program.
-   - Incorrect: Higher scope references lower scope (except `INT` exception defined in `T102-STD-005-CLAUSE-005C`).
+   - Incorrect: Higher scope references lower scope, except:
+     - **INT scoped exception**: Feature/Story-scope `INT` items MAY reference peer Feature RIDs for coordination per `T102-STD-005-CLAUSE-005C (Integration Guidance Rules)`.
+     - **Audit register exception**: Concept audit-surface registers MAY reference downstream artifact IDs for inventory/audit purposes when explicitly labeled **pointers-only** and **non-normative**. This exception MUST NOT be used to introduce upstream obligations, and it does not change inheritance/obligation directionality.
 
    **Precedence Order** (Highest to Lowest):
    - Program > Initiative > Epic > Feature > Story
@@ -180,7 +182,12 @@
      At Feature/Story scope, INT items MAY reference other peer Feature RIDs directly for integration coordination. This is a scoped exception to upstream-only directionality.
 
      **Governance Loop**:
-     If an INT pattern is widely adopted or becomes policy, it SHOULD be promoted into Epic-level `RID` (e.g., `IF/CON`) and/or captured as an `ADR`, and the originating INT SHOULD be updated to reference the promoted governance.
+     - **Promotion enforcement**: If an `INT` item is referenced as relied-upon policy in **2+ artifacts** or across **2+ Epics**, it MUST be promoted into an authoritative artifact within the **next governance review cycle**:
+       - Promote to `RID` when the rule is an enforceable obligation/constraint/requirement.
+       - Promote to `STD` when the rule is a generally applicable authoring/governance standard.
+       - Promote to `ADR` when the rule is an architectural decision requiring rationale + alternatives.
+     - The originating `INT` MUST be updated to reference the promoted authoritative ID and MUST NOT continue to serve as the policy source.
+     - **Anti-pattern boundary**: `INT` MUST NOT be used as a substitute for authoritative indices, registers, or enforceable obligations.
 
    * **T102-STD-005-CLAUSE-005D (Specification Clause Semantics)**
 

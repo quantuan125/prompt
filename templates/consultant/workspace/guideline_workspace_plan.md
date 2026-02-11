@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.2.0'
-date: '2026-02-08'
+version: '1.3.0'
+date: '2026-02-11'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -128,3 +128,24 @@ Gates appear in the Task Register as a special row type:
 - A **Task** produces a deliverable (artifact, update, code)
 - A **Gate** produces a review decision (pass/fail)
 - Gates MUST NOT be used as tasks; tasks MUST NOT be used as gates
+
+### F. Phase-Level Gates
+
+Phase-level gates govern entry into, or conformance claims within, an entire phase or a named subset of streams. They differ from activity-level gates in scope:
+
+- **ID Format**: `<Phase-ID>-GATE-###` (e.g., `T102A-PH001-GATE-001`)
+- **Placement**: In the **Phase Plan** file, as a dedicated section (e.g., "## Phase Gates") placed after the Stream Register and before the Activity Register. Phase gates MUST NOT be placed inside stream or activity plans.
+- **Scope**: A phase gate governs all streams and activities within the phase, unless the gate's Entry Criteria explicitly names a subset of streams.
+- **Enforcement mode**: The Entry Criteria text MUST specify whether the gate is:
+  - **Blocking**: No work in the governed scope may begin until the gate passes.
+  - **Conformance**: Work in the governed scope may proceed (drafting, analysis, review), but outputs MUST NOT be treated as conformant to the gated precondition until the gate passes. Conformance claims, final approvals, and handoff readiness checks are blocked.
+- **Fields**: Phase gates use the same three required fields as activity gates: Entry Criteria, Reviewer, Exit Criteria.
+- **Interaction with activity gates**: Phase gates and activity gates may coexist. Activity gates govern local task sequencing; phase gates govern cross-stream preconditions. If both apply, the more restrictive gate governs.
+
+---
+
+## VII. CHANGELOG
+
+| Version | Date | Type | Summary |
+|:--|:--|:--|:--|
+| v1.3.0 | 2026-02-11 | Amendment | Added §VI.F Phase-Level Gates authoring rule: ID format, placement, scope, enforcement mode (blocking vs conformance), interaction with activity gates |

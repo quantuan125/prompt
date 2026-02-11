@@ -16,10 +16,40 @@
       - Gate approval checkpoints before Detailed Design work authorization
 
     3) **T102-STD-001-CLAUSE-003 (CONCEPT Implementation)** 
-      - Architecture Description Document (ADD) serving as ADR compendium across initiative/epic/feature levels
-      - Uniform ADR format: `Context→Decision→Specification→Consequences→Alternatives Considered→References` with repo-relative links
-      - Design Log Register maintaining links-only to story-level implementation details
-      - Initiative/Epic/Feature ADR indices with governance traceability to parent GDRs
+      - Concept MUST serve as the initiative bridge / process manual, the coordination audit surface, and the handoff authority surface, following `T102C-STD-001 (Concept Architectural Framework)`.
+      - Concept MAY contain an ADR compendium, but it MUST NOT be framed as "ADR-only"; it MUST also host the initiative-level operating rules and audit-surface registers required for cross-scope coordination.
+      - Decision record bodies in Concept MUST follow the uniform ADR structure: `Context→Decision→Specification→Consequences→Alternatives Considered→References`, using repo-relative links.
+      - Concept registers MUST follow the obligations in `T102-STD-006 (Research Artifacts Index)` and related register standards; registers MUST be pointers-first and MUST NOT duplicate canonical bodies owned by other artifact types.
+
+      - **T102-STD-001-CLAUSE-003A (Authority Tiers)**
+        - Concept content MUST be explicitly authorable into three authority tiers:
+          - Tier 1: **Normative bodies** (standards and accepted architectural decisions, including nested ADR rationale when present).
+          - Tier 2: **Authoritative snapshots** (handoff package manifests and acceptance signals used for gates/handoffs).
+          - Tier 3: **Audit registers** (pointers-only inventories for coordination, drift detection, and navigation).
+
+      - **T102-STD-001-CLAUSE-003B (Strict Exclusions)**
+        - Concept MUST NOT host:
+          - Full requirements bodies (owned by Request artifacts)
+          - Full design bodies (owned by Design artifacts)
+          - Duplicated commissioned research bodies (owned by research brief/report artifacts indexed per `T102-STD-006`)
+          - Canonical Issues & Risks tables for a scope (owned by that scope’s SSOT artifact; Concept may provide pointers-only aggregation views)
+
+      - **T102-STD-001-CLAUSE-003C (Coordination Responsibilities Allocation)**
+        - SPS and Request artifacts MUST contain embedded “minimum viable” local emphasis needed to author/approve the local scope without re-listing full cross-scope inventories.
+        - Concept MUST contain cross-scope inventories/registers and drift indicators as the coordination audit surface.
+        - INT MUST remain non-normative guidance and MUST be promoted when it becomes relied-upon policy per `T102-STD-005-CLAUSE-005C (Integration Guidance Rules)`.
+
+      - **T102-STD-001-CLAUSE-003D (Default vs Conditional Register Families)**
+        - Concept MUST always include, at minimum:
+          - Standards index
+          - Design register (pointers-only)
+          - Research register (per `T102-STD-006`)
+          - Workscope register and File register (scope inventory + artifact role mapping)
+          - Readiness snapshot and Handoff snapshot (authoritative snapshots)
+        - Concept MAY include conditional register families when coordination scale requires them:
+          - Issues & Risks aggregation register (pointers-only) when cross-epic I&R coordination is needed or when multiple epics are active
+          - Expanded coordination inventories (dependencies, interfaces, integration surfaces) when cross-scope drift risk is observed or when multiple teams/epics rely on shared obligations
+          - Overview assets (diagrams/dashboards) when executive scanability degrades due to index growth
 
     4) **T102-STD-001-CLAUSE-004 (DESIGN Implementation)** 
       - Story-level design logs with final proposed solution, integration notes, dependencies, decision records
@@ -49,7 +79,7 @@
 
         3) **Concept (Architecture Description)**
           - **Why**: Compare options and secure approval before implementation
-          - **What**: ADR compendium; criteria/matrices; C4 views; Design Log Register
+          - **What**: Initiative bridge/process manual; ADR compendium; audit-surface registers (pointers-only); readiness/handoff snapshots
           - **Benefit**: Evidence‑based selection with traceability
 
         4) **Design (Story Implementation Logs)**
@@ -72,7 +102,10 @@
 ## References
 
 `T102-GDR-001 (Consultancy Operating Model Standard)`, 
-  `T102-NOTE-003 (Industry Standards)`
+  `T102-NOTE-003 (Industry Standards)`,
+  `T102C-STD-001 (Concept Architectural Framework)`,
+  `T102-STD-005 (ID Specification & Rules)`,
+  `T102-STD-006 (Research Artifacts Index)`
 
 ## Provenance
 

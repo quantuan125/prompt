@@ -16,7 +16,7 @@
          - Column alignment: left-aligned (`:---`).
        - **Concept Aggregation Register** (Section E.3):
          - Placement: `concept` document in Section E (Registers) → Subsection 3 (Research Artifacts Register).
-         - Schema: `| Scope | Scope ID | Research ID | Title | Summary | Reference | Brief | Report | Source |`.
+         - Schema: `| Scope | Scope ID | Research ID | Title | Summary | Reference | Brief | Report | Source | Last Verified | Link Status |`.
          - Column alignment: left-aligned (`:---`).
        - **Universal Column Specifications:**
          - Scope (Concept only): PM hierarchy level {Initiative, Epic, Feature}.
@@ -27,11 +27,15 @@
          - Reference: Back-ticked, comma-separated list of consuming IDs (e.g., `T102-GDR-006`, `T102-ISSUE-005`).
          - Brief: Markdown link to research brief artifact with repo-relative path.
          - Report: Markdown link to research report artifact with repo-relative path.
-         - Source (Concept only): Back-ticked repo-relative path to SPS section containing local research table (with section anchor), e.g., `../sps/sps_T102-CONSULTANT_v1.1.0.md#research--notes`.
+         - Source (Concept only): Back-ticked repo-relative path to SPS section containing the local research table (with section anchor), e.g., `../sps/sps_T102-CONSULTANT.md#vii-epic-research--notes`.
+         - Last Verified (Concept only): ISO-8601 date `YYYY-MM-DD` of the last link-integrity verification for the entry.
+         - Link Status (Concept only): One of `{OK, BROKEN}` indicating whether Brief/Report/Source paths currently resolve.
        - **Artifact Filenames:**
          - Brief files SHALL follow: `brief_<SCOPE-SID>-<SCOPE-NAME>_<title>.md`.
          - Report files SHALL follow: `report_<SCOPE-SID>-<SCOPE-NAME>_<title>.md`.
-         - Brief and Report for the same research SHALL share the same `<SCOPE-SID>-<SCOPE-NAME>_<title>` stem. Public links SHALL omit any `_i<n>` revision suffix.
+         - Brief and Report for the same research SHALL share the same `<SCOPE-SID>-<SCOPE-NAME>_<title>` stem.
+         - Public links in SPS tables and Concept registers MUST use canonical **unversioned** filenames and MUST omit any `_i<n>` revision suffix.
+         - Versioned filename stems (e.g., `*_v1.0.0.md`) are prohibited in public links.
        - **Templates:**
          - `prompt\templates\researcher\template_research_brief.md`
          - `prompt\templates\researcher\template_research_report.md`
@@ -46,8 +50,9 @@
     * **T102-STD-006-CLAUSE-004 (Index Maintenance Protocol)**
        - Synchronization approach: Manual verification; tooling deferred to future development per `T102-CON-002 (Minimal Automation)`.
        - Addition workflow: New research commissioned → (1) Create RES-### entry in appropriate SPS scope's local Research table, (2) Update Concept Research Register with aggregated entry including Scope/Scope ID/Source.
-       - Update workflow: Research report revisions → Update Summary in both SPS local index and Concept register; update Brief/Report links to latest semantic version (vX.Y.Z) without `_i<n>` suffix; preserve version history through file system.
+       - Update workflow: Research content revisions → Update Summary in both SPS local index and Concept register; keep Brief/Report links pointing to canonical unversioned filenames; preserve version history via git history and in-body metadata (not in public link filenames).
        - Deprecation workflow: Superseded research → Add inline note to Summary (e.g., "Superseded by T102-RES-004 addressing expanded scope"); maintain entry for audit trail; update Reference column to reflect current consuming IDs.
+       - Link-integrity verification step: When adding or updating any entry, authors MUST verify that Brief/Report/Source paths resolve to existing files/anchors. For Concept entries, authors MUST update `Last Verified` and set `Link Status` to `OK` or `BROKEN` accordingly.
        - Verification cadence: Review synchronization at each epic handoff gate; escalate material drift to Client for resolution.
 
     * **T102-STD-006-CLAUSE-005 (Cross-Artifact Referencing)**
@@ -62,6 +67,11 @@
        - Feature-level research (e.g., `T102A-SPSST-RES-001`) follows dual-indexing: local table in REQUEST artifact + aggregation in Concept register.
        - Story-level research deferred to future need assessment; if required, would follow same pattern with local table in DESIGN artifact.
        - Concept register remains single source of truth for initiative-wide research landscape; SPS/REQUEST local tables provide contextual proximity for authoring efficiency.
+
+    * **T102-STD-006-CLAUSE-007 (Concept-as-Master Fallback Mode)**
+       - If dual-index drift controls cannot be enforced in practice, the initiative MAY adopt a fallback mode where the Concept Research Register is authoritative and SPS local tables are treated as local views.
+       - In fallback mode, Concept entries MUST include `Last Verified` and `Link Status` and MUST be maintained as the coordination audit surface; SPS local tables MUST still exist but MAY be reduced to the minimum required columns for local context.
+       - Fallback mode MUST be explicitly declared in Concept to avoid silent governance ambiguity.
 
 ## Decision Record
 
@@ -92,7 +102,7 @@
       (+) Markdown links to Brief/Report enable one‑click artifact access for validation workflows.
       (±) Requires dual maintenance (SPS local + Concept register) introducing manual synchronization overhead.
       (±) Requires discipline in RES/NOTE ID assignment and updates across two locations.
-      (±) Omitting `_i<n>` suffixes from links requires file naming discipline (semantic versioning only in public links).
+      (±) Omitting `_i<n>` suffixes and versioned stems from public links requires filename discipline (canonical unversioned filenames in indexes).
       (-) Manual verification approach creates drift risk; periodic review cadence required.
       (-) Migration effort to refactor existing research NOTEs to RES‑### pattern where formal artifacts exist.
 
