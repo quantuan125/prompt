@@ -4,8 +4,8 @@ initiative_id: 'T102'
 initiative_code: 'CWD'
 phase: '1'
 stream: 'ST001'
-version: '0.6.0'
-date: '2026-02-08'
+version: '0.8.0'
+date: '2026-02-11'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -24,7 +24,7 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 
 **Stream**: `T102-PH001-ST001`  
 **Role**: Navigation surface only (register + links). One Notes file per Activity to prevent drift/context rot.  
-**Status**: `completed` (AC001–AC006 completed)
+**Status**: `in_progress` (AC001–AC007 completed; AC008 in_progress)
 
 **Key outcomes (high-level)**:
 - Model D (Combined ADR+Spec Files) is locked as the authoritative Phase 1 “where-spec-lives” model.
@@ -32,6 +32,9 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 - Packaging decision recorded: execution of Concept rollout occurs in Stream 3 (`T102-PH001-ST003`), enabling ST002 + ST003 parallel execution post-ST001 close.
 - Plan amendment (2026-02-06): AC005 added — T102-STD-004 Redesign & Golden Exemplar. Comprehensive CLAUSE review + guideline/template alignment before ST003 extraction begins.
 - Plan amendment (2026-02-06): AC006 added — STD-Contains-CLAUSE Governance Migration (Option C). Front-run Phase 2 target: rebuild golden exemplar as `T102-STD-004`; reparent CLAUSE under STD as STDCID; all streams blocked until AC006 completes.
+- Plan amendment (2026-02-08): AC007 added — STD-004 Retitle + Staged Script Execution Hardening. Completed and closed.
+- Plan amendment (2026-02-11): AC008 added — STD-004 Self-Compliance Audit & Exemplar Hardening. R2 (strict exemplar) approved with Option B identity refocus.
+- Plan amendment (2026-02-11): AC009 added — Research-Informed STD-004 Formalization. Depends on AC008 (proposal baseline) + ST004-AC004 GATE-002 (RES-007 report). AC008 TK005/TK006 superseded by AC009-TK004/TK005.
 - Close-out (2026-02-08): AC006 completed — gate passed; validation evidence recorded; ST002/ST003 unblocked.
 
 ---
@@ -47,6 +50,7 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 | AC005 | `T102-PH001-ST001-AC005` | T102-STD-004 Redesign & Golden Exemplar | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC005.md` |
 | AC006 | `T102-PH001-ST001-AC006` | STD-Contains-CLAUSE Governance Migration | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC006.md` |
 | AC007 | `T102-PH001-ST001-AC007` | STD-004 Retitle + Staged Script Execution Hardening | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC007.md` |
+| AC008 | `T102-PH001-ST001-AC008` | STD-004 Self-Compliance Audit & Exemplar Hardening | `in_progress` | SES001: `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC008-SES001.md` / SES002: `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC008-SES002.md` |
 
 ---
 
@@ -65,6 +69,14 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 - Plan amendment session (AC006 origin): `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC005.md` (v0.2.0, Plan Amendment session 2026-02-06)
 - AC006 implementation plan: `.claude/plans/plan_T102-PH001-ST001-AC006-TK000.md`
 - Notes guideline: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
+- AC008 analysis (self-compliance audit): `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-CWD_PH001-ST001-AC008_std-004-self-compliance-audit.md`
+- AC008 session notes: `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC008-SES001.md`
+- AC008 SES002 session notes: `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC008-SES002.md`
+- AC008 R2 refactor proposal: `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC008_r2-refactor-plan.md`
+- AC008 implementation plan: `.claude/plans/plan_T102-PH001-ST001-AC008_gate-closure-and-proposal.md`
+- AC008 raw transcript: `prompt/artifacts/tasks/T102/consultant/raw/PH001/ST001/raw_T102-PH001-ST001-AC008-SES001.txt`
+- AC008 SES002 raw transcript: `prompt/artifacts/tasks/T102/consultant/raw/PH001/ST001/raw_T102-PH001-ST001-AC008-SES002.txt`
+- SES002 implementation plan: `.claude/plans/plan_T102-PH001-ST001-AC008-SES002_research-informed-formalization.md`
 
 ---
 
@@ -78,3 +90,5 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 | v0.4.0 | 2026-02-06 | Completion | Marked AC005 as completed; golden exemplar created; guideline v2.0.0; template updated; self-consistency validated; ST001 stream completed |
 | v0.5.0 | 2026-02-06 | Plan Amendment | Reopened stream (`completed` → `in_progress`); registered AC006 (STD-Contains-CLAUSE Governance Migration) per Just-In-Time §5.1; linked plan amendment session and implementation plan |
 | v0.6.0 | 2026-02-08 | Completion | Marked AC006 as completed and closed ST001; recorded unblocking of ST002/ST003 |
+| v0.7.0 | 2026-02-11 | Plan Amendment | Reopened stream (`completed` → `in_progress`); registered AC008 (STD-004 Self-Compliance Audit & Exemplar Hardening) per JIT §5.1; linked AC008 session notes, analysis, and R2 proposal |
+| v0.8.0 | 2026-02-11 | Plan Amendment | Registered AC008-SES002 (Research-Informed Formalization Planning); updated key outcomes with AC009 plan amendment; added SES002 links. |

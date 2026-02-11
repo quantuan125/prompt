@@ -1,15 +1,12 @@
----
-artifact_type: 'ANALYSIS'
-initiative_id: 'T104'
-initiative_code: 'CWS'
-activity_id: 'T104-PH001-ST002-AC000'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-02-11'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
+plan_reference: 'prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST002.md'
 proposal_reference: 'prompt/artifacts/tasks/T104/workspace/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md'
----
+session_reference: 'prompt/artifacts/tasks/T104/workspace/notes/PH001/ST002/notes_T104-PH001-ST002-SES002.md'
+external_review_reference: 'prompt/artifacts/tasks/T104/workspace/external/external_T104-PH001-ST002_AC000.txt'
 
 # Analysis: Directory Structure & File Naming Design Comparison
 
@@ -531,16 +528,19 @@ research/
 
 #### Assessment
 
-**Recommendation: Option D (Workspace Root, Flat)**
-- Weighted score: **3.35** (highest)
-- Roadmap sits at `workspace/` root as an initiative-level singleton
-- Co-located with the timeline hierarchy it governs
-- Self-similar: `<EPIC>/workspace/roadmap_T104A-ROADMAP.md`
-- If DA-001 selects Option C (cross-cutting + timeline workspace), roadmap at workspace root serves as the entry point for the timeline hierarchy
+**Recommendation: Option B (Inside SSOT)**
 
-**Runner-up: Option B (Inside SSOT) — tied at 3.30 with Option A**
-- Strong context locality with other SSOT singletons
-- If the definition of `ssot/` expands to "all authoritative specification surfaces," roadmap fits naturally
+*Revised per SES002-DEC001:* While the scores initially favored Option D by a negligible margin (3.35 vs 3.30), the external review dead-tied the options (3.20 vs 3.20). Client direction favored Option B due to the roadmap's nature as an authoritative "source of truth" specification for the initiative's timeline, semantically aligning it with SPS and Concept.
+
+| Factor | Option A | Option B | Option C | Option D |
+|:---|:---:|:---:|:---:|:---:|
+| **Semantic Clarity** | 4 | 5 | 2 | 4 |
+| **Retrieval Efficiency** | 2 | 2 | 4 | 5 |
+| **Nesting Depth** | 5 | 4 | 3 | 5 |
+| **Self-Similarity** | 2 | 5 | 2 | 1 |
+| **Weighted Total** | **3.05** | **3.30** | **2.85** | **3.35** |
+
+*Note: Option D remains a strong alternative for UX, but Option B is superior for governance structure and agentic self-similarity.*
 
 ---
 
@@ -762,7 +762,8 @@ Based on the seven design assessments above, the recommended directory structure
 prompt/artifacts/tasks/<INIT>/
 ├── ssot/                                # Initiative SSOT (singletons)
 │   ├── sps_<INIT>-<CODE>.md
-│   └── concept_<INIT>-<CODE>.md
+│   ├── concept_<INIT>-<CODE>.md
+│   └── roadmap_<INIT>-<CODE>.md
 ├── standard/                            # Initiative STD combined files
 │   └── <STD-ID>_<kebab-title>.md
 ├── research/                            # Initiative-scoped research (DA-003)
@@ -770,7 +771,6 @@ prompt/artifacts/tasks/<INIT>/
 │       ├── brief_<INIT>-RES-###_<topic>.md
 │       └── report_<INIT>-RES-###_<topic>.md
 ├── workspace/                           # Timeline-organized work (DA-001 Option C)
-│   ├── roadmap_<INIT>-<CODE>.md         # Initiative roadmap (DA-004 Option D)
 │   ├── PH001/                           # Phase 1
 │   │   ├── plan_<INIT>-PH001.md         # Phase plan (register)
 │   │   ├── notes_<INIT>-PH001.md        # Phase notes register
@@ -794,14 +794,14 @@ prompt/artifacts/tasks/<INIT>/
 │   └── PH002/
 │       └── ...
 ├── <EPIC>/                              # Epic subdirectory (DA-002 Option C)
-│   ├── ssot/                            # Epic SSOT (request, design, etc.)
+│   ├── ssot/                            # Epic SSOT (roadmap, request, design)
+│   │   ├── roadmap_<EPIC>-<CODE>.md
 │   │   ├── request_<EPIC-SID>.md
 │   │   └── design_<EPIC-SID>.md
 │   ├── standard/                        # Epic STD files
 │   ├── research/                        # Epic-scoped research
 │   │   └── <EPIC>-RES-###/
 │   ├── workspace/                       # Epic-scoped workspace
-│   │   ├── roadmap_<EPIC>-<CODE>.md
 │   │   ├── PH001/
 │   │   │   └── ST001/
 │   │   │       ├── plan_...
@@ -827,7 +827,7 @@ The structure is fractal — each scope level (Initiative → Epic → Feature) 
 
 | Directory | Purpose | Present At |
 |:--|:--|:--|
-| `ssot/` | Authoritative specifications (sps, concept, request, design) | Initiative, Epic, Feature |
+| `ssot/` | Authoritative specifications (sps, concept, roadmap, request, design) | Initiative, Epic, Feature |
 | `standard/` | Combined standard-specification files | Initiative, Epic (if needed) |
 | `research/` | Research artifacts (by RES ID) | Initiative, Epic, Feature |
 | `workspace/` | Timeline-organized work (plan, notes, raw, proposal, analysis, communication) | Initiative, Epic, Feature |
@@ -868,3 +868,4 @@ The structure is fractal — each scope level (Initiative → Epic → Feature) 
 | Version | Date | Summary |
 |:--|:--|:--|
 | v1.0.0 | 2026-02-11 | Initial analysis with 7 design assessments (DA-001 through DA-007) covering top-level structure, SSOT organization, research organization, roadmap placement, prefix differentiation, raw placement, and archive strategy |
+| v1.1.0 | 2026-02-11 | Updated DA-004 (Roadmap Placement) recommendation from Option D to Option B based on SES002 decisions |

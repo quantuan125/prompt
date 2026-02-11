@@ -3,7 +3,7 @@ artifact_type: 'NOTES'
 initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
-version: '0.3.0'
+version: '0.3.1'
 date: '2026-02-11'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -37,7 +37,7 @@ Provide a phase-level index that mirrors the Phase 1 plan and points to each Str
 | 2 | `T104-PH001-ST002` | Initiative Standards Authoring | `planned` | `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST002.md` |
 | 3 | `T104-PH001-ST003` | Planning Artifact Refactor | `planned` | — |
 | 4 | `T104-PH001-ST004` | Epic Subconsultant Enablement | `planned` | — |
-| 5 | `T104-PH001-ST005` | Template & Rules Alignment | `planned` | — |
+| 5 | `T104-PH001-ST005` | Template & Rules Alignment | `planned` | `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST005.md` |
 | 6 | `T104-PH001-ST006` | Validation & Handoff | `planned` | — |
 | 7 | `T104-PH001-ST007` | Directory Restructuring (T104-internal) | `planned` | — |
 
@@ -56,3 +56,4 @@ Provide a phase-level index that mirrors the Phase 1 plan and points to each Str
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v0.3.0 | 2026-02-11 | Update | Added Phase-Level Session Notes Register; created `T104-PH001-SES001` to capture notes architecture decisions |
+| v0.3.1 | 2026-02-11 | Update | Registered ST005 stream notes register `notes_T104-PH001-ST005.md` (indexed `T104-PH001-ST005-SES001`) |

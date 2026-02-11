@@ -202,3 +202,63 @@ Each Session Notes file is a standalone record and MUST contain these sections i
 - Phase: `# PHASE SESSION NOTES: <INIT> — PH### / SES### (<Title>)`
 - Stream: `# STREAM SESSION NOTES: <INIT> — PH### / ST### / SES### (<Title>)`
 - Activity: `# ACTIVITY SESSION NOTES: <INIT> — PH### / ST### / AC### / SES### (<Title>)`
+
+---
+
+## 7. TEMPLATE INVENTORY
+
+The following templates are available for NOTES artifacts. Authors MUST use the appropriate template when creating new notes files.
+
+### Register Templates (Index-Only)
+
+#### Phase Notes Register
+- **Template**: `prompt/templates/consultant/workspace/template_workspace_notes_register_phase.md`
+- **What**: Navigation index for a phase — indexes stream registers and phase-level sessions.
+- **When**: Create one per phase (e.g., `notes_T104-PH001.md`).
+
+#### Stream Notes Register
+- **Template**: `prompt/templates/consultant/workspace/template_workspace_notes_register_stream.md`
+- **What**: Navigation index for a stream — indexes activity notes and stream-level sessions.
+- **When**: Create when a stream transitions to `in_progress` (JIT §5.1).
+
+#### Activity Notes Register
+- **Template**: `prompt/templates/consultant/workspace/template_workspace_notes_register_activity.md`
+- **What**: Navigation index for an activity — indexes activity-level sessions.
+- **When**: Create when an activity has multiple sessions requiring separate indexing.
+
+### Session Templates (Entry Files)
+
+#### Phase Session Notes
+- **Template**: `prompt/templates/consultant/workspace/template_workspace_notes_session_phase.md`
+- **What**: Standalone record of a phase-scoped consultation session.
+- **When**: Use for cross-stream coordination, meta-analysis, or phase-scoped planning sessions.
+
+#### Stream Session Notes
+- **Template**: `prompt/templates/consultant/workspace/template_workspace_notes_session_stream.md`
+- **What**: Standalone record of a stream-scoped consultation session.
+- **When**: Use for cross-activity coordination, readiness assessments, or stream-scoped planning sessions.
+
+#### Activity Session Notes
+- **Template**: `prompt/templates/consultant/workspace/template_workspace_notes_session_activity.md`
+- **What**: Standalone record of an activity-scoped consultation session.
+- **When**: Use for activity-specific work that spans multiple sessions.
+
+### Directory & Naming Conventions
+
+- All notes files follow the naming and directory placement rules defined in:
+  `prompt/artifacts/tasks/T104/workspace/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
+- See also §1 (Artifact Types) and §2 (ID Syntax Standards) for naming patterns.
+
+### Merge Assessment (Draft 1 Recommendation)
+
+**Session templates (C8/C9/C10)**: Merging is technically feasible (identical section structure; only frontmatter scope keys and title format differ), but separate files preserve clarity and reduce misuse risk.
+
+**Register templates (C5/C6/C7)**: Merging is not recommended in Draft 1 due to meaningful structural differences (Phase includes Stream Notes Register; Stream includes Activity Notes Register; Activity includes neither).
+
+---
+
+## 8. CHANGELOG
+
+| Version | Date | Type | Summary |
+|:--|:--|:--|:--|
+| v1.0.0 | 2026-02-11 | Update | Added NOTES Template Inventory; registered per-type templates and deprecated legacy single NOTES template |

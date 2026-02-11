@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'roadmap_authoring'
-version: '1.0.0'
-date: '2026-01-24'
+version: '1.1.0'
+date: '2026-02-11'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -58,13 +58,13 @@ Roadmaps may be authored in one of two common shapes:
 
 ### A. Status enums (Registers)
 
-- Stream Register `Status` MUST be one of: `planned`, `deffered`, `completed`, `cancelled`.
-- Activity Register `Status` MUST be one of: `planned`, `deffered`, `completed`, `cancelled`.
+- Stream Register `Status` MUST be one of: `planned`, `deferred`, `completed`, `cancelled`.
+- Activity Register `Status` MUST be one of: `planned`, `deferred`, `completed`, `cancelled`.
 - In all register tables, `Status` values MUST be wrapped in backticks.
 
 ### B. Status enums (Task Registers)
 
-- Task Register `Status` MUST be one of: `planned`, `deffered`, `completed`, `cancelled`.
+- Task Register `Status` MUST be one of: `planned`, `deferred`, `completed`, `cancelled`.
 - In all Task Register tables, `Status` values MUST be wrapped in backticks.
 
 ---
@@ -89,14 +89,14 @@ Every Activity that requires trackable work MUST include a Task Register with co
 
 Rules:
 - `Action` MUST be set to `—` when no action has started.
-- `Action` MUST be updated with a concise outcome statement when the task moves to `completed`, `deffered`, or `cancelled`.
+- `Action` MUST be updated with a concise outcome statement when the task moves to `completed`, `deferred`, or `cancelled`.
 - Rule of thumb: treat `Status` as lifecycle; treat `Action` as evidence trail.
 
 ### C. Activity completion rule
 
 An Activity is considered done only when:
 1) its Success Criteria Checklist is verified, AND
-2) its Task Register rows are updated to a terminal status (`completed`, `deffered`, or `cancelled`) with a non-empty `Action`.
+2) its Task Register rows are updated to a terminal status (`completed`, `deferred`, or `cancelled`) with a non-empty `Action`.
 
 ---
 
@@ -120,3 +120,35 @@ Notes:
   - comma-separated list of prerequisite **Stream IDs** and/or **Activity IDs** (e.g., `1`, `1.1`, `2.2`)
   - use `—` if none
 - **Rule**: `Depends On` is the enforceable constraint; `Execution Mode` is the coordination intent.
+
+---
+
+## VI. TEMPLATE INVENTORY
+
+### A. Roadmap Template
+
+- **Template**: `prompt/templates/consultant/workspace/template_workspace_roadmap.md`
+- **What**: Defines the required structure for ROADMAP workspace artifacts.
+- **Why**: Ensures consistent heading semantics, register schemas, and anti-drift boundaries.
+- **When**: Use when creating any new roadmap file (initiative master or phase execution).
+- **How**: Copy the template. For initiative master roadmaps ("thin spine"), keep Phase Register + Links only — no Stream/Activity/Task detail. For phase execution roadmaps, populate Stream/Activity sections per §IV rules.
+
+### B. Roadmap Types
+
+Two shapes are defined (per §II.C):
+1. **Initiative Master Roadmap ("Thin Spine")**: Phase Register + Links + compact epic status. MUST remain thin.
+2. **Phase Roadmap / Phase Plan (Execution Surface)**: Stream/Activity/Task detail for a specific phase.
+
+### C. Directory & Naming Conventions
+
+- Roadmap files follow the naming and placement rules defined in:
+  `prompt/artifacts/tasks/T104/workspace/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
+
+---
+
+## VII. CHANGELOG
+
+| Version | Date | Type | Summary |
+|:--|:--|:--|:--|
+| v1.0.0 | 2026-01-24 | Initial | Roadmap procedural guideline created |
+| v1.1.0 | 2026-02-11 | Update | Added Template Inventory section and P-STD-004 reference; corrected status enum spelling (`deferred`) |

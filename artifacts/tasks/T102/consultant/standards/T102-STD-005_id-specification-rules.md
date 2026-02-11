@@ -285,22 +285,23 @@
 
   * **Alternatives Considered**
     - Free-form, template-local ID schemes — rejected.
-        - Enforcing full titles in all inline mentions — rejected.
+    - Enforcing full titles in all inline mentions — rejected.
 
   * **Consequences**
     (+) Predictable, machine-checkable IDs across artifacts.
-        (+) Faster audits and safer cross-linking with stable anchors.
-        (±) Requires discipline and small refactors for legacy items.
+    (+) Faster audits and safer cross-linking with stable anchors.
+    (±) Requires discipline and small refactors for legacy items.
 
 ## References
 
 `T102-STD-005 (ID Governance Standard)`,
-    `T102-STD-003 (Explicit Inheritance Model)`,
-    `T102-STD-004 (Specification Standard & Guideline)`,
-    `T102-STD-006 (Research Artifacts Index)`,
-    `T102-CON-009 (Normative Keywords)`
+`T102-STD-003 (Explicit Inheritance Model)`,
+`T102-STD-004 (Specification Standard & Guideline)`,
+`T102-STD-006 (Research Artifacts Index)`,
+`T102-CON-009 (Normative Keywords)`
 
 ## Provenance
 
 - `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor-adr-004-005.md`
-    - `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`

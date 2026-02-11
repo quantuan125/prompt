@@ -119,8 +119,9 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 **Risks**
 
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Mitigation Notes | Mitigation Date |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| — | — | — | — | — | — | — | — | — |
+|:---|:------|:------------|:------|:-------|:---------|:--------------|:-----------------|:----------------|
+| `P-RISK-001` | T102 grandfathering dual-pattern | T102 `consultant/` structure is grandfathered indefinitely; creates two incompatible patterns. | LLM_Consultant | `Active` | `Medium` | 2026-02-11 | Sunset milestone when T102 enters next phase after current active epics complete. | |
+| `P-RISK-002` | P-STD-004 scope creep | T104-specific choices may get baked into P-level standard without cross-validation. | LLM_Consultant | `Active` | `High` | 2026-02-11 | P-STD-004 MUST validate against minimum 2 additional initiatives before `effective` status. | |
 
 
 ### C. Epics & Breakdown

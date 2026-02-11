@@ -1,3 +1,15 @@
+<!--
+DEPRECATED: This template has been superseded by per-type templates as of 2026-02-11.
+See guideline_workspace_notes.md §7 (Template Inventory) for the full template inventory.
+Replacements:
+  - template_workspace_notes_register_phase.md
+  - template_workspace_notes_register_stream.md
+  - template_workspace_notes_register_activity.md
+  - template_workspace_notes_session_phase.md
+  - template_workspace_notes_session_stream.md
+  - template_workspace_notes_session_activity.md
+-->
+
 ---
 artifact_type: 'NOTES'
 initiative_id: '[INITIATIVE_ID]'
@@ -32,4 +44,3 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 | Activity | Activity ID | Name | Status | Notes File |
 |:--|:--|:--|:--|:--|
 | AC000 | `[INIT]-PH###-ST###-AC000` | [Activity name] | `[planned|in_progress|completed|deferred]` | `prompt/artifacts/tasks/[INIT]/workspace/notes/PH###/ST###/notes_[INIT]-PH###-ST###-AC000.md` |
-

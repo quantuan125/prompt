@@ -46,9 +46,9 @@
 
   * **Consequences**
     (+) Short, scannable upstream references in every artifact; clean audit trail.  
-        (+) Future validator can check presence/anchors without changing authoring flow.
-        (±) Requires discipline to maintain ID-only references without restating parent content
-        (-) Authors must navigate to parent artifacts to read full rule text when needed
+    (+) Future validator can check presence/anchors without changing authoring flow.
+    (±) Requires discipline to maintain ID-only references without restating parent content
+    (-) Authors must navigate to parent artifacts to read full rule text when needed
 
 ## References
 

@@ -4,8 +4,8 @@ planning_level: 'PHASE'
 initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
-date: '2026-02-10'
-version: '1.5.0'
+date: '2026-02-11'
+version: '1.6.0'
 status: 'draft'
 author: 'LLM_Developer'
 decision_owner_role: 'Client'
@@ -42,7 +42,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 - `T104-PH001-ST000-SES002-DEC004`: T104G (COMMUNICATION) epic registered; deferred beyond Phase 1.
 - `T104-PH001-ST000-SES002-DEC005`: Phase 0 Streams 4A/5/6.1/7 migrated to Phase 1.
 - `T104-PH001-ST000-SES002-DEC006`: Stream 2 follows `T102-STD-009` governance standards pattern.
-- `T104-PH001-ST000-SES002-DEC007`: Subconsultant briefing uses `handoff_brief_` pattern (per T810 exemplar).
+- `T104-PH001-ST000-SES002-DEC007`: Subconsultant briefing uses `comm_` naming (supersedes the legacy `handoff_brief_` exemplar naming).
 - `T104-PH001-ST002-SES001-DEC008`: T104-PH001-ST007 (Directory Restructuring) introduced as new implementation stream, gated on AC000 Client approval.
 
 ---
@@ -52,7 +52,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 **Phase 0 Plan (predecessor)**: `prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md`
 **Stream Notes (SES-002)**: `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST000.md`
 **T102-STD-009 Reference**: `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md`
-**T810 Exemplar (handoff brief)**: `prompt/artifacts/tasks/T810/consultant/workspace/communication/handoff_brief_T810A2-SCHEMA.md`
+**T810 Exemplar (legacy handoff brief naming)**: `prompt/artifacts/tasks/T810/consultant/workspace/communication/handoff_brief_T810A2-SCHEMA.md`
 
 ---
 
@@ -68,7 +68,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 | 1 | `T104-PH001-ST001` | SPS Baseline (Migration + Consultation) | SEQUENTIAL | PH000 | `completed` | SPS aligned to new template; `T104-RES-002` commissioned; SPS III.B baseline populated + validated |
 | 2 | `T104-PH001-ST002` | Initiative Standards Authoring | PARALLEL | ST001-AC000 | `planned` | T104-STD-001 (incl. role boundaries), T104-STD-002, T104-STD-003 + associated ADRs in Concept |
 | 3 | `T104-PH001-ST003` | Planning Artifact Refactor | SEQUENTIAL | ST002 | `planned` | Migrate PH000 4A/5/6.1/7 scope; convert T104A roadmap to plan; update master roadmap |
-| 4 | `T104-PH001-ST004` | Epic Subconsultant Enablement | PARALLEL | `T104-PH001-ST002-AC001` | `planned` | Handoff briefs (T104A, T104B, T104F); kickoff & placeholder registrations |
+| 4 | `T104-PH001-ST004` | Epic Subconsultant Enablement | PARALLEL | `T104-PH001-ST002-AC001` | `planned` | Communication briefs (comm_) for T104A/T104B/T104F; kickoff & placeholder registrations |
 | 5 | `T104-PH001-ST005` | Template & Rules Alignment | PARALLEL | `T104-PH001-ST002-AC001` | `planned` | PLAN/ROADMAP/NOTES template + guideline alignment (working drafts); workspace_documentation_rules.md update |
 | 6 | `T104-PH001-ST006` | Validation & Handoff | SEQUENTIAL | ST003, ST004, ST005, ST007 | `planned` | Validation checklist; Phase 1 exit sign-off |
 | 7 | `T104-PH001-ST007` | Directory Restructuring (T104-internal) | SEQUENTIAL | `T104-PH001-ST002-AC000` (Client-approved proposal) | `planned` | T104 directory restructured per approved P-STD-004 proposal |
@@ -92,17 +92,14 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 | 3 | AC002 | `T104-PH001-ST003-AC002` | Update roadmap_T104-CWS.md with PH001 scope | `planned` | LLM_Consultant | AC001 | Master roadmap update |
 | 3 | AC003 | `T104-PH001-ST003-AC003` | Mark PH000 Streams 5/6/7 as migrated (Phase 0 refactor items) | `planned` | LLM_Developer | — | `plan_T104-PH000.md` update |
 | 3 | AC004 | `T104-PH001-ST003-AC004` | Update critical epic dossiers (T104A/T104B/T104F) sections i–v only | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | SPS epic dossiers (i–v) |
-| 4 | AC001 | `T104-PH001-ST004-AC001` | Create handoff brief for T104A subconsultant | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | handoff_brief_T104A-ROADMAP.md |
-| 4 | AC002 | `T104-PH001-ST004-AC002` | Create handoff brief for T104B subconsultant | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | handoff_brief_T104B-NOTES.md |
-| 4 | AC003 | `T104-PH001-ST004-AC003` | Create handoff brief for T104F subconsultant | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | handoff_brief_T104F-PLAN.md |
+| 4 | AC001 | `T104-PH001-ST004-AC001` | Create communication brief (comm_) for T104A subconsultant | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | comm_T104A-ROADMAP.md |
+| 4 | AC002 | `T104-PH001-ST004-AC002` | Create communication brief (comm_) for T104B subconsultant | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | comm_T104B-NOTES.md |
+| 4 | AC003 | `T104-PH001-ST004-AC003` | Create communication brief (comm_) for T104F subconsultant | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | comm_T104F-PLAN.md |
 | 4 | AC004 | `T104-PH001-ST004-AC004` | Kickoff & placeholder registrations (critical epics) | `planned` | LLM_Consultant | AC001, AC002, AC003 | roadmap_T104-CWS.md update (kickoff signals + links) |
-| 5 | AC001 | `T104-PH001-ST005-AC001` | Author `template_workspace_plan_phase.md` | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | Phase plan template |
-| 5 | AC002 | `T104-PH001-ST005-AC002` | Author `template_workspace_plan_stream.md` | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | Stream plan template |
-| 5 | AC003 | `T104-PH001-ST005-AC003` | Author `template_workspace_plan_activity.md` (skeleton) | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | Activity plan skeleton template |
-| 5 | AC004 | `T104-PH001-ST005-AC004` | Align/update `guideline_workspace_plan.md` | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | Plan authoring guideline (aligned) |
-| 5 | AC006 | `T104-PH001-ST005-AC006` | Align ROADMAP template + guideline (working draft) | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | ROADMAP template + guideline alignment |
-| 5 | AC007 | `T104-PH001-ST005-AC007` | Align NOTES template + guideline (working draft) | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | NOTES template + guideline alignment |
-| 5 | AC005 | `T104-PH001-ST005-AC005` | Update `workspace_documentation_rules.md` | `planned` | LLM_Consultant | AC001, AC002, AC003, AC004, AC006, AC007 | Governance rules delta |
+| 5 | AC001 | `T104-PH001-ST005-AC001` | PLAN Templates + Guideline Package | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | Phase/Stream/Activity plan templates + plan guideline (aligned) |
+| 5 | AC002 | `T104-PH001-ST005-AC002` | ROADMAP Template + Guideline Alignment | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | ROADMAP template + guideline (aligned) |
+| 5 | AC003 | `T104-PH001-ST005-AC003` | NOTES Templates + Guideline Alignment | `planned` | LLM_Consultant | `T104-PH001-ST002-AC001` | 6 NOTES templates + guideline (aligned) |
+| 5 | AC004 | `T104-PH001-ST005-AC004` | Workspace Documentation Rules Rewrite | `planned` | LLM_Consultant | AC001, AC002, AC003 | `workspace_documentation_rules.md` (full rewrite) |
 | 6 | AC001 | `T104-PH001-ST006-AC001` | Execute validation checklist | `planned` | LLM_Consultant | ST003, ST004, ST005, ST007 | Validation outcomes |
 | 6 | AC002 | `T104-PH001-ST006-AC002` | Phase 1 exit sign-off | `planned` | Client | AC001 | Phase 1 closure |
 | 7 | AC001 | `T104-PH001-ST007-AC001` | Execute T104 directory restructuring per approved AC000 proposal | `planned` | LLM_Developer | `T104-PH001-ST002-AC000` (Client approval gate) | T104 directory restructured; file renames applied |
@@ -157,3 +154,4 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 | v1.3.2 | 2026-02-05 | Update | Eliminated Stream 0 ID drift: Stream 0 notes renamed to `notes_T104-PH001-ST000.md`, Stream 0 plan aligned to Phase 1 SSOT, and Stream 2 folder/naming decisions renumbered to `T104-PH001-ST002-AC000` |
 | v1.4.0 | 2026-02-09 | Update | Plan amendment: migrate dossier i–v updates from ST002→ST003 (critical epics); expand ST005 to include ROADMAP/NOTES alignment; expand ST004 to include T104B/T104F enablement and kickoff; add ST003/ST004 stream plan links |
 | v1.5.0 | 2026-02-10 | Update | Added ST007 (Directory Restructuring) gated on ST002-AC000 Client approval; updated ST006 dependencies; recorded ST002 readiness consultation decisions |
+| v1.6.0 | 2026-02-11 | Update | Updated ST005 activity register to consolidated 4-activity structure (SES001 plan amendment); links now target `plan_T104-PH001-ST005.md` v2.0.0 |

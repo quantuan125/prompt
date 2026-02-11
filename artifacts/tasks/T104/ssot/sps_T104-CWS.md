@@ -221,6 +221,7 @@ External Reference: `T102-STD-005-CLAUSE-002`
 | `T104-ISSUE-005` | INT Scope Mismatch | Initiative-scope INT appears in SPS template but is not recommended at initiative scope per governance guidance | LLM_Consultant | `RESOLVED` | `HIGH` | 2026-02-02 | Resolved via `T104-NOTE-001`; IG is preferred at initiative scope | 2026-02-03 |
 | `T104-ISSUE-006` | DEP-003 Alignment | `T102-DEP-003 (Role Definitions)` is now confirmed defined in T102 SPS; T104 references aligned via `T104-DEP-006` | LLM_Consultant | `RESOLVED` | `MEDIUM` | 2026-02-02 | Confirmed `T102-DEP-003` exists in `sps_T102-CONSULTANT.md`; `T104-DEP-006` references it correctly | 2026-02-03 |
 | `T104-ISSUE-007` | Changelog Constraint Elevation | `T104-CON-005 (No Embedded Changelogs)` is cross-cutting and may warrant program-level governance at T102-CON-###. Requires T102 SPS review and potential ADR. | LLM_Consultant | `OPEN` | `MEDIUM` | 2026-02-03 | — | — |
+| `T104-ISSUE-008` | Roadmap Placement Provisional | Roadmap moved to `ssot/` per `T104-PH001-ST002-SES002-DEC001`, but this is a provisional decision. Final roadmap placement is deferred until T104A (Roadmap Standardization) epic development provides sufficient governance clarity. | LLM_Consultant | `OPEN` | `MEDIUM` | 2026-02-11 | — | — |
 
 **Risks**
 
@@ -231,6 +232,8 @@ External Reference: `T102-STD-005-CLAUSE-002`
 | `T104-RISK-003` | Retrieval Failures | Naming inconsistency causes agentic and human retrieval failures | LLM_Consultant | `MONITORED` | `MEDIUM` | 2026-01-18 | Mitigation: `T104-CON-004 (Prefix Discipline)` and `T104-QG-001 (Deterministic Retrieval)` | — |
 | `T104-RISK-004` | Category Drift | Invalid initiative-scope INT IDs may enter SPS baseline if scope guidance is unclear | LLM_Consultant | `MITIGATED` | `HIGH` | 2026-02-02 | Mitigated by `T104-ISSUE-005` resolution and `T104-NOTE-001` | 2026-02-03 |
 | `T104-RISK-005` | Consultation Overload | Unresolved governance conflicts may reduce AC002 decision quality and completeness | LLM_Consultant | `MONITORED` | `MEDIUM` | 2026-02-02 | Mitigation: structured task sequencing (TK001→TK002→TK003) and activity plan approach | — |
+| `T104-RISK-006` | Path Depth Token Cost | Deepest canonical path (Initiative→Epic→Feature→workspace→PH→ST→AC→raw) reaches 11 directory levels from project root; long paths consume disproportionate LLM context tokens when referenced repeatedly | LLM_Consultant | `MONITORED` | `MEDIUM` | 2026-02-11 | Mitigation: defer Feature-level directory nesting until concrete demand exists; scaffold scripts reduce manual path construction; `T104-PH001-ST002-SES002-DEC005` AC/ threshold reduces unnecessary depth | — |
+| `T104-RISK-007` | Activity Directory Proliferation | Creating AC###/ directories for every activity may produce many near-empty directories (1 file per directory), creating navigation noise | LLM_Consultant | `MONITORED` | `LOW` | 2026-02-11 | Mitigation: `T104-PH001-ST002-SES002-DEC005` establishes 2-file threshold for AC/ directory creation; to be codified in P-STD-004 | — |
 
 ### C. Epics & Breakdown
 
@@ -353,6 +356,7 @@ To standardize the **Roadmap** artifact (`roadmap_...`) as the primary orchestra
 **Issues**
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes | Resolution Date |
 |:---|:------|:------------|:------|:-------|:---------|:--------------|:-----------------|:----------------|
+| `T104-ISSUE-008` | Roadmap placement provisional | Roadmap moved to `ssot/` per SES002-DEC001, but final placement deferred to T104A (Roadmap Standardization) epic development. | LLM_Consultant | `Open` | `Low` | 2026-02-11 | | |
 
 **Risks**
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Mitigation Notes | Mitigation Date |

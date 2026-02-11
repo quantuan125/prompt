@@ -1,76 +1,148 @@
 ---
 artifact_type: 'GUIDE'
-scope: 'T810A2'
-purpose: 'Document roles and handling rules for plan/proposal/completion artifacts'
+scope: 'consultant_workspace'
+purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
+version: '2.0.0'
+date: '2026-02-11'
 status: 'draft'
-owner: 'LLM_Consultant'
+author: 'LLM_Consultant'
+decision_owner_role: 'Client'
 ---
 
-# Document Governance: Plan / Proposal / Completion (T810A2)
+# Workspace Documentation Rules (Consultant)
 
-## 1) Roles (authoritative intent)
-- **Plan (`plan_...`)**: Roadmap and phase gating; keeps activities, deliverables, gates, and short phase-level status. No per-activity execution logs; no F-RID bodies.
-- **Proposal (`proposal_...`)**: Phase-specific collaboration and specification; carries IC table, F-RID bodies, traceability, clarifying questions, and a short phase completion summary. Normative during that phase until merged into the Request.
-- **Completion (`completion_...`)**: Non-normative consultancy log; per-activity and per-phase completion notes and improvement guidance. Describes how we got there; never the source of truth for requirements.
+## 1. PURPOSE
 
-## 2) Canonical sources
-- **Normative truth for requirements/specs**: Request + current phase Proposal (while in draft/review).
-- **Execution history**: Completion file only.
-- **Roadmap**: Plan only.
+Define the governance rules for **consultant workspace artifacts** (plans, roadmaps, notes, and supporting templates/guidelines) so they remain toolable, drift-resistant, and consistent across initiatives.
 
-## 3) Editing rules
-- Do **not** paste F-RID or ADR bodies into Plan or Completion; reference by ID + section instead.
-- Plan status blocks may link to Completion and Proposal/Request but should stay short (3–5 bullets per phase).
-- Completion entries must be structured (see template below) and must point to canonical IDs/sections for any normative content.
-- If normative wording changes, update Request/Proposal; add a note in Completion that the decision was updated, rather than copying the new text.
+---
 
-## 4) Usage pattern for LLM_Consultant (per activity)
-1) Read the relevant Completion entry (prior activity) for context and improvement notes.
-2) Read the Proposal/Request sections that contain the normative F-RIDs/decisions.
-3) Perform the activity; write the new completion entry; update Proposal (if normative) and Plan phase status (if phase-level progress).
+## 2. TIMELINE HIERARCHY (LOCKED)
 
-## 5) Completion entry structure (required)
-- **Context & references**: Activity name/number, links to Plan section, Proposal/Request sections, relevant IDs.
-- **Decisions made**: Bullets summarizing outcomes.
-- **Improvement notes / next-activity guidance**: Bullets for what to do or avoid next.
-- **Links to canonical specs**: IDs + sections (no inline spec text).
+Phase → Stream → Activity → Task
+- Reference: `prompt/templates/consultant/workspace/guideline_workspace_plan.md` §II.A
 
-## 6) File naming and location
-- Plan: `prompt/artifacts/tasks/T810/consultant/workspace/plan/T810A/T810A2/plan_T810A2-SCHEMA_phase0-4_vX.Y.Z.md`
-- Proposal (per phase): `prompt/artifacts/tasks/T810/consultant/workspace/proposal/T810A/T810A2/proposal_T810A2-SCHEMA_phaseN_vX.Y.Z.md`
-- Completion (all phases): `prompt/artifacts/tasks/T810/consultant/workspace/completion/T810A/T810A2/completion_T810A2-SCHEMA_vX.Y.Z.md`
+---
 
-## 7) Cross-references to include
-- Each Plan and Proposal should link to this guide and to the current Completion file in their introduction/resources section.
-- Completion file should remind readers that normative text lives in Proposal/Request, not here.
+## 3. ARTIFACT TYPE INVENTORY
 
-## 8) Versioning guidance
-- Bump Plan/Proposal versions when their role or scope changes (e.g., plan trimmed, new phase proposal).
-- Keep Completion version aligned with major Plan/Proposal refactors; minor additions can stay within the same minor version if scope unchanged.
+| Artifact Type | File Prefix | Purpose | Template | Guideline |
+|:--|:--|:--|:--|:--|
+| PLAN (Phase) | `plan_` | Phase-level execution planning | `prompt/templates/consultant/workspace/template_workspace_plan_phase.md` | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |
+| PLAN (Stream) | `plan_` | Stream-level execution planning | `prompt/templates/consultant/workspace/template_workspace_plan_stream.md` | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |
+| PLAN (Activity) | `plan_` | Activity-level task decomposition | `prompt/templates/consultant/workspace/template_workspace_plan_activity.md` | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |
+| ROADMAP | `roadmap_` | Initiative master spine / phase execution | `prompt/templates/consultant/workspace/template_workspace_roadmap.md` | `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md` (Draft 2 STD alignment pending) |
+| NOTES (Register) | `notes_` | Index/navigation surface | `prompt/templates/consultant/workspace/template_workspace_notes_register_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
+| NOTES (Session) | `notes_` | Session records | `prompt/templates/consultant/workspace/template_workspace_notes_session_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
+| ANALYSIS | `analysis_` | Research synthesis | `prompt/templates/consultant/workspace/template_workspace_analysis.md` | — (alignment pending) |
+| PROPOSAL | `proposal_` | E-ID development workspace | `prompt/templates/consultant/workspace/template_workspace_proposal.md` | — (alignment pending) |
 
-## 9) Anti-drift safeguards
-- Never duplicate full specs across artifacts; always cite IDs.
-- When decisions change, update normative source first (Proposal/Request), then add a note in Completion that records the change and points to the updated section.
-- Keep Plan phase status concise; defer all detail to Completion/Proposal.
+---
 
-## 10) Markdown Structure 
+## 4. TEMPLATE INVENTORY
 
-### A. Plan Artifact Heading Hierarchy (plan_...)
+### A. PLAN Templates
+- `prompt/templates/consultant/workspace/template_workspace_plan_phase.md`
+- `prompt/templates/consultant/workspace/template_workspace_plan_stream.md`
+- `prompt/templates/consultant/workspace/template_workspace_plan_activity.md`
 
-- Plan artifacts SHOULD use the following heading hierarchy:
-  - `##` Phase
-  - `###` Subphase
-  - `####` Planned Activities
-  - `#####` ActivityTrend Line
-- This hierarchy is in addition to the global Markdown header + numbering conventions table below.
+### B. ROADMAP Templates
+- `prompt/templates/consultant/workspace/template_workspace_roadmap.md`
 
-| Level   | Markdown Header     | List Type           | Example             |
-| ------- | ------------------- | ------------------- | ------------------- |
-| Level 1 | `#`                 | *(none)*            | `CLIENT REQUEST`    |
-| Level 2 | `##`                | Roman Numerals      | `I.`, `II.`, `III.` |
-| Level 3 | `###`               | Capital Letters     | `A.`, `B.`, `C.`    |
-| Level 4 | `####`              | Numbers             | `1.`, `2.`, `3.`    |
-| Level 5 | `#####`             | Lowercase Roman     | `i.`, `ii.`, `iii.` |
-| Level 6 | `######` (optional) | Lowercase Letters   | `a.`, `b.`, `c.`    |
-| BELOW   |                     | Bullet Points (•)   | `*`                 |
-| BELOW   |                     | Bullet Points (•)   | `-`, or `+`         |
+### C. NOTES Templates
+- Register templates (index-only):
+  - `prompt/templates/consultant/workspace/template_workspace_notes_register_phase.md`
+  - `prompt/templates/consultant/workspace/template_workspace_notes_register_stream.md`
+  - `prompt/templates/consultant/workspace/template_workspace_notes_register_activity.md`
+- Session templates (entry files):
+  - `prompt/templates/consultant/workspace/template_workspace_notes_session_phase.md`
+  - `prompt/templates/consultant/workspace/template_workspace_notes_session_stream.md`
+  - `prompt/templates/consultant/workspace/template_workspace_notes_session_activity.md`
+- Legacy (deprecated; do not delete):
+  - `prompt/templates/consultant/workspace/template_workspace_notes.md`
+
+### D. Other Templates (Draft 2 Alignment Pending)
+- `prompt/templates/consultant/workspace/template_workspace_analysis.md`
+- `prompt/templates/consultant/workspace/template_workspace_proposal.md`
+
+---
+
+## 5. GUIDELINE INVENTORY
+
+- PLAN: `prompt/templates/consultant/workspace/guideline_workspace_plan.md`
+- ROADMAP: `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md`
+- NOTES: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
+
+---
+
+## 6. ROLE BOUNDARY RULES
+
+### A. Consultant (LLM_Consultant)
+- Authors contract-level intent: what + why.
+- Owns: roadmaps, phase plans, stream plans (contract-level), guidelines, templates, proposals.
+- Boundary: MUST NOT author implementation-level task decomposition or execution proof.
+
+### B. Planner (LLM_Planner)
+- Owns: task decomposition, sequencing, estimation.
+- Boundary: MUST NOT alter contract-level intent without Consultant approval.
+
+### C. Developer (LLM_Developer)
+- Owns: execution, implementation, verification.
+- Boundary: MUST NOT alter contract-level scope; implementation details belong in activity plans or code.
+
+### D. Client
+- Decision owner for all approval gates.
+- Boundary: All normative decisions require Client approval signal.
+
+---
+
+## 7. FILE NAMING & DIRECTORY CONVENTIONS
+
+This workspace adopts the approved directory and file naming conventions defined in:
+- `prompt/artifacts/tasks/T104/workspace/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
+
+**Summary (workspace-relevant)**:
+- Artifact file prefixes MUST match artifact type (e.g., `plan_`, `notes_`, `roadmap_`, `analysis_`, `proposal_`).
+- Timeline UID tokens (`PH###`, `ST###`, `AC###`, `SES###`) determine planning/notes scope and MUST be used consistently.
+- Templates live under `prompt/templates/consultant/workspace/` and are referenced by workspace artifacts via repo-relative paths.
+
+---
+
+## 8. ANTI-DRIFT RULES
+
+### A. Link Don't Duplicate
+
+- Artifacts MUST link by ID/path rather than duplicating normative content.
+- Reference: `T104-CON-001` (Link Don’t Duplicate).
+
+### B. Normative Source Hierarchy
+
+SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace artifacts
+
+- If normative wording changes, update the authoritative source first (SSOT / standard / guideline), then update downstream templates/artifacts as needed.
+
+### C. Execution History
+
+- Session notes (`notes_...-SES###.md`) capture execution history.
+- Plans and roadmaps capture intent, not history.
+- Proposals capture development workspace, not final decisions.
+
+---
+
+## 9. MARKDOWN STRUCTURE
+
+| Level | Markdown | Usage |
+|:--|:--|:--|
+| `#` | Document title | — |
+| `##` | Major sections (Roman numerals) | I., II., III. |
+| `###` | Streams (in roadmaps/plans) | — |
+| `####` | Activities (in roadmaps/plans) | — |
+| `#####` | Tasks (in activity plans) | — |
+
+---
+
+## 10. CHANGELOG
+
+| Version | Date | Type | Summary |
+|:--|:--|:--|:--|
+| v2.0.0 | 2026-02-11 | Rewrite | Replaced legacy rules with template + guideline inventories, role boundaries, P-STD-004 reference, and anti-drift governance for PLAN/ROADMAP/NOTES (Draft 1) |

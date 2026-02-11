@@ -5,7 +5,7 @@ initiative_code: '[INITIATIVE-CODE]'
 epic_id: '[EPIC-ID OR —]'
 epic_code: '[EPIC-CODE OR —]'
 phase: '[PHASE-NUMBER]'
-version: '1.0.0'
+version: '1.0.1'
 date: 'YYYY-MM-DD'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -15,8 +15,11 @@ template_reference: 'prompt/templates/consultant/workspace/template_workspace_ro
 procedural_guideline: 'prompt/templates/consultant/workspace/guideline_workspace_roadmap.md'
 ssot_sps_target: '[path/to/sps.md OR —]'
 ssot_concept_target: '[path/to/concept.md OR —]'
+phase0_plan: '[path/to/plan_<ID>-PH000.md OR —]'
+phase1_plan: '[path/to/plan_<ID>-PH001.md OR —]'
 parent_roadmap: '[path/to/parent/roadmap.md OR —]'
 parent_activity: '[Activity ID in parent roadmap OR —]'
+roadmap_changelog: '[path/to/changelog.md OR —]'
 ---
 
 <!--

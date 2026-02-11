@@ -2,7 +2,7 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.3.0'
+version: '1.4.0'
 date: '2026-02-11'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -32,13 +32,13 @@ This guideline is intended to be referenced by initiative plans (e.g., `T104`) a
 
 ### A. Status enums (Registers)
 
-- Stream Register `Status` MUST be one of: `planned`, `deffered`, `completed`, `cancelled`.
-- Activity Register `Status` MUST be one of: `planned`, `deffered`, `completed`, `cancelled`.
+- Stream Register `Status` MUST be one of: `planned`, `deferred`, `completed`, `cancelled`.
+- Activity Register `Status` MUST be one of: `planned`, `deferred`, `completed`, `cancelled`.
 - In all register tables, `Status` values MUST be wrapped in backticks.
 
 ### B. Status enums (Task Registers)
 
-- Task Register `Status` MUST be one of: `planned`, `deffered`, `completed`, `cancelled`, `failed`.
+- Task Register `Status` MUST be one of: `planned`, `deferred`, `completed`, `cancelled`, `failed`.
 - In all Task Register tables, `Status` values MUST be wrapped in backticks.
 
 ---
@@ -63,14 +63,14 @@ Every Activity that requires trackable work MUST include a Task Register with co
 
 Rules:
 - `Action` MUST be set to `—` when no action has started.
-- `Action` MUST be updated with a concise outcome statement when the task moves to `completed`, `deffered`, `cancelled`, or `failed`.
+- `Action` MUST be updated with a concise outcome statement when the task moves to `completed`, `deferred`, `cancelled`, or `failed`.
 - Rule of thumb: treat `Status` as lifecycle; treat `Action` as evidence trail.
 
 ### C. Activity completion rule
 
 An Activity is considered done only when:
 1) its Success Criteria Checklist is verified, AND
-2) its Task Register rows are updated to a terminal status (`completed`, `deffered`, `cancelled`, or `failed`) with a non-empty `Action`.
+2) its Task Register rows are updated to a terminal status (`completed`, `deferred`, `cancelled`, or `failed`) with a non-empty `Action`.
 
 ---
 
@@ -144,8 +144,44 @@ Phase-level gates govern entry into, or conformance claims within, an entire pha
 
 ---
 
-## VII. CHANGELOG
+## VIII. TEMPLATE INVENTORY
+
+The following templates are available for PLAN artifacts. Each template defines the required structure for its planning level. Authors MUST use the appropriate template when creating new plan files.
+
+### A. Phase Plan Template
+
+- **Template**: `prompt/templates/consultant/workspace/template_workspace_plan_phase.md`
+- **What**: Defines the required structure for phase-level plan files.
+- **Why**: Ensures consistent section ordering, register schemas, and frontmatter across all phase plans.
+- **When**: Use when creating a new phase plan (e.g., `plan_T104-PH001.md`).
+- **How**: Copy the template, fill in frontmatter placeholders, populate sections per this guideline's rules.
+
+### B. Stream Plan Template
+
+- **Template**: `prompt/templates/consultant/workspace/template_workspace_plan_stream.md`
+- **What**: Defines the required structure for stream-level plan files, including contract-level activity sections.
+- **Why**: Ensures activity contracts are consistent (Purpose/Deliverable/Scope/Task Register/Success Criteria).
+- **When**: Use when creating a new stream plan (e.g., `plan_T104-PH001-ST005.md`).
+- **How**: Copy the template, fill in frontmatter, define activities at contract level per §IV rules.
+
+### C. Activity Plan Template (Skeleton)
+
+- **Template**: `prompt/templates/consultant/workspace/template_workspace_plan_activity.md`
+- **What**: Defines the required structure for standalone activity plan files with task-level detail.
+- **Why**: Provides consistent decomposition structure when activities exceed stream plan contract-level depth.
+- **When**: Use when an activity has ≥5 tasks, requires detailed step decomposition, or exceeds contract-level scope. See trigger rule in template.
+- **How**: Copy the template, fill in frontmatter, decompose tasks with optional informal Steps.
+
+### D. Directory & Naming Conventions
+
+- All plan files follow the naming and directory placement rules defined in:
+  `prompt/artifacts/tasks/T104/workspace/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
+
+---
+
+## IX. CHANGELOG
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.3.0 | 2026-02-11 | Amendment | Added §VI.F Phase-Level Gates authoring rule: ID format, placement, scope, enforcement mode (blocking vs conformance), interaction with activity gates |
+| v1.4.0 | 2026-02-11 | Update | Added Template Inventory section referencing PLAN templates; corrected status enum spelling (`deferred`) |

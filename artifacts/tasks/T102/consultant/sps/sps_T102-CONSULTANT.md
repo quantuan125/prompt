@@ -907,7 +907,10 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
 
     External Reference: `T102-STD-007-CLAUSE-009 (Cross-Scope Promotion)`, `T102-STD-005-CLAUSE-002`
 
-##### ix. Epic Research & Notes
+**Notes**
+* **T102B-NOTE-002 (Model-B Governance)** — Feature-level Requests keep specs small and parallelizable; the Epic provides overall control and is described in the SPS.
+
+##### ix. Epic Research 
 
 **Research**
 | Research ID | Title | Summary | Reference | Brief | Report |
@@ -915,8 +918,7 @@ The Epic delivers structural templates, procedural guidelines, and lineage metad
 | `T102B-RES-001` | **Request Artifact Analysis** | External comparison of Request artifact against industry standards; recommends Request Lite, deferring story-level FRs to Design, and reducing FR/IG duplication | E-CON, E-IG, E-GDR, E-ADR | [brief](../T102B/research/brief/brief_T102B-RES-001_request-artifact-analysis.md) | [report](../T102B/research/report/report_T102B-RES-001_request-artifact-analysis.md) |
 | `T102B-RES-002` | **Epic Foundation Assessment** | Internal gap analysis; 55 E-ID candidates | All E-IDs | [brief](../T102B/research/brief/brief_T102B-RES-002_epic-foundation-assessment.md) | [report](../T102B/research/report/report_T102B-RES-002_epic-foundation-assessment.md) |
 
-**Notes**
-* **T102B-NOTE-002 (Model-B Governance)** — Feature-level Requests keep specs small and parallelizable; the Epic provides overall control and is described in the SPS.
+
 
 ##### x. Epic Issues & Risks
 
