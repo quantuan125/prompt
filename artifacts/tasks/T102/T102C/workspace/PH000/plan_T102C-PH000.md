@@ -5,7 +5,7 @@ initiative_id: 'T102'
 epic_id: 'T102C'
 epic_code: 'CONCEPT'
 phase: '0'
-version: '0.1.0'
+version: '0.2.0'
 date: '2026-02-12'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -50,6 +50,8 @@ Link to stream plans for execution detail.
 - **LD-PH000-002 (Pointers-Only Discipline)**: All Concept registers aggregate metadata + IDs + links. Canonical bodies are never duplicated into Concept.
 - **LD-PH000-003 (Authority Tiers)**: Concept content is classified into three tiers: (1) Normative bodies (links to canonical STD files), (2) Authoritative snapshots (Concept owns handoff/readiness), (3) Audit registers (non-normative pointers-only).
 - **LD-PH000-004 (Strict Exclusions)**: Concept MUST NOT host full requirements bodies, full design bodies, duplicated research bodies, or canonical I&R tables.
+- **LD-PH000-005 (Structural Realignment)**: T102C-PH001 adopts the T102A-PH001 "review-then-baseline-then-act" stream model (ST000: meta-planning, ST001: dossier review, ST002: standards gap analysis) instead of a task-inventory-driven execution model. The task inventory (H1-H4, S1-S8, C1-C3) becomes input to ST003 (Concept Refactoring Execution), gated on ST001+ST002 analytical outputs.
+- **LD-PH000-006 (Directory Convention)**: T102C workspace adopts the P-STD-004 timeline-organized directory convention (`workspace/PH###/ST###/`) per `proposal_T104-PH001-ST002-AC000_directory-naming-convention.md`.
 
 ---
 
@@ -193,14 +195,19 @@ T102-PH001-ST006 addresses Option (c) transition execution at the initiative lev
 
 | Link Type | Target | Path |
 |:--|:--|:--|
-| Plan (this file) | T102C Phase 0 Plan | `prompt/artifacts/tasks/T102/T102C/workspace/plan/plan_T102C-PH000.md` |
+| Plan (this file) | T102C Phase 0 Plan | `prompt/artifacts/tasks/T102/T102C/workspace/PH000/plan_T102C-PH000.md` |
+| Plan (successor) | T102C Phase 1 Plan | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/plan_T102C-PH001.md` |
+| Notes | PH000 Notes Register | `prompt/artifacts/tasks/T102/T102C/workspace/PH000/notes_T102C-PH000.md` |
 | SSOT | T102 SPS | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` |
 | SSOT | T102 Concept | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
 | Standard | T102C-STD-001 | `prompt/artifacts/tasks/T102/consultant/standards/T102C-STD-001_concept-architectural-framework.md` |
 | Communication | RES-006 Handoff | `prompt/artifacts/tasks/T102/T102C/workspace/communication/comm_T102-RES-006_concept-refactoring-scope.md` |
 | Plan (overlap) | T102 ST006 Plan | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST006.md` |
 | Plan (reference) | T102 PH001 Plan | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001.md` |
+| Sibling (reference) | T102A PH001 Plan | `prompt/artifacts/tasks/T102/T102A/workspace/plan/plan_T102A-PH001.md` |
 | Guideline | Plan Authoring Rules | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |
+| Guideline | Notes Authoring Rules | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
+| Convention | Directory Naming | `prompt/artifacts/tasks/T104/workspace/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` |
 
 ---
 
@@ -218,3 +225,4 @@ T102-PH001-ST006 addresses Option (c) transition execution at the initiative lev
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v0.1.0 | 2026-02-12 | Initial | T102C Phase 0 plan created; documented existing development state; absorbed research inputs from RES-004/005/006; established pre-planning baseline with locked decisions, task inventory, dependency map, and ST006 overlap analysis |
+| v0.2.0 | 2026-02-12 | Plan Amendment | Added LD-PH000-005 (structural realignment to T102A pattern) and LD-PH000-006 (P-STD-004 directory convention adoption); updated links register for new timeline-organized paths; added sibling reference to T102A-PH001; migrated file location from `workspace/plan/` to `workspace/PH000/` per Convention 4. Evidence: `T102C-PH001-ST000-SES001` |
