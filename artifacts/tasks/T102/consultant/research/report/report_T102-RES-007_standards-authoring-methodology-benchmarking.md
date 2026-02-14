@@ -2,9 +2,9 @@
 artifact_type: 'RESEARCH_REPORT'
 initiative_id: 'T102'
 research_id: 'T102-RES-007'
-version: '1.0.0'
-iteration: '1'
-date: '2026-02-13'
+version: '1.0.1'
+iteration: '2'
+date: '2026-02-14'
 status: 'draft'
 author: 'LLM_Researcher'
 decision_owner_role: 'Client'
@@ -57,11 +57,11 @@ decision_owner_role: 'Client'
 * **Normative keyword governing constraint (T102)**:
   * `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-CON-009`)
 
-**External benchmark sources** (primary where accessible; otherwise explicitly treated as secondary): ISO/IEC Directives Part 2; IETF RFC 2119/8174; W3C Process + W3C Manual of Style; OASIS conformance/style guidance; IEEE SA Operations Manual + IEEE Standards Style Manual (2009). [1][2][3][4][5][6]
+**External benchmark sources** (primary where accessible; otherwise explicitly treated as secondary): ISO/IEC Directives Part 2; IETF RFC 2119/8174; W3C Process + W3C Manual of Style; OASIS conformance/style guidance; IEEE Standards Style Manual (2009). [1][2][3][4][5][6][7][8]
 
 **Limitations**:
 * Industry documents evolve over time. This report uses the accessible published versions cited in §VI; if a newer edition supersedes a cited document, re-validation may change specific wording recommendations while preserving the high-level patterns.
-* “Sub-agents” were required by commissioning instruction (model `gpt-5.2-low`), but the execution environment does not provide parallel agent spawning; the work was performed sequentially while preserving the same decomposition and output contracts.
+* This report is time-locked to the cited editions/URLs in §VI (no attempt was made to chase newer editions beyond ensuring link accessibility).
 
 ---
 
@@ -72,6 +72,18 @@ decision_owner_role: 'Client'
 
 #### A. Evidence & Forensics
 **CLAUSE construction inventory (defined clauses only; heuristic conformance to “single anchor + named subclauses”)**
+
+**Heuristic scoring rubric (for reviewer reproducibility)**:
+* **Parent CLAUSEs (defined)**: count of `T102-STD-###-CLAUSE-###` anchors (non-letter-suffixed) present as explicit headings/anchors in the STD.
+* **Subclauses (defined)**: count of `...-CLAUSE-###A`, `...-CLAUSE-###B`, etc. (letter-suffixed) anchors explicitly present.
+* **Conformance rate (heuristic)**: `conformant_parent_clauses / parent_clauses`, rounded to 2 decimals.
+* **Conformant (heuristic)**: the parent CLAUSE reads as one testable obligation or definitional constraint, and uses named subclauses when multiple discrete obligations are present.
+* **Pattern tags (heuristic)**:
+  - `single_or_definitional`: a single obligation or definitional statement dominates the CLAUSE body.
+  - `two_obligations`: two distinct obligations appear in one CLAUSE body without subclauses.
+  - `multi_obligation`: 3+ distinct obligations appear in one CLAUSE body without subclauses.
+  - `named_subclauses`: lettered subclauses are used to make obligations addressable.
+  - `procedural_no_norm`: imperative workflow steps appear without explicit normative keywords.
 
 | STD | Parent CLAUSEs (defined) | Subclauses (defined) | Sub/Parent | Conformance rate (heuristic) | Dominant clause-body patterns (heuristic) |
 |:--|--:|--:|--:|--:|:--|
@@ -166,15 +178,18 @@ Industry evidence:
 **Objective**: Benchmark T102 drafting and structure against ISO/IEC Directives Part 2.
 
 #### A. Evidence & Forensics
-* ISO/IEC Part 2 defines controlled “verbal forms” (requirement/recommendation/permission/possibility/capability) and provides tables for their use. Explicitly: ISO/IEC Directives Part 2 (2021) Clause 31.1.1 defines the verbal forms and references Table 3 (Verbal forms for the expression of provisions). [1]
-* ISO/IEC Part 2 also prescribes a conventional document structure (scope, normative references, terms/definitions, etc.) and disciplined use of notes/examples as non-normative.
+* **Verbal forms**: ISO/IEC Directives Part 2 (2021) specifies “verbal forms” for expressing provisions; requirements use “shall” and “must” is explicitly disallowed in formal drafting. (Clause 7.2 and Table 3; see also Clause 7.2.1.) [1]
+* **Numbering and subdivision discipline**: ISO/IEC Part 2 specifies how clauses/subclauses are numbered and subdivided (Clause 22.3.1 and Clause 22.3.2). [1]
+* **Normative vs informative elements**: ISO/IEC Part 2 treats Foreword/Introduction as informative and specifies that the Scope should be factual and should not contain requirements (Clause 12.2 and Clause 14.5). [1]
+* **Notes/examples are non-normative**: ISO/IEC Part 2 specifies that notes/footnotes/examples shall not contain requirements or recommendations (Clause 24.5 and Clause 25.1/25.5). [1]
 
 #### B. Analysis
 **Numbering and subclauses**:
-* ISO/IEC typically uses hierarchical clause numbering (e.g., 5.1, 5.1.1), while T102 uses a flat `CLAUSE-###` plus lettered subclauses. This divergence is not inherently wrong; it is a representational choice. The risk is that lettered subclauses become optional or inconsistently applied (as observed in Topic 1).
+* ISO/IEC typically uses hierarchical clause numbering (e.g., 5.1, 5.1.1) and defines subdivision rules, while T102 uses a flat `CLAUSE-###` plus lettered subclauses. This divergence is not inherently wrong; it is a representational choice. The risk is that lettered subclauses become optional or inconsistently applied (as observed in Topic 1). (ISO/IEC Part 2 Clause 22.3.1 and Clause 22.3.2.) [1]
 
 **Verbal forms vs T102 keywords**:
-* ISO/IEC Part 2 Table 3’s controlled vocabulary (shall/should/may/can) differs stylistically from T102’s dominant MUST usage, but the drafting intent matches: one controlled vocabulary with defined semantics per “provision type” (requirements vs recommendations vs permissions). The practical action for T102 is to pick a consistent vocabulary and apply it uniformly, while keeping the semantics decision explicit. [1]
+* ISO/IEC Part 2’s controlled vocabulary differs stylistically from T102’s dominant MUST usage, but the drafting intent matches: one controlled vocabulary with defined semantics per “provision type” (requirements vs recommendations vs permissions). (ISO/IEC Part 2 Clause 7.2 and Table 3.) [1]
+* For T102, the lowest-disruption posture remains: keep RFC 2119 semantics (per `T102-CON-009`), but enforce a single primary keyword style consistently, and strengthen boundary rules so informative sections do not carry normative force (consistent with ISO’s informative-element constraints). [1]
 
 #### C. Governance Implication
 * If T102 remains RFC-2119-based (per `T102-CON-009`), treat ISO/IEC Part 2 as structural guidance: emphasize granularity, explicit normative/informative separation, and consistent clause structure, rather than copying “shall” vocabulary wholesale.
@@ -374,7 +389,7 @@ Recommendations are grounded in Topics 1–8 evidence, AC008 decisions (§VIII�
 **Issues**
 | ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes | Resolution Date |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| `T102-RES-007-ISSUE-001` | Industry source accessibility | Some standards-body drafting manuals may be paywalled or superseded; claims must be qualified based on accessible versions and limitations | `LLM_Researcher` | `RESOLVED` | `MEDIUM` | 2026-02-12 | Accessible primary sources located for ISO/IEC Directives Part 2 (ANSI share), IETF RFC 2119/8174, W3C Process/Style, OASIS guidance, and IEEE SA Operations Manual + IEEE Style Manual (2009). Remaining limitation: documents may have newer editions; treat cited versions as authoritative for this report scope. | 2026-02-13 |
+| `T102-RES-007-ISSUE-001` | Industry source accessibility | Some standards-body drafting manuals may be paywalled or superseded; claims must be qualified based on accessible versions and limitations | `LLM_Researcher` | `RESOLVED` | `MEDIUM` | 2026-02-12 | Accessible sources were located for ISO/IEC Directives Part 2 (ANSI share), IETF RFC 2119/8174, W3C Process/Style, OASIS guidance, and an accessible copy of the IEEE Standards Style Manual (2009). Remaining limitation: documents may have newer editions; this report is time-locked to the cited versions. | 2026-02-14 |
 | `T102-RES-007-ISSUE-002` | STD-004/STD-009 boundary definition precision | Boundary was narrative; merger evaluation requires explicit boundary definition and criteria-before-scoring | `LLM_Researcher` | `RESOLVED` | `HIGH` | 2026-02-12 | Boundary and interface criteria defined in Topic 8 (evidence-based boundary + options matrix + deferred-items mapping). | 2026-02-13 |
 
 **Risks**
@@ -420,8 +435,8 @@ Recommendations are grounded in Topics 1–8 evidence, AC008 decisions (§VIII�
   * [1] ISO/IEC Directives, Part 2 — Principles and rules for the structure and drafting of ISO and IEC documents (2021) — https://share.ansi.org/Shared%20Documents/Standards%20Activities/NCSCI/ISO_IEC_Directives_Part_2__2021.pdf
   * [2] RFC 2119 — Key words for use in RFCs to Indicate Requirement Levels — https://www.rfc-editor.org/rfc/rfc2119
   * [3] RFC 8174 — Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words — https://www.rfc-editor.org/rfc/rfc8174
-  * [4] W3C Process Document (latest published) — https://www.w3.org/Consortium/Process/
+  * [4] W3C Process Document — https://www.w3.org/policies/process/
   * [5] IEEE Standards Style Manual (2009) — https://grouper.ieee.org/groups/nescom/msc/IEEE_Standards_Style_Manual_2009.pdf
   * [6] W3C Manual of Style — https://www.w3.org/2001/06/manual/
-  * [7] OASIS Conformance Guidelines — https://docs.oasis-open.org/templates/OASISConformanceGuidelines.html
-  * [8] OASIS Interoperability and Conformance Testing Guidelines — https://docs.oasis-open.org/templates/OASISInteroperabilityGuidelines.html
+  * [7] OASIS Conformance Guidelines — https://docs.oasis-open.org/templates/TCHandbook/ConformanceGuidelines.html
+  * [8] OASIS Interoperability Guidelines — https://www.oasis-open.org/policies-guidelines/interoperability-guidelines/

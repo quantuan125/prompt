@@ -56,5 +56,57 @@ python3 prompt/scripts/migrations/migrate_adr_to_std.py \
   --report-path prompt/scripts/output/std_migration/report_AC007_stage1_dry_run.md
 ```
 
+### `migrate_initiative.py`
+**Location**: `prompt/scripts/migrate_initiative.py`
+**Purpose**: Executes manifest-driven initiative directory migrations with integrated reference rewriting.
+**Key Features**:
+- Loads full JSON manifest before execution (`operations` or list-form manifests).
+- Supports safe dry-run mode by default and explicit `--apply` for live migration.
+- Validates duplicate/overlapping moves, source existence, and target collisions before execution.
+- Rewrites path references using manifest mappings with `--max-files-changed` safety cap.
+- Emits optional markdown migration report with move logs and unified diffs.
+**Usage**:
+```bash
+python3 prompt/scripts/migrate_initiative.py \
+  --manifest prompt/scripts/output/t104_manifest.json \
+  --project-root . \
+  --dry-run \
+  --report-path prompt/scripts/output/migration_report.md
+```
+
+### `scaffold_initiative.py`
+**Location**: `prompt/scripts/scaffold_initiative.py`
+**Purpose**: Generates a convention-aligned initiative folder skeleton under `prompt/artifacts/tasks/`.
+**Key Features**:
+- Creates baseline directories (`archive/`, `research/`, `ssot/`, `standard/`, `workspace/`).
+- Scaffolds timeline hierarchy (`PH###/ST###`) for configurable phase count and stream set.
+- Uses dry-run mode by default with optional markdown report output.
+**Usage**:
+```bash
+python3 prompt/scripts/scaffold_initiative.py \
+  --initiative-id T999 \
+  --initiative-code DEMO \
+  --phase-count 1 \
+  --streams ST000,ST001 \
+  --dry-run
+```
+
+### `validate_initiative_structure.py`
+**Location**: `prompt/scripts/validate_initiative_structure.py`
+**Purpose**: Validates initiative structures against ST007 conventions.
+**Key Features**:
+- Checks required top-level initiative directories.
+- Validates timeline hierarchy (`workspace/PH###/ST###`).
+- Verifies raw transcript naming includes `SES###`.
+- Audits research directory naming by `RES` ID and applies AC directory threshold checks.
+- Supports optional markdown report output and strict mode for AC threshold enforcement.
+**Usage**:
+```bash
+python3 prompt/scripts/validate_initiative_structure.py \
+  --initiative-root prompt/artifacts/tasks/T104 \
+  --strict \
+  --report-path prompt/scripts/output/validate_t104.md
+```
+
 ---
-*Last Updated: 2026-02-08*
+*Last Updated: 2026-02-14*
