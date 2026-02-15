@@ -6,8 +6,8 @@ initiative_code: 'CWD'
 phase: '1'
 stream_id: 'T102-PH001-ST001'
 activity_id: 'T102-PH001-ST001-AC008'
-version: '0.2.0'
-date: '2026-02-11'
+version: '0.3.0'
+date: '2026-02-14'
 status: 'gate_approved'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -51,6 +51,27 @@ Adopt a remediation strategy that restores exemplar credibility by:
 - amending CLAUSE-007 to reflect the actual anchor derivation rule used in Phase 1.
 
 Two remediation options are provided in §VI; Option R2 is recommended for exemplar integrity.
+
+### E. RES-007 Crosswalk Addendum (AC009 Gap Assessment)
+
+This addendum integrates `T102-RES-007` (Standards Authoring Methodology Benchmarking) at the level required to support `T102-PH001-ST001-AC009` planning and Gate review.
+
+**RES-007 integration readiness**:
+- `T102-PH001-ST004-AC004-GATE-003` (Client sign-off on RES-007 integration recommendations) is **passed** on **2026-02-14**.
+
+**Crosswalk: RES-007 gap matrix ↔ AC008 findings ↔ AC009 actions**
+
+| RES-007 Gap | Severity | AC008 Audit Linkage | AC009 Action (Primary) | Status |
+|:--|:--|:--|:--|:--|
+| Clause granularity discipline (multi-obligation clauses need named subclauses) | Critical | Matches primary issue #1 (CLAUSE construction non-conformance) | Enhance `T102-STD-004-CLAUSE-005` subclause discipline (TK001 → proposal; TK004 → implement; TK005 → verify) | AC009-actionable |
+| Normative/informative boundary hygiene (“normative leakage” prevention) | Critical | Partially overlaps derivative leakage; not explicitly governed inside STD-004 | Add `T102-STD-004-CLAUSE-018 (Boundary Hygiene)` and update derivatives to cite it (TK001/TK004/TK005) | AC009-actionable |
+| Normative vocabulary consistency (controlled drafting vocabulary; avoid MUST/SHALL mixing) | Important | Not directly audited as a conformance item; observed as a system-level style risk | Add vocabulary guidance as a subclause under `T102-STD-004-CLAUSE-016` (TK001/TK004/TK005) | AC009-actionable (scope-approved) |
+| Derivative traceability integrity (no untraced obligations in guideline/template) | Important | Matches primary issue #3 (CLAUSE-017 breach risk) | Govern directory + naming rules in STD-004 and fix derivative citations (TK001/TK004/TK005) | AC009-actionable |
+| STD-004 / STD-009 modular boundary (do not merge; define interface) | Informational / Important | Out of scope for AC008 implementation; impacts downstream STD governance | Defer interface formalization to ST002 (STD-009 normalization scope) | ST002-deferred |
+
+**AC009 scope boundary (actionable now vs deferred)**
+- **AC009-actionable now**: boundary hygiene (new CLAUSE-018), CLAUSE-005 enhancement, vocabulary guidance, derivative traceability closure (directory/naming governance + citation fixes).
+- **Deferred to ST002**: STD-009 normalization and any corpus-wide enforcement beyond the STD-004 exemplar + its immediate derivatives.
 
 ---
 

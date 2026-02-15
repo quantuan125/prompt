@@ -40,17 +40,18 @@ parent_plan: '[path/to/phase/plan.md]'
 
 | Activity | Activity ID | Name | Status | Owner | Depends On | Deliverable | Reference |
 |:--|:--|:--|:--|:--|:--|:--|:--|
-| AC001 | `T###-PH###-ST###-AC###` | [Activity Name] | `planned` | LLM_Consultant | — | [Deliverable path(s)] | — |
+| AC001 | `T###-PH###-ST###-AC###` | [Activity Name] | `planned` | LLM_Consultant | — | [Deliverable(s) path(s)] | [Activity plan link or '—'] |
 
 ---
 
 <!--
-Activities here are CONTRACT-LEVEL. Each includes Purpose, Deliverable, Scope, Task Register, and Success Criteria.
-Implementation-level task decomposition belongs in standalone activity plans (see guideline_workspace_plan.md for trigger rule).
+Activities here are CONTRACT-LEVEL.
+  - If no standalone Activity Plan exists, include the Task Register here.
+  - If a standalone Activity Plan exists, keep only the contract stub here (Purpose/Deliverable/Scope/Inputs + short Success Criteria summary) and omit the Task Register to avoid drift.
 -->
 ## III. ACTIVITIES (HIGH-LEVEL)
 
-#### Activity AC001: [Activity Title]
+### Activity AC001: [Activity Title]
 
 **Activity ID**: `T###-PH###-ST###-AC###`
 
@@ -65,22 +66,47 @@ Implementation-level task decomposition belongs in standalone activity plans (se
 - Out of scope:
   - [Scope item]
 
+**Activity Plan** (optional, recommended when detailed decomposition is needed):
+- `[path/to/activity/plan.md]` — MUST match Activity Register `Reference` when present
+
 **Inputs Required** (optional):
 - `[input path]` — [Why needed]
 
 <!--
 Tasks are the smallest registered unit. Steps (informal sub-bullets within tasks) are unregistered.
 Status enums per guideline_workspace_plan.md §III.B.
+
+ANTI-DRIFT:
+  - If `Activity Plan` is present (not `—`), DO NOT duplicate a full Task Register here.
+  - Keep only the contract stub (Purpose/Deliverable/Scope/Inputs) + a short Success Criteria summary.
 -->
-**Task Register**:
+**Task Register** (omit when Activity Plan exists):
 
 | Task ID | Description | Status | Action |
 |:--|:--|:--|:--|
 | `T###-PH###-ST###-AC###-TK001` | [Task description] | `planned` | — |
 
-**Success Criteria Checklist**:
+**Success Criteria Checklist (summary)**:
 - [ ] [Criterion 1]
 - [ ] [Criterion 2]
+
+<!--
+Sub-Activities (AC00x.x):
+  - Use only for remediation (parallel drift / higher-authority mandatory update) per guideline.
+  - Sub-Activities are NOT listed in the Activity Register.
+  - If a standalone plan exists, link it inline (no register row exists for sub-activities).
+-->
+#### Sub-Activity AC001.1: [Sub-Activity Title] (optional remediation)
+
+**Trigger**: [parallel implementation drift | higher-authority mandatory update]
+
+**Purpose**: [1–2 sentences]
+
+**Sub-Activity Plan** (optional):
+- `[path/to/sub-activity/plan.md]`
+
+**Success Criteria Checklist (summary)**:
+- [ ] [Criterion 1]
 
 <!--
 Role boundary:
@@ -109,4 +135,3 @@ See T104-STD-001 CLAUSE-004 (pending).
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | YYYY-MM-DD | Initial | Stream plan created |
-

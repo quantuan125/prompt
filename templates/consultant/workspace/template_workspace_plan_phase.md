@@ -73,12 +73,18 @@ Section II guidance: List SSOT references, governance rules, and structural exem
 |:--|:--|:--|:--|:--|:--|:--|
 | 1 | `T###-PH###-ST###` | [Stream Name] | [PARALLEL\|SEQUENTIAL\|GATED] | — | `planned` | [Deliverable list] |
 
-<!-- Activities listed here are contract-level summaries. Detailed task registers belong in stream plans. -->
-### Activity Register
+<!--
+ANTI-DRIFT:
+  - Stream plans are SSOT for Activity status, dependencies, deliverables, and activity-plan references.
+  - Phase plans carry a snapshot index only (navigation + reporting).
+-->
+### Activity Snapshot Index
 
-| Stream | Activity | Activity ID | Name | Status | Owner | Depends On | Deliverable |
-|:--|:--|:--|:--|:--|:--|:--|:--|
-| 1 | AC001 | `T###-PH###-ST###-AC###` | [Activity Name] | `planned` | LLM_Consultant | — | [Deliverable path(s)] |
+**Activity Snapshot As-Of**: YYYY-MM-DD
+
+| Stream | Activity | Activity ID | Name | Status (snapshot) | Owner | Source (Stream Plan) |
+|:--|:--|:--|:--|:--|:--|:--|
+| 1 | AC001 | `T###-PH###-ST###-AC###` | [Activity Name] | `planned` | LLM_Consultant | `[path/to/stream/plan.md]` |
 
 ---
 
@@ -107,4 +113,3 @@ Section II guidance: List SSOT references, governance rules, and structural exem
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | YYYY-MM-DD | Initial | Phase plan created |
-

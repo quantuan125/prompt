@@ -36,7 +36,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 | Activity | Activity ID | Name | Status | Owner | Depends On | Deliverable | Reference |
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | AC001 | `P-PH000-ST001-AC001` | Amend ID governance to allow `P-RES-###` | `planned` | LLM_Consultant | — | Planned T102 change (RES token Allowed Scope) | `T102-STD-005` |
-| AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` + `P-ADR-001` (Program Workspace Standard) | `planned` | LLM_Consultant | AC001 | Planned standard + paired ADR | Program SSOT |
+| AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` + `P-ADR-001` (Program Governance Standard) | `planned` | LLM_Consultant | AC001 | Planned standard + paired ADR | Program SSOT |
 | AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` + `P-ADR-002` (Program Status Standard) | `planned` | LLM_Consultant | AC001 | Planned standard + paired ADR | Program SSOT |
 | AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `planned` | LLM_Consultant | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` | `T102-STD-004-CLAUSE-016` + `T104-PH001-ST002-AC000` |
 | AC005 | `P-PH000-ST001-AC005` | Align `P/standard/` naming to `standard_<STD-ID>_...` | `planned` | LLM_Developer | AC004 | Renamed `standard_P-STD-003_governance-standards-and-dr-index.md` + updated references | `P-STD-004` Convention 1 + `P` conformance |
@@ -65,7 +65,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 | `P-PH000-ST001-AC001-TK002` | Update `RES` Allowed Scope to include `P` | `planned` | — |
 | `P-PH000-ST001-AC001-TK003` | Validate references and patterns remain consistent after the change | `planned` | — |
 
-#### Activity AC002: Author `P-STD-001` + `P-ADR-001` (Program Workspace Standard)
+#### Activity AC002: Author `P-STD-001` + `P-ADR-001` (Program Governance Standard)
 
 **Activity ID**: `P-PH000-ST001-AC002`
 
@@ -148,7 +148,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 ## IV. DEPENDENCY NOTES (DOWNSTREAM ADOPTERS)
 
 - **T104 adoption/binding** (e.g., `T104-PH001-ST002-AC000`) is downstream work and SHOULD be treated as dependent on:
-  - `P-PH000-ST001-AC002` (Program Workspace Standard authoring) and
+  - `P-PH000-ST001-AC002` (Program Governance Standard authoring) and
   - `P-PH000-ST001-AC003` (Program Status Standard authoring).
 - **T104 directory restructuring (ST007)** SHOULD treat `P-STD-004` as the authority surface for directory/naming rules once authored and SHALL avoid duplicating normative content.
 - This stream does not modify any `T104` artifacts.

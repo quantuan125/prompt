@@ -56,7 +56,7 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 | 0 | AC002 | `P-PH000-ST000-AC002` | Create Program SPS shell (`sps_P-PROGRAM.md`) | `completed` | LLM_Consultant | AC001 | `sps_P-PROGRAM.md` |
 | 0 | AC003 | `P-PH000-ST000-AC003` | Commission `P-RES-001` (PM tooling + orchestration status research) | `planned` | LLM_Consultant | ST001-AC001 | Planned research brief/report paths only (no file creation) |
 | 1 | AC001 | `P-PH000-ST001-AC001` | Amend ID governance to allow `P-RES-###` | `planned` | LLM_Consultant | — | Planned change to `T102-STD-005` token table (in `concept_T102-CONSULTANT.md`) |
-| 1 | AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` + `P-ADR-001` (Program Workspace Standard) | `planned` | LLM_Consultant | AC001 | Planned bodies (SSOT) |
+| 1 | AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` + `P-ADR-001` (Program Governance Standard) | `planned` | LLM_Consultant | AC001 | Planned bodies (SSOT) |
 | 1 | AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` + `P-ADR-002` (Program Status Standard) | `planned` | LLM_Consultant | AC001 | Planned bodies (SSOT) |
 | 2 | AC001 | `P-PH000-ST002-AC001` | Define program status schema + update protocol (decision-complete) | `planned` | LLM_Consultant | ST001-AC003 | `plan_P-PH000-ST002.md` sectioned specification |
 | 2 | AC002 | `P-PH000-ST002-AC002` | Author `status_program.md` (deferred implementation activity) | `planned` | LLM_Consultant | AC001 | Planned artifact: `prompt/artifacts/tasks/P/status/status_program.md` |

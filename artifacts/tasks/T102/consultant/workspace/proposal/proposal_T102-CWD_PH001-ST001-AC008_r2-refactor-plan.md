@@ -4,14 +4,16 @@ initiative_id: 'T102'
 initiative_code: 'CWD'
 activity_id: 'T102-PH001-ST001-AC008'
 task_id: 'T102-PH001-ST001-AC008-TK005'
-version: '0.1.0'
-date: '2026-02-11'
-status: 'draft'
+version: '0.2.0'
+date: '2026-02-14'
+status: 'superseded'
+superseded_by: 'prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST001.md'
 analysis_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-CWD_PH001-ST001-AC008_std-004-self-compliance-audit.md'
-session_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC008-SES001.md'
+session_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC009-SES001.md'
+res007_analysis_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-007_standards-authoring-methodology-benchmarking.md'
 target_files:
   - 'prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md'
   - 'prompt/templates/consultant/standards/guideline_standard_specs.md'
@@ -19,19 +21,22 @@ target_files:
   - 'prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md'
 ---
 
+> **SUPERSEDED**: This proposal has been superseded by `proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md` (2026-02-15). The superseding proposal incorporates all R2 content plus STD-009 merge, substandard architecture, and full CLAUSE resequencing per AC009-GATE-001 QA review. See `notes_T102-PH001-ST001-AC009-SES002.md` for decisions.
+
 # PROPOSAL: T102 (CWD) — PH001 / ST001 / AC008 — R2 Refactor Plan (STD-004 Exemplar Hardening)
 
 ## I. Executive Summary
 
-- R2 approved (DEC001): full subclause refactor for exemplar self-conformance
-- Option B approved (DEC002): STD-004 = combined file authoring standard
+- R2 approved (T102-PH001-ST001-AC008-SES001-DEC001): full subclause refactor for exemplar self-conformance
+- Option B approved (T102-PH001-ST001-AC008-SES001-DEC002): STD-004 = combined file authoring standard
+- RES-007 accepted for integration (ST004-AC004-GATE-003 passed 2026-02-14): apply R2-Enhanced enhancements (boundary hygiene, clause granularity discipline, vocabulary guidance)
 - Scope: 4 target files (STD-004 + guideline + template + SPS MVC)
 - Constraint: all 4 files updated in same changeset per CLAUSE-017
 
 ## II. R2 Design Principles
 
-- Each top-level CLAUSE retains its stable ID (001–017; no renumbering)
-- Each CLAUSE gets one normative anchor statement (MUST/SHALL/SHOULD/MAY)
+- Existing top-level CLAUSE IDs (001–017) remain stable; CLAUSE-018 is additive (no renumbering)
+- Each CLAUSE gets one normative anchor statement (BCP 14 keywords preferred; see CLAUSE-016D)
 - Additional requirements → explicitly labeled subclauses (CLAUSE-###A, B, C...)
 - Procedural workflows rewritten as normative requirements
 - ADR-era language (CLAUSE-001–004) refocused for combined file context
@@ -104,7 +109,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-001E`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 - Closes the CLAUSE-017 derivative traceability gap by ensuring directory/naming and structure rules are governed in STD-004.
 
 ### CLAUSE-002 — Placement Standards
@@ -144,7 +149,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-002C`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 - Closes the CLAUSE-017 derivative traceability gap by ensuring directory/naming and structure rules are governed in STD-004.
 
 ### CLAUSE-003 — Entry Creation Workflow
@@ -198,7 +203,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-003F`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 - Closes the CLAUSE-017 derivative traceability gap by ensuring directory/naming and structure rules are governed in STD-004.
 
 ### CLAUSE-004 — DR Body Template
@@ -253,7 +258,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-004D`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 
 ### CLAUSE-005 — Specification Clauses
 
@@ -312,10 +317,11 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
      - Each clause item MUST be rendered as: `n) **<CLAUSE-ID> (<Title>)**`.
      - `<CLAUSE-ID>` MUST conform to `T102-STD-005-CLAUSE-005D`.
 
-   - `T102-STD-004-CLAUSE-005C (Clause construction requirements)`
-     - Each clause MUST be a single primary normative statement (avoid compound obligations where feasible).
-     - If additional detail is required, it SHOULD be provided as subclauses per `T102-STD-005-CLAUSE-005D`.
-     - Clause Titles MUST follow the title conventions defined in `T102-STD-005-CLAUSE-001`.
+	   - `T102-STD-004-CLAUSE-005C (Clause construction requirements)`
+	     - Each clause MUST be a single primary normative statement (avoid compound obligations where feasible).
+	     - If a parent clause would otherwise contain multiple distinct obligations, those obligations MUST be decomposed into named subclauses (e.g., `...-CLAUSE-###A`, `...-CLAUSE-###B`) per `T102-STD-005-CLAUSE-005D`.
+	     - If additional detail is required (and does not introduce additional obligations), it SHOULD be provided as subclauses per `T102-STD-005-CLAUSE-005D`.
+	     - Clause Titles MUST follow the title conventions defined in `T102-STD-005-CLAUSE-001`.
 
    - `T102-STD-004-CLAUSE-005D (Ordering rules)`
      - `CLAUSE` IDs MUST be sequential in the order they appear within the Specification section (`001`, `002`, `003`, ...).
@@ -341,7 +347,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-005G`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 
 ### CLAUSE-006 — Cross-Artifact Linking Patterns
 
@@ -392,7 +398,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-006D`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 
 ### CLAUSE-007 — Anchor Title Stability
 
@@ -436,7 +442,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-007D`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 
 ### CLAUSE-008 — Lifecycle Coherence
 
@@ -476,7 +482,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-008C`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 
 ### CLAUSE-009 — Status Management
 
@@ -516,7 +522,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-009C`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 
 ### CLAUSE-010 — Precedence Conflicts Hierarchy
 
@@ -553,7 +559,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-010B`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 
 ### CLAUSE-011 — Consequences Scope Requirements
 
@@ -588,7 +594,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-011B`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 
 ### CLAUSE-012 — References & Provenance
 
@@ -622,7 +628,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-012B`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 
 ### CLAUSE-013 — Variance ADR Contract
 
@@ -667,7 +673,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-013D`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 
 ### CLAUSE-014 — Decision Promotion Workflow
 
@@ -729,7 +735,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-014E`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 
 ### CLAUSE-015 — Automation & Linting Checks
 
@@ -778,7 +784,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-015E`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 
 ### CLAUSE-016 — Combined-File Canonical Structure
 
@@ -805,7 +811,7 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 ```markdown
 16) **T102-STD-004-CLAUSE-016 (Combined-File Canonical Structure)**
 
-    T102-STD-004-CLAUSE-016: In Phase 1, every combined standard-specification file MUST conform to the canonical structure defined by subclauses `T102-STD-004-CLAUSE-016A` through `T102-STD-004-CLAUSE-016C`.
+	    T102-STD-004-CLAUSE-016: In Phase 1, every combined standard-specification file MUST conform to the canonical structure defined by subclauses `T102-STD-004-CLAUSE-016A` through `T102-STD-004-CLAUSE-016D`.
 
     - `T102-STD-004-CLAUSE-016A (Required sections and order)`
       - Every combined file MUST contain exactly these sections in order:
@@ -815,22 +821,28 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
         4. `## References`
         5. `## Provenance`
 
-    - `T102-STD-004-CLAUSE-016B (Section semantics)`
-      - `## Specification` contains normative `CLAUSE` items (enforceable language: SHALL/SHOULD/MUST/MAY).
-      - `## Decision Record` contains one current nested ADR body (`<STD-ID>-ADR-###`) with informative rationale.
-      - `## References` and `## Provenance` are STD-level sections governing the entire file.
+	    - `T102-STD-004-CLAUSE-016B (Section semantics)`
+	      - `## Specification` contains normative `CLAUSE` items (enforceable language MUST follow the controlled vocabulary defined in `T102-STD-004-CLAUSE-016D`).
+	      - `## Decision Record` contains one current nested ADR body (`<STD-ID>-ADR-###`) with informative rationale.
+	      - `## References` and `## Provenance` are STD-level sections governing the entire file.
 
-    - `T102-STD-004-CLAUSE-016C (Anchor metadata lines)`
-      - Non-heading metadata lines (e.g., explicit anchor lines in the form `{#anchor}`) MAY appear immediately after the `# <STD-ID> — <Title>` header and immediately after the nested ADR header line; this does not count as an additional required section.
+	    - `T102-STD-004-CLAUSE-016C (Anchor metadata lines)`
+	      - Non-heading metadata lines (e.g., explicit anchor lines in the form `{#anchor}`) MAY appear immediately after the `# <STD-ID> — <Title>` header and immediately after the nested ADR header line; this does not count as an additional required section.
+
+	    - `T102-STD-004-CLAUSE-016D (Normative vocabulary guidance)`
+	      - A single primary drafting vocabulary MUST be used within a given `STD` specification section.
+	      - BCP 14 keywords (`MUST`, `MUST NOT`, `SHOULD`, `SHOULD NOT`, `MAY`) are the preferred primary vocabulary for Phase 1.
+	      - Mixing RFC-style (`MUST`/`SHOULD`/`MAY`) and ISO/IEEE-style (`SHALL`/`SHOULD`/`MAY`) keywords within the same `STD` SHOULD be avoided unless explicitly justified as a legacy-compatibility exception.
 ```
 
 #### Subclauses introduced
 - `T102-STD-004-CLAUSE-016A`
 - `T102-STD-004-CLAUSE-016B`
 - `T102-STD-004-CLAUSE-016C`
+- `T102-STD-004-CLAUSE-016D`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 - Closes the CLAUSE-017 derivative traceability gap by ensuring directory/naming and structure rules are governed in STD-004.
 
 ### CLAUSE-017 — Specification Lifecycle & Authority Chain
@@ -893,16 +905,55 @@ This section provides (a) the current clause text, (b) audit-identified issues, 
 - `T102-STD-004-CLAUSE-017D`
 
 #### Rationale
-- Aligns STD-004 with R2 (DEC001) and Option B boundary (DEC002) where applicable.
+- Aligns STD-004 with R2 (T102-PH001-ST001-AC008-SES001-DEC001) and Option B boundary (T102-PH001-ST001-AC008-SES001-DEC002) where applicable.
 - Closes the CLAUSE-017 derivative traceability gap by ensuring directory/naming and structure rules are governed in STD-004.
+
+### CLAUSE-018 — Normative/Informative Boundary Hygiene (RES-007)
+
+#### Current text (as-is)
+- N/A (new clause proposed by RES-007 integration; introduced in AC009).
+
+#### Issues identified
+- **RES-007 Critical gap**: Combined-file architecture is industry-aligned, but boundary hygiene is underspecified, increasing the risk of normative language “leaking” into informative sections (especially the nested Decision Record) and into derivatives.
+
+#### Proposed new clause text (copy/paste-ready)
+```markdown
+18) **T102-STD-004-CLAUSE-018 (Normative/Informative Boundary Hygiene)**
+
+    T102-STD-004-CLAUSE-018: Combined standard-specification files MUST enforce a clear boundary between normative and informative content per subclauses `T102-STD-004-CLAUSE-018A` through `T102-STD-004-CLAUSE-018D`.
+
+    - `T102-STD-004-CLAUSE-018A (Normative section authority)`
+      - The `## Specification` section is the authoritative normative surface of a combined file.
+      - The `## Decision Record` section is informative rationale and MUST NOT create new obligations.
+
+    - `T102-STD-004-CLAUSE-018B (Informative section keyword hygiene)`
+      - Informative sections (including `## Decision Record`) MUST NOT use BCP 14 keywords in uppercase (`MUST`, `MUST NOT`, `SHOULD`, `SHOULD NOT`, `MAY`) to express requirements.
+      - If an informative section needs to refer to a normative requirement, it MUST do so by (a) citing the governing `CLAUSE` reference and/or (b) quoting the normative text as a quotation (e.g., in code formatting) and explicitly labeling it as a quote.
+
+    - `T102-STD-004-CLAUSE-018C (Normative/informative labeling rule)`
+      - If any non-Specification section contains normative requirements, that section MUST be explicitly labeled as normative and the governing CLAUSE(s) MUST be identified.
+
+    - `T102-STD-004-CLAUSE-018D (Derivative boundary alignment)`
+      - Any derivative artifact that describes boundary hygiene expectations MUST cite this CLAUSE and MUST NOT introduce additional boundary rules beyond what is governed here.
+```
+
+#### Subclauses introduced
+- `T102-STD-004-CLAUSE-018A`
+- `T102-STD-004-CLAUSE-018B`
+- `T102-STD-004-CLAUSE-018C`
+- `T102-STD-004-CLAUSE-018D`
+
+#### Rationale
+- Implements RES-007 “boundary hygiene” as an explicit governed contract, reducing drift and accidental normativity in combined files.
 
 ## IV. Derivative Update Specification
 
-This proposal requires updating derivatives in the same changeset as STD-004 per `T102-STD-004-CLAUSE-017`.
+ This proposal requires updating derivatives in the same changeset as STD-004 per `T102-STD-004-CLAUSE-017`.
 
 ### A. Guideline (`prompt/templates/consultant/standards/guideline_standard_specs.md`)
 - Update "Canonical location" citation to reference `T102-STD-004-CLAUSE-002` and `T102-STD-004-CLAUSE-002A`.
 - Update "File naming convention" citation to reference `T102-STD-004-CLAUSE-003A` (and remove reliance on CLAUSE-001 for naming rules).
+- Add boundary hygiene guidance for `## Decision Record` and cite `T102-STD-004-CLAUSE-018` (informative section keyword hygiene and “no new obligations” rule).
 - Verify all other `[per ...]` citations remain valid after subclause introduction (CLAUSE-004, 005, 012, 016, 017).
 
 ### B. Template (`prompt/templates/consultant/standards/template_standard_specs.md`)
@@ -941,5 +992,7 @@ All edits MUST be completed as a single changeset per `T102-STD-004-CLAUSE-017`.
 - [ ] Template structural headings match CLAUSE-016
 - [ ] SPS MVC items cite valid refocused CLAUSEs
 - [ ] No normative rules in guideline without traceable governing CLAUSE (CLAUSE-017)
+- [ ] Boundary hygiene is enforced: `## Decision Record` does not use BCP 14 keywords to introduce obligations (CLAUSE-018)
+- [ ] Vocabulary guidance is followed (single primary drafting vocabulary per STD; CLAUSE-016D)
 - [ ] File naming convention is explicitly governed in STD-004 (CLAUSE-017 gap closed)
 - [ ] Designated standards directory is explicitly governed in STD-004 (CLAUSE-017 gap closed)

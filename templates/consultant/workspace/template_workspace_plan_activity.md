@@ -5,7 +5,7 @@ initiative_id: '[INITIATIVE-ID]'
 initiative_code: '[INITIATIVE-CODE]'
 phase: '[PHASE-NUMBER]'
 stream_id: '[INIT-PH###-ST###]'
-activity_id: '[INIT-PH###-ST###-AC###]'
+activity_id: '[INIT-PH###-ST###-AC### or INIT-PH###-ST###-AC###.#]'
 version: '1.0.0'
 date: 'YYYY-MM-DD'
 status: 'draft'
@@ -42,7 +42,7 @@ Trigger rule:
 
 ## II. ACTIVITY OUTLINE
 
-**Activity ID**: `[INIT-PH###-ST###-AC###]`
+**Activity ID**: `[INIT-PH###-ST###-AC### or INIT-PH###-ST###-AC###.#]`
 **Objective**: [1–2 sentences]
 **Execution Mode**: [PARALLEL\|SEQUENTIAL\|GATED]
 **Depends On**: [— or prerequisite IDs]
@@ -113,4 +113,3 @@ Steps have no ID pattern and are not registered.
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | YYYY-MM-DD | Initial | Activity plan created |
-

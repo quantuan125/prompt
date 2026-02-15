@@ -104,7 +104,7 @@ parent_activity: '—'
 
 | P-STD ID | Title | Purpose | Adopts | Notes |
 |:---------|:------|:--------|:-------|:------|
-| `P-STD-001` | Program Workspace Standard | Canonicalize workspace placement, naming, and link discipline | Planned (P-ADR-001) | Already listed in program SPS as planned |
+| `P-STD-001` | Program Governance Standard | Canonicalize workspace placement, naming, and link discipline | Planned (P-ADR-001) | Already listed in program SPS as planned |
 | `P-STD-002` | Program Status Standard | Define program status schema + update protocol | Planned (P-ADR-002) | Depends on status schema in `P-PH000-ST002` |
 | `P-STD-003` | Program Governance Standards Model | Promote the combined governance model (STD + DR index) for program-level standards | `P-STD-003` (self-contained spec) | Combines ADR-004 + ADR-009 governance specs into a program standard |
 

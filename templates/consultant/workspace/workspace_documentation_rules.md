@@ -135,9 +135,7 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 |:--|:--|:--|
 | `#` | Document title | — |
 | `##` | Major sections (Roman numerals) | I., II., III. |
-| `###` | Streams (in roadmaps/plans) | — |
-| `####` | Activities (in roadmaps/plans) | — |
-| `#####` | Tasks (in activity plans) | — |
+
 
 ---
 
