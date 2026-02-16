@@ -17,6 +17,7 @@ ACTIVITY_DIR_PATTERN = re.compile(r"^AC\d{3}$")
 RAW_FILE_PATTERN = re.compile(r"^raw_[A-Z0-9-]+-SES\d{3}\.(?:md|txt)$")
 RESEARCH_DIR_PATTERN = re.compile(r"^[A-Z0-9-]+-RES-\d{3}$")
 TYPE_FIRST_WORKSPACE_DIRS = {"plan", "notes", "roadmap", "analysis", "proposal", "external"}
+WORKSPACE_ALLOWED_NON_PHASE_DIRS = {"_unresolved"}
 STREAM_TYPE_DIRS = {"raw", "proposal", "analysis", "communication"}
 ALLOWED_PREFIXES = (
     "analysis_",
@@ -127,7 +128,11 @@ class InitiativeValidator:
         workspace = self.root / "workspace"
         if not workspace.exists():
             return
-        phase_dirs = [item for item in workspace.iterdir() if item.is_dir()]
+        phase_dirs = [
+            item
+            for item in workspace.iterdir()
+            if item.is_dir() and item.name not in WORKSPACE_ALLOWED_NON_PHASE_DIRS
+        ]
         if not phase_dirs:
             self.warnings.append("No phase directories found under workspace/.")
             return

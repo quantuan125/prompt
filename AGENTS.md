@@ -13,3 +13,7 @@ Currently developing consultant and developer modes with emphasis on Socratic ex
 - During the alias window, legacy `*-ADR-###-CLAUSE-*` references MAY appear for compatibility.
 - New or updated artifacts MUST use `*-STD-###-CLAUSE-*` for normative specification references.
 - For combined standard files, the current rationale record MUST use nested DR form: `<STD-ID>-ADR-001`.
+
+## Git Operations
+- The git repository root for this workspace is `prompt/`.
+- Run git commands from `prompt/` (or use `git -C prompt ...`) to avoid operating outside the repository.

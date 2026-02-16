@@ -83,3 +83,18 @@ def test_flags_txt_files_with_unrecognized_prefix(tmp_path: Path) -> None:
     assert code == 1
     assert ".txt" in output.lower()
     assert "prefix" in output.lower()
+
+
+def test_allows_workspace_unresolved_staging_directory(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    (initiative_root / "workspace/PH001/ST001").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/_unresolved").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/_unresolved/analysis_T104-RES-001_agentic-workspace-assessment.md").write_text(
+        "staged",
+        encoding="utf-8",
+    )
+
+    code, output = _run_validate(initiative_root)
+    assert code == 0
+    assert "non-canonical phase directory" not in output.lower()
