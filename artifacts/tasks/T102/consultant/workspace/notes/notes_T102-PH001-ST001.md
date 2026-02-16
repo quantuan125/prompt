@@ -4,7 +4,7 @@ initiative_id: 'T102'
 initiative_code: 'CWD'
 phase: '1'
 stream: 'ST001'
-version: '0.10.0'
+version: '0.11.0'
 date: '2026-02-15'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -37,6 +37,7 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 - Plan amendment (2026-02-11): AC009 added — Research-Informed STD-004 Formalization. Depends on AC008 (proposal baseline) + ST004-AC004 GATE-002 (RES-007 report). AC008 TK005/TK006 superseded by AC009-TK004/TK005.
 - Close-out (2026-02-08): AC006 completed — gate passed; validation evidence recorded; ST002/ST003 unblocked.
 - AC009 GATE-001 review (2026-02-15): QA identified systemic issues requiring STD-004 redesign. Decisions: merge STD-009 into STD-004, introduce substandards (T102-STD-004A/B/C/D), full CLAUSE resequencing, multiple ADRs in-file, CLAUSE-013 removed. Sub-activity AC009.1 commissioned. New comprehensive proposal supersedes prior R2 proposal.
+- AC009 SES003 second-opinion integration (2026-02-15): Reviewed 6-finding gap analysis; 7 decisions: remove `Adopts` column (replace with `Canonical Path`), simplify CLAUSE-008 (defer to CON-009), strengthen substandard/subclause non-token guardrails, define migration scope, defer `Governed By` SPS fix to ST002, remove `Authority STD` from ADR Index. Proposal updated v0.1.0 → v0.2.0.
 
 ---
 
@@ -52,7 +53,7 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 | AC006 | `T102-PH001-ST001-AC006` | STD-Contains-CLAUSE Governance Migration | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC006.md` |
 | AC007 | `T102-PH001-ST001-AC007` | STD-004 Retitle + Staged Script Execution Hardening | `completed` | `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC007.md` |
 | AC008 | `T102-PH001-ST001-AC008` | STD-004 Self-Compliance Audit & Exemplar Hardening | `in_progress` | SES001: `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC008-SES001.md` / SES002: `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC008-SES002.md` |
-| AC009 | `T102-PH001-ST001-AC009` | Research-Informed STD-004 Formalization | `in_progress` | SES001: `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC009-SES001.md` / SES002: `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC009-SES002.md` |
+| AC009 | `T102-PH001-ST001-AC009` | Research-Informed STD-004 Formalization | `in_progress` | SES001: `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC009-SES001.md` / SES002: `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC009-SES002.md` / SES003: `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC009-SES003.md` |
 
 ---
 
@@ -83,6 +84,10 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 - AC009 SES002 raw transcript: `prompt/artifacts/tasks/T102/consultant/raw/PH001/ST001/raw_T102-PH001-ST001-AC009-SES002.txt`
 - AC009.1 implementation plan: `.claude/plans/plan_T102-PH001-ST001-AC009-SES002_gate-review-and-redesign.md`
 - AC009 redesign proposal: `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md`
+- AC009 SES003 session notes: `prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC009-SES003.md`
+- AC009 SES003 raw transcript: `prompt/artifacts/tasks/T102/consultant/raw/PH001/ST001/raw_T102-PH001-ST001-AC009-SES003.txt`
+- AC009 second-opinion analysis: `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-CWD_PH001-ST001-AC009_1_gate-001-second-opinion.md`
+- AC009.1 SES003 implementation plan: `.claude/plans/plan_T102-PH001-ST001-AC009-SES003_second-opinion-integration.md`
 
 ---
 
@@ -100,3 +105,4 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 | v0.8.0 | 2026-02-11 | Plan Amendment | Registered AC008-SES002 (Research-Informed Formalization Planning); updated key outcomes with AC009 plan amendment; added SES002 links. |
 | v0.9.0 | 2026-02-14 | Update | Registered AC009 SES001 and linked AC009 TK001–TK002 deliverables for Gate 001 review. |
 | v0.10.0 | 2026-02-15 | Update | Registered AC009 SES002 (GATE-001 QA Review + Redesign Architecture); linked SES002 notes, raw transcript, implementation plan, and redesign proposal. |
+| v0.11.0 | 2026-02-15 | Update | Registered AC009 SES003 (Second-Opinion Review Integration); linked SES003 notes, raw transcript, analysis, and implementation plan; updated key outcomes with v0.2.0 proposal update. |

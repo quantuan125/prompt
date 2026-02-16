@@ -16,6 +16,8 @@ STREAM_DIR_PATTERN = re.compile(r"^ST\d{3}$")
 ACTIVITY_DIR_PATTERN = re.compile(r"^AC\d{3}$")
 RAW_FILE_PATTERN = re.compile(r"^raw_[A-Z0-9-]+-SES\d{3}\.(?:md|txt)$")
 RESEARCH_DIR_PATTERN = re.compile(r"^[A-Z0-9-]+-RES-\d{3}$")
+TYPE_FIRST_WORKSPACE_DIRS = {"plan", "notes", "roadmap", "analysis", "proposal", "external"}
+STREAM_TYPE_DIRS = {"raw", "proposal", "analysis", "communication"}
 ALLOWED_PREFIXES = (
     "analysis_",
     "plan_",
@@ -72,6 +74,9 @@ class InitiativeValidator:
 
     def validate(self) -> ValidationResult:
         self._validate_root()
+        self._validate_ssot_contents()
+        self._validate_no_root_raw()
+        self._validate_no_type_first_dirs()
         self._validate_workspace_timeline()
         self._validate_research_layout()
         self._validate_file_prefixes()
@@ -88,6 +93,35 @@ class InitiativeValidator:
             path = self.root / name
             if not path.exists() or not path.is_dir():
                 self.errors.append(f"Missing required directory: {path}")
+
+    def _validate_ssot_contents(self) -> None:
+        ssot = self.root / "ssot"
+        if not ssot.exists():
+            return
+        has_sps = any(path.name.startswith("sps_") for path in ssot.glob("*.md"))
+        has_concept = any(path.name.startswith("concept_") for path in ssot.glob("*.md"))
+        if not has_sps:
+            self.errors.append("SSOT is missing required `sps_*.md` artifact.")
+        if not has_concept:
+            self.errors.append("SSOT is missing required `concept_*.md` artifact.")
+
+    def _validate_no_root_raw(self) -> None:
+        root_raw = self.root / "raw"
+        if root_raw.exists():
+            self.errors.append("Root raw/ directory is not allowed; raw must be scoped under workspace timeline.")
+
+    def _validate_no_type_first_dirs(self) -> None:
+        workspace = self.root / "workspace"
+        if not workspace.exists():
+            return
+        for child in workspace.iterdir():
+            if not child.is_dir():
+                continue
+            if child.name in TYPE_FIRST_WORKSPACE_DIRS:
+                self.errors.append(
+                    f"Workspace contains forbidden type-first directory: "
+                    f"{child.relative_to(self.root)}"
+                )
 
     def _validate_workspace_timeline(self) -> None:
         workspace = self.root / "workspace"
@@ -109,6 +143,21 @@ class InitiativeValidator:
                     self.warnings.append(
                         f"Non-canonical stream directory: {stream_dir.relative_to(self.root)}"
                     )
+                    continue
+                self._validate_stream_contents(stream_dir)
+
+    def _validate_stream_contents(self, stream_dir: Path) -> None:
+        for child in stream_dir.iterdir():
+            if not child.is_dir():
+                continue
+            if child.name in STREAM_TYPE_DIRS:
+                continue
+            if ACTIVITY_DIR_PATTERN.match(child.name):
+                continue
+            self.errors.append(
+                f"Invalid activity/type directory under stream (expected AC### or known type dir): "
+                f"{child.relative_to(self.root)}"
+            )
 
     def _validate_research_layout(self) -> None:
         research_root = self.root / "research"
@@ -118,21 +167,43 @@ class InitiativeValidator:
             if not child.is_dir():
                 self.warnings.append(f"Non-directory item under research/: {child.relative_to(self.root)}")
                 continue
+            if child.name in {"brief", "report"}:
+                self.errors.append(
+                    f"Legacy type-first research directory not allowed: {child.relative_to(self.root)}; "
+                    "use research/<S-RES>/ with paired brief/report files."
+                )
+                continue
             if not RESEARCH_DIR_PATTERN.match(child.name):
                 self.warnings.append(
                     f"Research directory does not follow <S-RES> convention: {child.relative_to(self.root)}"
                 )
+                continue
+            has_brief = any(path.name.startswith("brief_") for path in child.glob("brief_*.md"))
+            has_report = any(path.name.startswith("report_") for path in child.glob("report_*.md"))
+            if not has_brief:
+                self.errors.append(f"Research directory missing brief artifact: {child.relative_to(self.root)}")
+            if not has_report:
+                self.errors.append(f"Research directory missing report artifact: {child.relative_to(self.root)}")
 
     def _validate_file_prefixes(self) -> None:
-        for file_path in self.root.rglob("*.md"):
+        for file_path in self.root.rglob("*"):
+            if not file_path.is_file():
+                continue
+            if file_path.suffix.lower() not in {".md", ".txt"}:
+                continue
             file_name = file_path.name
             if file_name.startswith("."):
                 continue
             if any(file_name.startswith(prefix) for prefix in ALLOWED_PREFIXES):
                 continue
-            self.warnings.append(
-                f"Unrecognized markdown prefix (check convention): {file_path.relative_to(self.root)}"
-            )
+            if file_path.suffix.lower() == ".txt":
+                self.errors.append(
+                    f"Unrecognized .txt file prefix (expected canonical stem): {file_path.relative_to(self.root)}"
+                )
+            else:
+                self.warnings.append(
+                    f"Unrecognized markdown prefix (check convention): {file_path.relative_to(self.root)}"
+                )
 
     def _validate_raw_transcripts(self) -> None:
         for file_path in self.root.rglob("raw_*"):
@@ -149,7 +220,7 @@ class InitiativeValidator:
                 continue
             if not ACTIVITY_DIR_PATTERN.match(directory.name):
                 continue
-            files = [item for item in directory.iterdir() if item.is_file()]
+            files = [item for item in directory.rglob("*") if item.is_file()]
             if len(files) < 2:
                 message = (
                     f"Activity directory violates 2+ file threshold: "

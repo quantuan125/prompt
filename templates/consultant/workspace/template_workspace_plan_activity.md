@@ -58,9 +58,9 @@ Task Register:
 -->
 ### Task Register
 
-| Task | Task ID | Name | Status | Owner | Depends On | Deliverable | Reference | Action |
+| Task | Task ID | Name | Status | Owner | Depends On | Target | Reference | Action |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
-| TK001 | `T###-PH###-ST###-AC###-TK001` | [Task name] | `planned` | LLM_Consultant | — | [Deliverable] | — | — |
+| TK001 | `T###-PH###-ST###-AC###-TK001` | [Task name] | `planned` | LLM_Developer | — | [Target] | — | — |
 
 ---
 
@@ -88,7 +88,7 @@ Steps have no ID pattern and are not registered.
 **Inputs Required**:
 - `[input path]` — [Why needed]
 
-**Steps** (informal):
+**Steps**:
 1. [Step]
 2. [Step]
 

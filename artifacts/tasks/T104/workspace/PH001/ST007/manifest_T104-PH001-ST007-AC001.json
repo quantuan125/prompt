@@ -1,0 +1,320 @@
+{
+  "operations": [
+    {
+      "action": "mkdir",
+      "path": "prompt/artifacts/tasks/T104/standard"
+    },
+    {
+      "action": "mkdir",
+      "path": "prompt/artifacts/tasks/T104/archive"
+    },
+    {
+      "action": "mkdir",
+      "path": "prompt/artifacts/tasks/T104/T104A/standard"
+    },
+    {
+      "action": "mkdir",
+      "path": "prompt/artifacts/tasks/T104/T104A/archive"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/T104A/raw/raw_T104A-ROADMAP_2026-01-30_p1.md",
+      "to": "prompt/artifacts/tasks/T104/T104A/raw/raw_T104A-ROADMAP_2026-01-30_p1.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/T104A/workspace/notes/notes_T104A-ROADMAP_phase0.md",
+      "to": "prompt/artifacts/tasks/T104/T104A/workspace/notes/notes_T104A-ROADMAP_phase0.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/T104A/workspace/roadmap/changelog_roadmap_T104A-ROADMAP_phase0.md",
+      "to": "prompt/artifacts/tasks/T104/T104A/workspace/roadmap/changelog_roadmap_T104A-ROADMAP_phase0.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/T104A/workspace/roadmap/roadmap_T104A-ROADMAP_phase0.md",
+      "to": "prompt/artifacts/tasks/T104/T104A/workspace/roadmap/roadmap_T104A-ROADMAP_phase0.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/raw/PH000/raw_T104-CWS_2026-01-30_p1.md",
+      "to": "prompt/artifacts/tasks/T104/raw/PH000/raw_T104-CWS_2026-01-30_p1.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/raw/PH000/raw_T104-CWS_2026-01-31_p2.txt",
+      "to": "prompt/artifacts/tasks/T104/raw/PH000/raw_T104-CWS_2026-01-31_p2.txt"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/raw/PH000/raw_T104-CWS_2026-02-02_p3.txt",
+      "to": "prompt/artifacts/tasks/T104/raw/PH000/raw_T104-CWS_2026-02-02_p3.txt"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/raw/PH000/raw_T104-CWS_2026-02-02_p4.txt",
+      "to": "prompt/artifacts/tasks/T104/raw/PH000/raw_T104-CWS_2026-02-02_p4.txt"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/raw/PH000/raw_T104-CWS_2026-02-03_p5.txt",
+      "to": "prompt/artifacts/tasks/T104/raw/PH000/raw_T104-CWS_2026-02-03_p5.txt"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/raw/PH001/ST002/raw_T104-PH001-ST002_2026-02-10_p1.txt",
+      "to": "prompt/artifacts/tasks/T104/raw/PH001/ST002/raw_T104-PH001-ST002_2026-02-10_p1.txt"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/raw/PH001/ST002/raw_T104-PH001-ST002_AC000_SES001.txt",
+      "to": "prompt/artifacts/tasks/T104/raw/PH001/ST002/raw_T104-PH001-ST002_AC000_SES001.txt"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/raw/PH001/ST002/raw_T104-PH001-ST002_AC000_SES002.txt",
+      "to": "prompt/artifacts/tasks/T104/raw/PH001/ST002/raw_T104-PH001-ST002_AC000_SES002.txt"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/raw/PH001/ST005/raw_T104-PH001-ST005_SES001.txt",
+      "to": "prompt/artifacts/tasks/T104/raw/PH001/ST005/raw_T104-PH001-ST005_SES001.txt"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/raw/PH001/ST007/raw_T104-PH001-ST007-AC001_SES001.txt",
+      "to": "prompt/artifacts/tasks/T104/raw/PH001/ST007/raw_T104-PH001-ST007-AC001_SES001.txt"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/raw/PH001/ST007/raw_T104-PH001-ST007-AC001-SES002.txt",
+      "to": "prompt/artifacts/tasks/T104/raw/PH001/ST007/raw_T104-PH001-ST007-AC001-SES002.txt"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/raw/PH001/ST007/raw_T104-PH001-ST007_SES001.txt",
+      "to": "prompt/artifacts/tasks/T104/raw/PH001/ST007/raw_T104-PH001-ST007_SES001.txt"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/research/brief/brief_T104-RES-001_agentic-workspace-assessment.md",
+      "to": "prompt/artifacts/tasks/T104/research/brief/brief_T104-RES-001_agentic-workspace-assessment.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/research/report/report_T104-RES-001_agentic-workspace-assessment.md",
+      "to": "prompt/artifacts/tasks/T104/research/report/report_T104-RES-001_agentic-workspace-assessment.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/research/brief/brief_T104-RES-002_requirements-candidate-research.md",
+      "to": "prompt/artifacts/tasks/T104/research/brief/brief_T104-RES-002_requirements-candidate-research.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/research/report/report_T104-RES-002_requirements-candidate-research.md",
+      "to": "prompt/artifacts/tasks/T104/research/report/report_T104-RES-002_requirements-candidate-research.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-PH001-ST001-AC002-TK005_cross-reference-compliance.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-PH001-ST001-AC002-TK005_cross-reference-compliance.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-PH001-ST002-AC000_directory-structure-comparison.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-PH001-ST002-AC000_directory-structure-comparison.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-PH001-ST002-AC000_outline-verification_v1.4.0.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-PH001-ST002-AC000_outline-verification_v1.4.0.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-RES-001_agentic-workspace-assessment.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-RES-001_agentic-workspace-assessment.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/external/external_T104-PH001-ST002_AC000.txt",
+      "to": "prompt/artifacts/tasks/T104/workspace/external/external_T104-PH001-ST002_AC000.txt"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST000/notes_T104-PH001-ST000-AC003.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST000/notes_T104-PH001-ST000-AC003.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST001/notes_T104-PH001-ST001-AC000-SES001.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST001/notes_T104-PH001-ST001-AC000-SES001.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST001/notes_T104-PH001-ST001-AC001-SES001.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST001/notes_T104-PH001-ST001-AC001-SES001.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST001/notes_T104-PH001-ST001-AC002.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST001/notes_T104-PH001-ST001-AC002.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST001/notes_T104-PH001-ST001-AC003.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST001/notes_T104-PH001-ST001-AC003.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST002/notes_T104-PH001-ST002-SES001.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST002/notes_T104-PH001-ST002-SES001.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST002/notes_T104-PH001-ST002-SES002.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST002/notes_T104-PH001-ST002-SES002.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST005/notes_T104-PH001-ST005-SES001.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST005/notes_T104-PH001-ST005-SES001.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST007/notes_T104-PH001-ST007-AC000-SES001.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST007/notes_T104-PH001-ST007-AC000-SES001.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST007/notes_T104-PH001-ST007-AC001-SES001.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/PH001/ST007/notes_T104-PH001-ST007-AC001-SES001.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/PH001/notes_T104-PH001-SES001.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/PH001/notes_T104-PH001-SES001.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-CWS_phase0.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-CWS_phase0.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-CWS_phase0_stream3.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-CWS_phase0_stream3.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST000.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST000.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST001.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST001.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST002.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST002.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST005.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST005.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST007.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST007.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/PH001/ST000/plan_T104-PH001-ST000-AC002.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/PH001/ST000/plan_T104-PH001-ST000-AC002.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/PH001/ST001/plan_T104-PH001-ST001-AC002.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/PH001/ST001/plan_T104-PH001-ST001-AC002.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/PH001/ST007/plan_T104-PH001-ST007-AC001.1.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/PH001/ST007/plan_T104-PH001-ST007-AC001.1.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/archive/plan_T104-PH000-ST000-AC001.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/archive/plan_T104-PH000-ST000-AC001.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH000.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST000.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST000.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST001.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST001.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST002.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST002.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST003.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST003.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST004.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST004.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST005.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST005.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST007.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001-ST007.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/plan/plan_T104-PH001.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/roadmap/changelog_roadmap_T104-CWS_phase0.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/roadmap/changelog_roadmap_T104-CWS_phase0.md"
+    },
+    {
+      "action": "move",
+      "from": "prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS.md",
+      "to": "prompt/artifacts/tasks/T104/workspace/roadmap/roadmap_T104-CWS.md"
+    }
+  ]
+}

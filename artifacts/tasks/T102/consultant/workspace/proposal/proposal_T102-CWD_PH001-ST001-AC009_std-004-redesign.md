@@ -5,14 +5,18 @@ initiative_code: 'CWD'
 activity_id: 'T102-PH001-ST001-AC009'
 sub_activity_id: 'T102-PH001-ST001-AC009.1'
 task_id: 'AC009.1-TK001'
-version: '0.1.0'
+version: '0.2.0'
 date: '2026-02-15'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST001.md'
-session_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC009-SES002.md'
-raw_transcript_reference: 'prompt/artifacts/tasks/T102/consultant/raw/PH001/ST001/raw_T102-PH001-ST001-AC009-SES002.txt'
+session_reference:
+  - 'prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC009-SES002.md'
+  - 'prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC009-SES003.md'
+raw_transcript_reference:
+  - 'prompt/artifacts/tasks/T102/consultant/raw/PH001/ST001/raw_T102-PH001-ST001-AC009-SES002.txt'
+  - 'prompt/artifacts/tasks/T102/consultant/raw/PH001/ST001/raw_T102-PH001-ST001-AC009-SES003.txt'
 supersedes: 'prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC008_r2-refactor-plan.md'
 target_files:
   - 'prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md'
@@ -40,6 +44,8 @@ This proposal supersedes the prior R2 Refactor Plan (`proposal_T102-CWD_PH001-ST
 **Scope**: 5 target files (STD-004 + STD-009 deprecation + guideline + template + SPS). Implementation gated on client approval (AC009.1-GATE-001).
 
 **All 18 SES002 decisions** (DEC001–DEC018) are referenced throughout this proposal. Full decision register: `notes_T102-PH001-ST001-AC009-SES002.md`.
+
+**SES003 integration (v0.2.0)**: 7 additional decisions from second-opinion review integration (SES003-DEC001–DEC007). Key changes: `Adopts` column removed (replaced by `Canonical Path`), CLAUSE-008 simplified (defers to CON-009), substandard/subclause non-token guardrails added (CLAUSE-003F), migration scope defined, INT-006 (CON-009 simplification) added. Full decision register: `notes_T102-PH001-ST001-AC009-SES003.md`.
 
 ---
 
@@ -203,7 +209,7 @@ This is the master allocation map that drives the per-CLAUSE specifications in S
 | CLAUSE-015 | **CLAUSE-007** | T102-STD-004A | Automation & Linting Checks | Revised (updated for substandard structure) |
 | CLAUSE-016D | **CLAUSE-008** | T102-STD-004A | Normative Vocabulary Guidance | Revised (references T102-CON-009 per DEC012) |
 | STD-009-CLAUSE-001 | **CLAUSE-009** | T102-STD-004B | STD Semantics & Scope | Absorbed from STD-009 |
-| STD-009-CLAUSE-002 | **CLAUSE-010** | T102-STD-004B | STD Adoption Contract | Absorbed from STD-009 |
+| STD-009-CLAUSE-002 | **CLAUSE-010** | T102-STD-004B | STD Canonical Specification | Absorbed from STD-009; revised per SES003-DEC002 (`Adopts` → `Canonical Path`) |
 | CLAUSE-010 + STD-009-CLAUSE-003 | **CLAUSE-011** | T102-STD-004B | STD Precedence & Variance | Merged + revised (reference STD-005-CLAUSE-003; expand for STD/CLAUSE/ADR per DEC013) |
 | CLAUSE-001 (partial) + STD-009-CLAUSE-004A/B | **CLAUSE-012** | T102-STD-004B | STD Index Schema & Column Definitions | Merged (STD index schema + column definitions) |
 | STD-009-CLAUSE-004C/D | **CLAUSE-013** | T102-STD-004B | STD Body Construction & Conciseness | Absorbed from STD-009 |
@@ -302,6 +308,8 @@ T102-STD-004-CLAUSE-003: When a parent STD organizes its specification into subs
 
 - **T102-STD-004-CLAUSE-003E (Rendering)** — Each substandard MUST be rendered as a `###`-level heading under `## Specification`, using the format: `### <Substandard-ID> — <Domain Title>` (e.g., `### T102-STD-004A — Core Structure & Lifecycle`).
 
+- **T102-STD-004-CLAUSE-003F (Non-token status)** — Substandard IDs (e.g., `T102-STD-004A`) and subclause IDs (e.g., `T102-STD-004-CLAUSE-001A`) are internal structural elements. They MUST NOT appear as standalone entries in registries, taxonomy tables, or governance indexes (including the STD-005 taxonomy, SPS STD Index, Concept STD Index, or Specification Index). They MAY be cited in text for navigational precision but carry no independent governance lifecycle and are NOT independent tokens.
+
 ---
 
 #### CLAUSE-004: Specification Lifecycle Stages
@@ -395,20 +403,18 @@ T102-STD-004-CLAUSE-007: Authors SHOULD satisfy the automation and linting check
 #### CLAUSE-008: Normative Vocabulary Guidance
 
 **New ID**: `T102-STD-004-CLAUSE-008`
-**Source**: Old CLAUSE-016D (Normative vocabulary guidance), revised per SES002-DEC012
-**Reasoning**: Per DEC012, vocabulary guidance MUST reference `T102-CON-009` directly rather than redefining keyword families. Removes the incorrect implication that SHALL is a separate vocabulary from RFC 2119.
+**Source**: Old CLAUSE-016D (Normative vocabulary guidance), revised per SES002-DEC012 and SES003-DEC003
+**Reasoning**: Per SES003-DEC003, CLAUSE-008 is simplified to reference `T102-CON-009` as the authoritative source for normative keyword interpretation. CON-009 applies to all RIDs (not just STD-governed artifacts) and governs T102-STD-004 in this relationship. A proposed CON-009 update to explicitly establish BCP 14 as the primary drafting vocabulary is documented as INT-006 for ST002 pickup.
 
 **Anchor normative statement**:
 
-T102-STD-004-CLAUSE-008: Normative vocabulary in specification sections MUST conform to subclauses CLAUSE-008A through CLAUSE-008C.
+T102-STD-004-CLAUSE-008: Normative vocabulary in specification sections MUST conform to `T102-CON-009 (Normative Keywords)` and subclauses CLAUSE-008A and CLAUSE-008B.
 
 **Subclauses**:
 
-- **T102-STD-004-CLAUSE-008A (Normative keywords reference)** — Normative requirement keywords MUST be interpreted per `T102-CON-009 (Normative Keywords)` and RFC 2119. Keywords carrying normative meaning MUST be written in UPPERCASE.
+- **T102-STD-004-CLAUSE-008A (Normative keywords authority)** — Normative requirement keywords MUST be interpreted per `T102-CON-009 (Normative Keywords)`. Keywords carrying normative meaning MUST be written in UPPERCASE.
 
-- **T102-STD-004-CLAUSE-008B (Primary drafting vocabulary)** — A single primary drafting vocabulary MUST be used within a given STD specification section. BCP 14 keywords (`MUST`, `MUST NOT`, `SHOULD`, `SHOULD NOT`, `MAY`) are the preferred primary vocabulary for Phase 1.
-
-- **T102-STD-004-CLAUSE-008C (Consistency rule)** — Mixing keyword styles within the same STD SHOULD be avoided unless explicitly justified as a legacy-compatibility exception.
+- **T102-STD-004-CLAUSE-008B (Drafting consistency)** — Authors SHOULD use BCP 14 primary vocabulary (`MUST`, `MUST NOT`, `SHOULD`, `SHOULD NOT`, `MAY`) and SHOULD avoid RFC 2119 synonyms (`SHALL`, `REQUIRED`, `RECOMMENDED`, `OPTIONAL`) in new normative text for drafting consistency.
 
 ---
 
@@ -438,23 +444,23 @@ T102-STD-004-CLAUSE-009: The `STD` token type MUST conform to the semantics and 
 
 ---
 
-#### CLAUSE-010: STD Adoption Contract
+#### CLAUSE-010: STD Canonical Specification
 
 **New ID**: `T102-STD-004-CLAUSE-010`
-**Source**: Absorbed from STD-009-CLAUSE-002 (Adoption Contract)
-**Reasoning**: The adoption contract is the core mechanism linking a registry STD entry to its canonical normative specification. Preserved as-is from STD-009.
+**Source**: Absorbed from STD-009-CLAUSE-002 (Adoption Contract), revised per SES003-DEC002
+**Reasoning**: Per SES003-DEC002, the `Adopts` column is removed from the STD Index schema. The adoption contract is replaced by `Canonical Path` semantics: a STD either has a dedicated combined spec file (Canonical Path populated) or is registry-only (Canonical Path = `—`). This eliminates the self-adoption problem and reduces schema complexity. The "incorporation by reference" concept is preserved via Canonical Path.
 
 **Anchor normative statement**:
 
-T102-STD-004-CLAUSE-010: Every `STD` entry MUST satisfy the adoption contract defined by subclauses CLAUSE-010A through CLAUSE-010C.
+T102-STD-004-CLAUSE-010: Every `STD` entry MUST declare its canonical specification status per subclauses CLAUSE-010A through CLAUSE-010C.
 
 **Subclauses**:
 
-- **T102-STD-004-CLAUSE-010A (Single canonical adopted spec)** — Every `STD` entry MUST declare exactly one `Adopts` reference.
+- **T102-STD-004-CLAUSE-010A (Canonical Path semantics)** — Every STD Index entry MUST include a `Canonical Path` value. If the STD has a dedicated combined standard-specification file, `Canonical Path` MUST be the full repo-relative path to that file under the designated standards directory (per CLAUSE-015A). If the STD is registry-only (no dedicated spec file), `Canonical Path` MUST be `—`.
 
-- **T102-STD-004-CLAUSE-010B (Incorporation by reference)** — The adopted normative specification is incorporated by reference into the `STD`. The `STD` remains the authoritative RID-level handle; the adopted spec is the canonical text.
+- **T102-STD-004-CLAUSE-010B (Incorporation by reference)** — When `Canonical Path` is populated, the specification content at that path is incorporated by reference into the STD. The STD remains the authoritative RID-level handle; the combined file's `## Specification` section is the canonical normative text.
 
-- **T102-STD-004-CLAUSE-010C (No rationale duplication)** — `STD` bodies MUST NOT contain alternatives analysis or lengthy trade-offs. These MUST be captured in ADRs.
+- **T102-STD-004-CLAUSE-010C (No rationale duplication)** — STD bodies MUST NOT contain alternatives analysis or lengthy trade-offs. These MUST be captured in ADRs.
 
 ---
 
@@ -492,9 +498,9 @@ T102-STD-004-CLAUSE-012: STD index tables MUST conform to the schema and column 
 
 **Subclauses**:
 
-- **T102-STD-004-CLAUSE-012A (STD Index Schema)** — Each scope MUST maintain a `STD` index table using this schema: `| STD ID | Title | Status | Owner | Effective | Supersedes | Adopts | Verification | Governed By | Reference |`
+- **T102-STD-004-CLAUSE-012A (STD Index Schema)** — Each scope MUST maintain a `STD` index table using this schema: `| STD ID | Title | Status | Owner | Effective | Supersedes | Canonical Path | Verification | Governed By | Reference |`
 
-- **T102-STD-004-CLAUSE-012B (Column definitions)** — `STD ID` MUST follow `T102-STD-005-CLAUSE-001`. `Title` MUST be bold and follow title constraints. `Status` MUST use lowercase backtick-wrapped enums per CLAUSE-004B. `Adopts` MUST contain exactly one full reference to the canonical adopted normative specification. `Effective` MUST be an ISO-8601 date `YYYY-MM-DD` or `—` if not yet set. `Verification` MUST describe (a) mechanism, (b) what is checked, and (c) pass/fail evidence. `Governed By` MUST list the governing basis (meta-governance). `Reference` MUST contain ONLY `RID`-category IDs per `T102-STD-005-CLAUSE-002` and MUST NOT include `DRID`/`CLAUSE` IDs.
+- **T102-STD-004-CLAUSE-012B (Column definitions)** — `STD ID` MUST follow `T102-STD-005-CLAUSE-001`. `Title` MUST be bold and follow title constraints. `Status` MUST use lowercase backtick-wrapped enums per CLAUSE-004B. `Canonical Path` MUST be a full repo-relative path to the combined standard-specification file under the designated standards directory (per CLAUSE-015A), or `—` if the STD is registry-only (no dedicated spec file). Semantics governed by CLAUSE-010. `Effective` MUST be an ISO-8601 date `YYYY-MM-DD` or `—` if not yet set. `Verification` MUST describe (a) mechanism, (b) what is checked, and (c) pass/fail evidence. `Governed By` MUST list the governing basis (meta-governance). `Reference` MUST contain ONLY `RID`-category IDs per `T102-STD-005-CLAUSE-002` and MUST NOT include `DRID`/`CLAUSE` IDs.
 
 - **T102-STD-004-CLAUSE-012C (Phase 1 index granularity)** — Phase 1 index granularity is the combined file as a whole (no anchor addressing required in indexes).
 
@@ -514,9 +520,9 @@ T102-STD-004-CLAUSE-013: STD bodies MUST conform to the construction and concise
 
 - **T102-STD-004-CLAUSE-013A (Primary obligation sentence)** — STD bodies MUST include a primary obligation sentence in the format: `* **<SID>-STD-### (<Title>)** — <Normative obligation sentence>`. The obligation sentence MUST answer "WHAT must be true" at a stable, scope-wide level.
 
-- **T102-STD-004-CLAUSE-013B (Minimum Viable Conformance)** — MVC items (recommended; max 5) MUST be written as an ordered list. MVC items SHOULD cite adopted-spec clause IDs where possible. MVC items MUST NOT introduce new obligations beyond the adopted specification.
+- **T102-STD-004-CLAUSE-013B (Minimum Viable Conformance)** — MVC items (recommended; max 5) MUST be written as an ordered list. MVC items SHOULD cite canonical specification clause IDs where possible. MVC items MUST NOT introduce new obligations beyond the canonical specification.
 
-- **T102-STD-004-CLAUSE-013C (Conciseness targets)** — STD bodies SHOULD target <200 words when feasible (excluding tables). Pragmatic exception: if `Adopts = —` is explicitly intentional, the STD body MAY extend (target <=300 words) to remain actionable.
+- **T102-STD-004-CLAUSE-013C (Conciseness targets)** — STD bodies SHOULD target <200 words when feasible (excluding tables). Pragmatic exception: if `Canonical Path = —` (registry-only STD), the STD body MAY extend (target <=300 words) to remain actionable.
 
 ---
 
@@ -524,17 +530,17 @@ T102-STD-004-CLAUSE-013: STD bodies MUST conform to the construction and concise
 
 **New ID**: `T102-STD-004-CLAUSE-014`
 **Source**: STD-009-CLAUSE-004E (Drift Controls) + Old CLAUSE-008 (Lifecycle Coherence)
-**Reasoning**: Drift controls (from STD-009) and lifecycle coherence (from old STD-004) both address the same concern: keeping STD content aligned with its governing sources and adopted specs. Merging them eliminates redundancy.
+**Reasoning**: Drift controls (from STD-009) and lifecycle coherence (from old STD-004) both address the same concern: keeping STD content aligned with its governing sources and canonical specifications. Merging them eliminates redundancy.
 
 **Anchor normative statement**:
 
-T102-STD-004-CLAUSE-014: STD content MUST remain aligned with adopted specifications and governing STDs per subclauses CLAUSE-014A through CLAUSE-014D.
+T102-STD-004-CLAUSE-014: STD content MUST remain aligned with canonical specifications and governing STDs per subclauses CLAUSE-014A through CLAUSE-014D.
 
 **Subclauses**:
 
-- **T102-STD-004-CLAUSE-014A (No duplication)** — STD bodies MUST avoid duplicating detailed rules; the adopted normative specification is the single canonical source of truth.
+- **T102-STD-004-CLAUSE-014A (No duplication)** — STD bodies MUST avoid duplicating detailed rules; the canonical specification is the single canonical source of truth.
 
-- **T102-STD-004-CLAUSE-014B (Adopted spec sync)** — If an adopted specification is updated in a way that changes conformance expectations, the corresponding STD body (including MVC) MUST be updated in the same changeset.
+- **T102-STD-004-CLAUSE-014B (Canonical specification sync)** — If a canonical specification is updated in a way that changes conformance expectations, the corresponding STD body (including MVC) MUST be updated in the same changeset.
 
 - **T102-STD-004-CLAUSE-014C (SSOT sync)** — When `STD` bodies are copied into SSOT artifacts (e.g., `sps`), those SSOT copies MUST be updated in the same changeset whenever the authoritative STD body changes.
 
@@ -713,8 +719,8 @@ T102-STD-004-CLAUSE-022: CLAUSE referencing and non-duplication MUST follow subc
 #### CLAUSE-023: ADR Index Schema
 
 **New ID**: `T102-STD-004-CLAUSE-023`
-**Source**: Old CLAUSE-001 (DR Index Schemas) — ADR-specific parts, revised per SES002-DEC004
-**Reasoning**: Per DEC004, ADR storage uses multiple ADRs in-file with current-first ordering. The ADR Index schema records all ADRs (current + superseded) for audit trail visibility. This is the ADR-specific counterpart to CLAUSE-012 (STD Index Schema).
+**Source**: Old CLAUSE-001 (DR Index Schemas) — ADR-specific parts, revised per SES002-DEC004 and SES003-DEC007
+**Reasoning**: Per DEC004, ADR storage uses multiple ADRs in-file with current-first ordering. The ADR Index schema records all ADRs (current + superseded) for audit trail visibility. This is the ADR-specific counterpart to CLAUSE-012 (STD Index Schema). Per SES003-DEC007, the `Authority STD` column from the legacy ADR Index (old CLAUSE-001) is removed as redundant — in the nested ADR model, authority is inherent from the parent combined file structure.
 
 **Anchor normative statement**:
 
@@ -887,7 +893,7 @@ This section drafts the full T102-STD-004-ADR-002 body that will replace ADR-001
     Industry benchmarking (RES-007) validated the combined-file architecture and fine-grained subclause discipline while identifying boundary hygiene as a critical gap. The STD-004/STD-009 merge decision overrides the RES-007 recommendation to keep them separate, based on the Client's direct experience with agentic LLM drift — a practical concern that the research methodology did not specifically evaluate.
 
   * **Decision**
-    Merge T102-STD-009 into T102-STD-004 and reorganize the merged content into 4 substandards: T102-STD-004A (Core Structure and Lifecycle), T102-STD-004B (STD Registry and Governance), T102-STD-004C (Specification Authoring), T102-STD-004D (Decision Record Authoring). Full CLAUSE resequencing with 29 CLAUSEs across the 4 substandards. Multiple ADRs in-file with current-first ordering. ADR-001 preserved as superseded for audit trail. STD-009 deprecated in SPS. Decision owner: Client.
+    Merge T102-STD-009 into T102-STD-004 and reorganize the merged content into 4 substandards: T102-STD-004A (Core Structure and Lifecycle), T102-STD-004B (STD Registry and Governance), T102-STD-004C (Specification Authoring), T102-STD-004D (Decision Record Authoring). Full CLAUSE resequencing with 29 CLAUSEs across the 4 substandards. Multiple ADRs in-file with current-first ordering. ADR-001 preserved as superseded for audit trail. STD-009 deprecated in SPS. STD Index `Adopts` column replaced by `Canonical Path` (SES003-DEC002); `Authority STD` column removed from ADR Index (SES003-DEC007). T102-CON-009 simplification queued as INT-006. Decision owner: Client.
 
   * **Alternatives Considered**
     - Keep STD-004/STD-009 separate with interface contracts (RES-007 recommendation) — rejected by Client due to persistent drift and context loss for agentic LLM. The interface approach requires LLM agents to reliably navigate cross-file boundaries, which has proven unreliable in practice.
@@ -900,6 +906,8 @@ This section drafts the full T102-STD-004-ADR-002 body that will replace ADR-001
     (+) Substandard architecture provides clear domain grouping for 29 CLAUSEs; navigability via Specification Index.
     (+) Multiple ADRs in-file preserve full audit trail; prepares for Phase 2 ADR extraction.
     (+) All QA corrections applied: bold subclause format, lowercase status enums, per-subheading content requirements, initiative-nonspecific directory, vocabulary reference to CON-009.
+    (+) `Adopts` removal simplifies STD Index schema; eliminates self-adoption ambiguity for self-contained standards.
+    (+) Simplified CLAUSE-008 defers vocabulary authority to CON-009; reduces redundancy.
     (+) Industry-aligned boundary hygiene (CLAUSE-021) prevents normative leakage.
     (+-) Larger blast radius: all 8 SPS STD rows referencing STD-009 need updating; guideline/template/SPS derivatives updated in same changeset.
     (+-) STD-005-CLAUSE-005F needs amendment for multiple ADRs in-file (flagged as INT-003 for ST002).
@@ -943,9 +951,11 @@ Structural changes:
 
 ### VI.C. SPS (`prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`)
 
+**SPS STD Index schema note**: The normative schema in CLAUSE-012A includes `Governed By` (absorbed from STD-009-CLAUSE-004A). The current SPS STD Index omits this column. Schema alignment (adding `Governed By` to the SPS STD Index) is deferred to ST002-AC004. AC009.1-TK002 updates SPS **content only** (row values, body text, reference columns) without adding the missing column.
+
 **STD-004 row changes**:
 - Update `Title`: **Specification Standard & Guideline** (no change — retitle deferred to ST002)
-- Update `Adopts`: `—` -> update if self-adoption formalized
+- Update `Canonical Path`: `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
 - Update `Verification`: rewrite to reference new CLAUSE structure: "CI/Lint + Review MUST verify: canonical combined-file structure (`CLAUSE-001`), specification index (`CLAUSE-002`), substandard architecture (`CLAUSE-003`), subclause format (`CLAUSE-020`), boundary hygiene (`CLAUSE-021`), and nested ADR records (`CLAUSE-023`, `CLAUSE-025`)."
 - Update `Reference`: remove `T102-STD-009 (Governance Standards Model)` (now absorbed)
 
@@ -955,7 +965,7 @@ Structural changes:
 
 **STD-004 body (MVC) rewrite**:
 ```
-* **T102-STD-004 (Specification Standard & Guideline)** — The project SHALL use the combined standard-specification file model, substandard architecture, STD registry governance, and decision record authoring rules defined in the adopted normative specification.
+* **T102-STD-004 (Specification Standard & Guideline)** — The project MUST use the combined standard-specification file model, substandard architecture, STD registry governance, and decision record authoring rules defined in the canonical normative specification.
   - **Minimum Viable Conformance**:
     1) Conform to canonical file structure and substandard headings (`T102-STD-004-CLAUSE-001`, `CLAUSE-003`).
     2) Follow STD index schema and column definitions (`T102-STD-004-CLAUSE-012`).
@@ -969,7 +979,26 @@ Structural changes:
 * **T102-STD-009 (Governance Standards Model)** — `[deprecated]` Superseded by `T102-STD-004`. All STD registry governance CLAUSEs (semantics, adoption contract, precedence, authoring, migration) are absorbed into `T102-STD-004B (STD Registry & Governance)`.
 ```
 
-**All other STD rows referencing STD-009**: Update `Reference` column from `T102-STD-009 (Governance Standards Model)` to `T102-STD-004 (Specification Standard & Guideline)`. Affects: STD-001, STD-002, STD-003, STD-005, STD-006, STD-007, STD-008 (7 rows), plus any T102B-STD rows.
+**All other STD rows referencing STD-009**: Update `Reference` column from `T102-STD-009 (Governance Standards Model)` to `T102-STD-004 (Specification Standard & Guideline)`. For all rows, replace `Adopts` column with `Canonical Path` and populate with the respective combined file path. Affects: STD-001, STD-002, STD-003, STD-005, STD-006, STD-007, STD-008 (7 rows), plus any T102B-STD rows.
+
+### VI.D. Migration Scope (Resequencing Reference Update)
+
+**Key surfaces** (MUST be updated during AC009.1-TK002):
+1. **SSOT surfaces**: SPS (`prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`)
+2. **Normative standards**: Active files under `prompt/artifacts/tasks/T102/consultant/standards/` (excluding deprecated/archived files)
+3. **Derivatives**: Guideline (`prompt/templates/consultant/standards/guideline_standard_specs.md`) + Template (`prompt/templates/consultant/standards/template_standard_specs.md`)
+
+**Non-key surfaces** (NOT updated during AC009.1; deferred to ST002 normalization or left as historical):
+- Workspace notes files (all under `prompt/artifacts/tasks/T102/consultant/workspace/notes/`)
+- Historical proposals (all under `prompt/artifacts/tasks/T102/consultant/workspace/proposal/`)
+- Analysis artifacts (all under `prompt/artifacts/tasks/T102/consultant/workspace/analysis/`)
+- Raw transcripts (all under `prompt/artifacts/tasks/T102/consultant/raw/`)
+- Script output reports (all under `prompt/artifacts/tasks/T102/consultant/workspace/scripts/`)
+- Plans (all under `prompt/artifacts/tasks/T102/consultant/workspace/plan/` and `.claude/plans/`)
+
+**CLAUSE ID mapping**: The CLAUSE Register in Section III serves as the authoritative old → new mapping table. AC009.1-TK002 uses this mapping to update references in key surfaces only.
+
+**Risk acceptance**: Stale references in non-key surfaces are accepted. ST002 normalization is dependent on AC009.1 completion and will sweep all T102-STD references as part of its scope.
 
 ---
 
@@ -984,6 +1013,7 @@ These issues were identified during SES002 dialogue as impacting T102-STD-005 bu
 | INT-003 | T102-STD-005-CLAUSE-005F amendment needed | "Only one current nested ADR" constraint needs revision to support multiple ADRs in-file (current + superseded audit trail). Amend to: "only one `accepted` ADR; `superseded` ADRs retained for audit" | SES002-DEC004 |
 | INT-004 | Substandard token registration | STD-005-CLAUSE-002 taxonomy may need a `SUBSTD` entry or explicit note that substandards are internal STD structure and do NOT get separate token registration | SES002-DEC002/DEC003 |
 | INT-005 | IGs in STD-004 References may be superseded | T102-IG-007, T102-IG-008, T102-IG-009 — need verification during ST002 whether these are still active or superseded by STD equivalents | SES002 Round 1 COMMENT 0.5 |
+| INT-006 | T102-CON-009 simplification needed | CON-009 currently lists `MUST/SHALL/SHOULD/MAY` without distinguishing primary vs synonym vocabulary. Proposed update: establish BCP 14 as the primary drafting vocabulary; recognize RFC 2119 synonyms (`SHALL`, `REQUIRED`, `RECOMMENDED`, `OPTIONAL`) for interpretation but discourage in new normative text. CON-009 governs all RIDs and applies initiative-wide, so this update is SPS-scope. | SES003-DEC003 |
 
 ---
 
@@ -1031,6 +1061,18 @@ Comprehensive checklist covering all SES002 decisions:
 - [ ] All 7+ SPS STD rows with STD-009 reference updated to STD-004
 - [ ] No normative rules in guideline without traceable governing CLAUSE (CLAUSE-005C)
 
+**SES003 Integration Compliance**:
+- [ ] `Adopts` column absent from STD Index schema (CLAUSE-012A); replaced by `Canonical Path`
+- [ ] CLAUSE-010 titled "STD Canonical Specification" (not "Adoption Contract")
+- [ ] No remaining "adopted specification" terminology (replaced by "canonical specification") except in historical/rationale contexts
+- [ ] CLAUSE-003F present: substandard + subclause non-token guardrails
+- [ ] CLAUSE-008 simplified: references T102-CON-009; no keyword redefinition
+- [ ] SPS MVC uses `MUST` not `SHALL`
+- [ ] INT-006 (CON-009 simplification) present in integration issues register
+- [ ] `Authority STD` absent from ADR Index schema (CLAUSE-023)
+- [ ] Migration Scope subsection present (Section VI.D)
+- [ ] SPS schema deferral note present (Governed By → ST002)
+
 ---
 
 ## IX. Changelog
@@ -1038,3 +1080,4 @@ Comprehensive checklist covering all SES002 decisions:
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v0.1.0 | 2026-02-15 | Initial | Comprehensive STD-004 redesign proposal (supersedes R2 proposal v0.2.0). Architecture: 4 substandards (T102-STD-004A/B/C/D), STD-009 merge, full CLAUSE resequencing (29 CLAUSEs), multiple ADRs in-file. 18 decisions from SES002. STD-005 integration issues (INT-001 through INT-005) documented for ST002. |
+| v0.2.0 | 2026-02-15 | Update | Second-opinion integration (SES003). 7 decisions applied: `Adopts` column replaced by `Canonical Path` (DEC002); CLAUSE-010 rewritten as "STD Canonical Specification"; CLAUSE-008 simplified to reference CON-009 (DEC003); CLAUSE-003F added for substandard/subclause non-token guardrails (DEC005); migration scope defined (DEC004); `Governed By` SPS fix deferred to ST002 (DEC001); `Authority STD` removed from ADR Index (DEC007); INT-006 (CON-009 simplification) added. |
