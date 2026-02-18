@@ -207,7 +207,7 @@ T102-PH001-ST006 addresses Option (c) transition execution at the initiative lev
 | Sibling (reference) | T102A PH001 Plan | `prompt/artifacts/tasks/T102/T102A/workspace/plan/plan_T102A-PH001.md` |
 | Guideline | Plan Authoring Rules | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |
 | Guideline | Notes Authoring Rules | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
-| Convention | Directory Naming | `prompt/artifacts/tasks/T104/workspace/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` |
+| Convention | Directory Naming | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` |
 
 ---
 

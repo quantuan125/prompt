@@ -113,3 +113,16 @@ The 27 dirty working-tree files must be committed or stashed before running `--a
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-02-16 | Initial | GATE-002 verification complete: 4/4 TK tasks verified, manifest integrity confirmed (0 no-ops), 1 blocking pre-condition (dirty working tree) identified, conditional approve issued |
+
+
+## Gate-002 Refresh Addendum (2026-02-18)
+
+- Updated dirty-file count: `33` (previously `27`).
+- Updated rewrite-file count (refreshed dry-run): `81`.
+- Manifest integrity unchanged: `63` moves, `16` mkdir, `0` no-op moves.
+- `--scope-root prompt` verification documented at `prompt/scripts/output/T104-PH001-ST007-AC001/ac001.2/evidence_T104-PH001-ST007-AC001.2_scope-root-check.md`; move execution unaffected.
+- Gate re-confirmation status: `PASS`.
+
+Stop-condition check:
+- No deviations observed beyond rewrite-file-count drift and dirty-file-count update.
+- Temp-copy strict validation returns `0` errors and only approved warning `workspace/PH000/raw`.

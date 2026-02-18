@@ -89,9 +89,9 @@
   - anchor_rewrites: 3
 - `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T103/workspace/plan/plan_T103_adr-skills-system.md`
   - anchor_rewrites: 3
-- `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-PH001-ST001-AC002-TK005_cross-reference-compliance.md`
+- `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/analysis/analysis_T104-PH001-ST001-AC002-TK005_cross-reference-compliance.md`
   - clause_rewrites: 1
-- `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/plan/PH001/ST001/plan_T104-PH001-ST001-AC002.md`
+- `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/plan_T104-PH001-ST001-AC002.md`
   - clause_rewrites: 1
   - full_reference_rewrites: 2
 - `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T801/consultant/workspace/archive/plan_T801A_phase0-1_v1.0.0_i1.md`
@@ -2357,8 +2357,8 @@
   | `T102-ADR-007-CLAUSE-002/003` | ISSUE Status/Priority enums match spec | PASS | Resolved in TK006 (see GAP-ADR7-002). |
   | `T102-ADR-007-CLAUSE-004/005` | RISK Status/Priority enums match spec | PASS | Resolved in TK006 (see GAP-ADR7-002). |
 @@ -1381,7 +1381,7 @@
-  - `prompt/artifacts/tasks/T104/research/report/report_T104-RES-002_requirements-candidate-research.md`
-  - `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST001.md`
+  - `prompt/artifacts/tasks/T104/research/T104-RES-002/report_T104-RES-002_requirements-candidate-research.md`
+  - `prompt/artifacts/tasks/T104/workspace/PH001/ST001/notes_T104-PH001-ST001.md`
   - `T102-ADR-003 (Explicit Inheritance Model)`
 --- `T102-ADR-004 (Decision Records Index)`
 +-- `T102-STD-004 (Decision Records Index)`
@@ -2885,11 +2885,11 @@
  - [x] `python3 prompt/scripts/skills/verify_adr_skills.py --drift-demo` passes with ADR-004 included.
 ```
 
-### `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-PH001-ST001-AC002-TK005_cross-reference-compliance.md`
+### `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/analysis/analysis_T104-PH001-ST001-AC002-TK005_cross-reference-compliance.md`
 
 ```diff
---- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-PH001-ST001-AC002-TK005_cross-reference-compliance.md
-+++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/analysis/analysis_T104-PH001-ST001-AC002-TK005_cross-reference-compliance.md
+--- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/analysis/analysis_T104-PH001-ST001-AC002-TK005_cross-reference-compliance.md
++++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/analysis/analysis_T104-PH001-ST001-AC002-TK005_cross-reference-compliance.md
 @@ -89,7 +89,7 @@
  | `T102-ADR-005-CLAUSE-005E` | NOTE items follow ≤200 words rule and non-normative style | PASS | NOTE word counts: NOTE-001=50, NOTE-002=45, NOTE-003=40 |
  | `T102-ADR-005-CLAUSE-006` | RIDs lead with requirement statement (SHALL/SHOULD); no justification prose | PASS (provisional) | No “justification paragraphs” detected inside RID bodies; verify during TK006 edits if bodies are modified |
@@ -2901,14 +2901,14 @@
  | `T102-ADR-007-CLAUSE-007/008` | Resolution/Mitigation Notes coupling rules enforced | PASS | Resolved in TK006 by converting affected risks from `OPEN` → `MONITORED` (see GAP-ADR7-001). |
 ```
 
-### `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/plan/PH001/ST001/plan_T104-PH001-ST001-AC002.md`
+### `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/plan_T104-PH001-ST001-AC002.md`
 
 ```diff
---- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/plan/PH001/ST001/plan_T104-PH001-ST001-AC002.md
-+++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/plan/PH001/ST001/plan_T104-PH001-ST001-AC002.md
+--- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/plan_T104-PH001-ST001-AC002.md
++++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/plan_T104-PH001-ST001-AC002.md
 @@ -40,7 +40,7 @@
- - `prompt/artifacts/tasks/T104/research/report/report_T104-RES-002_requirements-candidate-research.md`
- - `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-PH001-ST001.md`
+ - `prompt/artifacts/tasks/T104/research/T104-RES-002/report_T104-RES-002_requirements-candidate-research.md`
+ - `prompt/artifacts/tasks/T104/workspace/PH001/ST001/notes_T104-PH001-ST001.md`
  - `T102-ADR-003 (Explicit Inheritance Model)`
 -- `T102-ADR-004 (Decision Records Index)`
 +- `T102-STD-004 (Decision Records Index)`

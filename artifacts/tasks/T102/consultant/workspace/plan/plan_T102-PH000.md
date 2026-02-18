@@ -9,7 +9,7 @@ author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
 template_reference: 'prompt/templates/consultant/workspace/template_workspace_roadmap.md'
-reference_exemplar_1: 'prompt/artifacts/tasks/T104/T104A/workspace/roadmap/roadmap_T104A-ROADMAP_phase0.md'
+reference_exemplar_1: 'prompt/artifacts/tasks/T104/T104A/ssot/roadmap_T104A-ROADMAP_phase0.md'
 reference_exemplar_2: 'prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor-adr-004-005.md'
 ---
 
@@ -58,7 +58,7 @@ reference_exemplar_2: 'prompt/artifacts/tasks/T102/consultant/workspace/proposal
 - `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
 
 **Roadmap structure exemplar (read-only)**:
-- `prompt/artifacts/tasks/T104/T104A/workspace/roadmap/roadmap_T104A-ROADMAP_phase0.md`
+- `prompt/artifacts/tasks/T104/T104A/ssot/roadmap_T104A-ROADMAP_phase0.md`
 
 **Workspace governance rules**:
 - `prompt/templates/consultant/workspace/workspace_documentation_rules.md`
@@ -696,7 +696,7 @@ reference_exemplar_2: 'prompt/artifacts/tasks/T102/consultant/workspace/proposal
 | Proposal (ADR specs) | ADR-004/ADR-005 Draft | `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor-adr-004-005.md` |
 | Proposal (GDR→STD) | STD Migration Draft | `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md` |
 | Exemplar (read-only) | T104 Roadmap | `prompt/artifacts/tasks/T104/workspace/roadmap/plan_T104-CWS_phase0.md` |
-| Exemplar (read-only) | T104 Notes | `prompt/artifacts/tasks/T104/workspace/notes/notes_T104-CWS_phase0.md` |
+| Exemplar (read-only) | T104 Notes | `prompt/artifacts/tasks/T104/workspace/PH000/notes_T104-PH000.md` |
 | Exemplar (read-only) | T104 Changelog | `prompt/artifacts/tasks/T104/workspace/roadmap/changelog_plan_T104-CWS_phase0.md` |
 | Governance Rules | Workspace Rules | `prompt/templates/consultant/workspace/workspace_documentation_rules.md` |
 | Roadmap Template | Template | `prompt/templates/consultant/workspace/template_workspace_roadmap.md` |

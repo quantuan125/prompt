@@ -17,7 +17,7 @@ ACTIVITY_DIR_PATTERN = re.compile(r"^AC\d{3}$")
 RAW_FILE_PATTERN = re.compile(r"^raw_[A-Z0-9-]+-SES\d{3}\.(?:md|txt)$")
 RESEARCH_DIR_PATTERN = re.compile(r"^[A-Z0-9-]+-RES-\d{3}$")
 TYPE_FIRST_WORKSPACE_DIRS = {"plan", "notes", "roadmap", "analysis", "proposal", "external"}
-WORKSPACE_ALLOWED_NON_PHASE_DIRS = {"_unresolved"}
+WORKSPACE_ALLOWED_NON_PHASE_DIRS = {"_unresolved", "verification"}
 STREAM_TYPE_DIRS = {"raw", "proposal", "analysis", "communication"}
 ALLOWED_PREFIXES = (
     "analysis_",
@@ -33,6 +33,7 @@ ALLOWED_PREFIXES = (
     "roadmap_",
     "sps_",
     "concept_",
+    "verification_",
 )
 
 

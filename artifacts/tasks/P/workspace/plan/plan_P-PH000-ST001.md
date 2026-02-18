@@ -99,7 +99,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 - The `## Decision Record` section MUST contain one nested decision record using the `T102-STD-004-CLAUSE-004` ADR body template (e.g., `P-STD-004-ADR-001`).
 
 **Primary input (approved proposal seed)**:
-- `prompt/artifacts/tasks/T104/workspace/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md`
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md`
 
 **Deliverable**:
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`

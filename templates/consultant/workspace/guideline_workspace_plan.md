@@ -273,7 +273,7 @@ The following templates are available for PLAN artifacts. Each template defines 
 ### D. Directory & Naming Conventions
 
 - All plan files follow the naming and directory placement rules defined in:
-  `prompt/artifacts/tasks/T104/workspace/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
+  `prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
 
 ---
 

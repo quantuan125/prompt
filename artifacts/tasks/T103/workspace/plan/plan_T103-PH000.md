@@ -10,7 +10,7 @@ author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 analysis_reference: 'prompt/artifacts/tasks/T103/workspace/analysis/analysis_T103-PH000_standards-retargeting-assessment.md'
 source_communication: 'prompt/artifacts/tasks/T103/workspace/communication/comm_T102-RES-006_skills-retargeting-integration.md'
-naming_convention: 'prompt/artifacts/tasks/T104/workspace/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md'
+naming_convention: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md'
 legacy_plans:
   - 'prompt/artifacts/tasks/T103/workspace/plan/plan_T103_adr-skills-system.md'
   - 'prompt/artifacts/tasks/T103/workspace/plan/plan_T103A1-ADRSS_phase3.md'
