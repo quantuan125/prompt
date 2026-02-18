@@ -35,6 +35,7 @@ Phase → Stream → Activity → Task
 | NOTES (Register) | `notes_` | Index/navigation surface | `prompt/templates/consultant/workspace/template_workspace_notes_register_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | NOTES (Session) | `notes_` | Session records | `prompt/templates/consultant/workspace/template_workspace_notes_session_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | ANALYSIS | `analysis_` | Research synthesis | `prompt/templates/consultant/workspace/template_workspace_analysis.md` | — (alignment pending) |
+| VERIFICATION | `verification_` | Verification evidence for gates and remediation | `prompt/templates/consultant/workspace/template_workspace_verification.md` | — (alignment pending) |
 | PROPOSAL | `proposal_` | E-ID development workspace | `prompt/templates/consultant/workspace/template_workspace_proposal.md` | — (alignment pending) |
 
 ---
@@ -63,6 +64,7 @@ Phase → Stream → Activity → Task
 
 ### D. Other Templates (Draft 2 Alignment Pending)
 - `prompt/templates/consultant/workspace/template_workspace_analysis.md`
+- `prompt/templates/consultant/workspace/template_workspace_verification.md`
 - `prompt/templates/consultant/workspace/template_workspace_proposal.md`
 
 ---
