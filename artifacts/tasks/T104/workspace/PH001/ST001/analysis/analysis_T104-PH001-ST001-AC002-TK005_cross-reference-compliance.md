@@ -14,7 +14,7 @@ author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 purpose: 'Execute TK005 Step 1–3 verification checklists for SPS III.B.2–III.B.11 and identify remediation gaps for TK006.'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
-source_plan: 'prompt/artifacts/tasks/T104/workspace/PH001/ST001/plan_T104-PH001-ST001-AC002.md'
+source_plan: 'prompt/artifacts/tasks/T104/workspace/PH001/ST001/AC002/plan_T104-PH001-ST001-AC002.md'
 target_sps: 'prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md'
 ---
 
@@ -42,7 +42,7 @@ target_sps: 'prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md'
 
 ## II. INPUTS (REPO-RELATIVE)
 
-- AC002 plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST001/plan_T104-PH001-ST001-AC002.md`
+- AC002 plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST001/AC002/plan_T104-PH001-ST001-AC002.md`
 - Target SPS: `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md`
 - Governing specs:
   - `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (ADR clauses)
@@ -178,6 +178,6 @@ If additional compliance gaps are identified during QA review, log them as new `
 
 | Link Type | Target | Path |
 |:--|:--|:--|
-| Plan | AC002 Activity Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST001/plan_T104-PH001-ST001-AC002.md` |
+| Plan | AC002 Activity Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST001/AC002/plan_T104-PH001-ST001-AC002.md` |
 | SSOT (target) | T104 SPS | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` |
-| Notes | AC002 Activity Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST001/notes_T104-PH001-ST001-AC002.md` |
+| Notes | AC002 Activity Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST001/AC002/notes_T104-PH001-ST001-AC002.md` |

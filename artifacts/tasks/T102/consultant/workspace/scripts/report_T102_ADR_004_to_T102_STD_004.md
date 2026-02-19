@@ -91,7 +91,7 @@
   - anchor_rewrites: 3
 - `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/analysis/analysis_T104-PH001-ST001-AC002-TK005_cross-reference-compliance.md`
   - clause_rewrites: 1
-- `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/plan_T104-PH001-ST001-AC002.md`
+- `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/AC002/plan_T104-PH001-ST001-AC002.md`
   - clause_rewrites: 1
   - full_reference_rewrites: 2
 - `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T801/consultant/workspace/archive/plan_T801A_phase0-1_v1.0.0_i1.md`
@@ -2901,11 +2901,11 @@
  | `T102-ADR-007-CLAUSE-007/008` | Resolution/Mitigation Notes coupling rules enforced | PASS | Resolved in TK006 by converting affected risks from `OPEN` → `MONITORED` (see GAP-ADR7-001). |
 ```
 
-### `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/plan_T104-PH001-ST001-AC002.md`
+### `/mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/AC002/plan_T104-PH001-ST001-AC002.md`
 
 ```diff
---- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/plan_T104-PH001-ST001-AC002.md
-+++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/plan_T104-PH001-ST001-AC002.md
+--- /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/AC002/plan_T104-PH001-ST001-AC002.md
++++ /mnt/c/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/T104/workspace/PH001/ST001/AC002/plan_T104-PH001-ST001-AC002.md
 @@ -40,7 +40,7 @@
  - `prompt/artifacts/tasks/T104/research/T104-RES-002/report_T104-RES-002_requirements-candidate-research.md`
  - `prompt/artifacts/tasks/T104/workspace/PH001/ST001/notes_T104-PH001-ST001.md`

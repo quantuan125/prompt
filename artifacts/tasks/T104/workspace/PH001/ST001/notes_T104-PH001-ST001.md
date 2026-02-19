@@ -42,7 +42,7 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 |:--|:--|:--|:--|:--|
 | AC000 | `T104-PH001-ST001-AC000` | SPS Structural Migration (consultation outcomes + prerequisites) | `completed` | `prompt/artifacts/tasks/T104/workspace/PH001/ST001/notes_T104-PH001-ST001-AC000-SES001.md` |
 | AC001 | `T104-PH001-ST001-AC001` | Commission `T104-RES-002` (Requirements Candidate Research) | `planned` | `prompt/artifacts/tasks/T104/workspace/PH001/ST001/notes_T104-PH001-ST001-AC001-SES001.md` |
-| AC002 | `T104-PH001-ST001-AC002` | Initiative Considerations Consultation (cross-category) | `completed` | `prompt/artifacts/tasks/T104/workspace/PH001/ST001/notes_T104-PH001-ST001-AC002.md` |
+| AC002 | `T104-PH001-ST001-AC002` | Initiative Considerations Consultation (cross-category) | `completed` | `prompt/artifacts/tasks/T104/workspace/PH001/ST001/AC002/notes_T104-PH001-ST001-AC002.md` |
 | AC003 | `T104-PH001-ST001-AC003` | Consultation Outcome Validation | `completed` | `prompt/artifacts/tasks/T104/workspace/PH001/ST001/notes_T104-PH001-ST001-AC003.md` |
 
 ---
@@ -53,7 +53,7 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 - Phase plan: `prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md`
 - Phase notes register: `prompt/artifacts/tasks/T104/workspace/PH001/notes_T104-PH001.md`
 - SPS (target): `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md`
-- AC002 activity plan (working register): `prompt/artifacts/tasks/T104/workspace/PH001/ST001/plan_T104-PH001-ST001-AC002.md`
+- AC002 activity plan (working register): `prompt/artifacts/tasks/T104/workspace/PH001/ST001/AC002/plan_T104-PH001-ST001-AC002.md`
 
 ---
 

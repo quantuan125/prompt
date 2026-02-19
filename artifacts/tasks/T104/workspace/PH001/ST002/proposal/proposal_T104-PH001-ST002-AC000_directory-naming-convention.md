@@ -3,8 +3,8 @@ artifact_type: 'PROPOSAL'
 initiative_id: 'T104'
 initiative_code: 'CWS'
 activity_id: 'T104-PH001-ST002-AC000'
-version: '3.0.0'
-date: '2026-02-11'
+version: '3.1.0'
+date: '2026-02-18'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -122,7 +122,7 @@ prompt/artifacts/tasks/P/
 | Raw transcript | `raw_<SID>-<context>_<date>_p#.{txt,md}` | `raw_T104-CWS_2026-01-31_p2.txt` |
 | Proposal | `proposal_<context>_<topic>.md` | `proposal_T102-CWD_refactor-adr-004-005.md` |
 | Analysis | `analysis_<context>_<topic>.md` | `analysis_T102B_epic-foundation-assessment.md` |
-| Combined STD file | `<S-STD>_<kebab-title>.md` | `T102-STD-004_specification-standard-and-guideline.md` |
+| Combined STD file | `<S-STD>_<kebab-title>.md` | `standard_T102-STD-004_specification-standard-and-guideline.md` |
 
 ### C. Key Drift Points Identified
 
@@ -170,6 +170,8 @@ prompt/artifacts/tasks/<SID>/
 │   │   │   ├── proposal/            # Stream-scoped proposals (if any)
 │   │   │   ├── analysis/            # Stream-scoped analyses (if any)
 │   │   │   ├── communication/       # Stream-scoped communications (if any)
+│   │   │   ├── verification/        # Gate review records (if any)
+│   │   │   ├── dev-report/          # Developer implementation reports (if any)
 │   │   │   └── AC###/              # Activity directory (if 2+ files)
 │   │   │       ├── notes_...-AC###.md
 │   │   │       └── raw/            # Activity-scoped raw transcripts
@@ -211,6 +213,8 @@ All artifact files MUST use a prefix stem matching the artifact type:
 | Analysis | `analysis_` | `analysis_<context>_<kebab-topic>.md` |
 | Combined STD | `<S-STD>_` | `<S-STD>_<kebab-title>.md` |
 | Communication | `comm_` | `comm_<SID>-<CODE>.md` |
+| Verification | `verification_` | `verification_<activity-UID>_gate-###.md` |
+| Developer Report | `dev-report_` | `dev-report_<activity-UID>_<date>.md` |
 
 **Rules**:
 - Prefix is always lowercase followed by underscore.
@@ -221,6 +225,21 @@ All artifact files MUST use a prefix stem matching the artifact type:
 - **`analysis_` vs `report_` boundary**: `report_` is a formal research artifact, always paired with `brief_`, commissioned via T102-STD-006 research workflow, and indexed in SPS III.B.9. `analysis_` is an ungated workspace artifact for ad-hoc synthesis/comparison, not paired with a brief, and not indexed in the SPS research section.
 - **`raw_` naming convention** (revised per SES002-DEC002): Raw transcript filenames MUST include the session token (`SES###`) as part of the timeline UID to enable deterministic raw-to-notes traceability. The date component is removed; the SES### token provides sufficient temporal scoping. Example: `raw_T104-PH001-ST002-AC000-SES002.txt`.
 - **`comm_` prefix** (per SES002-DEC003): Communication files use the `comm_` prefix (replacing the prior `handoff_brief_` convention). Communication artifacts are primarily used to pass messages between workscope owners (higher to lower scope). Files are placed at the **recipient's** workspace path following an inbox model (e.g., `T104A/workspace/communication/`). Full specification deferred to T104G (Communication Standardization) epic.
+- **`verification_` scope** (per SES001-DEC001, DEC003, DEC007): `verification_` is a gated, post-completion quality record produced at activity gate checkpoints. It contains a verdict (PASS / CONDITIONAL APPROVE / FAIL) and a compliance score, and may block downstream work until pre-conditions are resolved. `verification_` files are ONLY produced at gate events (not mid-activity). Naming: `verification_<activity-UID>_gate-###.md` where `gate-###` corresponds to the gate number defined in the stream/activity plan per `guideline_workspace_plan.md §VI.B`. Author: `LLM_Reviewer OR LLM_Consultant` (pending T101 role standardization). This type is semantically distinct from `analysis_` (which is ungated, mid-stream, and produces recommendations rather than verdicts); the two SHALL NOT be merged. A `guideline_workspace_verification.md` companion guideline (planned) will specify the full authoring rules.
+- **`dev-report_` scope** (per SES001-DEC006): `dev-report_` is a developer-produced implementation summary authored at the end of a developer activity, documenting task execution, evidence produced, and commits. Detailed authoring rules are deferred to later phases. Current naming pattern: `dev-report_<activity-UID>_<date>.md` (date = `YYYY-MM-DD` execution date). Author: `LLM_Developer` (informative; pending T101).
+
+### [INFORMATIVE] Role-to-Artifact Ownership (Pending T101)
+
+> **Note**: The following table represents the intended future-state role boundaries. It is **informative only** and SHALL NOT be treated as normative until `T101` (Role Standardization) formally defines the role model. Current practice: a single LLM agentic role may produce any artifact type.
+
+| Artifact Type(s) | Intended Author Role |
+|:--|:--|
+| `proposal_`, `analysis_`, `notes_` | LLM_Consultant |
+| `plan_` | LLM_Planner |
+| `verification_` | LLM_Reviewer |
+| `dev-report_` | LLM_Developer |
+
+*Role definitions and triggering conditions will be standardized by the `T101` initiative.*
 
 ### Convention 3: Combined Standard-Specification File Placement
 
@@ -249,6 +268,8 @@ workspace/
 │       ├── proposal/                 # Stream proposals (if any)
 │       ├── analysis/                 # Stream analyses (if any)
 │       ├── communication/            # Stream communications (if any)
+│       ├── verification/             # Gate review records (if any)
+│       ├── dev-report/               # Developer implementation reports (if any)
 │       └── AC###/                    # Activity level (if 2+ files)
 │           ├── notes_...-AC###.md
 │           └── raw/                  # Activity raw transcripts
@@ -258,8 +279,10 @@ workspace/
 - **Phase-level files** (plan, notes register) live directly inside `PH###/`.
 - **Stream-level files** (plan, notes register) live inside `PH###/ST###/`.
 - **Activity-level files** (notes) live inside `PH###/ST###/AC###/`.
-- **Type subdirectories** (`raw/`, `proposal/`, `analysis/`, `communication/`) are created on-demand within the stream directory. Not all streams require all subdirectories.
+- **Type subdirectories** (`raw/`, `proposal/`, `analysis/`, `communication/`, `verification/`, `dev-report/`) are created on-demand within the stream directory. Not all streams require all subdirectories.
 - **AC/ directory threshold** (per SES002-DEC005): An `AC###/` subdirectory SHALL be created only when the activity produces 2 or more associated files. Activities with a single file (e.g., only a session notes file) MAY keep that file in the parent `ST###/` directory, using the full UID in the filename for disambiguation. This aligns with PRINCE2's principle of decomposing only to the level needed for control.
+- **`verification/` subdirectory**: Created on-demand within the stream directory when one or more gate-type verification files exist for activities in that stream. Verification files are produced post-completion at gate checkpoints (see Convention 2 `verification_` scope rule).
+- **`dev-report/` subdirectory**: Created on-demand within the stream directory when developer implementation report files exist. Detailed placement rules deferred to later phases.
 
 ### Convention 5: Stream 0 Naming & ID Scoping
 
@@ -478,6 +501,8 @@ Per program-level mandate, scaffolding and migration tooling SHALL be implemente
 
 **Golden exemplar**: T104 will be restructured as the first conformant initiative during ST007 execution, using these scripts. The scripts will then be available for adoption by other initiatives.
 
+**Companion guideline (planned)**: `guideline_workspace_verification.md` — a verification-specific authoring guideline (analogous to `guideline_workspace_plan.md` and `guideline_workspace_notes.md`) defining the required content sections, severity schema, verdict semantics, and naming rules for `verification_` artifacts. This guideline is a prerequisite for any agent or role producing verification files. Authoring to be completed as part of P-STD-004 or as a companion workspace template session.
+
 **Script location**: `prompt/artifacts/tasks/P/workspace/scripts/` (program-level tooling) or `prompt/templates/consultant/workspace/scripts/` (template-level tooling). Location TBD during ST007 planning.
 
 ---
@@ -503,6 +528,8 @@ This proposal requests Client approval on the following:
 | DR-13 | `analysis_` artifact type (boundary with `report_` clarified) | **Approved** (amended per SES002-DP009) | — |
 | DR-14 | `workspace/proposal/` as canonical proposal directory | **Approved** | — |
 | DR-15 | AC/ directory threshold: 2+ files before creating AC###/ subdirectory | **Approved** (per SES002-DEC005) | — |
+| DR-16 | Register `verification_` as a canonical artifact type in Convention 2; add `verification/` to Convention 4 type subdirectories; restrict scope to gate events only | **Pending Client approval** | SES001-DEC001–DEC007; industry research (CMMI VER, IEEE 1012, DSDM Timebox Review Record) |
+| DR-17 | Register `dev-report_` as a canonical artifact type in Convention 2 at high/surface level; add `dev-report/` to Convention 4 type subdirectories; detailed authoring rules deferred | **Pending Client approval** | SES001-DEC006 |
 
 ---
 
@@ -520,7 +547,7 @@ This proposal requests Client approval on the following:
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH001-ST002.md` (AC000 activity definition)
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST002/notes_T104-PH001-ST002-SES001.md` (readiness session)
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST002/notes_T104-PH001-ST002-SES002.md` (SES002: external review assessment + decision finalization)
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/raw/raw_T104-PH001-ST002-AC000-SES002.txt` (SES002 raw transcript)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/raw/raw_T104-PH001-ST002-AC000-SES002.txt` (SES002 raw transcript)
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST002/analysis/analysis_T104-PH001-ST002-AC000_external-review.md` (external consultant review)
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST002/analysis/analysis_T104-PH001-ST002-AC000_directory-structure-comparison.md` (comparative analysis)
 - `prompt/artifacts/tasks/T102/consultant/standards/` (T102 STD naming exemplars)
@@ -536,3 +563,4 @@ This proposal requests Client approval on the following:
 | v1.0.0 | 2026-02-10 | Initial | Initial proposal with type-first workspace structure, 6 conventions |
 | v2.0.0 | 2026-02-11 | Major | Restructured based on Client QA and comparative analysis (DA-001–DA-007). Key changes: (1) workspace moved from type-first to timeline-first (cross-cutting + timeline hybrid per DA-001); (2) SSOT self-similar at each scope level with request/design inside `ssot/` per DA-002; (3) research organized by RES ID with brief+report co-located, self-similar per DA-003; (4) roadmap at workspace root per DA-004; (5) unified plan/notes prefix retained per DA-005; (6) raw transcripts moved under workspace timeline per DA-006; (7) single archive with mirrored structure per DA-007; (8) added analysis artifact type; (9) added scaffolding/tooling section for ST007; (10) expanded epic/feature convention with self-similar principle; (11) added changelog |
 | v3.0.0 | 2026-02-11 | Major | Finalized based on external review assessment + Client QA (SES002). Key changes: (1) roadmap moved from workspace root to ssot/ per DA-004 revision (SES002-DEC001); (2) raw naming tightened to raw_<timeline-UID>-SES###.{txt,md} (SES002-DEC002); (3) handoff_brief_ replaced with comm_ prefix (SES002-DEC003); (4) epic SPS/Concept made optional with trigger TBD (SES002-DEC004); (5) AC/ directory threshold of 2+ files added (SES002-DEC005); (6) analysis_ vs report_ boundary clarified; (7) risks section added (T104-RISK-006/007, P-RISK-001/002); (8) T104-ISSUE-008 registered for roadmap placement deferral to T104A; (9) all DRs approved |
+| v3.1.0 | 2026-02-18 | Amendment | Registered two new artifact types at Convention 2: (1) `verification_` (gate-type quality record, post-completion, gate-only scope, `verification_<activity-UID>_gate-###.md` pattern, `verification/` stream-level type subdirectory); (2) `dev-report_` (developer implementation report, high/surface-level only, detailed design deferred, `dev-report_<activity-UID>_<date>.md` pattern, `dev-report/` stream-level type subdirectory). Added informative role-to-artifact ownership table (deferred to T101). Added `guideline_workspace_verification.md` as planned companion deliverable. Added DR-16 (verification_) and DR-17 (dev-report_). Source: P-PH000-ST001-AC004-SES001 consultation. |

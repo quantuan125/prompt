@@ -13,7 +13,7 @@ plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH0
 roadmap_reference: 'prompt/artifacts/tasks/T104/ssot/roadmap_T104-CWS.md'
 raw_source:
   - 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/raw/raw_T104-PH001-ST002-SES001.txt'
-  - 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/raw/raw_T104-PH001-ST002-AC000-SES002.txt'
+  - 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/raw/raw_T104-PH001-ST002-AC000-SES002.txt'
 ---
 
 # STREAM NOTES REGISTER: T104 (CWS) — Phase 1 / Stream ST002: Initiative Standards Authoring
@@ -57,7 +57,7 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 - SPS (target): `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md`
 - Concept (target): `prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md`
 - Raw source (SES001): `prompt/artifacts/tasks/T104/workspace/PH001/ST002/raw/raw_T104-PH001-ST002-SES001.txt`
-- Raw source (SES002): `prompt/artifacts/tasks/T104/workspace/PH001/ST002/raw/raw_T104-PH001-ST002-AC000-SES002.txt`
+- Raw source (SES002): `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/raw/raw_T104-PH001-ST002-AC000-SES002.txt`
 - External review: `prompt/artifacts/tasks/T104/workspace/PH001/ST002/analysis/analysis_T104-PH001-ST002-AC000_external-review.md`
 
 ---

@@ -7,7 +7,7 @@ stream_id: 'T104-PH001-ST007'
 activity_id: 'T104-PH001-ST007-AC001.2'
 date: '2026-02-18'
 author: 'LLM_Developer'
-source_plan: 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007-AC001.2.md'
+source_plan: 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/plan_T104-PH001-ST007-AC001.2.md'
 ---
 
 # Development Report: AC001.2 Live Execution

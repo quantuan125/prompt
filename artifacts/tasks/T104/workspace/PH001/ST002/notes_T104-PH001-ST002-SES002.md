@@ -13,7 +13,7 @@ decision_owner_role: 'Client'
 register_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/notes_T104-PH001-ST002.md'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH001-ST002.md'
 raw_source:
-  - 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/raw/raw_T104-PH001-ST002-AC000-SES002.txt'
+  - 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/raw/raw_T104-PH001-ST002-AC000-SES002.txt'
 external_source:
   - 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/analysis/analysis_T104-PH001-ST002-AC000_external-review.md'
 ---
