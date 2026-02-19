@@ -7,14 +7,14 @@ phase: '0'
 stream: 'ST001'
 activity_id: 'P-PH000-ST001-AC004'
 session: 'SES001'
-version: '1.1.0'
+version: '1.2.0'
 date: '2026-02-18'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 register_reference: 'prompt/artifacts/tasks/P/workspace/notes/notes_P-PH000-ST001.md'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md'
-raw_transcript_reference: '—'
+raw_transcript_reference: 'prompt/artifacts/tasks/P/raw/PH000/ST001/raw_P-PH000-ST001-SES001.txt'
 ---
 
 <!--
@@ -83,13 +83,14 @@ The session began with the client proposing a new `verification_` artifact type 
 
 | ID | Action | Owner | Status |
 |:---|:-------|:------|:-------|
-| `P-PH000-ST001-AC004-SES001-ACT001` | Update `proposal_T104-PH001-ST002-AC000` Convention 2 table — add `verification_` prefix row with pattern `verification_<activity-UID>_gate-###.md` | LLM_Consultant | `pending` |
-| `P-PH000-ST001-AC004-SES001-ACT002` | Update `proposal_T104-PH001-ST002-AC000` Convention 4 directory tree and rules — add `verification/` as stream-level type subdirectory | LLM_Consultant | `pending` |
-| `P-PH000-ST001-AC004-SES001-ACT003` | Update `proposal_T104-PH001-ST002-AC000` — add `verification_` vs `analysis_` boundary definition in Convention 2 (parallel to existing `analysis_` vs `report_` boundary) | LLM_Consultant | `pending` |
-| `P-PH000-ST001-AC004-SES001-ACT004` | Update `proposal_T104-PH001-ST002-AC000` — add informative role-to-artifact ownership table (deferred to T101) | LLM_Consultant | `pending` |
-| `P-PH000-ST001-AC004-SES001-ACT005` | Update `proposal_T104-PH001-ST002-AC000` — add DR-16 (verification_ prefix adoption) and update Section VIII to reference `guideline_workspace_verification.md` as a planned deliverable | LLM_Consultant | `pending` |
-| `P-PH000-ST001-AC004-SES001-ACT006` | Bump proposal version to v3.1.0 and update changelog | LLM_Consultant | `pending` |
+| `P-PH000-ST001-AC004-SES001-ACT001` | Update `proposal_T104-PH001-ST002-AC000` Convention 2 table — add `verification_` prefix row with pattern `verification_<activity-UID>_gate-###.md` | LLM_Consultant | `completed` |
+| `P-PH000-ST001-AC004-SES001-ACT002` | Update `proposal_T104-PH001-ST002-AC000` Convention 4 directory tree and rules — add `verification/` as stream-level type subdirectory | LLM_Consultant | `completed` |
+| `P-PH000-ST001-AC004-SES001-ACT003` | Update `proposal_T104-PH001-ST002-AC000` — add `verification_` vs `analysis_` boundary definition in Convention 2 (parallel to existing `analysis_` vs `report_` boundary) | LLM_Consultant | `completed` |
+| `P-PH000-ST001-AC004-SES001-ACT004` | Update `proposal_T104-PH001-ST002-AC000` — add informative role-to-artifact ownership table (deferred to T101) | LLM_Consultant | `completed` |
+| `P-PH000-ST001-AC004-SES001-ACT005` | Update `proposal_T104-PH001-ST002-AC000` — add DR-16 (verification_ prefix adoption) and update Section VIII to reference `guideline_workspace_verification.md` as a planned deliverable | LLM_Consultant | `completed` |
+| `P-PH000-ST001-AC004-SES001-ACT006` | Bump proposal version to v3.1.0 and update changelog | LLM_Consultant | `completed` |
 | `P-PH000-ST001-AC004-SES001-ACT007` | Author `guideline_workspace_verification.md` — new workspace guideline for verification artifact authoring rules (separate task; may be deferred until P-STD-004 authoring or paired with it) | LLM_Consultant | `pending` |
+| `P-PH000-ST001-AC004-SES001-ACT008` | Create/confirm raw transcript file at `prompt/artifacts/tasks/P/raw/PH000/ST001/raw_P-PH000-ST001-SES001.txt` | LLM_Consultant | `completed` |
 
 ---
 
@@ -119,3 +120,4 @@ The session began with the client proposing a new `verification_` artifact type 
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-02-18 | Initial | Session notes created: `verification_` artifact type consultation for P-STD-004 input; 5 DPs, 5 DECs, 7 ACTs, 2 OQs recorded |
 | v1.1.0 | 2026-02-18 | Update | Q&A round 2: closed OQ001 (dev-report_ registered at surface level) and OQ002 (gate-only restriction); added DEC006 and DEC007; handoff pack updated with implementation plan link; ACT008 added for raw transcript |
+| v1.2.0 | 2026-02-18 | Update | Finalized: `raw_transcript_reference` set; ACT001–ACT006 and ACT008 marked completed after v3.1.0 proposal amendment implementation. |

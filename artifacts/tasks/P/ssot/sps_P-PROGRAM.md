@@ -2,8 +2,8 @@
 artifact_type: 'SPS'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
-version: '0.2.0'
-date: '2026-02-10'
+version: '0.2.1'
+date: '2026-02-19'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -75,7 +75,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 | STD ID | Title | Status | Owner | Effective | Supersedes | Adopts | Verification | Reference |
 |:-------|:------|:-------|:------|:----------|:-----------|:------|:------------|:----------|
-| `P-STD-001` | Program Governance Standard | `planned` | LLM_Consultant | `P-PH000-ST001` | — | — | Review: conforms to adopted ID/path rules; adopters link-don’t-duplicate | `prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md` |
+| `P-STD-001` | Program Governance Standard | `planned` | LLM_Consultant | `P-PH000-ST001` | — | — | Review: conforms to adopted ID/path rules; adopters link-don’t-duplicate | `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC002.md` |
 | `P-STD-002` | Program Status Standard | `planned` | LLM_Consultant | `P-PH000-ST001` | — | — | Review: status schema + update protocol accepted; later CI/lint possible | `prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST002.md` |
 | `P-STD-003` | Program Governance Standards Model | `planned` | LLM_Consultant | `P-PH000-ST001` | — | `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md` | Review: combined governance spec aligns with ADR-004 + ADR-009; enforce adoption/authoring requirements | `T102-STD-009 (Governance Standards Model)` |
 | `P-STD-004` | File Naming & Directory Convention | `planned` | LLM_Consultant | TBD | — | — | Review: initiative dirs conform to naming/directory rules; CI: lint file prefixes + directory structure | `T104-PH001-ST002-AC000` (proposal input) |
