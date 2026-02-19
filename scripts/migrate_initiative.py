@@ -30,6 +30,11 @@ class MoveOperation:
 
 
 @dataclass(frozen=True)
+class DeleteOperation:
+    path: str
+
+
+@dataclass(frozen=True)
 class TokenRewrite:
     old: str
     new: str
@@ -39,6 +44,7 @@ class TokenRewrite:
 class MigrationManifest:
     create_dirs: list[str]
     moves: list[MoveOperation]
+    deletes: list[DeleteOperation]
     rewrites: list[TokenRewrite]
 
 
@@ -72,6 +78,7 @@ def load_manifest(manifest_path: Path) -> MigrationManifest:
 
     mkdir_items: list[str] = []
     move_items: list[MoveOperation] = []
+    delete_items: list[DeleteOperation] = []
     rewrite_items: list[TokenRewrite] = []
 
     if isinstance(data, list):
@@ -89,13 +96,19 @@ def load_manifest(manifest_path: Path) -> MigrationManifest:
             raise ValueError("Manifest 'operations' must be a list.")
         for item in operations:
             if not isinstance(item, dict):
-                raise ValueError("Manifest operations entries must be objects with from/to fields.")
+                raise ValueError("Manifest operations entries must be objects.")
             action = item.get("action", "move")
             if action == "mkdir":
                 path_value = item.get("path") or item.get("to")
                 if not path_value:
                     raise ValueError("mkdir operations must include non-empty path/to value.")
                 mkdir_items.append(path_value)
+                continue
+            if action == "delete":
+                path_value = item.get("path")
+                if not path_value:
+                    raise ValueError("delete operations must include non-empty path value.")
+                delete_items.append(DeleteOperation(path=path_value))
                 continue
             if action != "move":
                 continue
@@ -120,19 +133,25 @@ def load_manifest(manifest_path: Path) -> MigrationManifest:
     else:
         raise ValueError("Manifest root must be an object or list.")
 
-    if not move_items and not mkdir_items:
+    if not move_items and not mkdir_items and not delete_items:
         raise ValueError("Manifest has no executable operations.")
 
     if not rewrite_items:
         rewrite_items = [TokenRewrite(old=m.source, new=m.target) for m in move_items]
 
-    return MigrationManifest(create_dirs=mkdir_items, moves=move_items, rewrites=rewrite_items)
+    return MigrationManifest(
+        create_dirs=mkdir_items,
+        moves=move_items,
+        deletes=delete_items,
+        rewrites=rewrite_items,
+    )
 
 
 def validate_moves(manifest: MigrationManifest, project_root: Path, allow_missing_sources: bool) -> list[str]:
     errors: list[str] = []
     seen_sources: set[str] = set()
     seen_targets: set[str] = set()
+    seen_deletes: set[str] = set()
 
     resolved_sources: list[Path] = []
     resolved_targets: list[Path] = []
@@ -167,6 +186,36 @@ def validate_moves(manifest: MigrationManifest, project_root: Path, allow_missin
             errors.append(f"Target path already exists: {move.target}")
         resolved_sources.append(source_path)
         resolved_targets.append(target_path)
+
+    for delete in manifest.deletes:
+        if delete.path in seen_deletes:
+            errors.append(f"Duplicate delete path in manifest: {delete.path}")
+            continue
+        seen_deletes.add(delete.path)
+        if delete.path in seen_sources:
+            errors.append(f"Delete path duplicates move source: {delete.path}")
+        if delete.path in seen_targets:
+            errors.append(f"Delete path duplicates move target: {delete.path}")
+        try:
+            delete_path = _ensure_relative(delete.path, project_root)
+        except ValueError as exc:
+            errors.append(str(exc))
+            continue
+
+        if delete_path == project_root:
+            errors.append("Delete path may not be project root.")
+            continue
+
+        if not allow_missing_sources and not delete_path.exists():
+            errors.append(f"Delete path does not exist: {delete.path}")
+            continue
+
+        if delete_path.exists() and not delete_path.is_dir():
+            errors.append(f"Delete path must be a directory: {delete.path}")
+            continue
+
+        if delete_path.exists() and any(delete_path.iterdir()):
+            errors.append(f"Delete directory is not empty: {delete.path}")
 
     for i, source_a in enumerate(resolved_sources):
         for source_b in resolved_sources[i + 1 :]:
@@ -221,6 +270,17 @@ def execute_moves(
         project_root=project_root,
         dry_run=dry_run,
     )
+
+    for delete in manifest.deletes:
+        delete_path = _ensure_relative(delete.path, project_root)
+        if dry_run:
+            logs.append(f"DRY RUN delete empty dir: {delete.path}")
+            continue
+        if delete_path.exists():
+            delete_path.rmdir()
+            logs.append(f"APPLIED delete empty dir: {delete.path}")
+        else:
+            logs.append(f"SKIPPED delete missing dir: {delete.path}")
     return MoveExecutionResult(
         move_logs=logs,
         cleanup_logs=cleanup_logs,
@@ -395,6 +455,16 @@ def verify_move_completeness(
             discrepancies.append(f"Source still exists after apply: {source_rel}")
         if not target.exists():
             discrepancies.append(f"Target missing after apply: {target_rel}")
+
+    for delete in manifest.deletes:
+        delete_path = _ensure_relative(delete.path, project_root)
+        delete_rel = str(delete_path.relative_to(project_root))
+        if dry_run:
+            if not delete_path.exists():
+                discrepancies.append(f"DRY RUN delete path missing before apply: {delete_rel}")
+            continue
+        if delete_path.exists():
+            discrepancies.append(f"Delete path still exists after apply: {delete_rel}")
     return discrepancies
 
 
@@ -437,6 +507,7 @@ def create_report(
     lines.append(f"- Mode: {'dry-run' if dry_run else 'apply'}")
     lines.append(f"- Move operations: {len(manifest.moves)}")
     lines.append(f"- Directory creations: {len(manifest.create_dirs)}")
+    lines.append(f"- Directory deletes: {len(manifest.deletes)}")
     lines.append(f"- Reference rewrite rules: {len(manifest.rewrites)}")
     lines.append(f"- Files changed by rewrites: {rewrite_files_changed}")
     lines.append("")
