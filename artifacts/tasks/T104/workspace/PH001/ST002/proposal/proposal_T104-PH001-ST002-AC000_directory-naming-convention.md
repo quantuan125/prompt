@@ -3,9 +3,9 @@ artifact_type: 'PROPOSAL'
 initiative_id: 'T104'
 initiative_code: 'CWS'
 activity_id: 'T104-PH001-ST002-AC000'
-version: '3.1.0'
-date: '2026-02-18'
-status: 'draft'
+version: '3.2.0'
+date: '2026-02-19'
+status: 'approved'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH001-ST002.md'
@@ -163,18 +163,21 @@ prompt/artifacts/tasks/<SID>/
 │   ├── PH###/                       # Phase directory
 │   │   ├── plan_<SID>-PH###.md     # Phase plan (register)
 │   │   ├── notes_<SID>-PH###.md    # Phase notes register
+│   │   ├── snotes/                  # Phase-scoped session notes (if any)
 │   │   ├── ST###/                   # Stream directory
 │   │   │   ├── plan_<SID>-PH###-ST###.md
 │   │   │   ├── notes_<SID>-PH###-ST###.md
 │   │   │   ├── raw/                 # Stream-scoped raw transcripts
+│   │   │   ├── snotes/              # Stream-scoped session notes (if any)
 │   │   │   ├── proposal/            # Stream-scoped proposals (if any)
 │   │   │   ├── analysis/            # Stream-scoped analyses (if any)
 │   │   │   ├── communication/       # Stream-scoped communications (if any)
 │   │   │   ├── verification/        # Gate review records (if any)
 │   │   │   ├── dev-report/          # Developer implementation reports (if any)
-│   │   │   └── AC###/              # Activity directory (if 2+ files)
-│   │   │       ├── notes_...-AC###.md
-│   │   │       └── raw/            # Activity-scoped raw transcripts
+│   │   │   └── AC###/               # Activity directory (UID-scope trigger rule)
+│   │   │       ├── notes_...-AC###.md  # Activity notes register/index (no SES token)
+│   │   │       ├── snotes/           # Activity-scoped session notes (if any)
+│   │   │       └── raw/              # Activity-scoped raw transcripts
 │   │   └── ...
 │   └── PH###/
 │       └── ...
@@ -204,7 +207,8 @@ All artifact files MUST use a prefix stem matching the artifact type:
 | Request | `request_` | `request_<SID>.md` |
 | Design | `design_` | `design_<SID>.md` |
 | Plan (all levels) | `plan_` | `plan_<SID>-PH###[-ST###[-AC###]].md` |
-| Notes (all levels) | `notes_` | `notes_<SID>-PH###[-ST###[-AC###]].md` |
+| Notes Register / Index | `notes_` | `notes_<SID>-PH###[-ST###[-AC###]].md` |
+| Session Notes | `snotes_` | `snotes_<SID>-PH###[-ST###[-AC###]]-SES###.md` |
 | Roadmap | `roadmap_` | `roadmap_<SID>-<CODE>.md` |
 | Research brief | `brief_` | `brief_<S-RES>_<kebab-topic>.md` |
 | Research report | `report_` | `report_<S-RES>_<kebab-topic>.md` |
@@ -221,6 +225,7 @@ All artifact files MUST use a prefix stem matching the artifact type:
 - `<kebab-topic>` uses lowercase kebab-case.
 - Markdown extension `.md` is mandatory.
 - Plan/notes files use the timeline UID hierarchy (defined by T104-STD-002) as the naming stem after the prefix.
+- **Notes prefix split** (per `T104-PH001-ST007-AC001-SES005-DEC003`): `notes_` is reserved for register/index notes (no `SES###` token). All session notes files (any file with a `SES###` token) MUST use `snotes_`. Session notes files MUST use a title containing `SESSION NOTES`. Register/index files MUST use a title containing `NOTES REGISTER`. Initial rollout scope is T104 only; cross-initiative adoption is deferred to a program-level `P-STD-004` migration activity.
 - **Unified prefix for plan/notes subtypes** (DA-005): Phase plans (registers) and stream/activity plans (content-rich) share the `plan_` prefix. The UID depth (`PH###` vs `PH###-ST###` vs `PH###-ST###-AC###`) and frontmatter `planning_level` encode the semantic distinction. T104-STD-001 will formalize mandatory sections per planning level.
 - **`analysis_` vs `report_` boundary**: `report_` is a formal research artifact, always paired with `brief_`, commissioned via T102-STD-006 research workflow, and indexed in SPS III.B.9. `analysis_` is an ungated workspace artifact for ad-hoc synthesis/comparison, not paired with a brief, and not indexed in the SPS research section.
 - **`raw_` naming convention** (revised per SES002-DEC002): Raw transcript filenames MUST include the session token (`SES###`) as part of the timeline UID to enable deterministic raw-to-notes traceability. The date component is removed; the SES### token provides sufficient temporal scoping. Example: `raw_T104-PH001-ST002-AC000-SES002.txt`.
@@ -265,13 +270,15 @@ workspace/
 │       ├── plan_<SID>-PH###-ST###.md
 │       ├── notes_<SID>-PH###-ST###.md
 │       ├── raw/                      # Stream raw transcripts
+│       ├── snotes/                   # Stream-scoped session notes (if any)
 │       ├── proposal/                 # Stream proposals (if any)
 │       ├── analysis/                 # Stream analyses (if any)
 │       ├── communication/            # Stream communications (if any)
 │       ├── verification/             # Gate review records (if any)
 │       ├── dev-report/               # Developer implementation reports (if any)
-│       └── AC###/                    # Activity level (if 2+ files)
-│           ├── notes_...-AC###.md
+│       └── AC###/                    # Activity level (UID-scope trigger rule)
+│           ├── notes_...-AC###.md    # Activity notes register/index (no SES token)
+│           ├── snotes/               # Activity-scoped session notes (if any)
 │           └── raw/                  # Activity raw transcripts
 ```
 
@@ -279,10 +286,16 @@ workspace/
 - **Phase-level files** (plan, notes register) live directly inside `PH###/`.
 - **Stream-level files** (plan, notes register) live inside `PH###/ST###/`.
 - **Activity-level files** (notes) live inside `PH###/ST###/AC###/`.
-- **Type subdirectories** (`raw/`, `proposal/`, `analysis/`, `communication/`, `verification/`, `dev-report/`) are created on-demand within the stream directory. Not all streams require all subdirectories.
-- **AC/ directory threshold** (per SES002-DEC005): An `AC###/` subdirectory SHALL be created only when the activity produces 2 or more associated files. Activities with a single file (e.g., only a session notes file) MAY keep that file in the parent `ST###/` directory, using the full UID in the filename for disambiguation. This aligns with PRINCE2's principle of decomposing only to the level needed for control.
+- **Type subdirectories** (`raw/`, `snotes/`, `proposal/`, `analysis/`, `communication/`, `verification/`, `dev-report/`) are created on-demand within the stream directory. Not all streams require all subdirectories.
+- **AC/ directory trigger (UID-scope; replaces 2+ file threshold)** (per `T104-PH001-ST007-AC001-SES005-DEC002`): An `AC###/` subdirectory SHALL be created when any associated file’s UID contains an `AC###` token. The file-count threshold heuristic (formerly 2+) is retired; UID identity is the sole trigger.
+- **Sub-activity plan placement rule** (per `T104-PH001-ST007-AC001-SES005-DEC006`): Sub-activity plans with dot-notation IDs (`AC###.N`) are versioned iterations of the parent activity plan and SHALL be placed inside the parent `AC###/` directory (e.g., `plan_T104-PH001-ST007-AC001.2.md` → `PH001/ST007/AC001/plan_T104-PH001-ST007-AC001.2.md`).
+- **Session notes placement rule** (per `T104-PH001-ST007-AC001-SES005-DEC005`):
+  - Phase-scoped session notes (`snotes_...` without `ST###`) → `PH###/snotes/`
+  - Stream-scoped session notes (`snotes_...` with `ST###` and no `AC###`) → `ST###/snotes/`
+  - Activity-scoped session notes (`snotes_...` with `AC###`) → `ST###/AC###/snotes/`
 - **`verification/` subdirectory**: Created on-demand within the stream directory when one or more gate-type verification files exist for activities in that stream. Verification files are produced post-completion at gate checkpoints (see Convention 2 `verification_` scope rule).
 - **`dev-report/` subdirectory**: Created on-demand within the stream directory when developer implementation report files exist. Detailed placement rules deferred to later phases.
+  - **Validator note (tooling conformance)**: `prompt/scripts/validate_initiative_structure.py` MUST recognise `dev-report/`, `verification/`, and `snotes/` as valid stream-level type subdirectories, and `snotes_` as a valid prefix. This is a tooling conformance requirement; the convention already permits these directories/prefixes.
 
 ### Convention 5: Stream 0 Naming & ID Scoping
 
@@ -501,6 +514,11 @@ Per program-level mandate, scaffolding and migration tooling SHALL be implemente
 
 **Golden exemplar**: T104 will be restructured as the first conformant initiative during ST007 execution, using these scripts. The scripts will then be available for adoption by other initiatives.
 
+**Pending tooling updates (SES005 GAP-005)**:
+- `prompt/scripts/validate_initiative_structure.py` MUST recognise `dev-report/`, `verification/`, and `snotes/` as valid type subdirectories under `ST###/`.
+- `prompt/scripts/validate_initiative_structure.py` MUST recognise `snotes_` as the canonical session-notes prefix.
+- `prompt/scripts/migrate_initiative.py` MUST implement the UID-scope trigger rule for `AC###/` directory creation and enforce the `snotes/` placement rules when migrating session notes.
+
 **Companion guideline (planned)**: `guideline_workspace_verification.md` — a verification-specific authoring guideline (analogous to `guideline_workspace_plan.md` and `guideline_workspace_notes.md`) defining the required content sections, severity schema, verdict semantics, and naming rules for `verification_` artifacts. This guideline is a prerequisite for any agent or role producing verification files. Authoring to be completed as part of P-STD-004 or as a companion workspace template session.
 
 **Script location**: `prompt/artifacts/tasks/P/workspace/scripts/` (program-level tooling) or `prompt/templates/consultant/workspace/scripts/` (template-level tooling). Location TBD during ST007 planning.
@@ -527,9 +545,13 @@ This proposal requests Client approval on the following:
 | DR-12 | Python scaffolding/migration scripts in ST007 | **Approved** | — |
 | DR-13 | `analysis_` artifact type (boundary with `report_` clarified) | **Approved** (amended per SES002-DP009) | — |
 | DR-14 | `workspace/proposal/` as canonical proposal directory | **Approved** | — |
-| DR-15 | AC/ directory threshold: 2+ files before creating AC###/ subdirectory | **Approved** (per SES002-DEC005) | — |
-| DR-16 | Register `verification_` as a canonical artifact type in Convention 2; add `verification/` to Convention 4 type subdirectories; restrict scope to gate events only | **Pending Client approval** | SES001-DEC001–DEC007; industry research (CMMI VER, IEEE 1012, DSDM Timebox Review Record) |
-| DR-17 | Register `dev-report_` as a canonical artifact type in Convention 2 at high/surface level; add `dev-report/` to Convention 4 type subdirectories; detailed authoring rules deferred | **Pending Client approval** | SES001-DEC006 |
+| DR-15 | AC/ directory trigger: UID-scope replaces 2+ file count threshold | **Approved** (amended per `T104-PH001-ST007-AC001-SES005-DEC002`) | — |
+| DR-16 | Register `verification_` as a canonical artifact type in Convention 2; add `verification/` to Convention 4 type subdirectories; restrict scope to gate events only | **Approved** | SES001-DEC001–DEC007; industry research (CMMI VER, IEEE 1012, DSDM Timebox Review Record) |
+| DR-17 | Register `dev-report_` as a canonical artifact type in Convention 2 at high/surface level; add `dev-report/` to Convention 4 type subdirectories; detailed authoring rules deferred | **Approved** | SES001-DEC006 |
+| DR-18 | AC/ directory trigger rule revised: UID-scope replaces 2-file count threshold (SES005-DEC002) | **Approved** | `T104-PH001-ST007-AC001-SES005` |
+| DR-19 | Sub-activity plan placement rule formalized (SES005-DEC006) | **Approved** | `T104-PH001-ST007-AC001-SES005` |
+| DR-20 | `snotes_` prefix for session notes; supersedes `T104-PH001-SES001-DEC003` (SES005-DEC003) | **Approved** | `T104-PH001-ST007-AC001-SES005` |
+| DR-21 | `snotes/` type subdirectory added at phase/stream/activity level (SES005-DEC005) | **Approved** | `T104-PH001-ST007-AC001-SES005` |
 
 ---
 
@@ -564,3 +586,4 @@ This proposal requests Client approval on the following:
 | v2.0.0 | 2026-02-11 | Major | Restructured based on Client QA and comparative analysis (DA-001–DA-007). Key changes: (1) workspace moved from type-first to timeline-first (cross-cutting + timeline hybrid per DA-001); (2) SSOT self-similar at each scope level with request/design inside `ssot/` per DA-002; (3) research organized by RES ID with brief+report co-located, self-similar per DA-003; (4) roadmap at workspace root per DA-004; (5) unified plan/notes prefix retained per DA-005; (6) raw transcripts moved under workspace timeline per DA-006; (7) single archive with mirrored structure per DA-007; (8) added analysis artifact type; (9) added scaffolding/tooling section for ST007; (10) expanded epic/feature convention with self-similar principle; (11) added changelog |
 | v3.0.0 | 2026-02-11 | Major | Finalized based on external review assessment + Client QA (SES002). Key changes: (1) roadmap moved from workspace root to ssot/ per DA-004 revision (SES002-DEC001); (2) raw naming tightened to raw_<timeline-UID>-SES###.{txt,md} (SES002-DEC002); (3) handoff_brief_ replaced with comm_ prefix (SES002-DEC003); (4) epic SPS/Concept made optional with trigger TBD (SES002-DEC004); (5) AC/ directory threshold of 2+ files added (SES002-DEC005); (6) analysis_ vs report_ boundary clarified; (7) risks section added (T104-RISK-006/007, P-RISK-001/002); (8) T104-ISSUE-008 registered for roadmap placement deferral to T104A; (9) all DRs approved |
 | v3.1.0 | 2026-02-18 | Amendment | Registered two new artifact types at Convention 2: (1) `verification_` (gate-type quality record, post-completion, gate-only scope, `verification_<activity-UID>_gate-###.md` pattern, `verification/` stream-level type subdirectory); (2) `dev-report_` (developer implementation report, high/surface-level only, detailed design deferred, `dev-report_<activity-UID>_<date>.md` pattern, `dev-report/` stream-level type subdirectory). Added informative role-to-artifact ownership table (deferred to T101). Added `guideline_workspace_verification.md` as planned companion deliverable. Added DR-16 (verification_) and DR-17 (dev-report_). Source: P-PH000-ST001-AC004-SES001 consultation. |
+| v3.2.0 | 2026-02-19 | Amendment | Five amendments from SES005 GATE-002 QA: (1) DR-15 replaced with UID-scope trigger; (2) sub-activity plan placement rule added; (3) `snotes_` prefix introduced for session notes (supersedes `T104-PH001-SES001-DEC003`); (4) `snotes/` type subdir added at phase/stream/activity level; (5) validator conformance requirements documented for `dev-report/` + `verification/` + `snotes/` and `snotes_`. DRs DR-18 through DR-21 added. DR-16 and DR-17 confirmed `Approved`. Source: `T104-PH001-ST007-AC001-SES005` (2026-02-19). |
