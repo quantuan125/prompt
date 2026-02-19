@@ -70,7 +70,7 @@ depends_on: 'T102A-PH001-ST000'
 
 **Inputs Required**:
 - `prompt/artifacts/tasks/T102/T102A/standards/` (current three files)
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
+- `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md`
 - `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-009_governance-standards-specification.md`
 
 **Task Register**:
@@ -130,7 +130,7 @@ depends_on: 'T102A-PH001-ST000'
 | Plan (this file) | ST002 Plan | `prompt/artifacts/tasks/T102/T102A/workspace/plan/plan_T102A-PH001-ST002.md` |
 | Parent | T102A PH001 Plan | `prompt/artifacts/tasks/T102/T102A/workspace/plan/plan_T102A-PH001.md` |
 | Standards | T102A standards directory | `prompt/artifacts/tasks/T102/T102A/standards/` |
-| Standard | Decision Records Standard exemplar | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
+| Standard | Decision Records Standard exemplar | `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md` |
 | Standard | Governance standards specification | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-009_governance-standards-specification.md` |
 | Template | SPS structural template | `prompt/templates/consultant/sps/sps_structural_template.md` |
 | Guideline | SPS authoring guideline | `prompt/templates/consultant/sps/guideline_ssot_sps.md` |

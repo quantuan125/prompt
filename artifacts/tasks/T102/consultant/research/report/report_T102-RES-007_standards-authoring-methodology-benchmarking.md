@@ -41,7 +41,7 @@ decision_owner_role: 'Client'
   * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-001_consultancy-operating-model.md`
   * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-002_canonical-yaml-header.md`
   * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-003_explicit-inheritance-model.md`
-  * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
+  * `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md`
   * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`
   * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md`
   * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-007_issues-risks-index.md`
@@ -420,7 +420,7 @@ Recommendations are grounded in Topics 1–8 evidence, AC008 decisions (§VIII�
   * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-001_consultancy-operating-model.md`
   * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-002_canonical-yaml-header.md`
   * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-003_explicit-inheritance-model.md`
-  * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
+  * `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md`
   * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`
   * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md`
   * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-007_issues-risks-index.md`

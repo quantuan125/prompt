@@ -38,7 +38,7 @@ depends_on: 'T102C-PH001-ST000'
 
 **Context (files this stream is expected to touch)**:
 - `prompt/artifacts/tasks/T102/consultant/standards/T102C-STD-001_concept-architectural-framework.md` (existing T102C standard; 4 CLAUSEs)
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` (STD-Contains-CLAUSE model reference)
+- `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md` (STD-Contains-CLAUSE model reference)
 - `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-009_governance-standards-specification.md` (governance standards specification)
 - `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-006_integration-impact.md` (Concept role specification, register family design)
 - `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md` (pending initiative-level STD amendments — known incoming changes)
@@ -68,7 +68,7 @@ depends_on: 'T102C-PH001-ST000'
 
 **Inputs Required**:
 - `prompt/artifacts/tasks/T102/consultant/standards/T102C-STD-001_concept-architectural-framework.md` (current single T102C STD file)
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` (STD-Contains-CLAUSE model)
+- `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md` (STD-Contains-CLAUSE model)
 - `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-009_governance-standards-specification.md`
 
 **Task Register**:
@@ -129,7 +129,7 @@ depends_on: 'T102C-PH001-ST000'
 | Parent | T102C PH001 Plan | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/plan_T102C-PH001.md` |
 | Notes | ST002 Notes Register | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST002/notes_T102C-PH001-ST002.md` |
 | Standards | T102C-STD-001 | `prompt/artifacts/tasks/T102/consultant/standards/T102C-STD-001_concept-architectural-framework.md` |
-| Standard | STD-Contains-CLAUSE model | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
+| Standard | STD-Contains-CLAUSE model | `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md` |
 | Standard | Governance standards specification | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-009_governance-standards-specification.md` |
 | Analysis (input) | RES-006 integration analysis | `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-006_integration-impact.md` |
 | Plan (dependency) | T102 ST005 Standards Amendment | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md` |

@@ -26,7 +26,7 @@ decision_owner_role: 'Client'
 | `T102-STD-001` | Consultancy Operating Model | — | Proposed | Client | 2025-09-18 | — | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-001_consultancy-operating-model.md` |
 | `T102-STD-002` | Canonical YAML Header | — | Proposed | Client | 2025-09-14 | — | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-002_canonical-yaml-header.md` |
 | `T102-STD-003` | Explicit Inheritance Model | — | Proposed | Client | 2025-09-14 | — | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-003_explicit-inheritance-model.md` |
-| `T102-STD-004` | Specification Standard & Guideline | — | Proposed | Client | — | — | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` |
+| `T102-STD-004` | Specification Standard & Guideline | — | Proposed | Client | — | — | `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md` |
 | `T102-STD-005` | ID Specification & Rules | — | Proposed | Client | — | — | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
 | `T102-STD-006` | Research Artifacts Index | — | Proposed | Client | 2025-10-12 | — | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md` |
 | `T102-STD-007` | Issues & Risks Index | — | Proposed | Client | 2026-01-01 | — | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-007_issues-risks-index.md` |

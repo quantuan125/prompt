@@ -19,7 +19,7 @@ raw_transcript_reference:
   - 'prompt/artifacts/tasks/T102/consultant/raw/PH001/ST001/raw_T102-PH001-ST001-AC009-SES003.txt'
 supersedes: 'prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC008_r2-refactor-plan.md'
 target_files:
-  - 'prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md'
+  - 'prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md'
   - 'prompt/artifacts/tasks/T102/consultant/standards/T102-STD-009_governance-standards-specification.md'
   - 'prompt/templates/consultant/standards/guideline_standard_specs.md'
   - 'prompt/templates/consultant/standards/template_standard_specs.md'
@@ -955,7 +955,7 @@ Structural changes:
 
 **STD-004 row changes**:
 - Update `Title`: **Specification Standard & Guideline** (no change — retitle deferred to ST002)
-- Update `Canonical Path`: `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
+- Update `Canonical Path`: `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md`
 - Update `Verification`: rewrite to reference new CLAUSE structure: "CI/Lint + Review MUST verify: canonical combined-file structure (`CLAUSE-001`), specification index (`CLAUSE-002`), substandard architecture (`CLAUSE-003`), subclause format (`CLAUSE-020`), boundary hygiene (`CLAUSE-021`), and nested ADR records (`CLAUSE-023`, `CLAUSE-025`)."
 - Update `Reference`: remove `T102-STD-009 (Governance Standards Model)` (now absorbed)
 

@@ -17,7 +17,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 source_plan: 'prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST001.md'
 source_session_notes: 'prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC009-SES002.md'
 source_proposal: 'prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md'
-current_target_std: 'prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md'
+current_target_std: 'prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md'
 current_target_sps: 'prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md'
 ---
 
@@ -46,7 +46,7 @@ This analysis provides a second-opinion review of the AC009.1 redesign proposal 
 - Stream plan (AC009.1 scope/gates): `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST001.md`
 
 ### B. Current governing surfaces affected by AC009.1 formalization
-- Current STD-004: `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
+- Current STD-004: `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md`
 - Current STD-009 (to be absorbed): `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-009_governance-standards-specification.md`
 - Current guideline/template: `prompt/templates/consultant/standards/guideline_standard_specs.md`, `prompt/templates/consultant/standards/template_standard_specs.md`
 - Current SPS (STD Index + derivatives): `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
