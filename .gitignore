@@ -44,7 +44,11 @@ raw_*
 
 # Archive folders
 **/archive/
-    
+
+# Allow tracked archive for T102 standards (client-requested retention)
+!artifacts/tasks/T102/consultant/standards/archive/
+!artifacts/tasks/T102/consultant/standards/archive/**
+	    
 #test files
 .pytest_cache/
 

@@ -248,7 +248,7 @@
 
    CLAUSE ordering within a combined standard-specification file MUST satisfy subclauses CLAUSE-019A and CLAUSE-019B.
 
-   - **T102-STD-004-CLAUSE-019A (Sequential numbering)** — `CLAUSE` IDs MUST be sequential within the parent STD in the order they appear across the Specification section (`001`, `002`, `003`, ...). When substandards are used, numbering is continuous across substandard boundaries.
+   - **T102-STD-004-CLAUSE-019A (Sequential numbering)** — `CLAUSE` IDs MUST be sequential within the parent STD in the order they appear across the Specification section (`001`, `002`, `003`, ...). When substandards are used, numbering is continuous across substandard boundaries. When adding a new CLAUSE to an existing substandard, the new CLAUSE MUST be appended after the last existing CLAUSE in that substandard's current block, using the next available global sequential number. Physical mid-substandard insertion that would require renumbering existing CLAUSE-IDs is PROHIBITED except during a governed release migration with a controlled migration plan per CLAUSE-017.
 
    - **T102-STD-004-CLAUSE-019B (Subclause adjacency)** — Subclauses MUST immediately follow their parent clause.
 
@@ -316,7 +316,7 @@
 
    - **T102-STD-004-CLAUSE-025A (Header format)** — Nested ADR header MUST be rendered as: `* **<STD-ID>-ADR-### (<Title>)** {#<anchor>}`.
 
-   - **T102-STD-004-CLAUSE-025B (Required subheadings)** — Nested ADR body MUST include these subheadings: **Context**, **Decision**, **Alternatives Considered**, **Consequences**.
+   - **T102-STD-004-CLAUSE-025B (Required subheadings)** — Nested ADR body MUST include these subheadings: **Context**, **Decision**, **Alternatives**, **Consequences**.
 
    - **T102-STD-004-CLAUSE-025C (Body formatting rules)** — Main bold headings (e.g., `* **Context**`) MUST be preceded by two newlines. Content MUST start on a new line and be indented under the heading with no space in between.
 
@@ -324,7 +324,7 @@
 
    - **T102-STD-004-CLAUSE-025E (Decision requirements)** — Decision MUST state what is adopted/changed and who owns it.
 
-   - **T102-STD-004-CLAUSE-025F (Alternatives Considered requirements)** — Alternatives Considered MUST be a bulleted list of options considered with clear rejection rationales.
+   - **T102-STD-004-CLAUSE-025F (Alternatives requirements)** — Alternatives MUST be a bulleted list of options considered with clear rejection rationales.
 
    - **T102-STD-004-CLAUSE-025G (Consequences requirements)** — Consequences MUST be expressed using `(+)`, `(±)`, and `(-)` prefix bullets.
 
@@ -383,14 +383,19 @@
 
     Industry benchmarking (RES-007) validated the combined-file architecture and fine-grained subclause discipline while identifying boundary hygiene as a critical gap. The STD-004/STD-009 merge decision overrides the RES-007 recommendation to keep them separate, based on the Client's direct experience with agentic LLM drift — a practical concern that the research methodology did not specifically evaluate.
 
+    A subsequent second-opinion review (AC009.1-TK003) identified an additional sequencing concern: the global sequential numbering model creates asymmetric renumbering blast radius when growing non-final substandards — appending any CLAUSE to T102-STD-004A, B, or C would require renumbering all downstream substandards' CLAUSEs. The Client elected to address this by amending CLAUSE-019A with an append-only rule: the lowest-cost fix that prevents mid-substandard insertion as a resequencing trigger, without requiring upfront renumbering or per-substandard range maps. See `proposal_T102-CWD_PH001-ST001-AC009_1_tk003_std-004-clause-019-sequencing-amendment.md`.
+
   * **Decision**
     Merge T102-STD-009 into T102-STD-004 and reorganize the merged content into 4 substandards: T102-STD-004A (Core Structure and Lifecycle), T102-STD-004B (STD Registry and Governance), T102-STD-004C (Specification Authoring), T102-STD-004D (Decision Record Authoring). Full CLAUSE resequencing with 29 CLAUSEs across the 4 substandards. Multiple ADRs in-file with current-first ordering. ADR-001 preserved as superseded for audit trail. STD-009 deprecated in SPS. STD Index `Adopts` column replaced by `Canonical Path` (SES003-DEC002); `Authority STD` column removed from ADR Index (SES003-DEC007). T102-CON-009 simplification queued as INT-006. Decision owner: Client.
 
-  * **Alternatives Considered**
+    CLAUSE-019A subsequently amended (AC009.1-TK003) to add append-only rule: new CLAUSEs MUST be appended after the last CLAUSE in the target substandard's current block using the next available global sequential number; physical mid-substandard insertion is PROHIBITED except during a governed release migration per CLAUSE-017. Decision owner: Client.
+
+  * **Alternatives**
     - Keep STD-004/STD-009 separate with interface contracts (RES-007 recommendation) — rejected by Client due to persistent drift and context loss for agentic LLM. The interface approach requires LLM agents to reliably navigate cross-file boundaries, which has proven unreliable in practice.
     - Keep flat CLAUSE numbering with informative domain headers (Option A from SES002) — rejected in favor of substandards with full resequencing (upfront investment) because domain headers alone do not enforce CLAUSE membership and leave the navigability problem partially unsolved.
     - Allow floating CLAUSEs outside substandards for cross-cutting concerns — rejected per IEEE "General clause" pattern. A dedicated Core substandard (T102-STD-004A) holds cross-cutting CLAUSEs, maintaining the universal rule that every CLAUSE belongs to a substandard.
     - Update ADR in-place with git history for superseded versions — rejected due to git history unreliability (force push, squash, migration), non-navigability by non-technical stakeholders, and Phase 2 ADR extraction planning.
+    - Numeric range reservation per substandard (Option 3, AC009.1-TK003) — evaluated as providing stronger long-term reference stability via isolated growth ranges, but rejected: (a) requires upfront renumbering of 21 current CLAUSEs; (b) requires a per-STD range allocation decision at design time for every ST002 STD, creating overhead at scale. Option 4 (append-only rule) achieves the same anti-insertion guarantee with zero upfront cost and uniform applicability across all STDs.
 
   * **Consequences**
     (+) Single file eliminates STD-004/STD-009 drift; agentic LLM context is consolidated.
@@ -404,6 +409,8 @@
     (+-) STD-005-CLAUSE-005F needs amendment for multiple ADRs in-file (flagged as INT-003 for ST002).
     (-) Full CLAUSE resequencing breaks all existing CLAUSE references (one-time migration cost).
     (-) STD-009 deprecation requires Concept STD Index update and reference propagation (deferred to ST002).
+    (+) CLAUSE-019A append-only amendment prevents resequencing churn from routine substandard growth with zero upfront migration cost.
+    (+-) Non-contiguous CLAUSE-ID sequences will accumulate within substandards over time as they grow (e.g., T102-STD-004B may reference CLAUSE-009–017 and then CLAUSE-030 onward after future additions). Trade-off accepted and documented in AC009.1-TK003.
 
 * **T102-STD-004-ADR-001 (Specification Standard & Guideline)** {#t102-std-004-adr-001-specification-standard-and-guideline}
 
@@ -413,7 +420,7 @@
   * **Decision**
     Adopt the standard-specification combined-file model with `## Specification` first and a nested informative ADR under `## Decision Record`. This file (`T102-STD-004`) is the golden exemplar defining clause structure, linkage patterns, and lifecycle controls for decision-record standards.
 
-  * **Alternatives Considered**
+  * **Alternatives**
     - Keep ADR-first combined structure and external adoption links — rejected due to ongoing dual-surface drift.
     - Split rationale into standalone ADR files for all standards — rejected for Phase 1 due to migration overhead and coordination risk.
 
@@ -438,3 +445,4 @@
 ## Provenance
 
 - `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md`
+- `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_1_tk003_std-004-clause-019-sequencing-amendment.md`
