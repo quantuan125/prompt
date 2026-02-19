@@ -77,7 +77,7 @@ The nested DR is informative rationale and does not replace normative `CLAUSE` a
 ## IV. INDEXING RULES `[per T102-STD-004-CLAUSE-001]`
 
 Concept indexes MUST link to standard-spec files using full repo-relative canonical paths.
-- Example: `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
+- Example: `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md`
 
 ---
 
