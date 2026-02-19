@@ -216,7 +216,7 @@ The AC008 audit identified boundary ambiguities: CLAUSE-014 (Decision Promotion 
 
 ### A. Primary Research Subjects
 
-* `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md` — Primary benchmarking target (17 CLAUSEs; golden exemplar for combined file authoring)
+* `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md` — Primary benchmarking target (17 CLAUSEs; golden exemplar for combined file authoring)
 * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-009_governance-standards-specification.md` — Primary benchmarking target (5 CLAUSEs + subclauses; STD registry semantics); merger evaluation subject
 
 ### B. AC008 Audit & Remediation Baseline

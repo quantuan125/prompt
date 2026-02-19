@@ -130,3 +130,97 @@ def test_apply_skips_non_utf8_reference_files_without_modifying_bytes(tmp_path: 
     )
     assert result.returncode == 0, result.stderr or result.stdout
     assert binary_target.read_bytes() == original_bytes, "non-UTF8 file should be skipped, not rewritten"
+
+
+def test_dry_run_reports_delete_operation_without_mutation(tmp_path: Path) -> None:
+    project_root, prompt_root = _setup_repo(tmp_path)
+    empty_dir = prompt_root / "artifacts/tasks/T104/workspace/PH001/ST007/devnote"
+    empty_dir.mkdir(parents=True, exist_ok=True)
+
+    manifest_path = project_root / "manifest.json"
+    write_manifest(
+        manifest_path,
+        operations=[
+            {
+                "action": "delete",
+                "path": "prompt/artifacts/tasks/T104/workspace/PH001/ST007/devnote",
+            }
+        ],
+    )
+
+    report_path = project_root / "reports/dry-run-delete.md"
+    result = run_script(
+        [
+            "python3",
+            str(MIGRATE_SCRIPT),
+            "--manifest",
+            str(manifest_path),
+            "--project-root",
+            str(project_root),
+            "--dry-run",
+            "--report-path",
+            str(report_path),
+        ]
+    )
+
+    assert result.returncode == 0, result.stderr or result.stdout
+    assert empty_dir.exists(), "dry-run should not remove directories"
+    report = report_path.read_text(encoding="utf-8")
+    assert "DRY RUN delete empty dir: prompt/artifacts/tasks/T104/workspace/PH001/ST007/devnote" in report
+
+
+def test_apply_deletes_empty_directory_and_rejects_non_empty_delete_targets(tmp_path: Path) -> None:
+    project_root, prompt_root = _setup_repo(tmp_path)
+    empty_dir = prompt_root / "artifacts/tasks/T104/workspace/PH001/ST007/devnote"
+    empty_dir.mkdir(parents=True, exist_ok=True)
+    non_empty_dir = prompt_root / "artifacts/tasks/T104/workspace/PH001/ST007/devnote_non_empty"
+    non_empty_dir.mkdir(parents=True, exist_ok=True)
+    (non_empty_dir / "keep.txt").write_text("keep", encoding="utf-8")
+
+    apply_manifest_path = project_root / "manifest-apply.json"
+    write_manifest(
+        apply_manifest_path,
+        operations=[
+            {
+                "action": "delete",
+                "path": "prompt/artifacts/tasks/T104/workspace/PH001/ST007/devnote",
+            }
+        ],
+    )
+    apply_result = run_script(
+        [
+            "python3",
+            str(MIGRATE_SCRIPT),
+            "--manifest",
+            str(apply_manifest_path),
+            "--project-root",
+            str(project_root),
+            "--apply",
+        ]
+    )
+    assert apply_result.returncode == 0, apply_result.stderr or apply_result.stdout
+    assert not empty_dir.exists(), "apply mode should remove empty delete targets"
+
+    fail_manifest_path = project_root / "manifest-fail.json"
+    write_manifest(
+        fail_manifest_path,
+        operations=[
+            {
+                "action": "delete",
+                "path": "prompt/artifacts/tasks/T104/workspace/PH001/ST007/devnote_non_empty",
+            }
+        ],
+    )
+    fail_result = run_script(
+        [
+            "python3",
+            str(MIGRATE_SCRIPT),
+            "--manifest",
+            str(fail_manifest_path),
+            "--project-root",
+            str(project_root),
+            "--dry-run",
+        ]
+    )
+    assert fail_result.returncode != 0, "non-empty delete targets must fail validation"
+    assert "Delete directory is not empty" in (fail_result.stdout + fail_result.stderr)

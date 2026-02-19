@@ -15,7 +15,7 @@ analysis_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/analysis/a
 session_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/notes/PH001/ST001/notes_T102-PH001-ST001-AC009-SES001.md'
 res007_analysis_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-007_standards-authoring-methodology-benchmarking.md'
 target_files:
-  - 'prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md'
+  - 'prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md'
   - 'prompt/templates/consultant/standards/guideline_standard_specs.md'
   - 'prompt/templates/consultant/standards/template_standard_specs.md'
   - 'prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md'

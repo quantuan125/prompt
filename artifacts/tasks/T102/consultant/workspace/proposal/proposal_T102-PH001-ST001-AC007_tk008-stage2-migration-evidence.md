@@ -11,7 +11,7 @@ author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/plan/PH001/ST001/plan_T102-PH001-ST001-AC007.md'
 analysis_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-CONSULTANT_adr-governance-review.md'
-target_document: 'prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md'
+target_document: 'prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md'
 target_section: 'TK008 Stage 2 Global Migration Execution + Verification'
 ---
 

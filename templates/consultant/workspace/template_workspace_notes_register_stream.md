@@ -38,9 +38,9 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 ## III. ACTIVITY NOTES REGISTER
 
-| Activity | Activity ID | Name | Status | Notes File |
-|:--|:--|:--|:--|:--|
-| AC000 | `[INIT]-PH###-ST###-AC000` | [Activity name] | `[planned|in_progress|completed|deferred]` | `[path/to/notes_<INIT>-PH###-ST###-AC###.md OR —]` |
+| Activity | Session ID | Name | Notes File |
+|:--|:--|:--|:--|
+| AC### | `[INIT]-PH###-ST###-AC###-SES###` | [Activity name] | `prompt/artifacts/tasks/[INIT]/workspace/PH###/ST###/notes_[INIT]-PH###-ST###-AC###-SES###.md` |
 
 ---
 

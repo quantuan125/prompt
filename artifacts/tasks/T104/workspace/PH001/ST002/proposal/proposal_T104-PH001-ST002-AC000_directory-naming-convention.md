@@ -122,7 +122,7 @@ prompt/artifacts/tasks/P/
 | Raw transcript | `raw_<SID>-<context>_<date>_p#.{txt,md}` | `raw_T104-CWS_2026-01-31_p2.txt` |
 | Proposal | `proposal_<context>_<topic>.md` | `proposal_T102-CWD_refactor-adr-004-005.md` |
 | Analysis | `analysis_<context>_<topic>.md` | `analysis_T102B_epic-foundation-assessment.md` |
-| Combined STD file | `<S-STD>_<kebab-title>.md` | `standard_T102-STD-004_specification-standard-and-guideline.md` |
+| Combined STD file | `<SID-STD>_<kebab-title>.md` | `standard_T102-STD-004_specification-standard-and-guideline.md` |
 
 ### C. Key Drift Points Identified
 
@@ -154,7 +154,7 @@ prompt/artifacts/tasks/<SID>/
 │   ├── concept_<SID>-<S-CODE>.md
 │   └── roadmap_<SID>-<S-CODE>.md     # Initiative roadmap (governance singleton)
 ├── standard/                        # Combined standard-specification files
-│   └── standard_<S-STD>_<kebab-title>.md
+│   └── standard_<SID-STD>_<kebab-title>.md
 ├── research/                        # Initiative-scoped research (by RES ID)
 │   └── <S-RES>/
 │       ├── brief_<S-RES>_<topic>.md
@@ -215,7 +215,7 @@ All artifact files MUST use a prefix stem matching the artifact type:
 | Raw transcript | `raw_` | `raw_<timeline-UID>-SES###.{txt,md}` |
 | Proposal | `proposal_` | `proposal_<context>_<kebab-topic>.md` |
 | Analysis | `analysis_` | `analysis_<context>_<kebab-topic>.md` |
-| Combined STD | `<S-STD>_` | `<S-STD>_<kebab-title>.md` |
+| Combined STD | `standard_` | `standard_<SID-STD>_<kebab-title>.md` |
 | Communication | `comm_` | `comm_<SID>-<CODE>.md` |
 | Verification | `verification_` | `verification_<activity-UID>_gate-###.md` |
 | Developer Report | `dev-report_` | `dev-report_<activity-UID>_<date>.md` |
@@ -251,7 +251,7 @@ All artifact files MUST use a prefix stem matching the artifact type:
 Per `T102-STD-004-CLAUSE-016`, combined standard-specification files:
 
 - **Directory**: `prompt/artifacts/tasks/<SID>/standard/` (initiative-scoped) or `prompt/artifacts/tasks/P/standard/` (program-scoped).
-- **File name**: `<S-STD>_<kebab-title>.md` (e.g., `T104-STD-001_planning-hierarchy.md`).
+- **File name**: `standard_<SID-STD>_<kebab-title>.md` (e.g., `T104-STD-001_planning-hierarchy.md`).
 - **Internal structure**: Per `T102-STD-004-CLAUSE-016` (Specification → Decision Record → References → Provenance).
 
 **Migration note**: T102's existing `consultant/standards/` directory is grandfathered. New T102 standards MAY be placed in `T102/standard/` if a migration is performed as part of a future restructuring stream.
@@ -383,7 +383,7 @@ A single `archive/` directory at initiative root (and optionally at epic root) m
 │   ├── ssot/
 │   │   └── sps_<SID>-<CODE>_v0.1.0.md
 │   ├── standard/
-│   │   └── standard_<S-STD>_<kebab-title>_v1.0.0.md
+│   │   └── standard_<SID-STD>_<kebab-title>_v1.0.0.md
 │   ├── research/
 │   │   └── <S-RES>/
 │   │       └── report_<S-RES>_<topic>_v1.0.0.md

@@ -189,7 +189,7 @@ The following inventory maps every file and component requiring modification, or
 | Skill | Current Script | Current Anchor | Target STD File | New Anchor |
 |:--|:--|:--|:--|:--|
 | t102-adr-005-id-spec | `print_t102_adr_005.py` | `{#t102-adr-005-id-spec}` | `T102-STD-005_id-specification-rules.md` | `{#t102-std-005-id-spec}` |
-| t102-adr-004-drs-index | `print_t102_adr_004.py` | `{#t102-adr-004-drs-index}` | `T102-STD-004_specification-standard-and-guideline.md` | `{#t102-std-004-drs-index}` |
+| t102-adr-004-drs-index | `print_t102_adr_004.py` | `{#t102-adr-004-drs-index}` | `standard_T102-STD-004_specification-standard-and-guideline.md` | `{#t102-std-004-drs-index}` |
 | t102-adr-007-issues-risks-index | `print_t102_adr_007.py` | `{#t102-adr-007-issues-risks-index}` | `T102-STD-007_issues-risks-index.md` | `{#t102-std-007-issues-risks-index}` |
 
 **Extraction logic changes required**:

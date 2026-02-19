@@ -39,8 +39,15 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 
 ---
 
-## II. ACTIVITY NOTES REGISTER
+## II. STREAM-LEVEL SESSION NOTES REGISTER
 
-| Activity | Activity ID | Name | Status | Notes File |
+| Session | Session ID | Title | Date | Notes File |
 |:--|:--|:--|:--|:--|
-| AC000 | `[INIT]-PH###-ST###-AC000` | [Activity name] | `[planned|in_progress|completed|deferred]` | `prompt/artifacts/tasks/[INIT]/workspace/notes/PH###/ST###/notes_[INIT]-PH###-ST###-AC000.md` |
+
+---
+
+## III. ACTIVITY NOTES REGISTER
+
+| Activity | Session ID | Name | Status | Notes File |
+|:--|:--|:--|:--|:--|
+| AC### | `[INIT]-PH###-ST###-AC###-SES###` | [Activity name] | `[planned|in_progress|completed|deferred]` | `prompt/artifacts/tasks/[INIT]/workspace/PH###/ST###/notes_[INIT]-PH###-ST###-AC###-SES###.md` |

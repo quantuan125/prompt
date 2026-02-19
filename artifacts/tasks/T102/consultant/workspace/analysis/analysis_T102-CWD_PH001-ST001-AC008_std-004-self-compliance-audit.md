@@ -79,7 +79,7 @@ This addendum integrates `T102-RES-007` (Standards Authoring Methodology Benchma
 
 ### A. Inputs (audited artifacts)
 1) Standard under audit:
-   - `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-004_specification-standard-and-guideline.md`
+   - `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md`
 2) Derivatives governed by CLAUSE-017:
    - `prompt/templates/consultant/standards/guideline_standard_specs.md`
    - `prompt/templates/consultant/standards/template_standard_specs.md`
