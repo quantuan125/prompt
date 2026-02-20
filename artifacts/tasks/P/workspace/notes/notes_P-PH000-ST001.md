@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream: 'ST001'
-version: '1.0.0'
-date: '2026-02-18'
+version: '1.1.0'
+date: '2026-02-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -39,6 +39,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Activity | Activity ID | Name | Status | Notes File |
 |:--|:--|:--|:--|:--|
+| AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` (Program Governance Standard) | `in_progress` | SES001: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES001.md` |
 | AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `in_progress` | SES001: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC004-SES001.md` |
 
 ---
@@ -56,4 +57,5 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-02-20 | Initial | AC002 transitioned to in_progress; indexed AC002-SES001 (Full Promotion of T102-STD-004 to P-STD-001) |
 | v1.0.0 | 2026-02-18 | Initial | Stream notes register created; AC004 transitioned to `in_progress`; indexed AC004-SES001 (verification_ artifact type consultation) |

@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.2'
-date: '2026-02-19'
+version: '0.1.3'
+date: '2026-02-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -36,7 +36,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 | Activity | Activity ID | Name | Status | Owner | Depends On | Deliverable | Reference |
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | AC001 | `P-PH000-ST001-AC001` | Amend ID governance to allow `P-RES-###` | `planned` | LLM_Consultant | — | Planned T102 change (RES token Allowed Scope) | `T102-STD-005` |
-| AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` + `P-ADR-001` (Program Governance Standard) | `planned` | LLM_Consultant | AC001 | Planned standard + paired ADR | `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC002.md` |
+| AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` (Full Promotion from T102-STD-004) | `in_progress` | LLM_Consultant | AC001 | `standard_P-STD-001_program-governance-standard.md` | `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC002.md` |
 | AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` + `P-ADR-002` (Program Status Standard) | `planned` | LLM_Consultant | AC001 | Planned standard + paired ADR | Program SSOT |
 | AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `planned` | LLM_Consultant | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` | `T102-STD-004-CLAUSE-001A`, `T102-STD-004-CLAUSE-025`, `T102-STD-005-CLAUSE-004`, `T104-PH001-ST002-AC000` (proposal v3.1.0) |
 | AC005 | `P-PH000-ST001-AC005` | Align `P/standard/` naming to `standard_<STD-ID>_...` | `planned` | LLM_Developer | AC004 | Renamed `standard_P-STD-003_governance-standards-and-dr-index.md` + updated references | `P-STD-004` Convention 1 + `P` conformance |
@@ -65,24 +65,25 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 | `P-PH000-ST001-AC001-TK002` | Update `RES` Allowed Scope to include `P` | `planned` | — |
 | `P-PH000-ST001-AC001-TK003` | Validate references and patterns remain consistent after the change | `planned` | — |
 
-#### Activity AC002: Author `P-STD-001` + `P-ADR-001` (Program Governance Standard)
+#### Activity AC002: Author `P-STD-001` (Full Promotion from T102-STD-004)
 
 **Activity ID**: `P-PH000-ST001-AC002`
 
-**Purpose**: Define the canonical workspace folder/directory/naming standard for `prompt/artifacts/tasks/**` (including raw + SSOT + workspace artifacts).
+**Purpose**: Establish `P-STD-001` as the program-authoritative standard by performing a full content promotion of `T102-STD-004` (Specification Standard & Guideline).
 
 **Deliverable (contract stub)**:
 - Activity plan (SSOT task register): `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC002.md`
-- Planned standard: `P-STD-001` (body authored in this activity; not in this changeset)
+- Promoted standard: `standard_P-STD-001_program-governance-standard.md`
 
 **Scope**:
-- In scope: promotion contract + `P-STD-001` authoring plan + reroute program-level surfaces out of `T102-PH001-ST001-AC010`.
+- In scope: promotion contract + `P-STD-001` full content transfer (29 CLAUSEs + CLAUSE-030) + T102-STD-004 supersession + reroute program-level surfaces out of `T102-PH001-ST001-AC010`.
 - Out of scope: repo-wide sweeps and bulk retrofit work across all initiatives.
 
 **Activity Plan**: `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC002.md`
 
 **Success Criteria Checklist (summary)**:
-- [ ] Promotion contract is decision-complete and recorded under `P-STD-001`
+- [ ] P-STD-001 authored via full content transfer with 1:1 CLAUSE re-identification
+- [ ] T102-STD-004 marked superseded with alias window
 - [ ] Program-level guideline/template ownership is not executed under a `T102` plan (split recorded)
 - [ ] Navigation pointers resolve (P stream plan + P SPS)
 
@@ -180,6 +181,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.3 | 2026-02-20 | Amendment | AC002 transitioned to `in_progress`; rebranded to Full Promotion methodology; updated deliverable and scope to match amended activity plan |
 | v0.1.0 | 2026-02-05 | Initial | Stream ST001 plan created to enable `P-RES` via T102 governance change and to plan `P-STD-001` / `P-STD-002` authoring |
 | v0.1.1 | 2026-02-18 | Amendment | AC004 updated per Client QA: corrected governing `T102-STD-004` clause references, pinned proposal seed to v3.1.0, codified `standard_<STD-ID>_...` naming, added cross-initiative validation requirement, and recorded permanent grandfathering posture for legacy T102 `consultant/standards/` artifacts |
 | v0.1.2 | 2026-02-19 | Amendment | Linked AC002 to a dedicated activity plan to promote `T102-STD-004` authoring model into `P-STD-001` and record the T102 AC010 split boundary |

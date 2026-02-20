@@ -4,12 +4,10 @@
 
 **Key rule**: Notes are **session-scoped**. Phase/Stream/Activity "notes" files act as **registers** (indexes). Detailed records live in **one file per Session**.
 
-**Register vs Notes file naming**:
-- All files in this system use the `notes_` prefix.
-- The role is differentiated by the tokens and the document title:
-  - Register files include `PH###`, optionally `ST###`, optionally `AC###`, and MUST use a title containing `NOTES REGISTER`.
-  - Session notes files include `-SES###` and MUST use a title containing `SESSION NOTES`.
-- Future ideal (deferred): consider introducing a separate filename prefix for register files (e.g., `register_...`) in a later phase to make intent obvious at a glance.
+**Register vs Session Notes file naming**:
+- **Register/index files** use the `notes_` prefix. These are navigation surfaces that index sessions; they MUST NOT embed session bodies. Register UIDs include scope tokens (`PH###`, `ST###`, `AC###`) but NEVER include `SES###`. Title MUST contain `NOTES REGISTER`.
+- **Session notes files** use the `snotes_` prefix (per `T104-PH001-ST007-AC001-SES005-DEC003`). These are standalone session records. Session UIDs ALWAYS include `-SES###`. Title MUST contain `SESSION NOTES`.
+- The `notes_` vs `snotes_` prefix split makes intent obvious at a glance: `notes_` = register/index, `snotes_` = session record. Initial rollout scope is T104 only; cross-initiative adoption is deferred to a program-level `P-STD-004` migration activity (per `T104-PH001-ST007-AC001-SES005-DEC004`).
 
 ---
 
@@ -19,6 +17,7 @@
 A Phase Notes Register is the navigation surface for a phase.
 
 - **File name**: `notes_<INIT>-PH###.md` (e.g., `notes_T104-PH001.md`)
+- **Location**: `prompt/artifacts/tasks/<INIT>/workspace/PH###/`
 - **Role**: index-only. It MUST NOT embed session bodies.
 - **Minimum sections**:
   1) Purpose
@@ -31,6 +30,7 @@ A Phase Notes Register is the navigation surface for a phase.
 A Stream Notes Register is the navigation surface for a stream.
 
 - **File name**: `notes_<INIT>-PH###-ST###.md` (e.g., `notes_T104-PH001-ST001.md`)
+- **Location**: `prompt/artifacts/tasks/<INIT>/workspace/PH###/ST###/`
 - **Role**: index-only. It MUST NOT embed session bodies.
 - **Minimum sections**:
   1) Stream Summary
@@ -43,8 +43,9 @@ A Stream Notes Register is the navigation surface for a stream.
 An Activity Notes Register is the navigation surface for a single plan Activity.
 
 - **File name**: `notes_<INIT>-PH###-ST###-AC###.md` (e.g., `notes_T104-PH001-ST001-AC002.md`)
-- **Location**: `prompt/artifacts/tasks/<INIT>/workspace/notes/PH###/ST###/`
+- **Location**: `prompt/artifacts/tasks/<INIT>/workspace/PH###/ST###/AC###/`
 - **Role**: index-only. It MUST NOT embed session bodies.
+- **Optional**: The Stream Notes Register (§1.2) already provides activity-level session indexing via its Activity Notes Register table. A standalone Activity Notes Register file is only needed when an activity has numerous sessions that warrant a dedicated index. Most activities are adequately served by the stream-level register alone.
 - **Minimum sections**:
   1) Activity Summary
   2) Activity-Level Session Notes Register (table)
@@ -54,8 +55,8 @@ An Activity Notes Register is the navigation surface for a single plan Activity.
 ### 1.4 Phase Session Notes (Sessions)
 Phase-level sessions capture meta-discussions that span multiple streams within a phase (e.g., authoring rule changes, phase readiness, cross-stream coordination). These sessions do not belong to any single Stream or Activity.
 
-- **File name**: `notes_<INIT>-PH###-SES###.md` (e.g., `notes_T104-PH001-SES001.md`)
-- **Location**: `prompt/artifacts/tasks/<INIT>/workspace/notes/PH###/`
+- **File name**: `snotes_<INIT>-PH###-SES###.md` (e.g., `snotes_T104-PH001-SES001.md`)
+- **Location**: `prompt/artifacts/tasks/<INIT>/workspace/PH###/snotes/`
 - **ID prefix**: `<INIT>-PH###-SES###` (phase-scoped).
   - Example: `T104-PH001-SES001-DP001`, `T104-PH001-SES001-DEC001`
 - **Constraint**: Phase-level sessions MUST NOT duplicate Stream-level or Activity-level decisions. They capture cross-stream coordination, meta-analysis, and phase-scoped planning only.
@@ -63,8 +64,8 @@ Phase-level sessions capture meta-discussions that span multiple streams within 
 ### 1.5 Stream Session Notes (Sessions)
 Stream-level sessions capture meta-discussions that span multiple activities within a stream (e.g., readiness assessments, cross-activity dependency analysis, pre-execution planning). These sessions do not belong to any single Activity.
 
-- **File name**: `notes_<INIT>-PH###-ST###-SES###.md` (e.g., `notes_T104-PH001-ST002-SES001.md`)
-- **Location**: `prompt/artifacts/tasks/<INIT>/workspace/notes/PH###/ST###/`
+- **File name**: `snotes_<INIT>-PH###-ST###-SES###.md` (e.g., `snotes_T104-PH001-ST002-SES001.md`)
+- **Location**: `prompt/artifacts/tasks/<INIT>/workspace/PH###/ST###/snotes/`
 - **ID prefix**: `<INIT>-PH###-ST###-SES###` (stream-scoped).
   - Example: `T104-PH001-ST002-SES001-DP001`, `T104-PH001-ST002-SES001-DEC001`
 - **Constraint**: Stream-level sessions MUST NOT duplicate Activity-level decisions. They capture cross-activity coordination, meta-analysis, and stream-scoped planning only.
@@ -72,8 +73,8 @@ Stream-level sessions capture meta-discussions that span multiple activities wit
 ### 1.6 Activity Session Notes (Sessions)
 Activity-level sessions capture work that belongs to a single Activity, but must be split across multiple meetings/sessions to prevent context rot.
 
-- **File name**: `notes_<INIT>-PH###-ST###-AC###-SES###.md` (e.g., `notes_T104-PH001-ST001-AC002-SES001.md`)
-- **Location**: `prompt/artifacts/tasks/<INIT>/workspace/notes/PH###/ST###/`
+- **File name**: `snotes_<INIT>-PH###-ST###-AC###-SES###.md` (e.g., `snotes_T104-PH001-ST001-AC002-SES001.md`)
+- **Location**: `prompt/artifacts/tasks/<INIT>/workspace/PH###/ST###/AC###/snotes/`
 - **ID prefix**: `<INIT>-PH###-ST###-AC###-SES###` (activity-scoped).
   - Example: `T104-PH001-ST001-AC002-SES001-DP001`, `T104-PH001-ST001-AC002-SES001-DEC001`
 
@@ -262,3 +263,4 @@ The following templates are available for NOTES artifacts. Authors MUST use the 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-02-11 | Update | Added NOTES Template Inventory; registered per-type templates and deprecated legacy single NOTES template |
+| v1.1.0 | 2026-02-20 | Amendment | Updated for `snotes_` prefix convention: (1) prefix description rewritten — `notes_` for registers, `snotes_` for session notes; (2) "Future ideal (deferred)" note removed — prefix split now implemented; (3) §1.1–1.2 locations added; (4) §1.3 Activity Notes Register location updated from type-first to timeline path (`AC###/`), marked as optional; (5) §1.4–1.6 session notes file names updated to `snotes_` prefix, locations updated to `snotes/` type subdirectory within timeline hierarchy. Source: `T104-PH001-ST007-AC001-SES006-DEC004`. |

@@ -5,8 +5,8 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST007'
-version: '1.5.0'
-date: '2026-02-19'
+version: '1.6.0'
+date: '2026-02-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -44,6 +44,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC001 | `T104-PH001-ST007-AC001-SES003` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/notes_T104-PH001-ST007-AC001-SES003.md` |
 | AC001 | `T104-PH001-ST007-AC001-SES004` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/notes_T104-PH001-ST007-AC001-SES004.md` |
 | AC001 | `T104-PH001-ST007-AC001-SES005` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/notes_T104-PH001-ST007-AC001-SES005.md` |
+| AC001 | `T104-PH001-ST007-AC001-SES006` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES006.md` |
 
 ---
 
@@ -68,3 +69,4 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | v1.3.0 | 2026-02-19 | Update | Registered AC001-SES004 (Post-Execution Gap Review & AC001.3 Planning); linked SES004 notes file to AC001 register row |
 | v1.4.0 | 2026-02-19 | Update | Added AC001.3 standalone activity plan link to Links (PRIMARY) section |
 | v1.5.0 | 2026-02-19 | Update | Registered AC001-SES005 (GATE-002 Verification & Convention Amendment Commission: AC001.4); linked SES005 notes file to AC001 register row |
+| v1.6.0 | 2026-02-20 | Update | Registered AC001-SES006 (AC001.4 Readiness Review & Convention Amendment); first session notes file using `snotes_` prefix and `snotes/` directory placement |

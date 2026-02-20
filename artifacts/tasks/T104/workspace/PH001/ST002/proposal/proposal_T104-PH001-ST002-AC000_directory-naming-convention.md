@@ -3,15 +3,17 @@ artifact_type: 'PROPOSAL'
 initiative_id: 'T104'
 initiative_code: 'CWS'
 activity_id: 'T104-PH001-ST002-AC000'
-version: '3.2.0'
-date: '2026-02-19'
+version: '3.3.0'
+date: '2026-02-20'
 status: 'approved'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH001-ST002.md'
 analysis_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/analysis/analysis_T104-PH001-ST002-AC000_directory-structure-comparison.md'
 external_review_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/analysis/analysis_T104-PH001-ST002-AC000_external-review.md'
-session_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/notes_T104-PH001-ST002-SES002.md'
+session_reference:
+  - 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/notes_T104-PH001-ST002-SES002.md'
+  - 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES006.md'
 target_standards:
   - 'P-STD-004 (File Naming & Directory Convention)'
   - 'P-STD-005 (Universal ID Specification)'
@@ -172,12 +174,12 @@ prompt/artifacts/tasks/<SID>/
 │   │   │   ├── proposal/            # Stream-scoped proposals (if any)
 │   │   │   ├── analysis/            # Stream-scoped analyses (if any)
 │   │   │   ├── communication/       # Stream-scoped communications (if any)
-│   │   │   ├── verification/        # Gate review records (if any)
-│   │   │   ├── dev-report/          # Developer implementation reports (if any)
 │   │   │   └── AC###/               # Activity directory (UID-scope trigger rule)
-│   │   │       ├── notes_...-AC###.md  # Activity notes register/index (no SES token)
+│   │   │       ├── plan_...-AC###[.N].md # Standalone activity/sub-activity plans (DEC006)
 │   │   │       ├── snotes/           # Activity-scoped session notes (if any)
-│   │   │       └── raw/              # Activity-scoped raw transcripts
+│   │   │       ├── raw/              # Activity-scoped raw transcripts
+│   │   │       ├── verification/     # Activity gate records (if applicable)
+│   │   │       └── dev-report/       # Activity developer reports (if applicable)
 │   │   └── ...
 │   └── PH###/
 │       └── ...
@@ -274,28 +276,29 @@ workspace/
 │       ├── proposal/                 # Stream proposals (if any)
 │       ├── analysis/                 # Stream analyses (if any)
 │       ├── communication/            # Stream communications (if any)
-│       ├── verification/             # Gate review records (if any)
-│       ├── dev-report/               # Developer implementation reports (if any)
 │       └── AC###/                    # Activity level (UID-scope trigger rule)
-│           ├── notes_...-AC###.md    # Activity notes register/index (no SES token)
+│           ├── plan_...-AC###[.N].md # Standalone activity/sub-activity plans (DEC006)
 │           ├── snotes/               # Activity-scoped session notes (if any)
-│           └── raw/                  # Activity raw transcripts
+│           ├── raw/                  # Activity raw transcripts
+│           ├── verification/         # Activity gate records (if applicable)
+│           └── dev-report/           # Activity developer reports (if applicable)
 ```
 
 **Rules**:
 - **Phase-level files** (plan, notes register) live directly inside `PH###/`.
 - **Stream-level files** (plan, notes register) live inside `PH###/ST###/`.
 - **Activity-level files** (notes) live inside `PH###/ST###/AC###/`.
-- **Type subdirectories** (`raw/`, `snotes/`, `proposal/`, `analysis/`, `communication/`, `verification/`, `dev-report/`) are created on-demand within the stream directory. Not all streams require all subdirectories.
+- **Stream-level type subdirectories** (`raw/`, `snotes/`, `proposal/`, `analysis/`, `communication/`) are created on-demand within the stream directory. Not all streams require all subdirectories.
+- **Activity-level type subdirectories** (`snotes/`, `raw/`, `verification/`, `dev-report/`) are created on-demand within the `AC###/` directory. `verification/` and `dev-report/` are placed at activity level because GATEs and developer reports are activity-scoped (per `guideline_workspace_plan.md §VI.B`).
 - **AC/ directory trigger (UID-scope; replaces 2+ file threshold)** (per `T104-PH001-ST007-AC001-SES005-DEC002`): An `AC###/` subdirectory SHALL be created when any associated file’s UID contains an `AC###` token. The file-count threshold heuristic (formerly 2+) is retired; UID identity is the sole trigger.
 - **Sub-activity plan placement rule** (per `T104-PH001-ST007-AC001-SES005-DEC006`): Sub-activity plans with dot-notation IDs (`AC###.N`) are versioned iterations of the parent activity plan and SHALL be placed inside the parent `AC###/` directory (e.g., `plan_T104-PH001-ST007-AC001.2.md` → `PH001/ST007/AC001/plan_T104-PH001-ST007-AC001.2.md`).
 - **Session notes placement rule** (per `T104-PH001-ST007-AC001-SES005-DEC005`):
   - Phase-scoped session notes (`snotes_...` without `ST###`) → `PH###/snotes/`
   - Stream-scoped session notes (`snotes_...` with `ST###` and no `AC###`) → `ST###/snotes/`
   - Activity-scoped session notes (`snotes_...` with `AC###`) → `ST###/AC###/snotes/`
-- **`verification/` subdirectory**: Created on-demand within the stream directory when one or more gate-type verification files exist for activities in that stream. Verification files are produced post-completion at gate checkpoints (see Convention 2 `verification_` scope rule).
-- **`dev-report/` subdirectory**: Created on-demand within the stream directory when developer implementation report files exist. Detailed placement rules deferred to later phases.
-  - **Validator note (tooling conformance)**: `prompt/scripts/validate_initiative_structure.py` MUST recognise `dev-report/`, `verification/`, and `snotes/` as valid stream-level type subdirectories, and `snotes_` as a valid prefix. This is a tooling conformance requirement; the convention already permits these directories/prefixes.
+- **`verification/` subdirectory**: Created on-demand within the `AC###/` activity directory when gate-type verification files are produced for that activity. GATEs are activity-scoped per `guideline_workspace_plan.md §VI.B`; verification evidence is co-located with the activity it governs. Verification files are produced post-completion at gate checkpoints (see Convention 2 `verification_` scope rule).
+- **`dev-report/` subdirectory**: Created on-demand within the `AC###/` activity directory when developer implementation reports are produced. Developer reports are authored at activity completion; co-location with the activity preserves context locality. Detailed authoring rules deferred to later phases.
+  - **Validator note (tooling conformance)**: `prompt/scripts/validate_initiative_structure.py` MUST recognise `snotes/` as a valid type subdirectory at both stream and activity levels, `verification/` and `dev-report/` as valid activity-level type subdirectories, and `snotes_`, `verification_`, and `dev-report_` as valid file prefixes. This is a tooling conformance requirement; the convention already permits these directories/prefixes.
 
 ### Convention 5: Stream 0 Naming & ID Scoping
 
@@ -552,6 +555,8 @@ This proposal requests Client approval on the following:
 | DR-19 | Sub-activity plan placement rule formalized (SES005-DEC006) | **Approved** | `T104-PH001-ST007-AC001-SES005` |
 | DR-20 | `snotes_` prefix for session notes; supersedes `T104-PH001-SES001-DEC003` (SES005-DEC003) | **Approved** | `T104-PH001-ST007-AC001-SES005` |
 | DR-21 | `snotes/` type subdirectory added at phase/stream/activity level (SES005-DEC005) | **Approved** | `T104-PH001-ST007-AC001-SES005` |
+| DR-22 | `verification/` and `dev-report/` moved from stream-level to activity-level type subdirectories in Convention 4 (SES006-DEC002, SES006-DEC003) | **Approved** | `T104-PH001-ST007-AC001-SES006` |
+| DR-23 | `notes_...-AC###.md` removed from Convention 4 AC###/ tree; Activity Notes Register placement governed by notes guideline (SES006-DEC001) | **Approved** | `T104-PH001-ST007-AC001-SES006` |
 
 ---
 
@@ -587,3 +592,4 @@ This proposal requests Client approval on the following:
 | v3.0.0 | 2026-02-11 | Major | Finalized based on external review assessment + Client QA (SES002). Key changes: (1) roadmap moved from workspace root to ssot/ per DA-004 revision (SES002-DEC001); (2) raw naming tightened to raw_<timeline-UID>-SES###.{txt,md} (SES002-DEC002); (3) handoff_brief_ replaced with comm_ prefix (SES002-DEC003); (4) epic SPS/Concept made optional with trigger TBD (SES002-DEC004); (5) AC/ directory threshold of 2+ files added (SES002-DEC005); (6) analysis_ vs report_ boundary clarified; (7) risks section added (T104-RISK-006/007, P-RISK-001/002); (8) T104-ISSUE-008 registered for roadmap placement deferral to T104A; (9) all DRs approved |
 | v3.1.0 | 2026-02-18 | Amendment | Registered two new artifact types at Convention 2: (1) `verification_` (gate-type quality record, post-completion, gate-only scope, `verification_<activity-UID>_gate-###.md` pattern, `verification/` stream-level type subdirectory); (2) `dev-report_` (developer implementation report, high/surface-level only, detailed design deferred, `dev-report_<activity-UID>_<date>.md` pattern, `dev-report/` stream-level type subdirectory). Added informative role-to-artifact ownership table (deferred to T101). Added `guideline_workspace_verification.md` as planned companion deliverable. Added DR-16 (verification_) and DR-17 (dev-report_). Source: P-PH000-ST001-AC004-SES001 consultation. |
 | v3.2.0 | 2026-02-19 | Amendment | Five amendments from SES005 GATE-002 QA: (1) DR-15 replaced with UID-scope trigger; (2) sub-activity plan placement rule added; (3) `snotes_` prefix introduced for session notes (supersedes `T104-PH001-SES001-DEC003`); (4) `snotes/` type subdir added at phase/stream/activity level; (5) validator conformance requirements documented for `dev-report/` + `verification/` + `snotes/` and `snotes_`. DRs DR-18 through DR-21 added. DR-16 and DR-17 confirmed `Approved`. Source: `T104-PH001-ST007-AC001-SES005` (2026-02-19). |
+| v3.3.0 | 2026-02-20 | Amendment | Three amendments from SES006 AC001.4 readiness review: (1) `notes_...-AC###.md` removed from Convention 4 AC###/ tree — Activity Notes Register is optional and governed by notes guideline (DR-23); (2) `verification/` and `dev-report/` moved from stream-level to activity-level type subdirectories in Convention 4 (DR-22) — GATEs are activity-scoped per `guideline_workspace_plan.md §VI.B`; (3) Convention 4 stream-level type dir list narrowed to `raw/`, `snotes/`, `proposal/`, `analysis/`, `communication/`; activity-level list added as `snotes/`, `raw/`, `verification/`, `dev-report/`; validator note updated. `plan_...-AC###[.N].md` added to AC###/ tree for sub-activity plan visibility. Source: `snotes_T104-PH001-ST007-AC001-SES006.md` (2026-02-20). |
