@@ -9,7 +9,7 @@ status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 source_communication: 'prompt/artifacts/tasks/T103/workspace/communication/comm_T102-RES-006_skills-retargeting-integration.md'
-source_proposal: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md'
+source_proposal: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md'
 ---
 
 # Analysis: T103-PH000 Standards Retargeting Assessment
@@ -345,7 +345,7 @@ Per the T102 communication's recommended approach:
 - `prompt/artifacts/tasks/T103/workspace/communication/comm_T102-RES-006_skills-retargeting-integration.md` (T102 integration communication)
 - `prompt/artifacts/tasks/T103/workspace/plan/plan_T103_adr-skills-system.md` (T103 main plan, Phases 0-2)
 - `prompt/artifacts/tasks/T103/workspace/plan/plan_T103A1-ADRSS_phase3.md` (T103 Phase 3 plan)
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 input)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 input)
 - `prompt/artifacts/tasks/T102/consultant/standards/` (T102 canonical standards files)
 - `prompt/scripts/skills/` (T103 shared infrastructure scripts)
 - `prompt/skills/` (T103 skills SSOT directory)

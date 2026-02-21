@@ -9,10 +9,10 @@ status: 'approved'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH001-ST002.md'
-analysis_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/analysis/analysis_T104-PH001-ST002-AC000_directory-structure-comparison.md'
-external_review_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/analysis/analysis_T104-PH001-ST002-AC000_external-review.md'
+analysis_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/analysis/analysis_T104-PH001-ST002-AC000_directory-structure-comparison.md'
+external_review_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/analysis/analysis_T104-PH001-ST002-AC000_external-review.md'
 session_reference:
-  - 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/notes_T104-PH001-ST002-SES002.md'
+  - 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/snotes/snotes_T104-PH001-ST002-SES002.md'
   - 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES006.md'
 target_standards:
   - 'P-STD-004 (File Naming & Directory Convention)'
@@ -572,11 +572,11 @@ This proposal requests Client approval on the following:
 ## XI. PROVENANCE
 
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH001-ST002.md` (AC000 activity definition)
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/notes_T104-PH001-ST002-SES001.md` (readiness session)
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/notes_T104-PH001-ST002-SES002.md` (SES002: external review assessment + decision finalization)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/snotes/snotes_T104-PH001-ST002-SES001.md` (readiness session)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/snotes/snotes_T104-PH001-ST002-SES002.md` (SES002: external review assessment + decision finalization)
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/raw/raw_T104-PH001-ST002-AC000-SES002.txt` (SES002 raw transcript)
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/analysis/analysis_T104-PH001-ST002-AC000_external-review.md` (external consultant review)
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/analysis/analysis_T104-PH001-ST002-AC000_directory-structure-comparison.md` (comparative analysis)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/analysis/analysis_T104-PH001-ST002-AC000_external-review.md` (external consultant review)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/analysis/analysis_T104-PH001-ST002-AC000_directory-structure-comparison.md` (comparative analysis)
 - `prompt/artifacts/tasks/T102/consultant/standards/` (T102 STD naming exemplars)
 - `prompt/artifacts/tasks/P/standard/` (P-level STD directory exemplar)
 - `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` (P-STD-004/005 registration target)

@@ -32,7 +32,7 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 
 | Session | Session ID | Title | Date | Notes File |
 |:--|:--|:--|:--|:--|
-| SES001 | `T104-PH001-ST005-SES001` | Implementation Readiness Assessment & Plan Amendment | 2026-02-11 | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/notes_T104-PH001-ST005-SES001.md` |
+| SES001 | `T104-PH001-ST005-SES001` | Implementation Readiness Assessment & Plan Amendment | 2026-02-11 | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/snotes/snotes_T104-PH001-ST005-SES001.md` |
 
 ---
 

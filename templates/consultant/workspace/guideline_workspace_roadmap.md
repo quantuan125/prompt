@@ -142,7 +142,7 @@ Two shapes are defined (per §II.C):
 ### C. Directory & Naming Conventions
 
 - Roadmap files follow the naming and placement rules defined in:
-  `prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
+  `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
 
 ---
 

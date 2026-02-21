@@ -162,7 +162,7 @@ This mismatch is documented as out-of-scope for AC001.4 and does not affect Gate
 The following is an explicit handoff to the implementer of TK005:
 
 1. A new Gate-001 verification artifact has been created at:
-   - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/verification/verification_T104_PH001-ST007-AC001.4_gate-001_dry-run-approval.md`
+   - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/verification/verification_T104_PH001-ST007-AC001.4_gate-001_dry-run-approval.md`
 2. The AC001.4 delta manifest includes a move + matching 1:1 rewrite to relocate that file into:
    - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/verification/verification_T104_PH001-ST007-AC001.4_gate-001_dry-run-approval.md`
 3. Ensure you run TK005 using the updated manifest at:

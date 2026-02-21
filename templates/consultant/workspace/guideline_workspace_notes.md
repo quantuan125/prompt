@@ -247,7 +247,7 @@ The following templates are available for NOTES artifacts. Authors MUST use the 
 ### Directory & Naming Conventions
 
 - All notes files follow the naming and directory placement rules defined in:
-  `prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
+  `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
 - See also §1 (Artifact Types) and §2 (ID Syntax Standards) for naming patterns.
 
 ### Merge Assessment (Draft 1 Recommendation)

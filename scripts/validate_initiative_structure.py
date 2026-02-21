@@ -20,7 +20,7 @@ RESEARCH_DIR_PATTERN = re.compile(r"^[A-Z0-9-]+-RES-\d{3}$")
 TYPE_FIRST_WORKSPACE_DIRS = {"plan", "notes", "roadmap", "analysis", "proposal", "external"}
 WORKSPACE_ALLOWED_NON_PHASE_DIRS = {"_unresolved", "verification"}
 STREAM_TYPE_DIRS = {"raw", "proposal", "analysis", "communication", "snotes"}
-ACTIVITY_TYPE_DIRS = {"raw", "snotes", "verification", "dev-report"}
+ACTIVITY_TYPE_DIRS = {"raw", "snotes", "verification", "dev-report", "analysis", "proposal"}
 ALLOWED_PREFIXES = (
     "analysis_",
     "plan_",

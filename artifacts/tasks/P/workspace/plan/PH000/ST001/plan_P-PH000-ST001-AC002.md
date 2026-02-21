@@ -209,7 +209,10 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md'
 | Reference | Session Notes (SES001) | `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES001.md` |
 | Reference | T102-STD-004 (source standard) | `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md` |
 | Reference | T102-STD-005 (ID specification / promotion rules) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
-| Reference | T104 Directory Convention (DEC006 source) | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` |
+| Reference | T104 Directory Convention (DEC006 source) | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` |
+| Reference | Proposal (promotion contract) | `prompt/artifacts/tasks/P/workspace/proposal/proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md` |
+| Reference | Session Notes (SES002) | `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES002.md` |
+| Reference | Implementation Plan (SES001, historical) | `.claude/plans/plan_P-PH000-ST001-AC002-SES001_full-promotion-t102-std-004.md` |
 
 ---
 

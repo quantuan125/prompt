@@ -35,8 +35,8 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 
 | Session | Session ID | Title | Date | Notes File |
 |:--|:--|:--|:--|:--|
-| SES001 | `T104-PH001-ST002-SES001` | Readiness Assessment & P-STD-004/005 Scoping | 2026-02-10 | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/notes_T104-PH001-ST002-SES001.md` |
-| SES002 | `T104-PH001-ST002-SES002` | External Review Assessment & AC000 Decision Finalization | 2026-02-11 | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/notes_T104-PH001-ST002-SES002.md` |
+| SES001 | `T104-PH001-ST002-SES001` | Readiness Assessment & P-STD-004/005 Scoping | 2026-02-10 | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/snotes/snotes_T104-PH001-ST002-SES001.md` |
+| SES002 | `T104-PH001-ST002-SES002` | External Review Assessment & AC000 Decision Finalization | 2026-02-11 | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/snotes/snotes_T104-PH001-ST002-SES002.md` |
 
 ---
 
@@ -58,7 +58,7 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 - Concept (target): `prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md`
 - Raw source (SES001): `prompt/artifacts/tasks/T104/workspace/PH001/ST002/raw/raw_T104-PH001-ST002-SES001.txt`
 - Raw source (SES002): `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/raw/raw_T104-PH001-ST002-AC000-SES002.txt`
-- External review: `prompt/artifacts/tasks/T104/workspace/PH001/ST002/analysis/analysis_T104-PH001-ST002-AC000_external-review.md`
+- External review: `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/analysis/analysis_T104-PH001-ST002-AC000_external-review.md`
 
 ---
 

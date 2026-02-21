@@ -24,7 +24,7 @@ Provide a phase-level index that mirrors the Phase 1 plan and points to each Str
 
 | Session | Session ID | Title | Date | Notes File |
 |:--|:--|:--|:--|:--|
-| SES001 | `T104-PH001-SES001` | Notes Architecture: Registers + Per-Session Notes | 2026-02-11 | `prompt/artifacts/tasks/T104/workspace/PH001/notes_T104-PH001-SES001.md` |
+| SES001 | `T104-PH001-SES001` | Notes Architecture: Registers + Per-Session Notes | 2026-02-11 | `prompt/artifacts/tasks/T104/workspace/PH001/snotes/snotes_T104-PH001-SES001.md` |
 
 ---
 

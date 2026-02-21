@@ -125,6 +125,24 @@ def test_allows_snotes_and_activity_report_directories(tmp_path: Path) -> None:
     assert code == 0, output
 
 
+def test_allows_activity_analysis_and_proposal_directories(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    (initiative_root / "workspace/PH001/ST001/AC001/analysis").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH001/ST001/AC001/proposal").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH001/ST001/AC001/analysis/analysis_T104-PH001-ST001-AC001_scope.md").write_text(
+        "analysis",
+        encoding="utf-8",
+    )
+    (initiative_root / "workspace/PH001/ST001/AC001/proposal/proposal_T104-PH001-ST001-AC001_scope.md").write_text(
+        "proposal",
+        encoding="utf-8",
+    )
+
+    code, output = _run_validate(initiative_root)
+    assert code == 0, output
+
+
 def test_flags_ac_scoped_file_outside_activity_directory(tmp_path: Path) -> None:
     initiative_root = _create_base_initiative(tmp_path)
     _add_minimal_ssot(initiative_root)

@@ -101,7 +101,7 @@ Phase → Stream → Activity → Task
 ## 7. FILE NAMING & DIRECTORY CONVENTIONS
 
 This workspace adopts the approved directory and file naming conventions defined in:
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
 
 **Summary (workspace-relevant)**:
 - Artifact file prefixes MUST match artifact type (e.g., `plan_`, `notes_`, `roadmap_`, `analysis_`, `proposal_`).

@@ -116,7 +116,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 - Cross-scope and cross-initiative references inside normative bodies MUST follow `T102-STD-005-CLAUSE-004 (Reference Semantics)` (including the `External Reference:` line rule where applicable).
 
 **Primary input (approved proposal seed)**:
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (v3.1.0, 2026-02-18; include `verification_` and `dev-report_`)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (v3.1.0, 2026-02-18; include `verification_` and `dev-report_`)
 
 **Deliverable**:
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`

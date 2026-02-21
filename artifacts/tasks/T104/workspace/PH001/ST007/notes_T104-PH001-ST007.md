@@ -39,11 +39,11 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Activity | Session ID | Name | Notes File |
 |:--|:--|:--|:--|:--|
-| AC000 | `T104-PH001-ST007-AC000-SES001` | Readiness Assessment, Gap Resolution & Migration Manifest | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/notes_T104-PH001-ST007-AC000-SES001.md` |
-| AC001 | `T104-PH001-ST007-AC001-SES001` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/notes_T104-PH001-ST007-AC001-SES001.md` |
-| AC001 | `T104-PH001-ST007-AC001-SES003` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/notes_T104-PH001-ST007-AC001-SES003.md` |
-| AC001 | `T104-PH001-ST007-AC001-SES004` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/notes_T104-PH001-ST007-AC001-SES004.md` |
-| AC001 | `T104-PH001-ST007-AC001-SES005` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/notes_T104-PH001-ST007-AC001-SES005.md` |
+| AC000 | `T104-PH001-ST007-AC000-SES001` | Readiness Assessment, Gap Resolution & Migration Manifest | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC000/snotes/snotes_T104-PH001-ST007-AC000-SES001.md` |
+| AC001 | `T104-PH001-ST007-AC001-SES001` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES001.md` |
+| AC001 | `T104-PH001-ST007-AC001-SES003` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES003.md` |
+| AC001 | `T104-PH001-ST007-AC001-SES004` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES004.md` |
+| AC001 | `T104-PH001-ST007-AC001-SES005` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES005.md` |
 | AC001 | `T104-PH001-ST007-AC001-SES006` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES006.md` |
 
 ---

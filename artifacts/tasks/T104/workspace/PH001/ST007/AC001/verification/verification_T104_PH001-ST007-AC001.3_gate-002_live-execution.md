@@ -128,7 +128,7 @@ The evidence file §TK003A acknowledges F1 but records it as "carried forward as
 
 The developer implementation note and the plan Task Register (GATE-002 row, Action field) both claim that:
 
-> `prompt/artifacts/tasks/T104/workspace/PH001/ST007/verification/verification_T104_PH001-ST007-AC001.3_gate-002_live-execution.md`
+> `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/verification/verification_T104_PH001-ST007-AC001.3_gate-002_live-execution.md`
 
 was created with verdict CONDITIONAL APPROVE (9/10). Independent verification confirms this file **does not exist** at that path. The plan Task Register marks GATE-002 status as `completed` referencing this absent artifact.
 
@@ -180,7 +180,7 @@ TK008 (evidence commit) is correctly deferred pending GATE-002 pass, consistent 
 
 1. **(F1 — Required) Working-tree checkpoint before evidence commit**: The 80-file dirty working tree must be checkpointed (stash or scoped commit) to allow TK008 to commit only AC001.3 evidence artifacts cleanly without inadvertently staging unrelated work.
 
-2. **(F2 — Required) T104 workspace verification artifact**: The GATE-002 verification artifact at `prompt/artifacts/tasks/T104/workspace/PH001/ST007/verification/verification_T104_PH001-ST007-AC001.3_gate-002_live-execution.md` must be created so that the T104 workspace plan task register references a real artifact (it currently references a non-existent file).
+2. **(F2 — Required) T104 workspace verification artifact**: The GATE-002 verification artifact at `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/verification/verification_T104_PH001-ST007-AC001.3_gate-002_live-execution.md` must be created so that the T104 workspace plan task register references a real artifact (it currently references a non-existent file).
 
 ---
 
@@ -189,7 +189,7 @@ TK008 (evidence commit) is correctly deferred pending GATE-002 pass, consistent 
 | # | Action | Owner | Priority |
 |:--|:--|:--|:--|
 | 1 | Checkpoint the 80-file dirty working tree (stash or scoped commit) to isolate AC001.3 evidence from unrelated initiative work | Client / Developer | **Required** |
-| 2 | Create the T104 workspace GATE-002 verification artifact at `prompt/artifacts/tasks/T104/workspace/PH001/ST007/verification/verification_T104_PH001-ST007-AC001.3_gate-002_live-execution.md` (may reference or summarize this document) | Developer | **Required** |
+| 2 | Create the T104 workspace GATE-002 verification artifact at `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/verification/verification_T104_PH001-ST007-AC001.3_gate-002_live-execution.md` (may reference or summarize this document) | Developer | **Required** |
 | 3 | Execute TK008: stage and commit AC001.3 delta artifacts — manifests, moved/rewritten files, gate evidence artifacts, and both verification files — with a commit message referencing `AC001.3` and the three affected streams (ST007/AC001, ST001/AC002, ST002/AC000) | Developer | **Required (after #1 and #2)** |
 | 4 | Update the `plan_T104-PH001-ST007-AC001.3.md` TK008 Action field with the resulting evidence commit hash | Developer | Required |
 | 5 | (Optional) Add an audit note in the plan or session notes acknowledging that the GATE-001 F1 precondition was carried forward rather than resolved before TK004, for completeness of the traceability record | Developer | Low |
