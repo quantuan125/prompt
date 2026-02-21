@@ -5,8 +5,8 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST007'
-version: '1.6.0'
-date: '2026-02-20'
+version: '1.7.0'
+date: '2026-02-21'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -23,7 +23,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 ## I. STREAM SUMMARY
 
 **Stream**: ST007 (Directory Restructuring)
-**Scope**: Plan and execute the T104 directory restructuring to conform to approved directory/naming conventions (proposal v3.0.0). Includes readiness assessment, migration manifest, script development, execution, and verification.
+**Scope**: Plan and execute T104, P, and T102 directory restructuring to conform to approved directory/naming conventions (proposal v3.3.0). Includes readiness assessment, migration manifests, script development and enhancement, execution, and verification. T102 migration includes absorption of legacy `consultant/` directory into T102 root structure.
 **Status**: `in_progress`
 
 ---
@@ -70,3 +70,4 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | v1.4.0 | 2026-02-19 | Update | Added AC001.3 standalone activity plan link to Links (PRIMARY) section |
 | v1.5.0 | 2026-02-19 | Update | Registered AC001-SES005 (GATE-002 Verification & Convention Amendment Commission: AC001.4); linked SES005 notes file to AC001 register row |
 | v1.6.0 | 2026-02-20 | Update | Registered AC001-SES006 (AC001.4 Readiness Review & Convention Amendment); first session notes file using `snotes_` prefix and `snotes/` directory placement |
+| v1.7.0 | 2026-02-21 | Update | Stream Summary scope updated: T104 → T104 + P + T102 (AC004/AC005 commissioned). |

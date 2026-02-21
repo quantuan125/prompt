@@ -5,7 +5,7 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 date: '2026-02-21'
-version: '1.6.1'
+version: '1.7.0'
 status: 'draft'
 author: 'LLM_Developer'
 decision_owner_role: 'Client'
@@ -71,7 +71,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 | 4 | `T104-PH001-ST004` | Epic Subconsultant Enablement | PARALLEL | `T104-PH001-ST002-AC001` | `planned` | Communication briefs (comm_) for T104A/T104B/T104F; kickoff & placeholder registrations |
 | 5 | `T104-PH001-ST005` | Template & Rules Alignment | PARALLEL | `T104-PH001-ST002-AC001` | `planned` | PLAN/ROADMAP/NOTES template + guideline alignment (working drafts); workspace_documentation_rules.md update |
 | 6 | `T104-PH001-ST006` | Validation & Handoff | SEQUENTIAL | ST003, ST004, ST005, ST007 | `planned` | Validation checklist; Phase 1 exit sign-off |
-| 7 | `T104-PH001-ST007` | Directory Restructuring (T104-internal) | SEQUENTIAL | `T104-PH001-ST002-AC000` (Client-approved proposal) | `planned` | T104 directory restructured per approved P-STD-004 proposal |
+| 7 | `T104-PH001-ST007` | Directory Restructuring (T104 + P + T102) | SEQUENTIAL | `T104-PH001-ST002-AC000` (Client-approved proposal) | `in_progress` | T104, P, T102 directories restructured; `consultant/` absorbed into T102 root |
 
 ### Activity Snapshot Index
 
@@ -104,8 +104,11 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 | 5 | AC004 | `T104-PH001-ST005-AC004` | Workspace Documentation Rules Rewrite | `planned` | LLM_Consultant | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/plan_T104-PH001-ST005.md` |
 | 6 | AC001 | `T104-PH001-ST006-AC001` | Execute validation checklist | `planned` | LLM_Consultant | `prompt/artifacts/tasks/T104/workspace/PH001/ST006/plan_T104-PH001-ST006.md` |
 | 6 | AC002 | `T104-PH001-ST006-AC002` | Phase 1 exit sign-off | `planned` | Client | `prompt/artifacts/tasks/T104/workspace/PH001/ST006/plan_T104-PH001-ST006.md` |
-| 7 | AC001 | `T104-PH001-ST007-AC001` | Execute T104 directory restructuring per approved AC000 proposal | `planned` | LLM_Developer | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
-| 7 | AC002 | `T104-PH001-ST007-AC002` | Verify restructuring and update cross-references | `planned` | LLM_Developer | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
+| 7 | AC001 | `T104-PH001-ST007-AC001` | Script Development & Migration Execution (T104) | `completed` | LLM_Developer | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
+| 7 | AC002 | `T104-PH001-ST007-AC002` | Verification and cross-reference validation | `planned` | LLM_Developer | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
+| 7 | AC003 | `T104-PH001-ST007-AC003` | Archive tooling development | `planned` | LLM_Developer | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
+| 7 | AC004 | `T104-PH001-ST007-AC004` | Script Enhancement + P Directory Migration | `planned` | LLM_Developer | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
+| 7 | AC005 | `T104-PH001-ST007-AC005` | T102 Directory Migration | `planned` | LLM_Developer | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
 
 ---
 
@@ -158,3 +161,4 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 | v1.5.0 | 2026-02-10 | Update | Added ST007 (Directory Restructuring) gated on ST002-AC000 Client approval; updated ST006 dependencies; recorded ST002 readiness consultation decisions |
 | v1.6.0 | 2026-02-11 | Update | Updated ST005 activity register to consolidated 4-activity structure (SES001 plan amendment); links now target `plan_T104-PH001-ST005.md` v2.0.0 |
 | v1.6.1 | 2026-02-21 | Update | Converted Phase Plan Activity Register to Activity Snapshot Index (anti-drift per guideline); propagated ST007 references post AC001.4 TK009 evidence commit `2e1731d` |
+| v1.7.0 | 2026-02-21 | Update | ST007 scope expanded to T104 + P + T102; status corrected to `in_progress`; Activity Snapshot: AC001 → `completed`, AC003/AC004/AC005 rows added. |

@@ -1,6 +1,12 @@
 # T102-STD-004 — Specification Standard & Guideline
 {#t102-std-004-specification-standard-and-guideline}
 
+> **SUPERSEDED**: This standard has been promoted to **P-STD-001** (Program Governance Standard) as of 2026-02-20. See `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`.
+>
+> **Alias Window (Active)**: Existing references to `T102-STD-004-CLAUSE-*` remain valid as aliases for `P-STD-001-CLAUSE-*` during the migration period. New authoring MUST reference `P-STD-001`. Alias support will be removed after a dedicated governance sync changeset.
+>
+> **This file is retained as a read-only historical artifact. Do not modify normative content.**
+
 ## Specification
 
 ### Specification Index
@@ -450,3 +456,7 @@
 
 - `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md`
 - `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_1_tk003_std-004-clause-019-sequencing-amendment.md`
+
+| Superseded By | `P-STD-001` (Program Governance Standard) |
+| Supersession Date | 2026-02-20 |
+| Promotion Decision | `P-STD-001-ADR-003` |

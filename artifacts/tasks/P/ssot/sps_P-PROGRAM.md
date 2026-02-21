@@ -2,8 +2,8 @@
 artifact_type: 'SPS'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
-version: '0.2.1'
-date: '2026-02-19'
+version: '0.3.0'
+date: '2026-02-22'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -73,25 +73,27 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 #### 7. Project Standards
 
-| STD ID | Title | Status | Owner | Effective | Supersedes | Adopts | Verification | Reference |
-|:-------|:------|:-------|:------|:----------|:-----------|:------|:------------|:----------|
-| `P-STD-001` | Program Governance Standard | `planned` | LLM_Consultant | `P-PH000-ST001` | — | — | Review: conforms to adopted ID/path rules; adopters link-don’t-duplicate | `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC002.md` |
-| `P-STD-002` | Program Status Standard | `planned` | LLM_Consultant | `P-PH000-ST001` | — | — | Review: status schema + update protocol accepted; later CI/lint possible | `prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST002.md` |
-| `P-STD-003` | Program Governance Standards Model | `planned` | LLM_Consultant | `P-PH000-ST001` | — | `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md` | Review: combined governance spec aligns with ADR-004 + ADR-009; enforce adoption/authoring requirements | `T102-STD-009 (Governance Standards Model)` |
-| `P-STD-004` | File Naming & Directory Convention | `planned` | LLM_Consultant | TBD | — | — | Review: initiative dirs conform to naming/directory rules; CI: lint file prefixes + directory structure | `T104-PH001-ST002-AC000` (proposal input) |
-| `P-STD-005` | Universal ID Specification | `planned` | LLM_Consultant | TBD | — | — | CI: regex validation of all IDs; Review: scope/token compliance | `T102-STD-005`, `T104-STD-002` (promotion sources) |
+| STD ID | Title | Status | Owner | Effective | Supersedes | Canonical Path | Verification | Governed By | Reference |
+|:-------|:------|:-------|:------|:----------|:-----------|:---------------|:-------------|:------------|:----------|
+| `P-STD-001` | **Program Governance Standard** | `accepted` | LLM_Consultant | 2026-02-22 | `T102-STD-004` | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | Review: all CLAUSEs re-identified; alias window documented; guideline/template aligned; gap remediation per promotion contract; SES003 derivative conformance audit passed | `T102-STD-005` | — |
+| `P-STD-002` | **Program Status Standard** | `planned` | LLM_Consultant | — | — | — | Review: status schema + update protocol accepted; later CI/lint possible | `P-STD-001` | — |
+| `P-STD-003` | **Program Governance Standards Model** | `planned` | LLM_Consultant | — | — | `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md` | Review: combined governance spec aligns with ADR-004 + ADR-009; enforce adoption/authoring requirements | `P-STD-001` | `T102-STD-009` |
+| `P-STD-004` | **File Naming & Directory Convention** | `planned` | LLM_Consultant | — | — | — | Review: initiative dirs conform to naming/directory rules; CI: lint file prefixes + directory structure | `P-STD-001` | — |
+| `P-STD-005` | **Universal ID Specification** | `planned` | LLM_Consultant | — | — | — | CI: regex validation of all IDs; Review: scope/token compliance | `P-STD-001` | `T102-STD-005`, `T104-STD-002` |
 
-#### 8. Project Guidances & Notes
-
-**Standard Bodies**
+* **P-STD-001 (Program Governance Standard)** — All combined standard-specification files across `prompt/artifacts/tasks/**` MUST conform to the authoring model defined by this standard's canonical specification. Governs file structure, CLAUSE construction, substandard architecture, decision record format, STD index schema, conformance coupling, and specification lifecycle.
+  - **Minimum Viable Conformance**: Combined files follow `P-STD-001-CLAUSE-001` canonical structure; CLAUSEs render per `P-STD-001-CLAUSE-018B`; ADR bodies use `P-STD-001-CLAUSE-025` template; STD Index entries conform to `P-STD-001-CLAUSE-012A` schema.
+  - External Reference: `T102-STD-005 (ID Specification & Rules)`, `T102-CON-009 (Controlled Vocabulary for Normative Language)`
 
 * **P-STD-004 (File Naming & Directory Convention)** — All initiative directories under `prompt/artifacts/tasks/` SHALL follow standardized file naming prefixes and directory structure conventions. This standard will codify deterministic artifact placement to support agentic retrieval and cross-initiative consistency.
   - **Minimum Viable Conformance**: TBD (pending proposal from `T104-PH001-ST002-AC000`)
-  - Note: `Adopts = —` is intentional until the normative specification is authored from the T104 AC000 proposal.
+  - Note: `Canonical Path = —` until normative specification is authored from the `T104-PH001-ST002-AC000` proposal.
 
 * **P-STD-005 (Universal ID Specification)** — All program and initiative artifacts SHALL conform to a unified ID specification governing scope IDs, tokenized IDs, timeline entity UIDs, and file naming derivations. This standard will unify workscope rules (currently `T102-STD-005`) and timeline rules (currently `T104-STD-002`) into a single program-level normative specification. `P-STD-003 (Governance Standards Model)` will serve as an extension of this standard for `STD` token-type specifics.
   - **Minimum Viable Conformance**: TBD (pending promotion from `T102-STD-005` + `T104-STD-002`)
   - External Reference: `T102-STD-005 (ID Specification & Rules)`, `T104-STD-002 (Timeline UID Convention)`, `P-STD-003 (Governance Standards Model)`
+
+#### 8. Project Guidances & Notes
 
 **Implementation Guidance**
 * **P-IG-001** — Keep Phase `PH000` limited to planning spine + SSOT shells; defer normative standard bodies to `P-PH000-ST001`.
@@ -131,3 +133,12 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 | Level | PM Type | ID | Name |
 | :--- | :--- | :--- | :--- |
 | 1 | Initiative | P | Program Governance |
+
+---
+
+## IV. CHANGELOG
+
+| Version | Date | Type | Summary |
+|:--|:--|:--|:--|
+| v0.3.0 | 2026-02-22 | Major | STD Index schema migrated to `P-STD-001-CLAUSE-012A`: added `Canonical Path` and `Governed By` columns; removed `Adopts` column; `Reference` column corrected to RID-only; `Title` bolded; `Effective` corrected to ISO-8601/`—`. P-STD-001 body added. P-STD-001 status flipped to `accepted` (GATE-002 approval). P-STD-004 body updated for `Canonical Path` terminology. Source: `P-PH000-ST001-AC002-SES003-DEC007`, `DEC008`. |
+| v0.2.2 | 2026-02-20 | Update | `P-STD-001` status updated to draft; canonical path and supersedes populated following full promotion from `T102-STD-004`. |

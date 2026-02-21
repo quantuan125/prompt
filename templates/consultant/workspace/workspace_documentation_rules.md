@@ -33,7 +33,7 @@ Phase → Stream → Activity → Task
 | PLAN (Activity) | `plan_` | Activity-level task decomposition | `prompt/templates/consultant/workspace/template_workspace_plan_activity.md` | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |
 | ROADMAP | `roadmap_` | Initiative master spine / phase execution | `prompt/templates/consultant/workspace/template_workspace_roadmap.md` | `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md` (Draft 2 STD alignment pending) |
 | NOTES (Register) | `notes_` | Index/navigation surface | `prompt/templates/consultant/workspace/template_workspace_notes_register_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
-| NOTES (Session) | `notes_` | Session records | `prompt/templates/consultant/workspace/template_workspace_notes_session_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
+| NOTES (Session) | `snotes_` | Session records | `prompt/templates/consultant/workspace/template_workspace_notes_session_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | ANALYSIS | `analysis_` | Research synthesis | `prompt/templates/consultant/workspace/template_workspace_analysis.md` | — (alignment pending) |
 | VERIFICATION | `verification_` | Verification evidence for gates and remediation | `prompt/templates/consultant/workspace/template_workspace_verification.md` | — (alignment pending) |
 | PROPOSAL | `proposal_` | E-ID development workspace | `prompt/templates/consultant/workspace/template_workspace_proposal.md` | — (alignment pending) |

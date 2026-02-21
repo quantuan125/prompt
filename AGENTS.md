@@ -8,11 +8,17 @@ Design and maintain consultant, planner, developer, and reviewer role configurat
 ## Primary Focus
 Currently developing consultant and developer modes with emphasis on Socratic exploration and systematic implementation practices.
 
-## Advisory: STD-CLAUSE Migration
-- The governance model is migrating from `ADR-CLAUSE` to `STD-CLAUSE` identifiers.
-- During the alias window, legacy `*-ADR-###-CLAUSE-*` references MAY appear for compatibility.
-- New or updated artifacts MUST use `*-STD-###-CLAUSE-*` for normative specification references.
-- For combined standard files, the current rationale record MUST use nested DR form: `<STD-ID>-ADR-001`.
+## Standards Authoring
+- All combined standard-specification files MUST be authored using:
+  - **Guideline**: `prompt/templates/consultant/standards/guideline_standard_specs.md`
+  - **Template**: `prompt/templates/consultant/standards/template_standard_specs.md`
+- The guideline and template are governed by `P-STD-001` (Program Governance Standard) at `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`.
+- Per `P-STD-001-CLAUSE-005B`, any CLAUSE modification in `P-STD-001` requires updating these derivatives in the same changeset.
+
+## Advisory: P-STD-001 Authority & Alias Window
+- `P-STD-001` (Program Governance Standard) is the authoritative standard for combined standard-specification file authoring.
+- During the alias window, legacy `T102-STD-004-CLAUSE-*` references MAY appear for compatibility; new or updated references MUST use `P-STD-001-CLAUSE-*`.
+- For combined standard files, the current rationale record MUST use nested DR form: `<STD-ID>-ADR-###`.
 
 ## Git Operations
 - The git repository root for this workspace is `prompt/`.

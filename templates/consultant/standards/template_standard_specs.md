@@ -1,14 +1,14 @@
-<!-- Template governed by T102-STD-004-CLAUSE-004, CLAUSE-005, CLAUSE-016, CLAUSE-017 -->
+<!-- Template governed by P-STD-001-CLAUSE-001, P-STD-001-CLAUSE-018, P-STD-001-CLAUSE-020, P-STD-001-CLAUSE-025 -->
 
 # <STD-ID> — <Title>
 
 ## Specification
 
 1) **<STD-ID>-CLAUSE-001 (<Clause Title>)**
-   - SHALL / SHOULD / MUST / MAY statement.
+   - MUST / SHOULD / MAY statement.
 
 2) **<STD-ID>-CLAUSE-002 (<Clause Title>)**
-   - SHALL / SHOULD / MUST / MAY statement.
+   - MUST / SHOULD / MAY statement.
 
 ## Decision Record
 
@@ -20,13 +20,16 @@
   * **Decision**
     —
 
-  * **Alternatives Considered**
+  * **Alternatives**
     —
 
   * **Consequences**
     (+) —
     (±) —
     (-) —
+
+  * **Traceability**
+    - [Timeline reference]
 
 ## References
 
