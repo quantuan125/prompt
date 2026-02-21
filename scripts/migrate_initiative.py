@@ -152,6 +152,8 @@ def validate_moves(manifest: MigrationManifest, project_root: Path, allow_missin
     seen_sources: set[str] = set()
     seen_targets: set[str] = set()
     seen_deletes: set[str] = set()
+    seen_rewrite_old: set[str] = set()
+    rewrite_pairs: set[tuple[str, str]] = set()
 
     resolved_sources: list[Path] = []
     resolved_targets: list[Path] = []
@@ -216,6 +218,20 @@ def validate_moves(manifest: MigrationManifest, project_root: Path, allow_missin
 
         if delete_path.exists() and any(delete_path.iterdir()):
             errors.append(f"Delete directory is not empty: {delete.path}")
+
+    for rewrite in manifest.rewrites:
+        if rewrite.old in seen_rewrite_old:
+            errors.append(f"Duplicate reference rewrite old path in manifest: {rewrite.old}")
+            continue
+        seen_rewrite_old.add(rewrite.old)
+        rewrite_pairs.add((rewrite.old, rewrite.new))
+
+    for move in manifest.moves:
+        if (move.source, move.target) not in rewrite_pairs:
+            errors.append(
+                "Missing 1:1 reference rewrite for move operation: "
+                f"{move.source} -> {move.target}"
+            )
 
     for i, source_a in enumerate(resolved_sources):
         for source_b in resolved_sources[i + 1 :]:

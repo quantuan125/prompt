@@ -224,3 +224,90 @@ def test_apply_deletes_empty_directory_and_rejects_non_empty_delete_targets(tmp_
     )
     assert fail_result.returncode != 0, "non-empty delete targets must fail validation"
     assert "Delete directory is not empty" in (fail_result.stdout + fail_result.stderr)
+
+
+def test_fails_when_manifest_rewrite_coverage_is_incomplete(tmp_path: Path) -> None:
+    project_root, prompt_root = _setup_repo(tmp_path)
+    source_file = prompt_root / "docs/legacy.md"
+    source_file.parent.mkdir(parents=True, exist_ok=True)
+    source_file.write_text("legacy", encoding="utf-8")
+
+    manifest_path = project_root / "manifest.json"
+    write_manifest(
+        manifest_path,
+        operations=[
+            {
+                "action": "move",
+                "from": "prompt/docs/legacy.md",
+                "to": "prompt/docs/new.md",
+            }
+        ],
+        rewrites=[{"old": "prompt/docs/other.md", "new": "prompt/docs/other-new.md"}],
+    )
+
+    result = run_script(
+        [
+            "python3",
+            str(MIGRATE_SCRIPT),
+            "--manifest",
+            str(manifest_path),
+            "--project-root",
+            str(project_root),
+            "--dry-run",
+        ]
+    )
+
+    assert result.returncode != 0
+    assert "Missing 1:1 reference rewrite for move operation" in (result.stdout + result.stderr)
+
+
+def test_dry_run_supports_notes_to_snotes_rename_and_move(tmp_path: Path) -> None:
+    project_root, prompt_root = _setup_repo(tmp_path)
+    source_file = (
+        prompt_root
+        / "artifacts/tasks/T104/workspace/PH001/ST007/AC001/notes_T104-PH001-ST007-AC001-SES001.md"
+    )
+    source_file.parent.mkdir(parents=True, exist_ok=True)
+    source_file.write_text("session notes", encoding="utf-8")
+
+    manifest_path = project_root / "manifest.json"
+    write_manifest(
+        manifest_path,
+        operations=[
+            {
+                "action": "mkdir",
+                "path": "prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes",
+            },
+            {
+                "action": "move",
+                "from": "prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/notes_T104-PH001-ST007-AC001-SES001.md",
+                "to": "prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES001.md",
+            },
+        ],
+        rewrites=[
+            {
+                "old": "prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/notes_T104-PH001-ST007-AC001-SES001.md",
+                "new": "prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES001.md",
+            }
+        ],
+    )
+
+    report_path = project_root / "reports/dry-run-snotes.md"
+    result = run_script(
+        [
+            "python3",
+            str(MIGRATE_SCRIPT),
+            "--manifest",
+            str(manifest_path),
+            "--project-root",
+            str(project_root),
+            "--dry-run",
+            "--report-path",
+            str(report_path),
+        ]
+    )
+
+    assert result.returncode == 0, result.stderr or result.stdout
+    report = report_path.read_text(encoding="utf-8")
+    assert "DRY RUN move" in report
+    assert "snotes_T104-PH001-ST007-AC001-SES001.md" in report

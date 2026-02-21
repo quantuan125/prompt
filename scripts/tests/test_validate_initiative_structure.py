@@ -98,3 +98,56 @@ def test_allows_workspace_unresolved_staging_directory(tmp_path: Path) -> None:
     code, output = _run_validate(initiative_root)
     assert code == 0
     assert "non-canonical phase directory" not in output.lower()
+
+
+def test_allows_snotes_and_activity_report_directories(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    (initiative_root / "workspace/PH001/ST001/snotes").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH001/ST001/AC001/snotes").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH001/ST001/AC001/verification").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH001/ST001/AC001/dev-report").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH001/ST001/AC001/raw").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH001/ST001/AC001/snotes/snotes_T104-PH001-ST001-AC001-SES001.md").write_text(
+        "session notes",
+        encoding="utf-8",
+    )
+    (initiative_root / "workspace/PH001/ST001/AC001/verification/verification_T104-PH001-ST001-AC001_gate-001.md").write_text(
+        "gate",
+        encoding="utf-8",
+    )
+    (initiative_root / "workspace/PH001/ST001/AC001/dev-report/dev-report_T104-PH001-ST001-AC001_2026-02-20.md").write_text(
+        "report",
+        encoding="utf-8",
+    )
+
+    code, output = _run_validate(initiative_root)
+    assert code == 0, output
+
+
+def test_flags_ac_scoped_file_outside_activity_directory(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    (initiative_root / "workspace/PH001/ST001").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH001/ST001/notes_T104-PH001-ST001-AC001-SES001.md").write_text(
+        "misplaced",
+        encoding="utf-8",
+    )
+
+    code, output = _run_validate(initiative_root)
+    assert code == 1
+    assert "uid-scope rule" in output.lower()
+
+
+def test_flags_ac_scoped_file_when_activity_token_mismatch(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    (initiative_root / "workspace/PH001/ST001/AC002").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH001/ST001/AC002/notes_T104-PH001-ST001-AC001-SES001.md").write_text(
+        "mismatch",
+        encoding="utf-8",
+    )
+
+    code, output = _run_validate(initiative_root)
+    assert code == 1
+    assert "does not match uid token" in output.lower()

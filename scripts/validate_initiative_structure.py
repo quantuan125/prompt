@@ -14,15 +14,18 @@ import re
 PHASE_DIR_PATTERN = re.compile(r"^PH\d{3}$")
 STREAM_DIR_PATTERN = re.compile(r"^ST\d{3}$")
 ACTIVITY_DIR_PATTERN = re.compile(r"^AC\d{3}$")
+AC_TOKEN_PATTERN = re.compile(r"(AC\d{3})")
 RAW_FILE_PATTERN = re.compile(r"^raw_[A-Z0-9-]+-SES\d{3}\.(?:md|txt)$")
 RESEARCH_DIR_PATTERN = re.compile(r"^[A-Z0-9-]+-RES-\d{3}$")
 TYPE_FIRST_WORKSPACE_DIRS = {"plan", "notes", "roadmap", "analysis", "proposal", "external"}
 WORKSPACE_ALLOWED_NON_PHASE_DIRS = {"_unresolved", "verification"}
-STREAM_TYPE_DIRS = {"raw", "proposal", "analysis", "communication"}
+STREAM_TYPE_DIRS = {"raw", "proposal", "analysis", "communication", "snotes"}
+ACTIVITY_TYPE_DIRS = {"raw", "snotes", "verification", "dev-report"}
 ALLOWED_PREFIXES = (
     "analysis_",
     "plan_",
     "notes_",
+    "snotes_",
     "proposal_",
     "report_",
     "brief_",
@@ -34,6 +37,7 @@ ALLOWED_PREFIXES = (
     "sps_",
     "concept_",
     "verification_",
+    "dev-report_",
 )
 
 
@@ -83,7 +87,7 @@ class InitiativeValidator:
         self._validate_research_layout()
         self._validate_file_prefixes()
         self._validate_raw_transcripts()
-        self._validate_activity_threshold()
+        self._validate_uid_scope_placement()
         return ValidationResult(errors=self.errors, warnings=self.warnings, infos=self.infos)
 
     def _validate_root(self) -> None:
@@ -159,9 +163,21 @@ class InitiativeValidator:
             if child.name in STREAM_TYPE_DIRS:
                 continue
             if ACTIVITY_DIR_PATTERN.match(child.name):
+                self._validate_activity_contents(child)
                 continue
             self.errors.append(
                 f"Invalid activity/type directory under stream (expected AC### or known type dir): "
+                f"{child.relative_to(self.root)}"
+            )
+
+    def _validate_activity_contents(self, activity_dir: Path) -> None:
+        for child in activity_dir.iterdir():
+            if not child.is_dir():
+                continue
+            if child.name in ACTIVITY_TYPE_DIRS:
+                continue
+            self.errors.append(
+                f"Invalid type directory under activity (expected known type dir): "
                 f"{child.relative_to(self.root)}"
             )
 
@@ -220,22 +236,55 @@ class InitiativeValidator:
                     f"Raw transcript missing canonical SES token format: {file_path.relative_to(self.root)}"
                 )
 
-    def _validate_activity_threshold(self) -> None:
-        for directory in self.root.rglob("*"):
-            if not directory.is_dir():
+    def _validate_uid_scope_placement(self) -> None:
+        workspace = self.root / "workspace"
+        if not workspace.exists():
+            return
+
+        for file_path in workspace.rglob("*"):
+            if not file_path.is_file():
                 continue
-            if not ACTIVITY_DIR_PATTERN.match(directory.name):
+            if file_path.suffix.lower() not in {".md", ".txt"}:
                 continue
-            files = [item for item in directory.rglob("*") if item.is_file()]
-            if len(files) < 2:
-                message = (
-                    f"Activity directory violates 2+ file threshold: "
-                    f"{directory.relative_to(self.root)} ({len(files)} file)"
+
+            token_match = AC_TOKEN_PATTERN.search(file_path.name)
+            if not token_match:
+                continue
+            expected_activity = token_match.group(1)
+
+            try:
+                relative = file_path.relative_to(workspace)
+            except ValueError:
+                continue
+
+            stream_index = None
+            for idx, part in enumerate(relative.parts):
+                if STREAM_DIR_PATTERN.match(part):
+                    stream_index = idx
+                    break
+            if stream_index is None:
+                continue
+
+            activity_parts = [
+                part
+                for idx, part in enumerate(relative.parts)
+                if idx > stream_index and ACTIVITY_DIR_PATTERN.match(part)
+            ]
+
+            if not activity_parts:
+                self.errors.append(
+                    "AC-scoped file is not placed under an activity directory "
+                    f"(UID-scope rule): {file_path.relative_to(self.root)}"
                 )
-                if self.strict:
-                    self.errors.append(message)
-                else:
-                    self.warnings.append(message)
+                continue
+
+            actual_activity = activity_parts[0]
+            if actual_activity != expected_activity:
+                self.errors.append(
+                    "AC-scoped file activity directory does not match UID token "
+                    f"(expected {expected_activity}, found {actual_activity}): "
+                    f"{file_path.relative_to(self.root)}"
+                )
 
 
 def parse_args() -> argparse.Namespace:
