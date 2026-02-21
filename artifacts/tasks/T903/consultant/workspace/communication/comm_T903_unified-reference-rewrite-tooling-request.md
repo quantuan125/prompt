@@ -10,10 +10,7 @@
 
 ## Context
 
-During `T104-PH001-ST007-AC001.4` closeout (TK009), a scoped migration moved the authoritative T104 directory/naming proposal file:
-
-- Old path: `prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md`
-- New path: `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md`
+During `T104-PH001-ST007-AC001.4` closeout (TK009), a scoped migration moved the authoritative T104 directory/naming proposal file from a stream-level `ST002/proposal/` location into the activity-level `ST002/AC000/proposal/` location (per proposal v3.3.0).
 
 Because the live rewrite boundary was correctly limited to T104 scope during execution, **10 cross-initiative files** retained references to the old path (templates + P/T102/T103 artifacts). This is an expected and recurring outcome any time a bounded migration is performed.
 
@@ -78,12 +75,9 @@ Commission a new script (recommended location):
 
 ## Acceptance Criteria
 
-Demonstrate the tool on a known, already-validated mapping (from the T104 TK009 remediation):
+Demonstrate the tool on a known, already-validated mapping (from the T104 TK009 remediation), using the exact old/new strings from:
 
-- Replace:
-  - `prompt/artifacts/tasks/T104/workspace/PH001/ST002/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md`
-  - with:
-  - `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md`
+- `prompt/scripts/output/T104-PH001-ST007-AC001/ac001.4/manifest_T104-PH001-ST007-AC001.4_crossinitiative-proposal-ref-rewrite.json`
 
 Expected outcomes:
 - Dry-run reports exactly the expected edited files (10) in the intended scopes.
@@ -107,4 +101,3 @@ Include:
 ## Notes
 
 This tool should be treated as a general-purpose primitive for future migrations and cross-initiative repairs, enabling any LLM agent to perform safe, auditable reference remediation without manual editing.
-
