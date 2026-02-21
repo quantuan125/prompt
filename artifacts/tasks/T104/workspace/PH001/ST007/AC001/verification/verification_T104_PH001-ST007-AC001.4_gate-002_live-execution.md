@@ -164,9 +164,14 @@ This is a legitimate validator enhancement, not a masking of errors. The proposa
 
 **Risk level**: Medium. The governance templates are actively consumed by LLM roles when authoring workspace artifacts.
 
-**Disposition**: Non-blocking for AC001.4 GATE-002. The AC001.4 plan explicitly states the scope is T104-only and cross-initiative rollout is deferred. However, this observation should be tracked as a follow-up remediation item — either as a cross-initiative rewrite pass or as part of the deferred `P-STD-004` migration activity.
+**Disposition**: Resolved in TK009. A targeted rewrite-only manifest was executed across bounded scope roots (`prompt/templates/consultant/workspace`, `prompt/artifacts/tasks/T103`, `prompt/artifacts/tasks/T102`, `prompt/artifacts/tasks/P`) to update the 10 affected files without rewriting evidence/output artifacts. Evidence commit: `2e1731d`.
 
-**Recommended follow-up**: Create a targeted rewrite manifest or manual update for the 10 affected files to update the proposal path from `ST002/proposal/...` to `ST002/AC000/proposal/...`.
+**Evidence**:
+- `prompt/scripts/output/T104-PH001-ST007-AC001/ac001.4/manifest_T104-PH001-ST007-AC001.4_crossinitiative-proposal-ref-rewrite.json`
+- `prompt/scripts/output/T104-PH001-ST007-AC001/ac001.4/report_T104-PH001-ST007-AC001.4_proposal-ref-rewrite_templates_apply.md`
+- `prompt/scripts/output/T104-PH001-ST007-AC001/ac001.4/report_T104-PH001-ST007-AC001.4_proposal-ref-rewrite_t103_apply.md`
+- `prompt/scripts/output/T104-PH001-ST007-AC001/ac001.4/report_T104-PH001-ST007-AC001.4_proposal-ref-rewrite_t102_apply.md`
+- `prompt/scripts/output/T104-PH001-ST007-AC001/ac001.4/report_T104-PH001-ST007-AC001.4_proposal-ref-rewrite_p_apply.md`
 
 ### OBS-002: AC001.2 Historical Manifest Reference (Non-Issue)
 
@@ -214,6 +219,6 @@ The AC001.4 live execution has been independently verified as correct. The migra
 5. Maintained a complete rollback manifest for reversibility
 6. Updated the structure validator to recognize `analysis/` and `proposal/` as valid activity-level type directories, with regression test coverage
 
-**One observation (OBS-001)** is documented for follow-up: 10 cross-initiative files now contain broken references to the proposal's old path. This is an expected consequence of the scoped rewrite and should be addressed in a subsequent cross-initiative remediation pass.
+OBS-001 (cross-initiative broken proposal references) was resolved in TK009 via a targeted rewrite pass (see evidence list and commit `2e1731d`).
 
 **TK009 is unblocked** and may proceed with the evidence commit.
