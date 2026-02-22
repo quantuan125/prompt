@@ -5,7 +5,7 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.4'
+version: '0.1.5'
 date: '2026-02-22'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -36,7 +36,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 | Activity | Activity ID | Name | Status | Owner | Depends On | Deliverable | Reference |
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | AC001 | `P-PH000-ST001-AC001` | Amend ID governance to allow `P-RES-###` | `planned` | LLM_Consultant | — | Planned T102 change (RES token Allowed Scope) | `T102-STD-005` |
-| AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` (Full Promotion from T102-STD-004) | `in_progress` | LLM_Consultant | AC001 | `standard_P-STD-001_program-governance-standard.md` | `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC002.md` |
+| AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` (Full Promotion from T102-STD-004) | `completed` | LLM_Consultant | AC001 | `standard_P-STD-001_program-governance-standard.md` | `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC002.md` |
 | AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` + `P-ADR-002` (Program Status Standard) | `planned` | LLM_Consultant | AC001 | Planned standard + paired ADR | Program SSOT |
 | AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `planned` | LLM_Consultant | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` | `T102-STD-004-CLAUSE-001A`, `T102-STD-004-CLAUSE-025`, `T102-STD-005-CLAUSE-004`, `T104-PH001-ST002-AC000` (proposal v3.1.0) |
 | AC005 | `P-PH000-ST001-AC005` | Align `P/standard/` naming to `standard_<SID-STD>_...` | `planned` | LLM_Developer | AC004 | Renamed `standard_P-STD-003_governance-standards-and-dr-index.md` + updated references | `P-STD-004` Convention 1 + `P` conformance |
@@ -58,6 +58,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 
 **Planned verification**:
 - Confirm `P-RES-001` conforms to `T102-STD-005-CLAUSE-001` Pattern 3: `^P(?:-[A-Z0-9_]+)*-[A-Z]+-\\d{3}$`
+
+**Scope note (SES002-DEC004)**: The RES Allowed Scope change within the `T102-STD-005` CLAUSE-002 token table is absorbed into `P-PH000-ST001-AC006-TK005` (P-STD-005 content transfer). Post-AC006, the authoritative token table resides in `P-STD-005`. AC001's remaining scope is limited to updating the concept file token table reference in `concept_T102-CONSULTANT.md`, if still required. No changes to AC001 status or task register at this time.
 
 **Task Register**:
 | Task ID | Description | Status | Action |
@@ -209,6 +211,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.5 | 2026-02-22 | Amendment | AC002 status → `completed` (SES002-DEC001); AC001 scope note added — RES token STD change absorbed into AC006-TK005 (SES002-DEC004). Evidence: `raw_P-PH000-ST001-AC006-SES002.txt` |
 | v0.1.4 | 2026-02-22 | Amendment | AC006 added: Promote T102-STD-005 to P-STD-005 (Universal ID Specification). Absorbs T104-PH001-ST002-AC002, T102-PH001-ST005-AC005, and STD-005-specific scope from T102-PH001-ST002. Evidence: `raw_P-PH000-ST001-AC006-SES001.txt` |
 | v0.1.3 | 2026-02-20 | Amendment | AC002 transitioned to `in_progress`; rebranded to Full Promotion methodology; updated deliverable and scope to match amended activity plan |
 | v0.1.0 | 2026-02-05 | Initial | Stream ST001 plan created to enable `P-RES` via T102 governance change and to plan `P-STD-001` / `P-STD-002` authoring |

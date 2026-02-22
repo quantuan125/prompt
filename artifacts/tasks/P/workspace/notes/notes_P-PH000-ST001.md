@@ -5,7 +5,7 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream: 'ST001'
-version: '1.4.0'
+version: '1.5.0'
 date: '2026-02-22'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -39,9 +39,9 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Activity | Activity ID | Name | Status | Notes File |
 |:--|:--|:--|:--|:--|
-| AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` (Program Governance Standard) | `in_progress` | SES001: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES002.md`<br>SES003: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES003.md` |
+| AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` (Program Governance Standard) | `completed` | SES001: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES002.md`<br>SES003: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES003.md` |
 | AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `in_progress` | SES001: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC004-SES001.md` |
-| AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `planned` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES001.md` |
+| AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `planned` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES002.md` |
 
 ---
 
@@ -58,6 +58,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.5.0 | 2026-02-22 | Update | Indexed AC006-SES002 (Pre-Commissioning Gap Analysis & Plan Amendment); AC002 status → `completed` |
 | v1.4.0 | 2026-02-22 | Update | Indexed AC002-SES003 (GATE-002 Remediation: Derivative Conformance Audit & SPS Schema Migration) |
 | v1.3.0 | 2026-02-22 | Update | Indexed AC006-SES001 (`snotes`) and linked activity session notes for T102-STD-005 to P-STD-005 promotion consultation |
 | v1.2.0 | 2026-02-20 | Update | Indexed AC002-SES002 (Cross-Review Gap Analysis & Promotion Contract) |
