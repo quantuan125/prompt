@@ -3,8 +3,8 @@ artifact_type: 'PROPOSAL'
 initiative_id: 'T104'
 initiative_code: 'CWS'
 activity_id: 'T104-PH001-ST002-AC000'
-version: '3.3.0'
-date: '2026-02-20'
+version: '3.4.0'
+date: '2026-02-22'
 status: 'approved'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -399,11 +399,12 @@ A single `archive/` directory at initiative root (and optionally at epic root) m
 
 **Archive Rules**:
 1. **Mirror structure**: Archive mirrors the live directory structure exactly. The path from `archive/<subpath>` matches the path from `<SID>/<subpath>`.
-2. **Version suffix**: Archived files MUST append `_v#.#.#` before the `.md` extension. The version comes from the file's frontmatter `version` field at time of archiving.
-3. **Live files**: Live (current) files do NOT have a version suffix in their filename. The version is tracked in frontmatter only.
-4. **Archive trigger**: A file is archived when it undergoes a major version bump (v1→v2) or when explicitly requested by governance. Minor/patch bumps are tracked in frontmatter + changelog only.
-5. **Changelog files**: `changelog_<stem>.md` files, if they exist, are archived alongside their parent artifact using the same version suffix.
-6. **Tooling**: Archive operations SHALL be implemented via Python script (per program mandate): `archive_artifact.py <path-to-live-file>` copies the file to the mirrored archive path with version suffix.
+2. **Versioned snapshot tier**: Historical snapshots of live files MUST append `_v#.#.#` before `.md`. The version comes from the file's frontmatter `version` field at archive time (or explicit override).
+3. **Deprecated artifact tier**: Archived files representing deprecated artifacts (no active live successor) MAY be stored in `archive/` without `_v#.#.#` suffix.
+4. **Live files**: Live (current) files do NOT have a version suffix in their filename. The version is tracked in frontmatter only.
+5. **Archive trigger**: A file is archived when it undergoes a major version bump (v1→v2) or when explicitly requested by governance. Minor/patch bumps are tracked in frontmatter + changelog only.
+6. **Changelog files**: `changelog_<stem>.md` files, if they exist, are archived alongside their parent artifact. Versioned snapshots use the same `_v#.#.#` suffix; deprecated-tier archives omit the suffix.
+7. **Tooling**: Archive operations SHALL be implemented via Python script (per program mandate): `archive_manager.py archive <path-to-live-file>` copies the file to the mirrored archive path using the selected archive tier.
 
 ### Convention 9: Research Organization
 **Grounded in**: DA-003 (Option E recommended, score 3.85/4.0)
@@ -512,7 +513,7 @@ Per program-level mandate, scaffolding and migration tooling SHALL be implemente
 |:--|:--|:--|
 | `scaffold_initiative.py` | Generate canonical directory structure for a new initiative | Initiative ID, code, phase count, stream list |
 | `migrate_initiative.py` | Reorganize existing initiative to conform to conventions (with dry-run mode) | Initiative root path, target convention version |
-| `archive_artifact.py` | Copy a live file to its mirrored archive path with version suffix | Path to live file |
+| `archive_manager.py` | Archive a live file to mirrored archive path (versioned snapshot or deprecated tier) | Path to live file |
 | `validate_structure.py` | Lint/validate an initiative directory against the convention | Initiative root path |
 
 **Golden exemplar**: T104 will be restructured as the first conformant initiative during ST007 execution, using these scripts. The scripts will then be available for adoption by other initiatives.
@@ -557,6 +558,7 @@ This proposal requests Client approval on the following:
 | DR-21 | `snotes/` type subdirectory added at phase/stream/activity level (SES005-DEC005) | **Approved** | `T104-PH001-ST007-AC001-SES005` |
 | DR-22 | `verification/` and `dev-report/` moved from stream-level to activity-level type subdirectories in Convention 4 (SES006-DEC002, SES006-DEC003) | **Approved** | `T104-PH001-ST007-AC001-SES006` |
 | DR-23 | `notes_...-AC###.md` removed from Convention 4 AC###/ tree; Activity Notes Register placement governed by notes guideline (SES006-DEC001) | **Approved** | `T104-PH001-ST007-AC001-SES006` |
+| DR-24 | Convention 8 amended with two-tier archive model (versioned snapshots vs deprecated artifacts) and tooling reference updated from `archive_artifact.py` to `archive_manager.py` | **Approved** | `T104-PH001-ST007-SES002` |
 
 ---
 
@@ -593,3 +595,4 @@ This proposal requests Client approval on the following:
 | v3.1.0 | 2026-02-18 | Amendment | Registered two new artifact types at Convention 2: (1) `verification_` (gate-type quality record, post-completion, gate-only scope, `verification_<activity-UID>_gate-###.md` pattern, `verification/` stream-level type subdirectory); (2) `dev-report_` (developer implementation report, high/surface-level only, detailed design deferred, `dev-report_<activity-UID>_<date>.md` pattern, `dev-report/` stream-level type subdirectory). Added informative role-to-artifact ownership table (deferred to T101). Added `guideline_workspace_verification.md` as planned companion deliverable. Added DR-16 (verification_) and DR-17 (dev-report_). Source: P-PH000-ST001-AC004-SES001 consultation. |
 | v3.2.0 | 2026-02-19 | Amendment | Five amendments from SES005 GATE-002 QA: (1) DR-15 replaced with UID-scope trigger; (2) sub-activity plan placement rule added; (3) `snotes_` prefix introduced for session notes (supersedes `T104-PH001-SES001-DEC003`); (4) `snotes/` type subdir added at phase/stream/activity level; (5) validator conformance requirements documented for `dev-report/` + `verification/` + `snotes/` and `snotes_`. DRs DR-18 through DR-21 added. DR-16 and DR-17 confirmed `Approved`. Source: `T104-PH001-ST007-AC001-SES005` (2026-02-19). |
 | v3.3.0 | 2026-02-20 | Amendment | Three amendments from SES006 AC001.4 readiness review: (1) `notes_...-AC###.md` removed from Convention 4 AC###/ tree — Activity Notes Register is optional and governed by notes guideline (DR-23); (2) `verification/` and `dev-report/` moved from stream-level to activity-level type subdirectories in Convention 4 (DR-22) — GATEs are activity-scoped per `guideline_workspace_plan.md §VI.B`; (3) Convention 4 stream-level type dir list narrowed to `raw/`, `snotes/`, `proposal/`, `analysis/`, `communication/`; activity-level list added as `snotes/`, `raw/`, `verification/`, `dev-report/`; validator note updated. `plan_...-AC###[.N].md` added to AC###/ tree for sub-activity plan visibility. Source: `snotes_T104-PH001-ST007-AC001-SES006.md` (2026-02-20). |
+| v3.4.0 | 2026-02-22 | Amendment | Convention 8 amended to a two-tier archive model: versioned snapshots (`_v#.#.#`) and deprecated artifacts (no suffix). Tooling reference updated from `archive_artifact.py` to `archive_manager.py`; Section VIII script table aligned. Added DR-24 per ST007-SES002 decisions. |

@@ -9,6 +9,7 @@ REPO_ROOT = Path(__file__).resolve().parents[3]
 MIGRATE_SCRIPT = REPO_ROOT / "prompt/scripts/migrate_initiative.py"
 VALIDATE_SCRIPT = REPO_ROOT / "prompt/scripts/validate_initiative_structure.py"
 SCAFFOLD_SCRIPT = REPO_ROOT / "prompt/scripts/scaffold_initiative.py"
+ARCHIVE_SCRIPT = REPO_ROOT / "prompt/scripts/archive_manager.py"
 
 
 def write_manifest(path: Path, operations: list[dict], rewrites: list[dict] | None = None) -> None:
