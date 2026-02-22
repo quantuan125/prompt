@@ -195,12 +195,12 @@
      Define the allowed construction, subclause construction, and semantics of `CLAUSE` IDs for STD-internal specification clauses (`STDCID`) and legacy ADR-internal clause aliases (`DRCID`).
 
      **Construction**
-     - Current format (STDCID): `<STD-ID>-CLAUSE-###`. e.g. `T102-STD-004-CLAUSE-004`
-     - Legacy alias format (DRCID): `<ADR-ID>-CLAUSE-###`. e.g. `T102-STD-004-CLAUSE-004`
+     - Current format (STDCID): `<STD-ID>-CLAUSE-###`. e.g. `P-STD-001-CLAUSE-004`
+     - Legacy alias format (DRCID): `<ADR-ID>-CLAUSE-###`. e.g. `P-STD-001-CLAUSE-004`
      - `###` is a 3-digit sequence local to the parent artifact (starts at `001`).
      - Optional subclause suffix:
-       - Current: `<STD-ID>-CLAUSE-###<CAPITAL_LETTER>` (e.g. `T102-STD-004-CLAUSE-004A`)
-       - Legacy alias: `<ADR-ID>-CLAUSE-###<CAPITAL_LETTER>` (e.g. `T102-STD-004-CLAUSE-004A`)
+       - Current: `<STD-ID>-CLAUSE-###<CAPITAL_LETTER>` (e.g. `P-STD-001-CLAUSE-004A`)
+       - Legacy alias: `<ADR-ID>-CLAUSE-###<CAPITAL_LETTER>` (e.g. `P-STD-001-CLAUSE-004A`)
 
      **Semantics**
      - `CLAUSE` IDs represent **enforceable Specification clauses** and MUST be written as normative statements (`MUST`/`SHALL`).
@@ -217,7 +217,7 @@
      - `CLAUSE` IDs MUST NOT be created as standalone items outside a parent STD/ADR body.
      - `CLAUSE` IDs MUST NOT be used to represent system requirements or non-normative guidance.
      - References to `CLAUSE` IDs MUST follow `T102-STD-005-CLAUSE-004 (Reference Semantics)` and MAY be used for precise cross-document traceability.
-     - Rendering of Specification sections (including ordered-list and subclause formatting) MUST follow `T102-STD-004-CLAUSE-005 (Specification Clauses)`.
+     - Rendering of Specification sections (including ordered-list and subclause formatting) MUST follow `P-STD-001-CLAUSE-018 (CLAUSE Construction Requirements)`.
 
    * **T102-STD-005-CLAUSE-005E (Notes Structure Semantics)**
      **Notes Structure Schema**
@@ -236,7 +236,7 @@
    * **T102-STD-005-CLAUSE-005F (Standard Decision Record Semantics)**
 
      **Construction**
-     - Format: `<STD-ID>-ADR-###`. e.g. `T102-STD-004-ADR-001`
+     - Format: `<STD-ID>-ADR-###`. e.g. `P-STD-001-ADR-001`
      - `###` is a 3-digit sequence local to the parent STD and identifies the current decision-record annex.
 
      **Semantics**
@@ -258,7 +258,7 @@
    - **RID**: Lead with a requirement statement when applicable (SHALL/SHOULD). No justification prose (put rationale in NOTE). Prefer one primary obligation per RID.
    - **IID-IG**: Informative how-to guidance; may include templates, pseudo-code, and examples; MUST NOT introduce new obligations.
    - **IID-INT**: Non-normative integration notes; MUST NOT introduce new obligations (see `T102-STD-005-CLAUSE-005C`).
-   - **DRID**: Follow `T102-STD-004` body structure strictly.
+   - **DRID**: Follow `P-STD-001` body structure strictly.
 
    **Governance Mapping**:
    In governance-focused artifacts, inner clauses SHOULD be named `CLAUSE` (e.g., `T102-STD-005-CLAUSE-001`) to prevent confusion with Software Functional Requirements (`FR`). Legacy `...-FR-###` clause IDs inside governance ADRs are treated as clause IDs during migration.
@@ -271,7 +271,7 @@
    - **Anchor Stability**: Anchors MUST remain stable even if Titles change slightly.
    - **Immutable IDs**: Once assigned, an ID is never reused. Deprecate it instead.
    - **Migration Tolerance**: Validators MAY allow legacy governance clause labels (e.g., `...-FR-###` inside governance ADRs) alongside `...-RULE-###` during migration, but new governance clauses SHOULD use `CLAUSE`.
-   - **Legacy Standards Migration**: Migration tolerance for legacy governance standard identifiers is defined in `T102-STD-009-CLAUSE-005 (Migration Tolerance)`.
+   - **Legacy Standards Migration**: Migration tolerance for legacy governance standard identifiers is defined in `P-STD-001-CLAUSE-017 (Migration Tolerance)`.
 
 ## Decision Record
 
@@ -296,7 +296,7 @@
 
 `T102-STD-005 (ID Governance Standard)`,
 `T102-STD-003 (Explicit Inheritance Model)`,
-`T102-STD-004 (Specification Standard & Guideline)`,
+`P-STD-001 (Program Governance Standard)`,
 `T102-STD-006 (Research Artifacts Index)`,
 `T102-CON-009 (Normative Keywords)`
 
