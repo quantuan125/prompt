@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC006'
-version: '1.1.0'
-date: '2026-02-22'
+version: '1.2.0'
+date: '2026-02-24'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -61,7 +61,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md'
 | GATE-001 | `P-PH000-ST001-AC006-GATE-001` | Gate: Client approval of pre-promotion T102-STD-005 state | `completed` | Client | TK003 | Pass/fail | — | Approved via GATE-001 `prompt/artifacts/tasks/P/workspace/verification/verification_P-PH000-ST001-AC006_gate-001.md`|
 | TK004 | `P-PH000-ST001-AC006-TK004` | Author promotion contract proposal (re-identification mapping + timeline UID CLAUSE text + alias window + Tier 1 ref update plan) | `planned` | LLM_Consultant | GATE-001 | Proposal artifact | `P-STD-001-CLAUSE-030`, `T102-STD-005-CLAUSE-003A` | — |
 | GATE-002 | `P-PH000-ST001-AC006-GATE-002` | Gate: Client approval of promotion contract | `planned` | Client | TK004 | Pass/fail | — | — |
-| TK005 | `P-PH000-ST001-AC006-TK005` | Create P-STD-005 combined file (full content transfer + timeline UID CLAUSEs per contract) | `planned` | LLM_Developer | GATE-002 | `standard_P-STD-005_universal-id-specification.md` | Promotion contract | — |
+| TK004.1 | `P-PH000-ST001-AC006-TK004.1` | Revise promotion contract to add session sub-tokens (DP/DEC/ACT/OQ) to CLAUSE-008 and CLAUSE-001 | `planned` | LLM_Developer | GATE-002 | Revised proposal | `guideline_workspace_notes.md` §2.2 | — |
+| TK005 | `P-PH000-ST001-AC006-TK005` | Create P-STD-005 combined file (full content transfer + timeline UID CLAUSEs per contract) | `planned` | LLM_Developer | TK004.1 | `standard_P-STD-005_universal-id-specification.md` | Promotion contract | — |
 | TK006 | `P-PH000-ST001-AC006-TK006` | Mark T102-STD-005 as superseded + establish alias window | `planned` | LLM_Developer | TK005 | `T102-STD-005_id-specification-rules.md` | `T102-STD-005-CLAUSE-003A/003B` | — |
 | TK007 | `P-PH000-ST001-AC006-TK007` | Update P-STD-001 references (T102-STD-005 → P-STD-005) | `planned` | LLM_Developer | TK005 | `standard_P-STD-001_program-governance-standard.md` | Tier 1 ref update | — |
 | TK008 | `P-PH000-ST001-AC006-TK008` | Update Program SPS P-STD-005 row + remaining Tier 1 reference files | `planned` | LLM_Developer | TK005 | `sps_P-PROGRAM.md`, `P-STD-003`, guideline, skills, catalog | Tier 1 ref update | — |
@@ -280,6 +281,11 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md'
      - Observed plan/notes file naming patterns across T102 and T104 workspaces
    - The proposal file is the delivery surface; GATE-002 is the quality checkpoint. Any specification ambiguities that cannot be resolved from the available inputs above MUST be flagged as open questions in the proposal for client resolution at GATE-002.
    - The CLAUSEs MUST be authored in P-STD-001-CLAUSE-018B format with subclauses in CLAUSE-020A format.
+   - **Session sub-token requirement (inline amendment, 2026-02-24)**: CLAUSE-008 MUST include a subclause for session-scoped item UIDs (DP, DEC, ACT, OQ) as defined in `guideline_workspace_notes.md` §2.2. Specifically:
+     - A new `P-STD-005-CLAUSE-008J (Session Item UID)` subclause MUST define the composition pattern `<Session-UID>-<TYPE>###` where `<TYPE>` is one of `DP`, `DEC`, `ACT`, `OQ`.
+     - `P-STD-005-CLAUSE-001` Pattern 4 regex MUST accommodate the optional `-<TYPE>###` suffix after `SES###`.
+     - `P-STD-005-CLAUSE-008I (Composition rules)` MUST document that Session UIDs may be extended with session item type tokens.
+     - Source: `guideline_workspace_notes.md` §2.2 (Item ID format: `[Session-Prefix]-[TYPE][###]`; types: DP, DEC, ACT, OQ; sequences reset per session).
 
 4. **ADR-002 body** (promotion decision):
    - Authored in P-STD-001-CLAUSE-025A header format
@@ -333,6 +339,46 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md'
 **Reviewer**: Client
 
 **Exit Criteria**: Client approves contract; no blocking issues
+
+---
+
+### Task TK004.1: Revise Promotion Contract — Add Session Sub-Tokens
+
+**Task ID**: `P-PH000-ST001-AC006-TK004.1`
+
+**Purpose**: Address the scope gap identified at GATE-002: the promotion contract is missing session-scoped item UIDs (DP/DEC/ACT/OQ) as defined in `guideline_workspace_notes.md` §2.2. These tokens compose on top of Session UIDs and are foundational to the workspace notes ID system.
+
+**Classification**: Situation B (Scope Gap) per `guideline_workspace_plan.md` §VI.G — the AC006 plan did not originally specify session sub-tokens; the developer faithfully implemented the plan as written.
+
+**Deliverable**: Revised `prompt/artifacts/tasks/P/workspace/proposal/proposal_P-PH000-ST001-AC006_promotion-contract-t102-std-005-to-p-std-005.md`
+
+**Steps**:
+1. **Update §VI (CLAUSE-001 amendment)** — Pattern 4 regex:
+   - Replace the Pattern 4 regex to add optional session item suffix after `SES\\d{3}`:
+   - Old: `^(?:P|T\\d{3}(?:[A-Z]\\d*)?)-PH\\d{3}(?:-ST\\d{3}(?:-AC\\d{3}(?:\\.\\d+)?(?:-TK\\d{3})?)?)?(?:-(?:SES\\d{3}|GATE-\\d{3}))?$`
+   - New: `^(?:P|T\\d{3}(?:[A-Z]\\d*)?)-PH\\d{3}(?:-ST\\d{3}(?:-AC\\d{3}(?:\\.\\d+)?(?:-TK\\d{3})?)?)?(?:-(?:SES\\d{3}(?:-(?:DP|DEC|ACT|OQ)\\d{3})?|GATE-\\d{3}))?$`
+   - Add session item examples:
+     `- Examples (Session Item): \`P-PH000-ST001-AC006-SES003-DP001\`, \`P-PH000-ST001-AC006-SES003-DEC001\``
+
+2. **Update §VII (CLAUSE-008)** — Add CLAUSE-008J subclause:
+   - Insert after CLAUSE-008I:
+   ```
+   * **P-STD-005-CLAUSE-008J (Session Item UID)** — Session item UIDs MUST be expressed by appending `-<TYPE>###` to a Session UID, where `<TYPE>` is one of: `DP` (Discussion Point), `DEC` (Decision), `ACT` (Action), `OQ` (Open Question). Sequences (`###`) reset per session file per `guideline_workspace_notes.md` §2.2. Regex: `^(?:P|T\\d{3}(?:[A-Z]\\d*)?)-PH\\d{3}(?:-ST\\d{3}(?:-AC\\d{3}(?:\\.\\d+)?(?:-TK\\d{3})?)?)?-SES\\d{3}-(?:DP|DEC|ACT|OQ)\\d{3}$`. Examples: `P-PH000-ST001-AC006-SES003-DP001`, `T104-PH001-ST002-SES001-DEC001`, `P-PH000-ST001-AC006-SES003-ACT001`.
+   ```
+
+3. **Update §VII (CLAUSE-008I)** — Expand composition rules:
+   - Old: `Qualifiers MUST NOT appear in the middle of the UID.`
+   - New: `Session UIDs (\`SES\`) MAY be further extended with a session item type token (see CLAUSE-008J). Qualifiers and their extensions MUST NOT appear in the middle of the UID.`
+
+4. **Bump version** to `v1.1.0` and add changelog entry referencing the plan amendment.
+
+**Success Criteria**:
+- [ ] CLAUSE-001 Pattern 4 regex accommodates `SES###-TYPE###` pattern
+- [ ] CLAUSE-001 Pattern 4 examples include session item UIDs
+- [ ] CLAUSE-008J subclause defines session item UID composition (DP/DEC/ACT/OQ)
+- [ ] CLAUSE-008I updated to reference CLAUSE-008J
+- [ ] Proposal changelog documents the revision
+- [ ] No other normative content modified
 
 ---
 
@@ -604,3 +650,4 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md'
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-02-22 | Initial | Activity plan created per SES001 consultation. Fix-first/promote-clean methodology; absorbs T104-PH001-ST002-AC002, T102-PH001-ST005-AC005, and STD-005-specific scope from T102-PH001-ST002. Evidence: `raw_P-PH000-ST001-AC006-SES001.txt` |
 | v1.1.0 | 2026-02-22 | Amendment | SES002 pre-commissioning amendments: TK004 — substandard architecture mandated (DEC003), hybrid authoring clarified for timeline UID CLAUSEs (DEC002); TK005 — RES token scope change absorbed from AC001 (DEC004); TK008-8D — skill directory retained as deprecated (DEC005). Evidence: `raw_P-PH000-ST001-AC006-SES002.txt` |
+| v1.2.0 | 2026-02-24 | Amendment | Inline plan amendment: (1) added session sub-token requirement to TK004 Steps item 3 (DP/DEC/ACT/OQ per guideline_workspace_notes.md §2.2); (2) added TK004.1 sub-task for proposal revision; (3) updated TK005 Depends On from GATE-002 to TK004.1. Classification: Situation B (Scope Gap) per guideline_workspace_plan.md §VI.G. Source: Client QA at GATE-002 (2026-02-24). |

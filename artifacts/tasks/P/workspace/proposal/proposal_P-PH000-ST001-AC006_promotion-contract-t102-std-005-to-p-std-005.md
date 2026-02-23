@@ -4,8 +4,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 activity_id: 'P-PH000-ST001-AC006'
 task_id: 'P-PH000-ST001-AC006-TK004'
-version: '1.0.0'
-date: '2026-02-23'
+version: '1.1.0'
+date: '2026-02-24'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -132,7 +132,7 @@ The promoted file MUST amend `P-STD-005-CLAUSE-001 (Canonical ID Schema)` so the
    - **Pattern 3 (Program Tokenized ID)**: `^P(?:-[A-Z0-9_]+)*-[A-Z]+-\\d{3}$`
      - Examples: `P-STD-001`, `P-CON-001`, `P-ADR-001`
 
-   - **Pattern 4 (Timeline UID)**: `^(?:P|T\\d{3}(?:[A-Z]\\d*)?)-PH\\d{3}(?:-ST\\d{3}(?:-AC\\d{3}(?:\\.\\d+)?(?:-TK\\d{3})?)?)?(?:-(?:SES\\d{3}|GATE-\\d{3}))?$`
+   - **Pattern 4 (Timeline UID)**: `^(?:P|T\\d{3}(?:[A-Z]\\d*)?)-PH\\d{3}(?:-ST\\d{3}(?:-AC\\d{3}(?:\\.\\d+)?(?:-TK\\d{3})?)?)?(?:-(?:SES\\d{3}(?:-(?:DP|DEC|ACT|OQ)\\d{3})?|GATE-\\d{3}))?$`
      - Examples (Phase): `P-PH000`, `T104-PH001`
      - Examples (Stream): `P-PH000-ST001`, `T104-PH001-ST002`
      - Examples (Activity): `P-PH000-ST001-AC006`, `T104-PH001-ST002-AC000`
@@ -140,6 +140,10 @@ The promoted file MUST amend `P-STD-005-CLAUSE-001 (Canonical ID Schema)` so the
      - Examples (Task): `T102-PH001-ST001-AC009.1-TK003`
      - Examples (Session): `P-PH000-ST001-AC006-SES003`
      - Examples (Gate): `P-PH000-ST001-AC006-GATE-002`
+     - Examples (Session Item — DP): `P-PH000-ST001-AC006-SES003-DP001`
+     - Examples (Session Item — DEC): `P-PH000-ST001-AC006-SES003-DEC001`
+     - Examples (Session Item — ACT): `T104-PH001-ST002-SES001-ACT001`
+     - Examples (Session Item — OQ): `P-PH000-ST001-AC006-SES003-OQ001`
 
    **Markdown Construction**:
    - Format: `* **<ID> (<Title>)** — <Description>`
@@ -175,7 +179,9 @@ The promoted file MUST insert the following CLAUSEs immediately after `P-STD-005
 
    * **P-STD-005-CLAUSE-008H (Gate UID)** — Gate UIDs MUST be expressed by appending `-GATE-###` to an Activity UID. Regex: `^(?:P|T\\d{3}(?:[A-Z]\\d*)?)-PH\\d{3}-ST\\d{3}-AC\\d{3}(?:\\.\\d+)?-GATE-\\d{3}$`. Example: `P-PH000-ST001-AC006-GATE-002`.
 
-   * **P-STD-005-CLAUSE-008I (Composition rules)** — Timeline UID tokens MUST appear in this order: `PH` then `ST` then `AC` (optionally dotted), then optional `TK`, then optional qualifier (`SES` or `GATE`). Qualifiers MUST NOT appear in the middle of the UID.
+   * **P-STD-005-CLAUSE-008I (Composition rules)** — Timeline UID tokens MUST appear in this order: `PH` then `ST` then `AC` (optionally dotted), then optional `TK`, then optional qualifier (`SES` or `GATE`). Session UIDs (`SES`) MAY be further extended with a session item type token (see CLAUSE-008J). Qualifiers and their extensions MUST NOT appear in the middle of the UID.
+
+   * **P-STD-005-CLAUSE-008J (Session Item UID)** — Session item UIDs MUST be expressed by appending `-<TYPE>###` to a Session UID, where `<TYPE>` is one of: `DP` (Discussion Point), `DEC` (Decision), `ACT` (Action), `OQ` (Open Question). Sequences (`###`) reset per session file per `guideline_workspace_notes.md` §2.2. Regex: `^(?:P|T\\d{3}(?:[A-Z]\\d*)?)-PH\\d{3}(?:-ST\\d{3}(?:-AC\\d{3}(?:\\.\\d+)?(?:-TK\\d{3})?)?)?-SES\\d{3}-(?:DP|DEC|ACT|OQ)\\d{3}$`. Examples: `P-PH000-ST001-AC006-SES003-DP001`, `T104-PH001-ST002-SES001-DEC001`, `P-PH000-ST001-AC006-SES003-ACT001`.
 
 9) **P-STD-005-CLAUSE-009 (UID-vs-Seq Decoupling)**
 
@@ -399,3 +405,12 @@ Any ambiguity below MUST be resolved by the Client at Gate-002 (or explicitly ac
 - [ ] Alias window terms explicit and changeset-based end condition defined.
 - [ ] Tier 1 update plan bounded and file-specific; template check evidence requirement included.
 - [ ] P-STD-001 back-reference updates specified.
+
+---
+
+## XVII. Changelog
+
+| Version | Date | Type | Summary |
+|:--|:--|:--|:--|
+| v1.0.0 | 2026-02-23 | Initial | Promotion contract authored for GATE-002 review. Covers CLAUSE mapping (16 entities), replacement rules (R1-R4), CLAUSE-001 amendment, timeline UID CLAUSEs (008-011), ADR-002 body + index, Specification Index, alias window, Tier 1 update plan, findings remediation. |
+| v1.1.0 | 2026-02-24 | Amendment | TK004.1 revision: added CLAUSE-008J (Session Item UID) for DP/DEC/ACT/OQ sub-tokens per guideline_workspace_notes.md §2.2; updated CLAUSE-001 Pattern 4 regex to accommodate session item suffix; updated CLAUSE-008I composition rules to reference CLAUSE-008J. Classification: Situation B (Scope Gap) per guideline_workspace_plan.md §VI.G. Source: Client QA at GATE-002 (2026-02-24). |

@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.6.0'
-date: '2026-02-14'
+version: '1.7.0'
+date: '2026-02-24'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -183,6 +183,46 @@ Phase-level gates govern entry into, or conformance claims within, an entire pha
 
 ---
 
+### G. Gate Outcome Rework Paths
+
+When a gate review identifies an issue with the deliverable under review, the reviewer MUST classify the issue before determining the rework path.
+
+#### Situation A — Deliverable Deficiency
+
+**Definition**: The plan requirements were clear and complete, but the deliverable did not fully meet them.
+
+**Decision test**: "Did the plan explicitly specify this requirement?" → **YES**.
+
+**Path**:
+1. Gate rejects or conditionally approves the deliverable.
+2. The verification artifact records the deficiency as a blocking or conditional finding.
+3. The original task owner reworks the deliverable under the **same task ID** (no new task needed).
+4. The gate is re-verified after rework.
+
+**Rationale**: The developer had plan-level authority to produce the correct output; the gap is in execution, not specification.
+
+#### Situation B — Scope Gap
+
+**Definition**: The plan requirements themselves were incomplete — the plan did not specify a requirement that should have been present.
+
+**Decision test**: "Did the plan explicitly specify this requirement?" → **NO**.
+
+**Path**:
+1. Gate conditionally approves the deliverable for its **original plan-mandated scope** (the deliverable is not deficient against the plan as written).
+2. The plan is amended (inline amendment or formal session) to add the missing requirement.
+3. A scoped **sub-task** (`TK###.n`, following Sub-Activity dotted notation) is added to the task register to address the scope gap with clear traceability to the plan amendment.
+4. The verification artifact records the gap as a conditional finding and references the sub-task.
+5. Downstream tasks that depend on the gated deliverable MUST update their `Depends On` to include the sub-task.
+
+**Rationale**: The developer faithfully implemented the plan as written. Creating a sub-task (rather than reopening the original task) preserves the audit trail: the original task completed its original scope; the sub-task addresses the newly identified requirement. The developer receives plan-level authority for the new work via the amended plan, not via verification findings alone.
+
+#### Decision Logic Summary
+
+| Question | Answer | Situation | Rework Path |
+|:--|:--|:--|:--|
+| Did the plan specify this requirement? | Yes | A (Deficiency) | Rework under same task |
+| Did the plan specify this requirement? | No | B (Scope Gap) | Plan amendment → sub-task (TK###.n) |
+
 ## VII. SUB-ACTIVITY RULES (AC00x.x)
 
 ### A. Definition
@@ -285,3 +325,4 @@ The following templates are available for PLAN artifacts. Each template defines 
 | v1.4.0 | 2026-02-11 | Update | Added Template Inventory section referencing PLAN templates; corrected status enum spelling (`deferred`) |
 | v1.5.0 | 2026-02-14 | Amendment | Standardized Sub-Activity workflow: dotted numeric `AC00x.x` IDs, allowed triggers (remediation/mandatory updates), and register constraints (Sub-Activities not listed in higher-level Activity Registers) |
 | v1.6.0 | 2026-02-14 | Amendment | Standardized anti-drift register authority: Phase plans use Activity Snapshot Index (as-of dated, no dependency authoring); Stream plans remain SSOT. Standardized linking rules for standalone Activity Plans and minimum stream-level contract stubs |
+| v1.7.0 | 2026-02-24 | Amendment | Added §VI.G (Gate Outcome Rework Paths): codified Situation A (deliverable deficiency) vs Situation B (scope gap) classification and their respective rework paths. Source: P-PH000-ST001-AC006 GATE-002 review. |

@@ -4,7 +4,7 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 activity_id: 'P-PH000-ST001-AC006'
 gate_id: 'P-PH000-ST001-AC006-GATE-002'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-02-24'
 status: 'draft'
 author: 'LLM_Reviewer'
@@ -326,6 +326,8 @@ All 8 governing decisions referenced in the proposal frontmatter are verified:
 
 6. **OBS-006 — Provenance section format**: The proposal embeds the P-STD-005 Provenance template within §XI (after the External References table) as a list format rather than the key-value table used in the P-STD-001 precedent contract (§XIV). Both formats are acceptable for a proposal artifact; TK005 will apply the exact text. Non-blocking.
 
+7. **OBS-007 — Session sub-token gap (Situation B scope gap)**: The proposal defines Session UIDs (`SES###`) and Gate UIDs (`GATE-###`) as terminal qualifiers, but does not include session-scoped item UIDs (DP/DEC/ACT/OQ) defined in `guideline_workspace_notes.md` §2.2. These tokens compose on top of Session UIDs (e.g., `P-PH000-ST001-AC006-SES003-DEC001`) and are foundational to the workspace notes ID system. **Root cause**: The AC006 plan's TK004 Steps and SES003-DEC002 did not enumerate these sub-tokens; the developer faithfully implemented the plan as written. **Classification**: Situation B (Scope Gap) per `guideline_workspace_plan.md` §VI.G. **Resolution**: Plan amended inline (v1.2.0) to add TK004.1 sub-task; TK004.1 revises the proposal to add CLAUSE-008J (Session Item UID), update CLAUSE-001 Pattern 4 regex, and update CLAUSE-008I composition rules. TK005 Depends On updated to TK004.1.
+
 ### B. Risks
 
 1. **RSK-001 — Subclause rendering normalization scope (LOW)**: Carried forward from GATE-001 RSK-001. The proposal addresses this via §V.3 ("Subclause rendering SHOULD be normalized to P-STD-001-CLAUSE-020A style") and §VII (new CLAUSEs use correct format). However, the contract does not provide a subclause-by-subclause rendering instruction list for the 7 transferred CLAUSEs. Recommendation: TK005 implementer should normalize all subclauses to `— <text>` inline format during content transfer, applying the same pattern as the §VII CLAUSE text.
@@ -354,8 +356,9 @@ All 8 governing decisions referenced in the proposal frontmatter are verified:
 
 **Upon Client approval, required actions**:
 1. Resolve §XV Q1 (substandard naming) and Q2 (timeline UID root scope) — update proposal if naming changes are requested.
-2. Update task register statuses in `plan_P-PH000-ST001-AC006.md`: TK004 → `completed`, GATE-002 → `completed`.
-3. Proceed to TK005 (Create P-STD-005 Combined File) using the approved contract as the mechanical execution surface.
+2. Execute TK004.1 (session sub-token proposal revision) per the amended plan (v1.2.0).
+3. Update task register statuses in `plan_P-PH000-ST001-AC006.md`: TK004 → `completed`, GATE-002 → `completed`.
+4. Proceed to TK005 (Create P-STD-005 Combined File) using the revised contract as the mechanical execution surface.
 
 ---
 
