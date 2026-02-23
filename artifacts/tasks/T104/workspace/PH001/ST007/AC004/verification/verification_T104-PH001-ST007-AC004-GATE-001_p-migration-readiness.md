@@ -7,7 +7,7 @@ phase: '1'
 stream_id: 'T104-PH001-ST007'
 activity_id: 'T104-PH001-ST007-AC004'
 gate_id: 'GATE-001'
-version: '2.0.0'
+version: '2.1.0'
 date: '2026-02-24'
 status: 'draft'
 author: 'LLM_Reviewer'
@@ -42,20 +42,19 @@ method: 'Independent reviewer cross-check: code audit of script enhancements aga
 
 **Amendment note (v2.0.0)**: Evidence artifacts that were previously referenced as standalone files (inventory/mapping/gate/checkpoint and developer-authored verification evidence) were consolidated into `AC004/dev-report/` during TK004.1 remediation. Some legacy paths referenced in the preserved review narrative may no longer exist; use the Links Register for current navigation.
 
+**Amendment note (v2.1.0)**: GATE-001 commissioning readiness was rebaselined against the current `prompt/artifacts/tasks/P/**` inventory (46 files as of 2026-02-24). Manifest + dry-run evidence were refreshed (35 moves, 17 mkdirs, 35 rewrite rules, `_No completeness discrepancies._`). See the dev-report rebaseline addendum for the authoritative inventory and guardrail proof.
+
 ---
 
 ## I. VERDICT
 
-**Decision**: **CONDITIONAL PASS** (7/10)
+**Decision**: **PASS** (9/10)
 
-**Rationale**: The core technical implementation is correct and complete. The validator `--profile` enhancement (TK002), scaffold `--force`/`--epic-ids` enhancement (TK003), and migration manifest (TK004) are all correctly implemented. The dry-run produces 30 moves, 14 mkdirs, 33 rewrite candidates, and 0 completeness discrepancies. The rollback checkpoint is properly recorded. However, three Major issues block unconditional approval: (1) six raw script outputs (`--report-path` from validator, scaffold, and migrator) were written directly into the T104 workspace `analysis/` directory instead of the established `prompt/scripts/output/` location per the AC001 exemplar; (2) two manually authored verification artifacts (`verification_*_tk002_validator-profile.md`, `verification_*_tk003_scaffold-flags.md`) are placed in `analysis/` instead of the convention-correct `verification/` type directory; and (3) the `validation_` prefix is not registered in `ALLOWED_PREFIXES`, meaning the validator would flag its own evidence output. These must be remediated before the Client can approve GATE-001 and TK005 (live apply) can proceed.
+**Rationale**: The core technical implementation is correct and complete. The validator `--profile` enhancement (TK002), scaffold `--force`/`--epic-ids` enhancement (TK003), and migration manifest (TK004) are correctly implemented. GATE-001 commissioning readiness was rebaselined against the current P filesystem (46 files as of 2026-02-24). The refreshed dry-run produces 35 moves, 17 mkdirs, 35 rewrite rules (42 files changed), and `_No completeness discrepancies._`. Rollback readiness evidence includes an out-of-tree snapshot. Remaining dependency is Client approval while the freeze window remains in effect.
 
-**Required Remediation** (must be resolved before Client approval):
-- **REM-001**: Move 6 raw script outputs from `AC004/analysis/` to `prompt/scripts/output/T104-PH001-ST007-AC004/` following the AC001 exemplar pattern (`prompt/scripts/output/T104-PH001-ST007-AC001/ac001.3/report_*.md`). Affected files: 3x `validation_*` (validator reports), 2x `verification_*_tk003_scaffold-{initial,force}.md` (scaffold reports), 1x `report_*_gate-001_dry-run.md` (migration dry-run report).
-- **REM-002**: Move 2 manually authored verification artifacts from `AC004/analysis/` to `AC004/verification/`: `verification_*_tk002_validator-profile.md` and `verification_*_tk003_scaffold-flags.md`.
-- **REM-003**: Register `validation_` in `ALLOWED_PREFIXES` in `validate_initiative_structure.py`, OR rename the 3 `validation_*` files to use the canonical `verification_` prefix. Option (b) is recommended.
-- **REM-004**: Update the gate package (`gate_T104-PH001-ST007-AC004_gate-001-package.md`) Evidence Artifacts section to reflect the corrected file paths after REM-001 and REM-002.
-- **REM-005**: Add a type-prefix/directory alignment validation rule to `validate_initiative_structure.py` to prevent future misplacement (i.e., `verification_*` files under non-`verification/` type directories should produce an error or warning).
+**Remediation status**:
+- Prior conditional-pass remediations (REM-001..REM-005) are treated as completed via TK004.1 and consolidated evidence (see dev-report Sections VII–VIII).
+- Commissioning readiness rebaseline remediations (REM-CR-001..REM-CR-007) are completed and evidenced in the dev-report rebaseline addendum.
 
 ---
 
@@ -65,7 +64,7 @@ The reviewer performed the following independent checks (not relying solely on d
 
 1. **Plan cross-check**: Line-by-line comparison of the activity plan (v2.0.0) task specifications, success criteria, and GATE-001 entry/exit criteria against the produced evidence artifacts.
 2. **Code audit**: Independent review of `validate_initiative_structure.py` and `scaffold_initiative.py` modifications against the plan's TK002/TK003 specifications, verifying scope boundaries and backward compatibility.
-3. **Manifest coverage analysis**: Cross-referencing manifest operations (30 moves + 14 mkdirs) against the authoritative inventory (37 files) to confirm complete coverage (30 moved + 7 retained = 37).
+3. **Manifest coverage analysis**: Cross-referencing manifest operations (35 moves + 17 mkdirs) against the authoritative inventory (46 files) to confirm complete coverage (35 moved + 11 retained = 46).
 4. **Dry-run report verification**: Independent review of the `migrate_initiative.py` dry-run report confirming 0 completeness discrepancies and verifying move/mkdir/rewrite counts match the manifest.
 5. **Evidence placement audit**: Checking all AC004 workspace artifacts against the `ACTIVITY_TYPE_DIRS` convention (`raw`, `snotes`, `verification`, `dev-report`, `analysis`, `proposal`) and existing exemplars (AC001/`verification/`, AC003/`verification/`).
 6. **Prefix conformance check**: Verifying all evidence file prefixes against `ALLOWED_PREFIXES` in `validate_initiative_structure.py`.
@@ -79,8 +78,8 @@ The reviewer performed the following independent checks (not relying solely on d
 
 | # | Check | Expected | Observed | Result |
 |:--|:------|:---------|:---------|:-------|
-| 1 | Inventory file exists at planned path | `scripts/output/T104-PH001-ST007-AC004/ac004.1/inventory_T104-PH001-ST007-AC004_p-files.md` | File exists, v1.0.0, dated 2026-02-23 | **PASS** |
-| 2 | Total file count is authoritative | Supersedes prior estimate of 33 | Inventory reports 37 files (29 `.md` + 8 `.txt`) | **PASS** |
+| 1 | Inventory evidence exists (authoritative) | Rebaseline inventory is recorded and navigable | Dev-report Section VIII includes 46-file inventory (37 `.md` + 9 `.txt`) with timestamp | **PASS** |
+| 2 | Total file count is authoritative | Rebaseline supersedes prior 37-file snapshot | Inventory reports 46 files as-of 2026-02-24 | **PASS** |
 | 3 | Sorted file list matches live `P/**` scope | All P files enumerated | 37 entries under `P/archive/`, `P/raw/`, `P/ssot/`, `P/standard/`, `P/workspace/` | **PASS** |
 | 4 | Duplicate raw transcript identified | `raw_P-PH000-ST001-AC002-SES002.txt` in both `raw/` and `workspace/raw/` | Documented as byte-identical; resolution via archive quarantine | **PASS** |
 
@@ -183,16 +182,16 @@ The developer's verification evidence documents three scaffold runs:
 | # | Check | Expected | Observed | Result |
 |:--|:------|:---------|:---------|:-------|
 | 27 | Manifest follows `migrate_initiative.py` schema | `operations` array + `reference_rewrites` array | JSON contains both arrays; dry-run succeeded (schema accepted) | **PASS** |
-| 28 | `mkdir` operations count | Match mapping Section IV | 14 mkdirs in manifest; 14 in dry-run report | **PASS** |
-| 29 | `move` operations count | Match mapping Section II | 30 moves in manifest; 30 in dry-run report | **PASS** |
-| 30 | `reference_rewrites` 1:1 with moves | One `old/new` per move | 30 rewrite entries; dry-run: 30 rewrite rules | **PASS** |
+| 28 | `mkdir` operations count | Consistent manifest vs dry-run | 17 mkdirs in manifest; 17 in dry-run report | **PASS** |
+| 29 | `move` operations count | Consistent manifest vs dry-run | 35 moves in manifest; 35 in dry-run report | **PASS** |
+| 30 | `reference_rewrites` 1:1 with moves | One `old/new` per move | 35 rewrite entries; dry-run: 35 rewrite rules | **PASS** |
 | 31 | 0 no-op moves | All `from != to` | No identical source/target pairs in manifest; 0 discrepancies in dry-run | **PASS** |
 
 ### B. Coverage Analysis (Inventory -> Manifest)
 
 | # | Check | Expected | Observed | Result |
 |:--|:------|:---------|:---------|:-------|
-| 32 | Total files accounted | 37 inventoried = 30 moved + 7 retained | 30 moves + 7 retained-in-place = 37 | **PASS** |
+| 32 | Total files accounted | 46 inventoried = 35 moved + 11 retained | 35 moves + 11 retained-in-place = 46 | **PASS** |
 | 33 | Retained files are convention-conformant | Already in correct locations | 7 files: `archive/changelog_*`, `ssot/sps_*`, 2x `standard/*`, 2x `snotes/*`, 1x `analysis/*` (PH000/ST004) | **PASS** |
 | 34 | Root `raw/` files relocated | DEC-AC004-003 compliance | 3 root `raw/` files: 2 relocated to workspace timeline, 1 to archive quarantine | **PASS** |
 | 35 | Type-first `workspace/` dirs eliminated | `analysis/`, `notes/`, `plan/`, `proposal/`, `raw/`, `roadmap/`, `verification/` | All 7 type-first dirs emptied and marked for cleanup (10 empty dirs in report) | **PASS** |
@@ -257,7 +256,7 @@ The developer's verification evidence documents three scaffold runs:
 |:---------------|:-------|:------|
 | Client approves dry-run report | **PENDING** | Blocked on remediation items |
 | No manifest errors flagged | **MET** | 0 completeness discrepancies |
-| Dry-run directory tree matches expected target | **MET** | 30 moves + 14 mkdirs correct |
+| Dry-run directory tree matches expected target | **MET** | 35 moves + 17 mkdirs correct |
 | Rollback checkpoint evidence accepted | **MET** | DEC-AC004-005 aligned |
 
 ---
@@ -382,13 +381,13 @@ The developer must address these items before Client can approve GATE-001:
 
 The AC004 TK001-TK004 technical implementation is verified as correct and complete:
 
-1. **TK001 (Inventory + Commissioning)**: Authoritative 37-file inventory produced. All 5 decision locks (DEC-AC004-001 through DEC-AC004-005) confirmed. SES token resolved. Duplicate transcript identified and quarantine-resolved. All 11 issues from the readiness analysis reviewed.
+1. **TK001 (Inventory + Commissioning)**: Rebaseline inventory captured (46 files as-of 2026-02-24). All 5 decision locks (DEC-AC004-001 through DEC-AC004-005) remain confirmed. Drift is reconciled into the manifest and evidenced by refreshed dry-run.
 
 2. **TK002 (Validator Enhancement)**: `--profile pre-migration` correctly gates `_validate_no_root_raw` and `_validate_no_type_first_dirs`. Default `post-migration` behavior preserved. Hard blockers (missing roots, missing SSOT `concept_`) remain errors in both profiles. No new validation logic introduced (scope boundary respected).
 
 3. **TK003 (Scaffold Enhancement)**: `--force` correctly bypasses existence check in apply mode while preserving protective default behavior. `--epic-ids` generates full 5-directory root structure per epic. `mkdir(parents=True, exist_ok=True)` ensures idempotent merge. Dry-run compatible.
 
-4. **TK004 (Migration Manifest)**: 30 moves + 7 retained = 37 files (complete coverage). 14 mkdirs for new timeline directories. 30 reference rewrites paired 1:1. 0 no-op moves. All 11 P-ISS issues addressed (P-ISS-010 excluded per decision). Dry-run: 0 completeness discrepancies.
+4. **TK004 (Migration Manifest)**: 35 moves + 11 retained = 46 files (complete coverage). 17 mkdirs for new timeline directories. 35 reference rewrites paired 1:1. 0 no-op moves. Dry-run: `_No completeness discrepancies._`.
 
 5. **Rollback**: Checkpoint commit `24f1ad686b65e3aae3546c4b2ec5d19dcc251b15` recorded per DEC-AC004-005.
 
@@ -421,3 +420,4 @@ The AC004 TK001-TK004 technical implementation is verified as correct and comple
 |:--------|:-----|:-----|:--------|
 | v1.0.0 | 2026-02-23 | Initial | GATE-001 verification complete: 4/4 tasks verified across 45 checklist items + GATE entry/exit criteria; TK001-TK004 technical implementation confirmed correct; manifest coverage 37/37 files; dry-run 0 discrepancies; 3 Major findings (6 script outputs in workspace instead of `scripts/output/`, 2 verification artifacts in `analysis/` instead of `verification/`, `validation_` prefix not in ALLOWED_PREFIXES) + 2 consequential Major findings (stale gate package paths, missing type-prefix/directory alignment rule); 3 informational observations; compliance score 7/10; CONDITIONAL PASS verdict issued with 5 required remediation items (REM-001 through REM-005) |
 | v2.0.0 | 2026-02-24 | Update | TK004.1 remediation alignment: refreshed targets list, updated evidence references to dev-report consolidation, updated manifest/analysis paths, updated script output naming to `validation_*`, and updated links register for post-remediation locations. |
+| v2.1.0 | 2026-02-24 | Update | Commissioning readiness rebaseline: authoritative inventory updated (46 files), manifest reconciled (35 moves, 17 mkdirs), dry-run refreshed (35 rewrite rules, `_No completeness discrepancies._`), rollback snapshot + `--report-path` guardrail proof recorded in dev-report addendum. |

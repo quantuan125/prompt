@@ -7,7 +7,7 @@ phase: '1'
 stream_id: 'T104-PH001-ST007'
 activity_id: 'T104-PH001-ST007-AC004'
 gate_id: 'T104-PH001-ST007-AC004-GATE-001'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-02-24'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -55,13 +55,13 @@ Out of scope:
 
 ### A. Current Recommendation
 
-**Commissioning status**: **BLOCKED (rebaseline required)**.
+**Commissioning status**: **READY (rebaseline complete; pending Client approval)**.
 
 Rationale (high-level):
 
 1. The “authoritative inventory” used to justify manifest coverage is dated **2026-02-23** and enumerates **37** P files (embedded in the dev-report).
-2. The live `prompt/artifacts/tasks/P/**` filesystem has drifted since that snapshot and now contains **44** files (as observed 2026-02-24).
-3. Until inventory + manifest + dry-run evidence are rebaselined against the current P state (or the drift is explicitly carved out), Gate 001 cannot be credibly approved for live apply commissioning.
+2. The live `prompt/artifacts/tasks/P/**` filesystem has drifted since that snapshot and now contains **46** files (observed `2026-02-24T04:37:39+07:00`; includes a research report stub added for pairing readiness).
+3. Inventory + manifest + dry-run evidence have now been rebaselined against the current P state and recorded in the dev-report rebaseline addendum; no waiver carve-outs are required.
 
 ### B. What Is Already Strong (retain)
 
@@ -81,11 +81,11 @@ Rationale (high-level):
 **Problem**: The inventory snapshot used for coverage proof is no longer authoritative.
 
 - Inventory basis (embedded in dev-report): **37 files**, snapshot date `2026-02-23`.
-- Live P state (observed): **44 files** under `prompt/artifacts/tasks/P/**`.
+- Live P state (rebaselined): **46 files** under `prompt/artifacts/tasks/P/**` (see dev-report Section VIII).
 
-**Drift snapshot (observed 2026-02-24; must be recomputed during remediation)**:
+**Drift snapshot (recomputed 2026-02-24; reconciled into manifest)**:
 
-New since the 37-file inventory (9):
+New since the 37-file inventory (11):
 
 1. `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/raw/raw_P-PH000-ST001-AC003-SES001.txt`
 2. `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES001.md`
@@ -96,6 +96,8 @@ New since the 37-file inventory (9):
 7. `prompt/artifacts/tasks/P/workspace/proposal/proposal_P-PH000-ST001-AC006_promotion-contract-t102-std-005-to-p-std-005.md`
 8. `prompt/artifacts/tasks/P/workspace/verification/verification_P-PH000-ST001-AC006-GATE-001.md`
 9. `prompt/artifacts/tasks/P/workspace/verification/verification_P-PH000-ST001-AC006-GATE-002.md`
+10. `prompt/artifacts/tasks/P/research/brief/brief_P-RES-001_status-standard-research.md`
+11. `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md`
 
 Missing since the 37-file inventory (2):
 
@@ -104,17 +106,21 @@ Missing since the 37-file inventory (2):
 
 **Risk**: If `TK005` is commissioned based on stale inventory coverage proof, then “0 completeness discrepancies” becomes a false sense of safety. New files may be left behind in type-first layout, or collide with target paths, or introduce additional reference-rewrite workload not accounted for.
 
+**Rebaseline outcome**: Manifest updated to cover all drifted files (and to normalize AC006 GATE filenames during relocation). Dry-run refreshed and still reports `_No completeness discrepancies._`.
+
 ### FIND-CR-002: Freeze Window Is Not Enforced (Major)
 
 AC004 TK001 calls for a freeze window on `prompt/artifacts/tasks/P/**` from inventory start through Gate approval. The drift above indicates the freeze window was not honored or not operationally enforced.
 
-**Risk**: Gate review becomes a moving target. This is a process risk that directly impacts technical confidence.
+**Rebaseline outcome**: Freeze window was re-declared and the authoritative inventory was recaptured (dev-report Section VIII). Gate approval should assume this freeze remains in effect through TK005 commissioning.
 
 ### FIND-CR-003: Documentation-Level Evidence Navigation Drift (Moderate)
 
 Multiple artifacts still imply that certain standalone evidence files exist (inventory/mapping as individual files), when the current approach embeds these as sections within the dev-report.
 
 **Risk**: Client review friction and potential misinterpretation (“missing evidence”) even if the underlying technical work is correct.
+
+**Rebaseline outcome**: AC004 plan + primary verification + dev-report were updated to reference the current evidence surfaces and counts.
 
 ### FIND-CR-004: Rollback Safety Is Weakened by a Dirty Working Tree (Moderate)
 
@@ -126,11 +132,31 @@ However, Gate readiness should assume:
 
 **Risk**: “Rollback to checkpoint commit” is necessary but may be insufficient to restore the exact pre-apply filesystem state unless the developer also captures an out-of-tree snapshot and/or achieves a clean/controlled working tree.
 
+**Rebaseline outcome**: An out-of-tree snapshot tarball of `prompt/artifacts/tasks/P/` was captured and hashed (dev-report Section VIII.E).
+
 ### FIND-CR-005: Known Post-Apply Manual Step (Preventive)
 
 Per DEC-AC004-004, `concept_P-PROGRAM.md` is manual post-apply creation. If omitted, strict validation after TK005 will fail.
 
 **Risk**: Preventable “post-apply validation failure” (TK006) unrelated to the migration script’s correctness.
+
+**Rebaseline outcome**: AC004 plan now includes an explicit “Post-Apply Manual Steps” checklist (DEC-AC004-004).
+
+---
+
+## V.A Remediation Completion Status (REM-CR-001 .. REM-CR-007)
+
+All required commissioning-readiness remediations are completed and evidenced:
+
+| Remediation ID | Status | Evidence |
+|:--|:--|:--|
+| REM-CR-001 | **Done** | Dev-report Section VIII.A (freeze + authoritative 46-file inventory) |
+| REM-CR-002 | **Done** | Updated manifest at `prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/manifest_T104-PH001-ST007-AC004_p-migration.json` + dev-report Section VIII.C |
+| REM-CR-003 | **Done** | Updated dry-run report at `prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/report_T104-PH001-ST007-AC004_gate-001_dry-run.md` (35 moves, 17 mkdirs, `_No completeness discrepancies._`) |
+| REM-CR-004 | **Done** | Updated: AC004 plan, primary verification, dev-report (evidence navigation and updated counts) |
+| REM-CR-005 | **Done** | Dev-report Section VIII.E (checkpoint commit, `git status --short`, snapshot path + sha256) |
+| REM-CR-006 | **Done** | AC004 plan “Post-Apply Manual Steps (Required before TK006)” (DEC-AC004-004) |
+| REM-CR-007 | **Done** | Dev-report Section VIII.F (`--report-path` negative/positive proof + retained outputs under `prompt/scripts/output/**`) |
 
 ## V. REQUIRED REMEDIATION (Developer Handoff)
 
@@ -191,10 +217,11 @@ Once all REM-CR items are completed and evidence is updated:
 - Dev-report (evidence consolidation): `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/dev-report/dev-report_T104-PH001-ST007-AC004_2026-02-23.md`
 - Manifest (current): `prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/manifest_T104-PH001-ST007-AC004_p-migration.json`
 - Dry-run report (current): `prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/report_T104-PH001-ST007-AC004_gate-001_dry-run.md`
+- Rebaseline evidence (inventory + rollback + guardrails): `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/dev-report/dev-report_T104-PH001-ST007-AC004_2026-02-23.md` (Section VIII)
 
 ## IX. Changelog
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-02-24 | Initial | Consolidated Gate-001 commissioning readiness risks and required remediation actions for developer handoff prior to TK005 live apply. |
-
+| v1.1.0 | 2026-02-24 | Update | Rebaseline complete: authoritative P inventory updated (46 files), manifest reconciled, dry-run refreshed (`_No completeness discrepancies._`), rollback snapshot + `--report-path` guardrail proof recorded, evidence navigation updated. |
