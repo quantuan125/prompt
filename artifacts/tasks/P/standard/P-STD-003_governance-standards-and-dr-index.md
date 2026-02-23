@@ -63,13 +63,13 @@
     (±) Requires initial mapping of program standards to adopted specifications.
     (-) Requires ongoing maintenance when ADR-004 or ADR-009 are revised.
 
-  * **References**
+ * **References**
 
     `T102-ADR-004 (Decision Records Index)`,
     `T102-STD-009 (Governance Standards Specification)`,
     `T102-STD-004 (Decision Records Standard)`,
     `T102-STD-009 (Governance Standards Model)`,
-    `T102-STD-005 (ID Specification & Rules)`
+    `P-STD-005 (Universal ID Specification)`
 
   * **Provenance**
 

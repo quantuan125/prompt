@@ -12,13 +12,13 @@ This catalog documents ADR-based skills, their triggering conditions, scope, dis
 
 ### t102-std-005-id-spec
 
-**Source ADR:** T102-STD-005 (ID Specification & Rules)  
-**SSOT Location:** `prompt/skills/t102-std-005-id-spec/`  
-**Claude Code Location:** `.claude/skills/t102-std-005-id-spec` (symlink)  
-**Codex Location:** `.codex/skills/t102-std-005-id-spec` (mirror directory; maintained by sync script)  
-**Status:** Active
+**Source STD:** P-STD-005 (Universal ID Specification)  
+**SSOT Location:** `prompt/skills/t102-adr-005-id-spec/`  
+**Claude Code Location:** `.claude/skills/t102-adr-005-id-spec` (symlink)  
+**Codex Location:** `.codex/skills/t102-adr-005-id-spec` (mirror directory; maintained by sync script)  
+**Status:** Deprecated (directory retained for backward compatibility)
 
-**Purpose:** Enforce RID construction and referencing rules per T102-STD-005
+**Purpose:** Enforce RID construction and referencing rules per P-STD-005
 
 **Scope:** Files under `prompt/**` directory only
 
@@ -31,17 +31,17 @@ This catalog documents ADR-based skills, their triggering conditions, scope, dis
 **Manual trigger:** Mention "RID" or any category token while operating in `prompt/**` context
 
 **What it does:**
-- Runs extraction script to load the latest ADR-005 block (only) from the Concept document
+- Uses `P-STD-005` as the authoritative surface for RID construction and referencing rules
 - Validates category tokens and ID construction shape: `{SCOPE_ID}-{CATEGORY}-{NNN}`
 - Enforces formal references using back-ticked `ID (Title)` tokens
 - Blocks prohibited downstream references (precedence/directionality rules)
 
 **Maintenance:**
-- **SSOT:** `prompt/skills/t102-std-005-id-spec/SKILL.md`
-- **Script:** `prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
-- **Codex Mirror Sync:** `prompt/skills/t102-std-005-id-spec/scripts/sync_to_codex_mirror.py`
+- **SSOT:** `prompt/skills/t102-adr-005-id-spec/SKILL.md`
+- **Script (legacy):** `prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
+- **Codex Mirror Sync:** `prompt/skills/t102-adr-005-id-spec/scripts/sync_to_codex_mirror.py`
 - **Updates:** Edit SSOT, then run the sync script to refresh the Codex mirror
-- **Testing:** Re-run extraction script if Concept document structure changes
+- **Testing:** Re-run the skill verification script after updates
 
 **Verification (current):**
 - Runbook: `prompt/documentation/scripts/skills/adr_skills_verification_runbook.md`

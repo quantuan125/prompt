@@ -59,7 +59,7 @@ Every combined file MUST include these headings, in this order:
 Under `## Specification`, render clause items as:
 - `n) **<STD-ID>-CLAUSE-### (<Title>)**`
 
-All clause semantics remain governed by `T102-STD-005`.
+All clause semantics remain governed by `P-STD-005`.
 
 ### B. Decision Record section `P-STD-001-CLAUSE-025`
 
