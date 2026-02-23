@@ -18,6 +18,8 @@ import re
 import shutil
 from typing import Iterable
 
+from report_output import SCRIPTS_OUTPUT_ROOT, resolve_report_path
+
 
 EXCLUDE_DIRS = {".git", "__pycache__", "node_modules", "venv", ".pytest_cache"}
 DEFAULT_FILE_EXTENSIONS = {".md", ".py", ".json", ".sh", ".yaml", ".yml", ".txt"}
@@ -610,9 +612,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--report-path",
         default=None,
-        help="Optional markdown report output path.",
+        help=(
+            "Report output path (default: prompt/scripts/output/migration/<manifest-stem>/"
+            "report_<stem>_<mode>.md). "
+            "Paths inside artifacts/tasks/ are rejected."
+        ),
     )
     return parser.parse_args()
+
+def _default_report_path(manifest_stem: str, mode: str) -> Path:
+    return SCRIPTS_OUTPUT_ROOT / "migration" / manifest_stem / f"report_{manifest_stem}_{mode}.md"
 
 
 def main() -> int:
@@ -621,7 +630,8 @@ def main() -> int:
     manifest_path = Path(args.manifest).resolve(strict=False)
     project_root = Path(args.project_root).resolve(strict=False)
     scope_root = (project_root / args.scope_root).resolve(strict=False)
-    report_path = Path(args.report_path).resolve(strict=False) if args.report_path else None
+    mode_label = "apply" if not dry_run else "dry-run"
+    report_path = resolve_report_path(args.report_path, _default_report_path, manifest_path.stem, mode_label)
 
     manifest = load_manifest(manifest_path)
     validation_errors = validate_moves(
@@ -642,8 +652,7 @@ def main() -> int:
     skipped_non_utf8: list[str] = []
     if not args.skip_reference_updates:
         skip_files = {manifest_path}
-        if report_path is not None:
-            skip_files.add(report_path)
+        skip_files.add(report_path)
         changed_files, rewrite_diffs, skipped_non_utf8 = apply_reference_rewrites(
             rewrites=manifest.rewrites,
             project_root=project_root,
@@ -687,8 +696,7 @@ def main() -> int:
         f"✅ Migration {'previewed' if dry_run else 'applied'}: "
         f"{len(manifest.moves)} moves, {changed_files} rewrite file updates."
     )
-    if report_path:
-        print(f"Report: {report_path}")
+    print(f"Report: {report_path}")
     return 0
 
 

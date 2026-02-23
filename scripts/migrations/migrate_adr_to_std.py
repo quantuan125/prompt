@@ -5,6 +5,13 @@ import fnmatch
 import re
 from datetime import datetime
 from pathlib import Path
+import sys
+
+SCRIPTS_DIR = Path(__file__).resolve().parents[1]
+if str(SCRIPTS_DIR) not in sys.path:
+    sys.path.insert(0, str(SCRIPTS_DIR))
+
+from report_output import resolve_report_path
 
 
 ADR_ID_PATTERN = re.compile(r"^T\d{3}(?:[A-Z]\d*)?(?:-[A-Z0-9_]+)*-ADR-(\d{3})$")
@@ -77,7 +84,10 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--report-path",
         default=None,
-        help="Path to markdown report output (default: prompt/scripts/output/std_migration/report_*.md)",
+        help=(
+            "Report output path (default: prompt/scripts/output/std_migration/report_*.md). "
+            "Paths inside artifacts/tasks/ are rejected."
+        ),
     )
     return parser.parse_args()
 
@@ -450,9 +460,7 @@ def main() -> int:
     if not root.exists():
         raise FileNotFoundError(f"Root path does not exist: {root}")
 
-    report_path = Path(args.report_path) if args.report_path else default_report_path(old_adr_id, new_std_id)
-    report_path = report_path.resolve()
-    report_path.parent.mkdir(parents=True, exist_ok=True)
+    report_path = resolve_report_path(args.report_path, default_report_path, old_adr_id, new_std_id)
 
     include_paths = resolve_include_paths(root, args.include_path)
     exclude_globs = [*BUILTIN_EXCLUDE_GLOBS, *args.exclude_glob]

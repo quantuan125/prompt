@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.5'
-date: '2026-02-22'
+version: '0.1.6'
+date: '2026-02-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -37,7 +37,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | AC001 | `P-PH000-ST001-AC001` | Amend ID governance to allow `P-RES-###` | `planned` | LLM_Consultant | — | Planned T102 change (RES token Allowed Scope) | `T102-STD-005` |
 | AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` (Full Promotion from T102-STD-004) | `completed` | LLM_Consultant | AC001 | `standard_P-STD-001_program-governance-standard.md` | `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC002.md` |
-| AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` + `P-ADR-002` (Program Status Standard) | `planned` | LLM_Consultant | AC001 | Planned standard + paired ADR | Program SSOT |
+| AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` (Program Status Standard) | `planned` | LLM_Consultant | AC001, `P-PH000-ST004-AC001` | `standard_P-STD-002_program-status-standard.md` | `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC003.md` |
 | AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `planned` | LLM_Consultant | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` | `T102-STD-004-CLAUSE-001A`, `T102-STD-004-CLAUSE-025`, `T102-STD-005-CLAUSE-004`, `T104-PH001-ST002-AC000` (proposal v3.1.0) |
 | AC005 | `P-PH000-ST001-AC005` | Align `P/standard/` naming to `standard_<SID-STD>_...` | `planned` | LLM_Developer | AC004 | Renamed `standard_P-STD-003_governance-standards-and-dr-index.md` + updated references | `P-STD-004` Convention 1 + `P` conformance |
 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `planned` | LLM_Consultant | AC002 | `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC006.md` |
@@ -90,13 +90,33 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 - [ ] Program-level guideline/template ownership is not executed under a `T102` plan (split recorded)
 - [ ] Navigation pointers resolve (P stream plan + P SPS)
 
-#### Activity AC003: Author `P-STD-002` + `P-ADR-002` (Program Status Standard)
+#### Activity AC003: Author `P-STD-002` (Program Status Standard)
 
 **Activity ID**: `P-PH000-ST001-AC003`
 
-**Purpose**: Define the canonical program status standard and update protocol. This standard is a prerequisite for authoring the program status artifact in `P-PH000-ST002`.
+**Purpose**: Author `P-STD-002` as a broad-scope program-wide status governance standard. Covers: canonical 7-state status vocabulary + transition rules, health/RAG assessment, unified dependency visibility schema, evidence linkage protocol, update protocol, and status artifact specification. This standard is a prerequisite for authoring the program status artifact in `P-PH000-ST002`.
 
-**Note**: Bodies are planned; they are not authored as part of this changeset.
+**Deliverable (contract stub)**:
+- Activity plan (SSOT task register): `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC003.md`
+- Standard: `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md`
+
+**Scope**:
+- In scope: 7-state enum governance (DEC-004) + transition rules + health/RAG assessment + unified dependency schema (DEC-006) + evidence linkage (DEC-005) + update protocol + status artifact spec + guideline cascade (DEC-008)
+- Out of scope: authoring `status_program.md` (deferred to ST002-AC002); repo-wide initiative plan retrofits (downstream adopters update on next touch)
+
+**Depends On**: `P-PH000-ST004-AC001` (P-RES-001 research sign-off via GATE-003)
+
+**Activity Plan**: `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC003.md`
+
+> **DRAFT — Not finalized.** Activity plan task register is subject to amendment after P-RES-001 integration sign-off (P-PH000-ST004-AC001-GATE-003). Evidence: `raw_P-PH000-ST001-AC003-SES001.txt`
+
+**Success Criteria Checklist (summary)**:
+- [ ] P-STD-002 authored as P-STD-001-conformant combined standard-specification file
+- [ ] 7-state enum set + transition rules defined as normative CLAUSEs
+- [ ] Unified dependency schema defined as normative CLAUSEs
+- [ ] P-STD-002-ADR-001 exists under `## Decision Record`
+- [ ] sps_P P-STD-002 row updated (status `accepted`, canonical path, effective date)
+- [ ] Downstream guideline files updated to reference P-STD-002 enums (TK006)
 
 ---
 
@@ -211,6 +231,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.6 | 2026-02-23 | Amendment | AC003 enriched: deprecated `P-ADR-002` reference (now embedded P-STD-002-ADR-001 per P-STD-001); broad scope locked (DEC-001); dependency on P-PH000-ST004-AC001 added (DEC-007); standalone activity plan linked; contract stub replaces 2-line stub; guideline cascade scoped as TK006 (DEC-008). Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
 | v0.1.5 | 2026-02-22 | Amendment | AC002 status → `completed` (SES002-DEC001); AC001 scope note added — RES token STD change absorbed into AC006-TK005 (SES002-DEC004). Evidence: `raw_P-PH000-ST001-AC006-SES002.txt` |
 | v0.1.4 | 2026-02-22 | Amendment | AC006 added: Promote T102-STD-005 to P-STD-005 (Universal ID Specification). Absorbs T104-PH001-ST002-AC002, T102-PH001-ST005-AC005, and STD-005-specific scope from T102-PH001-ST002. Evidence: `raw_P-PH000-ST001-AC006-SES001.txt` |
 | v0.1.3 | 2026-02-20 | Amendment | AC002 transitioned to `in_progress`; rebranded to Full Promotion methodology; updated deliverable and scope to match amended activity plan |

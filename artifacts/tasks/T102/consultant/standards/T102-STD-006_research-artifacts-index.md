@@ -73,6 +73,13 @@
     - In fallback mode, Concept entries MUST include `Last Verified` and `Link Status` and MUST be maintained as the coordination audit surface; SPS local tables MUST still exist but MAY be reduced to the minimum required columns for local context.
     - Fallback mode MUST be explicitly declared in Concept to avoid silent governance ambiguity.
 
+* **T102-STD-006-CLAUSE-008 (Evaluation Rubric Specification)**
+    - Research briefs that commission comparative or evaluative research MUST include a weighted evaluation rubric.
+    - Rubric placement: The rubric MUST appear in Section III (Constraints, Assumptions & Methodology) of the research brief.
+    - Rubric schema: Each rubric dimension MUST include: (a) a descriptive label, (b) a numeric weight on a 1–5 scale (1 = lowest priority, 5 = highest priority), and (c) a 1-sentence description of what the dimension measures.
+    - Rubric application: Research reports MUST apply the brief's rubric to all topics requiring option comparison, producing per-option scores (1–5 per dimension) and weighted totals.
+    - Rubric exemption: Briefs that do not commission comparative evaluation (e.g., pure fact-finding or inventory research) MAY omit the rubric.
+
 ## Decision Record
 
 * **T102-STD-006-ADR-001 (Research Artifacts Index)** {#t102-std-006-research-index}

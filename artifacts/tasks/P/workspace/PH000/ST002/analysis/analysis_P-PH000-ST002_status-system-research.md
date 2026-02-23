@@ -2,21 +2,24 @@
 artifact_type: 'ANALYSIS'
 initiative_id: 'P'
 phase: 'PH000'
-stream_id: 'ST004'
-analysis_id: 'P-PH000-ST004'
+stream_id: 'ST002'
+analysis_id: 'P-PH000-ST002'
 version: '1.0.0'
 date: '2026-02-15'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 purpose: 'Deep research and system design proposal for a program-level read/write status file and operating protocol spanning initiative/epic/feature/activity execution'
+classification: 'informal_working_note'
 primary_inputs:
   - 'artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md'
   - 'templates/consultant/workspace/guideline_workspace_plan.md'
   - 'templates/consultant/workspace/guideline_workspace_notes.md'
 ---
 
-# ANALYSIS: Program-Level Status File + Operating System Research (for P-STD-003 Foundation)
+# ANALYSIS: Program-Level Status System Research (Informal Working Note — Seed for P-RES-001)
+
+> **Reclassification Note (SES001)**: This file was originally authored at `P/workspace/PH000/ST004/` referencing `P-STD-003`. It has been relocated to ST002 (its correct home stream) and reclassified as an informal working note. It is NOT a formal `P-RES` research artifact per `T102-STD-006`. It serves as seed input for `brief_P-RES-001_status-standard-research.md` when P-PH000-ST004-AC001 commences.
 
 ## I. Executive Summary
 

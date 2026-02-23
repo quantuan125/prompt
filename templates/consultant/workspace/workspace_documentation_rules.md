@@ -89,10 +89,14 @@ Phase → Stream → Activity → Task
 - Boundary: MUST NOT alter contract-level intent without Consultant approval.
 
 ### C. Developer (LLM_Developer)
-- Owns: execution, implementation, verification.
+- Owns: execution, implementation
 - Boundary: MUST NOT alter contract-level scope; implementation details belong in activity plans or code.
 
-### D. Client
+### D. Verifier (LLM_Verifier)
+- Owns: verification evidence for gates and remediation
+- Boundary: MUST NOT alter contract-level scope; verification details belong in activity plans or code.
+
+### E. Client
 - Decision owner for all approval gates.
 - Boundary: All normative decisions require Client approval signal.
 

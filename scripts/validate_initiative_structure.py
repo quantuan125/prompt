@@ -10,6 +10,8 @@ from dataclasses import dataclass
 from pathlib import Path
 import re
 
+from report_output import SCRIPTS_OUTPUT_ROOT, resolve_report_path
+
 
 PHASE_DIR_PATTERN = re.compile(r"^PH\d{3}$")
 STREAM_DIR_PATTERN = re.compile(r"^ST\d{3}$")
@@ -21,6 +23,9 @@ TYPE_FIRST_WORKSPACE_DIRS = {"plan", "notes", "roadmap", "analysis", "proposal",
 WORKSPACE_ALLOWED_NON_PHASE_DIRS = {"_unresolved", "verification"}
 STREAM_TYPE_DIRS = {"raw", "proposal", "analysis", "communication", "snotes"}
 ACTIVITY_TYPE_DIRS = {"raw", "snotes", "verification", "dev-report", "analysis", "proposal"}
+ACTIVITY_TYPE_PREFIX_ALIGNMENT = {
+    "verification_": "verification",
+}
 ALLOWED_PREFIXES = (
     "analysis_",
     "plan_",
@@ -71,9 +76,10 @@ class ValidationResult:
 
 
 class InitiativeValidator:
-    def __init__(self, root: Path, strict: bool) -> None:
+    def __init__(self, root: Path, strict: bool, profile: str) -> None:
         self.root = root
         self.strict = strict
+        self.profile = profile
         self.errors: list[str] = []
         self.warnings: list[str] = []
         self.infos: list[str] = []
@@ -81,11 +87,13 @@ class InitiativeValidator:
     def validate(self) -> ValidationResult:
         self._validate_root()
         self._validate_ssot_contents()
-        self._validate_no_root_raw()
-        self._validate_no_type_first_dirs()
+        if self.profile != "pre-migration":
+            self._validate_no_root_raw()
+            self._validate_no_type_first_dirs()
         self._validate_workspace_timeline()
         self._validate_research_layout()
         self._validate_file_prefixes()
+        self._validate_type_prefix_alignment()
         self._validate_raw_transcripts()
         self._validate_uid_scope_placement()
         return ValidationResult(errors=self.errors, warnings=self.warnings, infos=self.infos)
@@ -227,6 +235,43 @@ class InitiativeValidator:
                     f"Unrecognized markdown prefix (check convention): {file_path.relative_to(self.root)}"
                 )
 
+    def _validate_type_prefix_alignment(self) -> None:
+        workspace = self.root / "workspace"
+        if not workspace.exists():
+            return
+
+        for file_path in workspace.rglob("*"):
+            if not file_path.is_file():
+                continue
+            if file_path.suffix.lower() not in {".md", ".txt"}:
+                continue
+
+            try:
+                relative = file_path.relative_to(workspace)
+            except ValueError:
+                continue
+
+            parts = relative.parts
+            if len(parts) < 5:
+                continue
+            if not PHASE_DIR_PATTERN.match(parts[0]):
+                continue
+            if not STREAM_DIR_PATTERN.match(parts[1]):
+                continue
+            if not ACTIVITY_DIR_PATTERN.match(parts[2]):
+                continue
+
+            type_dir = parts[3]
+            for prefix, expected_type_dir in ACTIVITY_TYPE_PREFIX_ALIGNMENT.items():
+                if not file_path.name.startswith(prefix):
+                    continue
+                if type_dir != expected_type_dir:
+                    self.warnings.append(
+                        "File prefix does not match activity type directory "
+                        f"(expected `{expected_type_dir}/` for `{prefix}`): "
+                        f"{file_path.relative_to(self.root)}"
+                    )
+
     def _validate_raw_transcripts(self) -> None:
         for file_path in self.root.rglob("raw_*"):
             if file_path.suffix.lower() not in {".md", ".txt"}:
@@ -302,24 +347,42 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument(
         "--report-path",
         default=None,
-        help="Optional markdown output report path.",
+        help=(
+            "Report output path (default: prompt/scripts/output/validation/<id>/"
+            "report_<id>_validation[_<profile>].md). "
+            "Paths inside artifacts/tasks/ are rejected."
+        ),
+    )
+    parser.add_argument(
+        "--profile",
+        choices=("post-migration", "pre-migration"),
+        default="post-migration",
+        help="Validation profile. Use pre-migration to suppress known legacy-layout noise.",
     )
     return parser.parse_args()
+
+def _default_report_path(initiative_id: str, profile: str) -> Path:
+    suffix = f"_{profile}" if profile != "post-migration" else ""
+    return (
+        SCRIPTS_OUTPUT_ROOT
+        / "validation"
+        / initiative_id
+        / f"report_{initiative_id}_validation{suffix}.md"
+    )
 
 
 def main() -> int:
     args = parse_args()
     root = Path(args.initiative_root).resolve(strict=False)
-    validator = InitiativeValidator(root=root, strict=args.strict)
+    initiative_id = root.name.upper()
+    validator = InitiativeValidator(root=root, strict=args.strict, profile=args.profile)
     result = validator.validate()
     report = result.as_markdown(root=root)
     print(report)
 
-    if args.report_path:
-        report_path = Path(args.report_path).resolve(strict=False)
-        report_path.parent.mkdir(parents=True, exist_ok=True)
-        report_path.write_text(report, encoding="utf-8")
-        print(f"Report written to: {report_path}")
+    report_path = resolve_report_path(args.report_path, _default_report_path, initiative_id, args.profile)
+    report_path.write_text(report, encoding="utf-8")
+    print(f"Report written to: {report_path}")
 
     if result.errors:
         return 1

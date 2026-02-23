@@ -10,6 +10,8 @@ from dataclasses import dataclass
 from pathlib import Path
 import re
 
+from report_output import SCRIPTS_OUTPUT_ROOT, resolve_report_path
+
 
 INITIATIVE_ID_PATTERN = re.compile(r"^[A-Z][A-Z0-9]*$")
 STREAM_ID_PATTERN = re.compile(r"^ST\d{3}$")
@@ -18,6 +20,7 @@ STREAM_ID_PATTERN = re.compile(r"^ST\d{3}$")
 @dataclass(frozen=True)
 class ScaffoldPlan:
     root: Path
+    epic_roots: list[Path]
     directories: list[Path]
 
 
@@ -31,11 +34,24 @@ def normalize_streams(raw_value: str) -> list[str]:
     return sorted(set(stream_ids))
 
 
+def normalize_epic_ids(raw_value: str) -> list[str]:
+    epic_ids = [token.strip().upper() for token in raw_value.split(",") if token.strip()]
+    if not epic_ids:
+        raise ValueError("At least one epic ID is required when --epic-ids is provided.")
+    invalid = [epic_id for epic_id in epic_ids if not INITIATIVE_ID_PATTERN.match(epic_id)]
+    if invalid:
+        raise ValueError(
+            f"Invalid epic IDs: {', '.join(invalid)}. Expected format [A-Z][A-Z0-9]*."
+        )
+    return sorted(set(epic_ids))
+
+
 def build_scaffold_plan(
     tasks_root: Path,
     initiative_id: str,
     phase_count: int,
     stream_ids: list[str],
+    epic_ids: list[str] | None = None,
 ) -> ScaffoldPlan:
     initiative_root = tasks_root / initiative_id
     directories: list[Path] = [
@@ -52,7 +68,23 @@ def build_scaffold_plan(
         directories.append(phase_root)
         for stream_id in stream_ids:
             directories.append(phase_root / stream_id)
-    return ScaffoldPlan(root=initiative_root, directories=directories)
+
+    epic_roots: list[Path] = []
+    for epic_id in epic_ids or []:
+        epic_root = tasks_root / epic_id
+        epic_roots.append(epic_root)
+        directories.extend(
+            [
+                epic_root,
+                epic_root / "archive",
+                epic_root / "research",
+                epic_root / "ssot",
+                epic_root / "standard",
+                epic_root / "workspace",
+            ]
+        )
+
+    return ScaffoldPlan(root=initiative_root, epic_roots=epic_roots, directories=directories)
 
 
 def write_report(plan: ScaffoldPlan, dry_run: bool, report_path: Path | None) -> None:
@@ -63,6 +95,7 @@ def write_report(plan: ScaffoldPlan, dry_run: bool, report_path: Path | None) ->
         "# Initiative Scaffold Report",
         "",
         f"- Initiative root: `{plan.root}`",
+        f"- Epic roots: {len(plan.epic_roots)}",
         f"- Mode: `{'dry-run' if dry_run else 'apply'}`",
         f"- Directories planned: {len(plan.directories)}",
         "",
@@ -95,8 +128,28 @@ def parse_args() -> argparse.Namespace:
     mode = parser.add_mutually_exclusive_group()
     mode.add_argument("--dry-run", action="store_true", help="Preview only (default).")
     mode.add_argument("--apply", action="store_true", help="Create directories.")
-    parser.add_argument("--report-path", default=None, help="Optional markdown report output path.")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Allow merge mode when initiative/epic roots already exist in apply mode.",
+    )
+    parser.add_argument(
+        "--epic-ids",
+        default=None,
+        help="Optional comma-separated epic IDs to scaffold root structures, e.g. T104A,T104B.",
+    )
+    parser.add_argument(
+        "--report-path",
+        default=None,
+        help=(
+            "Report output path (default: prompt/scripts/output/scaffold/<id>/report_<id>_scaffold.md). "
+            "Paths inside artifacts/tasks/ are rejected."
+        ),
+    )
     return parser.parse_args()
+
+def _default_report_path(initiative_id: str) -> Path:
+    return SCRIPTS_OUTPUT_ROOT / "scaffold" / initiative_id / f"report_{initiative_id}_scaffold.md"
 
 
 def main() -> int:
@@ -119,6 +172,11 @@ def main() -> int:
     except ValueError as exc:
         print(f"❌ {exc}")
         return 1
+    try:
+        epic_ids = normalize_epic_ids(args.epic_ids) if args.epic_ids else None
+    except ValueError as exc:
+        print(f"❌ {exc}")
+        return 1
 
     tasks_root = Path(args.tasks_root).resolve(strict=False)
     plan = build_scaffold_plan(
@@ -126,11 +184,17 @@ def main() -> int:
         initiative_id=initiative_id,
         phase_count=args.phase_count,
         stream_ids=stream_ids,
+        epic_ids=epic_ids,
     )
 
-    if plan.root.exists() and not dry_run:
+    if plan.root.exists() and not dry_run and not args.force:
         print(f"❌ Initiative already exists at {plan.root}")
         return 1
+    if not dry_run and not args.force:
+        for epic_root in plan.epic_roots:
+            if epic_root.exists():
+                print(f"❌ Epic already exists at {epic_root} (use --force to merge)")
+                return 1
 
     for directory in plan.directories:
         if dry_run:
@@ -139,15 +203,14 @@ def main() -> int:
             directory.mkdir(parents=True, exist_ok=True)
             print(f"CREATED: {directory}")
 
-    report_path = Path(args.report_path).resolve(strict=False) if args.report_path else None
+    report_path = resolve_report_path(args.report_path, _default_report_path, initiative_id)
     write_report(plan=plan, dry_run=dry_run, report_path=report_path)
 
     print(
         f"✅ Scaffold {'previewed' if dry_run else 'created'} for {initiative_id}: "
         f"{len(plan.directories)} directories."
     )
-    if report_path:
-        print(f"Report: {report_path}")
+    print(f"Report: {report_path}")
     return 0
 
 

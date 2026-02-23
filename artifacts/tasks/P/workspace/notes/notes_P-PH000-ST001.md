@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream: 'ST001'
-version: '1.5.0'
-date: '2026-02-22'
+version: '1.7.0'
+date: '2026-02-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -41,7 +41,8 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 |:--|:--|:--|:--|:--|
 | AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` (Program Governance Standard) | `completed` | SES001: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES002.md`<br>SES003: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES003.md` |
 | AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `in_progress` | SES001: `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC004-SES001.md` |
-| AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `planned` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES002.md` |
+| AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `planned` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES002.md`<br>SES003: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES003.md` |
+| AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` (Program Status Standard) | `planned` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES001.md` |
 
 ---
 
@@ -58,6 +59,8 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.7.0 | 2026-02-23 | Update | Indexed AC003-SES001 (Program Status Standard Discovery & Planning); AC003 row added to Activity Notes Register |
+| v1.6.0 | 2026-02-23 | Update | Indexed AC006-SES003 (Plan Amendment: TK004 Decision Completeness — QA Resolutions) |
 | v1.5.0 | 2026-02-22 | Update | Indexed AC006-SES002 (Pre-Commissioning Gap Analysis & Plan Amendment); AC002 status → `completed` |
 | v1.4.0 | 2026-02-22 | Update | Indexed AC002-SES003 (GATE-002 Remediation: Derivative Conformance Audit & SPS Schema Migration) |
 | v1.3.0 | 2026-02-22 | Update | Indexed AC006-SES001 (`snotes`) and linked activity session notes for T102-STD-005 to P-STD-005 promotion consultation |

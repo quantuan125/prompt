@@ -2,8 +2,8 @@
 artifact_type: 'SPS'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
-version: '0.3.0'
-date: '2026-02-22'
+version: '0.4.0'
+date: '2026-02-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -56,7 +56,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 * **P-CON-001 (Authority Boundary)** — Program standards govern `prompt/artifacts/tasks/**` only (including raw + SSOT + workspace artifacts) and do not govern all of `prompt/**`.
 * **P-CON-002 (Link Don’t Duplicate)** — Adopter initiatives SHALL reference program standards by ID/path and SHALL NOT duplicate program normative content.
-* **P-CON-003 (Markdown Frontmatter)** — Governance artifacts SHALL remain Markdown files with YAML frontmatter.
+* **P-CON-003 (Artifact Format Governance)** — (A) Planning, SSOT, and governance specification artifacts — including plans, notes, roadmaps, SPS files, combined standard-specification files, and decision records — SHALL be Markdown files (`.md`) with YAML frontmatter, per `P-STD-001`. (B) Programmatic execution artifacts — including status ledgers and machine-readable schema files — MAY use non-Markdown formats (e.g., `.yaml`, `.json`) when explicitly permitted by the governing standard for that artifact type. File naming and placement SHALL still conform to `P-STD-004`.
 
 #### 4. Quality Goals
 
@@ -76,7 +76,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 | STD ID | Title | Status | Owner | Effective | Supersedes | Canonical Path | Verification | Governed By | Reference |
 |:-------|:------|:-------|:------|:----------|:-----------|:---------------|:-------------|:------------|:----------|
 | `P-STD-001` | **Program Governance Standard** | `accepted` | LLM_Consultant | 2026-02-22 | `T102-STD-004` | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | Review: all CLAUSEs re-identified; alias window documented; guideline/template aligned; gap remediation per promotion contract; SES003 derivative conformance audit passed | `T102-STD-005` | — |
-| `P-STD-002` | **Program Status Standard** | `planned` | LLM_Consultant | — | — | — | Review: status schema + update protocol accepted; later CI/lint possible | `P-STD-001` | — |
+| `P-STD-002` | **Program Status Standard** | `planned` | LLM_Consultant | — | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Review: broad-scope program-wide status governance — 7-state enum + transition rules, health/RAG assessment, unified dependency schema, evidence linkage, update protocol, status artifact specification; CI: enum validation + transition rule enforcement | `P-STD-001` | `P-RES-001` |
 | `P-STD-003` | **Program Governance Standards Model** | `planned` | LLM_Consultant | — | — | `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md` | Review: combined governance spec aligns with ADR-004 + ADR-009; enforce adoption/authoring requirements | `P-STD-001` | `T102-STD-009` |
 | `P-STD-004` | **File Naming & Directory Convention** | `planned` | LLM_Consultant | — | — | — | Review: initiative dirs conform to naming/directory rules; CI: lint file prefixes + directory structure | `P-STD-001` | — |
 | `P-STD-005` | **Universal ID Specification** | `planned` | LLM_Consultant | — | — | — | CI: regex validation of all IDs; Review: scope/token compliance | `P-STD-001` | `T102-STD-005`, `T104-STD-002` |
@@ -108,7 +108,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 | Research ID | Title | Summary | Reference | Brief | Report |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| — | — | — | — | — | — |
+| `P-RES-001` | **Status Standard Research** | Deep research into program-level status governance: canonical 7-state enum + transition rules, health/RAG thresholds, unified dependency schema (FS/SS/FF/SF), evidence linkage protocol, update protocol (role accountability), status artifact format options. Consumed by `P-PH000-ST001-AC003`. | `P-PH000-ST001-AC003` | `prompt/artifacts/tasks/P/research/brief/brief_P-RES-001_status-standard-research.md` | `prompt/artifacts/tasks/P/research/report/report_P-RES-001_status-standard-research.md` |
 
 #### 10. Issues & Risks
 
@@ -140,5 +140,6 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.4.0 | 2026-02-23 | Amendment | P-CON-003 revised to `(Artifact Format Governance)` with (A) MD for planning/SSOT, (B) non-MD permitted for programmatic artifacts (DEC-003). P-STD-002 row updated: broad-scope description, Canonical Path, Reference `P-RES-001` (DEC-001). P-RES-001 registered in Research table (DEC-007). Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
 | v0.3.0 | 2026-02-22 | Major | STD Index schema migrated to `P-STD-001-CLAUSE-012A`: added `Canonical Path` and `Governed By` columns; removed `Adopts` column; `Reference` column corrected to RID-only; `Title` bolded; `Effective` corrected to ISO-8601/`—`. P-STD-001 body added. P-STD-001 status flipped to `accepted` (GATE-002 approval). P-STD-004 body updated for `Canonical Path` terminology. Source: `P-PH000-ST001-AC002-SES003-DEC007`, `DEC008`. |
 | v0.2.2 | 2026-02-20 | Update | `P-STD-001` status updated to draft; canonical path and supersedes populated following full promotion from `T102-STD-004`. |

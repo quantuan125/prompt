@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
-version: '0.1.0'
-date: '2026-02-05'
+version: '0.1.1'
+date: '2026-02-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -47,6 +47,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 **Activity ID**: `P-PH000-ST002-AC001`
 
 **Purpose**: Lock the status artifact schema and update protocol so later implementation is mechanical and does not require further design decisions.
+
+> **Informative Seed Note (SES001-DEC-002)**: The schema and protocol below are informative seed input only. The authoritative contract for status schema, enum governance, and update protocol resides in `P-STD-002` once accepted. `P-PH000-ST002-AC002` MUST reference `P-STD-002`, not this section, as the normative authority.
 
 **Deliverable (spec)**: The schema and protocol below MUST be implemented exactly when AC002 is executed.
 
@@ -104,5 +106,5 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.1 | 2026-02-23 | Amendment | AC001 schema annotated as informative seed only per SES001-DEC-002; authoritative contract deferred to P-STD-002. Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
 | v0.1.0 | 2026-02-05 | Initial | Stream ST002 plan created to lock status artifact schema/protocol and defer `status_program.md` authoring to a later activity |
-

@@ -16,6 +16,8 @@ import shutil
 import sys
 from typing import Any
 
+from report_output import SCRIPTS_OUTPUT_ROOT, resolve_report_path
+
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 logger = logging.getLogger(__name__)
@@ -443,7 +445,13 @@ Examples:
     mode_group = archive_parser.add_mutually_exclusive_group()
     mode_group.add_argument("--dry-run", action="store_true", help="Preview archive operations (default).")
     mode_group.add_argument("--apply", action="store_true", help="Execute archive operations.")
-    archive_parser.add_argument("--report-path", help="Optional markdown report output path.")
+    archive_parser.add_argument(
+        "--report-path",
+        help=(
+            "Report output path (default: prompt/scripts/output/archive/report_archive_<doc>.md). "
+            "Paths inside artifacts/tasks/ are rejected."
+        ),
+    )
 
     list_parser = subparsers.add_parser("list", help="List archives")
     list_parser.add_argument("--path", help="Filter results by original live document path.")
@@ -475,6 +483,9 @@ Examples:
 
     return parser
 
+def _default_report_path(doc_stem: str) -> Path:
+    return SCRIPTS_OUTPUT_ROOT / "archive" / f"report_archive_{doc_stem}.md"
+
 
 def main() -> int:
     parser = create_cli_parser()
@@ -504,6 +515,7 @@ def main() -> int:
                 raise ValueError("Conflicting path inputs: positional doc_path and --path do not match.")
 
             dry_run = not args.apply
+            report_path = resolve_report_path(args.report_path, _default_report_path, Path(doc_path).stem)
             archived_paths = archive_manager.archive_document(
                 doc_path=doc_path,
                 version=args.version,
@@ -511,7 +523,7 @@ def main() -> int:
                 deprecated=args.deprecated,
                 dry_run=dry_run,
                 initiative_root=args.initiative_root,
-                report_path=args.report_path,
+                report_path=str(report_path),
             )
             if dry_run:
                 print("✅ Dry-run complete. Planned archive targets:")

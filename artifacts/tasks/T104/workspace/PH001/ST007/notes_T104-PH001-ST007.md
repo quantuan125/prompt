@@ -47,6 +47,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC001 | `T104-PH001-ST007-AC001-SES005` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES005.md` |
 | AC001 | `T104-PH001-ST007-AC001-SES006` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES006.md` |
 | AC004 | `T104-PH001-ST007-AC004-SES001` | Script Enhancement + P Directory Migration (Commissioning QA + Plan Amendment) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/snotes/snotes_T104-PH001-ST007-AC004-SES001.md` |
+| AC004 | `T104-PH001-ST007-AC004-SES002` | TK004.1 Remediation + `--report-path` Hardening | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/snotes/snotes_T104-PH001-ST007-AC004-SES002.md` |
 
 ---
 

@@ -55,10 +55,10 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md'
 
 | Task | Task ID | Name | Status | Owner | Depends On | Target | Reference | Action |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
-| TK001 | `P-PH000-ST001-AC006-TK001` | Fix stale references in T102-STD-005 (T102-STD-004 → P-STD-001, T102-STD-009 → P-STD-001) | `planned` | LLM_Developer | — | `T102-STD-005_id-specification-rules.md` | Stale refs mapping (see plan) | — |
-| TK002 | `P-PH000-ST001-AC006-TK002` | Verify ST005-AC005 deltas (C1, C2, B1) are applied to T102-STD-005 | `planned` | LLM_Developer | TK001 | `T102-STD-005_id-specification-rules.md` | RES-005 Delta C, RES-006 Delta B | — |
-| TK003 | `P-PH000-ST001-AC006-TK003` | Targeted self-compliance audit of T102-STD-005 against P-STD-001 | `planned` | LLM_Reviewer | TK002 | Analysis artifact | `P-STD-001` | — |
-| GATE-001 | `P-PH000-ST001-AC006-GATE-001` | Gate: Client approval of pre-promotion T102-STD-005 state | `planned` | Client | TK003 | Pass/fail | — | — |
+| TK001 | `P-PH000-ST001-AC006-TK001` | Fix stale references in T102-STD-005 (T102-STD-004 → P-STD-001, T102-STD-009 → P-STD-001) | `completed` | LLM_Developer | — | `T102-STD-005_id-specification-rules.md` | Stale refs mapping (see plan) | All 7 stale references fixed via PR #8 |
+| TK002 | `P-PH000-ST001-AC006-TK002` | Verify ST005-AC005 deltas (C1, C2, B1) are applied to T102-STD-005 | `completed` | LLM_Developer | TK001 | `T102-STD-005_id-specification-rules.md` | RES-005 Delta C, RES-006 Delta B | Deltas C1/C2/B1 verified as present |
+| TK003 | `P-PH000-ST001-AC006-TK003` | Targeted self-compliance audit of T102-STD-005 against P-STD-001 | `completed` | LLM_Reviewer | TK002 | Analysis artifact | `P-STD-001` | Pre-promotion audit produced with 3 findings |
+| GATE-001 | `P-PH000-ST001-AC006-GATE-001` | Gate: Client approval of pre-promotion T102-STD-005 state | `completed` | Client | TK003 | Pass/fail | — | Approved via GATE-001 `prompt/artifacts/tasks/P/workspace/verification/verification_P-PH000-ST001-AC006_gate-001.md`|
 | TK004 | `P-PH000-ST001-AC006-TK004` | Author promotion contract proposal (re-identification mapping + timeline UID CLAUSE text + alias window + Tier 1 ref update plan) | `planned` | LLM_Consultant | GATE-001 | Proposal artifact | `P-STD-001-CLAUSE-030`, `T102-STD-005-CLAUSE-003A` | — |
 | GATE-002 | `P-PH000-ST001-AC006-GATE-002` | Gate: Client approval of promotion contract | `planned` | Client | TK004 | Pass/fail | — | — |
 | TK005 | `P-PH000-ST001-AC006-TK005` | Create P-STD-005 combined file (full content transfer + timeline UID CLAUSEs per contract) | `planned` | LLM_Developer | GATE-002 | `standard_P-STD-005_universal-id-specification.md` | Promotion contract | — |
@@ -99,7 +99,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md'
    - `T102-STD-004-ADR-001` → `P-STD-001-ADR-001`
 
    **R4**: In CLAUSE-006 Quality Criteria (line ~261), update the normative reference:
-   - `Follow \`T102-STD-004\` body structure strictly` → `Follow \`P-STD-001\` body structure strictly`
+   - `Follow /`T102-STD-004/` body structure strictly` → `Follow /`P-STD-001/` body structure strictly`
 
    **R5**: In CLAUSE-007 Legacy Standards Migration (line ~274), update the normative reference:
    - `T102-STD-009-CLAUSE-005 (Migration Tolerance)` → `P-STD-001-CLAUSE-017 (Migration Tolerance)`
@@ -238,7 +238,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md'
 - `standard_P-STD-001_program-governance-standard.md` (structural exemplar + promotion lifecycle CLAUSEs)
 - `proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md` (format precedent)
 - `analysis_P-PH000-ST001-AC006_pre-promotion-audit.md` (TK003 compliance findings)
-- T104 session decisions: `T104-PH001-ST000-SES001` (DEC003: Stable UIDs, DEC004: Initiative Phases, DEC005: LNK-### indirection)
+- T104 session decisions: `T104-PH001-ST000-SES001` (DEC003: Stable UIDs, DEC004: Initiative Phases, DEC005: LINK-### indirection)
 - `plan_T104-PH001-ST002.md` AC002 section (timeline UID CLAUSE scope)
 
 **The proposal MUST contain** (following the P-STD-001 precedent structure):
@@ -272,11 +272,11 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md'
    - Author normative text for new CLAUSEs to be inserted into P-STD-005 (appended after CLAUSE-007):
      - `P-STD-005-CLAUSE-008 (Timeline UID Schema)` — regex patterns for PH/ST/AC/TK entities
      - `P-STD-005-CLAUSE-009 (UID-vs-Seq Decoupling)` — UIDs never change; Seq is display order
-     - `P-STD-005-CLAUSE-010 (LNK Indirection System)` — LNK-### for register deliverables
+     - `P-STD-005-CLAUSE-010 (LINK Indirection System)` — LINK-### for register deliverables
      - `P-STD-005-CLAUSE-011 (Timeline File Naming)` — file naming conventions derived from UIDs
    - **Authoring mandate (SES002-DEC002)**: The LLM_Consultant SHALL derive normative CLAUSE text from:
-     - `T104-PH001-ST000-SES001` decisions (DEC003: Stable UIDs, DEC004: Initiative Phases, DEC005: LNK-### indirection)
-     - `plan_T104-PH001-ST002.md` AC002 task descriptions (CLAUSE scope for UID Schema, UID-vs-Seq Decoupling, LNK Indirection, File Naming)
+     - `T104-PH001-ST000-SES001` decisions (DEC003: Stable UIDs, DEC004: Initiative Phases, DEC005: LINK-### indirection)
+     - `plan_T104-PH001-ST002.md` AC002 task descriptions (CLAUSE scope for UID Schema, UID-vs-Seq Decoupling, LINK Indirection, File Naming)
      - Observed plan/notes file naming patterns across T102 and T104 workspaces
    - The proposal file is the delivery surface; GATE-002 is the quality checkpoint. Any specification ambiguities that cannot be resolved from the available inputs above MUST be flagged as open questions in the proposal for client resolution at GATE-002.
    - The CLAUSEs MUST be authored in P-STD-001-CLAUSE-018B format with subclauses in CLAUSE-020A format.
