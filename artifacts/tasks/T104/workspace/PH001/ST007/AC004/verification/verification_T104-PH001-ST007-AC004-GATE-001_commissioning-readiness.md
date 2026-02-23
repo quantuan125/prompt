@@ -97,7 +97,7 @@ New since the 37-file inventory (11):
 8. `prompt/artifacts/tasks/P/workspace/verification/verification_P-PH000-ST001-AC006-GATE-001.md`
 9. `prompt/artifacts/tasks/P/workspace/verification/verification_P-PH000-ST001-AC006-GATE-002.md`
 10. `prompt/artifacts/tasks/P/research/brief/brief_P-RES-001_status-standard-research.md`
-11. `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md`
+11. `prompt/artifacts/tasks/P/research/report/report_P-RES-001_status-standard-research.md`
 
 Missing since the 37-file inventory (2):
 
