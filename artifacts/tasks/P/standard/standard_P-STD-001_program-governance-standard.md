@@ -72,7 +72,7 @@
 
    * **P-STD-001-CLAUSE-003E (Rendering)** — Each substandard MUST be rendered as a `###`-level heading under `## Specification`, using the format: `### <Substandard-ID> — <Domain Title>` (e.g., `### P-STD-001A — Core Structure & Lifecycle`).
 
-   * **P-STD-001-CLAUSE-003F (Non-token status)** — Substandard IDs (e.g., `P-STD-001A`) and subclause IDs (e.g., `P-STD-001-CLAUSE-001A`) are internal structural elements. They MUST NOT appear as standalone entries in registries, taxonomy tables, or governance indexes (including the T102-STD-005 taxonomy, SPS STD Index, Concept STD Index, or Specification Index). They MAY be cited in text for navigational precision but carry no independent governance lifecycle and are NOT independent tokens.
+   * **P-STD-001-CLAUSE-003F (Non-token status)** — Substandard IDs (e.g., `P-STD-001A`) and subclause IDs (e.g., `P-STD-001-CLAUSE-001A`) are internal structural elements. They MUST NOT appear as standalone entries in registries, taxonomy tables, or governance indexes (including the P-STD-005 taxonomy, SPS STD Index, Concept STD Index, or Specification Index). They MAY be cited in text for navigational precision but carry no independent governance lifecycle and are NOT independent tokens.
 
 4) **P-STD-001-CLAUSE-004 (Specification Lifecycle Stages)**
 
@@ -158,7 +158,7 @@
 
    Precedence and variance for STD-governed artifacts MUST follow the subclauses below.
 
-   * **P-STD-001-CLAUSE-011A (Precedence authority)** — Precedence rules for standards inheritance MUST follow `T102-STD-005-CLAUSE-003 (Precedence & Overrides)` as the governing authority.
+   * **P-STD-001-CLAUSE-011A (Precedence authority)** — Precedence rules for standards inheritance MUST follow `P-STD-005-CLAUSE-003 (Precedence & Overrides)` as the governing authority.
 
    * **P-STD-001-CLAUSE-011B (Variance definition)** — A variance is an explicit deviation from an upstream standard. Variance MUST be documented via a Decision Record (ADR) at the deviating scope or in a designated variance register.
 
@@ -172,7 +172,7 @@
 
    * **P-STD-001-CLAUSE-012A (STD Index Schema)** — Each scope MUST maintain a `STD` index table using this schema: `| STD ID | Title | Status | Owner | Effective | Supersedes | Canonical Path | Verification | Governed By | Reference |`
 
-   * **P-STD-001-CLAUSE-012B (Column definitions)** — `STD ID` MUST follow `T102-STD-005-CLAUSE-001`. `Title` MUST be bold and follow title constraints. `Status` MUST use lowercase backtick-wrapped enums per `P-STD-001-CLAUSE-004B`. `Canonical Path` MUST be a full repo-relative path to the combined standard-specification file under the designated standards directory (per `P-STD-001-CLAUSE-015A`), or `—` if the STD is registry-only (no dedicated spec file). Semantics governed by `P-STD-001-CLAUSE-010`. `Effective` MUST be an ISO-8601 date `YYYY-MM-DD` or `—` if not yet set. `Verification` MUST describe (a) mechanism, (b) what is checked, and (c) pass/fail evidence. `Governed By` MUST list the governing basis (meta-governance). `Reference` MUST contain ONLY `RID`-category IDs per `T102-STD-005-CLAUSE-002` and MUST NOT include `DRID`/`CLAUSE` IDs.
+   * **P-STD-001-CLAUSE-012B (Column definitions)** — `STD ID` MUST follow `P-STD-005-CLAUSE-001`. `Title` MUST be bold and follow title constraints. `Status` MUST use lowercase backtick-wrapped enums per `P-STD-001-CLAUSE-004B`. `Canonical Path` MUST be a full repo-relative path to the combined standard-specification file under the designated standards directory (per `P-STD-001-CLAUSE-015A`), or `—` if the STD is registry-only (no dedicated spec file). Semantics governed by `P-STD-001-CLAUSE-010`. `Effective` MUST be an ISO-8601 date `YYYY-MM-DD` or `—` if not yet set. `Verification` MUST describe (a) mechanism, (b) what is checked, and (c) pass/fail evidence. `Governed By` MUST list the governing basis (meta-governance). `Reference` MUST contain ONLY `RID`-category IDs per `P-STD-005-CLAUSE-002` and MUST NOT include `DRID`/`CLAUSE` IDs.
 
    * **P-STD-001-CLAUSE-012C (Phase 1 index granularity)** — Phase 1 index granularity is the combined file as a whole (no anchor addressing required in indexes).
 
@@ -236,9 +236,9 @@
 
    * **P-STD-001-CLAUSE-030A (Promotion Eligibility)** — A standard is eligible for scope promotion when: (1) its normative content is stable (no open structural amendments in progress), and (2) it applies to, or is adopted by, multiple downstream scopes.
 
-   * **P-STD-001-CLAUSE-030B (Promotion Process)** — A scope promotion MUST satisfy the following process: (1) A promotion contract MUST be drafted documenting: (i) the source standard ID, (ii) the target standard ID at the higher scope, (iii) the re-identification mapping for all CLAUSEs, substandards, and ADRs, (iv) any variances introduced at the new scope, (v) alias window terms per `P-STD-001-CLAUSE-030C`. (2) The promotion contract MUST pass a Client approval gate before execution. (3) The target standard MUST receive the full normative content of the source standard, re-identified to the new scope per `T102-STD-005-CLAUSE-003A`. (4) The source standard MUST be marked `superseded` with a pointer to the target standard. (5) The promotion event MUST be recorded as an ADR in the target standard's Decision Record section.
+   * **P-STD-001-CLAUSE-030B (Promotion Process)** — A scope promotion MUST satisfy the following process: (1) A promotion contract MUST be drafted documenting: (i) the source standard ID, (ii) the target standard ID at the higher scope, (iii) the re-identification mapping for all CLAUSEs, substandards, and ADRs, (iv) any variances introduced at the new scope, (v) alias window terms per `P-STD-001-CLAUSE-030C`. (2) The promotion contract MUST pass a Client approval gate before execution. (3) The target standard MUST receive the full normative content of the source standard, re-identified to the new scope per `P-STD-005-CLAUSE-003A`. (4) The source standard MUST be marked `superseded` with a pointer to the target standard. (5) The promotion event MUST be recorded as an ADR in the target standard's Decision Record section.
 
-   * **P-STD-001-CLAUSE-030C (Alias Window)** — Per `T102-STD-005-CLAUSE-003B`, during a defined migration period, superseded CLAUSE IDs (e.g., `T102-STD-004-CLAUSE-001`) MAY be treated as aliases for the promoted CLAUSE IDs (e.g., `P-STD-001-CLAUSE-001`). Alias support MUST be removed after the migration completion milestone, which MUST be defined in the promotion contract.
+   * **P-STD-001-CLAUSE-030C (Alias Window)** — Per `P-STD-005-CLAUSE-003B`, during a defined migration period, superseded CLAUSE IDs (e.g., `T102-STD-004-CLAUSE-001`) MAY be treated as aliases for the promoted CLAUSE IDs (e.g., `P-STD-001-CLAUSE-001`). Alias support MUST be removed after the migration completion milestone, which MUST be defined in the promotion contract.
 
    * **P-STD-001-CLAUSE-030D (Deprecation)** — A program-level standard MAY be deprecated when it is no longer applicable to any active scope. The standard status MUST be changed to `deprecated`. All adopters MUST be notified via a governance changeset. Deprecated standards MUST NOT be referenced by new authoring.
 
@@ -250,15 +250,15 @@
 
    Specification CLAUSEs in combined standard-specification files MUST be constructed per the subclauses below.
 
-   * **P-STD-001-CLAUSE-018A (Normative reference)** — `CLAUSE` token semantics MUST follow `T102-STD-005-CLAUSE-005D (Specification Clause Semantics)`.
+   * **P-STD-001-CLAUSE-018A (Normative reference)** — `CLAUSE` token semantics MUST follow `P-STD-005-CLAUSE-005D (Specification Clause Semantics)`.
 
-   * **P-STD-001-CLAUSE-018B (Format)** — Within the `## Specification` section, each clause MUST be rendered as: `n) **<CLAUSE-ID> (<Title>)**`, where `<CLAUSE-ID>` conforms to `T102-STD-005-CLAUSE-005D`.
+   * **P-STD-001-CLAUSE-018B (Format)** — Within the `## Specification` section, each clause MUST be rendered as: `n) **<CLAUSE-ID> (<Title>)**`, where `<CLAUSE-ID>` conforms to `P-STD-005-CLAUSE-005D`.
 
-   * **P-STD-001-CLAUSE-018C (Single-statement discipline)** — Each CLAUSE MUST be a single primary normative statement (avoid compound obligations where feasible). If additional detail is required, it SHOULD be provided as subclauses per `T102-STD-005-CLAUSE-005D`.
+   * **P-STD-001-CLAUSE-018C (Single-statement discipline)** — Each CLAUSE MUST be a single primary normative statement (avoid compound obligations where feasible). If additional detail is required, it SHOULD be provided as subclauses per `P-STD-005-CLAUSE-005D`.
 
-   * **P-STD-001-CLAUSE-018D (Title conventions)** — CLAUSE Titles MUST follow the title conventions defined in `T102-STD-005-CLAUSE-001`.
+   * **P-STD-001-CLAUSE-018D (Title conventions)** — CLAUSE Titles MUST follow the title conventions defined in `P-STD-005-CLAUSE-001`.
 
-   * **P-STD-001-CLAUSE-018E (Non-duplication constraint)** — `P-STD-001` MUST NOT redefine the syntax, scope validity, or semantic authority of `CLAUSE` IDs; those are defined in `T102-STD-005-CLAUSE-005D`.
+   * **P-STD-001-CLAUSE-018E (Non-duplication constraint)** — `P-STD-001` MUST NOT redefine the syntax, scope validity, or semantic authority of `CLAUSE` IDs; those are defined in `P-STD-005-CLAUSE-005D`.
 
 20) **P-STD-001-CLAUSE-019 (CLAUSE Ordering)**
 
@@ -272,7 +272,7 @@
 
    Subclause rendering in combined standard-specification files MUST follow the subclauses below.
 
-   * **P-STD-001-CLAUSE-020A (Bold format requirement)** — Subclauses MUST be rendered as nested bullet items under the parent clause using the format: `* **<CLAUSE-ID> (<Title>)** — <normative statement>`. This follows the markdown construction defined in `T102-STD-005-CLAUSE-001`.
+   * **P-STD-001-CLAUSE-020A (Bold format requirement)** — Subclauses MUST be rendered as nested bullet items under the parent clause using the format: `* **<CLAUSE-ID> (<Title>)** — <normative statement>`. This follows the markdown construction defined in `P-STD-005-CLAUSE-001`.
 
    * **P-STD-001-CLAUSE-020B (Prohibited format)** — Subclauses MUST NOT use backtick-wrapped format (e.g., `` `P-STD-001-CLAUSE-001A (Title)` ``). Backtick wrapping is reserved for inline code references, not for subclause rendering.
 
@@ -292,9 +292,9 @@
 
    CLAUSE referencing and non-duplication MUST follow the subclauses below.
 
-   * **P-STD-001-CLAUSE-022A (CLAUSE referencing)** — Other artifacts MAY reference specific Specification CLAUSEs using the formal format defined in `T102-STD-005-CLAUSE-004 (Reference Semantics)`.
+   * **P-STD-001-CLAUSE-022A (CLAUSE referencing)** — Other artifacts MAY reference specific Specification CLAUSEs using the formal format defined in `P-STD-005-CLAUSE-004 (Reference Semantics)`.
 
-   * **P-STD-001-CLAUSE-022B (Non-duplication constraint)** — Combined standard-specification files MUST NOT redefine the syntax, scope validity, or semantic authority of `CLAUSE` IDs; those are defined in `T102-STD-005-CLAUSE-005D`.
+   * **P-STD-001-CLAUSE-022B (Non-duplication constraint)** — Combined standard-specification files MUST NOT redefine the syntax, scope validity, or semantic authority of `CLAUSE` IDs; those are defined in `P-STD-005-CLAUSE-005D`.
 
 ### P-STD-001D — Decision Record Authoring
 
@@ -304,7 +304,7 @@
 
    * **P-STD-001-CLAUSE-023A (ADR Index Schema)** — The ADR Index MUST use the schema: `| ADR ID | Title | Status | Supersedes | Date |`.
 
-   * **P-STD-001-CLAUSE-023B (Column definitions)** — `ADR ID` MUST follow `T102-STD-005-CLAUSE-005F` construction format (`<STD-ID>-ADR-###`). `Title` MUST follow title conventions per `T102-STD-005-CLAUSE-001`. `Status` MUST use lowercase backtick-wrapped enums per `P-STD-001-CLAUSE-004B` (e.g., `accepted`, `superseded`). `Supersedes` MUST list superseded ADR IDs or `—`. `Date` MUST be ISO-8601 date `YYYY-MM-DD`.
+   * **P-STD-001-CLAUSE-023B (Column definitions)** — `ADR ID` MUST follow `P-STD-005-CLAUSE-005F` construction format (`<STD-ID>-ADR-###`). `Title` MUST follow title conventions per `P-STD-005-CLAUSE-001`. `Status` MUST use lowercase backtick-wrapped enums per `P-STD-001-CLAUSE-004B` (e.g., `accepted`, `superseded`). `Supersedes` MUST list superseded ADR IDs or `—`. `Date` MUST be ISO-8601 date `YYYY-MM-DD`.
 
    * **P-STD-001-CLAUSE-023C (Current-first ordering)** — ADR bodies in the `## Decision Record` section MUST be ordered with the current (most recent `accepted`) ADR first, followed by superseded ADRs in reverse chronological order.
 
@@ -322,7 +322,7 @@
 
    * **P-STD-001-CLAUSE-024D (Create combined file)** — Authors MUST create a combined standard-specification file at the canonical path under the designated standards directory (per `P-STD-001-CLAUSE-015A`) using the standard-specification template, applying CLAUSE entries under `## Specification` and DR body structure under `## Decision Record` per `P-STD-001-CLAUSE-025`.
 
-   * **P-STD-001-CLAUSE-024E (References conformance)** — Authors MUST ensure References follow `T102-STD-005-CLAUSE-004 (Reference Semantics)`.
+   * **P-STD-001-CLAUSE-024E (References conformance)** — Authors MUST ensure References follow `P-STD-005-CLAUSE-004 (Reference Semantics)`.
 
    * **P-STD-001-CLAUSE-024F (Canonical Path population)** — Authors MUST populate the Canonical Path column (where applicable) in the index row with the full repo-relative path to the combined file.
 
@@ -370,7 +370,7 @@
 
    Combined files MUST satisfy the References and Provenance requirements defined by the subclauses below.
 
-   * **P-STD-001-CLAUSE-028A (References requirements)** — Every combined file MUST include a `## References` section listing governing standards, guidance, and quality gates as `RID`-category references per `T102-STD-005-CLAUSE-004`.
+   * **P-STD-001-CLAUSE-028A (References requirements)** — Every combined file MUST include a `## References` section listing governing standards, guidance, and quality gates as `RID`-category references per `P-STD-005-CLAUSE-004`.
 
    * **P-STD-001-CLAUSE-028B (Provenance requirements)** — Every combined file MUST include a `## Provenance` section listing the originating proposal(s), research, and/or decision sessions that produced the specification content.
 
@@ -382,7 +382,7 @@
 
    * **P-STD-001-CLAUSE-029B (CLAUSE promotion)** — When a normative obligation in a combined file warrants addressable precision, it SHOULD be formalized as a named CLAUSE (or subclause) per `P-STD-001-CLAUSE-018`.
 
-   * **P-STD-001-CLAUSE-029C (Traceability)** — Specifications SHOULD reference governing research and guidance in **Provenance** and **References** (per `P-STD-001-CLAUSE-028`), rather than duplicating detailed patterns. Token-specific promotion workflows for `RES` and `IG` tokens are governed by `T102-STD-005`.
+   * **P-STD-001-CLAUSE-029C (Traceability)** — Specifications SHOULD reference governing research and guidance in **Provenance** and **References** (per `P-STD-001-CLAUSE-028`), rather than duplicating detailed patterns. Token-specific promotion workflows for `RES` and `IG` tokens are governed by `P-STD-005`.
 
 ## Decision Record
 
@@ -399,7 +399,7 @@
     `T102-STD-004` was authored at Initiative scope (T102) but governs a concern applicable to all initiatives program-wide: the combined standard-specification authoring model. As additional initiatives (T104, future) require conformance to the same authoring rules, having the authoritative standard at Initiative scope creates scope-identity misalignment, reference ambiguity, and development location confusion.
 
   * **Decision**
-    Promote `T102-STD-004` to `P-STD-001` via full content transfer with 1:1 CLAUSE re-identification. Mark `T102-STD-004` as `superseded`. Establish an alias window per `T102-STD-005-CLAUSE-003B` for existing references.
+    Promote `T102-STD-004` to `P-STD-001` via full content transfer with 1:1 CLAUSE re-identification. Mark `T102-STD-004` as `superseded`. Establish an alias window per `P-STD-005-CLAUSE-003B` for existing references.
 
   * **Alternatives**
     * *Adopt-by-reference*: `P-STD-001` as thin wrapper incorporating `T102-STD-004` by normative reference. Rejected: creates two-hop reference pattern, scope-identity mismatch, principal-agent problem for development location. Scored 2.50 vs 4.60 in weighted analysis.
@@ -418,8 +418,8 @@
     * `P-PH000-ST001-AC002-SES001-DEC003` (CLAUSE-030 placement in Substandard B)
     * `P-PH000-ST001-AC002-SES001-DEC006` (CLAUSE-015A directory canonical form)
     * `analysis_P-PH000-ST001-AC002_promotion-methodology-comparison.md` (weighted criteria analysis)
-    * `T102-STD-005-CLAUSE-003A` (promotion contract rules)
-    * `T102-STD-005-CLAUSE-003B` (alias window rules)
+    * `P-STD-005-CLAUSE-003A` (promotion contract rules)
+    * `P-STD-005-CLAUSE-003B` (alias window rules)
 
 * **P-STD-001-ADR-002 (Combined Authoring & Governance Standard)** {#p-std-001-adr-002-combined-authoring-and-governance-standard}
 
@@ -482,11 +482,11 @@
  
 ## References
 
-### External References (Cross-Scope: Program → Initiative T102)
+### References (Internal + Cross-Scope: Program → Initiative T102)
 
 | Referenced ID | Title | Scope | Source Path |
 |:--|:--|:--|:--|
-| `T102-STD-005` | ID Specification & Rules | Initiative (T102) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
+| `P-STD-005` | Universal ID Specification | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` |
 | `T102-CON-009` | Controlled Vocabulary for Normative Language | Initiative (T102) | See `sps_T102-CONSULTANT.md` |
 | `T102-QG-001` | Client Readability | Initiative (T102) | See `sps_T102-CONSULTANT.md` |
 | `T102-STD-001` | Consultancy Operating Model Standard | Initiative (T102) | See `sps_T102-CONSULTANT.md` |
@@ -511,4 +511,4 @@
 | Analysis Evidence | `prompt/artifacts/tasks/P/workspace/analysis/analysis_P-PH000-ST001-AC002_promotion-methodology-comparison.md` |
 | Session Evidence | `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES001.md` |
 | Post-Promotion Amendment | CLAUSE-019A amended to decouple display number from CLAUSE-ID for non-terminal substandard appends (GATE-002 remediation, 2026-02-21) |
-| Post-Promotion Amendment | CLAUSE-005D amended to align derivative citation format with `T102-STD-005-CLAUSE-004` reference semantics; `[per <CLAUSE-ID>]` wrapper removed (GATE-002 remediation pass 2, 2026-02-22) |
+| Post-Promotion Amendment | CLAUSE-005D amended to align derivative citation format with `P-STD-005-CLAUSE-004` reference semantics; `[per <CLAUSE-ID>]` wrapper removed (GATE-002 remediation pass 2, 2026-02-22) |
