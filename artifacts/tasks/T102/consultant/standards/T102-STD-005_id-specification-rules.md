@@ -1,5 +1,11 @@
 # T102-STD-005 — ID Specification & Rules
 
+> **Superseded**: This standard has been superseded by `P-STD-005 (Universal ID Specification)` at Program scope.
+>
+> - Successor: `P-STD-005 (Universal ID Specification)` at `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md`
+> - Superseded on: 2026-02-23
+> - Alias window: `T102-STD-005-CLAUSE-*` references MAY be treated as aliases for `P-STD-005-CLAUSE-*` during the defined migration window. Alias support is removed after the Governance Sync Changeset "P-STD-005 Alias Removal" is executed.
+
 ## Specification
 
 1) **T102-STD-005-CLAUSE-001 (Canonical ID Schema)**
@@ -305,3 +311,7 @@
 - `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor-adr-004-005.md`
 - `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
 - `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
+
+| Superseded By | `P-STD-005` (Universal ID Specification) |
+| Supersession Date | 2026-02-23 |
+| Promotion Decision | `P-STD-005-ADR-002` |
