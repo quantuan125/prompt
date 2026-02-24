@@ -12,9 +12,9 @@ date: '2026-02-22'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-register_reference: 'prompt/artifacts/tasks/P/workspace/notes/notes_P-PH000-ST001.md'
-plan_reference: 'prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC006.md'
-raw_transcript_reference: 'prompt/artifacts/tasks/P/workspace/raw/PH000/ST001/raw_P-PH000-ST001-AC006-SES001.txt'
+register_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/notes_P-PH000-ST001.md'
+plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md'
+raw_transcript_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/raw/raw_P-PH000-ST001-AC006-SES001.txt'
 ---
 
 # ACTIVITY SESSION NOTES: P (PROGRAM) — PH000 / ST001 / AC006 / SES001 (T102-STD-005 to P-STD-005 Promotion Consultation)
@@ -70,7 +70,7 @@ The session established AC006 as a standalone activity within `P-PH000-ST001`, n
 | ID | Action | Owner | Status |
 |:---|:-------|:------|:-------|
 | `P-PH000-ST001-AC006-SES001-ACT001` | Create and register AC006 activity plan in ST001 stream plan and PH000 phase snapshot index | LLM_Consultant | `completed` |
-| `P-PH000-ST001-AC006-SES001-ACT002` | Ensure raw transcript is stored at canonical path `prompt/artifacts/tasks/P/workspace/raw/PH000/ST001/raw_P-PH000-ST001-AC006-SES001.txt` | LLM_Consultant | `completed` |
+| `P-PH000-ST001-AC006-SES001-ACT002` | Ensure raw transcript is stored at canonical path `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/raw/raw_P-PH000-ST001-AC006-SES001.txt` | LLM_Consultant | `completed` |
 | `P-PH000-ST001-AC006-SES001-ACT003` | Create AC006 session `snotes` file and link it in stream notes register | LLM_Consultant | `completed` |
 
 ---

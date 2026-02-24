@@ -108,7 +108,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 | Research ID | Title | Summary | Reference | Brief | Report |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| `P-RES-001` | **Status Standard Research** | Deep research into program-level status governance: canonical 7-state enum + transition rules, health/RAG thresholds, unified dependency schema (FS/SS/FF/SF), evidence linkage protocol, update protocol (role accountability), status artifact format options. Consumed by `P-PH000-ST001-AC003`. | `P-PH000-ST001-AC003` | `prompt/artifacts/tasks/P/research/brief/brief_P-RES-001_status-standard-research.md` | `prompt/artifacts/tasks/P/research/report/report_P-RES-001_status-standard-research.md` |
+| `P-RES-001` | **Status Standard Research** | Deep research into program-level status governance: canonical 7-state enum + transition rules, health/RAG thresholds, unified dependency schema (FS/SS/FF/SF), evidence linkage protocol, update protocol (role accountability), status artifact format options. Consumed by `P-PH000-ST001-AC003`. | `P-PH000-ST001-AC003` | `prompt/artifacts/tasks/P/research/P-RES-001/brief_P-RES-001_status-standard-research.md` | `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md` |
 
 #### 10. Issues & Risks
 

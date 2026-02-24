@@ -12,9 +12,9 @@ date: '2026-02-22'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-register_reference: 'prompt/artifacts/tasks/P/workspace/notes/notes_P-PH000-ST001.md'
-plan_reference: 'prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC006.md'
-raw_transcript_reference: 'prompt/artifacts/tasks/P/workspace/raw/PH000/ST001/raw_P-PH000-ST001-AC006-SES002.txt'
+register_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/notes_P-PH000-ST001.md'
+plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md'
+raw_transcript_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/raw/raw_P-PH000-ST001-AC006-SES002.txt'
 ---
 
 # ACTIVITY SESSION NOTES: P (PROGRAM) — PH000 / ST001 / AC006 / SES002 (Pre-Commissioning Gap Analysis & Plan Amendment)
@@ -80,7 +80,7 @@ The consultant performed a detailed gap analysis of the AC006 activity plan agai
 
 - AC006 activity plan will be amended per DEC001-DEC005 before developer commissioning.
 - Once amendments are applied, the AC006 task register (TK001-TK010 + 3 gates) becomes the authoritative commissioning surface.
-- Evidence for all decisions: raw transcript at `prompt/artifacts/tasks/P/workspace/raw/PH000/ST001/raw_P-PH000-ST001-AC006-SES002.txt`.
+- Evidence for all decisions: raw transcript at `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/raw/raw_P-PH000-ST001-AC006-SES002.txt`.
 - AC001 disposition: unchanged per client direction; revisit after AC006 completes if needed.
 
 ---

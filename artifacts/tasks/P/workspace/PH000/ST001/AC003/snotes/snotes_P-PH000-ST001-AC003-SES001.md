@@ -12,8 +12,8 @@ date: '2026-02-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-register_reference: 'prompt/artifacts/tasks/P/workspace/notes/notes_P-PH000-ST001.md'
-plan_reference: 'prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC003.md'
+register_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/notes_P-PH000-ST001.md'
+plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md'
 raw_transcript_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/raw/raw_P-PH000-ST001-AC003-SES001.txt'
 ---
 

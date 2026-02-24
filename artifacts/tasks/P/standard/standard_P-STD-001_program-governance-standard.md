@@ -501,14 +501,14 @@
 |:--|:--|
 | Supersedes | `T102-STD-004` (Specification Standard & Guideline) |
 | Promotion Date | 2026-02-20 |
-| Promotion Contract | `prompt/artifacts/tasks/P/workspace/proposal/proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md` |
+| Promotion Contract | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/proposal/proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md` |
 | Promotion Decision | `P-STD-001-ADR-003` |
 | Alias Window | Active — existing `T102-STD-004-CLAUSE-*` references valid as aliases until migration completion |
 | Original Authoring | T102-PH001-ST001 (Initiative T102, Consultancy Development Workflow) |
 | Original Author(s) | LLM_Consultant |
 | Original Provenance | `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md`, `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_1_tk003_std-004-clause-019-sequencing-amendment.md` |
 | Promotion Author | LLM_Consultant |
-| Analysis Evidence | `prompt/artifacts/tasks/P/workspace/analysis/analysis_P-PH000-ST001-AC002_promotion-methodology-comparison.md` |
-| Session Evidence | `prompt/artifacts/tasks/P/workspace/notes/PH000/ST001/notes_P-PH000-ST001-AC002-SES001.md` |
+| Analysis Evidence | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/analysis/analysis_P-PH000-ST001-AC002_promotion-methodology-comparison.md` |
+| Session Evidence | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/snotes/snotes_P-PH000-ST001-AC002-SES001.md` |
 | Post-Promotion Amendment | CLAUSE-019A amended to decouple display number from CLAUSE-ID for non-terminal substandard appends (GATE-002 remediation, 2026-02-21) |
 | Post-Promotion Amendment | CLAUSE-005D amended to align derivative citation format with `P-STD-005-CLAUSE-004` reference semantics; `[per <CLAUSE-ID>]` wrapper removed (GATE-002 remediation pass 2, 2026-02-22) |

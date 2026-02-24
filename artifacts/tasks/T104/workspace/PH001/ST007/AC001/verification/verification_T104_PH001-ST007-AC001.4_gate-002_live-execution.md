@@ -153,9 +153,9 @@ This is a legitimate validator enhancement, not a masking of errors. The proposa
   - `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md`
 
 - **Cross-initiative plans/analyses** (6 files):
-  - `prompt/artifacts/tasks/P/workspace/proposal/proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md`
-  - `prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST001.md`
-  - `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC002.md`
+  - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/proposal/proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md`
+  - `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md`
+  - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/plan_P-PH000-ST001-AC002.md`
   - `prompt/artifacts/tasks/T102/T102C/workspace/PH000/plan_T102C-PH000.md`
   - `prompt/artifacts/tasks/T103/workspace/plan/plan_T103-PH000.md`
   - `prompt/artifacts/tasks/T103/workspace/analysis/analysis_T103-PH000_standards-retargeting-assessment.md`

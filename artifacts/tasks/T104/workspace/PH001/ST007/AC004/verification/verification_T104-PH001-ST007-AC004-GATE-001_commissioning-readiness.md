@@ -60,7 +60,7 @@ Out of scope:
 Rationale (high-level):
 
 1. The “authoritative inventory” used to justify manifest coverage is dated **2026-02-23** and enumerates **37** P files (embedded in the dev-report).
-2. The live `prompt/artifacts/tasks/P/**` filesystem has drifted since that snapshot and now contains **46** files (observed `2026-02-24T04:37:39+07:00`; includes a research report stub added for pairing readiness).
+2. The live `prompt/artifacts/tasks/P/**` filesystem has drifted since that snapshot and now contains **49** files (observed `2026-02-24T06:00:10+07:00`; includes `P-STD-005` and two AC006 verification artifacts).
 3. Inventory + manifest + dry-run evidence have now been rebaselined against the current P state and recorded in the dev-report rebaseline addendum; no waiver carve-outs are required.
 
 ### B. What Is Already Strong (retain)
@@ -81,32 +81,35 @@ Rationale (high-level):
 **Problem**: The inventory snapshot used for coverage proof is no longer authoritative.
 
 - Inventory basis (embedded in dev-report): **37 files**, snapshot date `2026-02-23`.
-- Live P state (rebaselined): **46 files** under `prompt/artifacts/tasks/P/**` (see dev-report Section VIII).
+- Live P state (rebaselined): **49 files** under `prompt/artifacts/tasks/P/**` (see dev-report Section VIII).
 
-**Drift snapshot (recomputed 2026-02-24; reconciled into manifest)**:
+**Drift snapshot (recomputed `2026-02-24T06:00:10+07:00`; reconciled into manifest)**:
 
-New since the 37-file inventory (11):
+New since the 37-file inventory (14):
 
 1. `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/raw/raw_P-PH000-ST001-AC003-SES001.txt`
 2. `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES001.md`
 3. `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES003.md`
 4. `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-research.md`
-5. `prompt/artifacts/tasks/P/workspace/plan/PH000/ST001/plan_P-PH000-ST001-AC003.md`
-6. `prompt/artifacts/tasks/P/workspace/plan/plan_P-PH000-ST004.md`
-7. `prompt/artifacts/tasks/P/workspace/proposal/proposal_P-PH000-ST001-AC006_promotion-contract-t102-std-005-to-p-std-005.md`
-8. `prompt/artifacts/tasks/P/workspace/verification/verification_P-PH000-ST001-AC006-GATE-001.md`
-9. `prompt/artifacts/tasks/P/workspace/verification/verification_P-PH000-ST001-AC006-GATE-002.md`
-10. `prompt/artifacts/tasks/P/research/brief/brief_P-RES-001_status-standard-research.md`
-11. `prompt/artifacts/tasks/P/research/report/report_P-RES-001_status-standard-research.md`
+5. `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md`
+6. `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md`
+7. `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/proposal/proposal_P-PH000-ST001-AC006_promotion-contract-t102-std-005-to-p-std-005.md`
+8. `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/verification/verification_P-PH000-ST001-AC006_gate-001.md`
+9. `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/verification/verification_P-PH000-ST001-AC006_gate-002.md`
+10. `prompt/artifacts/tasks/P/research/P-RES-001/brief_P-RES-001_status-standard-research.md`
+11. `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md`
+12. `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md`
+13. `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/verification/verification_P-PH000-ST001-AC006_gate-003.md`
+14. `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/verification/verification_P-PH000-ST001-AC006_tk005-to-tk009.md`
 
 Missing since the 37-file inventory (2):
 
 1. `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004_program-level-status-system-research.md`
-2. `prompt/artifacts/tasks/P/workspace/verification/verification_P-PH000-ST001-AC006_gate-001.md`
+2. `legacy workspace path: workspace/verification/verification_P-PH000-ST001-AC006_gate-001.md`
 
 **Risk**: If `TK005` is commissioned based on stale inventory coverage proof, then “0 completeness discrepancies” becomes a false sense of safety. New files may be left behind in type-first layout, or collide with target paths, or introduce additional reference-rewrite workload not accounted for.
 
-**Rebaseline outcome**: Manifest updated to cover all drifted files (and to normalize AC006 GATE filenames during relocation). Dry-run refreshed and still reports `_No completeness discrepancies._`.
+**Rebaseline outcome**: Manifest updated to cover all drifted files (now `37` moves + `17` mkdirs + `37` rewrite rules). Dry-run refreshed and still reports `_No completeness discrepancies._` (and `48` files changed by rewrites).
 
 ### FIND-CR-002: Freeze Window Is Not Enforced (Major)
 
@@ -128,11 +131,11 @@ The rollback checkpoint commit used for Gate packet assembly exists (notably `24
 
 However, Gate readiness should assume:
 
-- The `prompt/` repository may have uncommitted changes and untracked additions at the time of commissioning.
+- The `prompt/` repository may have uncommitted changes and untracked additions at the time of commissioning (even if it is clean at Gate review time).
 
 **Risk**: “Rollback to checkpoint commit” is necessary but may be insufficient to restore the exact pre-apply filesystem state unless the developer also captures an out-of-tree snapshot and/or achieves a clean/controlled working tree.
 
-**Rebaseline outcome**: An out-of-tree snapshot tarball of `prompt/artifacts/tasks/P/` was captured and hashed (dev-report Section VIII.E).
+**Rebaseline outcome**: A clean checkpoint commit was recorded and an out-of-tree snapshot tarball of `prompt/artifacts/tasks/P/` was captured and hashed (dev-report Section VIII.E).
 
 ### FIND-CR-005: Known Post-Apply Manual Step (Preventive)
 
@@ -150,9 +153,9 @@ All required commissioning-readiness remediations are completed and evidenced:
 
 | Remediation ID | Status | Evidence |
 |:--|:--|:--|
-| REM-CR-001 | **Done** | Dev-report Section VIII.A (freeze + authoritative 46-file inventory) |
+| REM-CR-001 | **Done** | Dev-report Section VIII.A (freeze + authoritative 49-file inventory) |
 | REM-CR-002 | **Done** | Updated manifest at `prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/manifest_T104-PH001-ST007-AC004_p-migration.json` + dev-report Section VIII.C |
-| REM-CR-003 | **Done** | Updated dry-run report at `prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/report_T104-PH001-ST007-AC004_gate-001_dry-run.md` (35 moves, 17 mkdirs, `_No completeness discrepancies._`) |
+| REM-CR-003 | **Done** | Updated dry-run report at `prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/report_T104-PH001-ST007-AC004_gate-001_dry-run.md` (37 moves, 17 mkdirs, `_No completeness discrepancies._`) |
 | REM-CR-004 | **Done** | Updated: AC004 plan, primary verification, dev-report (evidence navigation and updated counts) |
 | REM-CR-005 | **Done** | Dev-report Section VIII.E (checkpoint commit, `git status --short`, snapshot path + sha256) |
 | REM-CR-006 | **Done** | AC004 plan “Post-Apply Manual Steps (Required before TK006)” (DEC-AC004-004) |
@@ -225,3 +228,4 @@ Once all REM-CR items are completed and evidence is updated:
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-02-24 | Initial | Consolidated Gate-001 commissioning readiness risks and required remediation actions for developer handoff prior to TK005 live apply. |
 | v1.1.0 | 2026-02-24 | Update | Rebaseline complete: authoritative P inventory updated (46 files), manifest reconciled, dry-run refreshed (`_No completeness discrepancies._`), rollback snapshot + `--report-path` guardrail proof recorded, evidence navigation updated. |
+| v1.2.0 | 2026-02-24 | Update | Rebaseline refreshed: authoritative P inventory updated (49 files), manifest expanded (37 moves / 37 rewrites), dry-run refreshed (`_No completeness discrepancies._`), rollback snapshot re-captured for the 49-file state. |
