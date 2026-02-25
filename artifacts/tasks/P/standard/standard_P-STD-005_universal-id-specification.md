@@ -9,8 +9,8 @@
 | 3 | P-STD-005A | P-STD-005-CLAUSE-003 | Precedence & Hierarchy | Defines inheritance directionality and precedence rules. |
 | 4 | P-STD-005A | P-STD-005-CLAUSE-004 | Reference Semantics | Defines reference styles, requirements, and external reference rules. |
 | 5 | P-STD-005A | P-STD-005-CLAUSE-005 | Category Semantics | Defines semantics, lifecycle rules, and constraints per token category. |
-| 6 | P-STD-005A | P-STD-005-CLAUSE-006 | Status Semantics | Defines status meanings and allowed transitions for governed artifacts. |
-| 7 | P-STD-005A | P-STD-005-CLAUSE-007 | Change Semantics | Defines change semantics and recording requirements for governed artifacts. |
+| 6 | P-STD-005A | P-STD-005-CLAUSE-006 | Content Quality | Defines content quality criteria and governance mapping for governed artifact types. |
+| 7 | P-STD-005A | P-STD-005-CLAUSE-007 | ID Stability & Immutability | Defines anchor stability, ID immutability, and migration tolerance rules. |
 | 8 | P-STD-005B | P-STD-005-CLAUSE-008 | Timeline UID Schema | Defines timeline UID regex patterns and composition rules. |
 | 9 | P-STD-005B | P-STD-005-CLAUSE-009 | UID-vs-Seq Decoupling | Defines immutable UIDs and display-order decoupling rules. |
 | 10 | P-STD-005B | P-STD-005-CLAUSE-010 | LINK Indirection System | Defines LINK-### pointer system for register indirection. |

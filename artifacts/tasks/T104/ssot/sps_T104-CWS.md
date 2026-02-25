@@ -2,8 +2,8 @@
 artifact_type: 'SPS'
 initiative_id: 'T104'
 initiative_code: 'CWS'
-version: '1.0.1'
-date: '2026-02-05'
+version: '1.1.0'
+date: '2026-02-25'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -249,6 +249,8 @@ External Reference: `T102-STD-005-CLAUSE-002`
 | 2 | Epic | T104E | Changelog Standardization |
 | 2 | Epic | T104F | Plan Standardization |
 | 2 | Epic | T104G | Communication Standardization |
+| 2 | Epic | T104H | Verification Standardization |
+| 2 | Epic | T104I | Dev-Report Standardization |
 
 ---
 
@@ -1022,6 +1024,237 @@ epic_owner: 'LLM_Consultant'
 
 ---
 
+#### 8. `T104H` Epic: `VERIFICATION` - Verification Standardization
+
+```yaml
+epic_id: 'T104H'
+epic_code: 'VERIFICATION'
+epic_title: 'Verification Standardization'
+epic_type: 'new'
+epic_status: 'draft'
+epic_owner: 'LLM_Consultant'
+```
+
+##### i. Purpose
+To standardize the **Verification** artifact (`verification_...`) as the primary gate evidence surface owned by `LLM_Reviewer`. Verifications exist at formal governance gates and produce structured evidence records that capture verification scope, checklist results, findings (classified by Situation A/B rework paths), entry criteria assessments, and gate recommendations. This Epic establishes the verification artifact as the authoritative record for gate passage decisions, distinct from planning artifacts (which express intent) and dev-reports (which log execution).
+
+##### ii. Scope
+
+* **In Scope:**
+  * Defining the VERIFICATION artifact structure: evidence set, checklist, findings register (with Situation A/B classification per `guideline_workspace_plan.md §VI.G`), observations, entry criteria assessment, gate recommendation.
+  * Standardizing the `verification_` prefix and canonical placement (`<AC>/verification/` directories).
+  * Establishing the role boundary: LLM_Reviewer authors; LLM_Developer executes remediation under Situation A; LLM_Consultant scopes plan amendments under Situation B.
+  * Codifying verdict semantics: PASS / FAIL / PASS WITH DEFERRALS.
+  * Defining the linkage pattern from verification → plan task register (GATE tasks) → dev-report (remediation execution).
+* **Out of Scope:**
+  * **Execution Logs:** Verification MUST NOT contain implementation detail or git commits (these belong in `dev-report_`).
+  * **Requirements Authority:** Verification MUST NOT alter contract-level scope; scope gaps escalate to plan amendments per Situation B path.
+
+##### iii. Inherited Considerations
+
+| Source Artifact | Source ID | Category | Inherited Rule IDs |
+| :-------------- | :-------- | :------- | :----------------- |
+| `guideline_workspace_plan.md` | §VI.G | Gate Outcome Rework Paths | Situation A (Deliverable Deficiency) / Situation B (Scope Gap) |
+| `workspace_documentation_rules.md` | §6.D | Role Boundary | LLM_Reviewer verification boundary |
+
+##### iv. Governance & Roadmap
+
+**Scope & Ownership**
+- Owner: LLM_Consultant (epic governance)
+- Artifact Author: LLM_Reviewer
+- Decision Owner: Client
+- Support: LLM_Developer (remediation execution)
+
+**Phase & Gates**
+| Phase | Title | Intent | Key Exit Milestone | Duration Band | Gate Approver (A) | Phase Lead (R) | Plan Link |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+
+**References**
+- `prompt/templates/consultant/workspace/guideline_workspace_plan.md` §VI (Gate Rules)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST005/plan_T104-PH001-ST005.md` (AC005 delivery)
+
+##### v. Feature Register
+
+| ID | Code | Title | Purpose | Feature Lead (R) | Status | Canonical Link (Request) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+
+##### vi. Epic Requirements
+
+* **Assumptions**
+
+  * **ASSUM Validation Lifecycle Summary**
+
+    | ID | Title | Status | Validation Method | Timing | Owner | If Invalidated | CON Cross-Ref |
+    |:---|:------|:-------|:------------------|:-------|:------|:---------------|:--------------|
+    | — | — | — | — | — | — | — | — |
+
+  * **T104H-ASSUM-001** — Verification artifacts are primarily gate-oriented (exist at GATE tasks in the plan register). If verifications are also needed for non-gate tasks (e.g., mid-activity quality checks), the scope of this epic may need to expand.
+
+* **Constraints**
+  * **T104H-CON-001** — Verification artifacts SHALL NOT modify contract-level scope. Scope gaps discovered during verification MUST be escalated as Situation B findings and resolved via plan amendments, not within the verification artifact itself. Reference: `guideline_workspace_plan.md §VI.G`.
+
+* **Quality Goals**
+  * **T104H-QG-001** — Verification findings MUST be classifiable as Situation A (Deliverable Deficiency) or Situation B (Scope Gap) per `guideline_workspace_plan.md §VI.G`. Ambiguous findings indicate guideline gaps that must be addressed.
+
+* **Dependencies**
+  * **T104H-DEP-001** — `P-PH000-ST001-AC004` (P-STD-004 File Naming & Directory Convention): the `verification_` prefix and `<AC>/verification/` placement convention are expected to be codified in P-STD-004. The T104H guideline Draft 2 SHALL adopt P-STD-004 as authoritative naming source.
+
+* **Interfaces**
+  * **T104H-IF-001** — **Plan Gate Interface**: Verification artifacts MUST reference the specific GATE task ID from the plan task register (e.g., `T104-PH001-ST005-AC005-GATE-001`) as their trigger. The plan task register GATE row status transitions upon verification completion.
+
+##### vii. Epic Standards
+
+| STD ID | Title | Status | Owner | Effective | Supersedes | Adopts | Verification | Reference |
+|:-------|:------|:-------|:------|:----------|:-----------|:-------|:-------------|:----------|
+
+* **T104H-STD-001** —
+  - **Minimum Viable Conformance**:
+    1) —
+    2) —
+
+##### viii. Epic Development Guidances
+
+* **Implementation Guidance**
+  * **T104H-IG-001** — **Dynamic/Continuous Development Posture**: This epic is in a pre-normative, dynamic development phase. `guideline_workspace_verification.md` and the updated `template_workspace_verification.md` are exemplar-derived Draft 1 artifacts (delivered under `T104-PH001-ST005-AC005`). They SHALL be treated as authoritative for current usage but are expected to evolve as patterns mature. Full normative binding via T104H epic standards is deferred until the epic is activated.
+
+* **Integration Guidance**
+  * **T104H-INT-001** —
+
+**Research**
+
+| Research ID | Title | Summary | Reference | Brief | Report |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+
+**Notes**
+* **2026-02-25**: Epic scaffold created. T104H registered as VERIFICATION Standardization epic. Draft 1 guideline+template delivery scoped under `T104-PH001-ST005-AC005`. Development posture: dynamic/continuous (pre-normative).
+
+**Issues**
+| ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes | Resolution Date |
+|:---|:------|:------------|:------|:-------|:---------|:--------------|:-----------------|:----------------|
+
+**Risks**
+| ID | Title | Description | Owner | Status | Priority | Proposed Date | Mitigation Notes | Mitigation Date |
+|:---|:------|:------------|:------|:-------|:---------|:--------------|:-----------------|:----------------|
+| `T104H-RISK-001` | Pre-normative guideline drift | Dynamic development posture may cause VERIFICATION guideline to diverge from plan gate rules as both evolve independently | LLM_Consultant | `MONITORED` | `MEDIUM` | 2026-02-25 | Mitigation: cross-check TK004 in AC005 explicitly validates consistency with `guideline_workspace_plan.md §VI` | — |
+
+---
+
+#### 9. `T104I` Epic: `DEV-REPORT` - Dev-Report Standardization
+
+```yaml
+epic_id: 'T104I'
+epic_code: 'DEV-REPORT'
+epic_title: 'Dev-Report Standardization'
+epic_type: 'new'
+epic_status: 'draft'
+epic_owner: 'LLM_Consultant'
+```
+
+##### i. Purpose
+To standardize the **Dev-Report** artifact (`dev-report_...`) as the LLM_Developer execution log surface. Dev-reports bridge plan task registers and verification gates by capturing per-task implementation evidence, applied changes, post-execution verification, and artifact indexes. Unlike verifications (which are gate-checkpoint reviews), dev-reports may exist at any implementation task up to a gateway. This Epic establishes the dev-report as the authoritative execution record for developer traceability.
+
+##### ii. Scope
+
+* **In Scope:**
+  * Defining the DEV-REPORT artifact structure: execution summary table, per-task detail sections (file modified, change applied, verification evidence), post-execution verification checklist, artifact index, changelog.
+  * Standardizing the `dev-report_` prefix and canonical placement (`<AC>/dev-report/` directories).
+  * Establishing the role boundary: LLM_Developer authors; dev-reports MUST NOT alter contract-level scope.
+  * Defining the trigger condition: any implementation task (not limited to gates); one dev-report per logical execution session or sub-activity.
+  * Codifying the linkage pattern: dev-report → plan task register (Action field) → verification (evidence reference).
+* **Out of Scope:**
+  * **Gate Evidence:** Dev-reports are NOT gate evidence artifacts. Gate evidence belongs in `verification_` artifacts.
+  * **Session Notes:** Dev-reports are NOT session continuity records. Session context belongs in `snotes_` artifacts.
+
+##### iii. Inherited Considerations
+
+| Source Artifact | Source ID | Category | Inherited Rule IDs |
+| :-------------- | :-------- | :------- | :----------------- |
+| `guideline_workspace_plan.md` | §IV.C | Activity completion rule | Task Register Action column semantics |
+| `workspace_documentation_rules.md` | §6.C | Role Boundary | LLM_Developer execution boundary |
+
+##### iv. Governance & Roadmap
+
+**Scope & Ownership**
+- Owner: LLM_Consultant (epic governance)
+- Artifact Author: LLM_Developer
+- Decision Owner: Client
+- Support: LLM_Reviewer (verification consumer of dev-report evidence)
+
+**Phase & Gates**
+| Phase | Title | Intent | Key Exit Milestone | Duration Band | Gate Approver (A) | Phase Lead (R) | Plan Link |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+
+**References**
+- `prompt/templates/consultant/workspace/guideline_workspace_plan.md` §IV.C (Activity Completion Rule)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST005/plan_T104-PH001-ST005.md` (AC006 delivery)
+
+##### v. Feature Register
+
+| ID | Code | Title | Purpose | Feature Lead (R) | Status | Canonical Link (Request) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+
+##### vi. Epic Requirements
+
+* **Assumptions**
+
+  * **ASSUM Validation Lifecycle Summary**
+
+    | ID | Title | Status | Validation Method | Timing | Owner | If Invalidated | CON Cross-Ref |
+    |:---|:------|:-------|:------------------|:-------|:------|:---------------|:--------------|
+    | — | — | — | — | — | — | — | — |
+
+  * **T104I-ASSUM-001** — Dev-reports are expected to exist at the activity level (one per AC or sub-activity execution session). If dev-reports are also needed at task granularity, the scope and naming convention may need to extend.
+
+* **Constraints**
+  * **T104I-CON-001** — Dev-report artifacts SHALL NOT alter contract-level scope or plan task register content. Plan task register updates (Action field population) are a separate step from dev-report authoring, though they reference the same evidence.
+
+* **Quality Goals**
+  * **T104I-QG-001** — Every dev-report MUST include a post-execution verification section confirming all claimed changes are observable in the artifact state (grep/read evidence, not assertion-only).
+
+* **Dependencies**
+  * **T104I-DEP-001** — `P-PH000-ST001-AC004` (P-STD-004 File Naming & Directory Convention): the `dev-report_` prefix and `<AC>/dev-report/` placement convention are expected to be codified in P-STD-004. The T104I guideline Draft 2 SHALL adopt P-STD-004 as authoritative naming source.
+
+* **Interfaces**
+  * **T104I-IF-001** — **Plan Task Register Interface**: Dev-reports provide the evidence that populates the `Action` column in plan task registers. Upon completion, the developer updates the task register to reference the dev-report or summarize the action taken.
+  * **T104I-IF-002** — **Verification Consumer Interface**: Verifications (LLM_Reviewer) consume dev-report artifact indexes and per-task evidence sections as primary evidence inputs. Dev-reports MUST be accessible at the path referenced in the verification evidence set.
+
+##### vii. Epic Standards
+
+| STD ID | Title | Status | Owner | Effective | Supersedes | Adopts | Verification | Reference |
+|:-------|:------|:-------|:------|:----------|:-----------|:-------|:-------------|:----------|
+
+* **T104I-STD-001** —
+  - **Minimum Viable Conformance**:
+    1) —
+    2) —
+
+##### viii. Epic Development Guidances
+
+* **Implementation Guidance**
+  * **T104I-IG-001** — **Dynamic/Continuous Development Posture**: This epic is in a pre-normative, dynamic development phase. `guideline_workspace_dev-report.md` and `template_workspace_dev-report.md` are exemplar-derived Draft 1 artifacts (delivered under `T104-PH001-ST005-AC006`). They SHALL be treated as authoritative for current usage but are expected to evolve as patterns mature. Full normative binding via T104I epic standards is deferred until the epic is activated.
+
+* **Integration Guidance**
+  * **T104I-INT-001** —
+
+**Research**
+
+| Research ID | Title | Summary | Reference | Brief | Report |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+
+**Notes**
+* **2026-02-25**: Epic scaffold created. T104I registered as DEV-REPORT Standardization epic. Draft 1 guideline+template delivery scoped under `T104-PH001-ST005-AC006`. Development posture: dynamic/continuous (pre-normative).
+
+**Issues**
+| ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes | Resolution Date |
+|:---|:------|:------------|:------|:-------|:---------|:--------------|:-----------------|:----------------|
+
+**Risks**
+| ID | Title | Description | Owner | Status | Priority | Proposed Date | Mitigation Notes | Mitigation Date |
+|:---|:------|:------------|:------|:-------|:---------|:--------------|:-----------------|:----------------|
+| `T104I-RISK-001` | Boundary ambiguity with session notes | Dev-report and session notes (`snotes_`) may overlap in practice (both capture execution context). Without clear boundary rules, developers may produce redundant artifacts or skip one. | LLM_Consultant | `MONITORED` | `MEDIUM` | 2026-02-25 | Mitigation: T104I guideline must explicitly distinguish dev-report (implementation evidence, plan traceability) from session notes (context continuity, rationale capture) | — |
+
+---
+
 ### D. Project Glossary
 *   **Workflow Tool**: An artifact used to manage the process of work (e.g., Roadmap, Notes), as opposed to defining the product (SSOT).
 *   **SSOT Artifact**: An artifact that defines the authoritative state of the product or governance (e.g., SPS, Request, Concept).
@@ -1059,3 +1292,4 @@ epic_owner: 'LLM_Consultant'
 ## IX. CHANGELOG
 *   **v1.0.0**: Initial scaffolding created.
 *   **v1.0.1**: TK006 SPS compliance remediation (ADR-007 enums/coupling, ADR-009 STD index schema, external references, traceability links).
+*   **v1.1.0** (2026-02-25): Added T104H (VERIFICATION Standardization) and T104I (DEV-REPORT Standardization) epics. WBS Map updated. Full scaffold dossiers added with role boundaries, inherited considerations, epic requirements, and T104H-RISK-001 / T104I-RISK-001. Draft 1 delivery scoped under T104-PH001-ST005 AC005 and AC006 respectively.

@@ -4,7 +4,7 @@ planning_level: 'PHASE'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
-version: '0.3.0'
+version: '0.3.1'
 date: '2026-02-23'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -53,7 +53,7 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 
 ### Activity Snapshot Index
 
-**Activity Snapshot As-Of**: 2026-02-23
+**Activity Snapshot As-Of**: 2026-02-24
 
 | Stream | Activity | Activity ID | Name | Status (snapshot) | Owner | Source (Stream Plan) |
 |:--|:--|:--|:--|:--|:--|:--|
@@ -65,7 +65,7 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 | 1 | AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` (Program Status Standard) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
 | 1 | AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
 | 1 | AC005 | `P-PH000-ST001-AC005` | Align `P/standard/` naming to `standard_<SID-STD>_...` | `planned` | LLM_Developer | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
-| 1 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
+| 1 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
 | 2 | AC001 | `P-PH000-ST002-AC001` | Define program status schema + update protocol (decision-complete) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | 2 | AC002 | `P-PH000-ST002-AC002` | Author `status_program.md` (deferred implementation activity) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | 4 | AC001 | `P-PH000-ST004-AC001` | Commission P-RES-001 (Status Standard Research) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
@@ -101,5 +101,6 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v0.3.0 | 2026-02-23 | Amendment | Added ST004 (Program Research Commissioning) to stream register + activity snapshot; ST003 reserved note added; AC003 snapshot updated (removed deprecated P-ADR-002 reference); ST004 plan link added. Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
+| v0.3.1 | 2026-02-24 | Amendment | Activity snapshot refreshed (As-Of 2026-02-24): AC006 status → `completed` per stream SSOT. |
 | v0.2.0 | 2026-02-22 | Amendment | Migrated phase-level activity section to template-compliant Activity Snapshot Index with As-Of date; refreshed ST001 snapshot from stream SSOT and added AC006 registration snapshot row. |
 | v0.1.0 | 2026-02-05 | Initial | Program PH000 bootstrap plan created (ST000–ST002) with explicit deferrals for status artifact and P-RES governance enablement |

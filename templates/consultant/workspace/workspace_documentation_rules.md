@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '2.0.0'
-date: '2026-02-11'
+version: '2.1.0'
+date: '2026-02-25'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -34,9 +34,10 @@ Phase → Stream → Activity → Task
 | ROADMAP | `roadmap_` | Initiative master spine / phase execution | `prompt/templates/consultant/workspace/template_workspace_roadmap.md` | `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md` (Draft 2 STD alignment pending) |
 | NOTES (Register) | `notes_` | Index/navigation surface | `prompt/templates/consultant/workspace/template_workspace_notes_register_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | NOTES (Session) | `snotes_` | Session records | `prompt/templates/consultant/workspace/template_workspace_notes_session_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
-| ANALYSIS | `analysis_` | Research synthesis | `prompt/templates/consultant/workspace/template_workspace_analysis.md` | — (alignment pending) |
-| VERIFICATION | `verification_` | Verification evidence for gates and remediation | `prompt/templates/consultant/workspace/template_workspace_verification.md` | — (alignment pending) |
-| PROPOSAL | `proposal_` | E-ID development workspace | `prompt/templates/consultant/workspace/template_workspace_proposal.md` | — (alignment pending) |
+| ANALYSIS | `analysis_` | Research synthesis | `prompt/templates/consultant/workspace/template_workspace_analysis.md` | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` (Draft 1 planned) |
+| VERIFICATION | `verification_` | Gate evidence + findings register + remediation classification | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` (Draft 1 planned) |
+| PROPOSAL | `proposal_` | E-ID development workspace + promotion contract | `prompt/templates/consultant/workspace/template_workspace_proposal.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` (Draft 1 planned) |
+| DEV-REPORT | `dev-report_` | Developer execution log + plan traceability | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` (Draft 1 planned) | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` (Draft 1 planned) |
 
 ---
 
@@ -62,9 +63,16 @@ Phase → Stream → Activity → Task
 - Legacy (deprecated; do not delete):
   - `prompt/templates/consultant/workspace/template_workspace_notes.md`
 
-### D. Other Templates (Draft 2 Alignment Pending)
-- `prompt/templates/consultant/workspace/template_workspace_analysis.md`
+### D. VERIFICATION Templates
 - `prompt/templates/consultant/workspace/template_workspace_verification.md`
+
+### E. DEV-REPORT Templates
+- `prompt/templates/consultant/workspace/template_workspace_dev-report.md` (Draft 1 planned — `T104-PH001-ST005-AC006`)
+
+### F. ANALYSIS Templates
+- `prompt/templates/consultant/workspace/template_workspace_analysis.md`
+
+### G. PROPOSAL Templates
 - `prompt/templates/consultant/workspace/template_workspace_proposal.md`
 
 ---
@@ -74,6 +82,10 @@ Phase → Stream → Activity → Task
 - PLAN: `prompt/templates/consultant/workspace/guideline_workspace_plan.md`
 - ROADMAP: `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md`
 - NOTES: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
+- VERIFICATION: `prompt/templates/consultant/workspace/guideline_workspace_verification.md` (Draft 1 planned — `T104-PH001-ST005-AC005`)
+- DEV-REPORT: `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` (Draft 1 planned — `T104-PH001-ST005-AC006`)
+- ANALYSIS: `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` (Draft 1 planned — `T104-PH001-ST005-AC007`)
+- PROPOSAL: `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` (Draft 1 planned — `T104-PH001-ST005-AC008`)
 
 ---
 
@@ -81,7 +93,7 @@ Phase → Stream → Activity → Task
 
 ### A. Consultant (LLM_Consultant)
 - Authors contract-level intent: what + why.
-- Owns: roadmaps, phase plans, stream plans (contract-level), guidelines, templates, proposals.
+- Owns: roadmaps, phase plans, stream plans (contract-level), guidelines, templates, proposals, analyses.
 - Boundary: MUST NOT author implementation-level task decomposition or execution proof.
 
 ### B. Planner (LLM_Planner)
@@ -89,12 +101,12 @@ Phase → Stream → Activity → Task
 - Boundary: MUST NOT alter contract-level intent without Consultant approval.
 
 ### C. Developer (LLM_Developer)
-- Owns: execution, implementation
-- Boundary: MUST NOT alter contract-level scope; implementation details belong in activity plans or code.
+- Owns: execution, implementation, dev-reports.
+- Boundary: MUST NOT alter contract-level scope; implementation evidence belongs in dev-reports; plan task register `Action` column is updated by developer post-execution.
 
-### D. Verifier (LLM_Verifier)
-- Owns: verification evidence for gates and remediation
-- Boundary: MUST NOT alter contract-level scope; verification details belong in activity plans or code.
+### D. Reviewer (LLM_Reviewer)
+- Owns: verification artifacts for gates and remediation classification.
+- Boundary: MUST NOT alter contract-level scope; scope gaps discovered in verification escalate as Situation B findings per `guideline_workspace_plan.md §VI.G`.
 
 ### E. Client
 - Decision owner for all approval gates.
@@ -149,4 +161,5 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.1.0 | 2026-02-25 | Update | Added VERIFICATION, DEV-REPORT, ANALYSIS, PROPOSAL to §3 Artifact Type Inventory with role owners. Added §4.D–G template entries. Added VERIFICATION/DEV-REPORT/ANALYSIS/PROPOSAL to §5 Guideline Inventory (Draft 1 planned). Updated §6 role boundaries: LLM_Verifier → LLM_Reviewer (canonical); Developer boundary clarified to include dev-reports; Consultant boundary extended to include analyses. Delivery planned under `T104-PH001-ST005` AC005–AC008. |
 | v2.0.0 | 2026-02-11 | Rewrite | Replaced legacy rules with template + guideline inventories, role boundaries, P-STD-004 reference, and anti-drift governance for PLAN/ROADMAP/NOTES (Draft 1) |

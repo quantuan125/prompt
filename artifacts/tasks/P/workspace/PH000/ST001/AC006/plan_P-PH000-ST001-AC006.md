@@ -6,7 +6,7 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC006'
-version: '1.2.0'
+version: '1.3.0'
 date: '2026-02-24'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -62,13 +62,13 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | TK004 | `P-PH000-ST001-AC006-TK004` | Author promotion contract proposal (re-identification mapping + timeline UID CLAUSE text + alias window + Tier 1 ref update plan) | `completed` | LLM_Consultant | GATE-001 | Proposal artifact | `P-STD-001-CLAUSE-030`, `T102-STD-005-CLAUSE-003A` | Proposal produced |
 | GATE-002 | `P-PH000-ST001-AC006-GATE-002` | Gate: Client approval of promotion contract | `completed` | Client | TK004 | Pass/fail | — | Approved via GATE-002 `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/verification/verification_P-PH000-ST001-AC006_gate-002.md` |
 | TK004.1 | `P-PH000-ST001-AC006-TK004.1` | Revise promotion contract to add session sub-tokens (DP/DEC/ACT/OQ) to CLAUSE-008 and CLAUSE-001 | `completed` | LLM_Developer | GATE-002 | Revised proposal | `guideline_workspace_notes.md` §2.2 | Proposal revised to v1.1.0 |
-| TK005 | `P-PH000-ST001-AC006-TK005` | Create P-STD-005 combined file (full content transfer + timeline UID CLAUSEs per contract) | `planned` | LLM_Developer | TK004.1 | `standard_P-STD-005_universal-id-specification.md` | Promotion contract | — |
-| TK006 | `P-PH000-ST001-AC006-TK006` | Mark T102-STD-005 as superseded + establish alias window | `planned` | LLM_Developer | TK005 | `T102-STD-005_id-specification-rules.md` | `T102-STD-005-CLAUSE-003A/003B` | — |
-| TK007 | `P-PH000-ST001-AC006-TK007` | Update P-STD-001 references (T102-STD-005 → P-STD-005) | `planned` | LLM_Developer | TK005 | `standard_P-STD-001_program-governance-standard.md` | Tier 1 ref update | — |
-| TK008 | `P-PH000-ST001-AC006-TK008` | Update Program SPS P-STD-005 row + remaining Tier 1 reference files | `planned` | LLM_Developer | TK005 | `sps_P-PROGRAM.md`, `P-STD-003`, guideline, skills, catalog | Tier 1 ref update | — |
-| TK009 | `P-PH000-ST001-AC006-TK009` | Amend downstream plans (T104-ST002 AC002, T102-ST005 AC005, T102-ST002 STD-005 scope) | `planned` | LLM_Consultant | TK005 | 3 plan files | Absorption notes | — |
-| TK010 | `P-PH000-ST001-AC006-TK010` | Produce verification evidence | `planned` | LLM_Reviewer | TK006, TK007, TK008, TK009 | Verification artifact | — | — |
-| GATE-003 | `P-PH000-ST001-AC006-GATE-003` | Gate: Client approval of completed promotion | `planned` | Client | TK010 | Pass/fail | — | — |
+| TK005 | `P-PH000-ST001-AC006-TK005` | Create P-STD-005 combined file (full content transfer + timeline UID CLAUSEs per contract) | `completed` | LLM_Developer | TK004.1 | `standard_P-STD-005_universal-id-specification.md` | Promotion contract | Created P-STD-005 combined file (11 CLAUSEs, 2 ADRs, substandard architecture); corrected Specification Index rows 6–7 per GATE-003 FINDING-001 (Situation A rework). |
+| TK006 | `P-PH000-ST001-AC006-TK006` | Mark T102-STD-005 as superseded + establish alias window | `completed` | LLM_Developer | TK005 | `T102-STD-005_id-specification-rules.md` | `T102-STD-005-CLAUSE-003A/003B` | T102-STD-005 marked superseded with alias window notice and provenance entry. |
+| TK007 | `P-PH000-ST001-AC006-TK007` | Update P-STD-001 references (T102-STD-005 → P-STD-005) | `completed` | LLM_Developer | TK005 | `standard_P-STD-001_program-governance-standard.md` | Tier 1 ref update | P-STD-001 External References and all ~21 in-body CLAUSE references updated; zero residual T102-STD-005 refs. |
+| TK008 | `P-PH000-ST001-AC006-TK008` | Update Program SPS P-STD-005 row + remaining Tier 1 reference files | `completed` | LLM_Developer | TK005 | `sps_P-PROGRAM.md`, `P-STD-003`, guideline, skills, catalog | Tier 1 ref update | All 5 Tier 1 files updated (SPS, P-STD-003, guideline, skill, catalog); template no-op confirmed. |
+| TK009 | `P-PH000-ST001-AC006-TK009` | Amend downstream plans (T104-ST002 AC002, T102-ST005 AC005, T102-ST002 STD-005 scope) | `completed` | LLM_Consultant | TK005 | 3 plan files | Absorption notes | 3 downstream plans amended: T104-ST002-AC002 cancelled, T102-ST005-AC005 cancelled, T102-ST002 scope carve-out. |
+| TK010 | `P-PH000-ST001-AC006-TK010` | Produce verification evidence | `completed` | LLM_Reviewer | TK006, TK007, TK008, TK009 | Verification artifact | — | Verification evidence produced at verification_P-PH000-ST001-AC006_tk005-to-tk009.md. |
+| GATE-003 | `P-PH000-ST001-AC006-GATE-003` | Gate: Client approval of completed promotion | `completed` | Client | TK010 | Pass/fail | — | FINDING-001 resolved (Specification Index row 6–7 title correction). Gate passed per verification_P-PH000-ST001-AC006_gate-003.md. |
 
 ---
 
@@ -651,3 +651,4 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | v1.0.0 | 2026-02-22 | Initial | Activity plan created per SES001 consultation. Fix-first/promote-clean methodology; absorbs T104-PH001-ST002-AC002, T102-PH001-ST005-AC005, and STD-005-specific scope from T102-PH001-ST002. Evidence: `raw_P-PH000-ST001-AC006-SES001.txt` |
 | v1.1.0 | 2026-02-22 | Amendment | SES002 pre-commissioning amendments: TK004 — substandard architecture mandated (DEC003), hybrid authoring clarified for timeline UID CLAUSEs (DEC002); TK005 — RES token scope change absorbed from AC001 (DEC004); TK008-8D — skill directory retained as deprecated (DEC005). Evidence: `raw_P-PH000-ST001-AC006-SES002.txt` |
 | v1.2.0 | 2026-02-24 | Amendment | Inline plan amendment: (1) added session sub-token requirement to TK004 Steps item 3 (DP/DEC/ACT/OQ per guideline_workspace_notes.md §2.2); (2) added TK004.1 sub-task for proposal revision; (3) updated TK005 Depends On from GATE-002 to TK004.1. Classification: Situation B (Scope Gap) per guideline_workspace_plan.md §VI.G. Source: Client QA at GATE-002 (2026-02-24). |
+| v1.3.0 | 2026-02-24 | Amendment | GATE-003 resolution: corrected P-STD-005 Specification Index rows 6–7 (Content Quality, ID Stability & Immutability) per FINDING-001 (Situation A rework under TK005). Updated task register to terminal statuses per guideline_workspace_plan.md §IV.C. |
