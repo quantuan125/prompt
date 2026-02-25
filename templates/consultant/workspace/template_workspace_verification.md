@@ -1,50 +1,135 @@
 ---
 artifact_type: 'VERIFICATION'
+verification_type: '[GATE_REVIEW | commissioning_readiness | convention_compliance | ...]'
 initiative_id: '[ID]'
 initiative_code: '[CODE]'
 phase: '[PH]'
-stream: '[ST]'
-activity_id: '[AC]'
+stream_id: '[SID-PH###-ST###]'
+activity_id: '[SID-PH###-ST###-AC###]'
+gate_id: '[SID-PH###-ST###-AC###-GATE-###]'
 version: '1.0.0'
 date: 'YYYY-MM-DD'
 status: 'draft'
-author: '[AUTHOR]'
+author: '[LLM_Reviewer | LLM_Consultant]'
 decision_owner_role: 'Client'
-target_plan: '[path to plan file]'
+target_plan: '[repo-relative path to activity or stream plan]'
 targets:
-  - '[repo-relative file being verified]'
-verification_scope: '[e.g., STD-004-only | external-alignment]'
-method: '[checks run + how evidence was gathered]'
+  - '[repo-relative path to artifact being verified]'
+primary_verification: '[repo-relative path — ONLY for supplementary artifacts; omit for primary]'
+verification_scope: '[concise scope description]'
+method: '[evidence-first methodology description]'
+session_reference: '[repo-relative path to session notes, if applicable]'
 ---
 
-# VERIFICATION: [AC] — [Verification Title]
+# VERIFICATION: [GATE-ID]
 
-## I. Verification Summary
+## I. Scope & Method
 
-**Scope**: [What is being verified]
-**Verdict**: [PASS / FAIL / PASS WITH DEFERRALS]
-**Reviewer**: [Name/Role]
+**Scope**: [What is being verified — task range, deliverable set, gate entry criteria]
+
+**Primary method (evidence-first)**:
+1. [Step 1 — e.g., Read every deliverable artifact in full]
+2. [Step 2 — e.g., Execute independent grep/search verification against each success criterion]
+3. [Step 3 — e.g., Cross-reference specification indexes against actual content]
+4. [...]
+
+**Reviewer**: [Role — LLM_Reviewer or LLM_Consultant]
 **Date**: YYYY-MM-DD
 
----
+## II. Evidence Set (Artifacts Reviewed)
 
-## II. Checklist
+**Task deliverables**:
+- `[repo-relative path]` ([description])
+- `[repo-relative path]` ([description])
 
-| Item | Expected | Actual | Result | Evidence |
+**Governance references**:
+- `[repo-relative path]` ([description — plan, proposal, standard])
+
+## III. Verification Checklist
+
+### A. [Task/Criterion Group Name]
+
+| # | Check | Expected | Observed Evidence | Result |
 |:--|:--|:--|:--|:--|
-| 1 | — | — | [PASS/FAIL] | [link or quote] |
+| A1 | [What is being checked] | [Expected state] | [Specific evidence: line numbers, grep output, file paths] | **[PASS/FAIL]** |
+| A2 | ... | ... | ... | ... |
 
----
+### B. [Next Task/Criterion Group]
 
-## III. Deviations / Deferred Items
+| # | Check | Expected | Observed Evidence | Result |
+|:--|:--|:--|:--|:--|
+| B1 | ... | ... | ... | ... |
 
-- [Deferred item + why + owning activity/stream]
+## IV. Findings Register
 
----
+<!-- If no findings: "No findings identified." -->
 
-## IV. Gate Recommendation
+### FINDING-001 — [Short Title]
 
-**Recommendation**: [Approve gate / Do not approve gate]
-**Conditions** (if any):
-- —
+| Field | Detail |
+|:--|:--|
+| Severity | [Blocking / Major / Moderate / Low / Preventive] |
+| Source | [Task check, section, artifact where identified] |
+| Description | [What the issue is] |
+| Classification | [Situation A (deliverable deficiency) / Situation B (scope gap)] |
+| Required Action | [What must be done] |
+| Owner | [Developer / Client] |
+| Resolution Status | [open / resolved / accepted / waived] |
+| Resolution Date | [YYYY-MM-DD or —] |
 
+## V. Observations
+
+<!-- If no observations: "No observations." -->
+
+### OBS-001 — [Short Title]
+
+[Description of the informational item, process improvement suggestion, or non-blocking note.]
+
+## VI. Entry Criteria Assessment
+
+| Entry Criterion | Status | Evidence |
+|:--|:--|:--|
+| [Criterion from gate definition] | **[MET / NOT MET]** | [Evidence reference] |
+| ... | ... | ... |
+
+## VII. Gate Recommendation
+
+**Verdict**: **[PASS / CONDITIONAL PASS / PASS WITH DEFERRALS / RECYCLE / FAIL]**
+
+**Rationale**:
+- [Evidence point 1]
+- [Evidence point 2]
+- [...]
+
+**Conditions** (if CONDITIONAL PASS):
+- [Condition 1]
+- [...]
+
+**Deferrals** (if PASS WITH DEFERRALS):
+- [Deferred item + owning activity/stream]
+- [...]
+
+## VIII. Gate Decision Record
+
+| Field | Value |
+|:--|:--|
+| Gate ID | `[GATE-ID]` |
+| Reviewer Verdict | [PASS / CONDITIONAL PASS / PASS WITH DEFERRALS / RECYCLE / FAIL] |
+| Client Decision | [APPROVE / APPROVE WITH CONDITIONS / RECYCLE / REJECT / pending] |
+| Conditions (if any) | [enumerated list or —] |
+| Decided By | Client |
+| Decision Date | [YYYY-MM-DD or —] |
+| Decision Reference | [session notes path, inline, or pending] |
+
+## IX. References
+
+| Document | Path |
+|:--|:--|
+| [Document name] | `[repo-relative path]` |
+| ... | ... |
+
+## X. Changelog
+
+| Version | Date | Type | Summary |
+|:--|:--|:--|:--|
+| v1.0.0 | YYYY-MM-DD | Initial | [Initial verification for GATE-###] |

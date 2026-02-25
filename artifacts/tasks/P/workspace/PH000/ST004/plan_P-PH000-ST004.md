@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST004'
-version: '1.0.0'
-date: '2026-02-23'
+version: '2.0.0'
+date: '2026-02-25'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -23,6 +23,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Commissioned research (Phase 0, program scope)**:
 - `P-RES-001` — Status Standard Research
+- `P-RES-002` — Agentic Status Systems Research
 
 **Non-goals**:
 - This stream does not author P-STD-002 (that work belongs to P-PH000-ST001-AC003); it produces research outputs and integration recommendations consumed downstream.
@@ -33,7 +34,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 ## II. STREAM OUTLINE
 
 **Stream ID**: `P-PH000-ST004`
-**Objective**: Produce approved brief + accepted report for `P-RES-001`, then produce integration recommendation package suitable for downstream P-STD-002 authoring.
+**Objective**: Produce approved brief + accepted report for `P-RES-001` and `P-RES-002`, then produce integration recommendation packages suitable for downstream P-STD-002 authoring.
 **Execution Mode**: PARALLEL
 **Depends On**: `—`
 **Owner**: LLM_Consultant (Decision Owner: Client)
@@ -41,6 +42,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 **Context (files this stream is expected to touch)**:
 - `prompt/artifacts/tasks/P/research/P-RES-001/brief_P-RES-001_status-standard-research.md`
 - `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md`
+- `prompt/artifacts/tasks/P/research/P-RES-002/brief_P-RES-002_agentic-status-research.md`
+- `prompt/artifacts/tasks/P/research/P-RES-002/report_P-RES-002_agentic-status-research.md`
 - `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md`
 
 ### Activity Register
@@ -48,6 +51,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | Activity | Activity ID | Name | Status | Owner | Depends On | Deliverable | Reference |
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | AC001 | `P-PH000-ST004-AC001` | Commission `P-RES-001` (Status Standard Research) | `planned` | LLM_Consultant | — | Brief + Report + integration recommendations | — |
+| AC002 | `P-PH000-ST004-AC002` | Commission `P-RES-002` (Agentic Status Systems Research) | `planned` | LLM_Consultant | — | Brief + Report + integration recommendations | — |
 
 ---
 
@@ -103,11 +107,64 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 - [ ] Integration recommendations signed off via GATE-003
 - [ ] Research indexed in SPS per `T102-STD-006`
 
+### Activity AC002: Commission `P-RES-002` (Agentic Status Systems Research)
+
+**Activity ID**: `P-PH000-ST004-AC002`
+
+**Purpose**: Commission program-scoped research evaluating modern agentic CLI and orchestration-layer status systems, producing decision-ready findings for P-STD-002 CLAUSE authoring that complement the traditional PM framework evidence base from P-RES-001. Covers: agentic CLI task/run lifecycle models, orchestration/CI/CD status architectures, repo-native status surfacing patterns, and integration/bridging patterns for program governance.
+
+**Deliverables**:
+- `prompt/artifacts/tasks/P/research/P-RES-002/brief_P-RES-002_agentic-status-research.md`
+- `prompt/artifacts/tasks/P/research/P-RES-002/report_P-RES-002_agentic-status-research.md`
+
+**Scope**:
+- In scope:
+  - Benchmark agentic CLI task/run lifecycle status models (Claude Code, Codex CLI, Gemini CLI)
+  - Evaluate hierarchical/nested task status patterns in agentic tools
+  - Benchmark GitHub Actions workflow status architecture (workflow → job → step hierarchy, status propagation)
+  - Evaluate multi-agent/pipeline orchestration status aggregation patterns
+  - Benchmark GitHub Checks API and commit status integration patterns
+  - Evaluate repo-native audit trail patterns for agentic operations
+  - Survey integration/bridging patterns connecting agentic status to program governance (exploratory)
+  - Produce integration recommendations package for P-STD-002 CLAUSE authoring
+- Out of scope:
+  - Drafting P-STD-002 CLAUSE text
+  - Implementing status artifacts
+  - Traditional PM framework benchmarking (covered by P-RES-001)
+  - Tool-specific implementation guides or tutorials
+
+**Inputs Required**:
+- `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` — Program constraints and STD registry
+- `prompt/artifacts/tasks/P/research/P-RES-001/brief_P-RES-001_status-standard-research.md` — P-RES-001 brief (cross-reference for scope boundary)
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` — Authoring authority
+- `prompt/templates/researcher/template_research_brief.md` — Brief template
+- `prompt/templates/researcher/template_research_report.md` — Report template
+- `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/snotes/snotes_P-PH000-ST004-AC001-SES001.md` — SES001 session notes (origin of P-RES-002 scope request)
+
+**Task Register**:
+
+| Task ID | Description | Status | Action |
+|:--|:--|:--|:--|
+| `P-PH000-ST004-AC002-TK001` | Draft research brief per `T102-STD-006-CLAUSE-002` (must include evaluation rubric, explicit out-of-scope, and input packet paths). | `planned` | — |
+| `P-PH000-ST004-AC002-GATE-001` | **Gate: Client brief approval**. Entry: brief complete. Reviewer: Client. Exit: explicit approval recorded with date. | `planned` | — |
+| `P-PH000-ST004-AC002-TK002` | Execute research + produce report per `T102-STD-006-CLAUSE-002` (all claims must reference official tool documentation or API specifications). | `planned` | — |
+| `P-PH000-ST004-AC002-GATE-002` | **Gate: Client report acceptance**. Entry: report complete against brief. Reviewer: Client. Exit: explicit acceptance recorded with date. | `planned` | — |
+| `P-PH000-ST004-AC002-TK003` | Produce integration recommendations package (recommendations-only; no clause drafting) including SSOT alignment checklist and P-STD-002 CLAUSE domain mapping. | `planned` | — |
+| `P-PH000-ST004-AC002-GATE-003` | **Gate: Client sign-off on integration recommendations**. Entry: package complete. Reviewer: Client. Exit: explicit sign-off recorded with date. | `planned` | — |
+| `P-PH000-ST004-AC002-TK004` | Register P-RES-002 per `T102-STD-006` in SPS Research table (confirm brief/report links resolve). | `planned` | — |
+
+**Success Criteria Checklist**:
+- [ ] Brief approved via GATE-001
+- [ ] Report accepted via GATE-002
+- [ ] Integration recommendations signed off via GATE-003
+- [ ] Research indexed in SPS per `T102-STD-006`
+
 ---
 
 ## IV. DEPENDENCY NOTES
 
-- **P-PH000-ST001-AC003** (Author P-STD-002) depends on this stream's GATE-003 sign-off.
+- **P-PH000-ST001-AC003** (Author P-STD-002) depends on BOTH AC001 GATE-003 and AC002 GATE-003 sign-off.
+- AC002 does NOT depend on AC001 (parallel execution permitted). However, P-RES-002 brief cross-references P-RES-001 scope to avoid overlap.
 - **P-PH000-ST002-AC001** schema is informative seed input only; P-STD-002 becomes authoritative post-AC003.
 - This stream does not modify any initiative-scoped artifacts.
 
@@ -122,6 +179,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | SSOT | Program SPS | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` |
 | Standard | Research Artifacts Index | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md` |
 | Evidence | SES001 Transcript | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/raw/raw_P-PH000-ST001-AC003-SES001.txt` |
+| Evidence | AC002 SES001 Session Notes | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC002/snotes/snotes_P-PH000-ST004-AC002-SES001.md` |
 
 ---
 
@@ -130,4 +188,5 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-02-23 | Initial | Stream ST004 plan created for P-RES-001 (Status Standard Research) commission. Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
+| v2.0.0 | 2026-02-25 | Structural | Added AC002 (Commission P-RES-002: Agentic Status Systems Research) to stream. Updated executive summary, context, dependency notes, and links register. Evidence: `snotes_P-PH000-ST004-AC002-SES001.md` |
 

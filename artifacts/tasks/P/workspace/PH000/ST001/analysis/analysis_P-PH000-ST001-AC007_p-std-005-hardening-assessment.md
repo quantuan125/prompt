@@ -1,7 +1,7 @@
 ---
 artifact_type: 'ANALYSIS'
 activity_id: 'P-PH000-ST001-AC007'
-version: '1.0.1'
+version: '1.1.0'
 date: '2026-02-25'
 status: 'draft'
 author: 'LLM_Reviewer / LLM_Consultant'
@@ -250,23 +250,23 @@ Formal register synthesizing all findings from TK001 (compliance, self-complianc
 
 | ID | Type | Severity | CLAUSE(s) | Description | Remediation | Proposal(s) | Status |
 |:--|:--|:--|:--|:--|:--|:--|:--|
-| GIR-001 | Gap | Major | CLAUSE-001 | **No equivalence/normalization clause.** IDs are implicitly case-sensitive per regex `[A-Z]` classes but the standard never explicitly states case sensitivity, encoding, or normalization rules. | Add case-sensitivity and normalization statement to CLAUSE-001A (post-split). | R-009 | `open` |
-| GIR-002 | Gap | Minor | CLAUSE-001, CLAUSE-010, CLAUSE-011 | **No general resolution clause.** No rule mapping workscope IDs to artifact locations. LINK indirection and file naming cover timeline entities only. | Evaluate during TK004 whether a resolution note is needed or whether this is out of scope for the ID spec. | — | `open` |
-| GIR-003 | Gap | Major | CLAUSE-001 | **Subclause IDs not covered by canonical regex.** Pattern 3 terminates with `\d{3}$` and doesn't match subclause suffixes (e.g., `CLAUSE-003A`). "All IDs MUST match" creates self-compliance violation. | Add scope note exempting subclause IDs as structural extensions per P-STD-001-CLAUSE-003F. | R-007 | `open` |
-| GIR-004 | Gap | Major | CLAUSE-002, CLAUSE-008 | **Token table incomplete for timeline tokens.** "Valid tokens are strictly defined by this table" but 10 timeline tokens (PH, ST, AC, TK, SES, GATE, DP, DEC, ACT, OQ) exist outside it. Self-compliance violation. | Add scope distinction: category tokens (table) vs. timeline tokens (CLAUSE-008). | R-008 | `open` |
-| GIR-005 | Issue | Major | CLAUSE-002, CLAUSE-006, CLAUSE-007 | **Compound obligations without subclause decomposition.** Three CLAUSEs violate P-STD-001-CLAUSE-013A single-obligation discipline. | Decompose into subclauses per R-001, R-002, R-003. | R-001, R-002, R-003 | `open` |
-| GIR-006 | Issue | Minor | ADR-001 | **"Alternatives Considered" subheading deviation.** Non-conformant per P-STD-001-CLAUSE-025B. | Rename to "Alternatives". | R-012 | `open` |
-| GIR-007 | Issue | Minor | CLAUSE-005D | **DRCID example uses STDCID format.** Copy error from promotion — both construction lines show `P-STD-001-CLAUSE-004`. | Fix example to actual DRCID format. | R-014 | `open` |
-| GIR-008 | Issue | Minor | ADR-001 | **Incorrect title reference.** ADR-001 Context uses "ID Governance Standard" — not the actual title. | Correct to "Universal ID Specification". | R-013 | `open` |
-| GIR-009 | Issue | Minor | CLAUSE-007 | **Undefined RULE token in migration note.** `RULE-###` referenced but not in taxonomy; codebase scan: only in T102 legacy files. | Remove `RULE-###` reference; simplify to `CLAUSE` as target. | R-015 | `open` |
-| GIR-010 | Issue | Minor | CLAUSE-006 | **Legacy FR-### migration status unclear.** Governance Mapping references migration but doesn't state whether it's active or complete. | Add migration status annotation. | R-016 | `open` |
-| GIR-011 | Issue | Minor | CLAUSE-002 | **DRCID migration status unclear.** Token table says "in progress" but no metrics or end condition. Codebase: 12 files still use DRCID format. | Update annotation with migration scope reference. | R-017 | `open` |
-| GIR-012 | Risk | Minor | CLAUSE-001 | **No regex dialect specification.** Patterns are compatible with major flavors but ambiguity exists for edge-case implementations. | Add dialect statement ("PCRE-compatible"). | R-010 | `open` |
+| GIR-001 | Gap | Major | CLAUSE-001 | **No equivalence/normalization clause.** IDs are implicitly case-sensitive per regex `[A-Z]` classes but the standard never explicitly states case sensitivity, encoding, or normalization rules. | Add case-sensitivity and normalization statement to CLAUSE-001A (post-split). | R-009 | `resolved` |
+| GIR-002 | Gap | Minor | CLAUSE-001, CLAUSE-010, CLAUSE-011 | **No general resolution clause.** No rule mapping workscope IDs to artifact locations. LINK indirection and file naming cover timeline entities only. | Evaluate during TK004 whether a resolution note is needed or whether this is out of scope for the ID spec. | — | `resolved` |
+| GIR-003 | Gap | Major | CLAUSE-001 | **Subclause IDs not covered by canonical regex.** Pattern 3 terminates with `\d{3}$` and doesn't match subclause suffixes (e.g., `CLAUSE-003A`). "All IDs MUST match" creates self-compliance violation. | Add scope note exempting subclause IDs as structural extensions per P-STD-001-CLAUSE-003F. | R-007 | `resolved` |
+| GIR-004 | Gap | Major | CLAUSE-002, CLAUSE-008 | **Token table incomplete for timeline tokens.** "Valid tokens are strictly defined by this table" but 10 timeline tokens (PH, ST, AC, TK, SES, GATE, DP, DEC, ACT, OQ) exist outside it. Self-compliance violation. | Add scope distinction: category tokens (table) vs. timeline tokens (CLAUSE-008). | R-008 | `resolved` |
+| GIR-005 | Issue | Major | CLAUSE-002, CLAUSE-006, CLAUSE-007 | **Compound obligations without subclause decomposition.** Three CLAUSEs violate P-STD-001-CLAUSE-013A single-obligation discipline. | Decompose into subclauses per R-001, R-002, R-003. | R-001, R-002, R-003 | `resolved` |
+| GIR-006 | Issue | Minor | ADR-001 | **"Alternatives Considered" subheading deviation.** Non-conformant per P-STD-001-CLAUSE-025B. | Rename to "Alternatives". | R-012 | `resolved` |
+| GIR-007 | Issue | Minor | CLAUSE-005D | **DRCID example uses STDCID format.** Copy error from promotion — both construction lines show `P-STD-001-CLAUSE-004`. | Fix example to actual DRCID format. | R-014 | `resolved` |
+| GIR-008 | Issue | Minor | ADR-001 | **Incorrect title reference.** ADR-001 Context uses "ID Governance Standard" — not the actual title. | Correct to "Universal ID Specification". | R-013 | `resolved` |
+| GIR-009 | Issue | Minor | CLAUSE-007 | **Undefined RULE token in migration note.** `RULE-###` referenced but not in taxonomy; codebase scan: only in T102 legacy files. | Remove `RULE-###` reference; simplify to `CLAUSE` as target. | R-015 | `resolved` |
+| GIR-010 | Issue | Minor | CLAUSE-006 | **Legacy FR-### migration status unclear.** Governance Mapping references migration but doesn't state whether it's active or complete. | Add migration status annotation. | R-016 | `resolved` |
+| GIR-011 | Issue | Minor | CLAUSE-002 | **DRCID migration status unclear.** Token table says "in progress" but no metrics or end condition. Codebase: 12 files still use DRCID format. | Update annotation with migration scope reference. | R-017 | `resolved` |
+| GIR-012 | Risk | Minor | CLAUSE-001 | **No regex dialect specification.** Patterns are compatible with major flavors but ambiguity exists for edge-case implementations. | Add dialect statement ("PCRE-compatible"). | R-010 | `resolved` |
 | GIR-013 | Risk | Minor | CLAUSE-002 | **No formal token registration procedure.** When new tokens are added, no documented process exists for proposal/review/adoption. | Defer — document as future enhancement. Not required for implementation readiness. | — | `accepted` |
 | GIR-014 | Risk | Minor | CLAUSE-008 | **Deep nesting cognitive load.** Session item UIDs (6–8 segments, ~33–47 chars) exceed Miller's Law cognitive limits. | Accept — inherent to hierarchical addressing. Mitigated by contextual shortening in practice. | — | `accepted` |
 | GIR-015 | Risk | Minor | CLAUSE-002 | **OID naming collision with ASN.1.** `OID` is an established term in networking/security. Category keys are internal taxonomy and rarely user-facing. | Accept — renaming has downstream blast radius. Document rationale if confusion arises. | — | `accepted` |
-| GIR-016 | Gap | Major | CLAUSE-001 | **Pattern overlap classification ambiguity.** Multiple regex patterns can match the same string (e.g., `T102-QG-001` matches Pattern 1 and Pattern 2; `P-PH000` and `T104-PH001-ST002` can match Pattern 3/Pattern 1 as well as Pattern 4). Without a precedence rule, validators may classify IDs inconsistently. | Add explicit precedence order note to CLAUSE-001 (pattern check order; first match wins). | R-020 | `open` |
-| GIR-017 | Risk | Minor | CLAUSE-001, CLAUSE-008 | **Undocumented 3-digit sequence ceiling.** Many IDs are constrained to `001–999` but the standard does not state what happens when the ceiling is reached. | Document the ceiling and state the expected extension method (new token/scope segment; do not widen digits). | R-021 | `open` |
+| GIR-016 | Gap | Major | CLAUSE-001 | **Pattern overlap classification ambiguity.** Multiple regex patterns can match the same string (e.g., `T102-QG-001` matches Pattern 1 and Pattern 2; `P-PH000` and `T104-PH001-ST002` can match Pattern 3/Pattern 1 as well as Pattern 4). Without a precedence rule, validators may classify IDs inconsistently. | Add explicit precedence order note to CLAUSE-001 (pattern check order; first match wins). | R-020 | `resolved` |
+| GIR-017 | Risk | Minor | CLAUSE-001, CLAUSE-008 | **Undocumented 3-digit sequence ceiling.** Many IDs are constrained to `001–999` but the standard does not state what happens when the ceiling is reached. | Document the ceiling and state the expected extension method (new token/scope segment; do not widen digits). | R-021 | `resolved` |
 
 ### GIR Summary
 
@@ -312,6 +312,7 @@ Formal register synthesizing all findings from TK001 (compliance, self-complianc
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-02-25 | GIR update | All GIR items dispositioned to terminal status post-TK004/TK005 execution. 14 resolved, 3 accepted. |
 | v1.0.1 | 2026-02-25 | Verification amendments | Corrected compliance audit note re YAML frontmatter. Added missing refactoring proposals for pattern precedence (R-020) and 3-digit ceiling documentation (R-021). Added corresponding GIR items (GIR-016, GIR-017) and updated readiness/summaries accordingly. |
 | v1.0.0 | 2026-02-25 | TK001–TK003 | Full analysis complete. Section III: Industry benchmarking (7 dimensions, 2 benchmark-findings, 4 benchmark-observations) + staleness review (5 stale-findings, 1 stale-observation). Section IV: 19 refactoring proposals (6 SUBCLAUSE-SPLIT, 13 LANGUAGE-EDIT; zero RE-ARCHITECTURE). Section V: GIR register (15 items: 4 gaps, 7 issues, 4 risks; 4 Major, 11 Minor). Section VI: Implementation readiness = Yes with conditions. |
 | v0.2.0 | 2026-02-25 | TK001 | Sections I–II populated: P-STD-001 compliance audit (54 checks, 2 findings, 8 observations) + P-STD-005 self-compliance check (7 checks, 2 findings, 2 observations). |

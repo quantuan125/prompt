@@ -35,7 +35,7 @@ Phase → Stream → Activity → Task
 | NOTES (Register) | `notes_` | Index/navigation surface | `prompt/templates/consultant/workspace/template_workspace_notes_register_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | NOTES (Session) | `snotes_` | Session records | `prompt/templates/consultant/workspace/template_workspace_notes_session_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | ANALYSIS | `analysis_` | Research synthesis | `prompt/templates/consultant/workspace/template_workspace_analysis.md` | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` (Draft 1 planned) |
-| VERIFICATION | `verification_` | Gate evidence + findings register + remediation classification | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` (Draft 1 planned) |
+| VERIFICATION | `verification_` | Gate evidence + findings register + rework handoff + Gate Decision Record (GDR) | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
 | PROPOSAL | `proposal_` | E-ID development workspace + promotion contract | `prompt/templates/consultant/workspace/template_workspace_proposal.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` (Draft 1 planned) |
 | DEV-REPORT | `dev-report_` | Developer execution log + plan traceability | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` (Draft 1 planned) | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` (Draft 1 planned) |
 
@@ -82,7 +82,7 @@ Phase → Stream → Activity → Task
 - PLAN: `prompt/templates/consultant/workspace/guideline_workspace_plan.md`
 - ROADMAP: `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md`
 - NOTES: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
-- VERIFICATION: `prompt/templates/consultant/workspace/guideline_workspace_verification.md` (Draft 1 planned — `T104-PH001-ST005-AC005`)
+- VERIFICATION: `prompt/templates/consultant/workspace/guideline_workspace_verification.md`
 - DEV-REPORT: `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` (Draft 1 planned — `T104-PH001-ST005-AC006`)
 - ANALYSIS: `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` (Draft 1 planned — `T104-PH001-ST005-AC007`)
 - PROPOSAL: `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` (Draft 1 planned — `T104-PH001-ST005-AC008`)
@@ -105,8 +105,9 @@ Phase → Stream → Activity → Task
 - Boundary: MUST NOT alter contract-level scope; implementation evidence belongs in dev-reports; plan task register `Action` column is updated by developer post-execution.
 
 ### D. Reviewer (LLM_Reviewer)
-- Owns: verification artifacts for gates and remediation classification.
-- Boundary: MUST NOT alter contract-level scope; scope gaps discovered in verification escalate as Situation B findings per `guideline_workspace_plan.md §VI.G`.
+- Owns: verification artifacts for gates, findings classification, and rework handoff evidence.
+- Produces verification as a task (TK-before-gate pattern) prior to the Client-owned gate decision.
+- Boundary: MUST NOT alter contract-level scope; scope gaps discovered in verification escalate as Situation B findings per `guideline_workspace_verification.md §VII`.
 
 ### E. Client
 - Decision owner for all approval gates.
@@ -162,4 +163,5 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v2.1.0 | 2026-02-25 | Update | Added VERIFICATION, DEV-REPORT, ANALYSIS, PROPOSAL to §3 Artifact Type Inventory with role owners. Added §4.D–G template entries. Added VERIFICATION/DEV-REPORT/ANALYSIS/PROPOSAL to §5 Guideline Inventory (Draft 1 planned). Updated §6 role boundaries: LLM_Verifier → LLM_Reviewer (canonical); Developer boundary clarified to include dev-reports; Consultant boundary extended to include analyses. Delivery planned under `T104-PH001-ST005` AC005–AC008. |
+| v2.2.0 | 2026-02-25 | Update | §3: VERIFICATION description updated to include rework handoff and GDR. §5: VERIFICATION guideline updated from "planned" to delivered. §6.D: Reviewer boundary updated with TK-before-gate pattern and cross-reference migrated to verification guideline. Source: T104-PH001-ST005-AC005 delivery. |
 | v2.0.0 | 2026-02-11 | Rewrite | Replaced legacy rules with template + guideline inventories, role boundaries, P-STD-004 reference, and anti-drift governance for PLAN/ROADMAP/NOTES (Draft 1) |

@@ -2,8 +2,8 @@
 artifact_type: 'SPS'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
-version: '0.4.0'
-date: '2026-02-23'
+version: '0.6.0'
+date: '2026-02-25'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -109,6 +109,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 | Research ID | Title | Summary | Reference | Brief | Report |
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | `P-RES-001` | **Status Standard Research** | Deep research into program-level status governance: canonical 7-state enum + transition rules, health/RAG thresholds, unified dependency schema (FS/SS/FF/SF), evidence linkage protocol, update protocol (role accountability), status artifact format options. Consumed by `P-PH000-ST001-AC003`. | `P-PH000-ST001-AC003` | `prompt/artifacts/tasks/P/research/P-RES-001/brief_P-RES-001_status-standard-research.md` | `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md` |
+| `P-RES-002` | **Agentic Status Systems Research** | Research benchmarking agentic CLI + orchestration-layer status systems (Codex CLI, Claude Code, Gemini CLI; GitHub Actions + GitLab CI/CD; GitHub Checks vs Commit Status) to inform repo-native evidence linkage, aggregation semantics, and bridging patterns for `P-STD-002`. Consumed by `P-PH000-ST001-AC003`. | `P-PH000-ST001-AC003` | `prompt/artifacts/tasks/P/research/P-RES-002/brief_P-RES-002_agentic-status-research.md` | `prompt/artifacts/tasks/P/research/P-RES-002/report_P-RES-002_agentic-status-research.md` |
 
 #### 10. Issues & Risks
 
@@ -140,6 +141,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.6.0 | 2026-02-25 | Amendment | Registered `P-RES-002` in the Research table with brief + report links. |
 | v0.5.0 | 2026-02-23 | Amendment | P-STD-005 promotion recorded: status `draft`, supersedes `T102-STD-005`, canonical path set. P-STD-001 now governed by `P-STD-005`. P-NOTE-001 updated (RES allows Program scope). |
 | v0.4.0 | 2026-02-23 | Amendment | P-CON-003 revised to `(Artifact Format Governance)` with (A) MD for planning/SSOT, (B) non-MD permitted for programmatic artifacts (DEC-003). P-STD-002 row updated: broad-scope description, Canonical Path, Reference `P-RES-001` (DEC-001). P-RES-001 registered in Research table (DEC-007). Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
 | v0.3.0 | 2026-02-22 | Major | STD Index schema migrated to `P-STD-001-CLAUSE-012A`: added `Canonical Path` and `Governed By` columns; removed `Adopts` column; `Reference` column corrected to RID-only; `Title` bolded; `Effective` corrected to ISO-8601/`—`. P-STD-001 body added. P-STD-001 status flipped to `accepted` (GATE-002 approval). P-STD-004 body updated for `Canonical Path` terminology. Source: `P-PH000-ST001-AC002-SES003-DEC007`, `DEC008`. |
