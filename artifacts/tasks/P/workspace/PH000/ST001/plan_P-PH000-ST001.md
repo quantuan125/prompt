@@ -5,7 +5,7 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.9'
+version: '0.1.10'
 date: '2026-02-25'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -41,7 +41,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `planned` | LLM_Consultant | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` | `T102-STD-004-CLAUSE-001A`, `T102-STD-004-CLAUSE-025`, `T102-STD-005-CLAUSE-004`, `T104-PH001-ST002-AC000` (proposal v3.1.0) |
 | AC005 | `P-PH000-ST001-AC005` | Align `P/standard/` naming to `standard_<SID-STD>_...` | `planned` | LLM_Developer | AC004 | Renamed `standard_P-STD-003_governance-standards-and-dr-index.md` + updated references | `P-STD-004` Convention 1 + `P` conformance |
 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `completed` | LLM_Consultant | AC002 | `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md` |
-| AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `in_progress` | LLM_Consultant | AC006 | `analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md` + updated `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/plan_P-PH000-ST001-AC007.md` |
+| AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `completed` | LLM_Consultant | AC006 | `analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md` + updated `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/plan_P-PH000-ST001-AC007.md` |
 
 ---
 
@@ -262,6 +262,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.10 | 2026-02-25 | Housekeeping | AC007 status → `completed` (GATE-002 approved; see verification GDR). |
 | v0.1.9 | 2026-02-25 | Housekeeping | AC007 status → `in_progress` (GATE-001 prep-verification passed). |
 | v0.1.8 | 2026-02-25 | Amendment | AC007 added: Harden P-STD-005 (Compliance, Refactoring & GIR Assessment). Post-promotion hardening activity covering P-STD-001 compliance audit, self-compliance check, industry benchmarking, structural refactoring, language conciseness, and gap/issues/risk analysis. Evidence: consultation session (2026-02-25). |
 | v0.1.6 | 2026-02-23 | Amendment | AC003 enriched: deprecated `P-ADR-002` reference (now embedded P-STD-002-ADR-001 per P-STD-001); broad scope locked (DEC-001); dependency on P-PH000-ST004-AC001 added (DEC-007); standalone activity plan linked; contract stub replaces 2-line stub; guideline cascade scoped as TK006 (DEC-008). Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
