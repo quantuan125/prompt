@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.10'
-date: '2026-02-25'
+version: '0.1.11'
+date: '2026-02-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -38,7 +38,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | AC001 | `P-PH000-ST001-AC001` | Amend ID governance to allow `P-RES-###` | `planned` | LLM_Consultant | — | Planned T102 change (RES token Allowed Scope) | `T102-STD-005` |
 | AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` (Full Promotion from T102-STD-004) | `completed` | LLM_Consultant | AC001 | `standard_P-STD-001_program-governance-standard.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/plan_P-PH000-ST001-AC002.md` |
 | AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` (Program Status Standard) | `planned` | LLM_Consultant | AC001, `P-PH000-ST004-AC001` | `standard_P-STD-002_program-status-standard.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md` |
-| AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `planned` | LLM_Consultant | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` | `T102-STD-004-CLAUSE-001A`, `T102-STD-004-CLAUSE-025`, `T102-STD-005-CLAUSE-004`, `T104-PH001-ST002-AC000` (proposal v3.1.0) |
+| AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `planned` | LLM_Consultant | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/plan_P-PH000-ST001-AC004.md` |
 | AC005 | `P-PH000-ST001-AC005` | Align `P/standard/` naming to `standard_<SID-STD>_...` | `planned` | LLM_Developer | AC004 | Renamed `standard_P-STD-003_governance-standards-and-dr-index.md` + updated references | `P-STD-004` Convention 1 + `P` conformance |
 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `completed` | LLM_Consultant | AC002 | `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md` |
 | AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `completed` | LLM_Consultant | AC006 | `analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md` + updated `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/plan_P-PH000-ST001-AC007.md` |
@@ -125,46 +125,30 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Activity ID**: `P-PH000-ST001-AC004`
 
-**Purpose**: Author the program-level combined standard-specification file that codifies canonical directory structure and file naming conventions for all initiative directories under `prompt/artifacts/tasks/**`.
+**Purpose**: Author the program-level combined standard-specification file that codifies canonical directory structure and file naming conventions for all initiative directories under `prompt/artifacts/tasks/**`. Uses Seed-First methodology (IEEE PAR + W3C Living CR pattern): create P-STD-004 as `draft` early to provide downstream activities normative guidance, then refine via post-seeding analysis and cross-initiative migration feedback.
+
+**Deliverable (contract stub)**:
+- Activity plan (SSOT task register): `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/plan_P-PH000-ST001-AC004.md`
+- Standard: `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`
+- Post-seeding analysis: `prompt/artifacts/tasks/P/workspace/PH000/ST001/analysis/analysis_P-PH000-ST001-AC004_p-std-004-proposal-seeding-assessment.md`
+
+**Scope**:
+- In scope: rapid seed (proposal v3.4.0 → P-STD-004 CLAUSE format); post-seeding gap/risk/issues analysis (including file naming normalization per P-STD-005, analysis/proposal placement enforcement, normative/informative boundary); CLAUSE amendments; SPS update; `workspace_documentation_rules.md` update; downstream binding rule; cross-initiative validation feedback loop (P + T102 migrations).
+- Out of scope: proposal amendment (absorbed into standard seeding); migration script updates (T104-PH001-ST007 scope); repo-wide reference sweeps.
 
 **Hard constraints**:
-- `T102-STD-004` is the golden exemplar and governing authoring standard for this combined file.
-- The combined file MUST follow the canonical combined-file structure defined by `T102-STD-004-CLAUSE-001A`:
-  1) `# <SID-STD> — <Title>`
-  2) `## Specification`
-  3) `## Decision Record`
-  4) `## References`
-  5) `## Provenance`
-- The `## Specification` section MUST author enforceable `CLAUSE` items consistent with `T102-STD-004-CLAUSE-018` and `T102-STD-005-CLAUSE-005D (Specification Clause Semantics)`.
-- The `## Decision Record` section MUST contain a nested decision record using the `T102-STD-004-CLAUSE-025 (DR Body Template)` format (e.g., `P-STD-004-ADR-001`).
-- Cross-scope and cross-initiative references inside normative bodies MUST follow `T102-STD-005-CLAUSE-004 (Reference Semantics)` (including the `External Reference:` line rule where applicable).
+- `P-STD-001` is the governing authoring standard for this combined file (`P-STD-001-CLAUSE-001` canonical structure, `P-STD-001-CLAUSE-018` clause construction, `P-STD-001-CLAUSE-025` DR body template).
+- Cross-scope references MUST follow `P-STD-005-CLAUSE-004` (Reference Semantics).
+- Primary input: `proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (v3.4.0, 24 DRs Client-approved).
 
-**Primary input (approved proposal seed)**:
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (v3.1.0, 2026-02-18; include `verification_` and `dev-report_`)
-- `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`
+**Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/plan_P-PH000-ST001-AC004.md`
 
-**Deliverable**:
-- `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`
-
-**Task Register**:
-| Task ID | Description | Status | Action |
-|:--|:--|:--|:--|
-| `P-PH000-ST001-AC004-TK000` | Confirm and codify combined STD filename convention: `standard_<SID-STD>_<kebab-title>.md` (where `<SID-STD>` conforms to `T102-STD-005-CLAUSE-001`) | `planned` | — |
-| `P-PH000-ST001-AC004-TK001` | Extract normative conventions from proposal v3.1.0 into `P-STD-004` `## Specification` clauses (initiative root structure; timeline workspace rules; stems including `verification_` and `dev-report_`; raw naming; communication placement; AC directory threshold; archive strategy; research organization; epic/feature self-similarity) | `planned` | — |
-| `P-PH000-ST001-AC004-TK002` | Author `P-STD-004-ADR-001` (Context/Decision/Alternatives/Consequences) capturing: (1) adoption of proposal v3.1.0 as seed; (2) forward-only adoption posture; (3) standards placement variance (use `standard/` going forward); (4) permanent grandfathering of legacy T102 `consultant/standards/` files and treatment as logically conformant to the `standard_` naming convention without renaming | `planned` | — |
-| `P-PH000-ST001-AC004-TK003` | Validate `P-STD-004` conventions against at least 2 additional initiatives beyond T104 (e.g., `T102`, `T103`) before any `effective` claim, per `P-RISK-002` | `planned` | — |
-| `P-PH000-ST001-AC004-TK004` | Ensure `P-STD-004` normative bodies follow `T102-STD-005-CLAUSE-004 (Reference Semantics)` when referencing IDs outside the `P` scope root (add `External Reference:` lines where required) | `planned` | — |
-| `P-PH000-ST001-AC004-TK005` | Update program SPS `P-STD-004` index row to include Canonical Path once the combined file exists | `planned` | — |
-| `P-PH000-ST001-AC004-TK006` | Define downstream adopter binding rule: initiatives SHALL adopt `P-STD-004` by reference and avoid duplicating directory/naming rules in local plans (link-don’t-duplicate) | `planned` | — |
-
-**Success Criteria Checklist**:
-- [ ] `standard_P-STD-004_...md` exists and follows `T102-STD-004-CLAUSE-001A` (combined-file canonical structure)
-- [ ] `P-STD-004` `CLAUSE` IDs and rendering conform to `T102-STD-004-CLAUSE-018` and `T102-STD-005-CLAUSE-005D`
-- [ ] `P-STD-004` clauses are enforceable and map directly to proposal v3.1.0 conventions (including `verification_` and `dev-report_`)
-- [ ] `P-STD-004-ADR-001` exists under `## Decision Record` and records the standards placement variance + T102 permanent-grandfathering posture
-- [ ] Cross-scope references inside normative bodies follow `T102-STD-005-CLAUSE-004 (Reference Semantics)` (including `External Reference:` lines where required)
-- [ ] Program SPS `P-STD-004` row can be updated with a resolvable Canonical Path (planned)
+**Success Criteria Checklist (summary)**:
+- [ ] P-STD-004 `draft` exists and follows `P-STD-001-CLAUSE-001` (combined-file canonical structure)
+- [ ] Post-seeding analysis artifact produced with all gaps/risks/issues assessed
+- [ ] P-STD-004 CLAUSEs are enforceable and map to proposal v3.4.0 conventions
+- [ ] Cross-initiative validation completed (P + T102) before `accepted` status claim (P-RISK-002)
+- [ ] `workspace_documentation_rules.md` references P-STD-004 as authority surface
 
 ---
 
@@ -262,6 +246,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.11 | 2026-02-26 | Amendment | AC004 updated: stale T102-STD-004/005 references replaced with P-STD-001/P-STD-005; proposal pin v3.1.0 → v3.4.0; section trimmed to contract stub per §IV.D; dedicated activity plan linked; Seed-First methodology documented; `workspace_documentation_rules.md` added to scope. Evidence: AC004-SES002 consultation (2026-02-26). |
 | v0.1.10 | 2026-02-25 | Housekeeping | AC007 status → `completed` (GATE-002 approved; see verification GDR). |
 | v0.1.9 | 2026-02-25 | Housekeeping | AC007 status → `in_progress` (GATE-001 prep-verification passed). |
 | v0.1.8 | 2026-02-25 | Amendment | AC007 added: Harden P-STD-005 (Compliance, Refactoring & GIR Assessment). Post-promotion hardening activity covering P-STD-001 compliance audit, self-compliance check, industry benchmarking, structural refactoring, language conciseness, and gap/issues/risk analysis. Evidence: consultation session (2026-02-25). |

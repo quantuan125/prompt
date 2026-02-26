@@ -9,7 +9,7 @@ activity_id: 'P-PH000-ST004-AC002'
 gate_id: 'P-PH000-ST004-AC002-GATE-003'
 version: '1.0.0'
 date: '2026-02-26'
-status: 'draft'
+status: 'approved'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 target_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md'
@@ -136,11 +136,11 @@ Across ST004 artifacts, dates appear to sometimes follow local time and sometime
 |:--|:--|
 | Gate ID | `P-PH000-ST004-AC002-GATE-003` |
 | Reviewer Verdict | PASS |
-| Client Decision | pending |
+| Client Decision | APPROVE |
 | Conditions (if any) | — |
 | Decided By | Client |
-| Decision Date | — |
-| Decision Reference | — |
+| Decision Date | 2026-02-26 |
+| Decision Reference | Client approval via chat (2026-02-26) |
 
 ## X. Changelog
 

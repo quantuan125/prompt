@@ -7,9 +7,9 @@ phase: '0'
 stream_id: 'P-PH000-ST004'
 activity_id: 'P-PH000-ST004-AC001'
 gate_id: 'P-PH000-ST004-AC001-GATE-003'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-02-26'
-status: 'draft'
+status: 'approved'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 target_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md'
@@ -80,7 +80,7 @@ session_reference: '—'
 
 | # | Check | Expected | Observed Evidence | Result |
 |:--|:--|:--|:--|:--|
-| C1 | SSOT alignment references current SPS version/date | SSOT alignment should cite current `sps_P-PROGRAM.md` frontmatter (`v0.6.0`, `2026-02-25`) or explicitly state a pinned baseline + rationale | SSOT alignment cites `sps_P-PROGRAM.md (v0.4.0, 2026-02-23)` at `analysis_...P-RES-001.md:51` (not current). Sources table also lists “Program SPS (v0.4.0)” at `analysis_...P-RES-001.md:390`. | **FAIL** |
+| C1 | SSOT alignment references current SPS version/date | SSOT alignment should cite current `sps_P-PROGRAM.md` frontmatter (`v0.6.0`, `2026-02-25`) or explicitly state a pinned baseline + rationale | SSOT alignment cites `sps_P-PROGRAM.md (v0.6.0, 2026-02-25)` in `analysis_...P-RES-001.md` (v1.1.0). Sources table lists “Program SPS (v0.6.0)”. | **PASS** |
 
 ### D. Boundary Compliance
 
@@ -95,13 +95,13 @@ session_reference: '—'
 | Field | Detail |
 |:--|:--|
 | Severity | Moderate |
-| Source | SSOT alignment + sources table in `analysis_P-PH000-ST004-AC001-TK003_integration-recommendations-P-RES-001.md` (`:51`, `:390`) |
-| Description | The analysis asserts SSOT alignment and “compatibility with all active program constraints” while citing `sps_P-PROGRAM.md (v0.4.0, 2026-02-23)` as the alignment baseline. The current SPS frontmatter is `version: 0.6.0`, `date: 2026-02-25`. Without either updating the alignment check to v0.6.0 or explicitly pinning/justifying the older baseline, the alignment claim is not audit-safe for Client sign-off. |
+| Source | SSOT alignment + sources table in `analysis_P-PH000-ST004-AC001-TK003_integration-recommendations-P-RES-001.md` (v1.0.0) previously cited SPS v0.4.0; remediated in v1.1.0. |
+| Description | In analysis v1.0.0, the package asserted SSOT alignment and “compatibility with all active program constraints” while citing `sps_P-PROGRAM.md (v0.4.0, 2026-02-23)` as the alignment baseline, despite the SPS being updated to `v0.6.0` (2026-02-25). This was remediated in analysis v1.1.0 by updating the SSOT alignment baseline reference and the sources/traceability SPS row. |
 | Classification | Situation A (deliverable deficiency) |
 | Required Action | (1) Re-run/update SSOT alignment checklist against `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` `v0.6.0` (2026-02-25). (2) Update `## VI. Sources & Traceability` SPS row to reflect the SPS version actually verified. (3) Version-bump the analysis package (recommend: `v1.1.0` if limited to SSOT alignment + sources row adjustments). |
 | Owner | LLM_Consultant |
-| Resolution Status | open |
-| Resolution Date | — |
+| Resolution Status | resolved |
+| Resolution Date | 2026-02-26 |
 
 ## V. Observations
 
@@ -117,16 +117,11 @@ Across ST004 artifacts, dates appear to sometimes follow local time and sometime
 
 ## VII. Gate Recommendation
 
-**Verdict**: **CONDITIONAL PASS**
+**Verdict**: **PASS**
 
 **Rationale**:
-- The TK003 package is structurally complete and appears consumer-usable for AC003 ingestion (Checklist A + B all PASS).
-- One audit-relevant deficiency exists: SSOT alignment is performed against an outdated SPS baseline (Checklist C1 FAIL), making the “all active constraints” alignment claim non-authoritative until updated.
-
-**Conditions**:
-1. Update SSOT alignment checklist to reference `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` `v0.6.0` (2026-02-25).
-2. Update the sources/traceability SPS reference row to match the verified SPS version.
-3. Version-bump the analysis package and record the change in its changelog.
+- The TK003 package is structurally complete and consumer-usable for AC003 ingestion (Checklist A + B PASS).
+- The prior SSOT-alignment baseline mismatch has been remediated in the TK003 analysis package (analysis version-bumped; SPS reference updated), and the condition is now resolved.
 
 ## VIII. References
 
@@ -143,15 +138,16 @@ Across ST004 artifacts, dates appear to sometimes follow local time and sometime
 | Field | Value |
 |:--|:--|
 | Gate ID | `P-PH000-ST004-AC001-GATE-003` |
-| Reviewer Verdict | CONDITIONAL PASS |
-| Client Decision | pending |
-| Conditions (if any) | 1) SPS alignment update to v0.6.0; 2) sources row update; 3) analysis version bump |
+| Reviewer Verdict | PASS |
+| Client Decision | APPROVE WITH CONDITIONS |
+| Conditions (if any) | 1) SPS alignment update to v0.6.0 (completed 2026-02-26); 2) sources row update (completed 2026-02-26); 3) analysis version bump (completed 2026-02-26) |
 | Decided By | Client |
-| Decision Date | — |
-| Decision Reference | — |
+| Decision Date | 2026-02-26 |
+| Decision Reference | Client approval via chat (2026-02-26) |
 
 ## X. Changelog
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-02-26 | Amendment | Recorded Client decision in GDR (APPROVE WITH CONDITIONS) and marked FINDING-001 resolved after TK003 analysis package SPS-alignment remediation. |
 | v1.0.0 | 2026-02-26 | Initial | Initial GATE-003 verification for AC001 integration recommendations package (TK003). Conditional pass due to outdated SPS baseline reference in SSOT alignment. |

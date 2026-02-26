@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
-version: '0.1.1'
-date: '2026-02-23'
+version: '0.1.2'
+date: '2026-02-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -100,11 +100,14 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 - `P-PH000-ST001-AC003` (Program Status Standard)
 - `P-PH000-ST002-AC001` (Schema + update protocol locked)
 
+> **Research Integration Note (2026-02-26)**: Combined P-RES-001 and P-RES-002 research findings confirm the seed schema concept (AC001) is architecturally valid but the implementation schema will be substantially richer. When AC002 is executed, the implementer MUST reference the accepted `P-STD-002` (specifically P-STD-002E) as the normative authority. The implementation schema will include: evidence pointers per status entry, 6-dimension health/RAG model, graph-first dependency edges, execution references (check run IDs, workflow run IDs), aggregation policy fields, and MVAT-compliant minimum entry fields. The dual-artifact model (canonical ledger + derived narrative) is confirmed.
+
 ---
 
 ## IV. CHANGELOG
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.2 | 2026-02-26 | Amendment | Added informative research integration note to AC002 section documenting combined P-RES-001 + P-RES-002 impact on implementation schema. No structural or dependency changes. Evidence: consultant session 2026-02-26. |
 | v0.1.1 | 2026-02-23 | Amendment | AC001 schema annotated as informative seed only per SES001-DEC-002; authoritative contract deferred to P-STD-002. Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
 | v0.1.0 | 2026-02-05 | Initial | Stream ST002 plan created to lock status artifact schema/protocol and defer `status_program.md` authoring to a later activity |

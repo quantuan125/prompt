@@ -7,8 +7,8 @@ stream_id: 'P-PH000-ST004'
 activity_id: 'P-PH000-ST004-AC001'
 task_id: 'P-PH000-ST004-AC001-TK003'
 research_id: 'P-RES-001'
-version: '1.0.0'
-date: '2026-02-25'
+version: '1.1.0'
+date: '2026-02-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -48,7 +48,7 @@ consumer: 'P-PH000-ST001-AC003-TK001'
 
 ## II. SSOT ALIGNMENT CHECKLIST
 
-This section verifies P-RES-001 research recommendations against each relevant entry in `sps_P-PROGRAM.md` (v0.4.0, 2026-02-23). The checklist confirms whether the recommendations are compatible, require adaptation, or create tension with existing governance.
+This section verifies P-RES-001 research recommendations against each relevant entry in `sps_P-PROGRAM.md` (v0.6.0, 2026-02-25). The checklist confirms whether the recommendations are compatible, require adaptation, or create tension with existing governance.
 
 ### A. Constraints
 
@@ -387,7 +387,7 @@ Research-level issues and risks from P-RES-001 that affect P-STD-002 authoring:
 |:--|:--|:--|
 | P-RES-001 Report (Iteration 2, accepted) | `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md` | Primary research input |
 | P-RES-001 Brief (v1.0.0, approved) | `prompt/artifacts/tasks/P/research/P-RES-001/brief_P-RES-001_status-standard-research.md` | Commission baseline |
-| Program SPS (v0.4.0) | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` | SSOT alignment target |
+| Program SPS (v0.6.0) | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` | SSOT alignment target |
 | GATE-002 Verification | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001-GATE-002_report-acceptance_P-RES-001.md` | Gate evidence |
 | AC001 SES001 Session Notes | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/snotes/snotes_P-PH000-ST004-AC001-SES001.md` | Context (QA decisions) |
 | Seed Analysis (informative only) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-research.md` | Gap analysis baseline |
@@ -400,4 +400,5 @@ Research-level issues and risks from P-RES-001 that affect P-STD-002 authoring:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-02-26 | Amendment | Updated SSOT alignment baseline reference to `sps_P-PROGRAM.md` v0.6.0 (2026-02-25) and updated traceability row accordingly. No recommendation changes. |
 | v1.0.0 | 2026-02-25 | Initial | Integration recommendations package produced for TK003. Includes SSOT alignment checklist (10 entries, all PASS), CLAUSE domain mapping at CLAUSE-theme depth (5 domains, 41 CLAUSE themes, 9 decision points), cross-topic integration summary, seed gap analysis, risk/issue carry-forward, and P-RES-002 integration points per domain. |

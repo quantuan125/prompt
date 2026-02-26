@@ -6,7 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST004'
 version: '2.0.0'
-date: '2026-02-25'
+version: '2.1.0'
+date: '2026-02-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -50,8 +51,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Activity | Activity ID | Name | Status | Owner | Depends On | Deliverable | Reference |
 |:--|:--|:--|:--|:--|:--|:--|:--|
-| AC001 | `P-PH000-ST004-AC001` | Commission `P-RES-001` (Status Standard Research) | `planned` | LLM_Consultant | — | Brief + Report + integration recommendations | — |
-| AC002 | `P-PH000-ST004-AC002` | Commission `P-RES-002` (Agentic Status Systems Research) | `planned` | LLM_Consultant | — | Brief + Report + integration recommendations | — |
+| AC001 | `P-PH000-ST004-AC001` | Commission `P-RES-001` (Status Standard Research) | `completed` | LLM_Consultant | — | Brief + Report + integration recommendations | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001_gate-003.md` |
+| AC002 | `P-PH000-ST004-AC002` | Commission `P-RES-002` (Agentic Status Systems Research) | `completed` | LLM_Consultant | — | Brief + Report + integration recommendations | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC002/verification/verification_P-PH000-ST004-AC002_gate-003.md` |
 
 ---
 
@@ -93,19 +94,19 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Task ID | Description | Status | Action |
 |:--|:--|:--|:--|
-| `P-PH000-ST004-AC001-TK001` | Draft research brief per `T102-STD-006-CLAUSE-002` (must include evaluation rubric, explicit out-of-scope, and input packet paths). | `planned` | — |
-| `P-PH000-ST004-AC001-GATE-001` | **Gate: Client brief approval**. Entry: brief complete. Reviewer: Client. Exit: explicit approval recorded with date. | `planned` | — |
-| `P-PH000-ST004-AC001-TK002` | Execute research + produce report per `T102-STD-006-CLAUSE-002` (all "industry best practice" claims must be externally sourced/cited). | `planned` | — |
-| `P-PH000-ST004-AC001-GATE-002` | **Gate: Client report acceptance**. Entry: report complete against brief. Reviewer: Client. Exit: explicit acceptance recorded with date. | `planned` | — |
-| `P-PH000-ST004-AC001-TK003` | Produce integration recommendations package (recommendations-only; no clause drafting) including SSOT alignment checklist and P-STD-002 CLAUSE domain mapping. | `planned` | — |
-| `P-PH000-ST004-AC001-GATE-003` | **Gate: Client sign-off on integration recommendations**. Entry: package complete. Reviewer: Client. Exit: explicit sign-off recorded with date. | `planned` | — |
-| `P-PH000-ST004-AC001-TK004` | Register P-RES-001 per `T102-STD-006` in SPS Research table (confirm brief/report links resolve). | `planned` | — |
+| `P-PH000-ST004-AC001-TK001` | Draft research brief per `T102-STD-006-CLAUSE-002` (must include evaluation rubric, explicit out-of-scope, and input packet paths). | `completed` | Brief authored: `prompt/artifacts/tasks/P/research/P-RES-001/brief_P-RES-001_status-standard-research.md` (v1.0.0). |
+| `P-PH000-ST004-AC001-GATE-001` | **Gate: Client brief approval**. Entry: brief complete. Reviewer: Client. Exit: explicit approval recorded with date. | `completed` | Client approved brief via chat (2026-02-26). |
+| `P-PH000-ST004-AC001-TK002` | Execute research + produce report per `T102-STD-006-CLAUSE-002` (all "industry best practice" claims must be externally sourced/cited). | `completed` | Report authored: `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md` (v1.0.0, iteration 2). |
+| `P-PH000-ST004-AC001-GATE-002` | **Gate: Client report acceptance**. Entry: report complete against brief. Reviewer: Client. Exit: explicit acceptance recorded with date. | `completed` | Client accepted report via chat (2026-02-26). Evidence: `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001-GATE-002_report-acceptance_P-RES-001.md`. |
+| `P-PH000-ST004-AC001-TK003` | Produce integration recommendations package (recommendations-only; no clause drafting) including SSOT alignment checklist and P-STD-002 CLAUSE domain mapping. | `completed` | Integration recommendations produced: `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC001-TK003_integration-recommendations-P-RES-001.md` (v1.1.0). |
+| `P-PH000-ST004-AC001-GATE-003` | **Gate: Client sign-off on integration recommendations**. Entry: package complete. Reviewer: Client. Exit: explicit sign-off recorded with date. | `completed` | Client approved integration recommendations via chat (2026-02-26). Evidence: `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001_gate-003.md`. |
+| `P-PH000-ST004-AC001-TK004` | Register P-RES-001 per `T102-STD-006` in SPS Research table (confirm brief/report links resolve). | `completed` | Confirmed P-RES-001 indexed in SPS Research table: `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md#9-research` (brief + report links). |
 
 **Success Criteria Checklist**:
-- [ ] Brief approved via GATE-001
-- [ ] Report accepted via GATE-002
-- [ ] Integration recommendations signed off via GATE-003
-- [ ] Research indexed in SPS per `T102-STD-006`
+- [x] Brief approved via GATE-001
+- [x] Report accepted via GATE-002
+- [x] Integration recommendations signed off via GATE-003
+- [x] Research indexed in SPS per `T102-STD-006`
 
 ### Activity AC002: Commission `P-RES-002` (Agentic Status Systems Research)
 
@@ -145,19 +146,19 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Task ID | Description | Status | Action |
 |:--|:--|:--|:--|
-| `P-PH000-ST004-AC002-TK001` | Draft research brief per `T102-STD-006-CLAUSE-002` (must include evaluation rubric, explicit out-of-scope, and input packet paths). | `planned` | — |
-| `P-PH000-ST004-AC002-GATE-001` | **Gate: Client brief approval**. Entry: brief complete. Reviewer: Client. Exit: explicit approval recorded with date. | `planned` | — |
-| `P-PH000-ST004-AC002-TK002` | Execute research + produce report per `T102-STD-006-CLAUSE-002` (all claims must reference official tool documentation or API specifications). | `planned` | — |
-| `P-PH000-ST004-AC002-GATE-002` | **Gate: Client report acceptance**. Entry: report complete against brief. Reviewer: Client. Exit: explicit acceptance recorded with date. | `planned` | — |
-| `P-PH000-ST004-AC002-TK003` | Produce integration recommendations package (recommendations-only; no clause drafting) including SSOT alignment checklist and P-STD-002 CLAUSE domain mapping. | `planned` | — |
-| `P-PH000-ST004-AC002-GATE-003` | **Gate: Client sign-off on integration recommendations**. Entry: package complete. Reviewer: Client. Exit: explicit sign-off recorded with date. | `planned` | — |
-| `P-PH000-ST004-AC002-TK004` | Register P-RES-002 per `T102-STD-006` in SPS Research table (confirm brief/report links resolve). | `planned` | — |
+| `P-PH000-ST004-AC002-TK001` | Draft research brief per `T102-STD-006-CLAUSE-002` (must include evaluation rubric, explicit out-of-scope, and input packet paths). | `completed` | Brief authored: `prompt/artifacts/tasks/P/research/P-RES-002/brief_P-RES-002_agentic-status-research.md` (v1.0.0). |
+| `P-PH000-ST004-AC002-GATE-001` | **Gate: Client brief approval**. Entry: brief complete. Reviewer: Client. Exit: explicit approval recorded with date. | `completed` | Client approved brief via chat (2026-02-26). |
+| `P-PH000-ST004-AC002-TK002` | Execute research + produce report per `T102-STD-006-CLAUSE-002` (all claims must reference official tool documentation or API specifications). | `completed` | Report authored: `prompt/artifacts/tasks/P/research/P-RES-002/report_P-RES-002_agentic-status-research.md` (v1.0.0, iteration 2). |
+| `P-PH000-ST004-AC002-GATE-002` | **Gate: Client report acceptance**. Entry: report complete against brief. Reviewer: Client. Exit: explicit acceptance recorded with date. | `completed` | Client accepted report via chat (2026-02-26). |
+| `P-PH000-ST004-AC002-TK003` | Produce integration recommendations package (recommendations-only; no clause drafting) including SSOT alignment checklist and P-STD-002 CLAUSE domain mapping. | `completed` | Integration recommendations produced: `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC002-TK003_integration-recommendations-P-RES-002.md` (v1.0.0). |
+| `P-PH000-ST004-AC002-GATE-003` | **Gate: Client sign-off on integration recommendations**. Entry: package complete. Reviewer: Client. Exit: explicit sign-off recorded with date. | `completed` | Client approved integration recommendations via chat (2026-02-26). Evidence: `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC002/verification/verification_P-PH000-ST004-AC002_gate-003.md`. |
+| `P-PH000-ST004-AC002-TK004` | Register P-RES-002 per `T102-STD-006` in SPS Research table (confirm brief/report links resolve). | `completed` | Confirmed P-RES-002 indexed in SPS Research table: `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md#9-research` (brief + report links). |
 
 **Success Criteria Checklist**:
-- [ ] Brief approved via GATE-001
-- [ ] Report accepted via GATE-002
-- [ ] Integration recommendations signed off via GATE-003
-- [ ] Research indexed in SPS per `T102-STD-006`
+- [x] Brief approved via GATE-001
+- [x] Report accepted via GATE-002
+- [x] Integration recommendations signed off via GATE-003
+- [x] Research indexed in SPS per `T102-STD-006`
 
 ---
 
@@ -187,6 +188,6 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.1.0 | 2026-02-26 | Housekeeping | Closed AC001 + AC002 task registers (TK001–TK004) and gates (GATE-001–GATE-003) with action evidence; marked both activities completed; success criteria checklists fully satisfied. |
 | v1.0.0 | 2026-02-23 | Initial | Stream ST004 plan created for P-RES-001 (Status Standard Research) commission. Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
 | v2.0.0 | 2026-02-25 | Structural | Added AC002 (Commission P-RES-002: Agentic Status Systems Research) to stream. Updated executive summary, context, dependency notes, and links register. Evidence: `snotes_P-PH000-ST004-AC002-SES001.md` |
-

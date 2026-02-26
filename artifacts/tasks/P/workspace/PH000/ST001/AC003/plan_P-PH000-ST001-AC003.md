@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC003'
-version: '0.1.0'
-date: '2026-02-23'
+version: '0.2.0'
+date: '2026-02-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -17,7 +17,6 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 # PLAN: P (PROGRAM) — Phase 0 / Stream ST001 / Activity AC003: Author P-STD-002 (Program Status Standard)
 
-> **DRAFT — Not finalized.** Task register, CLAUSE domain mapping, and success criteria are subject to amendment after `P-PH000-ST004-AC001-GATE-003` (P-RES-001 integration sign-off). The structure and scope below reflect SES001 consultation decisions; detailed task decomposition will be refined once research recommendations are available.
 
 ## I. EXECUTIVE SUMMARY
 
@@ -32,7 +31,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 **Activity ID**: `P-PH000-ST001-AC003`
 **Objective**: Produce a P-STD-001-conformant combined standard-specification file that establishes program-wide status governance semantics and is accepted by the Client.
 **Execution Mode**: SEQUENTIAL
-**Depends On**: `P-PH000-ST004-AC001` (P-RES-001 integration sign-off via GATE-003)
+**Depends On**: `P-PH000-ST004-AC001` (P-RES-001 integration sign-off via GATE-003) + `P-PH000-ST004-AC002` (P-RES-002 integration sign-off via GATE-003)
 
 **Context**:
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` (deliverable — to be created)
@@ -40,15 +39,18 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - `prompt/templates/consultant/standards/guideline_standard_specs.md` (authoring rules)
 - `prompt/templates/consultant/standards/template_standard_specs.md` (structural skeleton)
 - `prompt/templates/consultant/workspace/guideline_workspace_plan.md` (cascade target)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC001-TK003_integration-recommendations-P-RES-001.md` (P-RES-001 integration recommendations)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC002-TK003_integration-recommendations-P-RES-002.md` (P-RES-002 integration recommendations)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md` (CDR resolution proposal — TK001 deliverable)
 
 ### Task Register
 
 | Task | Task ID | Name | Status | Owner | Depends On | Target | Reference | Action |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
 | TK000 | `P-PH000-ST001-AC003-TK000` | Confirm sps_P P-CON-003 amendment applied | `planned` | LLM_Consultant | — | sps_P | DEC-003 | — |
-| TK001 | `P-PH000-ST001-AC003-TK001` | Ingest P-RES-001 report recommendations and map to CLAUSE domains | `planned` | LLM_Consultant | ST004-AC001-GATE-003 | — | P-RES-001 report | — |
-| TK002 | `P-PH000-ST001-AC003-TK002` | Draft P-STD-002 combined file: Specification section | `planned` | LLM_Consultant | TK001 | standard_P-STD-002_...md | template_standard_specs | — |
-| TK003 | `P-PH000-ST001-AC003-TK003` | Draft P-STD-002-ADR-001 in Decision Record section | `planned` | LLM_Consultant | TK002 | standard_P-STD-002_...md | P-STD-001-CLAUSE-025 | — |
+| TK001 | `P-PH000-ST001-AC003-TK001` | Ingest P-RES-001 and P-RES-002 integration recommendations, map to CLAUSE domains, and produce CDR resolution proposal | `planned` | LLM_Consultant | ST004-AC001-GATE-003 + ST004-AC002-GATE-003 | proposal/ | P-RES-001 + P-RES-002 analyses | — |
+| TK002 | `P-PH000-ST001-AC003-TK002` | Draft P-STD-002 combined file: Specification section (54 CLAUSE themes across 5 domains) | `planned` | LLM_Consultant | TK001 | standard_P-STD-002_...md | template_standard_specs | — |
+| TK003 | `P-PH000-ST001-AC003-TK003` | Draft P-STD-002-ADR-001 in Decision Record section (cite P-RES-001 + P-RES-002; address 13 CDR decisions) | `planned` | LLM_Consultant | TK002 | standard_P-STD-002_...md | P-STD-001-CLAUSE-025 | — |
 | TK004 | `P-PH000-ST001-AC003-TK004` | Validate P-STD-002 against P-STD-001 authoring rules | `planned` | LLM_Consultant | TK003 | — | guideline_standard_specs | — |
 | GATE-001 | `P-PH000-ST001-AC003-GATE-001` | **Gate: Client acceptance of P-STD-002**. Entry: TK004 complete. Reviewer: Client. Exit: explicit acceptance recorded. | `planned` | Client | TK004 | — | — | — |
 | TK005 | `P-PH000-ST001-AC003-TK005` | Update sps_P P-STD-002 row (status → `accepted`, canonical path, effective date) | `planned` | LLM_Consultant | GATE-001 | sps_P | P-STD-001-CLAUSE-012 | — |
@@ -77,34 +79,40 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 ---
 
-### Task TK001: Ingest P-RES-001 Report Recommendations
+### Task TK001: Ingest Combined Research Recommendations and Produce CDR Resolution Proposal
 
 **Task ID**: `P-PH000-ST001-AC003-TK001`
 
-**Purpose**: Extract and map P-RES-001 research findings to P-STD-002 CLAUSE domains.
+**Purpose**: Extract and map combined P-RES-001 and P-RES-002 research findings to P-STD-002 CLAUSE domains, and produce a CDR resolution proposal for Client confirmation.
 
-**Deliverable**: CLAUSE domain mapping (working document or inline in this plan as amendment).
+**Deliverables**:
+- Combined CLAUSE domain mapping with all 54 themes assigned to specific `P-STD-002-CLAUSE-###` slots
+- CDR resolution proposal: `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md`
 
 **Inputs Required**:
-- `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md` — Primary input
-- P-RES-001 integration recommendations (GATE-003 approved)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC001-TK003_integration-recommendations-P-RES-001.md` — P-RES-001 integration recommendations (baseline: 41 CLAUSE themes, 9 decisions)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC002-TK003_integration-recommendations-P-RES-002.md` — P-RES-002 integration recommendations (complement: 13 CLAUSE themes, 4 decisions, combined synthesis)
 
-**Planned CLAUSE domains (draft — subject to P-RES-001 findings)**:
-- **P-STD-002A — Status Vocabulary**: Canonical 7-state enum (`planned`, `ready`, `in_progress`, `blocked`, `on_hold`, `completed`, `cancelled`), meta-categories, transition rules
-- **P-STD-002B — Health Assessment**: RAG requirements, threshold framework, assessment dimensions
-- **P-STD-002C — Dependency Visibility**: Typed schema (FS/SS/FF/SF), categorization (mandatory/resource/discretionary/external/cross-team), risk levels
-- **P-STD-002D — Update Protocol**: Evidence linkage for terminal transitions, role accountability matrix, stale-state SLA placeholder (Phase 2)
-- **P-STD-002E — Status Artifact**: Schema requirements, format permissions (per P-CON-003B), placement rules, update protocol
+**Combined CLAUSE domain totals**:
+- **P-STD-002A — Status Vocabulary**: 11 CLAUSE themes (9 baseline + 2 P-RES-002: execution posture fields, manual-gate crosswalk)
+- **P-STD-002B — Health Assessment**: 7 CLAUSE themes (6 baseline + 1 P-RES-002: allowed-failure health impact rule)
+- **P-STD-002C — Dependency Visibility**: 11 CLAUSE themes (9 baseline + 2 P-RES-002: orchestration reference fields, category taxonomy extension)
+- **P-STD-002D — Update Protocol**: 13 CLAUSE themes (9 baseline + 4 P-RES-002: repo-verifiable evidence, evidence type taxonomy extension, aggregation policy, silent allowed-failure prohibition)
+- **P-STD-002E — Status Artifact**: 12 CLAUSE themes (8 baseline + 4 P-RES-002: execution reference schema, aggregation policy field, execution posture fields, MVAT)
 
 **Steps**:
-1. Read accepted P-RES-001 report in full
-2. For each CLAUSE domain above, extract: recommended approach, industry precedents cited, trade-offs, and specific field/enum/schema proposals
-3. Document the mapping as an amendment to this plan (TK001 Action column)
-4. Identify any gaps between research recommendations and the 5 CLAUSE domains above; propose domain additions if needed
+1. Read both integration recommendation packages in full
+2. For each CLAUSE domain, consolidate the combined CLAUSE theme tables from both analyses
+3. Assign preliminary `P-STD-002-CLAUSE-###` numbering across all 54 themes
+4. Produce CDR resolution proposal file at `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md` with recommended resolutions for all 13 consolidated decisions (CDR-01 through CDR-14)
+5. Present CDR proposal to Client for confirmation
+6. Record Client confirmations/overrides in the proposal file
 
 **Success Criteria**:
-- [ ] All P-RES-001 recommendations mapped to at least one CLAUSE domain
-- [ ] No research recommendation is unaddressed
+- [ ] All 54 CLAUSE themes mapped to specific CLAUSE slots
+- [ ] No research recommendation from either package is unaddressed
+- [ ] CDR resolution proposal produced and presented to Client
+- [ ] Client confirmation recorded for all 13 CDR entries
 
 ---
 
@@ -117,7 +125,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 **Deliverable**: `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md`
 
 **Inputs Required**:
-- TK001 CLAUSE domain mapping (primary)
+- TK001 combined CLAUSE domain mapping (primary — 54 themes across 5 domains)
+- TK001 CDR resolution proposal with Client-confirmed decisions (primary — 13 CDR entries)
 - `prompt/templates/consultant/standards/template_standard_specs.md` — Structural skeleton
 - `prompt/templates/consultant/standards/guideline_standard_specs.md` — Authoring rules
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` — Authority chain
@@ -127,10 +136,16 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 2. Fill frontmatter: `artifact_type: 'STANDARD'`, `initiative_id: 'P'`, `std_id: 'P-STD-002'`, `governed_by: 'P-STD-001'`
 3. Set heading: `# P-STD-002 — Program Status Standard`
 4. Author `## Specification` with substandard headings per planned domains (P-STD-002A through P-STD-002E)
-5. Author Specification Index per `P-STD-001-CLAUSE-002` (required if >5 CLAUSEs)
-6. For each substandard, author CLAUSEs using `P-STD-002-CLAUSE-###` format per `P-STD-001-CLAUSE-018B`
-7. Use `MUST`/`SHOULD`/`MAY` keywords per `P-STD-001-CLAUSE-008` (BCP 14 primary vocabulary)
-8. Include subclauses where needed per `P-STD-001-CLAUSE-020`
+5. For each substandard, incorporate P-RES-002-originated CLAUSE themes per the combined mapping:
+   - P-STD-002A: CLAUSE themes A-10 (Execution Posture Fields), A-11 (Manual-Gate Crosswalk)
+   - P-STD-002B: CLAUSE theme B-7 (Allowed-Failure Health Impact Rule)
+   - P-STD-002C: CLAUSE themes C-10 (Orchestration Reference Fields), C-11 (Category Taxonomy Extension)
+   - P-STD-002D: CLAUSE themes D-10 (Repo-Verifiable Evidence), D-11 (Evidence Type Taxonomy Extension), D-12 (Aggregation Policy Declaration), D-13 (Silent Allowed-Failure Prohibition)
+   - P-STD-002E: CLAUSE themes E-9 (Execution Reference Schema), E-10 (Aggregation Policy Field), E-11 (Execution Posture Fields), E-12 (MVAT Definition)
+6. Author Specification Index per `P-STD-001-CLAUSE-002` (required if >5 CLAUSEs)
+7. For each substandard, author CLAUSEs using `P-STD-002-CLAUSE-###` format per `P-STD-001-CLAUSE-018B`
+8. Use `MUST`/`SHOULD`/`MAY` keywords per `P-STD-001-CLAUSE-008` (BCP 14 primary vocabulary)
+9. Include subclauses where needed per `P-STD-001-CLAUSE-020`
 
 **Success Criteria**:
 - [ ] Combined file exists at canonical path
@@ -152,8 +167,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 **Steps**:
 1. Author `P-STD-002-ADR-001` body per `P-STD-001-CLAUSE-025` (DR Body Template)
 2. Required subheadings: Context, Decision, Alternatives Considered, Consequences
-3. Context MUST cite: P-RES-001 research findings, SES001 consultation decisions (DEC-001 through DEC-012), existing analysis file as seed
-4. Decision MUST document: 7-state enum choice, unified dependency schema choice, evidence linkage normative requirement, stale-state SLA deferral
+3. Context MUST cite: P-RES-001 research findings, P-RES-002 research findings, SES001 consultation decisions (DEC-001 through DEC-012), CDR resolution proposal (13 confirmed decisions), existing analysis file as seed
+4. Decision MUST document: 7-state enum choice (CDR-02/03), execution model boundary (CDR-01), unified dependency schema choice, evidence linkage normative requirement (CDR-09), aggregation policy requirement (CDR-10), evidence anchor choice (CDR-09), stale-state SLA deferral, and all other CDR-confirmed decisions
 5. Alternatives MUST include: 3-state enum (minimal), initiative-specific dependency models, evidence linkage as informative-only
 6. Consequences MUST include: guideline cascade requirement (positive), enum migration overhead (negative/neutral)
 
@@ -261,6 +276,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | Template | Standard specs template | `prompt/templates/consultant/standards/template_standard_specs.md` |
 | Informal Input | Relocated analysis (seed) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-research.md` |
 | Evidence | SES001 Transcript | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/raw_P-PH000-ST001-AC003-SES001.txt` |
+| Research Input | P-RES-001 Integration Recommendations | `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC001-TK003_integration-recommendations-P-RES-001.md` |
+| Research Input | P-RES-002 Integration Recommendations | `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC002-TK003_integration-recommendations-P-RES-002.md` |
+| Deliverable | CDR Resolution Proposal (TK001) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md` |
 
 ---
 
@@ -268,4 +286,5 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.2.0 | 2026-02-26 | Amendment | Plan amendment incorporating P-RES-002 research integration. Changes: (1) removed DRAFT banner, (2) added dual dependency on ST004-AC001 + ST004-AC002, (3) expanded TK001 scope to ingest both integration recommendation packages and produce CDR resolution proposal at `proposal/`, (4) enriched TK002 scope with 13 P-RES-002-originated CLAUSE themes (54 total), (5) enriched TK003 scope to cite both research inputs and address 13 consolidated decisions, (6) updated Links Register with research inputs and proposal deliverable. Evidence: consultant session 2026-02-26. |
 | v0.1.0 | 2026-02-23 | Initial | Draft activity plan created from AC003-SES001 consultation. Task register and CLAUSE domains are draft; subject to amendment after P-RES-001 integration sign-off (P-PH000-ST004-AC001-GATE-003). Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
