@@ -151,6 +151,8 @@
      |:--|:--|:--|
      | SPS | `sps_` | `sps_<SID>-<CODE>.md` |
      | Concept | `concept_` | `concept_<SID>-<CODE>.md` |
+     | Request | `request_` | `request_<SID>.md` |
+     | Design | `design_` | `design_<SID>.md` |
      | Roadmap | `roadmap_` | `roadmap_<SID>-<CODE>.md` |
      | Plan (timeline-derived) | `plan_` | Governed by `P-STD-005-CLAUSE-011A (Plan files)` |
      | Notes register/index (timeline-derived) | `notes_` | Governed by `P-STD-005-CLAUSE-011B (Notes registers)` |
@@ -196,6 +198,10 @@
    * **P-STD-004-CLAUSE-009G (Tooling)** — Archive operations MUST be implemented via the program archive tool (`prompt/scripts/archive_manager.py`), which MUST copy the file to the mirrored archive path using the selected archive tier.
 
 ## Decision Record
+
+| ADR ID | Title | Status | Supersedes | Date |
+|:--|:--|:--|:--|:--|
+| `P-STD-004-ADR-001` | Proposal Seed Adoption | `accepted` | — | 2026-02-27 |
 
 * **P-STD-004-ADR-001 (Proposal Seed Adoption)** {#p-std-004-adr-001-proposal-seed-adoption}
 

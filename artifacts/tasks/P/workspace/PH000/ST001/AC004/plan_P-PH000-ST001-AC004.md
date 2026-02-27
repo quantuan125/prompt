@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC004'
-version: '1.1.0'
-date: '2026-02-26'
+version: '1.2.0'
+date: '2026-02-27'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -53,14 +53,14 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 | Task | Task ID | Name | Status | Owner | Depends On | Target | Reference | Action |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
-| TK001 | `P-PH000-ST001-AC004-TK001` | Rapid Seed: Structural Promotion of Proposal v3.4.0 to P-STD-004 (draft) | `planned` | LLM_Developer | — | `standard_P-STD-004_...md` | Proposal v3.4.0, P-STD-001, P-STD-005, `guideline_standard_specs.md` | — |
-| TK001.1 | `P-PH000-ST001-AC004-TK001.1` | Produce Verification Evidence (GATE-001 readiness) | `planned` | LLM_Reviewer | TK001 | `verification_P-PH000-ST001-AC004_gate-001.md` | `guideline_workspace_verification.md`, `template_workspace_verification.md` | — |
-| GATE-001 | `P-PH000-ST001-AC004-GATE-001` | Client Review of Seeded P-STD-004 (draft) | `planned` | Client | TK001.1 | Pass/fail | — | — |
-| TK002 | `P-PH000-ST001-AC004-TK002` | Post-Seeding Gap/Risk/Issues Analysis | `planned` | LLM_Consultant | GATE-001 | `analysis_P-PH000-ST001-AC004_...md` | P-STD-004 (draft), P-STD-001, P-STD-005 | — |
-| TK002.1 | `P-PH000-ST001-AC004-TK002.1` | Produce Verification Evidence (GATE-002 readiness) | `planned` | LLM_Reviewer | TK002 | `verification_P-PH000-ST001-AC004_gate-002.md` | `guideline_workspace_verification.md`, `template_workspace_verification.md` | — |
-| GATE-002 | `P-PH000-ST001-AC004-GATE-002` | Client Review of Analysis Findings | `planned` | Client | TK002.1 | Pass/fail | — | — |
-| TK003 | `P-PH000-ST001-AC004-TK003` | Apply Analysis-Driven CLAUSE Amendments | `planned` | LLM_Developer | GATE-002 | `standard_P-STD-004_...md` | GATE-002 approved findings | — |
-| TK004 | `P-PH000-ST001-AC004-TK004` | Downstream Updates (SPS, workspace_documentation_rules.md, Binding Rule) | `planned` | LLM_Consultant | TK003 | `sps_P-PROGRAM.md`, `workspace_documentation_rules.md`, P-STD-004 | — | — |
+| TK001 | `P-PH000-ST001-AC004-TK001` | Rapid Seed: Structural Promotion of Proposal v3.4.0 to P-STD-004 (draft) | `completed` | LLM_Developer | — | `standard_P-STD-004_...md` | Proposal v3.4.0, P-STD-001, P-STD-005, `guideline_standard_specs.md` | Seeded `P-STD-004` draft created at `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`. |
+| TK001.1 | `P-PH000-ST001-AC004-TK001.1` | Produce Verification Evidence (GATE-001 readiness) | `completed` | LLM_Reviewer | TK001 | `verification_P-PH000-ST001-AC004_gate-001.md` | `guideline_workspace_verification.md`, `template_workspace_verification.md` | Verification evidence produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-001.md` (GDR recorded). |
+| GATE-001 | `P-PH000-ST001-AC004-GATE-001` | Client Review of Seeded P-STD-004 (draft) | `completed` | Client | TK001.1 | Pass/fail | — | Client Decision recorded in the GDR of `verification_P-PH000-ST001-AC004_gate-001.md`: APPROVE (2026-02-27). |
+| TK002 | `P-PH000-ST001-AC004-TK002` | Post-Seeding Gap/Risk/Issues Analysis | `completed` | LLM_Consultant | GATE-001 | `analysis_P-PH000-ST001-AC004_...md` | P-STD-004 (draft), P-STD-001, P-STD-005 | Analysis produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/analysis/analysis_P-PH000-ST001-AC004_p-std-004-proposal-seeding-assessment.md`. |
+| TK002.1 | `P-PH000-ST001-AC004-TK002.1` | Produce Verification Evidence (GATE-002 readiness) | `completed` | LLM_Reviewer | TK002 | `verification_P-PH000-ST001-AC004_gate-002.md` | `guideline_workspace_verification.md`, `template_workspace_verification.md` | Verification evidence produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-002.md` (GDR pending Client decision). |
+| GATE-002 | `P-PH000-ST001-AC004-GATE-002` | Client Review of Analysis Findings | `in_progress` | Client | TK002.1 | Pass/fail | — | Pending Client disposition + GDR update in `verification_P-PH000-ST001-AC004_gate-002.md`. |
+| TK003 | `P-PH000-ST001-AC004-TK003` | Apply Analysis-Driven CLAUSE Amendments | `planned` | LLM_Developer | GATE-002 | `standard_P-STD-004_...md` | GATE-002 approved findings | Blocked pending GATE-002 Client Decision recorded in the GDR. |
+| TK004 | `P-PH000-ST001-AC004-TK004` | Downstream Updates (SPS, workspace_documentation_rules.md, Binding Rule) | `planned` | LLM_Consultant | TK003 | `sps_P-PROGRAM.md`, `workspace_documentation_rules.md`, P-STD-004 | — | Blocked pending GATE-002 Client Decision recorded in the GDR (via TK003 completion). |
 | TK005 | `P-PH000-ST001-AC004-TK005` | Incorporate P Migration Findings | `planned` | LLM_Consultant | TK004, `T104-PH001-ST007-AC004` | `standard_P-STD-004_...md` | P migration evidence | — |
 | TK006 | `P-PH000-ST001-AC004-TK006` | Incorporate T102 Migration Findings | `planned` | LLM_Consultant | TK004, `T104-PH001-ST007-AC005` | `standard_P-STD-004_...md` | T102 migration evidence | — |
 | TK007 | `P-PH000-ST001-AC004-TK007` | Produce Verification Evidence (GATE-003 acceptance readiness) | `planned` | LLM_Reviewer | TK004 | `verification_P-PH000-ST001-AC004_gate-003.md` | `guideline_workspace_verification.md`, `template_workspace_verification.md` | — |
@@ -490,3 +490,4 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-02-26 | Initial | Activity plan created. Seed-First methodology (IEEE PAR + W3C Living CR pattern): rapid seed → post-seeding analysis → amendments → cross-initiative validation. 6 tasks + 3 gates. Evidence: AC004-SES002 consultation (2026-02-26). |
 | v1.1.0 | 2026-02-26 | Amendment | Added TK-before-gate verification tasks (TK001.1, TK002.1, TK007) per verification guideline; updated gate dependencies and exit criteria to require GDR recording; added GATE-003 timebox rule (7 days) for migration evidence deferrals; added SES002 notes + verification guideline/template to context and links. |
+| v1.2.0 | 2026-02-27 | Rebaseline | Rebaselined register statuses to enforce gate semantics: recorded GATE-001 APPROVE in GDR; committed TK002 analysis deliverable and TK002.1 verification evidence; set GATE-002 to `in_progress` pending Client GDR update; blocked TK003/TK004 until GATE-002 decision is recorded. |
