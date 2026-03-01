@@ -2,8 +2,8 @@
 artifact_type: 'SPS'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
-version: '0.6.0'
-date: '2026-02-25'
+version: '0.6.1'
+date: '2026-03-01'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -78,7 +78,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 | `P-STD-001` | **Program Governance Standard** | `accepted` | LLM_Consultant | 2026-02-22 | `T102-STD-004` | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | Review: all CLAUSEs re-identified; alias window documented; guideline/template aligned; gap remediation per promotion contract; SES003 derivative conformance audit passed | `P-STD-005` | — |
 | `P-STD-002` | **Program Status Standard** | `planned` | LLM_Consultant | — | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Review: broad-scope program-wide status governance — 7-state enum + transition rules, health/RAG assessment, unified dependency schema, evidence linkage, update protocol, status artifact specification; CI: enum validation + transition rule enforcement | `P-STD-001` | `P-RES-001` |
 | `P-STD-003` | **Program Governance Standards Model** | `planned` | LLM_Consultant | — | — | `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md` | Review: combined governance spec aligns with ADR-004 + ADR-009; enforce adoption/authoring requirements | `P-STD-001` | `T102-STD-009` |
-| `P-STD-004` | **File Naming & Directory Convention** | `planned` | LLM_Consultant | — | — | — | Review: initiative dirs conform to naming/directory rules; CI: lint file prefixes + directory structure | `P-STD-001` | — |
+| `P-STD-004` | **File Naming & Directory Convention** | `draft` | LLM_Consultant | — | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` | Review: initiative dirs conform to naming/directory rules; CI: lint file prefixes + directory structure | `P-STD-001` | — |
 | `P-STD-005` | **Universal ID Specification** | `draft` | LLM_Consultant | — | `T102-STD-005` | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` | CI: regex validation of all IDs; Review: scope/token compliance | `P-STD-001` | `T102-STD-005`, `T104-STD-002` |
 
 * **P-STD-001 (Program Governance Standard)** — All combined standard-specification files across `prompt/artifacts/tasks/**` MUST conform to the authoring model defined by this standard's canonical specification. Governs file structure, CLAUSE construction, substandard architecture, decision record format, STD index schema, conformance coupling, and specification lifecycle.
@@ -87,7 +87,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 * **P-STD-004 (File Naming & Directory Convention)** — All initiative directories under `prompt/artifacts/tasks/` SHALL follow standardized file naming prefixes and directory structure conventions. This standard will codify deterministic artifact placement to support agentic retrieval and cross-initiative consistency.
   - **Minimum Viable Conformance**: TBD (pending proposal from `T104-PH001-ST002-AC000`)
-  - Note: `Canonical Path = —` until normative specification is authored from the `T104-PH001-ST002-AC000` proposal.
+  - Canonical Path: `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`
 
 * **P-STD-005 (Universal ID Specification)** — All program and initiative artifacts SHALL conform to a unified ID specification governing scope IDs, tokenized IDs, timeline entity UIDs, and file naming derivations. This standard unifies workscope rules (superseding `T102-STD-005`) and absorbs timeline UID scope (planned as `T104-STD-002`) into a single program-level normative specification. `P-STD-003 (Governance Standards Model)` serves as an extension of this standard for `STD` token-type specifics.
   - **Minimum Viable Conformance**: All IDs conform to `P-STD-005-CLAUSE-001` (Patterns 1–4); formal references conform to `P-STD-005-CLAUSE-004` (Reference Semantics).
@@ -141,6 +141,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.6.1 | 2026-03-01 | Update | P-STD-004 registered as `draft` with Canonical Path set to the authored standard file. |
 | v0.6.0 | 2026-02-25 | Amendment | Registered `P-RES-002` in the Research table with brief + report links. |
 | v0.5.0 | 2026-02-23 | Amendment | P-STD-005 promotion recorded: status `draft`, supersedes `T102-STD-005`, canonical path set. P-STD-001 now governed by `P-STD-005`. P-NOTE-001 updated (RES allows Program scope). |
 | v0.4.0 | 2026-02-23 | Amendment | P-CON-003 revised to `(Artifact Format Governance)` with (A) MD for planning/SSOT, (B) non-MD permitted for programmatic artifacts (DEC-003). P-STD-002 row updated: broad-scope description, Canonical Path, Reference `P-RES-001` (DEC-001). P-RES-001 registered in Research table (DEC-007). Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |

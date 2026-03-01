@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '2.1.0'
-date: '2026-02-25'
+version: '2.3.0'
+date: '2026-03-01'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -34,7 +34,7 @@ Phase → Stream → Activity → Task
 | ROADMAP | `roadmap_` | Initiative master spine / phase execution | `prompt/templates/consultant/workspace/template_workspace_roadmap.md` | `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md` (Draft 2 STD alignment pending) |
 | NOTES (Register) | `notes_` | Index/navigation surface | `prompt/templates/consultant/workspace/template_workspace_notes_register_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | NOTES (Session) | `snotes_` | Session records | `prompt/templates/consultant/workspace/template_workspace_notes_session_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
-| ANALYSIS | `analysis_` | Research synthesis | `prompt/templates/consultant/workspace/template_workspace_analysis.md` | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` (Draft 1 planned) |
+| ANALYSIS | `analysis_` | Workspace synthesis/audits/assessments/external reviews (type-scoped via `analysis_type`) | `prompt/templates/consultant/workspace/template_workspace_analysis.md` | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` |
 | VERIFICATION | `verification_` | Gate evidence + findings register + rework handoff + Gate Decision Record (GDR) | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
 | PROPOSAL | `proposal_` | E-ID development workspace + promotion contract | `prompt/templates/consultant/workspace/template_workspace_proposal.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` (Draft 1 planned) |
 | DEV-REPORT | `dev-report_` | Developer execution log + plan traceability | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` (Draft 1 planned) | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` (Draft 1 planned) |
@@ -84,7 +84,7 @@ Phase → Stream → Activity → Task
 - NOTES: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
 - VERIFICATION: `prompt/templates/consultant/workspace/guideline_workspace_verification.md`
 - DEV-REPORT: `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` (Draft 1 planned — `T104-PH001-ST005-AC006`)
-- ANALYSIS: `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` (Draft 1 planned — `T104-PH001-ST005-AC007`)
+- ANALYSIS: `prompt/templates/consultant/workspace/guideline_workspace_analysis.md`
 - PROPOSAL: `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` (Draft 1 planned — `T104-PH001-ST005-AC008`)
 
 ---
@@ -118,7 +118,7 @@ Phase → Stream → Activity → Task
 ## 7. FILE NAMING & DIRECTORY CONVENTIONS
 
 This workspace adopts the approved directory and file naming conventions defined in:
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` (P-STD-004 proposal)
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` (`P-STD-004`)
 
 **Summary (workspace-relevant)**:
 - Artifact file prefixes MUST match artifact type (e.g., `plan_`, `notes_`, `roadmap_`, `analysis_`, `proposal_`).
@@ -155,13 +155,14 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 | `#` | Document title | — |
 | `##` | Major sections (Roman numerals) | I., II., III. |
 
-
 ---
 
 ## 10. CHANGELOG
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
-| v2.1.0 | 2026-02-25 | Update | Added VERIFICATION, DEV-REPORT, ANALYSIS, PROPOSAL to §3 Artifact Type Inventory with role owners. Added §4.D–G template entries. Added VERIFICATION/DEV-REPORT/ANALYSIS/PROPOSAL to §5 Guideline Inventory (Draft 1 planned). Updated §6 role boundaries: LLM_Verifier → LLM_Reviewer (canonical); Developer boundary clarified to include dev-reports; Consultant boundary extended to include analyses. Delivery planned under `T104-PH001-ST005` AC005–AC008. |
+| v2.3.0 | 2026-03-01 | Update | Marked ANALYSIS guideline as delivered and updated ANALYSIS purpose to multi-type (via `analysis_type`). |
+| v2.2.1 | 2026-03-01 | Update | §7 authority surface updated to reference `P-STD-004` (standard) instead of the seed proposal. |
 | v2.2.0 | 2026-02-25 | Update | §3: VERIFICATION description updated to include rework handoff and GDR. §5: VERIFICATION guideline updated from "planned" to delivered. §6.D: Reviewer boundary updated with TK-before-gate pattern and cross-reference migrated to verification guideline. Source: T104-PH001-ST005-AC005 delivery. |
+| v2.1.0 | 2026-02-25 | Update | Added VERIFICATION, DEV-REPORT, ANALYSIS, PROPOSAL to §3 Artifact Type Inventory with role owners. Added §4.D–G template entries. Added VERIFICATION/DEV-REPORT/ANALYSIS/PROPOSAL to §5 Guideline Inventory (Draft 1 planned). Updated §6 role boundaries: LLM_Verifier → LLM_Reviewer (canonical); Developer boundary clarified to include dev-reports; Consultant boundary extended to include analyses. Delivery planned under `T104-PH001-ST005` AC005–AC008. |
 | v2.0.0 | 2026-02-11 | Rewrite | Replaced legacy rules with template + guideline inventories, role boundaries, P-STD-004 reference, and anti-drift governance for PLAN/ROADMAP/NOTES (Draft 1) |

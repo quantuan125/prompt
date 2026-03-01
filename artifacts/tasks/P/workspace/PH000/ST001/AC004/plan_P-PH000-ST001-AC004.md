@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC004'
-version: '1.2.0'
-date: '2026-02-27'
+version: '1.6.0'
+date: '2026-03-01'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -48,6 +48,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` (downstream update target)
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/plan_P-PH000-ST001-AC004.md` (this plan)
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/snotes/snotes_P-PH000-ST001-AC004-SES002.md` (SES002 decisions: Seed-First + analysis/proposal stream-level enforcement)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/snotes/snotes_P-PH000-ST001-AC004-SES003.md` (SES003 decisions: placement policy, archive model, reference semantics)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/analysis/analysis_P-PH000-ST001-AC004-GATE-002_external-review-disposition.md` (external review analysis supporting GATE-002 package)
 
 ### Task Register
 
@@ -57,14 +59,21 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | TK001.1 | `P-PH000-ST001-AC004-TK001.1` | Produce Verification Evidence (GATE-001 readiness) | `completed` | LLM_Reviewer | TK001 | `verification_P-PH000-ST001-AC004_gate-001.md` | `guideline_workspace_verification.md`, `template_workspace_verification.md` | Verification evidence produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-001.md` (GDR recorded). |
 | GATE-001 | `P-PH000-ST001-AC004-GATE-001` | Client Review of Seeded P-STD-004 (draft) | `completed` | Client | TK001.1 | Pass/fail | — | Client Decision recorded in the GDR of `verification_P-PH000-ST001-AC004_gate-001.md`: APPROVE (2026-02-27). |
 | TK002 | `P-PH000-ST001-AC004-TK002` | Post-Seeding Gap/Risk/Issues Analysis | `completed` | LLM_Consultant | GATE-001 | `analysis_P-PH000-ST001-AC004_...md` | P-STD-004 (draft), P-STD-001, P-STD-005 | Analysis produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/analysis/analysis_P-PH000-ST001-AC004_p-std-004-proposal-seeding-assessment.md`. |
-| TK002.1 | `P-PH000-ST001-AC004-TK002.1` | Produce Verification Evidence (GATE-002 readiness) | `completed` | LLM_Reviewer | TK002 | `verification_P-PH000-ST001-AC004_gate-002.md` | `guideline_workspace_verification.md`, `template_workspace_verification.md` | Verification evidence produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-002.md` (GDR pending Client decision). |
-| GATE-002 | `P-PH000-ST001-AC004-GATE-002` | Client Review of Analysis Findings | `in_progress` | Client | TK002.1 | Pass/fail | — | Pending Client disposition + GDR update in `verification_P-PH000-ST001-AC004_gate-002.md`. |
-| TK003 | `P-PH000-ST001-AC004-TK003` | Apply Analysis-Driven CLAUSE Amendments | `planned` | LLM_Developer | GATE-002 | `standard_P-STD-004_...md` | GATE-002 approved findings | Blocked pending GATE-002 Client Decision recorded in the GDR. |
-| TK004 | `P-PH000-ST001-AC004-TK004` | Downstream Updates (SPS, workspace_documentation_rules.md, Binding Rule) | `planned` | LLM_Consultant | TK003 | `sps_P-PROGRAM.md`, `workspace_documentation_rules.md`, P-STD-004 | — | Blocked pending GATE-002 Client Decision recorded in the GDR (via TK003 completion). |
+| TK002.1 | `P-PH000-ST001-AC004-TK002.1` | Produce Verification Evidence (GATE-002 readiness) | `completed` | LLM_Reviewer | TK002 | `verification_P-PH000-ST001-AC004_gate-002.md` | `guideline_workspace_verification.md`, `template_workspace_verification.md` | Verification evidence produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-002.md` (GDR recorded: APPROVE, 2026-03-01). |
+| TK002.2 | `P-PH000-ST001-AC004-TK002.2` | GIR Disposition Proposal (GATE-002 decision package) | `completed` | LLM_Consultant | TK002.1 | `proposal_P-PH000-ST001-AC004-TK002.2_...md` | TK002 analysis + TK002.1 verification | Proposal produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC004-TK002.2_gir-disposition-package.md` (Client dispositions recorded 2026-03-01). |
+| TK002.3 | `P-PH000-ST001-AC004-TK002.3` | External Review Analysis (GATE-002 package) | `completed` | LLM_Consultant | TK002.2 | `analysis_P-PH000-ST001-AC004-GATE-002_external-review-disposition.md` | `analysis_type: external_review` exemplar + GATE-002 package | External review analysis produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/analysis/analysis_P-PH000-ST001-AC004-GATE-002_external-review-disposition.md`. |
+| GATE-002 | `P-PH000-ST001-AC004-GATE-002` | Client Review of Analysis Findings | `completed` | Client | TK002.2 | Pass/fail | — | Client Decision recorded in the GDR of `verification_P-PH000-ST001-AC004_gate-002.md`: APPROVE (2026-03-01). Decision Reference: `proposal_P-PH000-ST001-AC004-TK002.2_gir-disposition-package.md`. |
+| TK003 | `P-PH000-ST001-AC004-TK003` | Apply Analysis-Driven CLAUSE Amendments | `completed` | LLM_Developer | GATE-002 | `standard_P-STD-004_...md` | GATE-002 approved findings | GATE-002-approved GIR remediations applied to `standard_P-STD-004_file-naming-and-directory-convention.md` (including archive model, `<scope-UID>`, and reference resilience). |
+| TK003.1 | `P-PH000-ST001-AC004-TK003.1` | Clarify Formal Reference vs Subclause Reference (P-STD-005) | `completed` | LLM_Developer | GATE-002 | `standard_P-STD-005_...md` | GIR-010 disposition (GATE-002) | P-STD-005 amended: `P-STD-005-CLAUSE-004E` clarifies full formal reference vs subclause pointer usage. |
+| TK003.2 | `P-PH000-ST001-AC004-TK003.2` | (Superseded) Work Package: GIR-006 Stream-Only `analysis/` + `proposal/` Migration & Enforcement | `cancelled` | LLM_Consultant | GATE-002 | — | — | Superseded by GATE-002 (2026-03-01): `analysis/` + `proposal/` MAY be activity-level when placement matches `<scope-UID>`; stream-only migration/enforcement no longer applies. |
+| TK003.3 | `P-PH000-ST001-AC004-TK003.3` | Work Package: GIR-011 `_gate-###` Verification Filename Normalization & Enforcement | `completed` | LLM_Consultant | GATE-002 | `T104-PH001-ST007` | GIR-011 (approved option b) + repo inventory | Work package recorded under TK003.3 (authoritative rename inventory + deterministic rename targets + enforcement requirements). |
+| TK003.4 | `P-PH000-ST001-AC004-TK003.4` | Amend P-STD-004: Activity-Level `analysis/` + `proposal/` Allowed with `<scope-UID>` Match | `completed` | LLM_Developer | GATE-002 | `standard_P-STD-004_...md` | GATE-002 placement policy decision (2026-03-01) | P-STD-004 amended: activity-level `analysis/` and `proposal/` allowed with `<scope-UID>` placement alignment rule. |
+| TK004 | `P-PH000-ST001-AC004-TK004` | Downstream Updates (SPS, workspace_documentation_rules.md, Binding Rule) | `completed` | LLM_Consultant | TK003 | `sps_P-PROGRAM.md`, `workspace_documentation_rules.md`, P-STD-004 | — | Downstream updates applied: SPS `P-STD-004` row updated with Canonical Path; `workspace_documentation_rules.md` §7 retargeted to `P-STD-004`; binding-by-reference rule added to `P-STD-004-CLAUSE-002E`. |
 | TK005 | `P-PH000-ST001-AC004-TK005` | Incorporate P Migration Findings | `planned` | LLM_Consultant | TK004, `T104-PH001-ST007-AC004` | `standard_P-STD-004_...md` | P migration evidence | — |
 | TK006 | `P-PH000-ST001-AC004-TK006` | Incorporate T102 Migration Findings | `planned` | LLM_Consultant | TK004, `T104-PH001-ST007-AC005` | `standard_P-STD-004_...md` | T102 migration evidence | — |
 | TK007 | `P-PH000-ST001-AC004-TK007` | Produce Verification Evidence (GATE-003 acceptance readiness) | `planned` | LLM_Reviewer | TK004 | `verification_P-PH000-ST001-AC004_gate-003.md` | `guideline_workspace_verification.md`, `template_workspace_verification.md` | — |
 | GATE-003 | `P-PH000-ST001-AC004-GATE-003` | Cross-Initiative Validation: P-STD-004 draft → accepted | `planned` | Client | TK007 | Pass/fail | P-RISK-002 | — |
+| TK008 | `P-PH000-ST001-AC004-TK008` | DISCUSSION: Constructing ST007 Plan Updates (Placement Policy + Tooling Impacts) | `planned` | LLM_Consultant | GATE-003 | `plan_T104-PH001-ST007.md` (discussion target only) | — | — |
 
 ---
 
@@ -276,12 +285,41 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 ---
 
+### Task TK002.2: GIR Disposition Proposal (GATE-002 Decision Package)
+
+**Task ID**: `P-PH000-ST001-AC004-TK002.2`
+
+**Purpose**: Convert TK002’s GIR register into a decision-ready disposition package for the Client at GATE-002. This proposal enumerates every GIR item with options, a consultant recommendation, and a Client decision checkbox. The completed proposal serves as the authoritative per-GIR disposition record; the GATE-002 GDR references this proposal as its decision package.
+
+**Deliverable**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC004-TK002.2_gir-disposition-package.md`
+
+**Inputs Required**:
+- TK002 analysis deliverable
+- TK002.1 verification evidence
+- P-STD-004 (draft)
+
+**Steps**:
+1. Read the TK002 analysis GIR register (GIR-001…GIR-011) and remediation text.
+2. For each GIR item, author a disposition entry with: options (resolve/accept/defer), recommendation, rationale, and explicit execution target (TK003 / TK003.1 / T104-PH001-ST007).
+3. Include a Client checkbox decision line per GIR item plus a final Client confirmation block.
+
+**Success Criteria**:
+- [ ] Proposal artifact exists at the deliverable path
+- [ ] Every GIR item (GIR-001…GIR-011) has an explicit recommended resolution with rationale
+- [ ] Each GIR item includes a Client decision checkbox block
+- [ ] Downstream execution mapping is explicit (TK003 vs TK003.1 vs T104-PH001-ST007)
+
+---
+
 ### GATE-002: Client Review of Analysis Findings
 
 **Task ID**: `P-PH000-ST001-AC004-GATE-002`
 
 **Entry Criteria**:
 - TK002.1 complete (verification evidence produced)
+- TK002.2 complete (GIR disposition proposal authored)
+- TK002.3 complete (external review analysis package produced)
 - Analysis artifact fully authored
 
 **Reviewer**: Client
@@ -290,7 +328,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - Client approves GIR dispositions (resolve/accept/defer per item)
 - Client approves file naming normalization recommendations
 - No blocking findings remain unaddressed
-- Client decision recorded in the GDR section of `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-002.md`
+- Client dispositions recorded in `proposal_P-PH000-ST001-AC004-TK002.2_gir-disposition-package.md`
+- Client decision recorded in the GDR section of `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-002.md` with `Decision Reference` pointing to TK002.2
 
 ---
 
@@ -322,6 +361,140 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - [ ] Specification Index accurate post-amendment
 - [ ] Cross-scope references verified
 - [ ] No normative semantic drift from proposal v3.4.0 intent
+
+---
+
+### Task TK003.1: Clarify Formal Reference vs Subclause Reference (P-STD-005)
+
+**Task ID**: `P-PH000-ST001-AC004-TK003.1`
+
+**Purpose**: Implement the GATE-002 disposition for GIR-010 by clarifying P-STD-005 reference semantics. Specifically: clarify that the full formal reference format applies to main CLAUSE IDs (and standard tokens) only, while subclause IDs may appear only as inline short-hand pointers.
+
+**Deliverable**:
+- Updated `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md`
+
+**Depends On**: GATE-002
+
+**Inputs Required**:
+- GATE-002-approved GIR-010 disposition (recorded in TK002.2 proposal)
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md`
+
+**Steps**:
+1. Read the GIR-010 disposition as recorded in the TK002.2 proposal file.
+2. Amend `P-STD-005-CLAUSE-004` to explicitly distinguish:
+   - Full formal references (main CLAUSE IDs and standard tokens)
+   - Subclause IDs as inline pointers only (not full-formal references)
+3. Verify that the amended language does not introduce contradictions with existing cross-scope reference examples.
+4. Bump P-STD-005 version in frontmatter/Provenance per P-STD-001 lifecycle rules.
+
+**Success Criteria**:
+- [ ] `P-STD-005-CLAUSE-004` explicitly constrains full formal references to main CLAUSE IDs and standard tokens
+- [ ] Subclause pointer usage is clarified as inline short-hand only
+- [ ] No contradictory examples remain in P-STD-005 References section
+
+---
+
+### Task TK003.2: (Superseded) Work Package — GIR-006 Stream-Only `analysis/` + `proposal/` Migration & Enforcement
+
+**Task ID**: `P-PH000-ST001-AC004-TK003.2`
+
+**Purpose**: **Cancelled (superseded)**. This task previously tracked migration/enforcement work to keep `analysis/` and `proposal/` stream-level only. It is superseded by the GATE-002 Client decision (2026-03-01) allowing activity-level `analysis/` and `proposal/` when placement matches `<scope-UID>` (implemented via TK003.4).
+
+**Depends On**: GATE-002
+
+**Deliverable**: — (cancelled)
+
+**Inputs Required**: —
+
+**Steps**: —
+
+**Success Criteria**:
+- [ ] Task is explicitly cancelled with supersession rationale recorded (Task Register Action + this task section).
+
+---
+
+### Task TK003.3: Work Package — GIR-011 `_gate-###` Verification Filename Normalization & Enforcement
+
+**Task ID**: `P-PH000-ST001-AC004-TK003.3`
+
+**Purpose**: Implement the approved GATE-002 disposition for GIR-011 by making the rename/enforcement work explicit and trackable within this activity plan while keeping execution in `T104-PH001-ST007`. This task produces a deterministic work package: (a) rename inventory/mapping for existing `-GATE-###` verification files, and (b) enforcement requirements to ensure T102’s first migration iteration conforms from the start.
+
+**Depends On**: GATE-002
+
+**Deliverable**:
+- Work package content recorded under this task section and referenced from the GIR-011 disposition in `proposal_P-PH000-ST001-AC004-TK002.2_gir-disposition-package.md`
+
+**Inputs Required**:
+- Repository scan inventory of non-conformant verification filenames (pattern: `verification_*-GATE-###*.md`)
+- GATE-002 GIR-011 disposition (recorded in TK002.2 proposal)
+
+**Work package (authoritative inventory + deterministic mapping)**:
+
+**Rename rule**:
+- Replace `-GATE-###` with `_gate-###` in verification filenames (underscore + lowercase qualifier).
+
+**Authoritative inventory (repo scan)**:
+The following files are the complete set of known `verification_*-GATE-###*.md` non-conformant instances (scan pattern `verification_*GATE-*.md` under `prompt/artifacts/tasks/`):
+
+| Current path (non-conformant) | Rename target (conformant) |
+|:--|:--|
+| `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/verification/verification_P-PH000-ST001-AC002-GATE-002_tk005-supplement.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/verification/verification_P-PH000-ST001-AC002_gate-002_tk005-supplement.md` |
+| `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001-GATE-002_report-acceptance_P-RES-001.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001_gate-002_report-acceptance_P-RES-001.md` |
+| `prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC002/verification/verification_P-PH000-ST004-AC002-GATE-002_report-acceptance.md` | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC002/verification/verification_P-PH000-ST004-AC002_gate-002_report-acceptance.md` |
+| `prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC002/verification/verification_P-PH000-ST004-AC002-GATE-002_report-acceptance_iteration-2.md` | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC002/verification/verification_P-PH000-ST004-AC002_gate-002_report-acceptance_iteration-2.md` |
+| `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_commissioning-readiness.md` | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_commissioning-readiness.md` |
+| `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_convention-compliance.md` | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_convention-compliance.md` |
+| `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_p-migration-readiness.md` | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_p-migration-readiness.md` |
+| `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-002_post-migration-quality.md` | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-002_post-migration-quality.md` |
+
+**Reference-update requirements**:
+- For each renamed file, update any in-repo references that cite the old path/name, including (non-exhaustive): stream/activity plans, verification “Decision Reference” fields, notes registers, session notes, and any scripts that contain hard-coded paths.
+- Minimum mechanical check: search for `-GATE-00` and update references to the new `_gate-00` paths.
+
+**Enforcement requirements (T104-PH001-ST007 scope)**:
+- Validators and migration/scaffolding tools MUST reject new verification artifacts using `-GATE-###` and MUST enforce `_gate-###`.
+- T102 first-migration iteration MUST use `_gate-###` from the start (no `-GATE-###` legacy tolerance).
+
+**Success Criteria Checklist**:
+- [ ] Work package enumerates all known `-GATE-###` verification files (by exact path)
+- [ ] Each item includes a deterministic rename target using `_gate-###`
+- [ ] Enforcement requirements explicitly call out T102 first-migration strictness (no `-GATE-###`)
+
+---
+
+### Task TK003.4: Amend P-STD-004 — Activity-Level `analysis/` + `proposal/` Allowed with `<scope-UID>` Match
+
+**Task ID**: `P-PH000-ST001-AC004-TK003.4`
+
+**Purpose**: Implement the GATE-002 Client decision (2026-03-01) that `analysis/` and `proposal/` artifacts MAY be stored at **activity level** (and stream level) as long as directory placement matches the `<scope-UID>` used in the filename. This supersedes the prior stream-only restriction and resolves GIR-006 as a **spec change** rather than a migration/enforcement package.
+
+**Depends On**: GATE-002
+
+**Deliverable**:
+- Updated `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`
+
+**Scope**:
+- In scope:
+  - Amend P-STD-004 to allow `analysis/` and `proposal/` directories at activity level.
+  - Add a deterministic scope-alignment rule: placement MUST match `<scope-UID>` (e.g., AC-scoped filenames belong under their matching `AC###/`).
+  - Update any contradictory illustrative workspace skeletons and placement bullets.
+- Out of scope:
+  - Moving/renaming existing artifacts to match the new rule (explicitly deferred).
+
+**Inputs Required**:
+- GATE-002 decisions as recorded in `proposal_P-PH000-ST001-AC004-TK002.2_gir-disposition-package.md`
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`
+- `prompt/scripts/validate_initiative_structure.py` (current placement enforcement behavior)
+
+**Steps**:
+1. Identify all P-STD-004 clauses that define analysis/proposal placement and update them to permit activity-level usage.
+2. Add/adjust the normative scope-alignment rule tying `<scope-UID>` to placement.
+3. Update illustrative skeleton(s) and any “stream-only” wording to match the new policy.
+
+**Success Criteria**:
+- [ ] P-STD-004 no longer prohibits activity-level `analysis/`/`proposal/` placement.
+- [ ] A scope-alignment rule is normative and unambiguous (placement MUST match `<scope-UID>`).
+- [ ] No illustrative skeleton contradicts the amended policy.
 
 ---
 
@@ -461,6 +634,46 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 ---
 
+### Task TK008: DISCUSSION — Constructing ST007 Plan Updates (Placement Policy + Tooling Impacts)
+
+**Task ID**: `P-PH000-ST001-AC004-TK008`
+
+**Purpose**: After GATE-003, produce an agreement on **how and where** to construct any required updates to the T104 migration stream plan (`plan_T104-PH001-ST007.md`) resulting from AC004 decisions (notably: analysis/proposal placement policy and any tooling implications). This task does not directly edit ST007 artifacts; it produces an agreed construction approach and copy/paste-ready insert blocks.
+
+**Depends On**: GATE-003
+
+**Deliverable**:
+- Discussion outcome recorded under this task section, including:
+  - one recommended construction location (ST007 stream plan vs ST007 activity plan) for any changes,
+  - copy/paste-ready insert blocks (task rows + section stubs),
+  - named execution owner + sequencing dependencies.
+
+**Scope**:
+- In scope:
+  - Decide where ST007 plan changes should live (and why).
+  - Specify which ST007 activity (or plan section) will own any needed work (policy alignment, tooling alignment, optional retrofit).
+- Out of scope:
+  - Executing plan edits or any migrations/tool changes.
+
+**Inputs Required**:
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` (post-TK003/TK003.4)
+- `prompt/scripts/validate_initiative_structure.py` (current placement enforcement behavior)
+- `prompt/scripts/archive_manager.py` (tooling reference surface for archive strategy)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` (discussion target)
+
+**Steps**:
+1. Inventory ST007-facing impacts of the AC004 decisions (placement policy and any tooling alignment implications).
+2. Choose and document the construction location for ST007 plan updates (recommend one; record rationale).
+3. Produce copy/paste-ready insert blocks for the chosen ST007 plan location (task rows + section stubs).
+4. Record the execution owner and dependency sequencing for the future ST007 changeset.
+
+**Success Criteria**:
+- [ ] One construction location is selected with rationale.
+- [ ] Insert blocks are complete and copy/paste-ready.
+- [ ] Execution owner + sequencing dependencies are explicit.
+
+---
+
 ## IV. LINKS REGISTER
 
 | Link Type | Target | Path |
@@ -477,10 +690,13 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | Input | Proposal v3.4.0 (primary seed) | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` |
 | Input | AC004 SES001 Notes | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/snotes/snotes_P-PH000-ST001-AC004-SES001.md` |
 | Input | AC004 SES002 Notes | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/snotes/snotes_P-PH000-ST001-AC004-SES002.md` |
+| Input | AC004 SES003 Notes | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/snotes/snotes_P-PH000-ST001-AC004-SES003.md` |
 | Downstream | workspace_documentation_rules.md | `prompt/templates/consultant/workspace/workspace_documentation_rules.md` |
 | Cross-stream | T104-PH001-ST007 (migration stream) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
 | Deliverable | P-STD-004 | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` |
 | Deliverable | Post-seeding Analysis | `prompt/artifacts/tasks/P/workspace/PH000/ST001/analysis/analysis_P-PH000-ST001-AC004_p-std-004-proposal-seeding-assessment.md` |
+| Deliverable | GIR Disposition Proposal (TK002.2) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC004-TK002.2_gir-disposition-package.md` |
+| Deliverable | External Review Analysis (GATE-002 package) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/analysis/analysis_P-PH000-ST001-AC004-GATE-002_external-review-disposition.md` |
 
 ---
 
@@ -491,3 +707,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | v1.0.0 | 2026-02-26 | Initial | Activity plan created. Seed-First methodology (IEEE PAR + W3C Living CR pattern): rapid seed → post-seeding analysis → amendments → cross-initiative validation. 6 tasks + 3 gates. Evidence: AC004-SES002 consultation (2026-02-26). |
 | v1.1.0 | 2026-02-26 | Amendment | Added TK-before-gate verification tasks (TK001.1, TK002.1, TK007) per verification guideline; updated gate dependencies and exit criteria to require GDR recording; added GATE-003 timebox rule (7 days) for migration evidence deferrals; added SES002 notes + verification guideline/template to context and links. |
 | v1.2.0 | 2026-02-27 | Rebaseline | Rebaselined register statuses to enforce gate semantics: recorded GATE-001 APPROVE in GDR; committed TK002 analysis deliverable and TK002.1 verification evidence; set GATE-002 to `in_progress` pending Client GDR update; blocked TK003/TK004 until GATE-002 decision is recorded. |
+| v1.3.0 | 2026-02-28 | Amendment | Added TK002.2 GIR disposition proposal deliverable for GATE-002 decision readiness; updated GATE-002 dependencies and entry/exit criteria; added TK003.1 follow-on task for GIR-010 (P-STD-005 reference clarification). |
+| v1.4.0 | 2026-02-28 | Amendment | QA updates: added TK003.2 (GIR-006 stream-only `analysis/`/`proposal/` migration + enforcement work package) and TK003.3 (GIR-011 `_gate-###` rename + enforcement work package) so option (b) deferrals are explicitly planned/tracked in AC004 while execution remains in `T104-PH001-ST007`; aligns with secondary-vision cleanup for `P/**` and `T104/**` and strict first-migration conformance for `T102/**`. |
+| v1.5.0 | 2026-03-01 | Amendment | GATE-002 package updates: added TK002.3 external review analysis deliverable; cancelled (superseded) TK003.2 stream-only migration work package; added TK003.4 placement-policy amendment task; added post–GATE-003 TK008 discussion task for agreeing ST007 plan update construction. |
+| v1.6.0 | 2026-03-01 | Update | Recorded GATE-002 APPROVE in the task register; marked TK003/TK003.1/TK003.3/TK003.4 and TK004 as completed; expanded TK003.3 with an authoritative `-GATE-###` rename inventory and deterministic rename targets. |

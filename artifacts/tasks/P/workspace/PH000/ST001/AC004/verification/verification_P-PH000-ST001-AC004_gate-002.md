@@ -7,8 +7,8 @@ phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC004'
 gate_id: 'P-PH000-ST001-AC004-GATE-002'
-version: '1.0.0'
-date: '2026-02-27'
+version: '1.1.0'
+date: '2026-03-01'
 status: 'draft'
 author: 'LLM_Reviewer'
 decision_owner_role: 'Client'
@@ -139,11 +139,11 @@ The session notes reference a raw transcript (`raw_P-PH000-ST001-AC004-SES003.tx
 |:--|:--|
 | Gate ID | `P-PH000-ST001-AC004-GATE-002` |
 | Reviewer Verdict | PASS |
-| Client Decision | pending |
+| Client Decision | APPROVE |
 | Conditions (if any) | — |
 | Decided By | Client |
-| Decision Date | — |
-| Decision Reference | pending |
+| Decision Date | 2026-03-01 |
+| Decision Reference | `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC004-TK002.2_gir-disposition-package.md` |
 
 ---
 
@@ -164,4 +164,4 @@ The session notes reference a raw transcript (`raw_P-PH000-ST001-AC004-SES003.tx
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-02-27 | Initial | Initial GATE-002 verification for TK002 analysis readiness. Verdict: PASS. GDR pending Client decision. |
-
+| v1.1.0 | 2026-03-01 | Update | GDR updated with Client decision and Decision Reference to the approved GIR disposition package (TK002.2). |

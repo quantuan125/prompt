@@ -35,6 +35,8 @@
 
    * **P-STD-004-CLAUSE-001C (On-demand creation rule)** — Subdirectories other than the root-level set in `P-STD-004-CLAUSE-001A` MAY be created on-demand when the first artifact requiring that directory is created.
 
+   * **P-STD-004-CLAUSE-001D (Non-canonical roots for new initiatives)** — For new initiatives, root directories under `prompt/artifacts/tasks/<SID>/` SHOULD be limited to the canonical set in `P-STD-004-CLAUSE-001A`. If an additional root directory is introduced, it MUST be explicitly documented as an exception by governance at the initiative scope.
+
 2) **P-STD-004-CLAUSE-002 (Standard Placement)**
 
    Combined standard-specification files MUST be placed and named according to the designated standards directory and standard filename format.
@@ -45,7 +47,9 @@
 
    * **P-STD-004-CLAUSE-002C (Slug rules)** — `<kebab-title>` MUST be lowercase kebab-case; spaces MUST be replaced with `-`; repeated `-` MUST be collapsed; non-alphanumeric characters MUST be removed or replaced with `-`.
 
-   * **P-STD-004-CLAUSE-002D (Legacy grandfathering)** — Legacy standards directories (e.g., T102 role-scoped roots) MAY remain as read-only historical artifacts during migrations; new authoring MUST use `P-STD-004-CLAUSE-002A`.
+   * **P-STD-004-CLAUSE-002D (Legacy role-scoped roots)** — Legacy role-scoped root directories (e.g., `consultant/`, `planner/`, `developer/`, `reviewer/`, and legacy standards directories) MAY remain as read-only historical artifacts during migrations; new authoring MUST use `P-STD-004-CLAUSE-002A` and MUST NOT create new role-scoped root directories.
+
+   * **P-STD-004-CLAUSE-002E (Downstream adoption by reference)** — Adopter initiatives SHALL adopt `P-STD-004` by reference as the normative authority for file naming and directory conventions under `prompt/artifacts/tasks/**`. Adopters MUST NOT duplicate or restate `P-STD-004` obligations in initiative-local plans; initiative-local documentation MAY link to relevant `P-STD-004` CLAUSE IDs for context.
 
 3) **P-STD-004-CLAUSE-003 (Timeline Hierarchy)**
 
@@ -57,11 +61,13 @@
 
    * **P-STD-004-CLAUSE-003C (Stream-level type subdirectories)** — Stream-level type subdirectories MUST be limited to: `raw/`, `snotes/`, `proposal/`, `analysis/`, `communication/`.
 
-   * **P-STD-004-CLAUSE-003D (Activity-level type subdirectories)** — Activity-level type subdirectories MUST be limited to: `snotes/`, `raw/`, `verification/`, `dev-report/`.
+   * **P-STD-004-CLAUSE-003D (Activity-level type subdirectories)** — Activity-level type subdirectories MUST be limited to: `snotes/`, `raw/`, `verification/`, `dev-report/`, `proposal/`, `analysis/`.
 
    * **P-STD-004-CLAUSE-003E (AC directory trigger rule)** — An `AC###/` directory MUST exist when any associated file’s UID contains an `AC###` token; UID identity is the sole trigger (file-count heuristics MUST NOT be used).
 
-   * **P-STD-004-CLAUSE-003F (Stream-only restriction for analysis/proposal)** — `analysis/` and `proposal/` directories MUST be stream-level only and MUST NOT be created under `AC###/`.
+   * **P-STD-004-CLAUSE-003F (Scope-aligned placement for analysis/proposal)** — `analysis/` and `proposal/` directories MAY exist at stream level and activity level. Placement MUST match the `<scope-UID>` used in the artifact filename:
+     - If `<scope-UID>` contains an `AC###` token, the artifact MUST be placed under `workspace/PH###/ST###/AC###/analysis/` or `workspace/PH###/ST###/AC###/proposal/` as appropriate.
+     - Otherwise, the artifact MUST be placed under `workspace/PH###/ST###/analysis/` or `workspace/PH###/ST###/proposal/` as appropriate.
 
    * **P-STD-004-CLAUSE-003G (Sub-activity plan placement)** — Sub-activity plans with dot-notation IDs (`AC###.N`) MUST be placed under the parent activity directory `AC###/`.
 
@@ -89,6 +95,8 @@
                  ├── plan_...-AC###[.N].md
                  ├── snotes/
                  ├── raw/
+                 ├── proposal/
+                 ├── analysis/
                  ├── verification/
                  └── dev-report/
      ```
@@ -154,18 +162,22 @@
      | Request | `request_` | `request_<SID>.md` |
      | Design | `design_` | `design_<SID>.md` |
      | Roadmap | `roadmap_` | `roadmap_<SID>-<CODE>.md` |
-     | Plan (timeline-derived) | `plan_` | Governed by `P-STD-005-CLAUSE-011A (Plan files)` |
-     | Notes register/index (timeline-derived) | `notes_` | Governed by `P-STD-005-CLAUSE-011B (Notes registers)` |
-     | Session notes (timeline-derived) | `snotes_` | Governed by `P-STD-005-CLAUSE-011C (Session notes)` |
-     | Raw transcript (timeline-derived) | `raw_` | Governed by `P-STD-005-CLAUSE-011D (Raw transcripts)` |
-     | Verification (gate evidence) | `verification_` | Governed by `P-STD-005-CLAUSE-011E (Verification evidence)` |
-     | Developer report | `dev-report_` | `dev-report_<activity-UID>_<date>.md` (date = `YYYY-MM-DD`) |
-     | Proposal | `proposal_` | `proposal_<context>_<kebab-topic>.md` |
-     | Analysis | `analysis_` | `analysis_<context>_<kebab-topic>.md` |
-     | Communication | `comm_` | `comm_<context>_<kebab-topic>.md` |
+     | Plan (timeline-derived) | `plan_` | Governed by `P-STD-005-CLAUSE-011` |
+     | Notes register/index (timeline-derived) | `notes_` | Governed by `P-STD-005-CLAUSE-011` |
+     | Session notes (timeline-derived) | `snotes_` | Governed by `P-STD-005-CLAUSE-011` |
+     | Raw transcript (timeline-derived) | `raw_` | Governed by `P-STD-005-CLAUSE-011` |
+     | Verification (gate evidence) | `verification_` | Governed by `P-STD-005-CLAUSE-011` |
+     | Developer report | `dev-report_` | `dev-report_<activity-UID>_<date>.md` OR `dev-report_<activity-UID>_<kebab-topic>_<date>.md` (date = `YYYY-MM-DD`) |
+     | Proposal | `proposal_` | `proposal_<scope-UID>_<kebab-topic>.md` |
+     | Analysis | `analysis_` | `analysis_<scope-UID>_<kebab-topic>.md` |
+     | Communication | `comm_` | `comm_<scope-UID>_<kebab-topic>.md` |
      | Research brief | `brief_` | `brief_<RES-ID>_<kebab-topic>.md` |
      | Research report | `report_` | `report_<RES-ID>_<kebab-topic>.md` |
      | Combined standard | `standard_` | `standard_<SID-STD>_<kebab-title>.md` |
+
+     *Informative*: Within `P-STD-005-CLAUSE-011`, the relevant subclauses are: `P-STD-005-CLAUSE-011A` (plan files), `P-STD-005-CLAUSE-011B` (notes registers), `P-STD-005-CLAUSE-011C` (session notes), `P-STD-005-CLAUSE-011D` (raw transcripts), `P-STD-005-CLAUSE-011E` (verification evidence).
+
+     *Informative*: `dev-report_` is timeline-scoped but uses a date suffix; it is intentionally not governed by `P-STD-005-CLAUSE-011`.
 
    * **P-STD-004-CLAUSE-008B (Prefix formatting)** — Prefix stems MUST be lowercase and MUST end with `_`.
 
@@ -179,23 +191,25 @@
 
    * **P-STD-004-CLAUSE-008G (Communication placement rule)** — Communication artifacts SHOULD be placed at the recipient’s workspace path (inbox model) under the stream-level `communication/` directory.
 
+   * **P-STD-004-CLAUSE-008H (`<scope-UID>` definition)** — In this standard’s naming patterns, `<scope-UID>` MUST be either: (a) a timeline UID per `P-STD-005-CLAUSE-001A (Pattern 4)`, or (b) a workscope ID per `P-STD-005-CLAUSE-001A (Patterns 1–3)`. `<scope-UID>` SHOULD identify the narrowest applicable scope. If `<scope-UID>` contains an `AC###` token, placement MUST conform to `P-STD-004-CLAUSE-003F`.
+
 9) **P-STD-004-CLAUSE-009 (Archive Strategy)**
 
-   Each scope root (initiative, and optionally epic) MUST maintain a mirrored `archive/` directory that preserves prior versions and deprecated artifacts using a two-tier archive model.
+   Each scope root (initiative, and optionally epic) MUST maintain an `archive/` directory that preserves prior versions and deprecated artifacts using a two-tier archive model.
 
-   * **P-STD-004-CLAUSE-009A (Mirror structure)** — `archive/` MUST mirror the live directory structure exactly; the path from `archive/<subpath>` MUST match the path from `<SID>/<subpath>`.
+   * **P-STD-004-CLAUSE-009A (Tier directories)** — `archive/` MUST contain the tier directories `archive/versioned/` and `archive/deprecated/` (created on-demand).
 
-   * **P-STD-004-CLAUSE-009B (Versioned snapshot tier)** — Historical snapshots of live files MUST append `_v#.#.#` before `.md`. The version MUST be the artifact’s frontmatter `version` at archive time (or an explicit governance override).
+   * **P-STD-004-CLAUSE-009B (Versioned snapshot tier)** — Historical snapshots of live files MUST be stored under `archive/versioned/` and MUST append `_v#.#.#` before `.md`. The version MUST be the artifact’s frontmatter `version` at archive time (or an explicit governance override).
 
-   * **P-STD-004-CLAUSE-009C (Deprecated artifact tier)** — Archived files representing deprecated artifacts (no active live successor) MAY be stored in `archive/` without a `_v#.#.#` suffix.
+   * **P-STD-004-CLAUSE-009C (Deprecated artifact tier)** — Archived files representing deprecated artifacts (no active live successor) MAY be stored under `archive/deprecated/` without a `_v#.#.#` suffix.
 
    * **P-STD-004-CLAUSE-009D (Live files)** — Live files MUST NOT include a version suffix in the filename; versioning is tracked in artifact metadata and changelogs.
 
    * **P-STD-004-CLAUSE-009E (Archive trigger)** — Artifacts SHOULD be archived when they undergo a major version bump (v1→v2) or when explicitly requested by governance.
 
-   * **P-STD-004-CLAUSE-009F (Changelog pairing)** — `changelog_*.md` files, if present, MUST be archived alongside their parent artifact using the same tier rules.
+   * **P-STD-004-CLAUSE-009F (Changelog pairing)** — `changelog_*.md` files, if present, MUST be archived alongside their parent artifact using the same tier rules and tier directory as the parent artifact.
 
-   * **P-STD-004-CLAUSE-009G (Tooling)** — Archive operations MUST be implemented via the program archive tool (`prompt/scripts/archive_manager.py`), which MUST copy the file to the mirrored archive path using the selected archive tier.
+   * **P-STD-004-CLAUSE-009G (Tooling)** — Archive operations SHOULD be implemented via the program archive tool (`prompt/scripts/archive_manager.py`), which MUST copy the file into the correct tier directory using the selected archive tier.
 
 ## Decision Record
 
@@ -241,7 +255,7 @@
 ## Provenance
 
 ### Status
-- `draft` (seeded from approved proposal; pending GATE-001 review)
+- `draft` (seeded from approved proposal; GATE-001 passed 2026-02-27; GATE-002 dispositions approved 2026-03-01; pending GATE-003 acceptance review)
 
 ### Seed Source
 - Proposal v3.4.0: `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md`

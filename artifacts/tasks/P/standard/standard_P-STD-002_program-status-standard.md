@@ -5,64 +5,74 @@
 ### Specification Index
 | # | Substandard | CLAUSE ID | Title | Description |
 |:--|:--|:--|:--|:--|
-| 1 | P-STD-002A | P-STD-002-CLAUSE-001 | Canonical Status Vocabulary | Defines the canonical 7-state program status enum and per-state semantics. |
-| 2 | P-STD-002A | P-STD-002-CLAUSE-002 | Tool Meta-Category Mapping | Requires deterministic mapping of program statuses to tool meta-categories. |
-| 3 | P-STD-002A | P-STD-002-CLAUSE-003 | Local Status Extension Mapping | Permits local extension states, but requires mapping to the canonical vocabulary. |
-| 4 | P-STD-002A | P-STD-002-CLAUSE-004 | Initial and Terminal States | Defines initial and terminal states and their normative meaning at program scope. |
-| 5 | P-STD-002A | P-STD-002-CLAUSE-005 | Transition Matrix | Defines the allowed status transitions and their evidence/role markings. |
-| 6 | P-STD-002A | P-STD-002-CLAUSE-006 | Guard Conditions | Defines minimum guard conditions (G1–G9) required for allowed transitions. |
-| 7 | P-STD-002A | P-STD-002-CLAUSE-007 | Evidence-Required Transitions | Defines which transitions require evidence pointers and validation. |
-| 8 | P-STD-002A | P-STD-002-CLAUSE-008 | Role-Restricted Transitions | Defines which transitions are role-restricted using generic RACI labels. |
-| 9 | P-STD-002A | P-STD-002-CLAUSE-009 | Blocked vs On-Hold Semantics | Defines operational meaning of `blocked` vs `on_hold`, including attribute-compatible encoding. |
-| 10 | P-STD-002A | P-STD-002-CLAUSE-010 | Execution Posture Fields (Non-Status) | Defines how execution posture is recorded without extending the status vocabulary. |
-| 11 | P-STD-002A | P-STD-002-CLAUSE-011 | Manual Gate Crosswalk (Informative) | Provides a cause-based mapping for manual gates and “waiting approval” states. |
-| 12 | P-STD-002B | P-STD-002-CLAUSE-012 | Standard Health Dimensions | Defines required health dimensions at program roll-up and initiative-level deferral rules. |
-| 13 | P-STD-002B | P-STD-002-CLAUSE-013 | RAG Threshold Method | Defines the tolerance-based hybrid method for computing Green/Amber/Red per dimension. |
-| 14 | P-STD-002B | P-STD-002-CLAUSE-014 | Dimension-Level RAG Computation | Requires independent per-dimension RAG computation against configured tolerances. |
-| 15 | P-STD-002B | P-STD-002-CLAUSE-015 | Overall RAG Aggregation | Defines deterministic roll-up rules from dimension RAGs to overall health RAG. |
-| 16 | P-STD-002B | P-STD-002-CLAUSE-016 | Initiative Configuration | Permits initiative-configured tolerance values and optional additional dimensions. |
-| 17 | P-STD-002B | P-STD-002-CLAUSE-017 | Health Assessment Cadence | Defines minimum cadence expectations and “update on transition” triggers. |
-| 18 | P-STD-002B | P-STD-002-CLAUSE-018 | Allowed-Failure Health Impact | Requires health reporting to reflect “allowed failure” and “continue on error” semantics. |
-| 19 | P-STD-002C | P-STD-002-CLAUSE-019 | Dependency Edge Schema | Defines the required dependency edge fields, including actionable owner semantics. |
-| 20 | P-STD-002C | P-STD-002-CLAUSE-020 | Relationship Semantics | Defines `depends_on` and `blocks` semantics and directionality. |
-| 21 | P-STD-002C | P-STD-002-CLAUSE-021 | Category Taxonomy | Defines minimum dependency categories and extension rules. |
-| 22 | P-STD-002C | P-STD-002-CLAUSE-022 | Criticality Classification | Defines criticality classes and minimum interpretation rules. |
-| 23 | P-STD-002C | P-STD-002-CLAUSE-023 | Dependency Status Enum | Defines a separate dependency-lifecycle enum distinct from program status. |
-| 24 | P-STD-002C | P-STD-002-CLAUSE-024 | Optional Schedule Enrichment | Defines optional schedule relationship semantics (FS/SS/FF/SF) and lag. |
-| 25 | P-STD-002C | P-STD-002-CLAUSE-025 | Cross-Initiative Interface Contract | Defines the minimum cross-initiative dependency interface for program reporting. |
-| 26 | P-STD-002C | P-STD-002-CLAUSE-026 | Conformance Rule | Requires local models to map to the program interface without loss of meaning. |
-| 27 | P-STD-002C | P-STD-002-CLAUSE-027 | Roll-Up View Requirement | Requires surfacing cross-initiative dependencies in program status reporting. |
-| 28 | P-STD-002C | P-STD-002-CLAUSE-028 | Orchestration Reference Fields (Optional) | Permits optional orchestration identifiers on dependency edges for traceability. |
-| 29 | P-STD-002C | P-STD-002-CLAUSE-029 | Category Extension Examples (Informative) | Provides example categories for orchestration and agent handoffs without binding. |
-| 30 | P-STD-002D | P-STD-002-CLAUSE-030 | Evidence Pointer Schema | Defines the required evidence pointer entry schema for status updates. |
-| 31 | P-STD-002D | P-STD-002-CLAUSE-031 | Evidence Type Taxonomy | Defines baseline evidence types for consistent interpretation and tooling. |
-| 32 | P-STD-002D | P-STD-002-CLAUSE-032 | Evidence Requirements by Transition | Requires evidence for terminal transitions and reopen transitions. |
-| 33 | P-STD-002D | P-STD-002-CLAUSE-033 | Evidence Validation Rules | Requires evidence pointers to be resolvable and correctly attributed. |
-| 34 | P-STD-002D | P-STD-002-CLAUSE-034 | Role Accountability Model | Defines hybrid accountability: routine updates attributed, high-impact transitions restricted. |
-| 35 | P-STD-002D | P-STD-002-CLAUSE-035 | Role-Transition Matrix | Defines transition permissions using generic RACI labels (not named roles). |
-| 36 | P-STD-002D | P-STD-002-CLAUSE-036 | Update Attribution Fields | Requires `updated_by` and `last_updated` fields to support auditability. |
-| 37 | P-STD-002D | P-STD-002-CLAUSE-037 | Conflict Resolution | Defines dispute handling for conflicting updates and escalation requirements. |
-| 38 | P-STD-002D | P-STD-002-CLAUSE-038 | Stale-State Governance (Reserved) | Reserves space for Phase 2 stale-state rules without imposing v1 requirements. |
-| 39 | P-STD-002D | P-STD-002-CLAUSE-039 | Repo-Verifiable Evidence Requirement | Requires terminal transitions to cite repo-verifiable evidence, with platform-agnostic fallbacks. |
-| 40 | P-STD-002D | P-STD-002-CLAUSE-040 | Evidence Type Extensions | Extends evidence types with `check`, `workflow_run`, and optional `execution_trace`. |
-| 41 | P-STD-002D | P-STD-002-CLAUSE-041 | Aggregation Policy Declaration | Requires explicit aggregation policy for multi-evidence updates with clear semantics. |
-| 42 | P-STD-002D | P-STD-002-CLAUSE-042 | Silent Allowed-Failure Prohibition | Prohibits “silent green” completions when failures are allowed without explicit rationale. |
-| 43 | P-STD-002E | P-STD-002-CLAUSE-043 | Artifact Set Definition | Defines the canonical artifact set: ledger + narrative, with optional changelog. |
-| 44 | P-STD-002E | P-STD-002-CLAUSE-044 | Authority Hierarchy | Defines ledger authority over narrative to prevent drift and ambiguity. |
-| 45 | P-STD-002E | P-STD-002-CLAUSE-045 | Format Permissions | Defines default Markdown + frontmatter and permitted non-Markdown ledger formats. |
-| 46 | P-STD-002E | P-STD-002-CLAUSE-046 | Ledger Schema Requirements | Defines baseline ledger schema plus concrete extensibility hooks for safe enrichment. |
-| 47 | P-STD-002E | P-STD-002-CLAUSE-047 | Placement Rules | Requires deterministic placement and naming per P-STD-004 for status artifacts. |
-| 48 | P-STD-002E | P-STD-002-CLAUSE-048 | Update Sequence | Requires ledger-first updates and defines derivation expectations for narratives. |
-| 49 | P-STD-002E | P-STD-002-CLAUSE-049 | Drift Prevention Contract | Defines how authority + sequence prevents drift and what to do when drift occurs. |
-| 50 | P-STD-002E | P-STD-002-CLAUSE-050 | Schema Versioning and Adoption | Defines schema versioning and forward-only adoption requirements. |
-| 51 | P-STD-002E | P-STD-002-CLAUSE-051 | Execution Reference Schema (Optional) | Defines optional execution reference entries that are evidence-bearing, not status-bearing. |
-| 52 | P-STD-002E | P-STD-002-CLAUSE-052 | Aggregation Policy Field | Defines how aggregation policy is represented in the ledger schema. |
-| 53 | P-STD-002E | P-STD-002-CLAUSE-053 | Execution Posture Fields (Optional) | Defines optional fields capturing sandbox/approval posture without status vocabulary drift. |
-| 54 | P-STD-002E | P-STD-002-CLAUSE-054 | Minimum Viable Audit Trail (MVAT) | Defines the minimum required fields per status entry for traceability integrity. |
+| 1 | General | P-STD-002-CLAUSE-055 | Forward-Only Adoption (General) | Defines forward-only adoption for P-STD-002 requirements per P-ASSUM-001. |
+| 2 | P-STD-002A | P-STD-002-CLAUSE-001 | Canonical Status Vocabulary | Defines the canonical 7-state program status enum and per-state semantics. |
+| 3 | P-STD-002A | P-STD-002-CLAUSE-002 | Tool Meta-Category Mapping | Requires deterministic mapping of program statuses to tool meta-categories. |
+| 4 | P-STD-002A | P-STD-002-CLAUSE-003 | Local Status Extension Mapping | Permits local extension states, but requires mapping to the canonical vocabulary. |
+| 5 | P-STD-002A | P-STD-002-CLAUSE-004 | Initial and Terminal States | Defines initial and terminal states and their normative meaning at program scope. |
+| 6 | P-STD-002A | P-STD-002-CLAUSE-005 | Transition Matrix | Defines the allowed status transitions and their evidence/role markings. |
+| 7 | P-STD-002A | P-STD-002-CLAUSE-006 | Guard Conditions | Defines minimum guard conditions (G1–G9) required for allowed transitions. |
+| 8 | P-STD-002A | P-STD-002-CLAUSE-007 | Evidence-Required Transitions | Defines which transitions require evidence pointers and validation. |
+| 9 | P-STD-002A | P-STD-002-CLAUSE-008 | Role-Restricted Transitions | Defines which transitions are role-restricted using generic RACI labels. |
+| 10 | P-STD-002A | P-STD-002-CLAUSE-009 | Blocked vs On-Hold Semantics | Defines operational meaning of `blocked` vs `on_hold`, including attribute-compatible encoding. |
+| 11 | P-STD-002A | P-STD-002-CLAUSE-010 | Execution Posture Fields (Non-Status) | Defines how execution posture is recorded without extending the status vocabulary. |
+| 12 | P-STD-002A | P-STD-002-CLAUSE-011 | Manual Gate Crosswalk (Informative) | Provides a cause-based mapping for manual gates and “waiting approval” states. |
+| 13 | P-STD-002B | P-STD-002-CLAUSE-012 | Standard Health Dimensions | Defines required health dimensions at program roll-up and initiative-level deferral rules. |
+| 14 | P-STD-002B | P-STD-002-CLAUSE-013 | RAG Threshold Method | Defines the tolerance-based hybrid method for computing Green/Amber/Red per dimension. |
+| 15 | P-STD-002B | P-STD-002-CLAUSE-014 | Dimension-Level RAG Computation | Requires independent per-dimension RAG computation against configured tolerances. |
+| 16 | P-STD-002B | P-STD-002-CLAUSE-015 | Overall RAG Aggregation | Defines deterministic roll-up rules from dimension RAGs to overall health RAG. |
+| 17 | P-STD-002B | P-STD-002-CLAUSE-016 | Initiative Configuration | Permits initiative-configured tolerance values and optional additional dimensions. |
+| 18 | P-STD-002B | P-STD-002-CLAUSE-017 | Health Assessment Cadence | Defines minimum cadence expectations and “update on transition” triggers. |
+| 19 | P-STD-002B | P-STD-002-CLAUSE-018 | Allowed-Failure Health Impact | Requires health reporting to reflect “allowed failure” and “continue on error” semantics. |
+| 20 | P-STD-002C | P-STD-002-CLAUSE-019 | Dependency Edge Schema | Defines the required dependency edge fields, including actionable owner semantics. |
+| 21 | P-STD-002C | P-STD-002-CLAUSE-020 | Relationship Semantics | Defines `depends_on` and `blocks` semantics and directionality. |
+| 22 | P-STD-002C | P-STD-002-CLAUSE-021 | Category Taxonomy | Defines minimum dependency categories and extension rules. |
+| 23 | P-STD-002C | P-STD-002-CLAUSE-022 | Criticality Classification | Defines criticality classes and minimum interpretation rules. |
+| 24 | P-STD-002C | P-STD-002-CLAUSE-023 | Dependency Status Enum | Defines a separate dependency-lifecycle enum distinct from program status. |
+| 25 | P-STD-002C | P-STD-002-CLAUSE-024 | Optional Schedule Enrichment | Defines optional schedule relationship semantics (FS/SS/FF/SF) and lag. |
+| 26 | P-STD-002C | P-STD-002-CLAUSE-025 | Cross-Initiative Interface Contract | Defines the minimum cross-initiative dependency interface for program reporting. |
+| 27 | P-STD-002C | P-STD-002-CLAUSE-026 | Conformance Rule | Requires local models to map to the program interface without loss of meaning. |
+| 28 | P-STD-002C | P-STD-002-CLAUSE-027 | Roll-Up View Requirement | Requires surfacing cross-initiative dependencies in program status reporting. |
+| 29 | P-STD-002C | P-STD-002-CLAUSE-028 | Orchestration Reference Fields (Optional) | Permits optional orchestration identifiers on dependency edges for traceability. |
+| 30 | P-STD-002C | P-STD-002-CLAUSE-029 | Category Extension Examples (Informative) | Provides example categories for orchestration and agent handoffs without binding. |
+| 31 | P-STD-002D | P-STD-002-CLAUSE-030 | Evidence Pointer Schema | Defines the required evidence pointer entry schema for status updates. |
+| 32 | P-STD-002D | P-STD-002-CLAUSE-031 | Evidence Type Taxonomy | Defines baseline evidence types for consistent interpretation and tooling. |
+| 33 | P-STD-002D | P-STD-002-CLAUSE-032 | Evidence Requirements by Transition | Requires evidence for terminal transitions and reopen transitions. |
+| 34 | P-STD-002D | P-STD-002-CLAUSE-033 | Evidence Validation Rules | Requires evidence pointers to be resolvable and correctly attributed. |
+| 35 | P-STD-002D | P-STD-002-CLAUSE-034 | Role Accountability Model | Defines hybrid accountability: routine updates attributed, high-impact transitions restricted. |
+| 36 | P-STD-002D | P-STD-002-CLAUSE-035 | Role-Transition Matrix | Defines transition permissions using generic RACI labels (not named roles). |
+| 37 | P-STD-002D | P-STD-002-CLAUSE-036 | Update Attribution Fields | Requires `updated_by` and `last_updated` fields to support auditability. |
+| 38 | P-STD-002D | P-STD-002-CLAUSE-037 | Conflict Resolution | Defines dispute handling for conflicting updates and escalation requirements. |
+| 39 | P-STD-002D | P-STD-002-CLAUSE-038 | Stale-State Governance (Reserved) | Reserves space for Phase 2 stale-state rules without imposing v1 requirements. |
+| 40 | P-STD-002D | P-STD-002-CLAUSE-039 | Repo-Verifiable Evidence Requirement | Requires terminal transitions to cite repo-verifiable evidence, with platform-agnostic fallbacks. |
+| 41 | P-STD-002D | P-STD-002-CLAUSE-040 | Evidence Type Extensions | Extends evidence types with `check`, `workflow_run`, and optional `execution_trace`. |
+| 42 | P-STD-002D | P-STD-002-CLAUSE-041 | Aggregation Policy Declaration | Requires explicit aggregation policy for multi-evidence updates with clear semantics. |
+| 43 | P-STD-002D | P-STD-002-CLAUSE-042 | Silent Allowed-Failure Prohibition | Prohibits “silent green” completions when failures are allowed without explicit rationale. |
+| 44 | P-STD-002E | P-STD-002-CLAUSE-043 | Artifact Set Definition | Defines the canonical artifact set: ledger + narrative, with optional changelog. |
+| 45 | P-STD-002E | P-STD-002-CLAUSE-044 | Authority Hierarchy | Defines ledger authority over narrative to prevent drift and ambiguity. |
+| 46 | P-STD-002E | P-STD-002-CLAUSE-045 | Format Permissions | Defines default Markdown + frontmatter and permitted non-Markdown ledger formats. |
+| 47 | P-STD-002E | P-STD-002-CLAUSE-046 | Ledger Schema Requirements | Defines baseline ledger schema plus concrete extensibility hooks for safe enrichment. |
+| 48 | P-STD-002E | P-STD-002-CLAUSE-047 | Placement Rules | Requires deterministic placement and naming per P-STD-004 for status artifacts. |
+| 49 | P-STD-002E | P-STD-002-CLAUSE-048 | Update Sequence | Requires ledger-first updates and defines derivation expectations for narratives. |
+| 50 | P-STD-002E | P-STD-002-CLAUSE-049 | Drift Prevention Contract | Defines how authority + sequence prevents drift and what to do when drift occurs. |
+| 51 | P-STD-002E | P-STD-002-CLAUSE-050 | Schema Versioning and Adoption | Defines schema versioning and forward-only adoption requirements. |
+| 52 | P-STD-002E | P-STD-002-CLAUSE-051 | Execution Reference Schema (Optional) | Defines optional execution reference entries that are evidence-bearing, not status-bearing. |
+| 53 | P-STD-002E | P-STD-002-CLAUSE-052 | Aggregation Policy Field | Defines how aggregation policy is represented in the ledger schema. |
+| 54 | P-STD-002E | P-STD-002-CLAUSE-053 | Execution Posture Fields (Optional) | Defines optional fields capturing sandbox/approval posture without status vocabulary drift. |
+| 55 | P-STD-002E | P-STD-002-CLAUSE-054 | Minimum Viable Audit Trail (MVAT) | Defines the minimum required fields per status entry for traceability integrity. |
+
+
+### General Provisions
+
+1) **P-STD-002-CLAUSE-055 (Forward-Only Adoption)**
+
+   P-STD-002 requirements MUST be adopted forward-only from the standard's effective date, per `P-ASSUM-001` (Forward-only Adoption):
+   - existing artifacts are not required to retroactively conform
+   - conformance applies at the next status update or artifact creation event
 
 ### P-STD-002A — Status Vocabulary
 
-1) **P-STD-002-CLAUSE-001 (Canonical Status Vocabulary)**
+2) **P-STD-002-CLAUSE-001 (Canonical Status Vocabulary)**
 
    Program status values MUST be one of the following seven canonical states:
    - `planned`
@@ -82,25 +92,25 @@
      - `completed`: work is finished and accepted.
      - `cancelled`: work is intentionally terminated and will not be completed.
 
-2) **P-STD-002-CLAUSE-002 (Tool Meta-Category Mapping)**
+3) **P-STD-002-CLAUSE-002 (Tool Meta-Category Mapping)**
 
    Any artifact that uses program status values MUST support a deterministic mapping to tool meta-categories:
    - **To Do**: `planned`, `ready`
    - **In Progress**: `in_progress`, `blocked`, `on_hold`
    - **Done**: `completed`, `cancelled`
 
-3) **P-STD-002-CLAUSE-003 (Local Status Extension Mapping)**
+4) **P-STD-002-CLAUSE-003 (Local Status Extension Mapping)**
 
    Initiatives MAY define local status values in addition to the canonical seven, but:
    - local statuses MUST map to exactly one canonical status for program roll-ups, and
    - local statuses MUST NOT redefine the semantics of any canonical status.
 
-4) **P-STD-002-CLAUSE-004 (Initial and Terminal States)**
+5) **P-STD-002-CLAUSE-004 (Initial and Terminal States)**
 
    - `planned` MUST be treated as the initial state.
    - `completed` and `cancelled` MUST be treated as terminal states.
 
-5) **P-STD-002-CLAUSE-005 (Transition Matrix)**
+6) **P-STD-002-CLAUSE-005 (Transition Matrix)**
 
    The canonical status vocabulary MUST be governed as a state machine using the transition matrix below.
 
@@ -120,7 +130,7 @@
    | `completed` | D | D | A^*(G9) | D | D | D | D |
    | `cancelled` | D | D | A^*(G9) | D | D | D | D |
 
-6) **P-STD-002-CLAUSE-006 (Guard Conditions)**
+7) **P-STD-002-CLAUSE-006 (Guard Conditions)**
 
    Allowed transitions MUST satisfy the minimum guard conditions defined below.
 
@@ -138,15 +148,15 @@
 
    * **P-STD-002-CLAUSE-006A (Role restriction semantics)** — When a guard is role restricted, it MUST use generic RACI labels (e.g., “Accountable”) and MUST NOT name specific program roles.
 
-7) **P-STD-002-CLAUSE-007 (Evidence-Required Transitions)**
+8) **P-STD-002-CLAUSE-007 (Evidence-Required Transitions)**
 
    Any transition marked as evidence-required (`*`) in `P-STD-002-CLAUSE-005` MUST include evidence pointers conforming to `P-STD-002-CLAUSE-030` and MUST satisfy validation rules in `P-STD-002-CLAUSE-033`.
 
-8) **P-STD-002-CLAUSE-008 (Role-Restricted Transitions)**
+9) **P-STD-002-CLAUSE-008 (Role-Restricted Transitions)**
 
    Any transition marked as role-restricted (`^`) in `P-STD-002-CLAUSE-005` MUST be executed only by the **Accountable** role (generic RACI), or by a delegate explicitly authorized by the Accountable role and recorded via evidence.
 
-9) **P-STD-002-CLAUSE-009 (Blocked vs On-Hold Semantics)**
+10) **P-STD-002-CLAUSE-009 (Blocked vs On-Hold Semantics)**
 
    - `blocked` MUST indicate an unmet prerequisite or external impediment that prevents progress.
    - `on_hold` MUST indicate an intentional pause due to a decision or policy, not an unmet prerequisite.
@@ -155,7 +165,7 @@
    - as the program status value `blocked`, or
    - as an attribute/flag on `in_progress` (provided the artifact still maps deterministically to the canonical vocabulary per `P-STD-002-CLAUSE-003`).
 
-10) **P-STD-002-CLAUSE-010 (Execution Posture Fields (Non-Status))**
+11) **P-STD-002-CLAUSE-010 (Execution Posture Fields (Non-Status))**
 
    Tool execution state MUST NOT be added to the canonical program status vocabulary.
 
@@ -164,7 +174,7 @@
    - `sandbox_mode`
    - `execution_platform` (e.g., `github_actions`, `gitlab_ci`, `local`)
 
-11) **P-STD-002-CLAUSE-011 (Manual Gate Crosswalk (Informative))**
+12) **P-STD-002-CLAUSE-011 (Manual Gate Crosswalk (Informative))**
 
    When mapping automated/manual gating states to program status, implementers SHOULD map by cause:
 
@@ -176,7 +186,7 @@
 
 ### P-STD-002B — Health Assessment
 
-12) **P-STD-002-CLAUSE-012 (Standard Health Dimensions)**
+13) **P-STD-002-CLAUSE-012 (Standard Health Dimensions)**
 
    Program health reporting MUST include the following dimensions:
    - `time`
@@ -188,25 +198,25 @@
 
    The `benefits` dimension is required at program roll-up scope. At initiative scope, `benefits` MAY be deferred when benefits are not yet measurable, but the deferral MUST be explicitly recorded (e.g., `benefits: unassessed` with a reason and next review date).
 
-13) **P-STD-002-CLAUSE-013 (RAG Threshold Method)**
+14) **P-STD-002-CLAUSE-013 (RAG Threshold Method)**
 
    Each health dimension MUST be assessed using a tolerance-based hybrid method:
    - Green: within tolerance
    - Amber: near tolerance limit or adverse trend indicates likely breach without intervention
    - Red: tolerance breached, or highly likely to breach absent intervention
 
-14) **P-STD-002-CLAUSE-014 (Dimension-Level RAG Computation)**
+15) **P-STD-002-CLAUSE-014 (Dimension-Level RAG Computation)**
 
    Each dimension’s RAG MUST be computed independently against the tolerance definition for that dimension.
 
-15) **P-STD-002-CLAUSE-015 (Overall RAG Aggregation)**
+16) **P-STD-002-CLAUSE-015 (Overall RAG Aggregation)**
 
    Overall health RAG MUST be derived deterministically from the dimension RAGs:
    - if any dimension is Red, overall MUST be Red
    - else if two or more dimensions are Amber, overall MUST be Amber
    - else overall MUST be Green
 
-16) **P-STD-002-CLAUSE-016 (Initiative Configuration)**
+17) **P-STD-002-CLAUSE-016 (Initiative Configuration)**
 
    Initiatives MAY configure numeric tolerance values per dimension. The standard requires that tolerances are defined, not what the exact numeric bands are.
 
@@ -214,14 +224,14 @@
    - the additional dimensions use the same computation method (`P-STD-002-CLAUSE-013` through `P-STD-002-CLAUSE-015`), and
    - the added dimensions do not replace or rename the required dimensions (`P-STD-002-CLAUSE-012`).
 
-17) **P-STD-002-CLAUSE-017 (Health Assessment Cadence)**
+18) **P-STD-002-CLAUSE-017 (Health Assessment Cadence)**
 
    Health MUST be reassessed at least:
    - on any transition into `ready` or `in_progress`, and
    - when entering `blocked` or `on_hold`, and
    - on any transition into a terminal state.
 
-18) **P-STD-002-CLAUSE-018 (Allowed-Failure Health Impact)**
+19) **P-STD-002-CLAUSE-018 (Allowed-Failure Health Impact)**
 
    When status updates rely on an evidence set using aggregation policy `allow_failure` or `continue_on_error`, the health report MUST reflect that semantics.
 
@@ -231,7 +241,7 @@
 
 ### P-STD-002C — Dependency Visibility
 
-19) **P-STD-002-CLAUSE-019 (Dependency Edge Schema)**
+20) **P-STD-002-CLAUSE-019 (Dependency Edge Schema)**
 
    Dependency visibility MUST be representable as a graph of dependency edges. Each dependency edge MUST include:
    - `from_id` (the upstream/blocker entity ID)
@@ -243,13 +253,13 @@
    - `status` (per `P-STD-002-CLAUSE-023`)
    - `evidence` (0+ evidence pointers per `P-STD-002-CLAUSE-030`)
 
-20) **P-STD-002-CLAUSE-020 (Relationship Semantics)**
+21) **P-STD-002-CLAUSE-020 (Relationship Semantics)**
 
    The dependency `relationship` MUST be one of:
    - `depends_on`: `to_id` cannot be completed unless `from_id` is satisfied
    - `blocks`: `from_id` directly blocks progress on `to_id`
 
-21) **P-STD-002-CLAUSE-021 (Category Taxonomy)**
+22) **P-STD-002-CLAUSE-021 (Category Taxonomy)**
 
    Dependency `category` MUST include at least:
    - `internal`
@@ -257,49 +267,49 @@
 
    Additional categories MAY be used if they do not change the meaning of the minimum set.
 
-22) **P-STD-002-CLAUSE-022 (Criticality Classification)**
+23) **P-STD-002-CLAUSE-022 (Criticality Classification)**
 
    Dependency `criticality` MUST be one of:
    - `critical`
    - `near_critical`
    - `non_critical`
 
-23) **P-STD-002-CLAUSE-023 (Dependency Status Enum)**
+24) **P-STD-002-CLAUSE-023 (Dependency Status Enum)**
 
    Dependency `status` MUST use a dependency-specific lifecycle enum distinct from program status:
    - `open`
    - `at_risk`
    - `resolved`
 
-24) **P-STD-002-CLAUSE-024 (Optional Schedule Enrichment)**
+25) **P-STD-002-CLAUSE-024 (Optional Schedule Enrichment)**
 
    Dependencies MAY include optional schedule semantics:
    - `schedule_relation`: one of `FS`, `SS`, `FF`, `SF`
    - `lag`: optional duration/offset value
 
-25) **P-STD-002-CLAUSE-025 (Cross-Initiative Interface Contract)**
+26) **P-STD-002-CLAUSE-025 (Cross-Initiative Interface Contract)**
 
    For program reporting, every initiative that publishes dependencies MUST expose a cross-initiative interface that includes, at minimum, the fields required by `P-STD-002-CLAUSE-019`.
 
-26) **P-STD-002-CLAUSE-026 (Conformance Rule)**
+27) **P-STD-002-CLAUSE-026 (Conformance Rule)**
 
    If an initiative uses a local dependency model, it MUST provide a lossless mapping to the program dependency interface in `P-STD-002-CLAUSE-025`.
 
-27) **P-STD-002-CLAUSE-027 (Roll-Up View Requirement)**
+28) **P-STD-002-CLAUSE-027 (Roll-Up View Requirement)**
 
    Program status reporting MUST surface a roll-up view of cross-initiative dependencies, including:
    - open critical dependencies, and
    - at-risk dependencies, and
    - the resolution owner per dependency edge.
 
-28) **P-STD-002-CLAUSE-028 (Orchestration Reference Fields (Optional))**
+29) **P-STD-002-CLAUSE-028 (Orchestration Reference Fields (Optional))**
 
    Dependency edges MAY include optional orchestration reference fields when a dependency is materialized as a CI/CD job or automated run, such as:
    - `platform`
    - `run_id` / `pipeline_id`
    - job/step identifiers
 
-29) **P-STD-002-CLAUSE-029 (Category Extension Examples (Informative))**
+30) **P-STD-002-CLAUSE-029 (Category Extension Examples (Informative))**
 
    Example non-binding dependency categories include:
    - `orchestration`
@@ -308,7 +318,7 @@
 
 ### P-STD-002D — Update Protocol
 
-30) **P-STD-002-CLAUSE-030 (Evidence Pointer Schema)**
+31) **P-STD-002-CLAUSE-030 (Evidence Pointer Schema)**
 
    Status updates MUST reference evidence using an `evidence[]` array of entries. Each evidence entry MUST include:
    - `type` (per `P-STD-002-CLAUSE-031`)
@@ -317,7 +327,7 @@
    - `by` (actor identifier)
    - `summary` (1-line description)
 
-31) **P-STD-002-CLAUSE-031 (Evidence Type Taxonomy)**
+32) **P-STD-002-CLAUSE-031 (Evidence Type Taxonomy)**
 
    Evidence `type` MUST be one of the baseline types:
    - `note`
@@ -328,14 +338,14 @@
    - `session`
    - `sign_off`
 
-32) **P-STD-002-CLAUSE-032 (Evidence Requirements by Transition)**
+33) **P-STD-002-CLAUSE-032 (Evidence Requirements by Transition)**
 
    Evidence MUST be provided for:
    - any transition into `completed` (guard `G8`)
    - any transition into `cancelled` (guard `G7`)
    - any transition from `completed` or `cancelled` into `in_progress` (guard `G9`)
 
-33) **P-STD-002-CLAUSE-033 (Evidence Validation Rules)**
+34) **P-STD-002-CLAUSE-033 (Evidence Validation Rules)**
 
    Evidence validation MUST be performed for any evidence-required transition.
 
@@ -345,13 +355,13 @@
    - evidence `by` MUST be present, and
    - evidence `summary` MUST be non-empty.
 
-34) **P-STD-002-CLAUSE-034 (Role Accountability Model)**
+35) **P-STD-002-CLAUSE-034 (Role Accountability Model)**
 
    The program update protocol MUST use a hybrid accountability model:
    - routine status updates MUST be attributed (record `updated_by`, `last_updated`)
    - high-impact transitions (terminal or reopen) MUST be role-restricted per `P-STD-002-CLAUSE-035`
 
-35) **P-STD-002-CLAUSE-035 (Role-Transition Matrix)**
+36) **P-STD-002-CLAUSE-035 (Role-Transition Matrix)**
 
    Transition permissions MUST be expressed in generic RACI labels and MUST NOT name specific roles.
 
@@ -359,23 +369,23 @@
    - the **Responsible** role MAY execute routine non-terminal transitions when guards are satisfied
    - the **Accountable** role MUST execute terminal transitions and reopen transitions
 
-36) **P-STD-002-CLAUSE-036 (Update Attribution Fields)**
+37) **P-STD-002-CLAUSE-036 (Update Attribution Fields)**
 
    Every status update record MUST include:
    - `updated_by`
    - `last_updated` (timestamp or date-time)
 
-37) **P-STD-002-CLAUSE-037 (Conflict Resolution)**
+38) **P-STD-002-CLAUSE-037 (Conflict Resolution)**
 
    When conflicting updates occur:
    - the artifact MUST retain the most recent update as authoritative, and
    - disputes MUST be escalated to the Accountable role for resolution, with decision evidence recorded.
 
-38) **P-STD-002-CLAUSE-038 (Stale-State Governance (Reserved))**
+39) **P-STD-002-CLAUSE-038 (Stale-State Governance (Reserved))**
 
    This CLAUSE is reserved for Phase 2 stale-state governance (SLA/TTL, review triggers, and automated drift detection). No v1 normative stale-state requirements are imposed.
 
-39) **P-STD-002-CLAUSE-039 (Repo-Verifiable Evidence Requirement)**
+40) **P-STD-002-CLAUSE-039 (Repo-Verifiable Evidence Requirement)**
 
    Terminal transitions MUST cite at least one repo-verifiable evidence pointer (or equivalent for non-repo environments).
 
@@ -387,14 +397,14 @@
    - PR/MR merge evidence
    - commit SHA evidence (when coupled to a verifiable build/test record)
 
-40) **P-STD-002-CLAUSE-040 (Evidence Type Extensions)**
+41) **P-STD-002-CLAUSE-040 (Evidence Type Extensions)**
 
    Evidence `type` MAY be extended with:
    - `check`
    - `workflow_run`
    - `execution_trace`
 
-41) **P-STD-002-CLAUSE-041 (Aggregation Policy Declaration)**
+42) **P-STD-002-CLAUSE-041 (Aggregation Policy Declaration)**
 
    When a status update references multiple evidence items that must be considered together (nested/parallel evidence), the update MUST declare an aggregation policy:
    - `fail_fast`
@@ -411,7 +421,7 @@
    | `continue_on_error` | Execution continues despite failures; completion requires explicit exception rationale. |
    | `manual_gate` | Evidence completion depends on an explicit approval decision outside automation. |
 
-42) **P-STD-002-CLAUSE-042 (Silent Allowed-Failure Prohibition)**
+43) **P-STD-002-CLAUSE-042 (Silent Allowed-Failure Prohibition)**
 
    A transition into `completed` MUST NOT rely on an evidence set containing allowed failures unless:
    - the allowed failure(s) are explicitly identified, and
@@ -420,7 +430,7 @@
 
 ### P-STD-002E — Status Artifact
 
-43) **P-STD-002-CLAUSE-043 (Artifact Set Definition)**
+44) **P-STD-002-CLAUSE-043 (Artifact Set Definition)**
 
    Program status reporting MUST be representable as:
    - a canonical structured ledger artifact, and
@@ -436,17 +446,17 @@
    - Evidence
    - Next Actions
 
-44) **P-STD-002-CLAUSE-044 (Authority Hierarchy)**
+45) **P-STD-002-CLAUSE-044 (Authority Hierarchy)**
 
    The structured ledger MUST be treated as canonical. If the ledger and narrative disagree, the ledger MUST be treated as the source of truth and the narrative MUST be corrected.
 
-45) **P-STD-002-CLAUSE-045 (Format Permissions)**
+46) **P-STD-002-CLAUSE-045 (Format Permissions)**
 
    The default narrative format SHOULD be Markdown (`.md`) with YAML frontmatter where appropriate.
 
    The ledger MAY be authored as non-Markdown (e.g., `.yaml`, `.json`) when explicitly permitted by this standard, consistent with `P-CON-003(B)` (Artifact Format Governance).
 
-46) **P-STD-002-CLAUSE-046 (Ledger Schema Requirements)**
+47) **P-STD-002-CLAUSE-046 (Ledger Schema Requirements)**
 
    The ledger MUST conform to a baseline schema that supports program roll-up without initiative-specific knowledge.
 
@@ -480,21 +490,21 @@
    - Extension keys MUST NOT duplicate any baseline field name.
    - Extensions MAY add extra fields inside structured items (e.g., evidence entries), but added fields MUST be prefixed with `x_`.
 
-47) **P-STD-002-CLAUSE-047 (Placement Rules)**
+48) **P-STD-002-CLAUSE-047 (Placement Rules)**
 
    Status artifacts MUST be placed and named deterministically in accordance with `P-STD-004` (File Naming & Directory Convention).
 
-48) **P-STD-002-CLAUSE-048 (Update Sequence)**
+49) **P-STD-002-CLAUSE-048 (Update Sequence)**
 
    Updates MUST be ledger-first:
    1. Update the ledger (canonical).
    2. Update/derive the narrative from the ledger (derived).
 
-49) **P-STD-002-CLAUSE-049 (Drift Prevention Contract)**
+50) **P-STD-002-CLAUSE-049 (Drift Prevention Contract)**
 
    The authority hierarchy (`P-STD-002-CLAUSE-044`) and update sequence (`P-STD-002-CLAUSE-048`) together form the drift prevention contract. Any drift MUST be resolved by correcting the narrative to match the ledger.
 
-50) **P-STD-002-CLAUSE-050 (Schema Versioning and Adoption)**
+51) **P-STD-002-CLAUSE-050 (Schema Versioning and Adoption)**
 
    The ledger MUST include a `schema_version` field.
 
@@ -502,7 +512,7 @@
    - new or updated status entries MUST conform to the current schema version
    - legacy entries MAY remain in legacy shape until next-touch, provided they remain mappable to the baseline interface
 
-51) **P-STD-002-CLAUSE-051 (Execution Reference Schema (Optional))**
+52) **P-STD-002-CLAUSE-051 (Execution Reference Schema (Optional))**
 
    The ledger MAY include optional execution references. Execution references are evidence-bearing, not status-bearing.
 
@@ -516,11 +526,11 @@
    - `started_at`
    - `completed_at`
 
-52) **P-STD-002-CLAUSE-052 (Aggregation Policy Field)**
+53) **P-STD-002-CLAUSE-052 (Aggregation Policy Field)**
 
    When aggregation policy applies, the ledger MUST represent it as `aggregation_policy` using one of the values defined in `P-STD-002-CLAUSE-041`.
 
-53) **P-STD-002-CLAUSE-053 (Execution Posture Fields (Optional))**
+54) **P-STD-002-CLAUSE-053 (Execution Posture Fields (Optional))**
 
    The ledger MAY include non-status execution posture fields such as:
    - `approval_policy`
@@ -528,7 +538,7 @@
 
    These fields MUST NOT introduce new status values and MUST NOT be used as substitutes for the canonical program status vocabulary.
 
-54) **P-STD-002-CLAUSE-054 (Minimum Viable Audit Trail (MVAT))**
+55) **P-STD-002-CLAUSE-054 (Minimum Viable Audit Trail (MVAT))**
 
    Every status entry MUST include, at minimum:
    - a canonical program status value (`P-STD-002-CLAUSE-001`)
@@ -618,11 +628,12 @@
 ## Provenance
 
 ### Status
-- `draft` (initial authoring for `P-PH000-ST001-AC003`, 2026-02-27)
+- `accepted` (GATE-001 APPROVE WITH CONDITIONS, 2026-03-01)
 
 ### Amendment History
 - v1.0.0 (2026-02-27): Initial authoring (54 CLAUSEs across P-STD-002A..E) + ADR-001.
 - v1.0.1 (2026-02-27): Remediated Decision Record keyword hygiene per `P-STD-001-CLAUSE-021B` (no Specification changes).
+- v1.0.2 (2026-02-28): Added General Provisions forward-only adoption CLAUSE per `P-ASSUM-001` (Forward-only Adoption).
 
 ### Activity Plan
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md`

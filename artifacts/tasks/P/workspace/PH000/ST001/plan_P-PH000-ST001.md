@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.11'
-date: '2026-02-26'
+version: '0.1.12'
+date: '2026-02-28'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -134,6 +134,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Scope**:
 - In scope: rapid seed (proposal v3.4.0 → P-STD-004 CLAUSE format); post-seeding gap/risk/issues analysis (including file naming normalization per P-STD-005, analysis/proposal placement enforcement, normative/informative boundary); CLAUSE amendments; SPS update; `workspace_documentation_rules.md` update; downstream binding rule; cross-initiative validation feedback loop (P + T102 migrations).
+- In scope (tracking): explicit work-packaging/tracking of migration/enforcement deferrals (GIR-006 stream-only `analysis/`/`proposal/` enforcement; GIR-011 `_gate-###` verification naming enforcement) via AC004 task additions (see AC004 activity plan TK009/TK010); execution remains in `T104-PH001-ST007`.
 - Out of scope: proposal amendment (absorbed into standard seeding); migration script updates (T104-PH001-ST007 scope); repo-wide reference sweeps.
 
 **Hard constraints**:
@@ -247,6 +248,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v0.1.11 | 2026-02-26 | Amendment | AC004 updated: stale T102-STD-004/005 references replaced with P-STD-001/P-STD-005; proposal pin v3.1.0 → v3.4.0; section trimmed to contract stub per §IV.D; dedicated activity plan linked; Seed-First methodology documented; `workspace_documentation_rules.md` added to scope. Evidence: AC004-SES002 consultation (2026-02-26). |
+| v0.1.12 | 2026-02-28 | Amendment | AC004 updated (contract stub): recorded that GIR-006 + GIR-011 deferrals are explicitly work-packaged/tracked via AC004 plan tasks (TK009/TK010) while execution remains in `T104-PH001-ST007`, aligned to secondary-vision cleanup for `P/**` and `T104/**` and strict first-migration conformance for `T102/**`. |
 | v0.1.10 | 2026-02-25 | Housekeeping | AC007 status → `completed` (GATE-002 approved; see verification GDR). |
 | v0.1.9 | 2026-02-25 | Housekeeping | AC007 status → `in_progress` (GATE-001 prep-verification passed). |
 | v0.1.8 | 2026-02-25 | Amendment | AC007 added: Harden P-STD-005 (Compliance, Refactoring & GIR Assessment). Post-promotion hardening activity covering P-STD-001 compliance audit, self-compliance check, industry benchmarking, structural refactoring, language conciseness, and gap/issues/risk analysis. Evidence: consultation session (2026-02-25). |

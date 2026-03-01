@@ -177,6 +177,8 @@
 
    * **P-STD-005-CLAUSE-004D (Normative Body Constraint)** — Normative bodies MUST NOT reference `ISSUE` or `RISK` IDs inline. Issues/Risks capture the problem; RIDs/DRIDs capture the solution.
 
+   * **P-STD-005-CLAUSE-004E (Main CLAUSE vs subclause references)** — Full (Formal) references (`` `ID (Title)` ``) MUST be used for main `CLAUSE` IDs and standard tokens only. Subclause IDs (e.g., `P-STD-001-CLAUSE-004A`) MAY be used as inline short-hand pointers (`` `ID` ``) for navigational precision, but MUST NOT be treated as full-formal references in reference tables or reference sections.
+
 5) **P-STD-005-CLAUSE-005 (Category Semantics)**
 
    This clause provides a concise semantic overview. Tokens with lifecycle/exception behavior have dedicated subclauses. 
@@ -468,3 +470,4 @@
 - Changes: 6 SUBCLAUSE-SPLIT refactorings (R-001 through R-006), 15 LANGUAGE-EDIT fixes (R-007 through R-021), 14 GIR remediations. Zero RE-ARCHITECTURE changes; all 11 main CLAUSE IDs preserved.
 - Analysis: `prompt/artifacts/tasks/P/workspace/PH000/ST001/analysis/analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md`
 - GATE-001 verification: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/verification/verification_P-PH000-ST001-AC007_gate-001.md`
+- Post-hardening amendment: Clarified formal reference vs subclause pointer usage (GIR-010 disposition, 2026-03-01)

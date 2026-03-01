@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC003'
-version: '0.3.2'
-date: '2026-02-27'
+version: '0.3.3'
+date: '2026-03-01'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -52,8 +52,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | TK001.1 | `P-PH000-ST001-AC003-TK001.1` | Verify TK001 deliverables — CDR review and readiness assessment for TK002 | `completed` | LLM_Consultant | TK001 | AC003/verification/ | guideline_workspace_verification | CONDITIONAL PASS; APPROVE WITH CONDITIONS (2026-02-27) |
 | TK002 | `P-PH000-ST001-AC003-TK002` | Draft P-STD-002 combined file: Specification section (54 CLAUSE themes across 5 domains) | `completed` | LLM_Consultant | TK001.1 | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Authored P-STD-002 Specification (54 CLAUSEs) per TK002. Evidence: `dev-report_P-PH000-ST001-AC003_tk002-tk003-execution_2026-02-27.md` |
 | TK003 | `P-PH000-ST001-AC003-TK003` | Draft P-STD-002-ADR-001 in Decision Record section (address 13 binding CDR decisions) | `completed` | LLM_Consultant | TK002 | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Authored embedded `P-STD-002-ADR-001` per TK003. Evidence: `dev-report_P-PH000-ST001-AC003_tk002-tk003-execution_2026-02-27.md` |
-| TK004 | `P-PH000-ST001-AC003-TK004` | Produce GATE-001 verification artifact (includes validation vs P-STD-001 authoring rules) | `completed` | LLM_Reviewer | TK003 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-001.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` | Verification complete (v1.0.1). Verdict: PASS. GDR: Client Decision pending. |
-| GATE-001 | `P-PH000-ST001-AC003-GATE-001` | **Gate: Client acceptance of P-STD-002**. Entry: TK004 verification complete (verdict issued; GDR pending). Reviewer: Client. Exit: explicit acceptance recorded. | `planned` | Client | TK004 | — | — | — |
+| TK004 | `P-PH000-ST001-AC003-TK004` | Produce GATE-001 verification artifact (includes validation vs P-STD-001 authoring rules) | `completed` | LLM_Reviewer | TK003 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-001.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` | Verification complete (v1.1.0). Verdict: CONDITIONAL PASS. GDR: Client Decision recorded (APPROVE WITH CONDITIONS, 2026-03-01). |
+| GATE-001 | `P-PH000-ST001-AC003-GATE-001` | **Gate: Client acceptance of P-STD-002**. Entry: TK004 verification complete (verdict issued; GDR pending). Reviewer: Client. Exit: explicit acceptance recorded. | `completed` | Client | TK004 | — | — | Client accepted P-STD-002 (APPROVE WITH CONDITIONS) in `verification_P-PH000-ST001-AC003_gate-001.md` v1.1.0 (2026-03-01). |
 | TK005 | `P-PH000-ST001-AC003-TK005` | Update sps_P P-STD-002 row (status → `accepted`, canonical path, effective date) | `planned` | LLM_Consultant | GATE-001 | sps_P | P-STD-001-CLAUSE-012 | — |
 | TK006 | `P-PH000-ST001-AC003-TK006` | Cascade P-STD-002 status enums to downstream guideline files | `planned` | LLM_Consultant | GATE-001 | guideline files | DEC-008 | — |
 
@@ -347,6 +347,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.3.3 | 2026-03-01 | Gate closure | Updated GATE-001 status to `completed` after Client Decision recorded in the primary verification artifact (`verification_P-PH000-ST001-AC003_gate-001.md` v1.1.0; APPROVE WITH CONDITIONS). Refreshed TK004 Task Register row to reflect consultation re-assessment findings and GDR closure. |
 | v0.3.2 | 2026-02-27 | Housekeeping | Updated TK002/TK003 to `completed` with evidence in Task Register; added missing TK001.1 detailed task section in §III for traceability (proposal + mapping inputs → verification output); reframed TK004 as reviewer-owned gate verification artifact task (per `guideline_workspace_verification.md`) and updated GATE-001 entry criteria; refreshed Context and Links Register to reflect implemented deliverables. Evidence: `dev-report_P-PH000-ST001-AC003_tk002-tk003-execution_2026-02-27.md`. |
 | v0.3.0 | 2026-02-27 | Amendment | TK001.1 (CDR readiness review, CONDITIONAL PASS / APPROVE WITH CONDITIONS) inserted into task register; TK002 `Depends On` updated to `TK001.1`; TK002 steps 10–14 added (forward-only adoption CLAUSE, D-9 reserved section header, aggregation mode definitions table, extensibility hook mechanism, evidence anchor platform-agnostic language); TK003 steps 7–8 added (risk-mitigation traceability table, CDR-03 treatment explanation); TK002 and TK003 success criteria enriched; TK001.1 verification deliverable added to Links Register. Evidence: CDR readiness review session 2026-02-27. |
 | v0.2.1 | 2026-02-27 | Amendment | QA alignment: TK001 deliverables clarified to include a 54-theme mapping artifact (A-1..E-12) and a 13-binding-decision CDR proposal (CDR-01, CDR-02, CDR-04..CDR-14). Final `P-STD-002-CLAUSE-###` numbering deferred to TK002 authoring. TK000/TK001 marked completed. |
