@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '2.3.0'
-date: '2026-03-01'
+version: '2.4.0'
+date: '2026-03-03'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -36,7 +36,7 @@ Phase → Stream → Activity → Task
 | NOTES (Session) | `snotes_` | Session records | `prompt/templates/consultant/workspace/template_workspace_notes_session_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | ANALYSIS | `analysis_` | Workspace synthesis/audits/assessments/external reviews (type-scoped via `analysis_type`) | `prompt/templates/consultant/workspace/template_workspace_analysis.md` | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` |
 | VERIFICATION | `verification_` | Gate evidence + findings register + rework handoff + Gate Decision Record (GDR) | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
-| PROPOSAL | `proposal_` | E-ID development workspace + promotion contract | `prompt/templates/consultant/workspace/template_workspace_proposal.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` (Draft 1 planned) |
+| PROPOSAL | `proposal_` | Archetype-specific proposal authoring: E-ID workspace, gate disposition, promotion contract, standards input | `prompt/templates/consultant/workspace/template_workspace_proposal_<archetype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` |
 | DEV-REPORT | `dev-report_` | Developer execution log + plan traceability | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` (Draft 1 planned) | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` (Draft 1 planned) |
 
 ---
@@ -73,7 +73,13 @@ Phase → Stream → Activity → Task
 - `prompt/templates/consultant/workspace/template_workspace_analysis.md`
 
 ### G. PROPOSAL Templates
-- `prompt/templates/consultant/workspace/template_workspace_proposal.md`
+- `prompt/templates/consultant/workspace/template_workspace_proposal_eid-workspace.md`
+- `prompt/templates/consultant/workspace/template_workspace_proposal_gate-disposition.md`
+- `prompt/templates/consultant/workspace/template_workspace_proposal_promotion-contract.md`
+- `prompt/templates/consultant/workspace/template_workspace_proposal_standards-input.md`
+- Legacy (deprecated; redirect-only):
+  - `prompt/templates/consultant/workspace/template_workspace_proposal.md`
+  - Archived full legacy template: `prompt/templates/consultant/workspace/archive/deprecated/template_workspace_proposal.md`
 
 ---
 
@@ -85,7 +91,7 @@ Phase → Stream → Activity → Task
 - VERIFICATION: `prompt/templates/consultant/workspace/guideline_workspace_verification.md`
 - DEV-REPORT: `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` (Draft 1 planned — `T104-PH001-ST005-AC006`)
 - ANALYSIS: `prompt/templates/consultant/workspace/guideline_workspace_analysis.md`
-- PROPOSAL: `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` (Draft 1 planned — `T104-PH001-ST005-AC008`)
+- PROPOSAL: `prompt/templates/consultant/workspace/guideline_workspace_proposal.md`
 
 ---
 
@@ -161,6 +167,7 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.4.0 | 2026-03-03 | Update | Delivered PROPOSAL Draft 1 inventory for AC008: added archetype-specific proposal templates, marked proposal guideline as delivered, and recorded legacy proposal template deprecation + archive path. |
 | v2.3.0 | 2026-03-01 | Update | Marked ANALYSIS guideline as delivered and updated ANALYSIS purpose to multi-type (via `analysis_type`). |
 | v2.2.1 | 2026-03-01 | Update | §7 authority surface updated to reference `P-STD-004` (standard) instead of the seed proposal. |
 | v2.2.0 | 2026-02-25 | Update | §3: VERIFICATION description updated to include rework handoff and GDR. §5: VERIFICATION guideline updated from "planned" to delivered. §6.D: Reviewer boundary updated with TK-before-gate pattern and cross-reference migrated to verification guideline. Source: T104-PH001-ST005-AC005 delivery. |
