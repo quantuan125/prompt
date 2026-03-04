@@ -7,8 +7,8 @@ phase: '[PH]'
 stream_id: '[SID-PH###-ST###]'
 activity_id: '[SID-PH###-ST###-AC###]'
 gate_id: '[SID-PH###-ST###-AC###-GATE-###]'
-version: '1.0.0'
-date: 'YYYY-MM-DD'
+version: '1.1.0'
+date: '2026-03-04'
 status: 'draft'
 author: '[LLM_Reviewer | LLM_Consultant]'
 decision_owner_role: 'Client'
@@ -109,27 +109,18 @@ session_reference: '[repo-relative path to session notes, if applicable]'
 - [Deferred item + owning activity/stream]
 - [...]
 
-## VIII. Gate Decision Record
+> **Note**: The Gate Decision Record (GDR) is hosted in the `gate_disposition` proposal artifact, not in the verification artifact. See `guideline_workspace_proposal.md` §VII for GDR specification. The verification artifact's Gate Recommendation (above) provides the reviewer verdict that is consumed by the proposal's GDR.
 
-| Field | Value |
-|:--|:--|
-| Gate ID | `[GATE-ID]` |
-| Reviewer Verdict | [PASS / CONDITIONAL PASS / PASS WITH DEFERRALS / RECYCLE / FAIL] |
-| Client Decision | [APPROVE / APPROVE WITH CONDITIONS / RECYCLE / REJECT / pending] |
-| Conditions (if any) | [enumerated list or —] |
-| Decided By | Client |
-| Decision Date | [YYYY-MM-DD or —] |
-| Decision Reference | [session notes path, inline, or pending] |
-
-## IX. References
+## VIII. References
 
 | Document | Path |
 |:--|:--|
 | [Document name] | `[repo-relative path]` |
 | ... | ... |
 
-## X. Changelog
+## IX. Changelog
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-04 | Amendment | Removed §VIII (Gate Decision Record). GDR now hosted exclusively in gate_disposition proposals per `guideline_workspace_proposal.md` §VII. Added cross-reference note after Gate Recommendation section. Renumbered §IX→§VIII, §X→§IX. Source: T104-PH001-ST008-AC001 Option B approval. |
 | v1.0.0 | YYYY-MM-DD | Initial | [Initial verification for GATE-###] |

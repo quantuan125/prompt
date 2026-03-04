@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'verification_authoring'
-version: '1.0.0'
-date: '2026-02-25'
+version: '1.1.0'
+date: '2026-03-04'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -193,37 +193,15 @@ The plan is the developer's work authority. The verification artifact identifies
 - If the verification TASK methodology needs rework (not just the assessed deliverable), a sub-task (TK###.n) is created for the verification task, following `guideline_workspace_plan.md §VII` (Sub-Activity Rules).
 - Re-assessment versioning applies to all artifacts in a Verification Package (primary + supplementary). Version bumps SHOULD be coordinated.
 
-## X. GATE DECISION RECORD (GDR)
+## X. GATE DECISION RECORD (GDR) — CROSS-REFERENCE
 
-### A. GDR Section Specification
+The Gate Decision Record (GDR) specification, lifecycle, and enforcement rules are defined in `guideline_workspace_proposal.md` §VII (Gate Semantics & Gate Decision Record).
 
-Every gate verification artifact (primary artifact only; not supplementary) MUST include a Gate Decision Record as the penultimate section:
+The verification artifact's role at a gate is to provide evidence and a reviewer verdict (§VIII Verdict Taxonomy, §VII Gate Recommendation template section). The GDR — which records the client's decision — is hosted in the `gate_disposition` proposal artifact, not in the verification artifact.
 
-## Gate Decision Record
+**Cross-reference**: For GDR field specification, lifecycle, and enforcement rules, see `guideline_workspace_proposal.md` §VII.C–E.
 
-| Field | Value |
-|:--|:--|
-| Gate ID | `<GATE-ID>` |
-| Reviewer Verdict | [PASS / CONDITIONAL PASS / PASS WITH DEFERRALS / RECYCLE / FAIL] |
-| Client Decision | [APPROVE / APPROVE WITH CONDITIONS / RECYCLE / REJECT] |
-| Conditions (if any) | [enumerated list or "—"] |
-| Decided By | Client |
-| Decision Date | YYYY-MM-DD |
-| Decision Reference | [session notes path, inline statement, or "pending"] |
-
-### B. GDR Lifecycle
-
-1. Verification artifact is authored with GDR section populated as: `Client Decision: pending`, `Decision Date: —`, `Decision Reference: —`.
-2. Client reviews verification artifact and issues decision signal (in session, via message, or inline).
-3. GDR section is updated by the facilitating role (LLM_Consultant or LLM_Reviewer) to record the client's decision.
-4. Verification artifact is version-bumped if other content changes accompany the decision recording.
-5. Gate status in the plan task register is updated per §VIII mapping.
-
-### C. Enforcement
-
-- Any task with `Depends On: GATE-###` MUST verify that the gate's verification artifact contains a GDR with `Client Decision` = APPROVE or APPROVE WITH CONDITIONS.
-- A GDR with `Client Decision: pending` does NOT satisfy downstream dependencies.
-- If a gate has multiple verification artifacts (Verification Package), the GDR in the PRIMARY artifact is the authoritative decision record.
+**Historical note**: Prior to v1.1.0, this guideline contained the full GDR specification in §X. That specification has been migrated to the proposal guideline to consolidate GDR ownership in the consultant-owned gate package per T104-PH001-ST008-AC001 Option B approval.
 
 ## XI. NAMING CONVENTION
 
@@ -253,4 +231,5 @@ Every gate verification artifact (primary artifact only; not supplementary) MUST
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-04 | Amendment | §X (GDR) replaced with cross-reference to `guideline_workspace_proposal.md` §VII. Full GDR specification (field set, lifecycle, enforcement) migrated to proposal guideline per T104-PH001-ST008-AC001 Option B approval. Verification artifact retains Gate Recommendation (§VII template section) for reviewer verdict; GDR now hosted exclusively in gate_disposition proposals. |
 | v1.0.0 | 2026-02-25 | Initial | Draft 1 (exemplar-derived). Covers: role boundary, TK-before-gate workflow, verification package, evidence rules, findings schema, gate outcome rework paths (migrated from guideline_workspace_plan.md §VI.G), verdict taxonomy, re-assessment versioning, GDR, naming convention. Source: T104-PH001-ST005-AC005-SES001 consultation. |

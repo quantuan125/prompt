@@ -167,7 +167,7 @@
      | Session notes (timeline-derived) | `snotes_` | Governed by `P-STD-005-CLAUSE-011` |
      | Raw transcript (timeline-derived) | `raw_` | Governed by `P-STD-005-CLAUSE-011` |
      | Verification (gate evidence) | `verification_` | Governed by `P-STD-005-CLAUSE-011` |
-     | Developer report | `dev-report_` | `dev-report_<activity-UID>_<date>.md` OR `dev-report_<activity-UID>_<kebab-topic>_<date>.md` (date = `YYYY-MM-DD`) |
+     | Developer report | `dev-report_` | `dev-report_<activity-UID>_<kebab-topic>_<date>.md` (date = `YYYY-MM-DD`) |
      | Proposal | `proposal_` | `proposal_<scope-UID>_<kebab-topic>.md` |
      | Analysis | `analysis_` | `analysis_<scope-UID>_<kebab-topic>.md` |
      | Communication | `comm_` | `comm_<scope-UID>_<kebab-topic>.md` |

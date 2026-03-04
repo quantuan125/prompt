@@ -7,8 +7,8 @@ phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC003'
 gate_id: 'P-PH000-ST001-AC003-GATE-001'
-version: '1.0.0'
-date: '2026-03-03'
+version: '1.1.0'
+date: '2026-03-04'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -92,6 +92,19 @@ rg -n "DORA|Throughput|Instability|Change lead time|Deployment frequency|Change 
 
 ---
 
+## IV-B. PRIOR CONDITION RESOLUTION EVIDENCE
+
+> Cross-reference: Verification artifact `verification_P-PH000-ST001-AC003_gate-001.md` v1.1.0 recorded two open conditions (FINDING-003, FINDING-004). This subsection independently verifies their resolution status as input to GIR-002 in the gate disposition package.
+
+| Condition | Source Finding | Required Action | Current On-Disk Evidence | Resolution |
+|:--|:--|:--|:--|:--|
+| Theme mapping artifact missing | FINDING-003 | Restore to canonical path | File exists: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK001_clause-theme-mapping.md` | **Resolved** |
+| CDR proposal incomplete (tier coverage / version mismatch) | FINDING-004 | Restore complete content, bump to v1.1.0 | File exists at v1.1.0: `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md` — all 13 decisions present with client confirmations recorded | **Resolved** |
+
+**Verification method**: File existence and content verified via direct read (2026-03-04).
+
+---
+
 ## V. EXTERNAL REVIEW (INDEPENDENT ASSESSMENT)
 
 **Engagement scope**: Independent assessment of Gate-001 readiness from an industry-standard and best-practice perspective.
@@ -160,4 +173,5 @@ rg -n "DORA|Throughput|Instability|Change lead time|Deployment frequency|Change 
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-04 | Update | Added §IV-B prior condition resolution evidence (FINDING-003 and FINDING-004 independently verified as resolved on disk). Supports GIR-002 closure in gate disposition package. |
 | v1.0.0 | 2026-03-03 | Initial | External-review analysis for AC003 Gate-001: industry benchmark assessment, GAP register, and downstream GIR seeding for gate disposition package. |

@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.12'
-date: '2026-02-28'
+version: '0.1.13'
+date: '2026-03-04'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -37,7 +37,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | AC001 | `P-PH000-ST001-AC001` | Amend ID governance to allow `P-RES-###` | `planned` | LLM_Consultant | — | Planned T102 change (RES token Allowed Scope) | `T102-STD-005` |
 | AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` (Full Promotion from T102-STD-004) | `completed` | LLM_Consultant | AC001 | `standard_P-STD-001_program-governance-standard.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/plan_P-PH000-ST001-AC002.md` |
-| AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` (Program Status Standard) | `planned` | LLM_Consultant | AC001, `P-PH000-ST004-AC001` | `standard_P-STD-002_program-status-standard.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md` |
+| AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` (Program Status Standard) | `in_progress` | LLM_Consultant | AC001, `P-PH000-ST004-AC001` | `standard_P-STD-002_program-status-standard.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md` |
 | AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `planned` | LLM_Consultant | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/plan_P-PH000-ST001-AC004.md` |
 | AC005 | `P-PH000-ST001-AC005` | Align `P/standard/` naming to `standard_<SID-STD>_...` | `planned` | LLM_Developer | AC004 | Renamed `standard_P-STD-003_governance-standards-and-dr-index.md` + updated references | `P-STD-004` Convention 1 + `P` conformance |
 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `completed` | LLM_Consultant | AC002 | `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md` |
@@ -108,8 +108,6 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 **Depends On**: `P-PH000-ST004-AC001` (P-RES-001 research sign-off via GATE-003)
 
 **Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md`
-
-> **DRAFT — Not finalized.** Activity plan task register is subject to amendment after P-RES-001 integration sign-off (P-PH000-ST004-AC001-GATE-003). Evidence: `raw_P-PH000-ST001-AC003-SES001.txt`
 
 **Success Criteria Checklist (summary)**:
 - [ ] P-STD-002 authored as P-STD-001-conformant combined standard-specification file
@@ -220,7 +218,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Depends On**: AC006 (completed)
 
-**Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/plan_P-PH000-ST001-AC007.md`
+**Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md`
 
 **Success Criteria Checklist (summary)**:
 - [ ] P-STD-005 passes full P-STD-001 compliance audit
@@ -247,16 +245,17 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
-| v0.1.11 | 2026-02-26 | Amendment | AC004 updated: stale T102-STD-004/005 references replaced with P-STD-001/P-STD-005; proposal pin v3.1.0 → v3.4.0; section trimmed to contract stub per §IV.D; dedicated activity plan linked; Seed-First methodology documented; `workspace_documentation_rules.md` added to scope. Evidence: AC004-SES002 consultation (2026-02-26). |
+| v0.1.13 | 2026-03-04 | Housekeeping | AC003 status `planned` → `in_progress` (GATE-001 passed; TK005/TK006/TK007/TK008 remain planned). Removed DRAFT banner from AC003 section (blocking condition resolved). Evidence: SES003. |
 | v0.1.12 | 2026-02-28 | Amendment | AC004 updated (contract stub): recorded that GIR-006 + GIR-011 deferrals are explicitly work-packaged/tracked via AC004 plan tasks (TK009/TK010) while execution remains in `T104-PH001-ST007`, aligned to secondary-vision cleanup for `P/**` and `T104/**` and strict first-migration conformance for `T102/**`. |
+| v0.1.11 | 2026-02-26 | Amendment | AC004 updated: stale T102-STD-004/005 references replaced with P-STD-001/P-STD-005; proposal pin v3.1.0 → v3.4.0; section trimmed to contract stub per §IV.D; dedicated activity plan linked; Seed-First methodology documented; `workspace_documentation_rules.md` added to scope. Evidence: AC004-SES002 consultation (2026-02-26). |
 | v0.1.10 | 2026-02-25 | Housekeeping | AC007 status → `completed` (GATE-002 approved; see verification GDR). |
 | v0.1.9 | 2026-02-25 | Housekeeping | AC007 status → `in_progress` (GATE-001 prep-verification passed). |
 | v0.1.8 | 2026-02-25 | Amendment | AC007 added: Harden P-STD-005 (Compliance, Refactoring & GIR Assessment). Post-promotion hardening activity covering P-STD-001 compliance audit, self-compliance check, industry benchmarking, structural refactoring, language conciseness, and gap/issues/risk analysis. Evidence: consultation session (2026-02-25). |
-| v0.1.6 | 2026-02-23 | Amendment | AC003 enriched: deprecated `P-ADR-002` reference (now embedded P-STD-002-ADR-001 per P-STD-001); broad scope locked (DEC-001); dependency on P-PH000-ST004-AC001 added (DEC-007); standalone activity plan linked; contract stub replaces 2-line stub; guideline cascade scoped as TK006 (DEC-008). Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
 | v0.1.7 | 2026-02-24 | Amendment | AC006 status → `completed`. GATE-003 passed after FINDING-001 remediation (Specification Index title correction). Evidence: verification_P-PH000-ST001-AC006_gate-003.md |
+| v0.1.6 | 2026-02-23 | Amendment | AC003 enriched: deprecated `P-ADR-002` reference (now embedded P-STD-002-ADR-001 per P-STD-001); broad scope locked (DEC-001); dependency on P-PH000-ST004-AC001 added (DEC-007); standalone activity plan linked; contract stub replaces 2-line stub; guideline cascade scoped as TK006 (DEC-008). Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
 | v0.1.5 | 2026-02-22 | Amendment | AC002 status → `completed` (SES002-DEC001); AC001 scope note added — RES token STD change absorbed into AC006-TK005 (SES002-DEC004). Evidence: `raw_P-PH000-ST001-AC006-SES002.txt` |
 | v0.1.4 | 2026-02-22 | Amendment | AC006 added: Promote T102-STD-005 to P-STD-005 (Universal ID Specification). Absorbs T104-PH001-ST002-AC002, T102-PH001-ST005-AC005, and STD-005-specific scope from T102-PH001-ST002. Evidence: `raw_P-PH000-ST001-AC006-SES001.txt` |
 | v0.1.3 | 2026-02-20 | Amendment | AC002 transitioned to `in_progress`; rebranded to Full Promotion methodology; updated deliverable and scope to match amended activity plan |
-| v0.1.0 | 2026-02-05 | Initial | Stream ST001 plan created to enable `P-RES` via T102 governance change and to plan `P-STD-001` / `P-STD-002` authoring |
-| v0.1.1 | 2026-02-18 | Amendment | AC004 updated per Client QA: corrected governing `T102-STD-004` clause references, pinned proposal seed to v3.1.0, codified `standard_<SID-STD>_...` naming, added cross-initiative validation requirement, and recorded permanent grandfathering posture for legacy T102 `consultant/standards/` artifacts |
 | v0.1.2 | 2026-02-19 | Amendment | Linked AC002 to a dedicated activity plan to promote `T102-STD-004` authoring model into `P-STD-001` and record the T102 AC010 split boundary |
+| v0.1.1 | 2026-02-18 | Amendment | AC004 updated per Client QA: corrected governing `T102-STD-004` clause references, pinned proposal seed to v3.1.0, codified `standard_<SID-STD>_...` naming, added cross-initiative validation requirement, and recorded permanent grandfathering posture for legacy T102 `consultant/standards/` artifacts |
+| v0.1.0 | 2026-02-05 | Initial | Stream ST001 plan created to enable `P-RES` via T102 governance change and to plan `P-STD-001` / `P-STD-002` authoring |

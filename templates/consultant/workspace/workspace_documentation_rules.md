@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '2.4.0'
-date: '2026-03-03'
+version: '2.5.0'
+date: '2026-03-04'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -35,8 +35,8 @@ Phase → Stream → Activity → Task
 | NOTES (Register) | `notes_` | Index/navigation surface | `prompt/templates/consultant/workspace/template_workspace_notes_register_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | NOTES (Session) | `snotes_` | Session records | `prompt/templates/consultant/workspace/template_workspace_notes_session_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | ANALYSIS | `analysis_` | Workspace synthesis/audits/assessments/external reviews (type-scoped via `analysis_type`) | `prompt/templates/consultant/workspace/template_workspace_analysis.md` | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` |
-| VERIFICATION | `verification_` | Gate evidence + findings register + rework handoff + Gate Decision Record (GDR) | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
-| PROPOSAL | `proposal_` | Archetype-specific proposal authoring: E-ID workspace, gate disposition, promotion contract, standards input | `prompt/templates/consultant/workspace/template_workspace_proposal_<archetype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` |
+| VERIFICATION | `verification_` | Gate evidence + findings register + rework handoff + reviewer verdict | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
+| PROPOSAL | `proposal_` | Archetype-specific proposal authoring: E-ID workspace, gate disposition (incl. Gate Decision Record), promotion contract, standards input | `prompt/templates/consultant/workspace/template_workspace_proposal_<archetype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` |
 | DEV-REPORT | `dev-report_` | Developer execution log + plan traceability | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` (Draft 1 planned) | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` (Draft 1 planned) |
 
 ---
@@ -112,7 +112,7 @@ Phase → Stream → Activity → Task
 
 ### D. Reviewer (LLM_Reviewer)
 - Owns: verification artifacts for gates, findings classification, and rework handoff evidence.
-- Produces verification as a task (TK-before-gate pattern) prior to the Client-owned gate decision.
+- Produces verification as a task (TK-before-gate pattern) prior to the Client-owned gate decision. The reviewer's verdict is recorded in the verification artifact's Gate Recommendation section; the Gate Decision Record (GDR) is hosted in the consultant-owned `gate_disposition` proposal per `guideline_workspace_proposal.md` §VII.
 - Boundary: MUST NOT alter contract-level scope; scope gaps discovered in verification escalate as Situation B findings per `guideline_workspace_verification.md §VII`.
 
 ### E. Client
@@ -167,6 +167,7 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.5.0 | 2026-03-04 | Update | §3 VERIFICATION purpose: removed "Gate Decision Record (GDR)", replaced with "reviewer verdict". §3 PROPOSAL purpose: added "(incl. Gate Decision Record)". §6.D Reviewer boundary: clarified that GDR is hosted in consultant-owned gate_disposition proposal, reviewer produces verdict only. Source: T104-PH001-ST008-AC001 Option B approval. |
 | v2.4.0 | 2026-03-03 | Update | Delivered PROPOSAL Draft 1 inventory for AC008: added archetype-specific proposal templates, marked proposal guideline as delivered, and recorded legacy proposal template deprecation + archive path. |
 | v2.3.0 | 2026-03-01 | Update | Marked ANALYSIS guideline as delivered and updated ANALYSIS purpose to multi-type (via `analysis_type`). |
 | v2.2.1 | 2026-03-01 | Update | §7 authority surface updated to reference `P-STD-004` (standard) instead of the seed proposal. |

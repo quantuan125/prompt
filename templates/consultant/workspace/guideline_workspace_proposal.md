@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'proposal_authoring'
-version: '1.0.0'
-date: '2026-03-03'
+version: '1.1.0'
+date: '2026-03-04'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -178,20 +178,58 @@ Policy: additional optional keys are permitted when justified by the archetype; 
 
 ---
 
-## VII. DECISION GATE VS VERIFICATION GATE SEMANTICS
+## VII. GATE SEMANTICS & GATE DECISION RECORD (GDR)
 
 ### A. Decision gate (`gate_disposition` proposals)
 
 - A decision gate is used to disposition design choices before downstream execution.
 - The authoritative approval signal is the proposal-embedded `## Gate Decision Record` section.
 - Decision-gate proposals MAY use a proposal-embedded GDR without a separate verification artifact.
+- When a verification artifact also exists for the same gate, the proposal-embedded GDR is the authoritative decision record.
 
 ### B. Verification gate
 
 - Verification gates require reviewer-owned verification evidence and verdict taxonomy per `guideline_workspace_verification.md`.
+- The verification artifact carries the reviewer verdict in its Gate Recommendation section (§VII of verification template).
+- The `gate_disposition` proposal aggregates the reviewer verdict into its GDR alongside the client decision.
 - Proposal artifacts MUST NOT substitute for verification artifacts when gate purpose is quality/compliance verification.
 
-### C. Shared enforcement rule
+### C. GDR Field Specification
+
+Every `gate_disposition` proposal MUST include a Gate Decision Record as the penultimate section (before Changelog):
+
+## Gate Decision Record
+
+| Field | Value |
+|:--|:--|
+| Gate ID | `<GATE-ID>` |
+| Reviewer Verdict | [PASS / CONDITIONAL PASS / PASS WITH DEFERRALS / RECYCLE / FAIL / N/A — decision gate] |
+| Client Decision | [APPROVE / APPROVE WITH CONDITIONS / RECYCLE / REJECT] |
+| Conditions (if any) | [enumerated list or "—"] |
+| Decided By | Client |
+| Decision Date | YYYY-MM-DD |
+| Decision Reference | [session notes path, inline statement, or "pending"] |
+
+**Reviewer Verdict field rules**:
+- When a verification artifact exists for the same gate: the Reviewer Verdict MUST match the verdict recorded in the verification artifact's Gate Recommendation section.
+- When no verification artifact exists (pure decision gate): the Reviewer Verdict SHOULD be set to the consultant's recommendation verdict, or `N/A — decision gate` if no formal recommendation is applicable.
+
+### D. GDR Lifecycle
+
+1. Proposal artifact is authored with GDR section populated as: `Client Decision: pending`, `Decision Date: —`, `Decision Reference: pending`.
+2. Client reviews the gate package (proposal + any supporting verification/analysis artifacts).
+3. Client issues decision signal (in session, via message, or inline).
+4. GDR section is updated by the facilitating role (LLM_Consultant) to record the client's decision.
+5. Proposal artifact is version-bumped if other content changes accompany the decision recording.
+6. Gate status in the plan task register is updated per `guideline_workspace_verification.md` §VIII mapping.
+
+### E. GDR Enforcement
+
+- Any task with `Depends On: GATE-###` MUST verify that the gate's `gate_disposition` proposal contains a GDR with `Client Decision` = APPROVE or APPROVE WITH CONDITIONS.
+- A GDR with `Client Decision: pending` does NOT satisfy downstream dependencies.
+- If a gate has both a verification artifact and a proposal, the GDR in the proposal is the authoritative decision record.
+
+### F. Shared enforcement rule
 
 Downstream tasks with gate dependency MUST verify that the governing gate artifact contains a populated GDR with an approving client decision state.
 
@@ -246,4 +284,5 @@ Legacy compatibility surface:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-04 | Amendment | §VII expanded from "Decision Gate vs Verification Gate Semantics" to "Gate Semantics & Gate Decision Record (GDR)". Now includes full GDR field specification (§VII.C), GDR lifecycle (§VII.D), and GDR enforcement (§VII.E) — migrated from `guideline_workspace_verification.md` §X per T104-PH001-ST008-AC001 Option B approval. Proposal guideline is now the sole normative GDR authority. |
 | v1.0.0 | 2026-03-03 | Initial | Draft 1 proposal authoring guideline delivered for AC008 TK002. Encodes GATE-000 decisions for archetype taxonomy, multi-template posture, frontmatter baseline, gate semantics, authority references, naming/placement, and template inventory. |

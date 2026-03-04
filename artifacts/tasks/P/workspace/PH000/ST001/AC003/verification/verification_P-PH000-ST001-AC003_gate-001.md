@@ -7,8 +7,8 @@ phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC003'
 gate_id: 'P-PH000-ST001-AC003-GATE-001'
-version: '1.1.0'
-date: '2026-03-01'
+version: '1.2.0'
+date: '2026-03-04'
 status: 'approved'
 author: 'LLM_Reviewer'
 decision_owner_role: 'Client'
@@ -140,8 +140,10 @@ session_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/dev-rep
 | Classification | Situation A (deliverable deficiency) |
 | Required Action | Restore the theme mapping artifact to the canonical path (create `AC003/analysis/` if needed) so the audit trail for the 54 theme-to-CLAUSE mapping is physically present. |
 | Owner | LLM_Consultant |
-| Resolution Status | open |
-| Resolution Date | — |
+| Resolution Status | resolved |
+| Resolution Date | 2026-03-04 |
+
+*Resolution evidence*: File restored to canonical path `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK001_clause-theme-mapping.md`. Independently verified in `analysis_P-PH000-ST001-AC003-GATE-001_external-review-industry-best-practices.md` §IV-B (v1.1.0).
 
 ### FINDING-004 — Incomplete CDR Proposal Artifact on Disk (Tier Coverage / Version Mismatch)
 
@@ -153,8 +155,10 @@ session_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/dev-rep
 | Classification | Situation A (deliverable deficiency) |
 | Required Action | Restore the complete CDR proposal content (all priority tiers and all 13 decisions) and bump the proposal to v1.1.0, marking the confirmed options. |
 | Owner | LLM_Consultant |
-| Resolution Status | open |
-| Resolution Date | — |
+| Resolution Status | resolved |
+| Resolution Date | 2026-03-04 |
+
+*Resolution evidence*: CDR proposal restored to complete content (all 13 decisions with client confirmations) at v1.1.0 (`prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md`). Independently verified in `analysis_P-PH000-ST001-AC003-GATE-001_external-review-industry-best-practices.md` §IV-B (v1.1.0).
 
 ## V. Observations
 
@@ -195,6 +199,8 @@ No additional observations.
 | Decision Date | 2026-03-01 |
 | Decision Reference | Client approval to close GATE-001 with conditions via chat (2026-03-01) |
 
+**Supersession note (2026-03-04)**: This GDR is superseded by the proposal-embedded GDR in `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-001_gir-disposition-package.md` (v1.1.0) as the authoritative gate decision record, per client direction (SES003-DEC001). This GDR retains its historical record (APPROVE WITH CONDITIONS, 2026-03-01) for audit trail purposes.
+
 ## IX. References
 
 | Document | Path |
@@ -215,3 +221,4 @@ No additional observations.
 | v1.0.0 | 2026-02-27 | Initial | Primary verification artifact for `P-PH000-ST001-AC003-GATE-001`: P-STD-001 conformance + TK002/TK003 completeness + high-risk checks. Verdict: CONDITIONAL PASS (1 Moderate finding). |
 | v1.0.1 | 2026-02-27 | Re-verify | Re-verified after Decision Record keyword hygiene remediation; FINDING-001 resolved. Verdict: PASS. |
 | v1.1.0 | 2026-03-01 | Consultation re-assessment | Secondary-vision consultation findings integrated (GAP-1/2/3). Verified General Provisions forward-only adoption clause present (FINDING-002 resolved). Gate closed with Client Decision = APPROVE WITH CONDITIONS; GAP-2/3 tracked as conditions (FINDING-003/004 open). |
+| v1.2.0 | 2026-03-04 | Condition closure | FINDING-003 and FINDING-004 resolved (artifacts verified on disk). GDR supersession note added: proposal-embedded GDR in `proposal_...gir-disposition-package.md` v1.1.0 is now the authoritative gate decision record per SES003-DEC001. |

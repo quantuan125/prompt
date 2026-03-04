@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC004'
-version: '1.8.0'
-date: '2026-03-03'
+version: '1.9.0'
+date: '2026-03-04'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -69,9 +69,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | TK003.3 | `P-PH000-ST001-AC004-TK003.3` | Work Package: GIR-011 `_gate-###` Verification Filename Normalization & Enforcement | `completed` | LLM_Consultant | GATE-002 | `T104-PH001-ST007` | GIR-011 (approved option b) + repo inventory | Work package recorded under TK003.3 (authoritative rename inventory + deterministic rename targets + enforcement requirements). |
 | TK003.4 | `P-PH000-ST001-AC004-TK003.4` | Amend P-STD-004: Activity-Level `analysis/` + `proposal/` Allowed with `<scope-UID>` Match | `completed` | LLM_Developer | GATE-002 | `standard_P-STD-004_...md` | GATE-002 placement policy decision (2026-03-01) | P-STD-004 amended: activity-level `analysis/` and `proposal/` allowed with `<scope-UID>` placement alignment rule. |
 | TK004 | `P-PH000-ST001-AC004-TK004` | Downstream Updates (SPS, workspace_documentation_rules.md, Binding Rule) | `completed` | LLM_Consultant | TK003 | `sps_P-PROGRAM.md`, `workspace_documentation_rules.md`, P-STD-004 | — | Downstream updates applied: SPS `P-STD-004` row updated with Canonical Path; `workspace_documentation_rules.md` §7 retargeted to `P-STD-004`; binding-by-reference rule added to `P-STD-004-CLAUSE-002E`. |
-| TK004.2 | `P-PH000-ST001-AC004-TK004.2` | Disposition Proposal (GATE-003 greenlight package for TK005) | `completed` | LLM_Consultant | TK004, `T104-PH001-ST007-AC004.1` | `proposal_P-PH000-ST001-AC004-TK004.2_tk005-greenlight-disposition-package.md` | `guideline_workspace_plan.md`, `guideline_workspace_verification.md` | Disposition proposal produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/proposal/proposal_P-PH000-ST001-AC004-TK004.2_tk005-greenlight-disposition-package.md` (canonical GDR embedded with `Client Decision: pending`). |
+| TK004.2 | `P-PH000-ST001-AC004-TK004.2` | Disposition Proposal (GATE-003 greenlight package for TK005) | `completed` | LLM_Consultant | TK004, `T104-PH001-ST007-AC004.1` | `proposal_P-PH000-ST001-AC004-TK004.2_tk005-greenlight-disposition-package.md` | `guideline_workspace_plan.md`, `guideline_workspace_verification.md` | Disposition proposal produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/proposal/proposal_P-PH000-ST001-AC004-TK004.2_tk005-greenlight-disposition-package.md`; canonical GDR now closed (`APPROVE`, 2026-03-04). |
 | TK004.1 | `P-PH000-ST001-AC004-TK004.1` | Evidence-First Package Audit (GATE-003 readiness) | `completed` | LLM_Consultant | TK004.2 | `verification_P-PH000-ST001-AC004_gate-003-package-audit.md` | `guideline_workspace_verification.md`, TK004.2 proposal + evidence set | Evidence-first audit produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-003-package-audit.md` (verdict: PASS; no blocking findings). |
-| GATE-003 | `P-PH000-ST001-AC004-GATE-003` | Pre-TK005 Greenlight: Review + Remediation Dispositions | `planned` | Client | TK004.1 | Pass/fail | — | Client decision recorded in the GDR section of the TK004.2 proposal (canonical decision record). |
+| GATE-003 | `P-PH000-ST001-AC004-GATE-003` | Pre-TK005 Greenlight: Review + Remediation Dispositions | `completed` | Client | TK004.1 | Pass/fail | — | Client APPROVE recorded in TK004.2 proposal GDR on 2026-03-04; GIR-001...GIR-006 dispositions accepted; TK005 unblocked. |
 | TK005 | `P-PH000-ST001-AC004-TK005` | Incorporate P Migration Findings | `planned` | LLM_Consultant | GATE-003 | `standard_P-STD-004_...md` | P migration evidence (post-AC004.1 delta migration) | — |
 | TK006 | `P-PH000-ST001-AC004-TK006` | Incorporate T102 Migration Findings | `planned` | LLM_Consultant | TK004, `T104-PH001-ST007-AC005` | `standard_P-STD-004_...md` | T102 migration evidence | — |
 | TK007 | `P-PH000-ST001-AC004-TK007` | Produce Verification Evidence (GATE-004 acceptance readiness) | `planned` | LLM_Reviewer | TK004 | `verification_P-PH000-ST001-AC004_gate-004.md` | `guideline_workspace_verification.md`, `template_workspace_verification.md` | — |
@@ -771,3 +771,4 @@ This task follows the “decision disposition proposal” pattern exemplar:
 | v1.6.0 | 2026-03-01 | Update | Recorded GATE-002 APPROVE in the task register; marked TK003/TK003.1/TK003.3/TK003.4 and TK004 as completed; expanded TK003.3 with an authoritative `-GATE-###` rename inventory and deterministic rename targets. |
 | v1.7.0 | 2026-03-02 | Amendment | Inserted pre-TK005 greenlight gate (GATE-003; client label “GATE-002.1”) with disposition proposal (canonical GDR in proposal) + evidence-first package audit; re-identified acceptance gate as GATE-004; introduced downstream execution target `T104-PH001-ST007-AC004.1`; cancelled TK008 as superseded. |
 | v1.8.0 | 2026-03-03 | Update | Executed TK004.2 and TK004.1 deliverables for GATE-003 readiness: normalized proposal artifact to TK004.2, produced verification-style evidence-first package audit, and updated task register actions/targets accordingly. |
+| v1.9.0 | 2026-03-04 | Update | Recorded GATE-003 closure: Task Register `GATE-003` status set to `completed` and Action updated to reference client APPROVE in the TK004.2 proposal GDR (2026-03-04), unblocking `TK005`; normalized TK004.2 Action to reflect closed GDR state. |

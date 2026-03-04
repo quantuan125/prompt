@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.7.0'
-date: '2026-02-24'
+version: '1.9.0'
+date: '2026-03-04'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -190,11 +190,14 @@ For gate outcome rework classification (Situation A: deliverable deficiency vs. 
 
 **Summary**: When a gate review identifies an issue, the reviewer classifies it as Situation A (plan specified the requirement but deliverable missed it → rework under same task, no plan change) or Situation B (plan did not specify the requirement → plan amendment required, sub-task added). Full rules, decision test, and cross-boundary handoff guidance are in the verification guideline.
 
-### H. Cross-Reference: Gate Execution Rules
+### H. Cross-Reference: Gate Execution & Decision Rules
 
-For detailed gate execution rules including verdict taxonomy, findings classification, re-assessment versioning, and Gate Decision Record (GDR) specification, see `guideline_workspace_verification.md`.
+Gate execution and decision-recording are governed by two companion guidelines:
 
-This guideline (§VI) defines how gates are **structured in plans**. The verification guideline defines how gates are **executed** (evidence production, verdicts, decisions, rework).
+1. **Gate execution rules** (verdict taxonomy, findings classification, re-assessment versioning, rework paths): See `guideline_workspace_verification.md`.
+2. **Gate Decision Record (GDR)** (field specification, lifecycle, enforcement): See `guideline_workspace_proposal.md` §VII.
+
+This guideline (§VI) defines how gates are **structured in plans**. The verification guideline defines how gates are **executed** (evidence production, verdicts, rework). The proposal guideline defines how gate decisions are **recorded** (GDR in gate_disposition proposals).
 
 ## VII. SUB-ACTIVITY RULES (AC00x.x)
 
@@ -294,6 +297,7 @@ The following templates are available for PLAN artifacts. Each template defines 
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.9.0 | 2026-03-04 | Amendment | §VI.H split GDR cross-reference: gate execution rules → verification guideline; Gate Decision Record → proposal guideline §VII. Source: T104-PH001-ST008-AC001 Option B approval. |
 | v1.3.0 | 2026-02-11 | Amendment | Added §VI.F Phase-Level Gates authoring rule: ID format, placement, scope, enforcement mode (blocking vs conformance), interaction with activity gates |
 | v1.4.0 | 2026-02-11 | Update | Added Template Inventory section referencing PLAN templates; corrected status enum spelling (`deferred`) |
 | v1.5.0 | 2026-02-14 | Amendment | Standardized Sub-Activity workflow: dotted numeric `AC00x.x` IDs, allowed triggers (remediation/mandatory updates), and register constraints (Sub-Activities not listed in higher-level Activity Registers) |

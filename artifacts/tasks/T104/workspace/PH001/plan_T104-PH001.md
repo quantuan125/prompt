@@ -4,8 +4,8 @@ planning_level: 'PHASE'
 initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
-date: '2026-02-21'
-version: '1.7.0'
+date: '2026-03-04'
+version: '1.8.0'
 status: 'draft'
 author: 'LLM_Developer'
 decision_owner_role: 'Client'
@@ -72,10 +72,11 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 | 5 | `T104-PH001-ST005` | Template & Rules Alignment | PARALLEL | `T104-PH001-ST002-AC001` | `planned` | PLAN/ROADMAP/NOTES template + guideline alignment (working drafts); workspace_documentation_rules.md update |
 | 6 | `T104-PH001-ST006` | Validation & Handoff | SEQUENTIAL | ST003, ST004, ST005, ST007 | `planned` | Validation checklist; Phase 1 exit sign-off |
 | 7 | `T104-PH001-ST007` | Directory Restructuring (T104 + P + T102) | SEQUENTIAL | `T104-PH001-ST002-AC000` (Client-approved proposal) | `in_progress` | T104, P, T102 directories restructured; `consultant/` absorbed into T102 root |
+| 8 | `T104-PH001-ST008` | Vertical Guideline Integration & Documentation Rules Alignment | SEQUENTIAL | `T104-PH001-ST005` | `planned` | Cross-guideline consistency resolution; `workspace_documentation_rules.md` aligned to SPS; supersedes ST005-AC004 |
 
 ### Activity Snapshot Index
 
-**Activity Snapshot As-Of**: 2026-02-21
+**Activity Snapshot As-Of**: 2026-03-04
 
 | Stream | Activity | Activity ID | Name | Status (snapshot) | Owner | Source (Stream Plan) |
 |:--|:--|:--|:--|:--|:--|:--|
@@ -109,6 +110,11 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 | 7 | AC003 | `T104-PH001-ST007-AC003` | Archive tooling development | `planned` | LLM_Developer | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
 | 7 | AC004 | `T104-PH001-ST007-AC004` | Script Enhancement + P Directory Migration | `planned` | LLM_Developer | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
 | 7 | AC005 | `T104-PH001-ST007-AC005` | T102 Directory Migration | `planned` | LLM_Developer | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
+| 8 | AC001 | `T104-PH001-ST008-AC001` | GDR Ownership Resolution & Gate Semantics Alignment | `planned` | LLM_Consultant | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/plan_T104-PH001-ST008.md` |
+| 8 | AC002 | `T104-PH001-ST008-AC002` | Vertical Integration Analysis (Research Commissioning) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/plan_T104-PH001-ST008.md` |
+| 8 | AC003 | `T104-PH001-ST008-AC003` | Cross-Guideline Gap Resolution (Development) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/plan_T104-PH001-ST008.md` |
+| 8 | AC004 | `T104-PH001-ST008-AC004` | Documentation Rules Consolidation & SPS Alignment | `planned` | LLM_Consultant | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/plan_T104-PH001-ST008.md` |
+| 8 | AC005 | `T104-PH001-ST008-AC005` | Validation & Internal Review Gate | `planned` | LLM_Reviewer | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/plan_T104-PH001-ST008.md` |
 
 ---
 
@@ -127,6 +133,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 | Plan | Stream 4 Plan (PH001-ST004) | `prompt/artifacts/tasks/T104/workspace/PH001/ST004/plan_T104-PH001-ST004.md` |
 | Plan | Stream 5 Plan (PH001-ST005) | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/plan_T104-PH001-ST005.md` |
 | Plan | Stream 7 Plan (PH001-ST007) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
+| Plan | Stream 8 Plan (PH001-ST008) | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/plan_T104-PH001-ST008.md` |
 | Notes | Stream ST000 Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST000/notes_T104-PH001-ST000.md` |
 | Notes | Stream ST001 Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST001/notes_T104-PH001-ST001.md` |
 | SSOT | T104 SPS | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` |
@@ -151,6 +158,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.8.0 | 2026-03-04 | Update | Added ST008 (Vertical Guideline Integration & Documentation Rules Alignment) to Stream Register and Activity Snapshot Index. ST008 supersedes ST005-AC004. 5 activities registered (AC001–AC005). Evidence: consultation session 2026-03-04. |
 | v1.0.0 | 2026-01-31 | Initial | Phase 1 plan created with 6 streams and activity registers per SES-002 consultation outcomes |
 | v1.1.0 | 2026-02-01 | Update | Added Stream 0 (AC001-AC003); updated ID prefix ST041→ST000-SES### per notes guideline |
 | v1.2.0 | 2026-02-02 | Update | Restructured Stream ST001 into AC000–AC003 (migration + RES commissioning + consultation + validation); removed ST000-AC003 per ST001 consultation |

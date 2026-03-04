@@ -7,8 +7,8 @@ phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC004'
 gate_id: 'P-PH000-ST001-AC004-GATE-003'
-version: '1.0.0'
-date: '2026-03-03'
+version: '1.1.0'
+date: '2026-03-04'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -34,7 +34,7 @@ session_reference: '—'
 5. Verify remediation-surface coverage for naming enforcement, archive tooling alignment, and downstream authority updates.
 
 **Reviewer**: LLM_Consultant
-**Date**: 2026-03-03
+**Date**: 2026-03-04
 
 ## II. Evidence Set (Artifacts Reviewed)
 
@@ -64,7 +64,7 @@ session_reference: '—'
 | # | Check | Expected | Observed Evidence | Result |
 |:--|:--|:--|:--|:--|
 | A1 | TK004.2 proposal exists and is identifiable | Canonical file is present and frontmatter uses `task_id = P-PH000-ST001-AC004-TK004.2` | File exists at canonical path; frontmatter shows `task_id: 'P-PH000-ST001-AC004-TK004.2'`. | **PASS** |
-| A2 | Canonical GDR is embedded in proposal | Proposal contains `## VI. GATE DECISION RECORD (GDR) — CANONICAL` with `Client Decision: pending` | GDR section present; `Decision Reference` points to the TK004.2 proposal path; `Client Decision` remains `pending`. | **PASS** |
+| A2 | Canonical GDR is embedded in proposal | Proposal contains canonical `## VI. GATE DECISION RECORD (GDR)` section with populated closure fields | GDR section present and closed with `Reviewer Verdict: PASS`, `Client Decision: APPROVE`, `Decision Date: 2026-03-04`. | **PASS** |
 | A3 | Evidence Set path integrity | Every declared Evidence Set artifact path resolves | Independent path resolution confirms all listed artifacts exist (`12/12` resolved). | **PASS** |
 
 ### B. Disposition Coverage + Execution Mapping
@@ -100,14 +100,14 @@ No findings identified.
 
 ### OBS-001 - Supporting analysis artifact remains non-canonical
 
-`analysis_P-PH000-ST001-AC004_gate-003-package-audit.md` exists as a draft analysis artifact. This does not block the gate because TK004.1 is now fulfilled by the verification artifact in `verification/`, and the proposal remains the canonical decision surface for GATE-003.
+`analysis_P-PH000-ST001-AC004_gate-003-package-audit.md` exists as a supporting analysis artifact. It is not the canonical decision surface; TK004.1 is fulfilled by this verification artifact and canonical gate closure is recorded in the proposal GDR.
 
 ## VI. Entry Criteria Assessment
 
 | Entry Criterion | Status | Evidence |
 |:--|:--|:--|
 | TK004 complete | **MET** | Dev-report and downstream artifacts confirm TK004 updates; AC004 task register marks TK004 completed. |
-| TK004.2 disposition proposal produced (embedded GDR with `Client Decision: pending`) | **MET** | TK004.2 proposal exists with canonical GDR section and pending client decision. |
+| TK004.2 disposition proposal produced (embedded canonical GDR) | **MET** | TK004.2 proposal exists with canonical GDR section and closed client decision (`APPROVE`, 2026-03-04). |
 | TK004.1 evidence-first audit produced (no unresolved blocking gaps) | **MET** | This verification artifact completes TK004.1 with no blocking findings. |
 
 ## VII. Gate Recommendation
@@ -125,11 +125,11 @@ No findings identified.
 |:--|:--|
 | Gate ID | `P-PH000-ST001-AC004-GATE-003` |
 | Reviewer Verdict | PASS |
-| Client Decision | pending |
+| Client Decision | APPROVE |
 | Conditions (if any) | — |
 | Decided By | Client |
-| Decision Date | — |
-| Decision Reference | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/proposal/proposal_P-PH000-ST001-AC004-TK004.2_tk005-greenlight-disposition-package.md` |
+| Decision Date | 2026-03-04 |
+| Decision Reference | Client approval recorded in chat on 2026-03-04 |
 
 ## IX. References
 
@@ -146,4 +146,5 @@ No findings identified.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-04 | Update | Recorded client gate decision in GDR (`APPROVE`, date 2026-03-04, no conditions); aligned checklist and entry-criteria evidence language to closed proposal GDR state. |
 | v1.0.0 | 2026-03-03 | Initial | Initial evidence-first package audit for `P-PH000-ST001-AC004-GATE-003` readiness (TK004.1). Verdict: PASS. |

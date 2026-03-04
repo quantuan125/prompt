@@ -7,9 +7,9 @@ stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC003'
 task_id: 'P-PH000-ST001-AC003-TK004'
 gate_id: 'P-PH000-ST001-AC003-GATE-001'
-version: '1.0.0'
-date: '2026-03-03'
-status: 'draft'
+version: '1.1.0'
+date: '2026-03-04'
+status: 'approved'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md'
@@ -27,7 +27,7 @@ consumers:
 ## I. EXECUTIVE SUMMARY
 
 - **Context**: AC003 deliverables (`TK001` through `TK004`) are complete and include standard authoring, CDR resolution, theme mapping, readiness verification, and gate verification.
-- **Goal at gate**: Record explicit client dispositions for all remaining GIR items and provide a single package for final client-facing Gate-001 decision control.
+- **Goal at gate**: Close the existing GATE-001 approval (originally recorded as APPROVE WITH CONDITIONS in verification v1.1.0, 2026-03-01) by: (1) resolving the two open conditions (FINDING-003/004), (2) recording explicit client dispositions for all external-review GIR items, and (3) providing a single consolidated package with an authoritative proposal-embedded GDR that supersedes the verification artifact's GDR.
 - **Scope**: This package consolidates evidence and decisions from all prior AC003 deliverables and the new external-review analysis.
 - **Approval signal model**: For this gate package, the authoritative client signal is the **proposal-embedded GDR** in Section VI.
 
@@ -51,12 +51,14 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--|:--|
-| GIR-001 | Core standard acceptance | Accept P-STD-002 v1 for program use | (a) APPROVE | Gate closure | Yes | pending |
-| GIR-002 | Prior Gate-001 condition reconciliation | Confirm status of prior open conditions in v1.1.0 verification | (a) Mark condition evidence as satisfied by current on-disk artifacts | Gate closure record | Yes | pending |
-| GIR-003 | Retention-policy ownership gap (GAP-002) | Where retention duration is governed | (b) Defer to follow-on policy/standard, keep P-STD-002 v1 unchanged | Follow-on task after gate | No | pending |
-| GIR-004 | Stale-state governance gap (GAP-001) | Phase-2 hardening commitment | (a) Defer with explicit tracked follow-on action | TK006 / follow-on amendment | No | pending |
-| GIR-005 | Dependency schedule enrichment gap (GAP-005) | Whether to uplift optional enrichment for critical dependencies | (a) Keep v1 as-is, add future conditional uplift study | Follow-on amendment candidate | No | pending |
-| GIR-006 | Gate approval recording authority | Final authority location for this package | (a) Proposal-embedded GDR is authoritative | This proposal Section VI | Yes | pending |
+| GIR-001 | Core standard acceptance | Accept P-STD-002 v1 for program use | (a) APPROVE | Gate closure | Yes | `approved (a)` |
+| GIR-002 | Prior Gate-001 condition reconciliation | Confirm status of prior open conditions in v1.1.0 verification | (a) Mark condition evidence as satisfied by current on-disk artifacts | Gate closure record | Yes | `approved (a)` |
+| GIR-003 | Retention-policy ownership gap (GAP-002) | Where retention duration is governed | (b) Defer to follow-on policy/standard, keep P-STD-002 v1 unchanged | Follow-on task after gate | No | `approved (b)` |
+| GIR-004 | Stale-state governance gap (GAP-001) | Phase-2 hardening commitment | (a) Defer with explicit tracked follow-on action | TK006 / follow-on amendment | No | `approved (a)` |
+| GIR-005 | Dependency schedule enrichment gap (GAP-005) | Whether to uplift optional enrichment for critical dependencies | (a) Keep v1 as-is, add future conditional uplift study | Follow-on amendment candidate | No | `approved (a)` |
+| GIR-006 | Gate approval recording authority | Final authority location for this package | (a) Proposal-embedded GDR is authoritative | This proposal Section VI | Yes | `approved (a)` |
+| GIR-007 | Audit-protection controls (GAP-003) | Future hardening — no client decision required | n/a — accepted_as_is per analysis | Future hardening stream | No | `accepted_as_is` |
+| GIR-008 | Delivery-performance loop (GAP-004) | Future optimization — no client decision required | n/a — accepted_as_is per analysis | Optional follow-on guidance | No | `accepted_as_is` |
 
 ---
 
@@ -83,14 +85,20 @@ Rationale:
 - No foundational conformance failure remains; external review identifies hardening opportunities, not release blockers.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
 ### GIR-002 - Prior Gate-001 Condition Reconciliation
 
 Context:
-- Verification v1.1.0 recorded two open conditions (theme mapping artifact existence and complete CDR proposal persistence). Both artifacts now exist on disk at canonical paths.
+- Verification v1.1.0 recorded two open conditions:
+  - FINDING-003: Theme mapping artifact missing from `AC003/analysis/` directory.
+  - FINDING-004: CDR proposal on disk at v1.0.0 did not contain all 13 decisions.
+- Current on-disk state (verified 2026-03-04):
+  - FINDING-003: File exists at `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK001_clause-theme-mapping.md`
+  - FINDING-004: File exists at `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md` (v1.1.0, all 13 decisions with client confirmations)
+- Independent verification recorded in analysis artifact §IV-B (v1.1.0).
 
 Decision prompt:
 - How should this package treat the prior condition set?
@@ -107,7 +115,7 @@ Rationale:
 - Current repository state satisfies the condition intent; keeping conditions open would create audit noise.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] Override: _______`
 
 ---
 
@@ -132,7 +140,7 @@ Rationale:
 - Pragmatic gate posture: avoid reopening accepted core standard while still assigning accountable follow-on.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[ ] (a)` / `[x] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -156,7 +164,7 @@ Rationale:
 - This is a planned deferred scope in v1 and is not a structural defect for current acceptance.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] Override: _______`
 
 ---
 
@@ -180,7 +188,7 @@ Rationale:
 - Preserves gate momentum while still retaining a concrete improvement path.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] Override: _______`
 
 ---
 
@@ -205,7 +213,7 @@ Rationale:
 - Provides a single, client-facing disposition record in the package being presented for approval.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -223,19 +231,35 @@ Downstream enforcement:
 
 ---
 
+## V-B. FOLLOW-ON TRACKING
+
+Deferred GIR items are tracked as follows per client-approved recommendations (SES003):
+
+| GIR | Deferred Item | Tracking Vehicle | Target | Notes |
+|:--|:--|:--|:--|:--|
+| GIR-003 | Retention-policy ownership | **TK007** in `plan_P-PH000-ST001-AC003.md` | `planned` | Determine whether retention duration is governed within P-STD-002 or a sibling policy artifact |
+| GIR-004 | Stale-state governance operationalization | **TK008** in `plan_P-PH000-ST001-AC003.md` | `planned` | Define time-triggered review rules, cadence enforcement, escalation paths for CLAUSE-038 |
+| GIR-005 | Dependency schedule enrichment uplift | Future scope (no immediate TK) | — | Evaluate conditional uplift for critical dependencies in a future version study |
+
+**Rule**: TK007 and TK008 are authorized by the gate decision. They depend on GATE-001 completion and are registered in the AC003 activity plan for developer execution in a separate session.
+
+---
+
 ## VI. GATE DECISION RECORD (GDR)
 
 ## Gate Decision Record
+
+**Supersession note**: This proposal-embedded GDR is the authoritative gate decision record for P-PH000-ST001-AC003-GATE-001. It supersedes the GDR recorded in `verification_P-PH000-ST001-AC003_gate-001.md` (v1.1.0, 2026-03-01) per client direction (SES003-DEC001). The verification artifact's GDR retains its historical record but is no longer the primary decision authority.
 
 | Field | Value |
 |:--|:--|
 | Gate ID | `P-PH000-ST001-AC003-GATE-001` |
 | Reviewer Verdict | `PASS WITH DEFERRALS` |
-| Client Decision | `pending` |
-| Conditions (if any) | `-` |
+| Client Decision | `APPROVE` |
+| Conditions (if any) | `—` (prior conditions resolved per GIR-002; deferrals tracked per §V-B) |
 | Decided By | `Client` |
-| Decision Date | `YYYY-MM-DD` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-04` |
+| Decision Reference | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES003.md` |
 
 ---
 
@@ -256,4 +280,5 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-04 | Gate closure | Recorded Client decisions for all 6 GIRs (all recommended options approved). Added informative GIR-007/008 rows (GAP-003/004 acknowledged). Enriched GIR-002 evidence. Added §V-B follow-on tracking (TK007/TK008). Clarified gate-closure framing. Added GDR supersession clause. Completed GDR (Client Decision: APPROVE, 2026-03-04). Evidence: SES003. |
 | v1.0.0 | 2026-03-03 | Initial | Gate-001 GIR disposition package consolidating all AC003 deliverables plus external-review hardening inputs into a single client decision package with proposal-embedded GDR authority. |
