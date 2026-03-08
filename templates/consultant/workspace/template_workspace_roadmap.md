@@ -5,7 +5,7 @@ initiative_code: '[INITIATIVE-CODE]'
 epic_id: '[EPIC-ID OR —]'
 epic_code: '[EPIC-CODE OR —]'
 phase: '[PHASE-NUMBER]'
-version: '1.0.1'
+version: '1.0.2'
 date: 'YYYY-MM-DD'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -105,12 +105,14 @@ HEADING SEMANTICS (LOCKED)
 
 ### Stream Register
 
+<!-- Use canonical P-STD-002 work-item states per guideline_workspace_roadmap.md §III. -->
 | Stream | Name | Objective | Status | Owner | Execution Mode | Depends On | Start | Target | Completion | Key Deliverables |
 |:------|:-----|:----------|:-------|:------|:--------------|:----------|:------|:-------|:-----------|:----------------|
 | 1 | **[Stream Name]** | [1-sentence objective] | `planned` | LLM_Consultant | PARALLEL | — | — | — | — | `[deliverable]` |
 
 ### Activity Register
 
+<!-- Use canonical P-STD-002 work-item states per guideline_workspace_roadmap.md §III. -->
 | Stream | Activity | Name | Status | Owner | Execution Mode | Depends On | Start | Target | Completion | Deliverable(s) |
 |:-------|:---------|:-----|:-------|:------|:--------------|:----------|:------|:-------|:-----------|:--------------|
 | 1 | 1.1 | **[Activity Name]** | `planned` | LLM_Consultant | PARALLEL | — | — | — | — | `[path/to/deliverable.md]` |
@@ -130,7 +132,7 @@ HEADING SEMANTICS (LOCKED)
 #### Activity 1.1: [Activity Title]
 
 **Purpose**: [Why this activity exists; what it unlocks]
-**Status**: [Complete | Planned | In Progress | Blocked]
+**Status**: [planned | ready | in_progress | blocked | on_hold | completed | cancelled]
 **Deliverable**: `[path/to/deliverable/file.md]` — [Brief description]
 
 **Inputs Required**:
@@ -178,3 +180,5 @@ HEADING SEMANTICS (LOCKED)
 ## VI. CHANGELOG
 
 `[path/to/changelog_roadmap_<id>_phase<#>.md]`
+
+<!-- Template revision: v1.0.2 adds P-STD-002 canonical status guidance to roadmap examples. -->

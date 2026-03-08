@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'verification_authoring'
-version: '1.1.0'
-date: '2026-03-04'
+version: '1.3.0'
+date: '2026-03-08'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -26,7 +26,7 @@ The following roles interact with verification artifacts:
 
 - **LLM_Reviewer** (preferred): Primary author of gate verification artifacts. Performs independent cross-verification using evidence-first methodology.
 - **LLM_Consultant**: Permitted for pre-gate commissioning assessments and readiness reviews. May author supplementary verification artifacts when the assessment focuses on evidence integrity or commissioning readiness rather than technical correctness.
-- **Client**: Decision owner. Owns the Gate Decision Record (GDR) section. All gate decisions require Client approval signal.
+- **Client**: Decision owner. All gate decisions require Client approval signal, which is recorded in the proposal's Gate Decision Record (GDR) section.
 - **LLM_Developer**: NOT an author of verification artifacts. Developer-produced evidence (dev-reports, execution logs) serves as verification INPUT, not verification itself.
 
 Note: Role definitions are informative pending T101 (Role Standardization).
@@ -41,8 +41,8 @@ Verification follows a "TK-before-gate" pattern:
 4. **Reviewer produces verification artifact**: Following this guideline's evidence rules (§V), findings schema (§VI), and template structure.
 5. **Reviewer issues verdict**: One of the verdict values defined in §VIII.
 6. **Client reviews**: Client examines the verification artifact (entry criteria assessment, findings, recommendation).
-7. **Client issues decision**: Decision recorded in the Gate Decision Record (§X). Gate status transitions per §VIII mapping.
-8. **Downstream enforcement**: Tasks with `Depends On: GATE-###` MUST verify that the gate's verification artifact contains a populated GDR with APPROVE or APPROVE WITH CONDITIONS before starting.
+7. **Client issues decision**: Decision recorded in the `gate_disposition` proposal's Gate Decision Record (GDR). Gate status transitions per §VIII mapping.
+8. **Downstream enforcement**: Tasks with `Depends On: GATE-###` MUST verify that the gate's `gate_disposition` proposal contains a populated GDR with APPROVE or APPROVE WITH CONDITIONS before starting.
 
 **Mandatory Rule**: The separation of verification task (evidence production) from gate (decision) is mandatory. Verification evidence MUST NOT be produced as part of the gate event itself.
 
@@ -55,7 +55,7 @@ Verification follows a "TK-before-gate" pattern:
 - Primary artifact: `verification_<activity-UID>_gate-###.md`
 - Supplementary artifact: `verification_<activity-UID>_gate-###_<aspect>.md` (e.g., `_convention-compliance.md`, `_commissioning-readiness.md`)
 - Frontmatter linking: Primary lists supplementary paths; supplementary references primary via `primary_verification` frontmatter key.
-- The primary artifact contains the Gate Recommendation and GDR sections. Supplementary artifacts contain aspect-specific findings that feed into the primary recommendation.
+- The primary artifact contains the Gate Recommendation section. Supplementary artifacts contain aspect-specific findings that feed into the primary recommendation.
 - When to decompose: When a gate review covers multiple independent verification dimensions (e.g., technical correctness + convention compliance + commissioning readiness).
 
 ### B. Re-assessment (Temporal Iteration)
@@ -138,7 +138,7 @@ Each `OBS-###` MUST include: Description, Context, Recommendation (optional).
 
 1. **Definition**: The deliverable is deficient because the upstream plan or standard failed to specify the necessary requirement or constraint.
 2. **Path**: Reviewer issues FINDING-### (Situation B). Role owner amends the plan. Developer executes the amendment.
-3. **Handoff rule**: The plan MUST be amended before the developer has authority to act. The verification artifact identifies the gap; the plan amendment provides the developer's formal work authority via a new sub-task (TK###.n). The verification artifact MUST reference the plan amendment.
+3. **Handoff rule**: The plan MUST be amended before the developer has authority to act. The verification artifact identifies the gap; the plan amendment provides the developer's formal work authority via a new tracked task or sub-task (`TK###` / `TK###.n`) per `guideline_workspace_plan.md §IV.E`. The verification artifact MUST reference the plan amendment.
 
 ### C. Cross-Boundary Handoff
 
@@ -153,6 +153,8 @@ When rework involves a different role owner or different stream than the origina
 | Does rework cross ownership boundary? | Yes | A or B + Cross-boundary | `comm_` brief optional | Depends on A/B |
 
 ### E. Plan Authority Principle
+
+**Situation B clarification**: The amendment mechanism for scope gaps follows `guideline_workspace_plan.md §IV.E`. The plan MAY introduce either a new tracked Task (`TK###`) or a dotted Sub-Task (`TK###.n`) depending on the decomposition need; neither creates task-level directory scope.
 
 The plan is the developer's work authority. The verification artifact identifies WHAT needs rework and WHAT outcome is required. The plan authorizes HOW to do it and UNDER WHICH TASK. For Situation A, the plan already covers the scope (no amendment needed). For Situation B, the plan MUST be amended first.
 
@@ -203,6 +205,8 @@ The verification artifact's role at a gate is to provide evidence and a reviewer
 
 **Historical note**: Prior to v1.1.0, this guideline contained the full GDR specification in §X. That specification has been migrated to the proposal guideline to consolidate GDR ownership in the consultant-owned gate package per T104-PH001-ST008-AC001 Option B approval.
 
+**Task decomposition clarification**: Any verification-driven task rework that needs new tracked authority follows `guideline_workspace_plan.md §IV.E` (Task Decomposition Rules), not the Sub-Activity rules in `§VII`.
+
 ## XI. NAMING CONVENTION
 
 **File naming**:
@@ -231,5 +235,6 @@ The verification artifact's role at a gate is to provide evidence and a reviewer
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-05 | Maintenance | Resolved legacy GDR ownership references in §II, §III, and §IV. Workflow and role boundaries now correctly identify the proposal artifact as the GDR host. |
 | v1.1.0 | 2026-03-04 | Amendment | §X (GDR) replaced with cross-reference to `guideline_workspace_proposal.md` §VII. Full GDR specification (field set, lifecycle, enforcement) migrated to proposal guideline per T104-PH001-ST008-AC001 Option B approval. Verification artifact retains Gate Recommendation (§VII template section) for reviewer verdict; GDR now hosted exclusively in gate_disposition proposals. |
 | v1.0.0 | 2026-02-25 | Initial | Draft 1 (exemplar-derived). Covers: role boundary, TK-before-gate workflow, verification package, evidence rules, findings schema, gate outcome rework paths (migrated from guideline_workspace_plan.md §VI.G), verdict taxonomy, re-assessment versioning, GDR, naming convention. Source: T104-PH001-ST005-AC005-SES001 consultation. |

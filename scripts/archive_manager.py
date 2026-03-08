@@ -80,10 +80,15 @@ class ArchiveManager:
             return doc_path.parent / "archive"
         return doc_path.parent / "archive"
 
-    def _archive_dir_for_live_doc(self, doc_path: Path, initiative_root: Path | None) -> Path:
+    def _archive_dir_for_live_doc(
+        self,
+        doc_path: Path,
+        initiative_root: Path | None,
+        deprecated: bool,
+    ) -> Path:
         if initiative_root is not None:
-            relative = doc_path.relative_to(initiative_root)
-            return initiative_root / "archive" / relative.parent
+            tier = "deprecated" if deprecated else "versioned"
+            return initiative_root / "archive" / tier
         return self._legacy_archive_dir(doc_path)
 
     def _build_archive_filename(self, doc_path: Path, deprecated: bool, version: str | None) -> str:
@@ -140,7 +145,11 @@ class ArchiveManager:
             deprecated=deprecated,
             version=effective_version,
         )
-        archive_dir = self._archive_dir_for_live_doc(doc_path=doc_path, initiative_root=initiative_root)
+        archive_dir = self._archive_dir_for_live_doc(
+            doc_path=doc_path,
+            initiative_root=initiative_root,
+            deprecated=deprecated,
+        )
         return archive_dir / archive_filename, effective_version
 
     def _metadata_payload(
@@ -316,7 +325,11 @@ class ArchiveManager:
 
     def _version_archive_dir_for_doc(self, doc_path: Path, initiative_root: str | None) -> Path:
         resolved_initiative_root = self._resolve_initiative_root(doc_path, initiative_root)
-        return self._archive_dir_for_live_doc(doc_path, resolved_initiative_root)
+        return self._archive_dir_for_live_doc(
+            doc_path=doc_path,
+            initiative_root=resolved_initiative_root,
+            deprecated=False,
+        )
 
     def clean_old_archives(
         self,

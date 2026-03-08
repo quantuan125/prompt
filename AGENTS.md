@@ -23,3 +23,10 @@ Currently developing consultant and developer modes with emphasis on Socratic ex
 ## Git Operations
 - The git repository root for this workspace is `prompt/`.
 - Run git commands from `prompt/` (or use `git -C prompt ...`) to avoid operating outside the repository.
+
+## Testing and TDD
+- For any testing related to files under `prompt/`, use the workspace-root virtual environment at `venv/`.
+- Preferred command form from the workspace root is `venv/bin/python -m pytest ...`.
+- If your shell is already inside `prompt/`, use the equivalent `../venv/bin/python -m pytest ...`.
+- For `prompt/scripts/` changes, the default regression command is `venv/bin/python -m pytest -q prompt/scripts/tests`.
+- In TDD workflows, run the smallest relevant pytest target first, verify the red/green cycle, then rerun the broader affected suite in the same `venv` before completion claims.

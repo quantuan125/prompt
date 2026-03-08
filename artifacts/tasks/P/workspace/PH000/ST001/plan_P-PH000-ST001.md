@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.13'
-date: '2026-03-04'
+version: '0.1.14'
+date: '2026-03-06'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -100,10 +100,11 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 **Deliverable (contract stub)**:
 - Activity plan (SSOT task register): `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md`
 - Standard: `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md`
+- Post-acceptance execution package: `TK007` assessment + `TK008` standards-input proposal + `TK009/TK010` Gate-003 review package
 
 **Scope**:
-- In scope: 7-state enum governance (DEC-004) + transition rules + health/RAG assessment + unified dependency schema (DEC-006) + evidence linkage (DEC-005) + update protocol + status artifact spec + guideline cascade (DEC-008)
-- Out of scope: authoring `status_program.md` (deferred to ST002-AC002); repo-wide initiative plan retrofits (downstream adopters update on next touch)
+- In scope: 7-state enum governance (DEC-004) + transition rules + health/RAG assessment + unified dependency schema (DEC-006) + evidence linkage (DEC-005) + update protocol + status artifact spec + guideline cascade (DEC-008) + post-acceptance readiness packaging through `GATE-003`
+- Out of scope: authoring `status_program.md` (deferred to ST002-AC002); repo-wide initiative plan retrofits (downstream adopters update on next touch); any post–`GATE-003` amendment implementation that may later be approved from TK007/TK008 outputs
 
 **Depends On**: `P-PH000-ST004-AC001` (P-RES-001 research sign-off via GATE-003)
 
@@ -115,7 +116,10 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 - [ ] Unified dependency schema defined as normative CLAUSEs
 - [ ] P-STD-002-ADR-001 exists under `## Decision Record`
 - [ ] sps_P P-STD-002 row updated (status `accepted`, canonical path, effective date)
-- [ ] Downstream guideline files updated to reference P-STD-002 enums (TK006)
+- [ ] Downstream workspace guidance/templates updated to reference P-STD-002 status authority (TK006)
+- [ ] Retention-policy ownership assessment produced (TK007)
+- [ ] Stale-state governance standards-input proposal produced (TK008)
+- [ ] Gate-003 package artifacts produced and ready for client review (TK009/TK010)
 
 ---
 
@@ -245,6 +249,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.14 | 2026-03-06 | Amendment | AC003 contract stub updated for Gate-003 implementation readiness: added post-acceptance package deliverables, expanded scope through `GATE-003`, and enriched success criteria to cover TK007/TK008 outputs and Gate-003 package preparation. Evidence: SES004. |
 | v0.1.13 | 2026-03-04 | Housekeeping | AC003 status `planned` → `in_progress` (GATE-001 passed; TK005/TK006/TK007/TK008 remain planned). Removed DRAFT banner from AC003 section (blocking condition resolved). Evidence: SES003. |
 | v0.1.12 | 2026-02-28 | Amendment | AC004 updated (contract stub): recorded that GIR-006 + GIR-011 deferrals are explicitly work-packaged/tracked via AC004 plan tasks (TK009/TK010) while execution remains in `T104-PH001-ST007`, aligned to secondary-vision cleanup for `P/**` and `T104/**` and strict first-migration conformance for `T102/**`. |
 | v0.1.11 | 2026-02-26 | Amendment | AC004 updated: stale T102-STD-004/005 references replaced with P-STD-001/P-STD-005; proposal pin v3.1.0 → v3.4.0; section trimmed to contract stub per §IV.D; dedicated activity plan linked; Seed-First methodology documented; `workspace_documentation_rules.md` added to scope. Evidence: AC004-SES002 consultation (2026-02-26). |

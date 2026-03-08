@@ -53,7 +53,7 @@ session_reference: '—'
 **Downstream execution references**:
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` (stream authority)
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/plan_T104-PH001-ST007-AC004.md` (revision 1 baseline)
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/plan_T104-PH001-ST007-AC004.1.md` (revision 2 execution target)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004.1/plan_T104-PH001-ST007-AC004.1.md` (revision 2 execution target)
 - `prompt/scripts/validate_initiative_structure.py` (current naming/placement enforcement behavior)
 - `prompt/scripts/archive_manager.py` (current archive implementation behavior)
 
@@ -140,7 +140,7 @@ No findings identified.
 | TK003-TK004 Dev-Report | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/dev-report/dev-report_P-PH000-ST001-AC004_tk003-tk004-execution_2026-03-01.md` |
 | P-STD-004 | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` |
 | P-STD-005 | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` |
-| ST007 AC004.1 Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/plan_T104-PH001-ST007-AC004.1.md` |
+| ST007 AC004.1 Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004.1/plan_T104-PH001-ST007-AC004.1.md` |
 
 ## X. Changelog
 

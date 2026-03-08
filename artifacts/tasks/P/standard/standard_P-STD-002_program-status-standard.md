@@ -381,9 +381,26 @@
    - the artifact MUST retain the most recent update as authoritative, and
    - disputes MUST be escalated to the Accountable role for resolution, with decision evidence recorded.
 
-39) **P-STD-002-CLAUSE-038 (Stale-State Governance (Reserved))**
+39) **P-STD-002-CLAUSE-038 (Stale-State Governance)**
 
-   This CLAUSE is reserved for Phase 2 stale-state governance (SLA/TTL, review triggers, and automated drift detection). No v1 normative stale-state requirements are imposed.
+   Status entries in active non-terminal states (`ready`, `in_progress`, `blocked`, `on_hold`) MUST be reviewed for staleness using the `last_updated` field.
+
+   Minimum stale-state thresholds:
+   - `ready`: 7 calendar days without update
+   - `in_progress`: 7 calendar days without update
+   - `blocked`: 3 calendar days without update
+   - `on_hold`: 14 calendar days without update
+
+   Stale-state review MUST run on a recurring schedule of at least once every 7 calendar days.
+
+   When an entry is detected as stale:
+   - the Responsible and Accountable roles MUST be notified;
+   - the item MUST be reviewed and either refreshed, confirmed with an exception note, or transitioned to a more accurate state; and
+   - if the stale condition remains unresolved through the next review interval, the Accountable role MUST record a resolution decision.
+
+   Stale-state detection MUST NOT by itself force an automatic status transition in the baseline program implementation.
+
+   This CLAUSE supplements transition-based health reassessment in `P-STD-002-CLAUSE-017`; it does not replace it.
 
 40) **P-STD-002-CLAUSE-039 (Repo-Verifiable Evidence Requirement)**
 

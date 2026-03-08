@@ -15,10 +15,12 @@ from report_output import SCRIPTS_OUTPUT_ROOT, resolve_report_path
 
 PHASE_DIR_PATTERN = re.compile(r"^PH\d{3}$")
 STREAM_DIR_PATTERN = re.compile(r"^ST\d{3}$")
-ACTIVITY_DIR_PATTERN = re.compile(r"^AC\d{3}$")
-AC_TOKEN_PATTERN = re.compile(r"(AC\d{3})")
+ACTIVITY_DIR_PATTERN = re.compile(r"^AC\d{3}(?:\.\d+)?$")
+AC_TOKEN_PATTERN = re.compile(r"(AC\d{3}(?:\.\d+)?)")
 RAW_FILE_PATTERN = re.compile(r"^raw_[A-Z0-9-]+-SES\d{3}\.(?:md|txt)$")
 RESEARCH_DIR_PATTERN = re.compile(r"^[A-Z0-9-]+-RES-\d{3}$")
+LEGACY_GATE_TOKEN_PATTERN = re.compile(r"^verification_.*-GATE-\d{3}.*\.md$")
+CANONICAL_GATE_TOKEN_PATTERN = re.compile(r"^verification_.*_gate-\d{3}(?:[._-].*)?\.md$")
 TYPE_FIRST_WORKSPACE_DIRS = {"plan", "notes", "roadmap", "analysis", "proposal", "external"}
 WORKSPACE_ALLOWED_NON_PHASE_DIRS = {"_unresolved", "verification"}
 STREAM_TYPE_DIRS = {"raw", "proposal", "analysis", "communication", "snotes"}
@@ -95,6 +97,7 @@ class InitiativeValidator:
         self._validate_file_prefixes()
         self._validate_type_prefix_alignment()
         self._validate_raw_transcripts()
+        self._validate_verification_gate_filenames()
         self._validate_uid_scope_placement()
         return ValidationResult(errors=self.errors, warnings=self.warnings, infos=self.infos)
 
@@ -174,7 +177,7 @@ class InitiativeValidator:
                 self._validate_activity_contents(child)
                 continue
             self.errors.append(
-                f"Invalid activity/type directory under stream (expected AC### or known type dir): "
+                f"Invalid activity/type directory under stream (expected AC###, AC###.N, or known type dir): "
                 f"{child.relative_to(self.root)}"
             )
 
@@ -281,6 +284,26 @@ class InitiativeValidator:
                     f"Raw transcript missing canonical SES token format: {file_path.relative_to(self.root)}"
                 )
 
+    def _validate_verification_gate_filenames(self) -> None:
+        for file_path in self.root.rglob("verification_*.md"):
+            name = file_path.name
+            if "-GATE-" in name:
+                if LEGACY_GATE_TOKEN_PATTERN.match(name):
+                    self.errors.append(
+                        "Verification filename uses legacy gate token `-GATE-###`; "
+                        f"use `_gate-###`: {file_path.relative_to(self.root)}"
+                    )
+                continue
+
+            if "_gate-" not in name:
+                continue
+
+            if not CANONICAL_GATE_TOKEN_PATTERN.match(name):
+                self.errors.append(
+                    "Verification filename has malformed gate token "
+                    f"(expected `_gate-###`): {file_path.relative_to(self.root)}"
+                )
+
     def _validate_uid_scope_placement(self) -> None:
         workspace = self.root / "workspace"
         if not workspace.exists():
@@ -296,6 +319,7 @@ class InitiativeValidator:
             if not token_match:
                 continue
             expected_activity = token_match.group(1)
+            expected_parent_activity = expected_activity.split(".", 1)[0]
 
             try:
                 relative = file_path.relative_to(workspace)
@@ -324,7 +348,14 @@ class InitiativeValidator:
                 continue
 
             actual_activity = activity_parts[0]
-            if actual_activity != expected_activity:
+            if "." in expected_activity:
+                if actual_activity not in {expected_activity, expected_parent_activity}:
+                    self.errors.append(
+                        "AC-scoped file activity directory does not match UID token "
+                        f"(expected {expected_activity} or parent {expected_parent_activity}, found {actual_activity}): "
+                        f"{file_path.relative_to(self.root)}"
+                    )
+            elif actual_activity != expected_activity:
                 self.errors.append(
                     "AC-scoped file activity directory does not match UID token "
                     f"(expected {expected_activity}, found {actual_activity}): "

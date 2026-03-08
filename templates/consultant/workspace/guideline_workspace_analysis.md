@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'analysis_authoring'
-version: '1.0.0'
-date: '2026-03-01'
+version: '1.1.0'
+date: '2026-03-05'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -30,7 +30,7 @@ This guideline is Draft 1 (exemplar-derived). It is intended as the binding auth
 
 - **LLM_Consultant** is the **sole author** of ANALYSIS artifacts.
 - **LLM_Reviewer** authors VERIFICATION artifacts; verification findings are gate-oriented and may be blocking.
-- **Client** is the decision owner for gates and proposal acceptance; client decisions are recorded in Gate Decision Records (GDRs) inside verification/proposal artifacts where applicable.
+- **Client** is the decision owner for gates and proposal acceptance; client decisions are recorded in Gate Decision Records (GDRs) inside proposal artifacts where applicable.
 
 **Boundary rule**: ANALYSIS artifacts may contain findings/gaps and downstream recommendations, but they MUST NOT be written as gate evidence and MUST NOT claim gate closure.
 
@@ -199,5 +199,6 @@ Per `P-STD-004-CLAUSE-008E`, `analysis_` artifacts MUST NOT be treated as resear
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-05 | Maintenance | Resolved legacy GDR ownership reference in §II (removed verification artifact as GDR host). |
 | v1.0.0 | 2026-03-01 | Initial | Draft 1 authoring guideline for ANALYSIS artifacts. Encodes AC007 GATE-000 decisions (DEC001–DEC009, DEC011–DEC013) and aligns naming/placement guidance to `P-STD-004` and `P-STD-005`. |
 

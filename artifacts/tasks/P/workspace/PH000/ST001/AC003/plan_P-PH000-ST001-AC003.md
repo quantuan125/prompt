@@ -6,12 +6,13 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC003'
-version: '0.4.0'
-date: '2026-03-04'
+version: '0.6.0'
+date: '2026-03-07'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
+procedural_guideline: 'prompt/templates/consultant/workspace/guideline_workspace_plan.md'
 parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md'
 ---
 
@@ -20,9 +21,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: Author `P-STD-002` (Program Status Standard) as a program-wide status governance standard covering: canonical 7-state status vocabulary with transition rules, health/RAG assessment requirements, unified dependency visibility schema, evidence linkage protocol, update protocol with role accountability, and status artifact specification. This standard is a prerequisite for authoring the program status artifact in `P-PH000-ST002`.
+**Purpose**: Author `P-STD-002` (Program Status Standard) as a program-wide status governance standard covering: canonical 7-state status vocabulary with transition rules, health/RAG assessment requirements, unified dependency visibility schema, evidence linkage protocol, update protocol with role accountability, and status artifact specification. This activity also packages the post-acceptance follow-on work needed to make AC003 implementation-ready through `GATE-003`.
 
-**Non-goal**: This activity does not create `status_program.md` (deferred to P-PH000-ST002-AC002) or execute repo-wide guideline retrofits beyond the explicit cascade task (TK006).
+**Non-goal**: This activity does not create `status_program.md` (deferred to P-PH000-ST002-AC002), execute repo-wide initiative plan retrofits beyond the explicit cascade task (TK006), or apply any post–`GATE-003` amendment to `P-STD-002` that may be approved from TK007/TK008 follow-on analysis.
 
 ---
 
@@ -38,7 +39,11 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` (P-STD-002 row update)
 - `prompt/templates/consultant/standards/guideline_standard_specs.md` (authoring rules)
 - `prompt/templates/consultant/standards/template_standard_specs.md` (structural skeleton)
+- `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` (analysis authoring rules)
+- `prompt/templates/consultant/workspace/template_workspace_analysis.md` (analysis template)
 - `prompt/templates/consultant/workspace/guideline_workspace_plan.md` (cascade target)
+- `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` (proposal archetypes + GDR authority)
+- `prompt/templates/consultant/workspace/guideline_workspace_verification.md` (verification workflow)
 - `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC001-TK003_integration-recommendations-P-RES-001.md` (P-RES-001 integration recommendations)
 - `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC002-TK003_integration-recommendations-P-RES-002.md` (P-RES-002 integration recommendations)
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md` (CDR resolution proposal — TK001 deliverable)
@@ -52,12 +57,15 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | TK001.1 | `P-PH000-ST001-AC003-TK001.1` | Verify TK001 deliverables — CDR review and readiness assessment for TK002 | `completed` | LLM_Consultant | TK001 | AC003/verification/ | guideline_workspace_verification | CONDITIONAL PASS; APPROVE WITH CONDITIONS (2026-02-27) |
 | TK002 | `P-PH000-ST001-AC003-TK002` | Draft P-STD-002 combined file: Specification section (54 CLAUSE themes across 5 domains) | `completed` | LLM_Consultant | TK001.1 | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Authored P-STD-002 Specification (54 CLAUSEs) per TK002. Evidence: `dev-report_P-PH000-ST001-AC003_tk002-tk003-execution_2026-02-27.md` |
 | TK003 | `P-PH000-ST001-AC003-TK003` | Draft P-STD-002-ADR-001 in Decision Record section (address 13 binding CDR decisions) | `completed` | LLM_Consultant | TK002 | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Authored embedded `P-STD-002-ADR-001` per TK003. Evidence: `dev-report_P-PH000-ST001-AC003_tk002-tk003-execution_2026-02-27.md` |
-| TK004 | `P-PH000-ST001-AC003-TK004` | Produce GATE-001 verification artifact (includes validation vs P-STD-001 authoring rules) | `completed` | LLM_Reviewer | TK003 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-001.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` | Verification complete (v1.1.0). Verdict: CONDITIONAL PASS. GDR: Client Decision recorded (APPROVE WITH CONDITIONS, 2026-03-01). |
-| GATE-001 | `P-PH000-ST001-AC003-GATE-001` | **Gate: Client acceptance of P-STD-002**. Entry: TK004 verification complete (verdict issued; GDR pending). Reviewer: Client. Exit: explicit acceptance recorded. | `completed` | Client | TK004 | — | — | Gate closed. Client decision: APPROVE (2026-03-04). Authoritative GDR: `proposal_P-PH000-ST001-AC003-GATE-001_gir-disposition-package.md` v1.1.0 §VI (supersedes verification GDR per SES003-DEC001). Prior conditions (FINDING-003/004) resolved. |
-| TK005 | `P-PH000-ST001-AC003-TK005` | Update sps_P P-STD-002 row (status → `accepted`, canonical path, effective date) | `planned` | LLM_Consultant | GATE-001 | sps_P | P-STD-001-CLAUSE-012 | — |
-| TK006 | `P-PH000-ST001-AC003-TK006` | Cascade P-STD-002 status enums to downstream guideline files | `planned` | LLM_Consultant | GATE-001 | guideline files | DEC-008 | — |
-| TK007 | `P-PH000-ST001-AC003-TK007` | Determine retention-policy ownership (GIR-003/GAP-002 follow-on) | `planned` | LLM_Consultant | GATE-001 | analysis/ or standard amendment | GIR-003 | — |
-| TK008 | `P-PH000-ST001-AC003-TK008` | Operationalize stale-state governance CLAUSE-038 (GIR-004/GAP-001 follow-on) | `planned` | LLM_Consultant | GATE-001 | standard amendment | GIR-004 | — |
+| TK004 | `P-PH000-ST001-AC003-TK004` | Produce GATE-001 verification artifact (includes validation vs P-STD-001 authoring rules) | `completed` | LLM_Reviewer | TK003 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-001.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` | Verification complete (v1.2.0). Verdict: CONDITIONAL PASS. Historical verification GDR retained for audit trail; authoritative gate decision later superseded by the Gate-001 proposal package. |
+| GATE-001 | `P-PH000-ST001-AC003-GATE-001` | **Gate: Client acceptance of P-STD-002**. Entry: TK004 verification complete (verdict issued; proposal GDR pending). Reviewer: Client. Exit: explicit acceptance recorded. | `completed` | Client | TK004 | — | — | Gate closed. Client decision: APPROVE (2026-03-04). Authoritative GDR: `proposal_P-PH000-ST001-AC003-GATE-001_gir-disposition-package.md` v1.1.0 §VI (supersedes verification GDR per SES003-DEC001). Prior conditions (FINDING-003/004) resolved. |
+| TK005 | `P-PH000-ST001-AC003-TK005` | Update sps_P P-STD-002 row (status → `accepted`, canonical path, effective date) | `completed` | LLM_Developer | GATE-001 | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` | P-STD-001-CLAUSE-012 | P-STD-002 SPS row accepted (effective 2026-03-04) and body entry added. Evidence: `dev-report_P-PH000-ST001-AC003_tk005-tk006-implementation_2026-03-07.md`. |
+| TK006 | `P-PH000-ST001-AC003-TK006` | Cascade P-STD-002 status authority to downstream workspace guidance/templates | `completed` | LLM_Developer | GATE-001 | `prompt/templates/consultant/workspace/` | DEC-008 | Workspace plan/roadmap guidance + templates aligned to P-STD-002 canonical status authority; gate-only `failed` preserved as specialization. Evidence: `dev-report_P-PH000-ST001-AC003_tk005-tk006-implementation_2026-03-07.md`. |
+| TK007 | `P-PH000-ST001-AC003-TK007` | Retention-Policy Ownership Assessment (GIR-003 / GAP-002) | `completed` | LLM_Consultant | GATE-001 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK007_retention-policy-ownership-assessment.md` | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` | Assessment authored. Recommended sibling-policy ownership for evidence-retention duration; downstream actions recorded in the analysis artifact. |
+| TK008 | `P-PH000-ST001-AC003-TK008` | Stale-State Governance Standards Input Proposal (GIR-004 / GAP-001) | `completed` | LLM_Consultant | TK007 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-TK008_stale-state-governance-standards-input.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` | Standards-input proposal authored with draft `P-STD-002-CLAUSE-038` text, decision requests, and risk framing. |
+| TK009 | `P-PH000-ST001-AC003-TK009` | Produce Verification Evidence for the TK005–TK008 Package | `completed` | LLM_Reviewer | TK005, TK006, TK007, TK008 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-003.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` | Verification complete. Verdict: PASS. No findings identified; package is decision-ready for GATE-003 review. |
+| TK010 | `P-PH000-ST001-AC003-TK010` | Prepare GATE-003 Decision Package (External Review + Gate Disposition) | `completed` | LLM_Consultant | TK009 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-003_external-review-disposition.md`; `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-003_execution-disposition-package.md` | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md`; `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` | External review analysis and gate-disposition proposal authored. Proposal hosts the authoritative pending GDR for client review. |
+| GATE-003 | `P-PH000-ST001-AC003-GATE-003` | Gate: Client review of the post-acceptance execution package through TK010 | `in_progress` | Client | TK010 | Pass/fail | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` | Package is ready for client review. Awaiting dispositions and GDR completion in `proposal_P-PH000-ST001-AC003-GATE-003_execution-disposition-package.md`. |
 
 ---
 
@@ -250,12 +258,12 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 3. Verify required aspects (minimum):
    - Validate against `P-STD-001` authoring rules (canonical section order, Specification Index, CLAUSE formatting, DR body template, references/provenance, normative boundary hygiene).
    - Confirm completeness: 54 sequential CLAUSEs exist and `P-STD-002-ADR-001` addresses the 13 binding CDR decisions.
-4. Issue a Gate Recommendation verdict and include a Gate Decision Record (GDR) section with `Client Decision: pending`.
+4. Issue a Gate Recommendation verdict. The authoritative GDR for Gate-001 is hosted in the gate-disposition proposal package, not in the verification artifact.
 
 **Success Criteria**:
 - [ ] Gate verification artifact exists at the canonical path and follows the workspace verification template
 - [ ] Verification includes P-STD-001 authoring-rule validation as an explicit checklist category
-- [ ] Verification includes a Gate Recommendation verdict and GDR with `Client Decision: pending`
+- [ ] Verification includes a Gate Recommendation verdict and explicitly defers authoritative gate decision recording to the gate-disposition proposal
 
 ---
 
@@ -263,9 +271,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 **Gate ID**: `P-PH000-ST001-AC003-GATE-001`
 
-**Entry Criteria**: TK004 verification complete (verdict issued; GDR pending)
+**Entry Criteria**: TK004 verification complete (verdict issued; authoritative proposal-embedded GDR pending)
 **Reviewer**: Client
-**Exit Criteria**: Explicit Client acceptance recorded with date. P-STD-002 status transitions from `draft` → `accepted`.
+**Exit Criteria**: Explicit Client acceptance recorded with date in the authoritative Gate-001 proposal GDR. P-STD-002 status transitions from `draft` → `accepted`.
 
 ---
 
@@ -299,26 +307,36 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 **Deliverable**: Updated guideline files with P-STD-002 references.
 
 **Scope**:
-- In scope: guideline files under `prompt/templates/consultant/workspace/` that hardcode status enums
-- Out of scope: initiative-specific plan files (downstream adopters update on next touch); template files (update only if they hardcode enum values)
+- In scope:
+  - `prompt/templates/consultant/workspace/guideline_workspace_plan.md`
+  - `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md`
+  - `prompt/templates/consultant/workspace/template_workspace_plan_activity.md`
+  - `prompt/templates/consultant/workspace/template_workspace_plan_stream.md`
+  - `prompt/templates/consultant/workspace/template_workspace_plan_phase.md`
+  - `prompt/templates/consultant/workspace/template_workspace_roadmap.md`
+- Out of scope:
+  - `prompt/templates/consultant/workspace/guideline_workspace_notes.md` decision/action/open-question enums and notes templates (these govern session-note workflow rather than program work-item status)
+  - initiative-specific plan files (downstream adopters update on next touch)
 
 **Steps**:
 1. **Identify all guideline files referencing status enums**:
    - Read `prompt/templates/consultant/workspace/guideline_workspace_plan.md` — §III.A (Stream/Activity register status enums) and §III.B (Task register status enums)
-   - Search for other guideline files under `prompt/templates/consultant/workspace/` that reference `planned`, `in_progress`, `completed`, `cancelled`, `deferred`, or `failed`
-   - Search `prompt/templates/consultant/workspace/guideline_workspace_notes.md` for status references
+   - Confirm the currently hardcoded register-status surfaces listed in Scope remain the only intended targets for this task
 2. **Update `guideline_workspace_plan.md`**:
    - §III.A: Current text says status MUST be one of `planned`, `deferred`, `completed`, `cancelled`. Update to reference P-STD-002 as the canonical authority for status enums. Add note that register contexts may use a subset of the full 7-state set as appropriate, but MUST NOT introduce states not defined in P-STD-002.
    - §III.B: Current text says task status MUST be one of `planned`, `deferred`, `completed`, `cancelled`, `failed`. Apply same update pattern.
-   - Add External Reference line for `P-STD-002 (Program Status Standard)` per `T102-STD-005-CLAUSE-004`
+   - Add External Reference line for `P-STD-002 (Program Status Standard)` per `P-STD-005-CLAUSE-004`
    - Version bump guideline with changelog entry
-3. **Update other identified guideline files** (if any reference status values directly)
-4. **Verify conformance**: Confirm no guideline file introduces status values not defined in P-STD-002
+3. **Update the roadmap + planning templates**:
+   - Replace hardcoded examples that imply a closed local status set with wording that defers to `P-STD-002` while allowing context-appropriate subsets.
+   - Preserve gate-specific status semantics in `guideline_workspace_plan.md` §VI.D, but clarify that gate states are a plan-structure specialization layered on top of the broader status authority.
+4. **Verify conformance**: Confirm no updated guidance/template introduces status states outside the P-STD-002 7-state enum set for program work items.
 
 **Success Criteria**:
 - [ ] `guideline_workspace_plan.md` references P-STD-002 as canonical status authority
-- [ ] No guideline file introduces status states outside the P-STD-002 7-state enum
-- [ ] All updated guideline files have changelog entries citing P-STD-002
+- [ ] `guideline_workspace_roadmap.md` and the targeted planning templates defer to P-STD-002 for work-item lifecycle status
+- [ ] No updated planning/roadmap surface introduces status states outside the P-STD-002 7-state enum for program work items
+- [ ] All updated guideline/template files have changelog entries citing P-STD-002
 
 ---
 
@@ -329,25 +347,39 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 **Purpose**: Resolve the retention-policy ownership gap identified in external review GAP-002 and dispositioned as GIR-003 (client approved: defer to follow-on policy artifact). Determine whether evidence retention duration requirements belong within P-STD-002 (as an amendment) or in a sibling governance policy artifact.
 
-**Deliverable**: Analysis or proposal artifact recommending retention-policy placement, with client decision.
+**Deliverable**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK007_retention-policy-ownership-assessment.md`
+
+**Analysis Type**: `assessment`
+
+**Scope**:
+- In scope:
+  - Evaluate the current retention-policy ownership gap against P-STD-002 scope boundaries
+  - Compare two implementation paths: amend P-STD-002 vs create/defer to a sibling policy artifact
+  - Produce a decision-ready recommendation with explicit downstream action mapping
+- Out of scope:
+  - Applying a retention-duration amendment to `P-STD-002`
+  - Authoring the sibling policy artifact if that path is recommended
 
 **Inputs Required**:
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-001_external-review-industry-best-practices.md` (GAP-002 description + NIST AU-11 reference)
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-001_gir-disposition-package.md` (GIR-003 disposition)
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` (current evidence CLAUSEs: CLAUSE-030 through CLAUSE-033)
+- `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` + `prompt/templates/consultant/workspace/template_workspace_analysis.md`
 
 **Steps**:
-1. Review GAP-002 description and NIST AU-11 retention expectations (SRC-2 in analysis)
-2. Assess whether retention duration is a status-governance concern (P-STD-002 scope) or an organizational policy concern (sibling artifact scope)
-3. If P-STD-002 scope: draft a CLAUSE amendment proposal for P-STD-002D (evidence retention minimum)
-4. If sibling artifact scope: identify the target artifact type and register as a future deliverable
-5. Produce analysis or proposal artifact with recommendation
-6. Present to Client for decision
+1. Create the analysis artifact using `template_workspace_analysis.md` with `analysis_type: 'assessment'`.
+2. Summarize the current state, governing gap, and the two viable ownership options:
+   - amendment inside `P-STD-002`, or
+   - sibling policy artifact outside `P-STD-002`.
+3. Record a GAP register, recommendation, and downstream action table showing what work would be authorized next under each option.
+4. Keep the output decision-ready for later package review; do not record a client decision inside the analysis artifact.
 
 **Success Criteria**:
-- [ ] Retention-policy ownership decision recorded with rationale
-- [ ] If P-STD-002 amendment: draft CLAUSE text produced for Client review
-- [ ] If sibling artifact: target artifact type and ownership identified
+- [ ] Assessment artifact exists at the canonical path and follows `guideline_workspace_analysis.md`
+- [ ] Recommendation clearly states whether retention ownership belongs inside `P-STD-002` or in a sibling artifact
+- [ ] If sibling artifact is recommended, the target artifact type and ownership are identified in Downstream Actions
+- [ ] Analysis output is decision-ready for later inclusion in the Gate-003 package
 
 ### Task TK008: Operationalize Stale-State Governance (CLAUSE-038)
 
@@ -355,12 +387,26 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 **Purpose**: Operationalize the reserved CLAUSE-038 (Stale-State Governance) by defining time-triggered review rules, cadence enforcement, and escalation paths. This addresses external review GAP-001 and GIR-004 (client approved: defer with tracked action).
 
-**Deliverable**: P-STD-002 amendment proposal (CLAUSE-038 content) for Client review and acceptance.
+**Deliverable**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-TK008_stale-state-governance-standards-input.md`
+
+**Proposal Archetype**: `standards_input`
+
+**Scope**:
+- In scope:
+  - define candidate stale-state rules for `CLAUSE-038`
+  - produce decision-ready standards input with draft normative text
+  - identify impacts, risks, and decision requests for later gate review
+- Out of scope:
+  - applying the amendment to `standard_P-STD-002_program-status-standard.md`
+  - recording the authoritative client gate decision (handled later via a `gate_disposition` proposal)
 
 **Inputs Required**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK007_retention-policy-ownership-assessment.md` (TK007 output)
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-001_external-review-industry-best-practices.md` (GAP-001 description + RISK-001)
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-001_gir-disposition-package.md` (GIR-004 disposition)
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` (CLAUSE-038 reserved section + CLAUSE-017 health cadence)
+- `prompt/templates/consultant/workspace/guideline_workspace_proposal.md`
 
 **Steps**:
 1. Review GAP-001 description and RISK-001 (stale status entries remain technically valid but operationally stale)
@@ -369,16 +415,98 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
    - Maximum time-since-update threshold per status state (e.g., `in_progress` items not updated within N days trigger review)
    - Cadence enforcement: minimum update frequency requirements by status category
    - Escalation paths: what happens when stale-state is detected (notification → forced review → status downgrade)
-4. Assess interaction with existing CLAUSE-017 (Health Assessment Cadence) — ensure no conflict or duplication
-5. Draft CLAUSE-038 normative text replacing the reserved placeholder
-6. Produce amendment proposal artifact for Client review
-7. Present to Client for decision
+4. Assess interaction with existing CLAUSE-017 (Health Assessment Cadence) and the TK007 recommendation — ensure no conflict or ownership ambiguity
+5. Author the proposal as a `standards_input` artifact with:
+   - current state summary,
+   - proposed stale-state conventions,
+   - explicit decision requests,
+   - impact/risk analysis,
+   - draft `CLAUSE-038` replacement text.
+6. Keep the output decision-ready for later inclusion in the Gate-003 package; do not record the authoritative client decision inside this artifact.
 
 **Success Criteria**:
 - [ ] Stale-state rules defined with time thresholds, cadence requirements, and escalation paths
 - [ ] No conflict with existing CLAUSE-017 health cadence requirements
-- [ ] Draft CLAUSE-038 normative text produced
-- [ ] Amendment proposal presented to Client for acceptance
+- [ ] Draft `CLAUSE-038` normative text is included in the proposal
+- [ ] Proposal exists at the canonical path and follows the `standards_input` archetype requirements
+- [ ] Proposal output is decision-ready for later inclusion in the Gate-003 package
+
+---
+
+### Task TK009: Produce Verification Evidence for the TK005–TK008 Package
+
+**Task ID**: `P-PH000-ST001-AC003-TK009`
+
+**Purpose**: Produce the reviewer-owned verification artifact for the post-acceptance execution package, confirming that the SPS update, guidance cascade, retention-policy assessment, and stale-state standards-input proposal are complete, internally consistent, and ready for Gate-003 review.
+
+**Deliverable**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-003.md`
+
+**Inputs Required**:
+- `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` (TK005 output)
+- workspace guidance/template files updated by TK006
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK007_retention-policy-ownership-assessment.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-TK008_stale-state-governance-standards-input.md`
+- `prompt/templates/consultant/workspace/guideline_workspace_verification.md` + `prompt/templates/consultant/workspace/template_workspace_verification.md`
+
+**Steps**:
+1. Create the verification artifact using the verification template and evidence-first workflow.
+2. Verify TK005 success criteria against the updated SPS row/body text.
+3. Verify TK006 success criteria against the targeted workspace guidance/template surfaces.
+4. Verify TK007 follows the `assessment` analysis requirements and is decision-ready.
+5. Verify TK008 follows the `standards_input` proposal requirements and is decision-ready.
+6. Issue a reviewer verdict and any findings/observations. Do **not** host the authoritative GDR in the verification artifact.
+
+**Success Criteria**:
+- [ ] Verification artifact exists at the canonical path and follows `guideline_workspace_verification.md`
+- [ ] TK005–TK008 outputs are checked with explicit observed evidence
+- [ ] Reviewer verdict is issued without embedding an authoritative GDR in the verification artifact
+
+---
+
+### Task TK010: Prepare GATE-003 Decision Package (External Review + Gate Disposition)
+
+**Task ID**: `P-PH000-ST001-AC003-TK010`
+
+**Purpose**: Produce the client-facing decision package for Gate-003 by combining an independent `external_review` analysis of the TK005–TK009 package with a `gate_disposition` proposal that hosts the authoritative GDR and all GIR dispositions required for gate closure.
+
+**Deliverables**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-003_external-review-disposition.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-003_execution-disposition-package.md`
+
+**Inputs Required**:
+- TK005–TK008 outputs
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-003.md` (TK009 verdict)
+- `prompt/templates/consultant/workspace/guideline_workspace_analysis.md`
+- `prompt/templates/consultant/workspace/guideline_workspace_proposal.md`
+
+**Steps**:
+1. Create the external review analysis using `analysis_type: 'external_review'`. Assess the package from an industry/best-practice standpoint, record a lightweight GAP register, and identify any decision items that should be surfaced to the Client.
+2. Create the gate-disposition proposal using the Gate Disposition template. Convert the package’s outstanding decision points into GIR entries with options, recommendation, rationale, and execution targets.
+3. Embed the authoritative `## Gate Decision Record` in the gate-disposition proposal with `Client Decision: pending`.
+4. Ensure the proposal references the TK009 verification verdict and the external review analysis as package inputs.
+
+**Success Criteria**:
+- [ ] External review analysis exists at the canonical path and uses a valid `analysis_type` enum
+- [ ] Gate-disposition proposal exists at the canonical path and hosts the authoritative GDR
+- [ ] All GIRs required for Gate-003 decision-making are captured in the proposal, not in the verification artifact
+
+---
+
+### GATE-003: Client Review of the Post-Acceptance Execution Package
+
+**Gate ID**: `P-PH000-ST001-AC003-GATE-003`
+
+**Entry Criteria**:
+- TK009 complete (verification evidence produced)
+- TK010 complete (external review analysis + gate-disposition proposal authored)
+
+**Reviewer**: Client
+
+**Exit Criteria**:
+- Client reviews the TK005–TK010 package and records the decision in the authoritative GDR section of `proposal_P-PH000-ST001-AC003-GATE-003_execution-disposition-package.md`
+- Any GIR dispositions required for gate closure are explicitly recorded in the gate-disposition proposal
+- AC003 is implementation-ready for the next commissioned session through the Gate-003 boundary; AC003 MAY remain `in_progress` if post-gate amendment execution is still pending
 
 ### Future Scope: Dependency Schedule Enrichment Uplift (GIR-005)
 
@@ -402,11 +530,20 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | Deliverable | CDR Resolution Proposal (TK001) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md` |
 | Deliverable | TK001 CLAUSE Theme Mapping | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK001_clause-theme-mapping.md` |
 | Deliverable | TK001.1 CDR Readiness Review | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003-TK001.1_cdr-review.md` |
-| Deliverable (planned) | TK007 Retention-Policy Analysis | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/` (path TBD) |
-| Deliverable (planned) | TK008 Stale-State Amendment Proposal | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/` (path TBD) |
+| Guideline | Analysis authoring | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` |
+| Guideline | Proposal authoring | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` |
+| Guideline | Verification authoring | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
+| Guideline | Notes authoring | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
+| Deliverable | TK007 Retention-Policy Ownership Assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK007_retention-policy-ownership-assessment.md` |
+| Deliverable | TK008 Stale-State Governance Standards Input | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-TK008_stale-state-governance-standards-input.md` |
+| Deliverable | TK009 Gate-003 Verification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-003.md` |
+| Deliverable | TK010 Gate-003 External Review Analysis | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-003_external-review-disposition.md` |
+| Deliverable | TK010 Gate-003 Disposition Proposal | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-003_execution-disposition-package.md` |
 | Deliverable | GATE-001 External Review Analysis | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-001_external-review-industry-best-practices.md` |
 | Deliverable | GATE-001 GIR Disposition Package (authoritative GDR) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-001_gir-disposition-package.md` |
 | Dev-report | TK002/TK003 execution | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/dev-report/dev-report_P-PH000-ST001-AC003_tk002-tk003-execution_2026-02-27.md` |
+| Dev-report | TK005/TK006 implementation | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/dev-report/dev-report_P-PH000-ST001-AC003_tk005-tk006-implementation_2026-03-07.md` |
+| Notes | SES004 plan-amendment session | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES004.md` |
 
 ---
 
@@ -414,6 +551,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.6.0 | 2026-03-07 | Update | Completed `TK007` through `TK010`. Added the GATE-003 verification artifact, external-review analysis, and gate-disposition proposal; updated task-register evidence/actions; converted TK007/TK008/TK009/TK010 links from planned deliverables to active deliverables; set `GATE-003` to `in_progress` pending client dispositions and GDR completion. |
+| v0.5.1 | 2026-03-07 | Update | Completed TK005/TK006. P-STD-002 SPS registration finalized (`accepted`, effective 2026-03-04) and downstream workspace plan/roadmap guidance/templates aligned to P-STD-002 canonical status authority. Added TK005/TK006 implementation dev-report link. |
+| v0.5.0 | 2026-03-06 | Amendment | Reworked AC003 for Gate-003 implementation readiness. Added `procedural_guideline` frontmatter. Reassigned TK005/TK006 to `LLM_Developer`. Re-specified TK007 as an `assessment` analysis with canonical path, TK008 as a `standards_input` proposal with canonical path, added TK009 reviewer verification, added TK010 Gate-003 package preparation (valid `external_review` analysis + authoritative `gate_disposition` proposal), and added detailed `GATE-003` structure. Normalized TK004/GATE-001 wording to current GDR authority model. Expanded Links Register with new deliverables and SES004 notes artifact. Evidence: SES004. |
 | v0.4.0 | 2026-03-04 | Amendment | Gate-001 final closure: updated GATE-001 task register row with authoritative GDR reference (proposal-embedded, supersedes verification GDR per SES003-DEC001). Registered TK007 (retention-policy ownership, GIR-003 follow-on) and TK008 (stale-state governance operationalization, GIR-004 follow-on) with detailed task specifications. Added GIR-005 informative future-scope note. Updated Links Register. Evidence: SES003. |
 | v0.3.3 | 2026-03-01 | Gate closure | Updated GATE-001 status to `completed` after Client Decision recorded in the primary verification artifact (`verification_P-PH000-ST001-AC003_gate-001.md` v1.1.0; APPROVE WITH CONDITIONS). Refreshed TK004 Task Register row to reflect consultation re-assessment findings and GDR closure. |
 | v0.3.2 | 2026-02-27 | Housekeeping | Updated TK002/TK003 to `completed` with evidence in Task Register; added missing TK001.1 detailed task section in §III for traceability (proposal + mapping inputs → verification output); reframed TK004 as reviewer-owned gate verification artifact task (per `guideline_workspace_verification.md`) and updated GATE-001 entry criteria; refreshed Context and Links Register to reflect implemented deliverables. Evidence: `dev-report_P-PH000-ST001-AC003_tk002-tk003-execution_2026-02-27.md`. |

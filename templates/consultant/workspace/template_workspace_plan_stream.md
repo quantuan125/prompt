@@ -5,7 +5,7 @@ initiative_id: '[INITIATIVE-ID]'
 initiative_code: '[INITIATIVE-CODE]'
 phase: '[PHASE-NUMBER]'
 stream_id: '[INIT-PH###-ST###]'
-version: '1.0.0'
+version: '1.0.1'
 date: 'YYYY-MM-DD'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -38,6 +38,7 @@ parent_plan: '[path/to/phase/plan.md]'
 
 ### Activity Register
 
+<!-- Use canonical P-STD-002 work-item states per guideline_workspace_plan.md §III.A. -->
 | Activity | Activity ID | Name | Status | Owner | Depends On | Deliverable | Reference |
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | AC001 | `T###-PH###-ST###-AC###` | [Activity Name] | `planned` | LLM_Consultant | — | [Deliverable(s) path(s)] | [Activity plan link or '—'] |
@@ -74,7 +75,7 @@ Activities here are CONTRACT-LEVEL.
 
 <!--
 Tasks are the smallest registered unit. Steps (informal sub-bullets within tasks) are unregistered.
-Status enums per guideline_workspace_plan.md §III.B.
+Use canonical P-STD-002 work-item states per guideline_workspace_plan.md §III.B.
 
 ANTI-DRIFT:
   - If `Activity Plan` is present (not `—`), DO NOT duplicate a full Task Register here.
@@ -134,4 +135,5 @@ See T104-STD-001 CLAUSE-004 (pending).
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.0.1 | YYYY-MM-DD | Amendment | Register comments updated to defer to `P-STD-002` canonical work-item states. |
 | v1.0.0 | YYYY-MM-DD | Initial | Stream plan created |

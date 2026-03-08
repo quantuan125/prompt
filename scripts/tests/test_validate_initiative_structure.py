@@ -143,6 +143,38 @@ def test_allows_activity_analysis_and_proposal_directories(tmp_path: Path) -> No
     assert code == 0, output
 
 
+def test_allows_dotted_sub_activity_directories(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    (initiative_root / "workspace/PH001/ST001/AC001.1/analysis").mkdir(parents=True, exist_ok=True)
+    (
+        initiative_root
+        / "workspace/PH001/ST001/AC001.1/analysis/analysis_T104-PH001-ST001-AC001.1_scope.md"
+    ).write_text(
+        "analysis",
+        encoding="utf-8",
+    )
+
+    code, output = _run_validate(initiative_root)
+    assert code == 0, output
+
+
+def test_allows_dotted_sub_activity_uid_under_parent_activity_directory(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    (initiative_root / "workspace/PH001/ST001/AC001/analysis").mkdir(parents=True, exist_ok=True)
+    (
+        initiative_root
+        / "workspace/PH001/ST001/AC001/analysis/analysis_T104-PH001-ST001-AC001.1_scope.md"
+    ).write_text(
+        "analysis",
+        encoding="utf-8",
+    )
+
+    code, output = _run_validate(initiative_root)
+    assert code == 0, output
+
+
 def test_flags_ac_scoped_file_outside_activity_directory(tmp_path: Path) -> None:
     initiative_root = _create_base_initiative(tmp_path)
     _add_minimal_ssot(initiative_root)
@@ -169,3 +201,44 @@ def test_flags_ac_scoped_file_when_activity_token_mismatch(tmp_path: Path) -> No
     code, output = _run_validate(initiative_root)
     assert code == 1
     assert "does not match uid token" in output.lower()
+
+
+def test_flags_legacy_gate_token_in_verification_filename(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    verification_dir = initiative_root / "workspace/PH001/ST001/AC001/verification"
+    verification_dir.mkdir(parents=True, exist_ok=True)
+    (
+        verification_dir / "verification_T104-PH001-ST001-AC001-GATE-001_review.md"
+    ).write_text("legacy gate token", encoding="utf-8")
+
+    code, output = _run_validate(initiative_root)
+    assert code == 1
+    assert "legacy" in output.lower()
+    assert "gate" in output.lower()
+
+
+def test_allows_canonical_gate_token_with_suffix_in_verification_filename(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    verification_dir = initiative_root / "workspace/PH001/ST001/AC001/verification"
+    verification_dir.mkdir(parents=True, exist_ok=True)
+    (
+        verification_dir / "verification_T104-PH001-ST001-AC001_gate-001_review.md"
+    ).write_text("canonical gate token", encoding="utf-8")
+
+    code, output = _run_validate(initiative_root)
+    assert code == 0, output
+
+
+def test_does_not_require_gate_token_for_non_gate_verification_artifact(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    verification_dir = initiative_root / "workspace/PH001/ST001/AC001/verification"
+    verification_dir.mkdir(parents=True, exist_ok=True)
+    (
+        verification_dir / "verification_T104-PH001-ST001-AC001-TK001.1_readiness-review.md"
+    ).write_text("non-gate verification artifact", encoding="utf-8")
+
+    code, output = _run_validate(initiative_root)
+    assert code == 0, output

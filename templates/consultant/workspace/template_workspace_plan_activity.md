@@ -6,7 +6,7 @@ initiative_code: '[INITIATIVE-CODE]'
 phase: '[PHASE-NUMBER]'
 stream_id: '[INIT-PH###-ST###]'
 activity_id: '[INIT-PH###-ST###-AC### or INIT-PH###-ST###-AC###.#]'
-version: '1.0.0'
+version: '1.1.0'
 date: 'YYYY-MM-DD'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -17,35 +17,35 @@ parent_plan: '[path/to/stream/plan.md]'
 
 <!--
 SKELETON / WORKING DRAFT:
-  This template defines the structural units (Task as registered unit, Step as informal sub-task execution unit).
+  This template defines the structural units (Task as registered unit, optional dotted Sub-Task as registered decomposition, and Step as informal execution guidance).
   Full Planner-level decomposition rules are deferred to a future initiative.
 -->
 
 <!--
 Trigger rule:
   A standalone activity plan SHOULD be created when:
-    (a) the activity has ≥5 tasks, OR
+    (a) the activity has >=5 tasks, OR
     (b) tasks require detailed step decomposition, OR
     (c) the activity scope exceeds what can be captured in the stream plan's contract-level section.
   See T104-STD-001 CLAUSE-006 (pending).
 -->
 
-# PLAN: [ID] ([CODE]) — Phase [#] / Stream [ST-ID] / Activity [AC-ID]: [Activity Title]
+# PLAN: [ID] ([CODE]) - Phase [#] / Stream [ST-ID] / Activity [AC-ID]: [Activity Title]
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: [1–3 sentences]
+**Purpose**: [1-3 sentences]
 
-**Non-goal** (optional): [1–2 sentences]
+**Non-goal** (optional): [1-2 sentences]
 
 ---
 
 ## II. ACTIVITY OUTLINE
 
 **Activity ID**: `[INIT-PH###-ST###-AC### or INIT-PH###-ST###-AC###.#]`
-**Objective**: [1–2 sentences]
-**Execution Mode**: [PARALLEL\|SEQUENTIAL\|GATED]
-**Depends On**: [— or prerequisite IDs]
+**Objective**: [1-2 sentences]
+**Execution Mode**: [PARALLEL|SEQUENTIAL|GATED]
+**Depends On**: [- or prerequisite IDs]
 
 **Context**:
 - `[repo-relative path touched by this activity]`
@@ -53,20 +53,22 @@ Trigger rule:
 
 <!--
 Task Register:
-  Tasks are the smallest REGISTERED unit.
-  Status enums per guideline_workspace_plan.md §III.B.
+  Tasks are the primary registered unit. Registered dotted Sub-Tasks (TK###.n) MAY be used when guideline_workspace_plan.md §IV.E criteria are met.
+  Use canonical P-STD-002 work-item states per guideline_workspace_plan.md §III.B.
+  A context-appropriate subset is allowed; do not invent local workspace status values.
 -->
 ### Task Register
 
 | Task | Task ID | Name | Status | Owner | Depends On | Target | Reference | Action |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
-| TK001 | `T###-PH###-ST###-AC###-TK001` | [Task name] | `planned` | LLM_Developer | — | [Target] | — | — |
+| TK001 | `T###-PH###-ST###-AC###-TK001` | [Task name] | `planned` | LLM_Developer | - | [Target] | - | - |
+| TK001.1 | `T###-PH###-ST###-AC###-TK001.1` | [Sub-task name] | `planned` | LLM_Developer | TK001 | [Target] | - | - |
 
 ---
 
 <!--
-Tasks are the smallest REGISTERED unit. Each Task MAY contain informal Steps (numbered sub-bullets) for execution guidance.
-Steps have no ID pattern and are not registered.
+Tasks are the primary REGISTERED unit. Registered dotted Sub-Tasks MAY be used when tracked decomposition is required. Steps remain informal execution guidance only.
+Steps have no ID pattern, no register row, and no directory implications.
 -->
 ## III. TASKS (DETAILED)
 
@@ -86,7 +88,35 @@ Steps have no ID pattern and are not registered.
   - [Scope item]
 
 **Inputs Required**:
-- `[input path]` — [Why needed]
+- `[input path]` - [Why needed]
+
+**Steps**:
+1. [Step]
+2. [Step]
+
+**Success Criteria**:
+- [ ] [Criterion 1]
+- [ ] [Criterion 2]
+
+---
+
+### Task TK001.1: [Sub-Task Title]
+
+**Task ID**: `T###-PH###-ST###-AC###-TK001.1`
+
+**Purpose**: [Why this tracked decomposition exists]
+
+**Deliverable**:
+- [Deliverable artifact/path]
+
+**Scope**:
+- In scope:
+  - [Scope item]
+- Out of scope:
+  - [Scope item]
+
+**Inputs Required**:
+- `[input path]` - [Why needed]
 
 **Steps**:
 1. [Step]
@@ -112,4 +142,6 @@ Steps have no ID pattern and are not registered.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | YYYY-MM-DD | Amendment | Template updated to distinguish registered Tasks/Sub-Tasks from informal Steps and to show a dotted sub-task example. |
+| v1.0.1 | YYYY-MM-DD | Amendment | Status guidance note updated to defer to `P-STD-002` canonical work-item states. |
 | v1.0.0 | YYYY-MM-DD | Initial | Activity plan created |

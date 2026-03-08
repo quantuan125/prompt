@@ -53,9 +53,9 @@
 
 3) **P-STD-004-CLAUSE-003 (Timeline Hierarchy)**
 
-   Workspace artifacts MUST be organized using a timeline hierarchy under `workspace/PH###/ST###/AC###/` with deterministic placement rules and controlled type subdirectories.
+   Workspace artifacts MUST be organized using a timeline hierarchy under `workspace/PH###/ST###/` with deterministic activity-scope directories and controlled type subdirectories.
 
-   * **P-STD-004-CLAUSE-003A (Hierarchy)** — `workspace/` MUST be timeline-organized as `workspace/PH###/ST###/AC###/` (Activity directory presence is governed by `P-STD-004-CLAUSE-003E`).
+   * **P-STD-004-CLAUSE-003A (Hierarchy)** — `workspace/` MUST be timeline-organized as `workspace/PH###/ST###/` containing activity-scope directories named `AC###/` and, when required, standalone sub-activity directories named `AC###.N/` (directory presence is governed by `P-STD-004-CLAUSE-003E` and `P-STD-004-CLAUSE-003G`).
 
    * **P-STD-004-CLAUSE-003B (Register placement)** — Phase-level plan and notes register files MUST live directly under `workspace/PH###/`. Stream-level plan and notes register files MUST live directly under `workspace/PH###/ST###/`.
 
@@ -63,13 +63,14 @@
 
    * **P-STD-004-CLAUSE-003D (Activity-level type subdirectories)** — Activity-level type subdirectories MUST be limited to: `snotes/`, `raw/`, `verification/`, `dev-report/`, `proposal/`, `analysis/`.
 
-   * **P-STD-004-CLAUSE-003E (AC directory trigger rule)** — An `AC###/` directory MUST exist when any associated file’s UID contains an `AC###` token; UID identity is the sole trigger (file-count heuristics MUST NOT be used).
+   * **P-STD-004-CLAUSE-003E (AC directory trigger rule)** — An activity-scope directory matching the narrowest `AC` token used by associated live files MUST exist; UID identity is the sole trigger (file-count heuristics MUST NOT be used). Undotted activity scope uses `AC###/`; standalone sub-activity scope uses `AC###.N/`.
 
    * **P-STD-004-CLAUSE-003F (Scope-aligned placement for analysis/proposal)** — `analysis/` and `proposal/` directories MAY exist at stream level and activity level. Placement MUST match the `<scope-UID>` used in the artifact filename:
-     - If `<scope-UID>` contains an `AC###` token, the artifact MUST be placed under `workspace/PH###/ST###/AC###/analysis/` or `workspace/PH###/ST###/AC###/proposal/` as appropriate.
+     - If `<scope-UID>` contains an `AC###.N` token, the artifact MUST be placed under `workspace/PH###/ST###/AC###.N/analysis/` or `workspace/PH###/ST###/AC###.N/proposal/` as appropriate.
+     - If `<scope-UID>` contains an undotted `AC###` token, the artifact MUST be placed under `workspace/PH###/ST###/AC###/analysis/` or `workspace/PH###/ST###/AC###/proposal/` as appropriate.
      - Otherwise, the artifact MUST be placed under `workspace/PH###/ST###/analysis/` or `workspace/PH###/ST###/proposal/` as appropriate.
 
-   * **P-STD-004-CLAUSE-003G (Sub-activity plan placement)** — Sub-activity plans with dot-notation IDs (`AC###.N`) MUST be placed under the parent activity directory `AC###/`.
+   * **P-STD-004-CLAUSE-003G (Sub-activity directory placement)** — Standalone sub-activity-scoped artifacts with dot-notation IDs (`AC###.N`) MUST use a dedicated sibling activity-scope directory at `workspace/PH###/ST###/AC###.N/` when authoring or relocating live artifacts. If that directory exists, all live sub-activity-scoped `plan_`, `analysis_`, `proposal_`, `verification_`, `dev-report_`, `raw_`, and `snotes_` artifacts MUST be placed there. Legacy parent placement under `workspace/PH###/ST###/AC###/` MAY remain only for backward-compatible historical artifacts and migration-transition reads.
 
    * **P-STD-004-CLAUSE-003H (Session notes placement)** — Session notes MUST be placed as follows:
      - Phase-scoped session notes (no `ST###`) → `workspace/PH###/snotes/`
@@ -91,8 +92,16 @@
              ├── proposal/
              ├── analysis/
              ├── communication/
-             └── AC###/
-                 ├── plan_...-AC###[.N].md
+             ├── AC###/
+                 ├── plan_...-AC###.md
+                 ├── snotes/
+                 ├── raw/
+                 ├── proposal/
+                 ├── analysis/
+                 ├── verification/
+                 └── dev-report/
+             └── AC###.N/
+                 ├── plan_...-AC###.N.md
                  ├── snotes/
                  ├── raw/
                  ├── proposal/
@@ -101,7 +110,7 @@
                  └── dev-report/
      ```
 
-   * **P-STD-004-CLAUSE-003J (Tooling conformance requirement)** — Validators and scaffolding/migration tools MUST treat the stream-level and activity-level type subdirectory sets as authoritative (including recognition of `snotes/`, `verification/`, and `dev-report/` per `P-STD-004-CLAUSE-003C` and `P-STD-004-CLAUSE-003D`).
+   * **P-STD-004-CLAUSE-003J (Tooling conformance requirement)** — Validators and scaffolding/migration tools MUST treat the stream-level and activity-level type subdirectory sets as authoritative (including recognition of `snotes/`, `verification/`, and `dev-report/` per `P-STD-004-CLAUSE-003C` and `P-STD-004-CLAUSE-003D`). Tooling MUST recognize dedicated sibling `AC###.N/` directories as the canonical live placement for sub-activity-scoped artifacts and MAY accept parent `AC###/` placement only as a backward-compatible legacy path during migration.
 
 4) **P-STD-004-CLAUSE-004 (Stream 0 Scoping)**
 

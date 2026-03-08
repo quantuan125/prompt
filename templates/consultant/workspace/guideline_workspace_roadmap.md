@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'roadmap_authoring'
-version: '1.1.0'
-date: '2026-02-11'
+version: '1.2.0'
+date: '2026-03-07'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -17,6 +17,8 @@ template_reference: 'prompt/templates/consultant/workspace/template_workspace_ro
 Define the **authoring rules** for ROADMAP workspace artifacts so they remain toolable, consistent across initiatives, and resistant to drift.
 
 This guideline is intended to be referenced by initiative roadmaps (e.g., `T104`) and later integrated more deeply into `template_workspace_roadmap.md`.
+
+**External Reference**: `P-STD-002 (Program Status Standard)` — `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md`
 
 ---
 
@@ -58,13 +60,16 @@ Roadmaps may be authored in one of two common shapes:
 
 ### A. Status enums (Registers)
 
-- Stream Register `Status` MUST be one of: `planned`, `deferred`, `completed`, `cancelled`.
-- Activity Register `Status` MUST be one of: `planned`, `deferred`, `completed`, `cancelled`.
+- Stream Register and Activity Register `Status` values for program work items MUST defer to `P-STD-002` as the canonical lifecycle authority.
+- Register rows MAY use a context-appropriate subset of the seven canonical states defined by `P-STD-002-CLAUSE-001`: `planned`, `ready`, `in_progress`, `blocked`, `on_hold`, `completed`, `cancelled`.
+- Workspace roadmaps MUST NOT introduce local work-item states outside that canonical set.
+- Deliberate deferral/pause MUST be represented as `on_hold`; unrecoverable work-item termination MUST be represented as `cancelled`.
 - In all register tables, `Status` values MUST be wrapped in backticks.
 
 ### B. Status enums (Task Registers)
 
-- Task Register `Status` MUST be one of: `planned`, `deferred`, `completed`, `cancelled`.
+- Task Register `Status` values for program work items MUST use the same `P-STD-002` canonical lifecycle authority and MAY use a context-appropriate subset of the seven canonical states.
+- Workspace roadmap task registers MUST NOT introduce local work-item states outside `P-STD-002`.
 - In all Task Register tables, `Status` values MUST be wrapped in backticks.
 
 ---
@@ -89,14 +94,14 @@ Every Activity that requires trackable work MUST include a Task Register with co
 
 Rules:
 - `Action` MUST be set to `—` when no action has started.
-- `Action` MUST be updated with a concise outcome statement when the task moves to `completed`, `deferred`, or `cancelled`.
+- `Action` MUST be updated with a concise outcome statement when the task moves to `completed`, `on_hold`, or `cancelled`.
 - Rule of thumb: treat `Status` as lifecycle; treat `Action` as evidence trail.
 
 ### C. Activity completion rule
 
 An Activity is considered done only when:
 1) its Success Criteria Checklist is verified, AND
-2) its Task Register rows are updated to a terminal status (`completed`, `deferred`, or `cancelled`) with a non-empty `Action`.
+2) its Task Register rows are updated to a terminal status (`completed` or `cancelled`) with a non-empty `Action`.
 
 ---
 
@@ -150,5 +155,6 @@ Two shapes are defined (per §II.C):
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-07 | Amendment | Aligned roadmap work-item status guidance to `P-STD-002` canonical lifecycle authority. Replaced legacy `deferred` semantics with canonical subset rules and clarified `on_hold`/`cancelled` usage. |
 | v1.0.0 | 2026-01-24 | Initial | Roadmap procedural guideline created |
 | v1.1.0 | 2026-02-11 | Update | Added Template Inventory section and P-STD-004 reference; corrected status enum spelling (`deferred`) |

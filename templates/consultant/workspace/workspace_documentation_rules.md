@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '2.5.0'
-date: '2026-03-04'
+version: '2.6.0'
+date: '2026-03-08'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -129,6 +129,8 @@ This workspace adopts the approved directory and file naming conventions defined
 **Summary (workspace-relevant)**:
 - Artifact file prefixes MUST match artifact type (e.g., `plan_`, `notes_`, `roadmap_`, `analysis_`, `proposal_`).
 - Timeline UID tokens (`PH###`, `ST###`, `AC###`, `SES###`) determine planning/notes scope and MUST be used consistently.
+- Standalone sub-activity artifacts with `AC###.N` scope use the dedicated sibling directory `workspace/PH###/ST###/AC###.N/`; parent `AC###/` placement is legacy-compatibility only.
+- Task decomposition inside plans uses tracked Tasks / dotted Sub-Tasks (`TK###.n`) / informal Steps. Tasks and sub-tasks do not create directories.
 - Templates live under `prompt/templates/consultant/workspace/` and are referenced by workspace artifacts via repo-relative paths.
 
 ---

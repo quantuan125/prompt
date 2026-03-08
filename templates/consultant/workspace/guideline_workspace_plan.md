@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.9.0'
-date: '2026-03-04'
+version: '1.11.0'
+date: '2026-03-08'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -17,6 +17,8 @@ template_reference: 'prompt/templates/consultant/workspace/README.md'
 Define the **authoring rules** for PLAN workspace artifacts so they remain toolable, consistent across initiatives, and resistant to drift.
 
 This guideline is intended to be referenced by initiative plans (e.g., `T104`) and later integrated more deeply into the workspace plan templates.
+
+**External Reference**: `P-STD-002 (Program Status Standard)` — `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md`
 
 ---
 
@@ -32,13 +34,17 @@ This guideline is intended to be referenced by initiative plans (e.g., `T104`) a
 
 ### A. Status enums (Registers)
 
-- Stream Register `Status` MUST be one of: `planned`, `deferred`, `completed`, `cancelled`.
-- Activity Register `Status` MUST be one of: `planned`, `deferred`, `completed`, `cancelled`.
+- Stream Register and Activity Register `Status` values for program work items MUST defer to `P-STD-002` as the canonical lifecycle authority.
+- Register rows MAY use a context-appropriate subset of the seven canonical states defined by `P-STD-002-CLAUSE-001`: `planned`, `ready`, `in_progress`, `blocked`, `on_hold`, `completed`, `cancelled`.
+- Workspace plan registers MUST NOT introduce local work-item states outside that canonical set.
+- Deliberate deferral/pause MUST be represented as `on_hold`; unrecoverable work-item termination MUST be represented as `cancelled`.
 - In all register tables, `Status` values MUST be wrapped in backticks.
 
 ### B. Status enums (Task Registers)
 
-- Task Register `Status` MUST be one of: `planned`, `deferred`, `completed`, `cancelled`, `failed`.
+- Task Register `Status` values for program work items MUST use the same `P-STD-002` canonical lifecycle authority and MAY use a context-appropriate subset of the seven canonical states.
+- Workspace task registers MUST NOT introduce local work-item states outside `P-STD-002`.
+- `failed` is not a valid general work-item lifecycle state in workspace task registers.
 - In all Task Register tables, `Status` values MUST be wrapped in backticks.
 
 ### C. Register Authority (Anti-Drift)
@@ -80,14 +86,14 @@ Every Activity that requires trackable work MUST include a Task Register (in eit
 
 Rules:
 - `Action` MUST be set to `—` when no action has started.
-- `Action` MUST be updated with a concise outcome statement when the task moves to `completed`, `deferred`, `cancelled`, or `failed`.
+- `Action` MUST be updated with a concise outcome statement when the task moves to `completed`, `on_hold`, or `cancelled`.
 - Rule of thumb: treat `Status` as lifecycle; treat `Action` as evidence trail.
 
 ### C. Activity completion rule
 
 An Activity is considered done only when:
 1) its Success Criteria Checklist is verified, AND
-2) its Task Register rows are updated to a terminal status (`completed`, `deferred`, `cancelled`, or `failed`) with a non-empty `Action`.
+2) its Task Register rows are updated to a terminal status (`completed` or `cancelled`) with a non-empty `Action`.
 
 ### D. Standalone Activity Plans (Linking + Minimum Stream Detail)
 
@@ -110,6 +116,27 @@ Anti-drift boundary:
 - For Activities (`AC00x`): the Stream plan **Activity Register `Reference`** cell is the canonical link location.
   - The Activity section MAY repeat the path as `**Activity Plan**: ...`, but it MUST match the register `Reference`.
 - For Sub-Activities (`AC00x.x`): because Sub-Activities have no register row, the Sub-Activity section MUST carry the link as `**Sub-Activity Plan**: ...` when a plan exists.
+
+### E. Task Decomposition Rules (Sub-Tasks vs Steps)
+
+Tasks remain the primary registered work unit within an Activity Plan. When a task needs formally tracked decomposition, authors MAY create registered dotted sub-tasks in the same plan file and Task Register using `TK###.n`.
+
+Rules:
+- Registered sub-tasks MUST stay within the same Activity or Sub-Activity scope as their parent task.
+- Registered sub-tasks MUST be authored in the same plan file as the parent task; they MUST NOT create task-level or sub-task-level directories.
+- The parent task remains the umbrella contract surface; the sub-task provides narrower tracked execution authority, dependency control, or evidence capture inside that task.
+- If decomposition is only execution guidance and does not need its own tracked status/dependency/evidence trail, authors MUST use numbered **Steps** instead of a registered sub-task.
+- Dependencies between tasks and sub-tasks MUST be stated explicitly in `Depends On`; numbering hierarchy does not imply sequencing.
+
+Use a registered sub-task when one or more of the following are true:
+- A gate or review finding requires a plan amendment that creates new tracked work under an existing task.
+- A task needs a separately tracked owner, dependency, or deliverable checkpoint, but does not justify a new Activity or Sub-Activity.
+- A task needs an evidence-bearing follow-on slice that should remain grouped under the same parent task theme.
+
+Do NOT use a registered sub-task when:
+- The work changes the deliverable contract enough to require a new Activity or Sub-Activity.
+- The work is only execution detail and fits as informal Steps.
+- The work needs its own filesystem scope. Tasks and sub-tasks are planning constructs only; directory-bearing scope starts at Activity/Sub-Activity.
 
 ---
 
@@ -159,6 +186,7 @@ Every Gate MUST include:
 
 Gates appear in the Task Register as a special row type:
 - Status enum: `planned` (not yet reached), `in_progress` (verification task active / gate review underway), `completed` (gate passed — GDR recorded), or `failed` (gate terminated — work killed or abandoned)
+- These gate states are a plan-structure specialization layered on top of the broader `P-STD-002` work-item status authority. `failed` is gate-only and MUST NOT be used for general stream/activity/task lifecycle rows.
 - `failed` is a terminal status. It MUST NOT be used for rework scenarios. When rework is needed, the gate stays `in_progress` until the rework cycle completes and the gate is re-assessed.
 - Gates MUST be listed in dependency order alongside tasks
 - Downstream tasks that depend on the gate MUST use `Depends On: GATE-###`
@@ -256,6 +284,9 @@ Inside the parent Activity section, author each Sub-Activity as:
 
 Include the same contract fields as needed (Purpose/Scope/Task Register/Success Criteria), but keep the deliverable contract anchored to the parent Activity.
 
+**Directory cross-reference**:
+- Standalone sub-activity artifacts follow `P-STD-004` placement. Canonical live placement is the dedicated sibling directory `workspace/PH###/ST###/AC###.N/`.
+
 ---
 
 ## VIII. TEMPLATE INVENTORY
@@ -285,6 +316,7 @@ The following templates are available for PLAN artifacts. Each template defines 
 - **Why**: Provides consistent decomposition structure when activities exceed stream plan contract-level depth.
 - **When**: Use when an activity has ≥5 tasks, requires detailed step decomposition, or exceeds contract-level scope. See trigger rule in template.
 - **How**: Copy the template, fill in frontmatter, decompose tasks with optional informal Steps.
+- **Note**: Use registered dotted sub-tasks only when §IV.E criteria are met; otherwise keep decomposition at the `Steps` level.
 
 ### D. Directory & Naming Conventions
 
@@ -297,6 +329,8 @@ The following templates are available for PLAN artifacts. Each template defines 
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.11.0 | 2026-03-08 | Amendment | Added §IV.E task decomposition rules to formalize registered dotted sub-tasks (`TK###.n`) vs informal Steps, explicitly prohibited task/sub-task directories, and cross-linked sub-activity directory placement to `P-STD-004`. |
+| v1.10.0 | 2026-03-07 | Amendment | Aligned plan work-item status guidance to `P-STD-002` canonical lifecycle authority. Replaced legacy `deferred`/general `failed` semantics with canonical subset rules, clarified `on_hold`/`cancelled` usage, and scoped `failed` as gate-only. |
 | v1.9.0 | 2026-03-04 | Amendment | §VI.H split GDR cross-reference: gate execution rules → verification guideline; Gate Decision Record → proposal guideline §VII. Source: T104-PH001-ST008-AC001 Option B approval. |
 | v1.3.0 | 2026-02-11 | Amendment | Added §VI.F Phase-Level Gates authoring rule: ID format, placement, scope, enforcement mode (blocking vs conformance), interaction with activity gates |
 | v1.4.0 | 2026-02-11 | Update | Added Template Inventory section referencing PLAN templates; corrected status enum spelling (`deferred`) |

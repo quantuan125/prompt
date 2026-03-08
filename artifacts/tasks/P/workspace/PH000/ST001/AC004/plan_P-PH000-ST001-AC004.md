@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC004'
-version: '1.9.0'
-date: '2026-03-04'
+version: '1.10.0'
+date: '2026-03-08'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -73,8 +73,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | TK004.1 | `P-PH000-ST001-AC004-TK004.1` | Evidence-First Package Audit (GATE-003 readiness) | `completed` | LLM_Consultant | TK004.2 | `verification_P-PH000-ST001-AC004_gate-003-package-audit.md` | `guideline_workspace_verification.md`, TK004.2 proposal + evidence set | Evidence-first audit produced: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-003-package-audit.md` (verdict: PASS; no blocking findings). |
 | GATE-003 | `P-PH000-ST001-AC004-GATE-003` | Pre-TK005 Greenlight: Review + Remediation Dispositions | `completed` | Client | TK004.1 | Pass/fail | — | Client APPROVE recorded in TK004.2 proposal GDR on 2026-03-04; GIR-001...GIR-006 dispositions accepted; TK005 unblocked. |
 | TK005 | `P-PH000-ST001-AC004-TK005` | Incorporate P Migration Findings | `planned` | LLM_Consultant | GATE-003 | `standard_P-STD-004_...md` | P migration evidence (post-AC004.1 delta migration) | — |
-| TK006 | `P-PH000-ST001-AC004-TK006` | Incorporate T102 Migration Findings | `planned` | LLM_Consultant | TK004, `T104-PH001-ST007-AC005` | `standard_P-STD-004_...md` | T102 migration evidence | — |
-| TK007 | `P-PH000-ST001-AC004-TK007` | Produce Verification Evidence (GATE-004 acceptance readiness) | `planned` | LLM_Reviewer | TK004 | `verification_P-PH000-ST001-AC004_gate-004.md` | `guideline_workspace_verification.md`, `template_workspace_verification.md` | — |
+| TK005.1 | `P-PH000-ST001-AC004-TK005.1` | Canonicalize Sub-Activity Placement + Task Decomposition Rules | `planned` | LLM_Consultant | TK005 | `standard_P-STD-004_...md`, `standard_P-STD-005_...md`, plan guidance/template files | P migration evidence + plan/verif guidance drift | — |
+| TK006 | `P-PH000-ST001-AC004-TK006` | Incorporate T102 Migration Findings | `planned` | LLM_Consultant | TK005.1, `T104-PH001-ST007-AC005` | `standard_P-STD-004_...md` | T102 migration evidence | — |
+| TK007 | `P-PH000-ST001-AC004-TK007` | Produce Verification Evidence (GATE-004 acceptance readiness) | `planned` | LLM_Reviewer | TK005.1, TK006 | `verification_P-PH000-ST001-AC004_gate-004.md` | `guideline_workspace_verification.md`, `template_workspace_verification.md` | — |
 | GATE-004 | `P-PH000-ST001-AC004-GATE-004` | Cross-Initiative Validation: P-STD-004 draft → accepted | `planned` | Client | TK007 | Pass/fail | P-RISK-002 | — |
 
 ---
@@ -583,7 +584,7 @@ This task follows the “decision disposition proposal” pattern exemplar:
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/dev-report/dev-report_P-PH000-ST001-AC004_tk003-tk004-execution_2026-03-01.md` — implementation evidence for TK003–TK004
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` — downstream migration stream authority + dependency surface
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/plan_T104-PH001-ST007-AC004.md` — prior P migration baseline (revision 1)
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/plan_T104-PH001-ST007-AC004.1.md` — delta migration remediation plan (revision 2; execution target)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004.1/plan_T104-PH001-ST007-AC004.1.md` — delta migration remediation plan (revision 2; execution target)
 
 **Steps**:
 1. Assemble an Evidence Set covering: P-STD-004 (post-TK004), dev-report(s), ST007 plan(s), and any known inventory/work packages (e.g., TK003.3 `_gate-###` mapping).
@@ -649,6 +650,60 @@ This task follows the “decision disposition proposal” pattern exemplar:
 
 ---
 
+### Task TK005.1: Canonicalize Sub-Activity Placement + Task Decomposition Rules
+
+**Task ID**: `P-PH000-ST001-AC004-TK005.1`
+
+**Purpose**: Convert the AC004.1 directory-convention gap into a coherent standards/guidance package by: (1) making dedicated dotted sub-activity directories canonical in `P-STD-004`, and (2) codifying registered dotted sub-task authoring in plan guidance so existing plan usage and verification handoff rules are formally aligned.
+
+**Deliverable**:
+- Updated `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`
+- Updated `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md`
+- Updated `prompt/templates/consultant/workspace/guideline_workspace_plan.md`
+- Updated `prompt/templates/consultant/workspace/guideline_workspace_verification.md`
+- Updated `prompt/templates/consultant/workspace/template_workspace_plan_activity.md`
+- Updated `prompt/templates/consultant/workspace/workspace_documentation_rules.md`
+
+**Depends On**: TK005
+
+**Scope**:
+- In scope:
+  - Make dedicated sibling `AC###.N/` directories the canonical live placement for standalone sub-activity artifacts.
+  - Preserve parent `AC###/` placement as an explicit backward-compatible legacy path during migration.
+  - Define registered dotted sub-task IDs (`TK###.n`) as planning-only decomposition units with no filesystem directory implications.
+  - Align verification handoff wording so task-level remediation points to task decomposition rules rather than sub-activity rules.
+  - Update the AC004 plan itself so this standards/guidance work is explicitly tracked.
+- Out of scope:
+  - Rewriting all historical legacy sub-activity/task references across the repository.
+  - Introducing task-level directories or any new non-plan artifact placement rule for tasks/sub-tasks.
+  - Reworking T102 migration-specific findings beyond what is required for standards consistency.
+
+**Inputs Required**:
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/communication/comm_T104-PH001-ST007_ac004-1-subactivity-directory-convention-gap.md` — source of the sub-activity placement gap
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004.1/plan_T104-PH001-ST007-AC004.1.md` — live exemplar using dedicated dotted directory placement
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` — target directory convention authority
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` — target UID authority for dotted sub-task alignment
+- `prompt/templates/consultant/workspace/guideline_workspace_plan.md` — target plan authoring guidance
+- `prompt/templates/consultant/workspace/guideline_workspace_verification.md` — target verification handoff guidance
+- `prompt/templates/consultant/workspace/template_workspace_plan_activity.md` — target activity-plan template alignment
+- `prompt/templates/consultant/workspace/workspace_documentation_rules.md` — workspace-level summary/reference surface
+
+**Steps**:
+1. Confirm all current rule surfaces that mention sub-activity placement and task/sub-task semantics.
+2. Amend `P-STD-004` so standalone sub-activity artifacts are canonically placed under a dedicated sibling `AC###.N/` directory and the workspace skeleton/tooling rule match.
+3. Amend `P-STD-005` so dotted sub-task IDs used in plans and verification handoff are formally valid.
+4. Amend plan/verification guidance and the activity-plan template so `Sub-Activity`, `Sub-Task`, and `Step` have unambiguous roles.
+5. Re-check plan dependencies and references so GATE-004 readiness depends on the new standards/guidance alignment work.
+
+**Success Criteria**:
+- [ ] `P-STD-004` explicitly defines dedicated sibling `AC###.N/` directories as canonical live placement for standalone sub-activity artifacts
+- [ ] `P-STD-005` formally permits dotted sub-task IDs used in activity plans
+- [ ] `guideline_workspace_plan.md` defines `Sub-Task` authoring and explicitly prohibits task/sub-task directories
+- [ ] `guideline_workspace_verification.md` no longer points task-level rework to sub-activity rules
+- [ ] Template/documentation surfaces reflect the same task/sub-task/step model
+
+---
+
 ### Task TK006: Incorporate T102 Migration Findings
 
 **Task ID**: `P-PH000-ST001-AC004-TK006`
@@ -659,11 +714,12 @@ This task follows the “decision disposition proposal” pattern exemplar:
 - Updated P-STD-004 (if amendments needed)
 - GIR register addendum (if new gaps/risks identified)
 
-**Depends On**: TK004, `T104-PH001-ST007-AC005` (T102 Directory Migration)
+**Depends On**: TK005.1, `T104-PH001-ST007-AC005` (T102 Directory Migration)
 
 **Inputs Required**:
 - `T104-PH001-ST007-AC005` migration evidence
 - P-STD-004 (post-TK005)
+- P-STD-004 / P-STD-005 / plan guidance (post-TK005.1 alignment)
 
 **Steps**:
 1. Read T102 migration evidence.
@@ -689,7 +745,7 @@ This task follows the “decision disposition proposal” pattern exemplar:
 
 **Inputs Required**:
 - P-STD-004 (post-TK004)
-- TK005/TK006 outputs (if completed) or deferral notes (if deferred)
+- TK005.1/TK006 outputs (if completed) or deferral notes (if deferred)
 - `prompt/templates/consultant/workspace/guideline_workspace_verification.md`
 - `prompt/templates/consultant/workspace/template_workspace_verification.md`
 
@@ -714,6 +770,7 @@ This task follows the “decision disposition proposal” pattern exemplar:
 **Entry Criteria**:
 - TK007 complete (verification evidence produced)
 - P-STD-004 candidate for acceptance is post-TK004
+- P-STD-004 / P-STD-005 / plan guidance alignment work in TK005.1 is complete or explicitly deferred
 - Cross-initiative validation evidence is available OR explicitly deferred (see Timebox rule below)
 
 **Reviewer**: Client
@@ -748,13 +805,14 @@ This task follows the “decision disposition proposal” pattern exemplar:
 | Input | AC004 SES003 Notes | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/snotes/snotes_P-PH000-ST001-AC004-SES003.md` |
 | Downstream | workspace_documentation_rules.md | `prompt/templates/consultant/workspace/workspace_documentation_rules.md` |
 | Cross-stream | T104-PH001-ST007 (migration stream) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
-| Downstream | T104 ST007 AC004.1 (P delta migration revision) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/plan_T104-PH001-ST007-AC004.1.md` |
+| Downstream | T104 ST007 AC004.1 (P delta migration revision) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004.1/plan_T104-PH001-ST007-AC004.1.md` |
 | Deliverable | P-STD-004 | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` |
 | Deliverable | Post-seeding Analysis | `prompt/artifacts/tasks/P/workspace/PH000/ST001/analysis/analysis_P-PH000-ST001-AC004_p-std-004-proposal-seeding-assessment.md` |
 | Deliverable | GIR Disposition Proposal (TK002.2) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC004-TK002.2_gir-disposition-package.md` |
 | Deliverable | Disposition Proposal (TK004.2; GATE-003 decision record) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/proposal/proposal_P-PH000-ST001-AC004-TK004.2_tk005-greenlight-disposition-package.md` |
 | Deliverable | GATE-003 Package Audit (TK004.1) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-003-package-audit.md` |
 | Deliverable | External Review Analysis (GATE-002 package) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/analysis/analysis_P-PH000-ST001-AC004-GATE-002_external-review-disposition.md` |
+| Input | AC004.1 Convention Gap Communication | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/communication/comm_T104-PH001-ST007_ac004-1-subactivity-directory-convention-gap.md` |
 
 ---
 
@@ -772,3 +830,4 @@ This task follows the “decision disposition proposal” pattern exemplar:
 | v1.7.0 | 2026-03-02 | Amendment | Inserted pre-TK005 greenlight gate (GATE-003; client label “GATE-002.1”) with disposition proposal (canonical GDR in proposal) + evidence-first package audit; re-identified acceptance gate as GATE-004; introduced downstream execution target `T104-PH001-ST007-AC004.1`; cancelled TK008 as superseded. |
 | v1.8.0 | 2026-03-03 | Update | Executed TK004.2 and TK004.1 deliverables for GATE-003 readiness: normalized proposal artifact to TK004.2, produced verification-style evidence-first package audit, and updated task register actions/targets accordingly. |
 | v1.9.0 | 2026-03-04 | Update | Recorded GATE-003 closure: Task Register `GATE-003` status set to `completed` and Action updated to reference client APPROVE in the TK004.2 proposal GDR (2026-03-04), unblocking `TK005`; normalized TK004.2 Action to reflect closed GDR state. |
+| v1.10.0 | 2026-03-08 | Amendment | Added TK005.1 to formally track sub-activity directory canonicalization and task decomposition guidance alignment across `P-STD-004`, `P-STD-005`, and consultant workspace plan/verification/template rules; updated downstream dependencies and links accordingly. |

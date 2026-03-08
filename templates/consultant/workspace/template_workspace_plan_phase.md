@@ -4,7 +4,7 @@ planning_level: 'PHASE'
 initiative_id: '[INITIATIVE-ID]'
 initiative_code: '[INITIATIVE-CODE]'
 phase: '[PHASE-NUMBER]'
-version: '1.0.0'
+version: '1.0.1'
 date: 'YYYY-MM-DD'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -66,7 +66,7 @@ Section II guidance: List SSOT references, governance rules, and structural exem
 
 **Objective**: [What this phase achieves; 1–2 sentences]
 
-<!-- Use status enums per guideline_workspace_plan.md §III.A -->
+<!-- Use canonical P-STD-002 work-item states per guideline_workspace_plan.md §III.A -->
 ### Stream Register
 
 | Stream | ID | Name | Execution Mode | Depends On | Status | Key Deliverables |
@@ -112,4 +112,5 @@ ANTI-DRIFT:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.0.1 | YYYY-MM-DD | Amendment | Stream register status comment updated to defer to `P-STD-002` canonical work-item states. |
 | v1.0.0 | YYYY-MM-DD | Initial | Phase plan created |

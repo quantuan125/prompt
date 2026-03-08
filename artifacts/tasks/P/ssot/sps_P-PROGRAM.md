@@ -2,8 +2,8 @@
 artifact_type: 'SPS'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
-version: '0.6.1'
-date: '2026-03-01'
+version: '0.7.0'
+date: '2026-03-07'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -76,7 +76,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 | STD ID | Title | Status | Owner | Effective | Supersedes | Canonical Path | Verification | Governed By | Reference |
 |:-------|:------|:-------|:------|:----------|:-----------|:---------------|:-------------|:------------|:----------|
 | `P-STD-001` | **Program Governance Standard** | `accepted` | LLM_Consultant | 2026-02-22 | `T102-STD-004` | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | Review: all CLAUSEs re-identified; alias window documented; guideline/template aligned; gap remediation per promotion contract; SES003 derivative conformance audit passed | `P-STD-005` | — |
-| `P-STD-002` | **Program Status Standard** | `planned` | LLM_Consultant | — | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Review: broad-scope program-wide status governance — 7-state enum + transition rules, health/RAG assessment, unified dependency schema, evidence linkage, update protocol, status artifact specification; CI: enum validation + transition rule enforcement | `P-STD-001` | `P-RES-001` |
+| `P-STD-002` | **Program Status Standard** | `accepted` | LLM_Consultant | 2026-03-04 | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Review: GATE-001 verification completed and authoritative GDR recorded (APPROVE, 2026-03-04); standard governs canonical 7-state lifecycle, transitions, health/RAG, dependency visibility, evidence linkage, update protocol, and status artifact rules | `P-STD-001` | `P-RES-001` |
 | `P-STD-003` | **Program Governance Standards Model** | `planned` | LLM_Consultant | — | — | `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md` | Review: combined governance spec aligns with ADR-004 + ADR-009; enforce adoption/authoring requirements | `P-STD-001` | `T102-STD-009` |
 | `P-STD-004` | **File Naming & Directory Convention** | `draft` | LLM_Consultant | — | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` | Review: initiative dirs conform to naming/directory rules; CI: lint file prefixes + directory structure | `P-STD-001` | — |
 | `P-STD-005` | **Universal ID Specification** | `draft` | LLM_Consultant | — | `T102-STD-005` | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` | CI: regex validation of all IDs; Review: scope/token compliance | `P-STD-001` | `T102-STD-005`, `T104-STD-002` |
@@ -84,6 +84,10 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 * **P-STD-001 (Program Governance Standard)** — All combined standard-specification files across `prompt/artifacts/tasks/**` MUST conform to the authoring model defined by this standard's canonical specification. Governs file structure, CLAUSE construction, substandard architecture, decision record format, STD index schema, conformance coupling, and specification lifecycle.
   - **Minimum Viable Conformance**: Combined files follow `P-STD-001-CLAUSE-001` canonical structure; CLAUSEs render per `P-STD-001-CLAUSE-018B`; ADR bodies use `P-STD-001-CLAUSE-025` template; STD Index entries conform to `P-STD-001-CLAUSE-012A` schema.
   - External Reference: `P-STD-005 (Universal ID Specification)`, `T102-CON-009 (Controlled Vocabulary for Normative Language)`
+
+* **P-STD-002 (Program Status Standard)** — Program work-item status reporting across `prompt/artifacts/tasks/**` MUST use the canonical lifecycle authority defined by this standard. It governs the 7-state status vocabulary, allowed transition rules, health/RAG assessment, dependency visibility, evidence linkage, update protocol, and status artifact contract.
+  - **Minimum Viable Conformance**: Work-item surfaces use canonical lifecycle states per `P-STD-002-CLAUSE-001`; lifecycle transitions follow `P-STD-002-CLAUSE-005`; `blocked` vs `on_hold` semantics follow `P-STD-002-CLAUSE-009`; manual-gate/waiting-approval mappings follow `P-STD-002-CLAUSE-011`; status artifacts follow the authority and schema rules defined in `P-STD-002E`.
+  - External Reference: `P-STD-001 (Program Governance Standard)`, `P-STD-005 (Universal ID Specification)`, `P-RES-001 (Status Standard Research)`, `P-RES-002 (Agentic Status Systems Research)`
 
 * **P-STD-004 (File Naming & Directory Convention)** — All initiative directories under `prompt/artifacts/tasks/` SHALL follow standardized file naming prefixes and directory structure conventions. This standard will codify deterministic artifact placement to support agentic retrieval and cross-initiative consistency.
   - **Minimum Viable Conformance**: TBD (pending proposal from `T104-PH001-ST002-AC000`)
@@ -141,6 +145,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.7.0 | 2026-03-07 | Amendment | P-STD-002 registered as `accepted` after authoritative GATE-001 approval (effective 2026-03-04). Added P-STD-002 body entry with minimum viable conformance + external references. Evidence: `proposal_P-PH000-ST001-AC003-GATE-001_gir-disposition-package.md` and AC003 TK005 implementation. |
 | v0.6.1 | 2026-03-01 | Update | P-STD-004 registered as `draft` with Canonical Path set to the authored standard file. |
 | v0.6.0 | 2026-02-25 | Amendment | Registered `P-RES-002` in the Research table with brief + report links. |
 | v0.5.0 | 2026-02-23 | Amendment | P-STD-005 promotion recorded: status `draft`, supersedes `T102-STD-005`, canonical path set. P-STD-001 now governed by `P-STD-005`. P-NOTE-001 updated (RES allows Program scope). |

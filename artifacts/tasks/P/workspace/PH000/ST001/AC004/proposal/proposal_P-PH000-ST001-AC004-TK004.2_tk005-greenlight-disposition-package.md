@@ -62,7 +62,7 @@ consumers:
 | Evidence | TK003-TK004 dev-report | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/dev-report/dev-report_P-PH000-ST001-AC004_tk003-tk004-execution_2026-03-01.md` | Confirms completed implementation baseline and remaining remediation surfaces. |
 | Downstream plan | ST007 stream plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` | Stream-level authority for execution ownership. |
 | Downstream plan | ST007 AC004 (P migration revision 1) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/plan_T104-PH001-ST007-AC004.md` | Prior baseline migration context. |
-| Downstream plan | ST007 AC004.1 (delta remediation + rerun revision 2) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/plan_T104-PH001-ST007-AC004.1.md` | Primary execution target for approved dispositions. |
+| Downstream plan | ST007 AC004.1 (delta remediation + rerun revision 2) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004.1/plan_T104-PH001-ST007-AC004.1.md` | Primary execution target for approved dispositions. |
 | Tooling context | Initiative structure validator | `prompt/scripts/validate_initiative_structure.py` | Enforcement surface for `_gate-###` naming posture. |
 | Tooling context | Archive manager | `prompt/scripts/archive_manager.py` | Enforcement surface for archive two-tier model alignment. |
 
