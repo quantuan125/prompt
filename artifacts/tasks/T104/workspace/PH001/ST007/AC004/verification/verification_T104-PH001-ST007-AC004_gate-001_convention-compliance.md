@@ -12,7 +12,7 @@ date: '2026-02-24'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-primary_verification: 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_p-migration-readiness.md'
+primary_verification: 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_p-migration-readiness.md'
 session_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/raw/raw_T104-PH001-ST007-AC004-SES002.txt'
 authority_surface: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md'
 ---
@@ -48,7 +48,7 @@ Execute TK004.1 (Remediation — Convention Compliance + `--report-path` Hardeni
 
 ## V. Links Register
 
-- Primary verification: `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_p-migration-readiness.md`
+- Primary verification: `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_p-migration-readiness.md`
 - Activity plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/plan_T104-PH001-ST007-AC004.md`
 - Authority surface: `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md`
 - Session transcript: `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/raw/raw_T104-PH001-ST007-AC004-SES002.txt`

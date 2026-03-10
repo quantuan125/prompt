@@ -22,7 +22,7 @@ targets:
   - 'prompt/scripts/migrations/migrate_adr_to_std.py'
   - 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/analysis/analysis_T104-PH001-ST007-AC004_p-directory-readiness.md'
   - 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/dev-report/dev-report_T104-PH001-ST007-AC004_2026-02-23.md'
-  - 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_convention-compliance.md'
+  - 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_convention-compliance.md'
   - 'prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/manifest_T104-PH001-ST007-AC004_p-migration.json'
   - 'prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/report_T104-PH001-ST007-AC004_gate-001_dry-run.md'
   - 'prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/validation_T104-PH001-ST007-AC004_tk002_p-post-migration-control.md'
@@ -399,14 +399,14 @@ Evidence organization remediations (TK004.1) and commissioning readiness rebasel
 
 | Link Type | Target | Path |
 |:----------|:-------|:-----|
-| Verification (this file) | AC004 GATE-001 | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_p-migration-readiness.md` |
+| Verification (this file) | AC004 GATE-001 | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_p-migration-readiness.md` |
 | Plan (target) | AC004 Activity Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/plan_T104-PH001-ST007-AC004.md` |
 | Stream Plan | ST007 Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md` |
 | Analysis (input) | P Directory Readiness | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/analysis/analysis_T104-PH001-ST007-AC004_p-directory-readiness.md` |
 | Evidence (consolidated) | Dev-Report (Sections I–VII) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/dev-report/dev-report_T104-PH001-ST007-AC004_2026-02-23.md` |
 | Evidence (TK004) | Migration Manifest | `prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/manifest_T104-PH001-ST007-AC004_p-migration.json` |
 | Evidence (dry-run) | Dry-Run Report | `prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/report_T104-PH001-ST007-AC004_gate-001_dry-run.md` |
-| Verification (supplementary) | Convention Compliance | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_convention-compliance.md` |
+| Verification (supplementary) | Convention Compliance | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_convention-compliance.md` |
 | Script (target) | Validator | `prompt/scripts/validate_initiative_structure.py` |
 | Script (target) | Scaffold | `prompt/scripts/scaffold_initiative.py` |
 | Script (reference) | Migrator | `prompt/scripts/migrate_initiative.py` |

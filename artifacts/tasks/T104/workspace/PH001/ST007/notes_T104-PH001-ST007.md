@@ -5,8 +5,8 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST007'
-version: '1.9.0'
-date: '2026-02-22'
+version: '2.0.0'
+date: '2026-03-09'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -48,6 +48,8 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC001 | `T104-PH001-ST007-AC001-SES006` | Script Development & Migration Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES006.md` |
 | AC004 | `T104-PH001-ST007-AC004-SES001` | Script Enhancement + P Directory Migration (Commissioning QA + Plan Amendment) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/snotes/snotes_T104-PH001-ST007-AC004-SES001.md` |
 | AC004 | `T104-PH001-ST007-AC004-SES002` | TK004.1 Remediation + `--report-path` Hardening | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/snotes/snotes_T104-PH001-ST007-AC004-SES002.md` |
+| AC005 | `T104-PH001-ST007-AC005-SES001` | T102 Migration Planning Refactor + Commissioning Locks | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC005/snotes/snotes_T104-PH001-ST007-AC005-SES001.md` |
+| AC005 | `T104-PH001-ST007-AC005-SES002` | Implementation Readiness Review + TK001/TK002 Completion | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC005/snotes/snotes_T104-PH001-ST007-AC005-SES002.md` |
 
 ---
 
@@ -55,6 +57,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 - Stream plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST007/plan_T104-PH001-ST007.md`
 - AC001.3 Sub-Activity Plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/plan_T104-PH001-ST007-AC001.3.md`
+- AC005 Activity Plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC005/plan_T104-PH001-ST007-AC005.md`
 - Phase plan: `prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md`
 - Phase notes register: `prompt/artifacts/tasks/T104/workspace/PH001/notes_T104-PH001.md`
 - Notes guideline: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
@@ -76,3 +79,5 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | v1.7.0 | 2026-02-21 | Update | Stream Summary scope updated: T104 → T104 + P + T102 (AC004/AC005 commissioned). |
 | v1.8.0 | 2026-02-22 | Update | Registered ST007-SES002 (AC003 & AC004 Commission Preparation) in Stream-Level Session Notes Register. First stream-level session (prior sessions were all activity-scoped under AC001). |
 | v1.9.0 | 2026-02-22 | Update | Registered AC004-SES001 (AC004 commissioning QA + plan amendment) in Activity Notes Register. |
+| v2.0.0 | 2026-03-09 | Amendment | Registered AC005-SES001 (planning refactor + commissioning locks) and added the dedicated AC005 activity-plan link to the primary links section. |
+| v2.1.0 | 2026-03-10 | Update | Registered AC005-SES002 (implementation readiness review + TK001/TK002 completion). |

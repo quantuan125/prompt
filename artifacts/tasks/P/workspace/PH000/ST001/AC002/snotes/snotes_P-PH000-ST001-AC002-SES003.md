@@ -89,7 +89,7 @@ The consultant performed a comprehensive cross-reference audit of TK005 delivera
 |:---|:-------|:------|:-------|
 | `P-PH000-ST001-AC002-SES003-ACT001` | Create implementation plan at `.claude/plans/plan_P-PH000-ST001-AC002-SES003_gate-002-remediation.md` | LLM_Consultant | `completed` |
 | `P-PH000-ST001-AC002-SES003-ACT002` | Create SES003 session notes at `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/snotes/snotes_P-PH000-ST001-AC002-SES003.md` | LLM_Developer | `completed` |
-| `P-PH000-ST001-AC002-SES003-ACT003` | Create supplementary verification file at `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/verification/verification_P-PH000-ST001-AC002-GATE-002_tk005-supplement.md` | LLM_Developer | `pending` |
+| `P-PH000-ST001-AC002-SES003-ACT003` | Create supplementary verification file at `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/verification/verification_P-PH000-ST001-AC002_gate-002_tk005-supplement.md` | LLM_Developer | `pending` |
 | `P-PH000-ST001-AC002-SES003-ACT004` | Update P-STD-001 Provenance (CLAUSE-005D amendment record) | LLM_Developer | `pending` |
 | `P-PH000-ST001-AC002-SES003-ACT005` | Migrate SPS STD Index schema to CLAUSE-012A + add P-STD-001 body + flip status | LLM_Developer | `pending` |
 | `P-PH000-ST001-AC002-SES003-ACT006` | Update guideline to v5.0.0 (citation format, mis-citation fixes, DR subheadings, deferred topics, blast radius, impact analysis) | LLM_Developer | `pending` |
@@ -111,7 +111,7 @@ The consultant performed a comprehensive cross-reference audit of TK005 delivera
 ## G. Session Handoff Pack
 
 - **Implementation plan**: `.claude/plans/plan_P-PH000-ST001-AC002-SES003_gate-002-remediation.md` — comprehensive remediation plan for all findings.
-- **Supplementary verification**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/verification/verification_P-PH000-ST001-AC002-GATE-002_tk005-supplement.md` — full gap inventory.
+- **Supplementary verification**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/verification/verification_P-PH000-ST001-AC002_gate-002_tk005-supplement.md` — full gap inventory.
 - **Governing input**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/verification/verification_P-PH000-ST001-AC002_gate-002.md` — original GATE-002 verification.
 - **No open questions**: All scope decisions resolved in-session.
 

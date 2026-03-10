@@ -331,7 +331,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | Reference | Session Notes (SES003) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/snotes/snotes_P-PH000-ST001-AC002-SES003.md` |
 | Reference | Implementation Plan (SES001, historical) | `.claude/plans/plan_P-PH000-ST001-AC002-SES001_full-promotion-t102-std-004.md` |
 | Reference | GATE-002 Verification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/verification/verification_P-PH000-ST001-AC002_gate-002.md` |
-| Reference | Supplementary Verification (GATE-002 pass 2) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/verification/verification_P-PH000-ST001-AC002-GATE-002_tk005-supplement.md` |
+| Reference | Supplementary Verification (GATE-002 pass 2) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/verification/verification_P-PH000-ST001-AC002_gate-002_tk005-supplement.md` |
 
 ---
 

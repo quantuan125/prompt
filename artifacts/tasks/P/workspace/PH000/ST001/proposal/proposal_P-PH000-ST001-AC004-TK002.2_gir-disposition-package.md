@@ -302,14 +302,14 @@ consumers:
 **Implementation note**: Execute under `T104-PH001-ST007` as a coordinated second-pass migration/enforcement change, tracked via `P-PH000-ST001-AC004-TK003.3` (rename inventory + mapping + enforcement requirements). This is required for: (1) secondary-vision cleanup for `P/**` and `T104/**`, and (2) first-iteration migration conformance for `T102/**` (enforce `_gate-###` from start).
 
 **Rename inventory (current non-conformant examples)**:
-- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/verification/verification_P-PH000-ST001-AC002-GATE-002_tk005-supplement.md`
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-002_post-migration-quality.md`
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_p-migration-readiness.md`
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_convention-compliance.md`
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_commissioning-readiness.md`
-- `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001-GATE-002_report-acceptance_P-RES-001.md`
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC002/verification/verification_P-PH000-ST004-AC002-GATE-002_report-acceptance_iteration-2.md`
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC002/verification/verification_P-PH000-ST004-AC002-GATE-002_report-acceptance.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/verification/verification_P-PH000-ST001-AC002_gate-002_tk005-supplement.md`
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-002_post-migration-quality.md`
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_p-migration-readiness.md`
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_convention-compliance.md`
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_commissioning-readiness.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001_gate-002_report-acceptance_P-RES-001.md`
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC002/verification/verification_P-PH000-ST004-AC002_gate-002_report-acceptance_iteration-2.md`
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC002/verification/verification_P-PH000-ST004-AC002_gate-002_report-acceptance.md`
 
 **Client Decision**: `[ ] (a)` / `[x] (b)` / `[ ] (c)` / `[ ] Override: _______________`  
 **Decision date**: 2026-03-01

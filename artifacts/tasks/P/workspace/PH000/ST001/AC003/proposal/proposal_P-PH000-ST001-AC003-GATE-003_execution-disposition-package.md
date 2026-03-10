@@ -7,8 +7,8 @@ stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC003'
 task_id: 'P-PH000-ST001-AC003-TK010'
 gate_id: 'P-PH000-ST001-AC003-GATE-003'
-version: '1.0.0'
-date: '2026-03-07'
+version: '1.2.0'
+date: '2026-03-09'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -50,12 +50,12 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--|:--|
-| GIR-001 | Post-acceptance package acceptance | Accept `TK005` to `TK009` as GATE-003-ready | (a) APPROVE package and proceed with recorded post-gate posture | `P-PH000-ST001-AC003-GATE-003` | Yes | pending |
-| GIR-002 | Retention-policy ownership | Where evidence-retention duration is governed | (a) Keep retention duration outside `P-STD-002` and defer to a future sibling governance artifact | Future governance policy artifact (path TBD) | Yes | pending |
-| GIR-003 | Stale-state threshold model | Threshold structure for future `CLAUSE-038` amendment input | (a) Use the state-specific thresholds proposed in TK008 | Future P-STD-002 amendment intake task (path TBD) | Yes | pending |
-| GIR-004 | Stale-state escalation posture | Review/escalation flow once staleness is detected | (a) Notify, then mandatory review, then accountable-role decision | Future P-STD-002 amendment intake task (path TBD) | Yes | pending |
-| GIR-005 | Automatic downgrade posture | Whether stale-state may force transitions in the baseline model | (a) Keep stale-state human-governed; no automatic downgrade in baseline | Future P-STD-002 amendment intake task (path TBD) | Yes | pending |
-| GIR-006 | Downstream execution boundary | Whether TK008 is input only or an immediate amendment | (a) Treat TK008 as standards input only; do not amend `P-STD-002` inside AC003 | Post-gate follow-on commissioning | Yes | pending |
+| GIR-001 | Post-acceptance package acceptance | Accept `TK005` to `TK009` as GATE-003-ready | (a) APPROVE package and proceed with recorded post-gate posture | `P-PH000-ST001-AC003-GATE-003` | Yes | (a) APPROVE |
+| GIR-002 | Retention-policy ownership | Where evidence-retention duration is governed | (a) Keep retention duration outside `P-STD-002` and defer to a future sibling governance artifact | `P-PH000-ST001-AC008` | Yes | (a) APPROVE |
+| GIR-003 | Stale-state threshold model | Threshold structure for `CLAUSE-038` amendment execution | (a) Use the state-specific thresholds proposed in TK008 | `P-PH000-ST001-AC003-TK011` | Yes | (a) APPROVE |
+| GIR-004 | Stale-state escalation posture | Review/escalation flow once staleness is detected | (a) Notify, then mandatory review, then accountable-role decision | `P-PH000-ST001-AC003-TK011` | Yes | (a) APPROVE |
+| GIR-005 | Automatic downgrade posture | Whether stale-state may force transitions in the baseline model | (a) Keep stale-state human-governed; no automatic downgrade in baseline | `P-PH000-ST001-AC003-TK011` | Yes | (a) APPROVE |
+| GIR-006 | Downstream Execution Boundary | Whether TK008 is input only or an immediate amendment | (d) Authorize post-gate amendment execution inside AC003 | `P-PH000-ST001-AC003-TK011` / `P-PH000-ST001-AC003-TK012` | Yes | (d) APPROVE |
 
 ---
 
@@ -83,7 +83,7 @@ Rationale:
 - Reviewer verification already passed, and the remaining package content is structured as client decisions rather than missing evidence.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -109,7 +109,7 @@ Rationale:
 - This preserves the current boundary between status semantics and cross-cutting records-lifecycle policy while still giving the future retention work an explicit owner class.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -120,7 +120,7 @@ Context:
 - The draft clause text is present, but the thresholds remain standards input until the client approves a posture.
 
 Decision prompt:
-- What threshold model should the future `CLAUSE-038` amendment intake use?
+- What threshold model should the `CLAUSE-038` amendment execution use?
 
 | Option | Description |
 |:--|:--|
@@ -135,7 +135,7 @@ Rationale:
 - It is the most complete and already-packaged option, while still remaining conservative and easy to explain operationally.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -146,7 +146,7 @@ Context:
 - The external review concludes this is the cleanest boundary because it preserves human-governed transitions.
 
 Decision prompt:
-- What escalation posture should the future `CLAUSE-038` amendment intake use?
+- What escalation posture should the `CLAUSE-038` amendment execution use?
 
 | Option | Description |
 |:--|:--|
@@ -161,7 +161,7 @@ Rationale:
 - Progressive escalation fits the existing role-accountability model and avoids turning stale detection into an implicit auto-transition mechanism.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -187,7 +187,7 @@ Rationale:
 - This is the safest fit with the current standard boundary and the least disruptive starting posture for a future amendment.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -202,18 +202,19 @@ Decision prompt:
 
 | Option | Description |
 |:--|:--|
-| **(a) Standards input only (Recommended)** | Accept TK008 as decision-ready input and commission any actual amendment work later under a separate authorized task. |
+| (a) Standards input only | Accept TK008 as decision-ready input and commission any actual amendment work later under a separate authorized task. |
 | (b) Immediate amendment inside AC003 | Treat this gate package as authority to amend `P-STD-002` directly inside AC003. |
 | (c) Leave downstream posture unspecified | Close the gate without deciding how TK008 will be consumed. |
+| **(d) Authorize post-gate amendment execution inside AC003 (Recommended)** | Accept TK008 as approved standards input and authorize TK011/TK012 to apply the CLAUSE-038 amendment as post-gate tasks within AC003, using the approved GIR-003/004/005 posture decisions. |
 
 Recommendation:
-- (a)
+- (d)
 
 Rationale:
-- It preserves the plan boundary that AC003 prepares the client decision surface but does not itself execute the next amendment step.
+- The draft normative text is already written, reviewed, and verified. Deferring to a separate future task creates overhead and drift risk. Post-gate execution within AC003 is the industry-standard gated workflow pattern: the gate captures decisions, post-gate tasks execute them.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[x] (d)` / `[ ] Override: _______`
 
 ---
 
@@ -227,6 +228,7 @@ Conditions and/or deferrals:
 
 Downstream enforcement:
 - Any post-gate execution that consumes the retention-owner or stale-state decisions MUST NOT start until the Gate Decision Record below is populated with `Client Decision = APPROVE` or `APPROVE WITH CONDITIONS`.
+- TK011 and TK012 MUST NOT start until the GDR records `Client Decision = APPROVE` for GIR-003, GIR-004, GIR-005, and GIR-006(d).
 
 ---
 
@@ -238,11 +240,11 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `P-PH000-ST001-AC003-GATE-003` |
 | Reviewer Verdict | `PASS` |
-| Client Decision | `pending` |
+| Client Decision | `APPROVE` |
 | Conditions (if any) | `—` |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-09` |
+| Decision Reference | `Inline client approval in current session: "APPROVED: IMPLEMENT"` |
 
 ---
 
@@ -264,4 +266,6 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-09 | Update | Gate passed. Recorded client dispositions for GIR-001 through GIR-006 in the summary and detailed registers and updated the authoritative GDR to `APPROVE`, enabling TK011 execution in AC003. |
+| v1.1.0 | 2026-03-08 | Amendment | Amendment: GIR-006 recommendation changed from (a) standards-input-only to (d) authorize post-gate amendment execution inside AC003. Added option (d) with rationale. Updated downstream enforcement. Evidence: SES005. |
 | v1.0.0 | 2026-03-07 | Initial | Initial GATE-003 execution disposition package for AC003, with `TK005` through `TK009` evidence indexed, six client decision items, and a pending authoritative GDR. |

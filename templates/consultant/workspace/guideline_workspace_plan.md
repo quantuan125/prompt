@@ -190,14 +190,27 @@ Gates appear in the Task Register as a special row type:
 - `failed` is a terminal status. It MUST NOT be used for rework scenarios. When rework is needed, the gate stays `in_progress` until the rework cycle completes and the gate is re-assessed.
 - Gates MUST be listed in dependency order alongside tasks
 - Downstream tasks that depend on the gate MUST use `Depends On: GATE-###`
+- A task with `Depends On: GATE-###` MUST appear after that gate row in the Task Register, even when the task is pre-registered before the gate has passed.
+- Pre-registering post-gate tasks is allowed; register placement MUST reflect dependency order, not anticipated future execution timing.
 
-### E. Gate vs Task Distinction
+### E. Detailed Section Ordering
+
+- The `## III. TASKS (DETAILED)` section SHOULD mirror Task Register dependency order for readability and auditability.
+- When a downstream task depends on a gate, the gate section MUST appear before that task's detailed section.
+- A post-gate task MAY be documented before the gate executes, but its detailed section MUST still remain after the governing gate section.
+
+### F. Gate Completion vs Activity Completion
+
+- Gate `Exit Criteria` MUST define only what is required for the gate itself to pass.
+- Downstream-task execution and parent-activity closure MUST be stated separately; they MUST NOT be written as if they are part of the gate-passage condition.
+
+### G. Gate vs Task Distinction
 
 - A **Task** produces a deliverable (artifact, update, code)
 - A **Gate** produces a review decision (pass/fail)
 - Gates MUST NOT be used as tasks; tasks MUST NOT be used as gates
 
-### F. Phase-Level Gates
+### H. Phase-Level Gates
 
 Phase-level gates govern entry into, or conformance claims within, an entire phase or a named subset of streams. They differ from activity-level gates in scope:
 
@@ -212,13 +225,13 @@ Phase-level gates govern entry into, or conformance claims within, an entire pha
 
 ---
 
-### G. Gate Outcome Rework Paths
+### I. Gate Outcome Rework Paths
 
 For gate outcome rework classification (Situation A: deliverable deficiency vs. Situation B: scope gap), rework handoff rules, and the plan authority principle, see `guideline_workspace_verification.md §VII`.
 
 **Summary**: When a gate review identifies an issue, the reviewer classifies it as Situation A (plan specified the requirement but deliverable missed it → rework under same task, no plan change) or Situation B (plan did not specify the requirement → plan amendment required, sub-task added). Full rules, decision test, and cross-boundary handoff guidance are in the verification guideline.
 
-### H. Cross-Reference: Gate Execution & Decision Rules
+### J. Cross-Reference: Gate Execution & Decision Rules
 
 Gate execution and decision-recording are governed by two companion guidelines:
 

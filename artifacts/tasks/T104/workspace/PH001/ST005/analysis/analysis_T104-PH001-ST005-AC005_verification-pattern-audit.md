@@ -28,10 +28,10 @@ session_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC005/snot
 
 **Inputs reviewed**:
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/verification/verification_P-PH000-ST001-AC006_gate-003.md`
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_commissioning-readiness.md`
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_convention-compliance.md`
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_p-migration-readiness.md`
-- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-002_post-migration-quality.md`
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_commissioning-readiness.md`
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_convention-compliance.md`
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_p-migration-readiness.md`
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-002_post-migration-quality.md`
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/verification/` (5 files: AC001.2 gate-002, AC001.3 gate-001/gate-002, AC001.4 gate-001/gate-002)
 - `prompt/templates/consultant/workspace/template_workspace_verification.md` (existing skeleton)
 - `prompt/templates/consultant/workspace/guideline_workspace_plan.md` (§VI gate rules)
@@ -321,8 +321,8 @@ The following sections are proposed for the updated `template_workspace_verifica
 |:--|:--|
 | ST005 Stream Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/plan_T104-PH001-ST005.md` |
 | P-AC006 Gate-003 Verification (rich exemplar) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/verification/verification_P-PH000-ST001-AC006_gate-003.md` |
-| T104-AC004 GATE-001 Commissioning Readiness | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_commissioning-readiness.md` |
-| T104-AC004 GATE-002 Post-Migration Quality | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-002_post-migration-quality.md` |
+| T104-AC004 GATE-001 Commissioning Readiness | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_commissioning-readiness.md` |
+| T104-AC004 GATE-002 Post-Migration Quality | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-002_post-migration-quality.md` |
 | Existing Verification Template | `prompt/templates/consultant/workspace/template_workspace_verification.md` |
 | Plan Guideline (§VI Gate Rules) | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |
 | Workspace Documentation Rules | `prompt/templates/consultant/workspace/workspace_documentation_rules.md` |

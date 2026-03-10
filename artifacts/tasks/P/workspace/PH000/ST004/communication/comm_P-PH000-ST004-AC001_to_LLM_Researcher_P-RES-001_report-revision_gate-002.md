@@ -30,7 +30,7 @@ GATE-002 report acceptance has been **rejected**. The report is structurally str
 Baseline artifacts (use these exact paths):
 - Brief (commission baseline): `prompt/artifacts/tasks/P/research/P-RES-001/brief_P-RES-001_status-standard-research.md`
 - Report to revise: `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md`
-- Gate verification (findings + checklist): `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001-GATE-002_report-acceptance_P-RES-001.md`
+- Gate verification (findings + checklist): `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001_gate-002_report-acceptance_P-RES-001.md`
 
 This is a **focused revision** (Iteration 2). Do not expand scope beyond the commissioned brief unless/until the brief is formally updated.
 

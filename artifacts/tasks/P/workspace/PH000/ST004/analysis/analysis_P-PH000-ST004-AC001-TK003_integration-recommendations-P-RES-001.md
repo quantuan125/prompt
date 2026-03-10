@@ -388,7 +388,7 @@ Research-level issues and risks from P-RES-001 that affect P-STD-002 authoring:
 | P-RES-001 Report (Iteration 2, accepted) | `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md` | Primary research input |
 | P-RES-001 Brief (v1.0.0, approved) | `prompt/artifacts/tasks/P/research/P-RES-001/brief_P-RES-001_status-standard-research.md` | Commission baseline |
 | Program SPS (v0.6.0) | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` | SSOT alignment target |
-| GATE-002 Verification | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001-GATE-002_report-acceptance_P-RES-001.md` | Gate evidence |
+| GATE-002 Verification | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001_gate-002_report-acceptance_P-RES-001.md` | Gate evidence |
 | AC001 SES001 Session Notes | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/snotes/snotes_P-PH000-ST004-AC001-SES001.md` | Context (QA decisions) |
 | Seed Analysis (informative only) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-research.md` | Gap analysis baseline |
 | AC003 Activity Plan (consumer) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md` | Downstream consumer context |

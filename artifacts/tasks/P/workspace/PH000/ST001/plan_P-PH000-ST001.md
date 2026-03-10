@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.14'
-date: '2026-03-06'
+version: '0.1.15'
+date: '2026-03-08'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -42,6 +42,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | AC005 | `P-PH000-ST001-AC005` | Align `P/standard/` naming to `standard_<SID-STD>_...` | `planned` | LLM_Developer | AC004 | Renamed `standard_P-STD-003_governance-standards-and-dr-index.md` + updated references | `P-STD-004` Convention 1 + `P` conformance |
 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `completed` | LLM_Consultant | AC002 | `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md` |
 | AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `completed` | LLM_Consultant | AC006 | `analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md` + updated `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/plan_P-PH000-ST001-AC007.md` |
+| AC008 | `P-PH000-ST001-AC008` | Author Evidence-Retention Governance Policy (Sibling Artifact) | `planned` | LLM_Consultant | AC003 | Future program-level governance policy artifact for evidence-retention duration | — |
 
 ---
 
@@ -103,8 +104,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 - Post-acceptance execution package: `TK007` assessment + `TK008` standards-input proposal + `TK009/TK010` Gate-003 review package
 
 **Scope**:
-- In scope: 7-state enum governance (DEC-004) + transition rules + health/RAG assessment + unified dependency schema (DEC-006) + evidence linkage (DEC-005) + update protocol + status artifact spec + guideline cascade (DEC-008) + post-acceptance readiness packaging through `GATE-003`
-- Out of scope: authoring `status_program.md` (deferred to ST002-AC002); repo-wide initiative plan retrofits (downstream adopters update on next touch); any post–`GATE-003` amendment implementation that may later be approved from TK007/TK008 outputs
+- In scope: 7-state enum governance (DEC-004) + transition rules + health/RAG assessment + unified dependency schema (DEC-006) + evidence linkage (DEC-005) + update protocol + status artifact spec + guideline cascade (DEC-008) + post-acceptance readiness packaging through `GATE-003` + Authorize post-gate CLAUSE-038 amendment execution (TK011/TK012)
+- Out of scope: authoring `status_program.md` (deferred to ST002-AC002); repo-wide initiative plan retrofits (downstream adopters update on next touch); any `P-STD-002` amendments beyond the explicitly authorized CLAUSE-038 replacement (TK011/TK012); evidence-retention governance artifact authoring (deferred to AC008)
 
 **Depends On**: `P-PH000-ST004-AC001` (P-RES-001 research sign-off via GATE-003)
 
@@ -249,6 +250,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.15 | 2026-03-08 | Amendment | Amendment: Registered AC008 (Author Evidence-Retention Governance Policy) with contract stub, depends-on AC003, and TK007 input reference. Updated AC003 contract stub scope to authorize CLAUSE-038 amendment and defer retention to AC008. Evidence: SES005. |
 | v0.1.14 | 2026-03-06 | Amendment | AC003 contract stub updated for Gate-003 implementation readiness: added post-acceptance package deliverables, expanded scope through `GATE-003`, and enriched success criteria to cover TK007/TK008 outputs and Gate-003 package preparation. Evidence: SES004. |
 | v0.1.13 | 2026-03-04 | Housekeeping | AC003 status `planned` → `in_progress` (GATE-001 passed; TK005/TK006/TK007/TK008 remain planned). Removed DRAFT banner from AC003 section (blocking condition resolved). Evidence: SES003. |
 | v0.1.12 | 2026-02-28 | Amendment | AC004 updated (contract stub): recorded that GIR-006 + GIR-011 deferrals are explicitly work-packaged/tracked via AC004 plan tasks (TK009/TK010) while execution remains in `T104-PH001-ST007`, aligned to secondary-vision cleanup for `P/**` and `T104/**` and strict first-migration conformance for `T102/**`. |

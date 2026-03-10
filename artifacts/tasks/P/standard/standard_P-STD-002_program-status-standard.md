@@ -43,7 +43,7 @@
 | 36 | P-STD-002D | P-STD-002-CLAUSE-035 | Role-Transition Matrix | Defines transition permissions using generic RACI labels (not named roles). |
 | 37 | P-STD-002D | P-STD-002-CLAUSE-036 | Update Attribution Fields | Requires `updated_by` and `last_updated` fields to support auditability. |
 | 38 | P-STD-002D | P-STD-002-CLAUSE-037 | Conflict Resolution | Defines dispute handling for conflicting updates and escalation requirements. |
-| 39 | P-STD-002D | P-STD-002-CLAUSE-038 | Stale-State Governance (Reserved) | Reserves space for Phase 2 stale-state rules without imposing v1 requirements. |
+| 39 | P-STD-002D | P-STD-002-CLAUSE-038 | Stale-State Governance | Defines minimum stale-state review thresholds, escalation posture, and non-automation boundary for active non-terminal states. |
 | 40 | P-STD-002D | P-STD-002-CLAUSE-039 | Repo-Verifiable Evidence Requirement | Requires terminal transitions to cite repo-verifiable evidence, with platform-agnostic fallbacks. |
 | 41 | P-STD-002D | P-STD-002-CLAUSE-040 | Evidence Type Extensions | Extends evidence types with `check`, `workflow_run`, and optional `execution_trace`. |
 | 42 | P-STD-002D | P-STD-002-CLAUSE-041 | Aggregation Policy Declaration | Requires explicit aggregation policy for multi-evidence updates with clear semantics. |
@@ -645,9 +645,10 @@
 ## Provenance
 
 ### Status
-- `accepted` (GATE-001 APPROVE WITH CONDITIONS, 2026-03-01)
+- `accepted` (GATE-001 APPROVE, 2026-03-04)
 
 ### Amendment History
+- v1.1.0 (2026-03-09): Replaced reserved `P-STD-002-CLAUSE-038` placeholder with approved normative stale-state governance text per GATE-003 approval and TK008 source text.
 - v1.0.0 (2026-02-27): Initial authoring (54 CLAUSEs across P-STD-002A..E) + ADR-001.
 - v1.0.1 (2026-02-27): Remediated Decision Record keyword hygiene per `P-STD-001-CLAUSE-021B` (no Specification changes).
 - v1.0.2 (2026-02-28): Added General Provisions forward-only adoption CLAUSE per `P-ASSUM-001` (Forward-only Adoption).

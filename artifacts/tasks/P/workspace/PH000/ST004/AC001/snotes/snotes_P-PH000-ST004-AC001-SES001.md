@@ -56,7 +56,7 @@ Outputs produced:
 | ID | Topic | Outcome | Rationale | Evidence |
 |:---|:------|:--------|:----------|:---------|
 | `P-PH000-ST004-AC001-SES001-DP001` | Report sufficiency vs brief baseline | Determined **revision required** (GATE-002 fail) | Multiple brief-mandated deliverables are not met, and benchmarking breadth is below baseline expectations | `prompt/artifacts/tasks/P/research/P-RES-001/brief_P-RES-001_status-standard-research.md` ; `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md` |
-| `P-PH000-ST004-AC001-SES001-DP002` | QA request: agentic CLI + orchestration status systems | Captured as **Change Request** (vNext brief addendum candidate) | Prevent scope creep during gate; preserve auditability and acceptance flow | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001-GATE-002_report-acceptance_P-RES-001.md` |
+| `P-PH000-ST004-AC001-SES001-DP002` | QA request: agentic CLI + orchestration status systems | Captured as **Change Request** (vNext brief addendum candidate) | Prevent scope creep during gate; preserve auditability and acceptance flow | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001_gate-002_report-acceptance_P-RES-001.md` |
 | `P-PH000-ST004-AC001-SES001-DP003` | GATE-002 evaluation scope rule | Locked: **brief-only** for gate; new topics not required for pass | Keeps gate criteria stable; new scope requires brief revision and re-approval | Session outcome; reflected in verification + comm memo |
 | `P-PH000-ST004-AC001-SES001-DP004` | Researcher handoff artifacts | Produced verification + comm memo for Iteration 2 revision | Enables deterministic remediation with clear DoD | `prompt/artifacts/tasks/P/workspace/PH000/ST004/communication/comm_P-PH000-ST004-AC001_to_LLM_Researcher_P-RES-001_report-revision_gate-002.md` |
 
@@ -66,9 +66,9 @@ Outputs produced:
 
 | ID | Decision | Type | Status | Owner | Date | Rationale | Acceptance Signal | Evidence |
 |:---|:---------|:-----|:-------|:------|:-----|:----------|:------------------|:---------|
-| `P-PH000-ST004-AC001-SES001-DEC001` | GATE-002 evaluation is **brief-only**; agentic-CLI/orchestration request is logged as Change Request (not a gate-pass requirement for this cycle) | Scope control | Confirmed | Client | 2026-02-25 | Prevent scope creep mid-gate; preserve auditability | Client selection recorded during QA | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001-GATE-002_report-acceptance_P-RES-001.md` |
+| `P-PH000-ST004-AC001-SES001-DEC001` | GATE-002 evaluation is **brief-only**; agentic-CLI/orchestration request is logged as Change Request (not a gate-pass requirement for this cycle) | Scope control | Confirmed | Client | 2026-02-25 | Prevent scope creep mid-gate; preserve auditability | Client selection recorded during QA | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001_gate-002_report-acceptance_P-RES-001.md` |
 | `P-PH000-ST004-AC001-SES001-DEC002` | Researcher handoff is delivered as a saved `comm_` memo under ST004 `communication/` | Process / traceability | Confirmed | Client | 2026-02-25 | Ensures traceable copy/paste message with stable path | Client instruction for `communication/comm_` | `prompt/artifacts/tasks/P/workspace/PH000/ST004/communication/comm_P-PH000-ST004-AC001_to_LLM_Researcher_P-RES-001_report-revision_gate-002.md` |
-| `P-PH000-ST004-AC001-SES001-DEC003` | `P-RES-001` requires Iteration 2 revision before it can pass GATE-002 | Quality gate | Confirmed | Client | 2026-02-25 | Blockers identified in verification checklist | Client accepts gate process | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001-GATE-002_report-acceptance_P-RES-001.md` |
+| `P-PH000-ST004-AC001-SES001-DEC003` | `P-RES-001` requires Iteration 2 revision before it can pass GATE-002 | Quality gate | Confirmed | Client | 2026-02-25 | Blockers identified in verification checklist | Client accepts gate process | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001_gate-002_report-acceptance_P-RES-001.md` |
 
 ---
 
@@ -98,7 +98,7 @@ Outputs produced:
 - Stream plan: `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md`
 - Brief baseline: `prompt/artifacts/tasks/P/research/P-RES-001/brief_P-RES-001_status-standard-research.md`
 - Report under review: `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md`
-- Gate verification: `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001-GATE-002_report-acceptance_P-RES-001.md`
+- Gate verification: `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001_gate-002_report-acceptance_P-RES-001.md`
 - Researcher handoff memo: `prompt/artifacts/tasks/P/workspace/PH000/ST004/communication/comm_P-PH000-ST004-AC001_to_LLM_Researcher_P-RES-001_report-revision_gate-002.md`
 
 ---

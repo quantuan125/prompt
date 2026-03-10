@@ -12,8 +12,8 @@ date: '2026-02-24'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-primary_verification: 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_p-migration-readiness.md'
-supplementary_verification_convention: 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_convention-compliance.md'
+primary_verification: 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_p-migration-readiness.md'
+supplementary_verification_convention: 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_convention-compliance.md'
 target_plan: 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/plan_T104-PH001-ST007-AC004.md'
 dev_report: 'prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/dev-report/dev-report_T104-PH001-ST007-AC004_2026-02-23.md'
 authority_surface: 'prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md'
@@ -34,9 +34,9 @@ Provide a single, developer-handoff verification artifact that consolidates:
 This file is supplementary to:
 
 - Primary technical correctness verification:
-  - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_p-migration-readiness.md`
+  - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_p-migration-readiness.md`
 - Supplementary convention compliance verification:
-  - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_convention-compliance.md`
+  - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_convention-compliance.md`
 
 ## II. Scope
 
@@ -214,8 +214,8 @@ Once all REM-CR items are completed and evidence is updated:
 
 ## VIII. Links Register
 
-- Primary verification: `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_p-migration-readiness.md`
-- Supplementary convention compliance: `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004-GATE-001_convention-compliance.md`
+- Primary verification: `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_p-migration-readiness.md`
+- Supplementary convention compliance: `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/verification/verification_T104-PH001-ST007-AC004_gate-001_convention-compliance.md`
 - AC004 plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/plan_T104-PH001-ST007-AC004.md`
 - Dev-report (evidence consolidation): `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/dev-report/dev-report_T104-PH001-ST007-AC004_2026-02-23.md`
 - Manifest (current): `prompt/scripts/output/T104-PH001-ST007-AC004/ac004.1/manifest_T104-PH001-ST007-AC004_p-migration.json`
