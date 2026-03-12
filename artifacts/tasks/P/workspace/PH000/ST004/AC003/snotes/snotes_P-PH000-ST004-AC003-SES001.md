@@ -43,7 +43,9 @@ The session opened with a full review of the AC003 entry in the stream plan (`pl
 
 **Brief authoring**: TK001 was completed. The P-RES-003 research brief was authored at `prompt/artifacts/tasks/P/research/P-RES-003/brief_P-RES-003_specification-metadata-governance-research.md` (v1.0.0). Three risks were registered (`P-RES-003-RISK-001` retrofit blast radius, `P-RES-003-RISK-002` YAML-Provenance authority ambiguity, `P-RES-003-RISK-003` standards body scale mismatch). One issue was pre-registered (`P-RES-003-ISSUE-001` ADR Index inconsistency, DEFERRED to AC009).
 
-Session closed with the brief ready for GATE-001 (Client brief approval).
+**Gate-readiness refinement**: A follow-up review identified two brief-level readiness gaps before GATE-001: (1) the brief did not explicitly reconcile the live SPS contradiction where `P-CON-003` already requires YAML frontmatter for combined standard-specification files, and (2) the IEEE benchmark target needed to be normalized so `IEEE PAR` remained the benchmark surface while IEEE style/process materials were treated as supporting evidence only. The brief was refined accordingly, adding an explicit SPS alignment question, a new issue (`P-RES-003-ISSUE-002`) for SPS YAML requirement drift, and Section VIII dependency mapping to `sps_P-PROGRAM.md` / `P-CON-003`.
+
+Session closed with the brief refined and ready for GATE-001 (Client brief approval).
 
 ---
 
@@ -58,6 +60,8 @@ Session closed with the brief ready for GATE-001 (Client brief approval).
 | `P-PH000-ST004-AC003-SES001-DP005` | ADR Index inconsistency (P-STD-002 and P-STD-004 missing `### ADR Index` per `P-STD-001-CLAUSE-023`) | **Out-of-scope for P-RES-003; routed to AC009** | Decision Record structural conformance is not metadata governance research; AC009 hardening is the correct resolution path | Client confirmation; flagged as `P-RES-003-ISSUE-001` |
 | `P-PH000-ST004-AC003-SES001-DP006` | OQ002 resolution: T102-STD legacy metadata scope | **Excluded from P-RES-003 scope** | Migration context documented in existing promotion contract artifacts; not a research question | Client approval of forward-looking scope |
 | `P-PH000-ST004-AC003-SES001-DP007` | DP008 (template/guideline root cause) coverage | Sub-question added to Topic 5: do companion documents prescribe Provenance subsection structure? | Addresses root cause without adding a standalone topic; keeps brief at 9 topics | Consultant recommendation; client approval |
+| `P-PH000-ST004-AC003-SES001-DP008` | SPS YAML-frontmatter contradiction | **Added to brief as explicit research concern** | `sps_P-PROGRAM.md` `P-CON-003` already requires YAML frontmatter for combined standard-specification files, but no active P-STD standard implements it and no P-STD-001 CLAUSE defines the schema | Gate-readiness review of brief + SPS |
+| `P-PH000-ST004-AC003-SES001-DP009` | IEEE benchmark normalization | **Normalized to IEEE PAR as benchmark target** | SES001 approved `IEEE PAR` as the benchmark set member; IEEE style/process documents remain supporting evidence, not the benchmark target itself | Gate-readiness review of brief methodology |
 
 ---
 
@@ -71,6 +75,8 @@ Session closed with the brief ready for GATE-001 (Client brief approval).
 | `P-PH000-ST004-AC003-SES001-DEC004` | `P-PH000-ST001-SES002-OQ002` resolved: P-RES-003 scope is forward-looking only; T102-STD legacy metadata excluded | Scope | `Confirmed` | Client | 2026-03-12 | Migration context documented in promotion contracts; not a research question; keeps scope clean | Client approval of recommendation | Session |
 | `P-PH000-ST004-AC003-SES001-DEC005` | DP008 (template/guideline root cause) addressed via sub-question in Topic 5; not a standalone topic | Scope | `Confirmed` | Client | 2026-03-12 | Companion-document prescriptiveness is a natural sub-question of Provenance subsection research | Client approval | Session |
 | `P-PH000-ST004-AC003-SES001-DEC006` | P-RES-003 brief (TK001) authored and ready for GATE-001 | Process | `Confirmed` | LLM_Consultant | 2026-03-12 | Brief authored per `T102-STD-006-CLAUSE-002`; all scope decisions resolved | Artifact created | Session |
+| `P-PH000-ST004-AC003-SES001-DEC007` | `sps_P-PROGRAM.md` / `P-CON-003` added as an explicit downstream governance consumer in the P-RES-003 brief | Scope | `Confirmed` | LLM_Consultant | 2026-03-12 | The live SPS YAML-frontmatter requirement must be reconciled by research findings, not left implicit | Gate-readiness review of Section VIII |
+| `P-PH000-ST004-AC003-SES001-DEC008` | IEEE benchmark target normalized: `IEEE PAR` is the benchmark surface; IEEE style/process documents are supporting evidence only | Methodology | `Confirmed` | LLM_Consultant | 2026-03-12 | Aligns the brief methodology with SES001-approved benchmark scope and removes execution ambiguity | Gate-readiness review of Topic 1 + Methodology |
 
 ---
 
@@ -79,7 +85,7 @@ Session closed with the brief ready for GATE-001 (Client brief approval).
 | ID | Action | Owner | Status |
 |:---|:-------|:------|:-------|
 | `P-PH000-ST004-AC003-SES001-ACT001` | Submit brief `brief_P-RES-003_specification-metadata-governance-research.md` for GATE-001 (Client brief approval) | LLM_Consultant | `pending` |
-| `P-PH000-ST004-AC003-SES001-ACT002` | Update stream plan `plan_P-PH000-ST004.md`: mark TK001 as `completed` with brief path evidence; update GATE-001 to `in_progress` | LLM_Consultant | `pending` |
+| `P-PH000-ST004-AC003-SES001-ACT002` | Update stream plan `plan_P-PH000-ST004.md`: mark TK001 as `completed` with brief path evidence; update GATE-001 to `in_progress` | LLM_Consultant | `completed` |
 
 ---
 
@@ -87,8 +93,8 @@ Session closed with the brief ready for GATE-001 (Client brief approval).
 
 | ID | Topic | Question | Owner | Status | Needed By |
 |:---|:------|:---------|:------|:-------|:----------|
-| `P-PH000-ST004-AC003-SES001-OQ001` | Brief completeness | Does the brief adequately cover the scope envisioned, or are topics/questions to be added/removed before GATE-001? | Client | Open | Before GATE-001 |
-| `P-PH000-ST004-AC003-SES001-OQ002` | E-RID mapping completeness | Are there additional downstream consumers beyond P-STD-001 CLAUSEs + guideline + template to list in Section VIII? | Client | Open | Before GATE-001 |
+| `P-PH000-ST004-AC003-SES001-OQ001` | Brief completeness | Does the brief adequately cover the scope envisioned, or are topics/questions to be added/removed before GATE-001? | Client | Resolved | Before GATE-001 |
+| `P-PH000-ST004-AC003-SES001-OQ002` | E-RID mapping completeness | Are there additional downstream consumers beyond P-STD-001 CLAUSEs + guideline + template to list in Section VIII? | Client | Resolved | Before GATE-001 |
 
 ---
 
@@ -98,7 +104,8 @@ Session closed with the brief ready for GATE-001 (Client brief approval).
 - **Next step**: GATE-001 — Client brief approval. Entry: brief complete. Exit: explicit client approval recorded with date.
 - **Dependency to track**: GATE-001 approval required before TK002 (Execute research + produce report) can begin.
 - **SES002-OQ002 resolution**: Recorded as DEC004 in this session. To be noted in the plan amendment evidence chain.
-- **Plan update pending**: ACT002 — stream plan TK001/GATE-001 status update.
+- **Gate-readiness resolution**: SPS `P-CON-003` is now explicitly treated as a downstream governance consumer; IEEE benchmark ambiguity removed by fixing `IEEE PAR` as the benchmark surface.
+- **Plan status synced**: ACT002 completed — stream plan now shows TK001 `completed` and GATE-001 `in_progress`.
 
 ---
 
@@ -107,3 +114,5 @@ Session closed with the brief ready for GATE-001 (Client brief approval).
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-03-12 | Initial | Session notes created for SES001 (P-RES-003 Research Brief Scoping & Authoring). All scope decisions resolved; TK001 completed; GATE-001 pending. |
+| v1.1.0 | 2026-03-12 | Gate-Readiness | Recorded post-review refinements: SPS `P-CON-003` added as downstream consumer, IEEE benchmark normalized to `IEEE PAR`, and both open questions resolved before GATE-001. |
+| v1.2.0 | 2026-03-12 | Tracking Sync | Marked ACT002 completed after the ST004 stream plan was updated to reflect TK001 completion and GATE-001 `in_progress`. |

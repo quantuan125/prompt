@@ -204,8 +204,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Task ID | Description | Status | Action |
 |:--|:--|:--|:--|
-| `P-PH000-ST004-AC003-TK001` | Draft research brief per `T102-STD-006-CLAUSE-002` (must include evaluation rubric, explicit out-of-scope, and input packet paths). | `planned` | — |
-| `P-PH000-ST004-AC003-GATE-001` | **Gate: Client brief approval**. Entry: brief complete. Reviewer: Client. Exit: explicit approval recorded with date. | `planned` | — |
+| `P-PH000-ST004-AC003-TK001` | Draft research brief per `T102-STD-006-CLAUSE-002` (must include evaluation rubric, explicit out-of-scope, and input packet paths). | `completed` | Brief authored and refined for gate-readiness: `prompt/artifacts/tasks/P/research/P-RES-003/brief_P-RES-003_specification-metadata-governance-research.md` (v1.0.0). |
+| `P-PH000-ST004-AC003-GATE-001` | **Gate: Client brief approval**. Entry: brief complete. Reviewer: Client. Exit: explicit approval recorded with date. | `in_progress` | Brief ready for review; gate-readiness refinements recorded in `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC003/snotes/snotes_P-PH000-ST004-AC003-SES001.md` (v1.1.0). |
 | `P-PH000-ST004-AC003-TK002` | Execute research + produce report per `T102-STD-006-CLAUSE-002` (all "industry best practice" claims must be externally sourced/cited). | `planned` | — |
 | `P-PH000-ST004-AC003-GATE-002` | **Gate: Client report acceptance**. Entry: report complete against brief. Reviewer: Client. Exit: explicit acceptance recorded with date. | `planned` | — |
 | `P-PH000-ST004-AC003-TK003` | Produce integration recommendations package (recommendations-only; no clause drafting) including SSOT alignment checklist and P-STD-001 CLAUSE domain mapping. | `planned` | — |
@@ -247,6 +247,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v3.1.0 | 2026-03-12 | Gate-Readiness | Updated AC003 task register: marked TK001 completed with brief evidence and advanced GATE-001 to `in_progress` after brief refinements resolving SPS YAML-frontmatter alignment and IEEE benchmark ambiguity. |
 | v3.0.0 | 2026-03-12 | Structural | Added AC003 (Commission P-RES-003: Specification Metadata Governance Research) to stream. Updated executive summary, objective, context, and dependency notes. Evidence: consultation session (2026-03-12). |
 | v2.1.0 | 2026-02-26 | Housekeeping | Closed AC001 + AC002 task registers (TK001–TK004) and gates (GATE-001–GATE-003) with action evidence; marked both activities completed; success criteria checklists fully satisfied. |
 | v1.0.0 | 2026-02-23 | Initial | Stream ST004 plan created for P-RES-001 (Status Standard Research) commission. Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
