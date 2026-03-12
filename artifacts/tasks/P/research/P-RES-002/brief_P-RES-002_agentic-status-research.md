@@ -152,8 +152,8 @@ Per-option scores MUST use a 1–5 scale. Weighted totals MUST be computed.
 - `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/snotes/snotes_P-PH000-ST004-AC001-SES001.md` — Origin of P-RES-002 scope request (ACT002, OQ001, OQ002)
 
 ### D. Standards & Templates
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md` — Research commissioning standard
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-007_issues-risks-index.md` — Issues & Risks register standard
+- `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md` — Research commissioning standard
+- `prompt/artifacts/tasks/T102/standard/standard_T102-STD-007_issues-risks-index.md` — Issues & Risks register standard
 - `prompt/templates/researcher/template_research_report.md` — Report template
 
 ### E. Anti-Patterns / Exclusions

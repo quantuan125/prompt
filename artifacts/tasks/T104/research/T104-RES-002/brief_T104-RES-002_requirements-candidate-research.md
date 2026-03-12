@@ -61,8 +61,8 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 **Deliverable**: A cross-reference table: T102 Item × T104 Impact × Dependency Type × Timing Risk.
 
 **Input files for T102 context**:
-* T102 SPS: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
-* T102 Concept (ADR index): `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+* T102 SPS: `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md`
+* T102 Concept (ADR index): `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`
 
 #### Topic 2b: Existing Decisions & Commitments Extraction (P1)
 **Objective**: Mine all consultation records for items already decided that should become formal IID entries in SPS III.B.
@@ -206,8 +206,8 @@ Recommended precedence for this research:
 
 ### A. Core Governance (SSOT)
 * T104 SPS (target): `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md`
-* T102 SPS (cross-reference): `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
-* T102 Concept (ADR index): `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+* T102 SPS (cross-reference): `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md`
+* T102 Concept (ADR index): `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`
 
 ### B. T104 Planning Artifacts
 * Phase 1 Plan: `prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md`

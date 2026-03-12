@@ -5,9 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST004'
-version: '2.0.0'
-version: '2.1.0'
-date: '2026-02-26'
+version: '3.0.0'
+date: '2026-03-12'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -25,9 +24,11 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 **Commissioned research (Phase 0, program scope)**:
 - `P-RES-001` — Status Standard Research
 - `P-RES-002` — Agentic Status Systems Research
+- `P-RES-003` — Specification Metadata Governance Research
 
 **Non-goals**:
 - This stream does not author P-STD-002 (that work belongs to P-PH000-ST001-AC003); it produces research outputs and integration recommendations consumed downstream.
+- This stream does not author P-STD-001 CLAUSE amendments (that work belongs to P-PH000-ST001-AC009); it produces research outputs and integration recommendations consumed downstream.
 - This stream does not draft clause-level STD text; it produces **recommendations-only** packages.
 
 ---
@@ -35,7 +36,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 ## II. STREAM OUTLINE
 
 **Stream ID**: `P-PH000-ST004`
-**Objective**: Produce approved brief + accepted report for `P-RES-001` and `P-RES-002`, then produce integration recommendation packages suitable for downstream P-STD-002 authoring.
+**Objective**: Produce approved brief + accepted report for `P-RES-001`, `P-RES-002`, and `P-RES-003`, then produce integration recommendation packages suitable for downstream standards authoring (P-STD-002 for P-RES-001/002; P-STD-001 for P-RES-003).
 **Execution Mode**: PARALLEL
 **Depends On**: `—`
 **Owner**: LLM_Consultant (Decision Owner: Client)
@@ -45,6 +46,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 - `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md`
 - `prompt/artifacts/tasks/P/research/P-RES-002/brief_P-RES-002_agentic-status-research.md`
 - `prompt/artifacts/tasks/P/research/P-RES-002/report_P-RES-002_agentic-status-research.md`
+- `prompt/artifacts/tasks/P/research/P-RES-003/brief_P-RES-003_specification-metadata-governance-research.md`
+- `prompt/artifacts/tasks/P/research/P-RES-003/report_P-RES-003_specification-metadata-governance-research.md`
 - `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md`
 
 ### Activity Register
@@ -53,6 +56,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | AC001 | `P-PH000-ST004-AC001` | Commission `P-RES-001` (Status Standard Research) | `completed` | LLM_Consultant | — | Brief + Report + integration recommendations | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC001/verification/verification_P-PH000-ST004-AC001_gate-003.md` |
 | AC002 | `P-PH000-ST004-AC002` | Commission `P-RES-002` (Agentic Status Systems Research) | `completed` | LLM_Consultant | — | Brief + Report + integration recommendations | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC002/verification/verification_P-PH000-ST004-AC002_gate-003.md` |
+| AC003 | `P-PH000-ST004-AC003` | Commission `P-RES-003` (Specification Metadata Governance Research) | `planned` | LLM_Consultant | — | Brief + Report + integration recommendations | — |
 
 ---
 
@@ -160,11 +164,66 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 - [x] Integration recommendations signed off via GATE-003
 - [x] Research indexed in SPS per `T102-STD-006`
 
+### Activity AC003: Commission `P-RES-003` (Specification Metadata Governance Research)
+
+**Activity ID**: `P-PH000-ST004-AC003`
+
+**Purpose**: Commission program-scoped research evaluating industry-standard practices for specification document metadata governance, producing recommendations for P-STD-001 CLAUSE authoring. Covers: YAML frontmatter schemas in standards bodies (W3C, IETF RFC, ISO), in-file version tracking patterns (changelog sections, amendment registers, version history tables), Provenance/References subsection standardization, and metadata delineation patterns (machine-readable frontmatter vs human-readable narrative traceability).
+
+**Deliverables**:
+- `prompt/artifacts/tasks/P/research/P-RES-003/brief_P-RES-003_specification-metadata-governance-research.md`
+- `prompt/artifacts/tasks/P/research/P-RES-003/report_P-RES-003_specification-metadata-governance-research.md`
+
+**Scope**:
+- In scope:
+  - Evaluate industry-standard YAML/frontmatter metadata schemas for specification documents (W3C, IETF RFC headers, ISO document metadata, IEEE PAR)
+  - Evaluate in-file version tracking patterns vs external VCS-only approaches (changelog sections, amendment registers, revision tables)
+  - Evaluate Provenance/References subsection standardization patterns (what subsection categories are normative vs contextual across standards bodies)
+  - Evaluate metadata delineation patterns: machine-readable frontmatter fields vs human-readable Provenance narrative (overlap resolution, complementary delineation)
+  - Benchmark existing P-STD-001..005 metadata state against findings
+  - Produce integration recommendations package for P-STD-001 CLAUSE authoring (new CLAUSEs for YAML frontmatter, version tracking, Provenance structure, References structure)
+- Out of scope:
+  - Drafting P-STD-001 CLAUSE text
+  - Applying structural changes to any P-STD file
+  - Cross-standard conformance pass (belongs to ST001-AC010)
+  - Guideline/template file updates
+
+**Inputs Required**:
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` — Current P-STD-001 state (subject of hardening)
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` — Example of evolved Provenance pattern
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` — Example of evolved Provenance pattern
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` — Example of evolved Provenance pattern
+- `prompt/templates/consultant/standards/guideline_standard_specs.md` — Current guideline (derivative of P-STD-001)
+- `prompt/templates/consultant/standards/template_standard_specs.md` — Current template (derivative of P-STD-001)
+- `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` — Program constraints and STD registry
+- `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md` — Research commissioning process
+- `prompt/templates/researcher/template_research_brief.md` — Brief template
+- `prompt/templates/researcher/template_research_report.md` — Report template
+
+**Task Register**:
+
+| Task ID | Description | Status | Action |
+|:--|:--|:--|:--|
+| `P-PH000-ST004-AC003-TK001` | Draft research brief per `T102-STD-006-CLAUSE-002` (must include evaluation rubric, explicit out-of-scope, and input packet paths). | `planned` | — |
+| `P-PH000-ST004-AC003-GATE-001` | **Gate: Client brief approval**. Entry: brief complete. Reviewer: Client. Exit: explicit approval recorded with date. | `planned` | — |
+| `P-PH000-ST004-AC003-TK002` | Execute research + produce report per `T102-STD-006-CLAUSE-002` (all "industry best practice" claims must be externally sourced/cited). | `planned` | — |
+| `P-PH000-ST004-AC003-GATE-002` | **Gate: Client report acceptance**. Entry: report complete against brief. Reviewer: Client. Exit: explicit acceptance recorded with date. | `planned` | — |
+| `P-PH000-ST004-AC003-TK003` | Produce integration recommendations package (recommendations-only; no clause drafting) including SSOT alignment checklist and P-STD-001 CLAUSE domain mapping. | `planned` | — |
+| `P-PH000-ST004-AC003-GATE-003` | **Gate: Client sign-off on integration recommendations**. Entry: package complete. Reviewer: Client. Exit: explicit sign-off recorded with date. | `planned` | — |
+| `P-PH000-ST004-AC003-TK004` | Register P-RES-003 per `T102-STD-006` in SPS Research table (confirm brief/report links resolve). | `planned` | — |
+
+**Success Criteria Checklist**:
+- [ ] Brief approved via GATE-001
+- [ ] Report accepted via GATE-002
+- [ ] Integration recommendations signed off via GATE-003
+- [ ] Research indexed in SPS per `T102-STD-006`
+
 ---
 
 ## IV. DEPENDENCY NOTES
 
 - **P-PH000-ST001-AC003** (Author P-STD-002) depends on BOTH AC001 GATE-003 and AC002 GATE-003 sign-off.
+- **P-PH000-ST001-AC009** (Harden P-STD-001) depends on AC003 GATE-003 sign-off (integration recommendations approved before CLAUSE drafting begins).
 - AC002 does NOT depend on AC001 (parallel execution permitted). However, P-RES-002 brief cross-references P-RES-001 scope to avoid overlap.
 - **P-PH000-ST002-AC001** schema is informative seed input only; P-STD-002 becomes authoritative post-AC003.
 - This stream does not modify any initiative-scoped artifacts.
@@ -178,7 +237,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | Plan (this file) | Stream ST004 Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 | Plan | Phase Plan | `prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md` |
 | SSOT | Program SPS | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` |
-| Standard | Research Artifacts Index | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md` |
+| Standard | Research Artifacts Index | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md` |
 | Evidence | SES001 Transcript | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/raw/raw_P-PH000-ST001-AC003-SES001.txt` |
 | Evidence | AC002 SES001 Session Notes | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC002/snotes/snotes_P-PH000-ST004-AC002-SES001.md` |
 
@@ -188,6 +247,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v3.0.0 | 2026-03-12 | Structural | Added AC003 (Commission P-RES-003: Specification Metadata Governance Research) to stream. Updated executive summary, objective, context, and dependency notes. Evidence: consultation session (2026-03-12). |
 | v2.1.0 | 2026-02-26 | Housekeeping | Closed AC001 + AC002 task registers (TK001–TK004) and gates (GATE-001–GATE-003) with action evidence; marked both activities completed; success criteria checklists fully satisfied. |
 | v1.0.0 | 2026-02-23 | Initial | Stream ST004 plan created for P-RES-001 (Status Standard Research) commission. Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |
 | v2.0.0 | 2026-02-25 | Structural | Added AC002 (Commission P-RES-002: Agentic Status Systems Research) to stream. Updated executive summary, context, dependency notes, and links register. Evidence: `snotes_P-PH000-ST004-AC002-SES001.md` |

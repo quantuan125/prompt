@@ -259,7 +259,7 @@
 | P-STD-001 | Program Governance Standard | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` |
 | P-STD-005 | Universal ID Specification | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` |
 | T104-PH001-ST002-AC000 | Directory & File Naming Convention Proposal | Initiative-family (T104) | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` |
-| T102-CON-009 | Normative Keywords | Initiative-family (T102) | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
+| T102-CON-009 | Normative Keywords | Initiative-family (T102) | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` |
 
 ## Provenance
 

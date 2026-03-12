@@ -186,5 +186,5 @@ Synthesized 3-round dialogue covering: initial assessment of SPS underdevelopmen
 - Source: `prompt/artifacts/tasks/T104/T104A/workspace/PH000/ST000/raw/raw_T104A-PH000-ST000-SES001.md`
 - Source: `prompt/artifacts/tasks/T104/raw/raw_T104-CWS_2026-01-31_p2.txt`
 - Parent Plan: `prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md`
-- Reference: `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md` (T102-STD-009)
+- Reference: `prompt/artifacts/tasks/T102/workspace/PH000/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md` (T102-STD-009)
 - Reference: `prompt/artifacts/tasks/T810/consultant/workspace/communication/handoff_brief_T810A2-SCHEMA.md` (T810 exemplar)

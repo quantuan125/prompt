@@ -39,8 +39,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md`
 - `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/plan_P-PH000-ST001-AC002.md`
-- `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST001.md`
-- `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md`
+- `prompt/artifacts/tasks/T102/workspace/PH001/ST001/plan_T102-PH001-ST001.md`
+- `prompt/artifacts/tasks/T102/standard/standard_T102-STD-004_specification-standard-and-guideline.md`
 - `prompt/templates/consultant/standards/guideline_standard_specs.md`
 - `prompt/templates/consultant/standards/template_standard_specs.md`
 
@@ -323,8 +323,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | SSOT | Program SPS | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` |
 | Reference | Analysis (promotion methodology) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/analysis/analysis_P-PH000-ST001-AC002_promotion-methodology-comparison.md` |
 | Reference | Session Notes (SES001) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/snotes/snotes_P-PH000-ST001-AC002-SES001.md` |
-| Reference | T102-STD-004 (source standard) | `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md` |
-| Reference | T102-STD-005 (ID specification / promotion rules) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
+| Reference | T102-STD-004 (source standard) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-004_specification-standard-and-guideline.md` |
+| Reference | T102-STD-005 (ID specification / promotion rules) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
 | Reference | T104 Directory Convention (DEC006 source) | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` |
 | Reference | Proposal (promotion contract) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/proposal/proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md` |
 | Reference | Session Notes (SES002) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/snotes/snotes_P-PH000-ST001-AC002-SES002.md` |

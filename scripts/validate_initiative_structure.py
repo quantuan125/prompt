@@ -23,6 +23,7 @@ LEGACY_GATE_TOKEN_PATTERN = re.compile(r"^verification_.*-GATE-\d{3}.*\.md$")
 CANONICAL_GATE_TOKEN_PATTERN = re.compile(r"^verification_.*_gate-\d{3}(?:[._-].*)?\.md$")
 TYPE_FIRST_WORKSPACE_DIRS = {"plan", "notes", "roadmap", "analysis", "proposal", "external"}
 WORKSPACE_ALLOWED_NON_PHASE_DIRS = {"_unresolved", "verification"}
+PHASE_TYPE_DIRS = {"raw", "proposal", "analysis", "communication", "snotes"}
 STREAM_TYPE_DIRS = {"raw", "proposal", "analysis", "communication", "snotes"}
 ACTIVITY_TYPE_DIRS = {"raw", "snotes", "verification", "dev-report", "analysis", "proposal"}
 ACTIVITY_TYPE_PREFIX_ALIGNMENT = {
@@ -156,10 +157,12 @@ class InitiativeValidator:
             if not PHASE_DIR_PATTERN.match(phase_dir.name):
                 self.warnings.append(f"Non-canonical phase directory: {phase_dir.relative_to(self.root)}")
                 continue
-            stream_dirs = [item for item in phase_dir.iterdir() if item.is_dir()]
-            if not stream_dirs:
+            child_dirs = [item for item in phase_dir.iterdir() if item.is_dir()]
+            if not child_dirs:
                 self.warnings.append(f"Phase has no stream directories: {phase_dir.relative_to(self.root)}")
-            for stream_dir in stream_dirs:
+            for stream_dir in child_dirs:
+                if stream_dir.name in PHASE_TYPE_DIRS:
+                    continue
                 if not STREAM_DIR_PATTERN.match(stream_dir.name):
                     self.warnings.append(
                         f"Non-canonical stream directory: {stream_dir.relative_to(self.root)}"
@@ -340,6 +343,14 @@ class InitiativeValidator:
                 if idx > stream_index and ACTIVITY_DIR_PATTERN.match(part)
             ]
 
+            type_parts = {
+                part
+                for idx, part in enumerate(relative.parts)
+                if idx > stream_index and part in STREAM_TYPE_DIRS
+            }
+            if "communication" in type_parts:
+                continue
+
             if not activity_parts:
                 self.errors.append(
                     "AC-scoped file is not placed under an activity directory "
@@ -416,6 +427,8 @@ def main() -> int:
     print(f"Report written to: {report_path}")
 
     if result.errors:
+        return 1
+    if args.strict and result.warnings:
         return 1
     return 0
 

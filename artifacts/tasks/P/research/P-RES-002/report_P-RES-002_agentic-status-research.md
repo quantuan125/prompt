@@ -34,8 +34,8 @@ decision_owner_role: 'Client'
   * `prompt/artifacts/tasks/P/research/P-RES-002/brief_P-RES-002_agentic-status-research.md` (scope authority)
   * `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` (commissioning context)
   * `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` (constraints + P-STD-002 registry)
-  * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md` (indexing rules)
-  * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-007_issues-risks-index.md` (issues/risks schema)
+  * `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md` (indexing rules)
+  * `prompt/artifacts/tasks/T102/standard/standard_T102-STD-007_issues-risks-index.md` (issues/risks schema)
 * **External official sources**: Limited to official docs/API references and official vendor engineering docs/blogs where the official reference surface is not sufficient (e.g., Claude Code sandboxing details).
 
 **Limitations**:
@@ -400,8 +400,8 @@ Rubric note: `Adoption Overhead` is scored as **5 = lowest overhead** / **1 = hi
 * **Local Files Cited**:
   * `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md`
   * `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md`
-  * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md`
-  * `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-007_issues-risks-index.md`
+  * `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md`
+  * `prompt/artifacts/tasks/T102/standard/standard_T102-STD-007_issues-risks-index.md`
 * **Official External Sources (primary)**:
   * `OFFICIAL_DOC` — OpenAI Codex — Non-interactive mode (`codex exec` + `--json` JSONL output): https://developers.openai.com/codex/noninteractive/
   * `OFFICIAL_DOC` — OpenAI Codex — Advanced configuration: https://developers.openai.com/codex/config-advanced/

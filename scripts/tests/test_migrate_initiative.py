@@ -169,6 +169,93 @@ def test_dry_run_reports_delete_operation_without_mutation(tmp_path: Path) -> No
     assert "DRY RUN delete empty dir: prompt/artifacts/tasks/T104/workspace/PH001/ST007/devnote" in report
 
 
+def test_dry_run_reports_file_delete_without_mutation(tmp_path: Path) -> None:
+    project_root, prompt_root = _setup_repo(tmp_path)
+    cache_file = (
+        prompt_root
+        / "artifacts/tasks/T104/consultant/workspace/scripts/__pycache__/migrate_adr_to_std.cpython-312.pyc"
+    )
+    cache_file.parent.mkdir(parents=True, exist_ok=True)
+    cache_file.write_bytes(b"compiled")
+
+    manifest_path = project_root / "manifest-file-delete.json"
+    write_manifest(
+        manifest_path,
+        operations=[
+            {
+                "action": "delete",
+                "path": (
+                    "prompt/artifacts/tasks/T104/consultant/workspace/scripts/__pycache__/"
+                    "migrate_adr_to_std.cpython-312.pyc"
+                ),
+            }
+        ],
+    )
+
+    report_path = project_root / "reports/dry-run-file-delete.md"
+    result = run_script(
+        [
+            "python3",
+            str(MIGRATE_SCRIPT),
+            "--manifest",
+            str(manifest_path),
+            "--project-root",
+            str(project_root),
+            "--dry-run",
+            "--report-path",
+            str(report_path),
+        ]
+    )
+
+    assert result.returncode == 0, result.stderr or result.stdout
+    assert cache_file.exists(), "dry-run should not remove files"
+    report = report_path.read_text(encoding="utf-8")
+    assert (
+        "DRY RUN delete file: "
+        "prompt/artifacts/tasks/T104/consultant/workspace/scripts/__pycache__/"
+        "migrate_adr_to_std.cpython-312.pyc"
+    ) in report
+
+
+def test_apply_deletes_file_and_cleans_up_empty_parent_directories(tmp_path: Path) -> None:
+    project_root, prompt_root = _setup_repo(tmp_path)
+    cache_dir = prompt_root / "artifacts/tasks/T104/consultant/workspace/scripts/__pycache__"
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    cache_file = cache_dir / "migrate_adr_to_std.cpython-312.pyc"
+    cache_file.write_bytes(b"compiled")
+
+    manifest_path = project_root / "manifest-file-delete-apply.json"
+    write_manifest(
+        manifest_path,
+        operations=[
+            {
+                "action": "delete",
+                "path": (
+                    "prompt/artifacts/tasks/T104/consultant/workspace/scripts/__pycache__/"
+                    "migrate_adr_to_std.cpython-312.pyc"
+                ),
+            }
+        ],
+    )
+
+    result = run_script(
+        [
+            "python3",
+            str(MIGRATE_SCRIPT),
+            "--manifest",
+            str(manifest_path),
+            "--project-root",
+            str(project_root),
+            "--apply",
+        ]
+    )
+
+    assert result.returncode == 0, result.stderr or result.stdout
+    assert not cache_file.exists(), "apply mode should remove delete-target files"
+    assert not cache_dir.exists(), "empty __pycache__ directory should be pruned after file delete"
+    assert not cache_dir.parent.exists(), "empty script directory should be pruned after file delete"
+
+
 def test_apply_deletes_empty_directory_and_rejects_non_empty_delete_targets(tmp_path: Path) -> None:
     project_root, prompt_root = _setup_repo(tmp_path)
     empty_dir = prompt_root / "artifacts/tasks/T104/workspace/PH001/ST007/devnote"

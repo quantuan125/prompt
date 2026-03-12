@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'proposal_authoring'
-version: '1.1.0'
-date: '2026-03-04'
+version: '1.2.0'
+date: '2026-03-12'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -193,6 +193,7 @@ Policy: additional optional keys are permitted when justified by the archetype; 
 - The verification artifact carries the reviewer verdict in its Gate Recommendation section (§VII of verification template).
 - The `gate_disposition` proposal aggregates the reviewer verdict into its GDR alongside the client decision.
 - Proposal artifacts MUST NOT substitute for verification artifacts when gate purpose is quality/compliance verification.
+- When reviewer verdict or client decision is `RECYCLE`, the proposal MUST describe the same-gate reassessment loop and MUST NOT imply that downstream gate-dependent work may start before reassessment.
 
 ### C. GDR Field Specification
 
@@ -205,6 +206,7 @@ Every `gate_disposition` proposal MUST include a Gate Decision Record as the pen
 | Gate ID | `<GATE-ID>` |
 | Reviewer Verdict | [PASS / CONDITIONAL PASS / PASS WITH DEFERRALS / RECYCLE / FAIL / N/A — decision gate] |
 | Client Decision | [APPROVE / APPROVE WITH CONDITIONS / RECYCLE / REJECT] |
+| Gate Status After Decision | [completed / in_progress / failed / pending] |
 | Conditions (if any) | [enumerated list or "—"] |
 | Decided By | Client |
 | Decision Date | YYYY-MM-DD |
@@ -214,19 +216,30 @@ Every `gate_disposition` proposal MUST include a Gate Decision Record as the pen
 - When a verification artifact exists for the same gate: the Reviewer Verdict MUST match the verdict recorded in the verification artifact's Gate Recommendation section.
 - When no verification artifact exists (pure decision gate): the Reviewer Verdict SHOULD be set to the consultant's recommendation verdict, or `N/A — decision gate` if no formal recommendation is applicable.
 
+**Gate Status After Decision field rules**:
+- `pending` is used only while the GDR is awaiting a client decision.
+- `completed` is used when `Client Decision` is `APPROVE` or `APPROVE WITH CONDITIONS`.
+- `in_progress` is used when `Client Decision` is `RECYCLE`; the gate remains open and the same gate ID is reassessed after remediation.
+- `failed` is used when `Client Decision` is `REJECT`.
+
+**RECYCLE-specific GDR rule**:
+- When `Client Decision = RECYCLE`, `Conditions (if any)` MUST enumerate the remediation tasks/sub-tasks and the re-entry basis required before the same gate is reassessed.
+
 ### D. GDR Lifecycle
 
-1. Proposal artifact is authored with GDR section populated as: `Client Decision: pending`, `Decision Date: —`, `Decision Reference: pending`.
+1. Proposal artifact is authored with GDR section populated as: `Client Decision: pending`, `Gate Status After Decision: pending`, `Decision Date: —`, `Decision Reference: pending`.
 2. Client reviews the gate package (proposal + any supporting verification/analysis artifacts).
 3. Client issues decision signal (in session, via message, or inline).
 4. GDR section is updated by the facilitating role (LLM_Consultant) to record the client's decision.
 5. Proposal artifact is version-bumped if other content changes accompany the decision recording.
 6. Gate status in the plan task register is updated per `guideline_workspace_verification.md` §VIII mapping.
+7. A `RECYCLE` decision records a non-closing client disposition: the gate remains `in_progress`, the same gate ID is preserved for reassessment, and downstream gate-dependent tasks remain blocked.
 
 ### E. GDR Enforcement
 
 - Any task with `Depends On: GATE-###` MUST verify that the gate's `gate_disposition` proposal contains a GDR with `Client Decision` = APPROVE or APPROVE WITH CONDITIONS.
 - A GDR with `Client Decision: pending` does NOT satisfy downstream dependencies.
+- A GDR with `Client Decision: RECYCLE` does NOT satisfy downstream dependencies, even if remediation tasks have been completed.
 - If a gate has both a verification artifact and a proposal, the GDR in the proposal is the authoritative decision record.
 
 ### F. Shared enforcement rule
@@ -284,5 +297,6 @@ Legacy compatibility surface:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-12 | Amendment | Clarified verification-gate RECYCLE handling in §VII. Added `Gate Status After Decision` to the GDR, defined RECYCLE as same-gate reassessment with `in_progress` gate status, required remediation/re-entry details in RECYCLE conditions, and made downstream blocking explicit until the same gate later receives an approving decision. |
 | v1.1.0 | 2026-03-04 | Amendment | §VII expanded from "Decision Gate vs Verification Gate Semantics" to "Gate Semantics & Gate Decision Record (GDR)". Now includes full GDR field specification (§VII.C), GDR lifecycle (§VII.D), and GDR enforcement (§VII.E) — migrated from `guideline_workspace_verification.md` §X per T104-PH001-ST008-AC001 Option B approval. Proposal guideline is now the sole normative GDR authority. |
 | v1.0.0 | 2026-03-03 | Initial | Draft 1 proposal authoring guideline delivered for AC008 TK002. Encodes GATE-000 decisions for archetype taxonomy, multi-template posture, frontmatter baseline, gate semantics, authority references, naming/placement, and template inventory. |

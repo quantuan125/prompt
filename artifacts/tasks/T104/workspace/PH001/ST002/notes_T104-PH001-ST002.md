@@ -37,6 +37,7 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 |:--|:--|:--|:--|:--|
 | SES001 | `T104-PH001-ST002-SES001` | Readiness Assessment & P-STD-004/005 Scoping | 2026-02-10 | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/snotes/snotes_T104-PH001-ST002-SES001.md` |
 | SES002 | `T104-PH001-ST002-SES002` | External Review Assessment & AC000 Decision Finalization | 2026-02-11 | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/snotes/snotes_T104-PH001-ST002-SES002.md` |
+| SES003 | `T104-PH001-ST002-SES003` | Program Alignment Review, Analysis & Implementation Planning | 2026-03-11 | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/snotes/snotes_T104-PH001-ST002-SES003.md` |
 
 ---
 
@@ -68,3 +69,4 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 |:--|:--|:--|:--|
 | v0.2.0 | 2026-02-11 | Refactor | Converted ST002 stream notes into a register; externalized stream session into `...-SES001.md`; normalized links to repo-relative paths |
 | v0.3.0 | 2026-02-11 | Update | Added SES002 (external review assessment + AC000 decision finalization); added external review and SES002 raw source links |
+| v0.4.0 | 2026-03-11 | Update | Added SES003 (program alignment review, stream-level analysis authoring, and implementation planning) to the stream-level session register |

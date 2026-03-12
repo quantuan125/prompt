@@ -7,8 +7,8 @@ phase: '[PH]'
 stream_id: '[SID-PH###-ST###]'
 activity_id: '[SID-PH###-ST###-AC###]'
 gate_id: '[SID-PH###-ST###-AC###-GATE-###]'
-version: '1.1.0'
-date: '2026-03-04'
+version: '1.2.0'
+date: '2026-03-12'
 status: 'draft'
 author: '[LLM_Reviewer | LLM_Consultant]'
 decision_owner_role: 'Client'
@@ -109,6 +109,12 @@ session_reference: '[repo-relative path to session notes, if applicable]'
 - [Deferred item + owning activity/stream]
 - [...]
 
+**Reassessment Path** (RECYCLE only):
+- `Same Gate Reassessed: [GATE-ID]`
+- `Required Remediation Tasks: [TK### / TK###.n list]`
+- `Downstream Tasks Still Blocked: [task list]`
+- `Re-entry Basis: [what must be refreshed/resolved before re-review]`
+
 > **Note**: The Gate Decision Record (GDR) is hosted in the `gate_disposition` proposal artifact, not in the verification artifact. See `guideline_workspace_proposal.md` §VII for GDR specification. The verification artifact's Gate Recommendation (above) provides the reviewer verdict that is consumed by the proposal's GDR.
 
 ## VIII. References
@@ -122,5 +128,6 @@ session_reference: '[repo-relative path to session notes, if applicable]'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-12 | Amendment | Added `Reassessment Path` to the Gate Recommendation section for `RECYCLE` verdicts so the same-gate re-review path, remediation tasks, downstream block, and re-entry basis are explicit. |
 | v1.1.0 | 2026-03-04 | Amendment | Removed §VIII (Gate Decision Record). GDR now hosted exclusively in gate_disposition proposals per `guideline_workspace_proposal.md` §VII. Added cross-reference note after Gate Recommendation section. Renumbered §IX→§VIII, §X→§IX. Source: T104-PH001-ST008-AC001 Option B approval. |
 | v1.0.0 | YYYY-MM-DD | Initial | [Initial verification for GATE-###] |

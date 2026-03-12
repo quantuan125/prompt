@@ -10,7 +10,7 @@ date: '2026-02-12'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-roadmap_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CDW.md'
+roadmap_reference: 'prompt/artifacts/tasks/T102/ssot/roadmap_T102-CDW.md'
 plan_reference: 'prompt/artifacts/tasks/T102/T102C/workspace/PH001/plan_T102C-PH001.md'
 ---
 
@@ -50,7 +50,7 @@ Navigation index for T102C Phase 1 (Foundation & Epic Baseline). Phase 1 reviews
 ## IV. LINKS (PRIMARY)
 
 - Phase plan: `prompt/artifacts/tasks/T102/T102C/workspace/PH001/plan_T102C-PH001.md`
-- Initiative roadmap: `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CDW.md`
+- Initiative roadmap: `prompt/artifacts/tasks/T102/ssot/roadmap_T102-CDW.md`
 - Notes guideline: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
 
 ---

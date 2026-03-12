@@ -147,8 +147,8 @@ Recommended precedence for this initiative:
 ## V. INPUT PACKET (CONTEXT MAP)
 
 ### A. Core Governance (SSOT Exemplars)
-* SSOT SPS exemplar: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
-* SSOT Concept exemplar: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+* SSOT SPS exemplar: `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md`
+* SSOT Concept exemplar: `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`
 
 ### B. T104 Internal Artifacts (Initiative Current State)
 * Phase 0 Plan (initiative): `prompt/artifacts/tasks/T104/workspace/PH000/plan_T104-PH000.md`
@@ -157,7 +157,7 @@ Recommended precedence for this initiative:
 ### C. Required Internal Exemplars (Workflow Tools)
 * NOTES exemplar: `prompt/artifacts/tasks/T104/T104A/workspace/PH000/ST000/notes_T104A-PH000-ST000.md`
 * PROPOSAL exemplar: `prompt/artifacts/tasks/T801/consultant/workspace/proposal/T801A/proposal_T801A_phase1.md`
-* CHANGELOG exemplar: `prompt/artifacts/tasks/T102/T102B/workspace/roadmap/changelog_roadmap_T102B-REQUEST_phase0.md.md`
+* CHANGELOG exemplar: `prompt/artifacts/tasks/T102/T102B/archive/deprecated/ssot/changelog_roadmap_T102B-REQUEST_phase0.md`
 
 ### D. Governing Workspace Rules & Templates
 * Workspace rules: `prompt/templates/consultant/workspace/workspace_documentation_rules.md`

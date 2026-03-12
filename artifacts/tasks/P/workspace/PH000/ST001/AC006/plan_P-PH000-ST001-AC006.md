@@ -43,10 +43,10 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` (NEW)
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`
 - `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md`
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`
+- `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md`
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH001-ST002.md`
-- `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md`
-- `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST002.md`
+- `prompt/artifacts/tasks/T102/workspace/PH001/ST005/plan_T102-PH001-ST005.md`
+- `prompt/artifacts/tasks/T102/workspace/PH001/ST002/plan_T102-PH001-ST002.md`
 - `prompt/templates/consultant/standards/guideline_standard_specs.md`
 - `prompt/skills/t102-adr-005-id-spec/SKILL.md`
 - `prompt/documentation/adr_skills_catalog.md`
@@ -80,7 +80,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 **Purpose**: Update all stale references to superseded standards (T102-STD-004, T102-STD-009) inside T102-STD-005 to point to their promoted program-level equivalents (P-STD-001).
 
-**Deliverable**: Updated `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`
+**Deliverable**: Updated `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md`
 
 **Steps**:
 
@@ -631,14 +631,14 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | Plan | P Stream Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
 | SSOT | Program SPS | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` |
 | Reference | P-STD-001 (golden exemplar) | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` |
-| Reference | T102-STD-005 (source standard) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
+| Reference | T102-STD-005 (source standard) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
 | Reference | P-STD-001 promotion contract (precedent) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/proposal/proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md` |
 | Reference | P-STD-001 promotion activity plan (precedent) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/plan_P-PH000-ST001-AC002.md` |
-| Reference | RES-005 analysis (delta source) | `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md` |
-| Reference | RES-006 analysis (delta source) | `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-006_integration-impact.md` |
+| Reference | RES-005 analysis (delta source) | `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md` |
+| Reference | RES-006 analysis (delta source) | `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-006_integration-impact.md` |
 | Reference | T104-PH001-ST002 plan (AC002 absorption) | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH001-ST002.md` |
-| Reference | T102-PH001-ST005 plan (AC005 absorption) | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md` |
-| Reference | T102-PH001-ST002 plan (scope carve-out) | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST002.md` |
+| Reference | T102-PH001-ST005 plan (AC005 absorption) | `prompt/artifacts/tasks/T102/workspace/PH001/ST005/plan_T102-PH001-ST005.md` |
+| Reference | T102-PH001-ST002 plan (scope carve-out) | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/plan_T102-PH001-ST002.md` |
 | Evidence | SES001 raw transcript | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/raw/raw_P-PH000-ST001-AC006-SES001.txt` |
 | Evidence | SES002 raw transcript | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/raw/raw_P-PH000-ST001-AC006-SES002.txt` |
 

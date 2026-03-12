@@ -39,7 +39,7 @@ pr_reference: 'https://github.com/quantuan125/prompt/pull/8'
 ## II. Evidence Set (Artifacts Reviewed)
 
 **Modified artifact**
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` (TK001 stale ref fixes)
+- `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` (TK001 stale ref fixes)
 
 **New artifact**
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/analysis/analysis_P-PH000-ST001-AC006_pre-promotion-audit.md` (TK003 deliverable)
@@ -189,7 +189,7 @@ pr_reference: 'https://github.com/quantuan125/prompt/pull/8'
 | Document | Path |
 |:--|:--|
 | Activity Plan (v1.1.0) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md` |
-| T102-STD-005 (source standard) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
+| T102-STD-005 (source standard) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
 | P-STD-001 (reference standard) | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` |
 | Pre-promotion audit (TK003) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/analysis/analysis_P-PH000-ST001-AC006_pre-promotion-audit.md` |
 | PR #8 | `https://github.com/quantuan125/prompt/pull/8` |

@@ -26,7 +26,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 
 **Key Findings**:
 * **Finding 1 (III.B is empty but not “unknown”)**: multiple confirmed decisions and plans imply concrete initiative-level candidates across `ASSUM/CON/QG/DEP/IF/STD/NOTE/RES` even though III.B is blank today. Evidence: `prompt/artifacts/tasks/T104/workspace/PH000/notes_T104-PH000.md`, `prompt/artifacts/tasks/T104/workspace/PH001/ST000/notes_T104-PH001-ST000.md`, `prompt/artifacts/tasks/T104/workspace/PH001/ST001/notes_T104-PH001-ST001.md`, `prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH001-ST002.md`.
-* **Finding 2 (T104 must explicitly adopt T102 governance standards)**: T104 depends on T102’s governance stack (IDs, research indexing, decision record schemas, inheritance discipline). At minimum, `T102-STD-005` and `T102-STD-006` are hard constraints on how T104 authors IDs and research artifacts. Evidence: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`.
+* **Finding 2 (T104 must explicitly adopt T102 governance standards)**: T104 depends on T102’s governance stack (IDs, research indexing, decision record schemas, inheritance discipline). At minimum, `T102-STD-005` and `T102-STD-006` are hard constraints on how T104 authors IDs and research artifacts. Evidence: `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md`.
 * **Finding 3 (External grounding supports the T104 artifact set)**: PRINCE2 and PMI/PMBOK describe a stable set of management products / process-group artifacts for initiation and planning that broadly correspond to T104’s tool surfaces (plan/roadmap, stage-gate approval packets, logs, issue/risk registers, communications approach). External references (web):
   - PRINCE2 management products overview and product descriptions: https://prince2.wiki/management-products/
   - PRINCE2 management products list (Project Brief, Stage Plan, Highlight Report, etc.): https://www.whatisprince2.net/prince2-products/
@@ -67,7 +67,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 * **Canonical ID and scope rules**:
   * `python3 prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
 * **Issues & risks schema**:
-  * `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (`T102-STD-007`)
+  * `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` (`T102-STD-007`)
 * **T104 current state**:
   * `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md`
   * `prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md`
@@ -121,8 +121,8 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 **Objective**: Identify T102 standards, interfaces, and dependencies T104 must reference/adopt/align with.
 
 #### A. Evidence & Forensics
-* **Source**: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (T102 `STD`, `DEP`, `IF` declarations).
-* **Source**: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (`T102-STD-006` research index; `T102-STD-007` issues/risks index).
+* **Source**: `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (T102 `STD`, `DEP`, `IF` declarations).
+* **Source**: `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` (`T102-STD-006` research index; `T102-STD-007` issues/risks index).
 
 #### B. Analysis
 **Cross-reference table (T102 → T104)**:
@@ -173,7 +173,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 
 #### A. Evidence & Forensics
 * **Source**: `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` (T104A–T104G epics; intended artifact roles).
-* **Source**: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (T102 frames “Initiative Considerations” against industry standards).
+* **Source**: `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (T102 frames “Initiative Considerations” against industry standards).
 
 #### B. External References (web)
 * PRINCE2 management products (overview): https://prince2.wiki/management-products/
@@ -244,7 +244,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 **Objective**: Identify common interface/dependency patterns across PM + agentic workflows relevant to T104.
 
 #### A. Evidence & Forensics
-* **Source**: `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-IF-001..004`, `T102-DEP-001..002`).
+* **Source**: `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (`T102-IF-001..004`, `T102-DEP-001..002`).
 * **Source**: `prompt/artifacts/tasks/T104/ssot/roadmap_T104-CWS.md` (“thin roadmap” rule + Links Register).
 
 #### B. Analysis (pattern catalogue)
@@ -308,7 +308,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 | Candidate ID | Title | Description | Source (Topic #) | Evidence | Validation Status |
 |:--|:--|:--|:--|:--|:--|
 | `T104-CON-001` | Link Don’t Duplicate | Artifacts should link by ID/path rather than duplicating normative content across workflow tools and SSOT. | 1 | `prompt/templates/consultant/workspace/workspace_documentation_rules.md` | candidate — to be validated in AC002 |
-| `T104-CON-002` | Markdown Frontmatter | Artifacts remain Markdown with YAML frontmatter for toolability and review. | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-CON-001`) | candidate — to be validated in AC002 |
+| `T104-CON-002` | Markdown Frontmatter | Artifacts remain Markdown with YAML frontmatter for toolability and review. | 2 | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (`T102-CON-001`) | candidate — to be validated in AC002 |
 | `T104-CON-003` | No Retroactive Migration | Avoid retroactive bulk renames/migrations outside explicitly scoped refactor work; prefer forward-only conformance. | 2b | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` (T104E scope) | candidate — to be validated in AC002 |
 | `T104-CON-004` | Prefix Discipline | Enforce deterministic file prefixes for artifact types (e.g., `roadmap_`, `plan_`, `notes_`, `changelog_`, `handoff_brief_`) to reduce retrieval ambiguity. | 2b | `prompt/artifacts/tasks/T104/workspace/PH000/notes_T104-PH000.md` | candidate — to be validated in AC002 |
 
@@ -317,30 +317,30 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 | Candidate ID | Title | Description | Source (Topic #) | Evidence | Validation Status |
 |:--|:--|:--|:--|:--|:--|
 | `T104-QG-001` | Deterministic Retrieval | Naming + placement enable deterministic agent/human retrieval with minimal ambiguity. | 1 | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` (desired outcome) | candidate — to be validated in AC002 |
-| `T104-QG-002` | Traceability Integrity | Cross-artifact links and IDs support end-to-end traceability without duplication drift. | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-QG-002`) | candidate — to be validated in AC002 |
-| `T104-QG-003` | Client Readability | Governance artifacts remain executive-readable and scannable. | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-QG-001`) | candidate — to be validated in AC002 |
-| `T104-QG-004` | Low Disruption | Prefer adoption that minimizes author retraining and churn in early phases. | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-QG-003`) | candidate — to be validated in AC002 |
+| `T104-QG-002` | Traceability Integrity | Cross-artifact links and IDs support end-to-end traceability without duplication drift. | 2 | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (`T102-QG-002`) | candidate — to be validated in AC002 |
+| `T104-QG-003` | Client Readability | Governance artifacts remain executive-readable and scannable. | 2 | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (`T102-QG-001`) | candidate — to be validated in AC002 |
+| `T104-QG-004` | Low Disruption | Prefer adoption that minimizes author retraining and churn in early phases. | 2 | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (`T102-QG-003`) | candidate — to be validated in AC002 |
 | `T104-QG-005` | Thin Spine | Roadmap remains pointer-based (“thin spine”), with execution detail living in plans/notes, to prevent bloat and drift. | 2b | `prompt/artifacts/tasks/T104/ssot/roadmap_T104-CWS.md` | candidate — to be validated in AC002 |
 
 #### III.B.5 — Dependencies (DEP)
 
 | Candidate ID | Title | Description | Source (Topic #) | Evidence | Validation Status |
 |:--|:--|:--|:--|:--|:--|
-| `T104-DEP-001` | T102 Standards Stack | T104 adopts explained T102 governance standards (IDs, ADRs, research indexing, issues/risks schemas). | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` | candidate — to be validated in AC002 |
-| `T104-DEP-002` | Research Workflow | Formal research follows `T102-STD-006` indexing rules (brief+report gated and indexed). | 2 | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (`T102-STD-006`) | candidate — to be validated in AC002 |
-| `T104-DEP-003` | Client Engagement | Decision-owner review cadence is an initiative dependency at gates. | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-DEP-001`) | candidate — to be validated in AC002 |
-| `T104-DEP-004` | Planner Integration | Maintain compatibility with future planner system consuming handoff schemas (even if planner optional today). | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-DEP-002`) | candidate — to be validated in AC002 |
+| `T104-DEP-001` | T102 Standards Stack | T104 adopts explained T102 governance standards (IDs, ADRs, research indexing, issues/risks schemas). | 2 | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` | candidate — to be validated in AC002 |
+| `T104-DEP-002` | Research Workflow | Formal research follows `T102-STD-006` indexing rules (brief+report gated and indexed). | 2 | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` (`T102-STD-006`) | candidate — to be validated in AC002 |
+| `T104-DEP-003` | Client Engagement | Decision-owner review cadence is an initiative dependency at gates. | 2 | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (`T102-DEP-001`) | candidate — to be validated in AC002 |
+| `T104-DEP-004` | Planner Integration | Maintain compatibility with future planner system consuming handoff schemas (even if planner optional today). | 2 | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (`T102-DEP-002`) | candidate — to be validated in AC002 |
 | `T104-DEP-005` | Template Alignment | T104 SPS structure and token scopes remain aligned to canonical T102 ADRs (avoid local drift). | 2 | `python3 prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py` | candidate — to be validated in AC002 |
 
 #### III.B.6 — Interfaces (IF)
 
 | Candidate ID | Title | Description | Source (Topic #) | Evidence | Validation Status |
 |:--|:--|:--|:--|:--|:--|
-| `T104-IF-001` | Client Review | Gate approvals record decision-owner review signals consistently across plans/SSOT. | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-IF-002`) | candidate — to be validated in AC002 |
-| `T104-IF-002` | Planner Handoff | Define a minimal handoff bundle interface between consultancy artifacts and downstream planning (incl. acknowledgment). | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-IF-001`) | candidate — to be validated in AC002 |
-| `T104-IF-003` | Co-authoring Protocol | Define co-authoring rhythm and repo-as-SSOT behavior for consultant+client collaboration. | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-IF-004`) | candidate — to be validated in AC002 |
+| `T104-IF-001` | Client Review | Gate approvals record decision-owner review signals consistently across plans/SSOT. | 2 | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (`T102-IF-002`) | candidate — to be validated in AC002 |
+| `T104-IF-002` | Planner Handoff | Define a minimal handoff bundle interface between consultancy artifacts and downstream planning (incl. acknowledgment). | 2 | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (`T102-IF-001`) | candidate — to be validated in AC002 |
+| `T104-IF-003` | Co-authoring Protocol | Define co-authoring rhythm and repo-as-SSOT behavior for consultant+client collaboration. | 2 | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (`T102-IF-004`) | candidate — to be validated in AC002 |
 | `T104-IF-004` | Status Reporting | Define a minimal status/reporting surface (where status lives, cadence, and how it links to plans/roadmaps) to reduce ad-hoc “status in notes” drift. | 3/4 | `prompt/artifacts/tasks/T104/workspace/PH001/ST000/notes_T104-PH001-ST000.md` (status reporting deferred), external grounding: PRINCE2 Highlight Report concept | candidate — to be validated in AC002 |
-| `T104-IF-005` | Role Collaboration | Define collaboration boundary between Consultant/Planner/Developer for change ownership and clarification loops. | 2 | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (`T102-IF-003`) | candidate — to be validated in AC002 |
+| `T104-IF-005` | Role Collaboration | Define collaboration boundary between Consultant/Planner/Developer for change ownership and clarification loops. | 2 | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (`T102-IF-003`) | candidate — to be validated in AC002 |
 
 #### III.B.7 — Project Standards (STD)
 
@@ -452,6 +452,6 @@ priority = `HIGH, MEDIUM, LOW`
   * `prompt/artifacts/tasks/T104/ssot/roadmap_T104-CWS.md`
   * `prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md`
   * `prompt/artifacts/tasks/T104/workspace/PH001/ST001/notes_T104-PH001-ST001.md`
-  * `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
-  * `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+  * `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md`
+  * `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`
   * `prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`

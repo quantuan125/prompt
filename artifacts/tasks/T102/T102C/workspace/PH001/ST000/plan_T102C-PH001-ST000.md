@@ -51,11 +51,11 @@ Decisions below are treated as authoritative for ST000 as of **2026-02-12** (evi
 **Owner**: LLM_Consultant (Decision Owner: Client)
 
 **Context (files this stream depends on)**:
-- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
-- `prompt/artifacts/tasks/T102/T102C/workspace/communication/comm_T102-RES-006_concept-refactoring-scope.md`
-- `prompt/artifacts/tasks/T102/T102A/workspace/plan/plan_T102A-PH001.md` (sibling exemplar)
-- `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001.md` (initiative plan)
-- `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CDW.md`
+- `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md`
+- `prompt/artifacts/tasks/T102/T102C/workspace/PH000/communication/comm_T102-RES-006_concept-refactoring-scope.md`
+- `prompt/artifacts/tasks/T102/T102A/workspace/PH001/plan_T102A-PH001.md` (sibling exemplar)
+- `prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md` (initiative plan)
+- `prompt/artifacts/tasks/T102/ssot/roadmap_T102-CDW.md`
 
 ### Activity Register
 
@@ -80,7 +80,7 @@ Decisions below are treated as authoritative for ST000 as of **2026-02-12** (evi
 - `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST001/plan_T102C-PH001-ST001.md`
 - `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST002/plan_T102C-PH001-ST002.md`
 - `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST000/notes_T102C-PH001-ST000.md`
-- `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST000/notes_T102C-PH001-ST000-SES001.md`
+- `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST000/snotes/snotes_T102C-PH001-ST000-SES001.md`
 
 **Scope**:
 - In scope: phase planning decisions, stream decomposition, dependency mapping, directory convention adoption, notes scaffolding, roadmap registration
@@ -147,10 +147,10 @@ Decisions below are treated as authoritative for ST000 as of **2026-02-12** (evi
 | Plan (this file) | ST000 Plan | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST000/plan_T102C-PH001-ST000.md` |
 | Parent | T102C PH001 Plan | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/plan_T102C-PH001.md` |
 | Notes | ST000 Notes Register | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST000/notes_T102C-PH001-ST000.md` |
-| Notes | SES001 Session Notes | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST000/notes_T102C-PH001-ST000-SES001.md` |
-| Sibling | T102A ST000 Plan | `prompt/artifacts/tasks/T102/T102A/workspace/plan/plan_T102A-PH001-ST000.md` |
-| SSOT | SPS | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` |
-| Roadmap | Initiative Roadmap | `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CDW.md` |
+| Notes | SES001 Session Notes | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST000/snotes/snotes_T102C-PH001-ST000-SES001.md` |
+| Sibling | T102A ST000 Plan | `prompt/artifacts/tasks/T102/T102A/workspace/PH001/ST000/plan_T102A-PH001-ST000.md` |
+| SSOT | SPS | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| Roadmap | Initiative Roadmap | `prompt/artifacts/tasks/T102/ssot/roadmap_T102-CDW.md` |
 
 ---
 

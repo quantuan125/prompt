@@ -5,8 +5,8 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST007'
-version: '2.0.0'
-date: '2026-03-09'
+version: '2.2.0'
+date: '2026-03-12'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -50,6 +50,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC004 | `T104-PH001-ST007-AC004-SES002` | TK004.1 Remediation + `--report-path` Hardening | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC004/snotes/snotes_T104-PH001-ST007-AC004-SES002.md` |
 | AC005 | `T104-PH001-ST007-AC005-SES001` | T102 Migration Planning Refactor + Commissioning Locks | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC005/snotes/snotes_T104-PH001-ST007-AC005-SES001.md` |
 | AC005 | `T104-PH001-ST007-AC005-SES002` | Implementation Readiness Review + TK001/TK002 Completion | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC005/snotes/snotes_T104-PH001-ST007-AC005-SES002.md` |
+| AC005 | `T104-PH001-ST007-AC005-SES003` | Pre-Live Readiness Gate Amendment | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC005/snotes/snotes_T104-PH001-ST007-AC005-SES003.md` |
 
 ---
 
@@ -81,3 +82,4 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | v1.9.0 | 2026-02-22 | Update | Registered AC004-SES001 (AC004 commissioning QA + plan amendment) in Activity Notes Register. |
 | v2.0.0 | 2026-03-09 | Amendment | Registered AC005-SES001 (planning refactor + commissioning locks) and added the dedicated AC005 activity-plan link to the primary links section. |
 | v2.1.0 | 2026-03-10 | Update | Registered AC005-SES002 (implementation readiness review + TK001/TK002 completion). |
+| v2.2.0 | 2026-03-12 | Update | Registered AC005-SES003 (pre-live readiness gate amendment) after the AC005 plan was amended to add a new blocking pre-live gate before `TK009`. |

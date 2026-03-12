@@ -27,8 +27,8 @@ purpose: 'Resolve non-canonical research IDs in T102 migration scope via authori
 - **In scope**: All research brief/report pairs under `prompt/artifacts/tasks/T102/**` with non-canonical identifiers; concept register integrity for `T102-RES-005..009`.
 - **Out of scope**: SPS register updates (client directed updates to concept only); actual file renames (handled by TK009/TK010 manifest execution); research content quality; archive research file renames.
 - **Inputs reviewed**:
-  - `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` — SPS research register (§9)
-  - `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` — Concept research register (§3)
+  - `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` — SPS research register (§9)
+  - `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` — Concept research register (§3)
   - `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` — CLAUSE-007 (research co-location), CLAUSE-008 (prefix registry)
   - `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` — CLAUSE-001A (ID pattern), CLAUSE-002B (RES category)
   - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC005/analysis/analysis_T104-PH001-ST007-AC005_t102-directory-readiness.md` — Parent analysis v2.0.0 (§VI.B.3 RES-ID inventory)
@@ -76,7 +76,7 @@ purpose: 'Resolve non-canonical research IDs in T102 migration scope via authori
 |:--|:--|:--|:--|:--|
 | Proposal (GIR-011) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC005/proposal/proposal_T104-PH001-ST007-AC005-TK002_migration-contract-decisions.md` | Immediate (this session) | LLM_Consultant | Add GIR-011 locking canonicalization strategy |
 | Analysis (parent update) | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC005/analysis/analysis_T104-PH001-ST007-AC005_t102-directory-readiness.md` | Immediate (this session) | LLM_Consultant | Update RES-ID inventory table with resolved assignments; add cross-reference |
-| Concept register | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` | Immediate (this session) | LLM_Consultant | Add RES-005..009 rows |
+| Concept register | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` | Immediate (this session) | LLM_Consultant | Add RES-005..009 rows |
 | Session notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC005/snotes/snotes_T104-PH001-ST007-AC005-SES002.md` | Immediate (this session) | LLM_Consultant | Close OQ001, add DEC005/DEC006 |
 | Migration manifest | TK003 manifest (future) | After Gate-000 closure | LLM_Developer | Rename operations for A1, A2, B1, B2 in the root manifest |
 | Migration manifest | TK004 manifest (future) | After Gate-000 closure | LLM_Developer | Rename operation for A3 in the T102A manifest |
@@ -92,8 +92,8 @@ purpose: 'Resolve non-canonical research IDs in T102 migration scope via authori
 | TK002 Proposal | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC005/proposal/proposal_T104-PH001-ST007-AC005-TK002_migration-contract-decisions.md` |
 | P-STD-004 | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` |
 | P-STD-005 | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` |
-| SPS (SES002 authority for A1–A4) | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` |
-| Concept register (update target) | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
+| SPS (SES002 authority for A1–A4) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| Concept register (update target) | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` |
 
 #### Section X — Changelog
 

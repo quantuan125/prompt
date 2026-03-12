@@ -14,8 +14,8 @@ template_reference: 'prompt/templates/consultant/workspace/template_workspace_ro
 procedural_guideline: 'prompt/templates/consultant/workspace/guideline_workspace_roadmap.md'
 ssot_sps_target: 'prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md'
 ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
-reference_exemplar_sps: 'prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md'
-reference_exemplar_concept: 'prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md'
+reference_exemplar_sps: 'prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md'
+reference_exemplar_concept: 'prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md'
 reference_exemplar_roadmap: 'prompt/artifacts/tasks/T104/T104A/ssot/roadmap_T104A-ROADMAP_phase0.md'
 parent_roadmap: 'prompt/artifacts/tasks/T104/ssot/roadmap_T104-CWS.md'
 ---
@@ -58,8 +58,8 @@ parent_roadmap: 'prompt/artifacts/tasks/T104/ssot/roadmap_T104-CWS.md'
 ## II. CONTEXT MATERIALS & PREREQUISITES
 
 **SSOT exemplars (read-only; do not modify as part of T104)**:
-- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
-- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+- `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md`
+- `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`
 
 **Roadmap exemplar (structure; read-only for Phase 0 decisions)**:
 - `prompt/artifacts/tasks/T104/T104A/ssot/roadmap_T104A-ROADMAP_phase0.md`
@@ -261,7 +261,7 @@ See `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md` (Sect
 - Excludes: writing/approving T104-specific ADR bodies; importing operational task detail into SSOT.
 
 **Inputs Required**:
-- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (structure exemplar; read-only)
+- `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (structure exemplar; read-only)
 - `prompt/artifacts/tasks/T104/workspace/_unresolved/analysis_T104-RES-001_agentic-workspace-assessment.md` (sequencing/gating guidance; read-only)
 
 **Task Register**:
@@ -293,7 +293,7 @@ See `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md` (Sect
 - Excludes: authoring full T104 ADR bodies before the Stream 5/6 alignment work is complete.
 
 **Inputs Required**:
-- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (structure exemplar; read-only)
+- `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` (structure exemplar; read-only)
 - `prompt/artifacts/tasks/T104/workspace/_unresolved/analysis_T104-RES-001_agentic-workspace-assessment.md` (candidate decision topics; read-only)
 
 **Task Register**:
@@ -321,8 +321,8 @@ See `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md` (Sect
 - Excludes: governance rule or template edits (those belong to Stream 6).
 
 **Inputs Required**:
-- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (read-only)
-- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (read-only)
+- `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (read-only)
+- `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` (read-only)
 
 **Task Register**:
 | Task ID | Description | Status | Action |
@@ -618,8 +618,8 @@ See `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md` (Sect
 | Analysis (target) | T104-RES-001 Synthesis | `prompt/artifacts/tasks/T104/workspace/_unresolved/analysis_T104-RES-001_agentic-workspace-assessment.md` |
 | SSOT (target) | T104 SPS | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` |
 | SSOT (target) | T104 Concept | `prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md` |
-| Exemplar (read-only) | T102 SPS | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` |
-| Exemplar (read-only) | T102 Concept | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
+| Exemplar (read-only) | T102 SPS | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| Exemplar (read-only) | T102 Concept | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` |
 | Exemplar (read-only) | T104A Roadmap | `prompt/artifacts/tasks/T104/T104A/ssot/roadmap_T104A-ROADMAP_phase0.md` |
 | Governance Rules | Workspace Rules | `prompt/templates/consultant/workspace/workspace_documentation_rules.md` |
 | Roadmap Template | Template | `prompt/templates/consultant/workspace/template_workspace_roadmap.md` |

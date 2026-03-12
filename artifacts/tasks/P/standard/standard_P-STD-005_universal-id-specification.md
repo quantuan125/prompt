@@ -448,10 +448,10 @@
 | ID | Title | Scope | Source Path |
 |:--|:--|:--|:--|
 | P-STD-001 | Program Governance Standard | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` |
-| T102-STD-003 | Explicit Inheritance Model | Initiative (T102) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-003_explicit-inheritance-model.md` |
-| T102-STD-005 | ID Specification & Rules (Superseded Source) | Initiative (T102) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
-| T102-STD-006 | Research Artifacts Index | Initiative (T102) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md` |
-| T102-CON-009 | Normative Keywords | Initiative (T102) | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
+| T102-STD-003 | Explicit Inheritance Model | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-003_explicit-inheritance-model.md` |
+| T102-STD-005 | ID Specification & Rules (Superseded Source) | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
+| T102-STD-006 | Research Artifacts Index | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md` |
+| T102-CON-009 | Normative Keywords | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` |
 
 ## Provenance
 ### Promotion

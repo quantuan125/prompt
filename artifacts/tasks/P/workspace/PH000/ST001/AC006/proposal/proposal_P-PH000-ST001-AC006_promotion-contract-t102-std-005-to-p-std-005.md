@@ -11,7 +11,7 @@ author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md'
 session_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES003.md'
-source_standard: 'prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md'
+source_standard: 'prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md'
 target_standard: 'prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md'
 precedent_contract: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/proposal/proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md'
 audit_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/analysis/analysis_P-PH000-ST001-AC006_pre-promotion-audit.md'
@@ -325,10 +325,10 @@ TK005 MUST replace the entire P-STD-005 `## References` section with a table of 
 | ID | Title | Scope | Source Path |
 |:--|:--|:--|:--|
 | P-STD-001 | Program Governance Standard | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` |
-| T102-STD-003 | Explicit Inheritance Model | Initiative (T102) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-003_explicit-inheritance-model.md` |
-| T102-STD-005 | ID Specification & Rules (Superseded Source) | Initiative (T102) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
-| T102-STD-006 | Research Artifacts Index | Initiative (T102) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md` |
-| T102-CON-009 | Normative Keywords | Initiative (T102) | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
+| T102-STD-003 | Explicit Inheritance Model | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-003_explicit-inheritance-model.md` |
+| T102-STD-005 | ID Specification & Rules (Superseded Source) | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
+| T102-STD-006 | Research Artifacts Index | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md` |
+| T102-CON-009 | Normative Keywords | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` |
 | T104-PH001-ST000-SES001 | Planning & Consultation QA Session (Inputs: Stable UIDs, Phases, LINK) | Initiative (T104) | `prompt/artifacts/tasks/T104/workspace/PH001/ST000/notes_T104-PH001-ST000.md` |
 | T104-PH001-ST002 | Standards Stream Plan (Input: Timeline UID scope) | Initiative (T104) | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH001-ST002.md` |
 | T104-PH001-ST002-AC000 | Directory & File Naming Convention Proposal (Approved) | Initiative (T104) | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` |
@@ -346,7 +346,7 @@ Note: This contract intentionally includes T104 inputs as references for traceab
 
 ## XII. Supersession Notice Text (Insert into T102-STD-005)
 
-TK006 MUST insert the following supersession notice immediately after the main heading and before `## Specification` in `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`:
+TK006 MUST insert the following supersession notice immediately after the main heading and before `## Specification` in `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md`:
 
 ```markdown
 > **Superseded**: This standard has been superseded by `P-STD-005 (Universal ID Specification)` at Program scope.

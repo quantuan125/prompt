@@ -12,9 +12,9 @@ author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
 procedural_guideline: 'prompt/templates/consultant/workspace/guideline_workspace_plan.md'
-parent_sps: 'prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md'
-ssot_concept_target: 'prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md'
-communication_input: 'prompt/artifacts/tasks/T102/T102C/workspace/communication/comm_T102-RES-006_concept-refactoring-scope.md'
+parent_sps: 'prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md'
+ssot_concept_target: 'prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md'
+communication_input: 'prompt/artifacts/tasks/T102/T102C/workspace/PH000/communication/comm_T102-RES-006_concept-refactoring-scope.md'
 ---
 
 <!--
@@ -58,26 +58,26 @@ Link to stream plans for execution detail.
 ## II. CONTEXT MATERIALS & PREREQUISITES
 
 **SSOT / Governance (read-only unless explicitly scoped)**:
-- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` — Initiative SPS; T102C epic definition at §III.C.3
-- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` — Target Concept artifact for refactoring
+- `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` — Initiative SPS; T102C epic definition at §III.C.3
+- `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` — Target Concept artifact for refactoring
 
 **T102C Epic Standard**:
-- `prompt/artifacts/tasks/T102/consultant/standards/T102C-STD-001_concept-architectural-framework.md` — Concept Architectural Framework (4 CLAUSEs)
+- `prompt/artifacts/tasks/T102/T102C/standard/standard_T102C-STD-001_concept-architectural-framework.md` — Concept Architectural Framework (4 CLAUSEs)
 
 **Communication (architectural input)**:
-- `prompt/artifacts/tasks/T102/T102C/workspace/communication/comm_T102-RES-006_concept-refactoring-scope.md` — Research-backed task inventory + suggested planning structure
+- `prompt/artifacts/tasks/T102/T102C/workspace/PH000/communication/comm_T102-RES-006_concept-refactoring-scope.md` — Research-backed task inventory + suggested planning structure
 
 **Research Reports (primary)**:
-- `prompt/artifacts/tasks/T102/consultant/research/report/report_T102-RES-006_concept-role-dynamic-registers.md` — Concept Role + Dynamic SSOT Registers
-- `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-006_integration-impact.md` — RES-006 Integration Impact Analysis
+- `prompt/artifacts/tasks/T102/research/T102-RES-006/report_T102-RES-006_concept-role-dynamic-registers.md` — Concept Role + Dynamic SSOT Registers
+- `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-006_integration-impact.md` — RES-006 Integration Impact Analysis
 
 **Research Reports (secondary reference)**:
-- `prompt/artifacts/tasks/T102/consultant/research/report/report_T102-RES-004_issues-risks-architecture.md` — I&R Architecture
-- `prompt/artifacts/tasks/T102/consultant/research/report/report_T102-RES-005_cross-scope-coordination-architecture.md` — Cross-Scope Coordination
+- `prompt/artifacts/tasks/T102/research/T102-RES-004/report_T102-RES-004_issues-risks-architecture.md` — I&R Architecture
+- `prompt/artifacts/tasks/T102/research/T102-RES-005/report_T102-RES-005_cross-scope-coordination-architecture.md` — Cross-Scope Coordination
 
 **T102 Reference Plans (structural exemplars)**:
-- `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001.md` — T102 Phase 1 Plan (v0.17.0)
-- `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST006.md` — T102 ST006 (Option (c) transition; overlap awareness)
+- `prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md` — T102 Phase 1 Plan (v0.17.0)
+- `prompt/artifacts/tasks/T102/workspace/PH001/ST006/plan_T102-PH001-ST006.md` — T102 ST006 (Option (c) transition; overlap awareness)
 
 **Workspace Governance Rules**:
 - `prompt/templates/consultant/workspace/workspace_documentation_rules.md` — artifact role boundaries
@@ -198,13 +198,13 @@ T102-PH001-ST006 addresses Option (c) transition execution at the initiative lev
 | Plan (this file) | T102C Phase 0 Plan | `prompt/artifacts/tasks/T102/T102C/workspace/PH000/plan_T102C-PH000.md` |
 | Plan (successor) | T102C Phase 1 Plan | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/plan_T102C-PH001.md` |
 | Notes | PH000 Notes Register | `prompt/artifacts/tasks/T102/T102C/workspace/PH000/notes_T102C-PH000.md` |
-| SSOT | T102 SPS | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` |
-| SSOT | T102 Concept | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
-| Standard | T102C-STD-001 | `prompt/artifacts/tasks/T102/consultant/standards/T102C-STD-001_concept-architectural-framework.md` |
-| Communication | RES-006 Handoff | `prompt/artifacts/tasks/T102/T102C/workspace/communication/comm_T102-RES-006_concept-refactoring-scope.md` |
-| Plan (overlap) | T102 ST006 Plan | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST006.md` |
-| Plan (reference) | T102 PH001 Plan | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001.md` |
-| Sibling (reference) | T102A PH001 Plan | `prompt/artifacts/tasks/T102/T102A/workspace/plan/plan_T102A-PH001.md` |
+| SSOT | T102 SPS | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| SSOT | T102 Concept | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` |
+| Standard | T102C-STD-001 | `prompt/artifacts/tasks/T102/T102C/standard/standard_T102C-STD-001_concept-architectural-framework.md` |
+| Communication | RES-006 Handoff | `prompt/artifacts/tasks/T102/T102C/workspace/PH000/communication/comm_T102-RES-006_concept-refactoring-scope.md` |
+| Plan (overlap) | T102 ST006 Plan | `prompt/artifacts/tasks/T102/workspace/PH001/ST006/plan_T102-PH001-ST006.md` |
+| Plan (reference) | T102 PH001 Plan | `prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md` |
+| Sibling (reference) | T102A PH001 Plan | `prompt/artifacts/tasks/T102/T102A/workspace/PH001/plan_T102A-PH001.md` |
 | Guideline | Plan Authoring Rules | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |
 | Guideline | Notes Authoring Rules | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | Convention | Directory Naming | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` |

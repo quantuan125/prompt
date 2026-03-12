@@ -32,7 +32,7 @@ proposal_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/propos
 ## II. Evidence Set (Artifacts)
 
 - TK005 deliverable: `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md`
-- TK006 deliverable: `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`
+- TK006 deliverable: `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md`
 - TK007 deliverable: `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`
 - TK008 Tier 1 targets:
   - `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md`
@@ -43,8 +43,8 @@ proposal_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/propos
   - `prompt/templates/consultant/standards/template_standard_specs.md` (checked/no-op allowed)
 - TK009 downstream plans:
   - `prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH001-ST002.md`
-  - `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md`
-  - `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST002.md`
+  - `prompt/artifacts/tasks/T102/workspace/PH001/ST005/plan_T102-PH001-ST005.md`
+  - `prompt/artifacts/tasks/T102/workspace/PH001/ST002/plan_T102-PH001-ST002.md`
 
 ## III. Verification Checklist (Pass/Fail + Evidence)
 

@@ -198,7 +198,7 @@ Per-option scores MUST use a 1–5 scale for each dimension. Weighted totals MUS
 *   `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` — ST001 stream plan; AC003 scope and dependencies.
 
 ### D. Standards & Templates
-*   `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md` — Research commissioning standard
+*   `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md` — Research commissioning standard
 *   `prompt/templates/researcher/template_research_report.md` — Report template
 
 ### E. Anti-Patterns / Exclusions

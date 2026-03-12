@@ -11,7 +11,7 @@ author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/plan_P-PH000-ST001-AC002.md'
 session_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/snotes/snotes_P-PH000-ST001-AC002-SES002.md'
-source_standard: 'prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md'
+source_standard: 'prompt/artifacts/tasks/T102/standard/standard_T102-STD-004_specification-standard-and-guideline.md'
 target_standard: 'prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md'
 ---
 
@@ -301,7 +301,7 @@ Combined standard-specification files MUST live under the designated standards d
 
 | Referenced ID | Title | Scope | Source Path |
 |:--|:--|:--|:--|
-| `T102-STD-005` | ID Specification & Rules | Initiative (T102) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
+| `T102-STD-005` | ID Specification & Rules | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
 | `T102-CON-009` | Controlled Vocabulary for Normative Language | Initiative (T102) | See `sps_T102-CONSULTANT.md` |
 | `T102-QG-001` | Client Readability | Initiative (T102) | See `sps_T102-CONSULTANT.md` |
 | `T102-STD-001` | Consultancy Operating Model Standard | Initiative (T102) | See `sps_T102-CONSULTANT.md` |
@@ -366,7 +366,7 @@ The `## References` section heading is retained (required by `P-STD-001-CLAUSE-0
 | Alias Window | Active — existing `T102-STD-004-CLAUSE-*` references valid as aliases until migration completion |
 | Original Authoring | T102-PH001-ST001 (Initiative T102, Consultancy Development Workflow) |
 | Original Author(s) | LLM_Consultant |
-| Original Provenance | `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md`, `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_1_tk003_std-004-clause-019-sequencing-amendment.md` |
+| Original Provenance | `prompt/artifacts/tasks/T102/workspace/PH001/ST001/AC009/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md`, `prompt/artifacts/tasks/T102/workspace/PH001/ST001/AC009.1/proposal/proposal_T102-CWD_PH001-ST001-AC009.1_tk003_std-004-clause-019-sequencing-amendment.md` |
 | Promotion Author | LLM_Consultant |
 | Analysis Evidence | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/analysis/analysis_P-PH000-ST001-AC002_promotion-methodology-comparison.md` |
 | Session Evidence | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/snotes/snotes_P-PH000-ST001-AC002-SES001.md` |
@@ -393,7 +393,7 @@ The guideline incorrectly cites `CLAUSE-016` as governing canonical file structu
 
 Current hardcoded example:
 ```
-prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md
+prompt/artifacts/tasks/T102/standard/standard_T102-STD-004_specification-standard-and-guideline.md
 ```
 
 Replace with portable example:
@@ -421,8 +421,8 @@ The guideline currently has no Changelog section. Add after Section VII:
 
 | Reference | Path |
 |:--|:--|
-| T102-STD-004 (source standard) | `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md` |
-| T102-STD-005 (ID specification / promotion rules) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
+| T102-STD-004 (source standard) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-004_specification-standard-and-guideline.md` |
+| T102-STD-005 (ID specification / promotion rules) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
 | AC002 Activity Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/plan_P-PH000-ST001-AC002.md` |
 | Implementation Plan (SES001, historical) | `.claude/plans/plan_P-PH000-ST001-AC002-SES001_full-promotion-t102-std-004.md` |
 | Analysis (promotion methodology) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/analysis/analysis_P-PH000-ST001-AC002_promotion-methodology-comparison.md` |

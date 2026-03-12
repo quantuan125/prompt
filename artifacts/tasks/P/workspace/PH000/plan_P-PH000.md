@@ -4,8 +4,8 @@ planning_level: 'PHASE'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
-version: '0.4.1'
-date: '2026-02-26'
+version: '0.4.2'
+date: '2026-03-12'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -53,7 +53,7 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 
 ### Activity Snapshot Index
 
-**Activity Snapshot As-Of**: 2026-02-26
+**Activity Snapshot As-Of**: 2026-03-12
 
 | Stream | Activity | Activity ID | Name | Status (snapshot) | Owner | Source (Stream Plan) |
 |:--|:--|:--|:--|:--|:--|:--|
@@ -61,16 +61,20 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 | 0 | AC002 | `P-PH000-ST000-AC002` | Create Program SPS shell (`sps_P-PROGRAM.md`) | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST000/plan_P-PH000-ST000.md` |
 | 0 | AC003 | `P-PH000-ST000-AC003` | Commission `P-RES-001` (PM tooling + orchestration status research) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST000/plan_P-PH000-ST000.md` |
 | 1 | AC001 | `P-PH000-ST001-AC001` | Amend ID governance to allow `P-RES-###` | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
-| 1 | AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` (Full Promotion from T102-STD-004) | `in_progress` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
-| 1 | AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` (Program Status Standard) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
+| 1 | AC002 | `P-PH000-ST001-AC002` | Author `P-STD-001` (Full Promotion from T102-STD-004) | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
+| 1 | AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` (Program Status Standard) | `in_progress` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
 | 1 | AC004 | `P-PH000-ST001-AC004` | Author `P-STD-004` (File Naming & Directory Convention) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
 | 1 | AC005 | `P-PH000-ST001-AC005` | Align `P/standard/` naming to `standard_<SID-STD>_...` | `planned` | LLM_Developer | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
 | 1 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
-| 1 | AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `in_progress` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
+| 1 | AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
+| 1 | AC008 | `P-PH000-ST001-AC008` | Author Evidence-Retention Governance Policy (Sibling Artifact) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
+| 1 | AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
+| 1 | AC010 | `P-PH000-ST001-AC010` | Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
 | 2 | AC001 | `P-PH000-ST002-AC001` | Define program status schema + update protocol (decision-complete) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | 2 | AC002 | `P-PH000-ST002-AC002` | Author `status_program.md` (deferred implementation activity) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | 4 | AC001 | `P-PH000-ST004-AC001` | Commission P-RES-001 (Status Standard Research) | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 | 4 | AC002 | `P-PH000-ST004-AC002` | Commission P-RES-002 (Agentic Status Systems Research) | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
+| 4 | AC003 | `P-PH000-ST004-AC003` | Commission P-RES-003 (Specification Metadata Governance Research) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 
 ---
 
@@ -102,6 +106,7 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.4.2 | 2026-03-12 | Housekeeping | Activity Snapshot refreshed (As-Of 2026-03-12): ST001 AC002 `completed`, AC003 `in_progress`, AC007 `completed` per stream SSOT. Added snapshot rows for ST001 AC008/AC009/AC010 and ST004 AC003. |
 | v0.4.1 | 2026-02-26 | Housekeeping | Refreshed Activity Snapshot As-Of to 2026-02-26 and updated ST004 (AC001/AC002) statuses to `completed`; Stream Register ST004 status updated to `completed` per stream SSOT. |
 | v0.4.0 | 2026-02-25 | Amendment | ST004 stream register updated (P-RES-002 added to key deliverables). AC002 snapshot row added for P-PH000-ST004-AC002 (Agentic Status Systems Research). Activity Snapshot As-Of refreshed to 2026-02-25. Evidence: `snotes_P-PH000-ST004-AC002-SES001.md` |
 | v0.3.0 | 2026-02-23 | Amendment | Added ST004 (Program Research Commissioning) to stream register + activity snapshot; ST003 reserved note added; AC003 snapshot updated (removed deprecated P-ADR-002 reference); ST004 plan link added. Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |

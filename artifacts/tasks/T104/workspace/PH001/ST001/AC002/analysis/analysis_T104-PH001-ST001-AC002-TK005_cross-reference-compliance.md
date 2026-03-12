@@ -45,8 +45,8 @@ target_sps: 'prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md'
 - AC002 plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST001/AC002/plan_T104-PH001-ST001-AC002.md`
 - Target SPS: `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md`
 - Governing specs:
-  - `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (ADR clauses)
-  - `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (T102 IDs referenced)
+  - `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` (ADR clauses)
+  - `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (T102 IDs referenced)
 
 ---
 

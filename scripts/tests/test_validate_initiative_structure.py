@@ -85,6 +85,47 @@ def test_flags_txt_files_with_unrecognized_prefix(tmp_path: Path) -> None:
     assert "prefix" in output.lower()
 
 
+def test_strict_mode_fails_on_warnings_only(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+
+    code, output = _run_validate(initiative_root, strict=True)
+    assert code == 1
+    assert "warnings: 1" in output.lower()
+    assert "no phase directories found" in output.lower()
+
+
+def test_non_strict_mode_allows_warnings_only(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+
+    code, output = _run_validate(initiative_root, strict=False)
+    assert code == 0
+    assert "warnings: 1" in output.lower()
+    assert "no phase directories found" in output.lower()
+
+
+def test_allows_phase_level_type_directories(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    (initiative_root / "workspace/PH000/raw").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH000/analysis").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH001/snotes").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH001/raw/raw_T104-PH001-SES001.txt").write_text(
+        "phase raw",
+        encoding="utf-8",
+    )
+    (initiative_root / "workspace/PH001/snotes/snotes_T104-PH001-SES001.md").write_text(
+        "phase notes",
+        encoding="utf-8",
+    )
+    (initiative_root / "workspace/PH001/ST001").mkdir(parents=True, exist_ok=True)
+
+    code, output = _run_validate(initiative_root, strict=False)
+    assert code == 0, output
+    assert "non-canonical stream directory" not in output.lower()
+
+
 def test_allows_workspace_unresolved_staging_directory(tmp_path: Path) -> None:
     initiative_root = _create_base_initiative(tmp_path)
     _add_minimal_ssot(initiative_root)
@@ -239,6 +280,19 @@ def test_does_not_require_gate_token_for_non_gate_verification_artifact(tmp_path
     (
         verification_dir / "verification_T104-PH001-ST001-AC001-TK001.1_readiness-review.md"
     ).write_text("non-gate verification artifact", encoding="utf-8")
+
+    code, output = _run_validate(initiative_root)
+    assert code == 0, output
+
+
+def test_allows_ac_scoped_communication_file_under_stream_directory(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    communication_dir = initiative_root / "workspace/PH001/ST001/communication"
+    communication_dir.mkdir(parents=True, exist_ok=True)
+    (
+        communication_dir / "comm_T104-PH001-ST001-AC001_to_LLM_Reviewer_status.md"
+    ).write_text("stream communication", encoding="utf-8")
 
     code, output = _run_validate(initiative_root)
     assert code == 0, output

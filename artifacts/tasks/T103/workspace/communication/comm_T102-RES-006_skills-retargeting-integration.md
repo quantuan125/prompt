@@ -7,8 +7,8 @@ to_owner: 'T103 LLM_Consultant'
 date: '2026-02-10'
 subject: 'T102-RES-006 Integration Impact — ADR Skills System Retargeting to Standards Canonical Path'
 priority: 'HIGH'
-source_analysis: 'prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-006_integration-impact.md'
-source_report: 'prompt/artifacts/tasks/T102/consultant/research/report/report_T102-RES-006_concept-role-dynamic-registers.md'
+source_analysis: 'prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-006_integration-impact.md'
+source_report: 'prompt/artifacts/tasks/T102/research/T102-RES-006/report_T102-RES-006_concept-role-dynamic-registers.md'
 ---
 
 # COMMUNICATION: T102 → T103 — Skills System Retargeting to Standards Canonical Path
@@ -128,6 +128,6 @@ The following changes are recommended for the T103 ADR Skills System. The T103 o
 For questions about the T102 standards architecture, canonical paths, or RES-006 findings, contact the **T102 Initiative LLM_Consultant** (ST004 research program owner).
 
 **Reference materials**:
-- Research report: `prompt/artifacts/tasks/T102/consultant/research/report/report_T102-RES-006_concept-role-dynamic-registers.md`
-- Integration analysis: `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-006_integration-impact.md`
-- Stream plan: `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST004.md`
+- Research report: `prompt/artifacts/tasks/T102/research/T102-RES-006/report_T102-RES-006_concept-role-dynamic-registers.md`
+- Integration analysis: `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-006_integration-impact.md`
+- Stream plan: `prompt/artifacts/tasks/T102/workspace/PH001/ST004/plan_T102-PH001-ST004.md`

@@ -37,12 +37,12 @@ depends_on: 'T102C-PH001-ST000'
 **Owner**: LLM_Consultant (Decision Owner: Client)
 
 **Context (files this stream is expected to touch)**:
-- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (T102C dossier at §III.C.3)
-- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` (target Concept artifact)
-- `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-004_issues-risks-architecture.md` (I&R staleness data, content filtering tree, promotion rules)
-- `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md` (schema drift evidence, inherited considerations minimization)
-- `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-006_integration-impact.md` (Concept role specification, register family design)
-- `prompt/artifacts/tasks/T102/T102C/workspace/communication/comm_T102-RES-006_concept-refactoring-scope.md` (task inventory reference)
+- `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (T102C dossier at §III.C.3)
+- `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` (target Concept artifact)
+- `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-004_issues-risks-architecture.md` (I&R staleness data, content filtering tree, promotion rules)
+- `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md` (schema drift evidence, inherited considerations minimization)
+- `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-006_integration-impact.md` (Concept role specification, register family design)
+- `prompt/artifacts/tasks/T102/T102C/workspace/PH000/communication/comm_T102-RES-006_concept-refactoring-scope.md` (task inventory reference)
 
 ### Activity Register
 
@@ -69,10 +69,10 @@ depends_on: 'T102C-PH001-ST000'
 - Out of scope: introducing new governance models or template redesign
 
 **Inputs Required**:
-- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (§III.C.3 T102C dossier)
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`
-- `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md` (schema drift evidence for inherited considerations tables)
-- `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-006_integration-impact.md` (Concept role implications for dossier references)
+- `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (§III.C.3 T102C dossier)
+- `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md`
+- `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md` (schema drift evidence for inherited considerations tables)
+- `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-006_integration-impact.md` (Concept role implications for dossier references)
 
 **Task Register**:
 
@@ -105,8 +105,8 @@ depends_on: 'T102C-PH001-ST000'
 - Out of scope: long-form research synthesis (captured through AC003 commissions); STD-007 amendment drafting (T102-PH001-ST005-AC001 scope)
 
 **Inputs Required**:
-- `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-004_issues-risks-architecture.md` (staleness data, content filtering tree, promotion rules)
-- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` (current I&R tables)
+- `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-004_issues-risks-architecture.md` (staleness data, content filtering tree, promotion rules)
+- `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` (current I&R tables)
 
 **Task Register**:
 
@@ -163,14 +163,14 @@ depends_on: 'T102C-PH001-ST000'
 | Plan (this file) | ST001 Plan | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST001/plan_T102C-PH001-ST001.md` |
 | Parent | T102C PH001 Plan | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/plan_T102C-PH001.md` |
 | Notes | ST001 Notes Register | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST001/notes_T102C-PH001-ST001.md` |
-| SSOT | SPS | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` |
-| SSOT | Concept | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
-| Standard | ID governance | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
-| Analysis (input) | RES-004 integration analysis | `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-004_issues-risks-architecture.md` |
-| Analysis (input) | RES-005 integration analysis | `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md` |
-| Analysis (input) | RES-006 integration analysis | `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-006_integration-impact.md` |
-| Sibling | T102A ST001 Plan | `prompt/artifacts/tasks/T102/T102A/workspace/plan/plan_T102A-PH001-ST001.md` |
-| Plan (dependency) | T102 ST005 Standards Amendment | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md` |
+| SSOT | SPS | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| SSOT | Concept | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` |
+| Standard | ID governance | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
+| Analysis (input) | RES-004 integration analysis | `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-004_issues-risks-architecture.md` |
+| Analysis (input) | RES-005 integration analysis | `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md` |
+| Analysis (input) | RES-006 integration analysis | `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-006_integration-impact.md` |
+| Sibling | T102A ST001 Plan | `prompt/artifacts/tasks/T102/T102A/workspace/PH001/ST001/plan_T102A-PH001-ST001.md` |
+| Plan (dependency) | T102 ST005 Standards Amendment | `prompt/artifacts/tasks/T102/workspace/PH001/ST005/plan_T102-PH001-ST005.md` |
 
 ---
 

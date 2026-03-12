@@ -51,7 +51,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 
 **Phase 0 Plan (predecessor)**: `prompt/artifacts/tasks/T104/workspace/PH000/plan_T104-PH000.md`
 **Stream Notes (SES-002)**: `prompt/artifacts/tasks/T104/workspace/PH001/ST000/notes_T104-PH001-ST000.md`
-**T102-STD-009 Reference**: `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md`
+**T102-STD-009 Reference**: `prompt/artifacts/tasks/T102/workspace/PH000/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md`
 **T810 Exemplar (legacy handoff brief naming)**: `prompt/artifacts/tasks/T810/consultant/workspace/communication/handoff_brief_T810A2-SCHEMA.md`
 
 ---
@@ -138,7 +138,7 @@ ssot_concept_target: 'prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md'
 | Notes | Stream ST001 Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST001/notes_T104-PH001-ST001.md` |
 | SSOT | T104 SPS | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` |
 | SSOT | T104 Concept | `prompt/artifacts/tasks/T104/ssot/concept_T104-CWS.md` |
-| Reference | T102-STD-009 Proposal | `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md` |
+| Reference | T102-STD-009 Proposal | `prompt/artifacts/tasks/T102/workspace/PH000/proposal/proposal_T102-CWD_refactor_gdrs_into_std.md` |
 | Reference | T810 Handoff Brief Exemplar | `prompt/artifacts/tasks/T810/consultant/workspace/communication/handoff_brief_T810A2-SCHEMA.md` |
 | Governance Rules | Workspace Rules | `prompt/templates/consultant/workspace/workspace_documentation_rules.md` |
 | Procedural Guideline | Plan Authoring Rules | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |

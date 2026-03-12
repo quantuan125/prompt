@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.11.0'
-date: '2026-03-08'
+version: '1.12.0'
+date: '2026-03-12'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -192,12 +192,15 @@ Gates appear in the Task Register as a special row type:
 - Downstream tasks that depend on the gate MUST use `Depends On: GATE-###`
 - A task with `Depends On: GATE-###` MUST appear after that gate row in the Task Register, even when the task is pre-registered before the gate has passed.
 - Pre-registering post-gate tasks is allowed; register placement MUST reflect dependency order, not anticipated future execution timing.
+- When a gate enters `RECYCLE`, remediation tasks created for that gate's reassessment loop MUST appear immediately after the governing gate row and before downstream blocked tasks.
+- Recycle-loop remediation tasks MUST use `Depends On: GATE-###`; narrative dependency text such as "Gate-001 verification" is not valid register syntax.
 
 ### E. Detailed Section Ordering
 
 - The `## III. TASKS (DETAILED)` section SHOULD mirror Task Register dependency order for readability and auditability.
 - When a downstream task depends on a gate, the gate section MUST appear before that task's detailed section.
 - A post-gate task MAY be documented before the gate executes, but its detailed section MUST still remain after the governing gate section.
+- For a recycled gate, the preferred detailed order is: governing gate section, recycle re-entry block, remediation task sections, then downstream blocked task sections.
 
 ### F. Gate Completion vs Activity Completion
 
@@ -239,6 +242,30 @@ Gate execution and decision-recording are governed by two companion guidelines:
 2. **Gate Decision Record (GDR)** (field specification, lifecycle, enforcement): See `guideline_workspace_proposal.md` §VII.
 
 This guideline (§VI) defines how gates are **structured in plans**. The verification guideline defines how gates are **executed** (evidence production, verdicts, rework). The proposal guideline defines how gate decisions are **recorded** (GDR in gate_disposition proposals).
+
+### K. Gate Recycle And Reassessment Pattern
+
+When a gate review returns `RECYCLE`, the gate remains the same gate. Authors MUST NOT create derived gate IDs such as `GATE-001.1`, `GATE-001A`, or similar variants merely to represent re-review of the same decision boundary.
+
+Rules:
+- A recycle outcome creates a **reassessment loop**, not a new gate.
+- The governing gate row stays `in_progress` until the same gate is re-assessed and an approving GDR is recorded.
+- Remediation tasks or sub-tasks created because of the recycle outcome provide formal work authority for that reassessment loop and MUST appear immediately after the governing gate row.
+- Downstream tasks that depend on the gate remain blocked and MUST continue to use `Depends On: GATE-###` until the same gate's GDR records `APPROVE` or `APPROVE WITH CONDITIONS`.
+- The gate detail section MUST include a `Recycle Re-entry Block` whenever recycle-path tasks exist.
+
+Required `Recycle Re-entry Block` fields:
+- **Gate Status**
+- **Recycle Trigger**
+- **Remediation Tasks**
+- **Re-entry Criteria**
+- **Reassessment Rule**
+- **Downstream Block**
+
+Purpose:
+- Preserve a single gate identity for a single decision boundary
+- Make recycle-loop authority and downstream blocking explicit
+- Avoid any implication that remediation completion alone unblocks downstream work
 
 ## VII. SUB-ACTIVITY RULES (AC00x.x)
 
@@ -342,6 +369,7 @@ The following templates are available for PLAN artifacts. Each template defines 
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.12.0 | 2026-03-12 | Amendment | Added explicit recycle/reassessment-loop rules to §VI.D, §VI.E, and new §VI.K. Recycle tasks now must appear immediately after the governing gate row, use `Depends On: GATE-###`, and be documented under a mandatory `Recycle Re-entry Block` without minting derived gate IDs such as `GATE-001.1`. |
 | v1.11.0 | 2026-03-08 | Amendment | Added §IV.E task decomposition rules to formalize registered dotted sub-tasks (`TK###.n`) vs informal Steps, explicitly prohibited task/sub-task directories, and cross-linked sub-activity directory placement to `P-STD-004`. |
 | v1.10.0 | 2026-03-07 | Amendment | Aligned plan work-item status guidance to `P-STD-002` canonical lifecycle authority. Replaced legacy `deferred`/general `failed` semantics with canonical subset rules, clarified `on_hold`/`cancelled` usage, and scoped `failed` as gate-only. |
 | v1.9.0 | 2026-03-04 | Amendment | §VI.H split GDR cross-reference: gate execution rules → verification guideline; Gate Decision Record → proposal guideline §VII. Source: T104-PH001-ST008-AC001 Option B approval. |

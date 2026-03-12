@@ -25,7 +25,7 @@ decision_owner_role: 'Client'
 *   **Finding 2 (Template Drift)**: `template_workspace_notes.md` labels itself as `NOTES` but its guidance describes a “LOG” and “Subphases”, which is inconsistent with T104’s initiative NOTES usage (“session record”) and with the roadmap’s Open Question about whether to reuse the “log template pattern” for T104B. See `prompt/templates/consultant/workspace/template_workspace_notes.md` (lines 17–33, 44–60) and `prompt/artifacts/tasks/T104/workspace/PH000/plan_T104-PH000.md` (lines 356–358).
 *   **Finding 3 (End-to-End Pipeline Gate)**: T104 Phase 0 Links Register declares a required pipeline of: Roadmap → Notes → Research Brief → Research Report → Consultant Analysis → SSOT scaffolds. This report satisfies the Research Report deliverable; the next gate artifact is the Consultant Analysis (`prompt/artifacts/tasks/T104/workspace/_unresolved/analysis_T104-RES-001_agentic-workspace-assessment.md`). See `prompt/artifacts/tasks/T104/workspace/PH000/plan_T104-PH000.md` (lines 336–343).
 *   **Finding 4 (Boundary Clarity Exists in Templates)**: The Roadmap template includes explicit anti-drift boundaries (no RID/DR bodies; no execution logs; link to SSOT), and the Proposal/Analysis templates already express a workable separation: Proposal holds normative bodies (post-approval), Analysis is the synthesis bridge between Research and Proposal. See `prompt/templates/consultant/workspace/template_workspace_roadmap.md` (lines 23–37), `prompt/templates/consultant/workspace/template_workspace_proposal.md` (lines 21–30), `prompt/templates/consultant/workspace/template_workspace_analysis.md` (line 19).
-*   **Finding 5 (Naming/Discoverability Inconsistencies)**: T104 initiative NOTES standard uses `notes_...` (lowercase) but a T104A note records a decision “`NOTES_` replaces `completion_`” (uppercase), and there are legacy artifacts elsewhere with suffix drift (e.g., `...phase0.md.md`). This indicates a toolability risk if standards are not made strict. See `prompt/artifacts/tasks/T104/workspace/PH000/notes_T104-PH000.md` (lines 26–30), `prompt/artifacts/tasks/T104/T104A/workspace/PH000/ST000/notes_T104A-PH000-ST000.md` (line 27), and `prompt/artifacts/tasks/T102/T102B/workspace/roadmap/changelog_roadmap_T102B-REQUEST_phase0.md.md` (filename).
+*   **Finding 5 (Naming/Discoverability Inconsistencies)**: T104 initiative NOTES standard uses `notes_...` (lowercase) but a T104A note records a decision “`NOTES_` replaces `completion_`” (uppercase), and there are legacy artifacts elsewhere with suffix drift (e.g., `...phase0.md.md`). This indicates a toolability risk if standards are not made strict. See `prompt/artifacts/tasks/T104/workspace/PH000/notes_T104-PH000.md` (lines 26–30), `prompt/artifacts/tasks/T104/T104A/workspace/PH000/ST000/notes_T104A-PH000-ST000.md` (line 27), and `prompt/artifacts/tasks/T102/T102B/archive/deprecated/ssot/changelog_roadmap_T102B-REQUEST_phase0.md` (filename).
 
 **Candidate Deltas Summary (recommendations-only; for LLM_Consultant + Client decision)**:
 - **Roadmap structure**: Keep Phase → Stream → Activity → Task; enforce that “Stream is a grouping label, not a gate” and define where gating evidence is captured (Roadmap registers + explicit Exit Evidence checklists). (See Topic 4.)
@@ -56,7 +56,7 @@ decision_owner_role: 'Client'
     *   `prompt/artifacts/tasks/T104/T104A/workspace/PH000/ST000/notes_T104A-PH000-ST000.md`
 *   **Cross-initiative exemplars (role boundaries / changelog patterns)**:
     *   `prompt/artifacts/tasks/T801/consultant/workspace/proposal/T801A/proposal_T801A_phase1.md`
-    *   `prompt/artifacts/tasks/T102/T102B/workspace/roadmap/changelog_roadmap_T102B-REQUEST_phase0.md.md`
+    *   `prompt/artifacts/tasks/T102/T102B/archive/deprecated/ssot/changelog_roadmap_T102B-REQUEST_phase0.md`
 
 **External references consulted** (web research):
 *   Keep a Changelog (format + scope conventions): `https://keepachangelog.com/en/1.1.0/`
@@ -178,7 +178,7 @@ decision_owner_role: 'Client'
 *   **Source**: `prompt/artifacts/tasks/T104/T104A/workspace/PH000/ST000/notes_T104A-PH000-ST000.md` (line 27).
 *   **Observation**: A decision log bullet states “`NOTES_` replaces `completion_`”, which is inconsistent with T104 initiative usage of `notes_...` (lowercase) and can introduce toolability ambiguity.
 
-*   **Source**: `prompt/artifacts/tasks/T102/T102B/workspace/roadmap/changelog_roadmap_T102B-REQUEST_phase0.md.md` (filename).
+*   **Source**: `prompt/artifacts/tasks/T102/T102B/archive/deprecated/ssot/changelog_roadmap_T102B-REQUEST_phase0.md` (filename).
 *   **Observation**: Legacy double extension suggests filename normalization is necessary for discoverability and automated tooling (even if Phase 0 forbids mass migration).
 
 #### B. Analysis

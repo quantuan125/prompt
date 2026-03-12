@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.15'
-date: '2026-03-08'
+version: '0.1.16'
+date: '2026-03-12'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -21,7 +21,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Purpose**: Plan the program-level standards authoring stream and the prerequisite ID-governance change required to make `P-RES-###` legal at Program scope (`P`).
 
-**Hard dependency**: `T102-STD-005` token table currently restricts `RES` to `I, E, F`. Enabling `P-RES` requires a planned change in `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`.
+**Hard dependency**: `T102-STD-005` token table currently restricts `RES` to `I, E, F`. Enabling `P-RES` requires a planned change in `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`.
 
 ---
 
@@ -43,6 +43,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `completed` | LLM_Consultant | AC002 | `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md` |
 | AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `completed` | LLM_Consultant | AC006 | `analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md` + updated `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/plan_P-PH000-ST001-AC007.md` |
 | AC008 | `P-PH000-ST001-AC008` | Author Evidence-Retention Governance Policy (Sibling Artifact) | `planned` | LLM_Consultant | AC003 | Future program-level governance policy artifact for evidence-retention duration | — |
+| AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `planned` | LLM_Consultant | `P-PH000-ST004-AC003` | Updated `standard_P-STD-001_program-governance-standard.md` + updated guideline/template derivatives + updated `AGENTS.md` | — |
+| AC010 | `P-PH000-ST001-AC010` | Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs) | `planned` | LLM_Consultant | AC009 | Updated P-STD-002, P-STD-004, P-STD-005 (YAML + Provenance + References alignment) | — |
 
 ---
 
@@ -55,7 +57,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 **Purpose**: Enable `P-RES-###` IDs by updating the `RES` token Allowed Scope to include `P` in the canonical `T102-STD-005` token table.
 
 **Planned deliverable (explicit target)**:
-- Update the `RES` row in the token table inside `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`:
+- Update the `RES` row in the token table inside `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`:
   - Allowed Scope: `I, E, F` → `P, I, E, F`
 
 **Planned verification**:
@@ -236,8 +238,104 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 ---
 
+#### Activity AC008: Author Evidence-Retention Governance Policy
+
+**Activity ID**: `P-PH000-ST001-AC008`
+
+**Purpose**: Author the evidence-retention governance policy to outline the retention framework for program artifacts.
+
+**Deliverable**:
+
+**Scope**:
+
+**Depends On**: AC006 (completed)
+
+**Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md`
+
+**Success Criteria Checklist (summary)**:
+
+---
+
+#### Activity AC009: Harden P-STD-001 (Research-Backed Metadata & Structure Governance)
+
+**Activity ID**: `P-PH000-ST001-AC009`
+
+**Purpose**: Harden `P-STD-001` (Program Governance Standard) by adding new normative CLAUSEs for specification metadata governance — YAML frontmatter requirements, in-file version tracking, Provenance subsection structure, and References subsection structure — grounded in industry best practices from `P-RES-003` research. Additionally, apply self-alignment to P-STD-001's own structure so the meta-standard conforms to its own new CLAUSEs, and update all derivative files (guideline, template, AGENTS.md).
+
+**Deliverable (contract stub)**:
+- Updated standard: `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`
+- Updated guideline: `prompt/templates/consultant/standards/guideline_standard_specs.md`
+- Updated template: `prompt/templates/consultant/standards/template_standard_specs.md`
+- Updated directive: `prompt/AGENTS.md`
+
+**Scope**:
+- In scope:
+  - Draft new P-STD-001 CLAUSEs based on P-RES-003 integration recommendations:
+    - YAML frontmatter requirements for combined standard-specification files (required fields, schema)
+    - In-file version tracking / amendment history requirements
+    - Provenance subsection canonical structure (required vs optional subsections)
+    - References subsection canonical structure (heading normalization)
+  - Self-alignment: apply new CLAUSEs to P-STD-001's own Provenance, References, and add YAML frontmatter
+  - Conformance coupling: update guideline + template derivatives per P-STD-001-CLAUSE-005B
+  - Update AGENTS.md with P-STD-002, P-STD-004, P-STD-005 governance references
+  - Specification Index update for new CLAUSEs
+- Out of scope:
+  - Modifying P-STD-002, P-STD-004, P-STD-005 content (that belongs to AC010)
+  - Research commissioning (that belongs to ST004-AC003)
+  - Repo-wide reference sweeps
+
+**Depends On**: `P-PH000-ST004-AC003` (P-RES-003 integration recommendations sign-off)
+
+**Activity Plan**: TBD (standalone plan to be authored when AC009 transitions to `in_progress`)
+
+**Success Criteria Checklist (summary)**:
+- [ ] New P-STD-001 CLAUSEs authored for YAML frontmatter, version tracking, Provenance structure, References structure
+- [ ] P-STD-001 self-aligns to its own new CLAUSEs (YAML block added, Provenance restructured, References heading normalized)
+- [ ] Guideline + template updated per conformance coupling (P-STD-001-CLAUSE-005B)
+- [ ] AGENTS.md updated with all P-STD references (P-STD-002, P-STD-004, P-STD-005)
+- [ ] Specification Index updated for new CLAUSEs
+- [ ] All new CLAUSEs traceable to P-RES-003 findings
+
+#### Activity AC010: Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs)
+
+**Activity ID**: `P-PH000-ST001-AC010`
+
+**Purpose**: Bring all existing P-STD standards (P-STD-002, P-STD-004, P-STD-005) into conformance with the new P-STD-001 metadata governance CLAUSEs authored in AC009. This includes adding YAML frontmatter blocks, normalizing Provenance subsection structure, normalizing References subsection headings, and adding version tracking / amendment history sections where missing.
+
+**Deliverable (contract stub)**:
+- Updated: `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md`
+- Updated: `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`
+- Updated: `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md`
+
+**Scope**:
+- In scope:
+  - Audit P-STD-002, P-STD-004, P-STD-005 against new P-STD-001 metadata CLAUSEs
+  - Add YAML frontmatter blocks to all three standards per new CLAUSE requirements
+  - Normalize Provenance subsections to canonical structure per new CLAUSE
+  - Normalize References subsection headings to canonical form per new CLAUSE
+  - Add version tracking / amendment history where missing (P-STD-004, P-STD-005)
+  - SPS row updates if version changes result
+- Out of scope:
+  - Modifying P-STD-001 (completed in AC009)
+  - Modifying normative CLAUSE content within P-STD-002/004/005 (structure-only changes)
+  - P-STD-003 (deprecated placeholder — excluded per client direction)
+  - Repo-wide reference sweeps beyond Tier 1
+
+**Depends On**: AC009
+
+**Activity Plan**: TBD (standalone plan to be authored when AC010 transitions to `in_progress`)
+
+**Success Criteria Checklist (summary)**:
+- [ ] P-STD-002 conforms to new P-STD-001 metadata CLAUSEs (YAML + Provenance + References + version tracking)
+- [ ] P-STD-004 conforms to new P-STD-001 metadata CLAUSEs
+- [ ] P-STD-005 conforms to new P-STD-001 metadata CLAUSEs
+- [ ] No normative CLAUSE content in P-STD-002/004/005 modified (structure-only)
+- [ ] SPS rows updated if versions changed
+
 ## IV. DEPENDENCY NOTES (DOWNSTREAM ADOPTERS)
 
+- **AC009** (Harden P-STD-001) depends on `P-PH000-ST004-AC003` GATE-003 (P-RES-003 integration recommendations sign-off). Research must be completed and recommendations approved before any CLAUSE drafting begins.
+- **AC010** (Cross-Standard Conformance) depends on AC009 completion. New P-STD-001 CLAUSEs must be finalized before applying conformance fixes to governed standards.
 - **T104 adoption/binding** (e.g., `T104-PH001-ST002-AC000`) is downstream work and SHOULD be treated as dependent on:
   - `P-PH000-ST001-AC002` (Program Governance Standard authoring) and
   - `P-PH000-ST001-AC003` (Program Status Standard authoring).
@@ -250,6 +348,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.16 | 2026-03-12 | Amendment | Registered AC009 (Harden P-STD-001: Research-Backed Metadata & Structure Governance) and AC010 (Cross-Standard Conformance Pass) with contract stubs. AC009 depends on ST004-AC003 (P-RES-003 research); AC010 depends on AC009. Evidence: consultation session (2026-03-12). |
 | v0.1.15 | 2026-03-08 | Amendment | Amendment: Registered AC008 (Author Evidence-Retention Governance Policy) with contract stub, depends-on AC003, and TK007 input reference. Updated AC003 contract stub scope to authorize CLAUSE-038 amendment and defer retention to AC008. Evidence: SES005. |
 | v0.1.14 | 2026-03-06 | Amendment | AC003 contract stub updated for Gate-003 implementation readiness: added post-acceptance package deliverables, expanded scope through `GATE-003`, and enriched success criteria to cover TK007/TK008 outputs and Gate-003 package preparation. Evidence: SES004. |
 | v0.1.13 | 2026-03-04 | Housekeeping | AC003 status `planned` → `in_progress` (GATE-001 passed; TK005/TK006/TK007/TK008 remain planned). Removed DRAFT banner from AC003 section (blocking condition resolved). Evidence: SES003. |

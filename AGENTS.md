@@ -20,6 +20,22 @@ Currently developing consultant and developer modes with emphasis on Socratic ex
 - During the alias window, legacy `T102-STD-004-CLAUSE-*` references MAY appear for compatibility; new or updated references MUST use `P-STD-001-CLAUSE-*`.
 - For combined standard files, the current rationale record MUST use nested DR form: `<STD-ID>-ADR-###`.
 
+## Program Standards Registry
+
+The following program-level standards are authoritative governance surfaces. All agents MUST reference these when working in their respective domains:
+
+| Standard | Title | Domain | Canonical Path |
+|:--|:--|:--|:--|
+| `P-STD-001` | Program Governance Standard | Combined standard-specification file authoring | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` |
+| `P-STD-002` | Program Status Standard | Status vocabulary, health assessment, dependency visibility, update protocol | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` |
+| `P-STD-004` | File Naming & Directory Convention | Directory structure, file naming, archival rules | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` |
+| `P-STD-005` | Universal ID Specification | Workscope ID governance, timeline UID convention | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` |
+
+- `P-STD-003` is deprecated (placeholder ID reserved; no active standard).
+- For status values in workspace plans, defer to `P-STD-002` canonical lifecycle states.
+- For ID construction and reference semantics, defer to `P-STD-005`.
+- For directory placement and file naming, defer to `P-STD-004`.
+
 ## Git Operations
 - The git repository root for this workspace is `prompt/`.
 - Run git commands from `prompt/` (or use `git -C prompt ...`) to avoid operating outside the repository.

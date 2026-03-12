@@ -72,6 +72,12 @@ def _normalize_for_text(path_value: str) -> str:
     return path_value.replace("\\", "/").strip()
 
 
+def _delete_log_label(path: Path) -> str:
+    if path.exists() and path.is_file():
+        return "file"
+    return "empty dir"
+
+
 def load_manifest(manifest_path: Path) -> MigrationManifest:
     try:
         data = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -214,11 +220,7 @@ def validate_moves(manifest: MigrationManifest, project_root: Path, allow_missin
             errors.append(f"Delete path does not exist: {delete.path}")
             continue
 
-        if delete_path.exists() and not delete_path.is_dir():
-            errors.append(f"Delete path must be a directory: {delete.path}")
-            continue
-
-        if delete_path.exists() and any(delete_path.iterdir()):
+        if delete_path.exists() and delete_path.is_dir() and any(delete_path.iterdir()):
             errors.append(f"Delete directory is not empty: {delete.path}")
 
     for rewrite in manifest.rewrites:
@@ -289,16 +291,29 @@ def execute_moves(
         dry_run=dry_run,
     )
 
+    delete_parent_dirs: set[Path] = set()
     for delete in manifest.deletes:
         delete_path = _ensure_relative(delete.path, project_root)
+        delete_label = _delete_log_label(delete_path)
         if dry_run:
-            logs.append(f"DRY RUN delete empty dir: {delete.path}")
+            logs.append(f"DRY RUN delete {delete_label}: {delete.path}")
             continue
         if delete_path.exists():
-            delete_path.rmdir()
-            logs.append(f"APPLIED delete empty dir: {delete.path}")
+            if delete_path.is_dir():
+                delete_path.rmdir()
+            else:
+                delete_path.unlink()
+            delete_parent_dirs.add(delete_path.parent)
+            logs.append(f"APPLIED delete {delete_label}: {delete.path}")
         else:
-            logs.append(f"SKIPPED delete missing dir: {delete.path}")
+            logs.append(f"SKIPPED delete missing path: {delete.path}")
+    cleanup_logs.extend(
+        cleanup_empty_parent_dirs(
+            candidate_dirs=delete_parent_dirs,
+            project_root=project_root,
+            dry_run=dry_run,
+        )
+    )
     return MoveExecutionResult(
         move_logs=logs,
         cleanup_logs=cleanup_logs,
@@ -347,6 +362,36 @@ def cleanup_empty_source_dirs(
             continue
         directory.rmdir()
         logs.append(f"APPLIED remove empty dir: {relative}")
+    return logs
+
+
+def cleanup_empty_parent_dirs(
+    candidate_dirs: set[Path],
+    project_root: Path,
+    dry_run: bool,
+) -> list[str]:
+    logs: list[str] = []
+    visited: set[Path] = set()
+    for directory in sorted(candidate_dirs, key=lambda item: len(str(item)), reverse=True):
+        current = directory
+        while current != project_root and project_root in current.parents:
+            if current in visited:
+                current = current.parent
+                continue
+            visited.add(current)
+            if not current.exists():
+                current = current.parent
+                continue
+            if any(current.iterdir()):
+                break
+
+            relative = current.relative_to(project_root)
+            if dry_run:
+                logs.append(f"DRY RUN remove empty dir: {relative}")
+            else:
+                current.rmdir()
+                logs.append(f"APPLIED remove empty dir: {relative}")
+            current = current.parent
     return logs
 
 
@@ -525,7 +570,7 @@ def create_report(
     lines.append(f"- Mode: {'dry-run' if dry_run else 'apply'}")
     lines.append(f"- Move operations: {len(manifest.moves)}")
     lines.append(f"- Directory creations: {len(manifest.create_dirs)}")
-    lines.append(f"- Directory deletes: {len(manifest.deletes)}")
+    lines.append(f"- Delete operations: {len(manifest.deletes)}")
     lines.append(f"- Reference rewrite rules: {len(manifest.rewrites)}")
     lines.append(f"- Files changed by rewrites: {rewrite_files_changed}")
     lines.append("")
@@ -640,7 +685,7 @@ def main() -> int:
         allow_missing_sources=args.allow_missing_sources,
     )
     if validation_errors:
-        print("❌ Manifest validation failed:")
+        print("ERROR: Manifest validation failed:")
         for error in validation_errors:
             print(f" - {error}")
         return 1
@@ -687,13 +732,13 @@ def main() -> int:
     )
 
     if completeness_discrepancies:
-        print("❌ Completeness verification failed:")
+        print("ERROR: Completeness verification failed:")
         for item in completeness_discrepancies:
             print(f" - {item}")
         return 1
 
     print(
-        f"✅ Migration {'previewed' if dry_run else 'applied'}: "
+        f"OK: Migration {'previewed' if dry_run else 'applied'}: "
         f"{len(manifest.moves)} moves, {changed_files} rewrite file updates."
     )
     print(f"Report: {report_path}")

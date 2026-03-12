@@ -52,7 +52,7 @@ proposal_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/propos
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES003.md` (DEC001–DEC004)
 
 **Source standard**
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` (post-TK001/TK002)
+- `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` (post-TK001/TK002)
 
 **Format & precedent references**
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` (CLAUSE-002A, CLAUSE-023, CLAUSE-025)
@@ -368,7 +368,7 @@ All 8 governing decisions referenced in the proposal frontmatter are verified:
 |:--|:--|
 | Activity Plan (v1.1.0) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md` |
 | TK004 Proposal (v1.0.0) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/proposal/proposal_P-PH000-ST001-AC006_promotion-contract-t102-std-005-to-p-std-005.md` |
-| T102-STD-005 (source standard) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
+| T102-STD-005 (source standard) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
 | P-STD-001 (format reference) | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` |
 | P-STD-001 promotion contract (precedent) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/proposal/proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md` |
 | TK003 audit | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/analysis/analysis_P-PH000-ST001-AC006_pre-promotion-audit.md` |

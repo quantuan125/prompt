@@ -37,7 +37,7 @@ review_scope: 'GATE-002 verification of TK003–TK007 implementation (P-STD-001 
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/proposal/proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md`
 
 **Superseded source**
-- `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md`
+- `prompt/artifacts/tasks/T102/standard/standard_T102-STD-004_specification-standard-and-guideline.md`
 
 **Downstream surfaces**
 - `prompt/templates/consultant/standards/guideline_standard_specs.md`

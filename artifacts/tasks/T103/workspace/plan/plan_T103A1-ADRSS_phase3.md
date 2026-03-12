@@ -30,7 +30,7 @@ This plan defines the next evolution of the T103 ADR Skills System:
 - `prompt/artifacts/tasks/T103/workspace/plan/plan_T103_adr-skills-system.md`
 
 **Concept SSOT (authoritative ADR text)**:
-- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+- `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`
 
 **Shared scripts (Phase 2 deliverables)**:
 - Extraction CLI: `prompt/scripts/skills/extract_adr.py`
@@ -71,11 +71,11 @@ This plan defines the next evolution of the T103 ADR Skills System:
 
 **Scope**:
 - Align all default concept-path usage across extraction entrypoints to:
-  - `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+  - `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`
 - Preserve `--concept-path` override for troubleshooting.
 
 **Context**:
-- Concept SSOT: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+- Concept SSOT: `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`
 - Shared extractor: `prompt/scripts/skills/extract_adr.py`
 - Shared resolver: `prompt/scripts/skills/adr_extraction.py`
 
@@ -244,7 +244,7 @@ This plan defines the next evolution of the T103 ADR Skills System:
   - writes registry output in a stable order.
 
 **Context**:
-- Concept SSOT: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+- Concept SSOT: `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`
 - Registry: `prompt/scripts/skills/adr_skills_registry.py`
 
 **Task List**:

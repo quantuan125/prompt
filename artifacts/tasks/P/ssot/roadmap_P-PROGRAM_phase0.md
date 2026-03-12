@@ -43,7 +43,7 @@ parent_activity: '—'
 **SSOT / Governance (read-only unless explicitly scoped)**:
 - `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` — program governance shell and standards placeholders.
 - `prompt/artifacts/tasks/T102/consultant/standards/T102-ADR-004_decision-records-index.md` — decision records index spec exemplar.
-- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md#t102-std-009-governance-standards-spec` — governance standards specification clauses.
+- `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md#t102-std-009-governance-standards-spec` — governance standards specification clauses.
 
 **Workspace Governance Rules**:
 - `prompt/templates/consultant/workspace/workspace_documentation_rules.md` — artifact role boundaries.
@@ -128,7 +128,7 @@ parent_activity: '—'
 
 **Inputs Required**:
 - `prompt/artifacts/tasks/T102/consultant/standards/T102-ADR-004_decision-records-index.md`
-- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md#t102-std-009-governance-standards-spec`
+- `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md#t102-std-009-governance-standards-spec`
 
 **Task List**:
 1. Draft standard statement referencing ADR-004 + ADR-009.
@@ -172,7 +172,7 @@ parent_activity: '—'
 | SSOT | Program SPS | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` |
 | Standard | P-STD-003 Draft | `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md` |
 | Reference | T102 ADR-004 Standard | `prompt/artifacts/tasks/T102/consultant/standards/T102-ADR-004_decision-records-index.md` |
-| Reference | T102 ADR-009 Spec (Concept) | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md#t102-std-009-governance-standards-spec` |
+| Reference | T102 ADR-009 Spec (Concept) | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md#t102-std-009-governance-standards-spec` |
 
 ---
 

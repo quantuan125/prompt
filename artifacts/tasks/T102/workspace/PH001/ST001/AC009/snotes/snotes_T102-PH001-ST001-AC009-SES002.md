@@ -1,0 +1,109 @@
+---
+artifact_type: 'NOTES'
+initiative_id: 'T102'
+initiative_code: 'CWD'
+phase: '1'
+stream: 'ST001'
+activity_id: 'T102-PH001-ST001-AC009'
+session_id: 'T102-PH001-ST001-AC009-SES002'
+version: '0.1.0'
+date: '2026-02-15'
+status: 'draft'
+author: 'LLM_Consultant'
+decision_owner_role: 'Client'
+plan_reference: 'prompt/artifacts/tasks/T102/workspace/PH001/ST001/plan_T102-PH001-ST001.md'
+notes_register_reference: 'prompt/artifacts/tasks/T102/workspace/PH001/ST001/notes_T102-PH001-ST001.md'
+proposal_reference: 'prompt/artifacts/tasks/T102/workspace/PH001/ST001/AC009/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md'
+superseded_proposal_reference: 'prompt/artifacts/tasks/T102/workspace/PH001/ST001/AC008/proposal/proposal_T102-CWD_PH001-ST001-AC008_r2-refactor-plan.md'
+raw_transcript_reference: 'prompt/artifacts/tasks/T102/workspace/PH001/ST001/AC009/raw/raw_T102-PH001-ST001-AC009-SES002.txt'
+conversation_reference: 'Claude Code conversation (2026-02-15)'
+---
+
+# ACTIVITY SESSION NOTES: T102 (CWD) — PH001 / ST001 / AC009 / SES002 (GATE-001 QA Review & STD-004 Redesign Architecture)
+
+## 1) Agenda / Topics
+- AC009-GATE-001 QA review of TK001–TK002 deliverables (R2 proposal + audit analysis)
+- Architecture decisions: STD-009 merge, substandard introduction, CLAUSE resequencing
+- ADR storage architecture decision
+- AC009.1 sub-activity commissioning
+- STD-005 integration issues flagging for ST002
+
+## 2) Narrative Summary
+Summarize the three rounds of dialogue:
+- **Round 1**: Consultant reviewed developer TK001-TK002 outputs against Client QA (10 comments covering format violations, content reduction, STD-009 drift, scope misalignment). Consultant identified 7 residual issues beyond QA. Client confirmed merge recommendation (STD-009 → STD-004).
+- **Round 2**: Client refined index schema, rejected changelog requirement, questioned ADR storage, asked about CLAUSE-004 content requirements. Client approved sub-activity AC009.1 (dotted numeric per guideline §VII) and Option B (substandards with full resequencing). Client directed new comprehensive proposal file superseding R2 proposal.
+- **Round 3**: Client challenged cross-cutting CLAUSE architecture, approved dedicated Core substandard (T102-STD-004A). Approved multiple ADRs in-file. Confirmed CLAUSE-013 full removal (not even pointer). Directed STD-005 integration issues be documented for ST002.
+
+## 3) Discussion Points (DP Table)
+
+| ID | Discussion Point | Summary |
+|:--|:--|:--|
+| T102-PH001-ST001-AC009-SES002-DP001 | GATE-001 QA findings | Systemic issues identified across 10+ comments regarding format violations and content reduction. |
+| T102-PH001-ST001-AC009-SES002-DP002 | STD-009 merge rationale | Merging to prevent drift, hallucination, and context loss for agentic LLMs. |
+| T102-PH001-ST001-AC009-SES002-DP003 | Substandard architecture design | Organized into 4 domains (A-D) to ensure clear scope and scalability. |
+| T102-PH001-ST001-AC009-SES002-DP004 | ADR storage architecture | Multiple ADRs in-file with current-first ordering to preserve audit trail. |
+| T102-PH001-ST001-AC009-SES002-DP005 | CLAUSE-013 removal | Full removal of Variance ADR Contract; reassessment moved to STD-005. |
+| T102-PH001-ST001-AC009-SES002-DP006 | Subclause rendering format | Correction to bold format per T102-STD-005-CLAUSE-001. |
+| T102-PH001-ST001-AC009-SES002-DP007 | CLAUSE-004 requirements | Specific per-subheading content and format requirements defined. |
+| T102-PH001-ST001-AC009-SES002-DP008 | Specification Index schema | Defined as `# | Substandard | CLAUSE ID | Title | Description`. |
+| T102-PH001-ST001-AC009-SES002-DP009 | STD-005 integration issues | Identified cross-artifact impacts to be picked up in ST002. |
+
+## 4) Decisions Captured (DEC Table)
+
+| ID | Decision | Evidence |
+|:--|:--|:--|
+| T102-PH001-ST001-AC009-SES002-DEC001 | Merge T102-STD-009 into T102-STD-004 — absorb all 5 STD-009 CLAUSEs into the merged standard. STD-009 becomes `deprecated` in SPS. If context size is an issue later, modularize via substandards (e.g., T102-STD-004A, 004B). | SES002 Round 1 COMMENT 0.4 |
+| T102-PH001-ST001-AC009-SES002-DEC002 | Introduce substandards (Option B) with full CLAUSE resequencing — upfront structural investment. Four substandards: T102-STD-004A (Core Structure & Lifecycle), T102-STD-004B (STD Registry & Governance), T102-STD-004C (Specification Authoring), T102-STD-004D (Decision Record Authoring). | SES002 Round 2 ANSWER 2, Round 3 COMMENT 3 |
+| T102-PH001-ST001-AC009-SES002-DEC003 | Every CLAUSE must belong to a substandard — no floating/cross-cutting CLAUSEs outside substandards. Cross-cutting concerns live in T102-STD-004A (Core). Follows IEEE "General clause" pattern. | SES002 Round 3 COMMENT 3 |
+| T102-PH001-ST001-AC009-SES002-DEC004 | ADR storage: multiple ADRs in-file with current-first ordering. ADR Index lists all ADRs (current + superseded). Full ADR bodies preserved in-file for audit trail. Prepares for Phase 2 ADR extraction. T102-STD-005-CLAUSE-005F amendment needed (flagged for ST002 or self-amendment in merged STD-004). | SES002 Round 3 COMMENT 2 |
+| T102-PH001-ST001-AC009-SES002-DEC005 | CLAUSE-013 (Variance ADR Contract) fully removed from STD-004 — not even a pointer. Reassessed during T102-STD-005 work (ST002). | SES002 Round 3 ANSWER 3 |
+| T102-PH001-ST001-AC009-SES002-DEC006 | Specification Index schema: `# | Substandard | CLAUSE ID | Title | Description`. Main CLAUSEs only (subclauses not indexed). | SES002 Rounds 2–3 |
+| T102-PH001-ST001-AC009-SES002-DEC007 | Changelog section NOT added to STD-004 — global specification concern, not STD-004-specific. | SES002 Round 2 COMMENT 2 |
+| T102-PH001-ST001-AC009-SES002-DEC008 | Status enums MUST be lowercase wrapped in backticks (e.g., `proposed`). Applies across all status fields. | SES002 Round 1 COMMENT 1 |
+| T102-PH001-ST001-AC009-SES002-DEC009 | Designated standards directory MUST be initiative-nonspecific: `prompt/artifacts/tasks/<SID>/consultant/standards/`. | SES002 Round 1 COMMENT 1.1 |
+| T102-PH001-ST001-AC009-SES002-DEC010 | CLAUSE-004 (DR Body Template) must specify per-subheading content requirements AND format — each subheading gets its own subclause with semantic + rendering requirements. Extensible for future subheading-specific schemas. | SES002 Round 2 COMMENT 4 |
+| T102-PH001-ST001-AC009-SES002-DEC011 | CLAUSE-014 (Decision Promotion Workflow) scope reduced to STD/CLAUSE/ADR tokens only. RES/IG token details belong in STD-005. | SES002 Round 1 COMMENT 7 |
+| T102-PH001-ST001-AC009-SES002-DEC012 | CLAUSE-016D (Normative vocabulary) must reference T102-CON-009 directly, not redefine keyword families. | SES002 Round 1 COMMENT 8 |
+| T102-PH001-ST001-AC009-SES002-DEC013 | CLAUSE-010 (Precedence) revised to reference T102-STD-005-CLAUSE-003 and expand only for STD/CLAUSE/ADR tokens. | SES002 Round 1 COMMENT 4 |
+| T102-PH001-ST001-AC009-SES002-DEC014 | CLAUSE-011 (Consequences) remove "STD Consequences" — STDs don't have consequences sections (STD-009 drift). Reframe for nested ADR consequences only. | SES002 Round 1 COMMENT 5 |
+| T102-PH001-ST001-AC009-SES002-DEC015 | All subclause rendering MUST use bold format per T102-STD-005-CLAUSE-001: `- **<CLAUSE-ID> (<Title>)** — <statement>`. NOT backtick-wrapped. | SES002 Round 1 COMMENT 0 |
+| T102-PH001-ST001-AC009-SES002-DEC016 | New proposal file supersedes prior R2 proposal. Dedicated AC009 deliverable documenting both architecture design and spec proposal with reasoning. Implementation gated on client approval. | SES002 Round 3 ANSWER 3 |
+| T102-PH001-ST001-AC009-SES002-DEC017 | AC009.1 registered as sub-activity (per guideline_workspace_plan.md §VII). Trigger: higher-authority mandatory update (gate review QA). | SES002 Round 2 ANSWER 1 |
+| T102-PH001-ST001-AC009-SES002-DEC018 | STD-005 integration issues from this dialogue MUST be documented clearly in notes for ST002 traceability. | SES002 Round 3 COMMENT 1 |
+
+## 5) Actions / Carry-Forward (ACT Table)
+
+| ID | Action | Status | Owner |
+|:--|:--|:--|:--|
+| T102-PH001-ST001-AC009-SES002-ACT001 | Create SES002 notes file (this file) | `completed` | LLM_Consultant |
+| T102-PH001-ST001-AC009-SES002-ACT002 | Update stream notes register (register SES002) | `pending` | LLM_Consultant |
+| T102-PH001-ST001-AC009-SES002-ACT003 | Update stream plan (add AC009.1, update GATE-001 status) | `pending` | LLM_Consultant |
+| T102-PH001-ST001-AC009-SES002-ACT004 | Create new proposal file (AC009.1-TK001 deliverable) | `completed` | LLM_Consultant |
+| T102-PH001-ST001-AC009-SES002-ACT005 | Mark prior R2 proposal as superseded | `pending` | LLM_Consultant |
+
+## 6) Open Questions Register (OQ Table)
+
+| ID | Topic | Question | Owner | Status |
+|:--|:--|:--|:--|:--|
+| T102-PH001-ST001-AC009-SES002-OQ001 | AC009.1-GATE-001 | Approve new redesign proposal and authorize formalization execution? | Client | `open` |
+
+## 7) Session Handoff Pack
+- **Decisions Confirmed**: DEC001–DEC018.
+- **New Proposal**: `prompt/artifacts/tasks/T102/workspace/PH001/ST001/AC009/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md`
+- **Raw Transcript**: `prompt/artifacts/tasks/T102/workspace/PH001/ST001/AC009/raw/raw_T102-PH001-ST001-AC009-SES002.txt`
+- **Outcome**: AC009-GATE-001 requires structural redesign via AC009.1.
+
+## 8) STD-005 Integration Issues (Flagged for ST002)
+
+| # | Issue | STD-005 Impact | Source |
+|:--|:--|:--|:--|
+| INT-001 | CLAUSE-013 (Variance ADR Contract) removed from STD-004 | STD-005 must assess whether to absorb the Variance ADR Contract as a new clause | SES002-DEC005 |
+| INT-002 | CLAUSE-014 scope reduced to STD/CLAUSE/ADR tokens | STD-005 should assess absorbing RES/IG promotion workflow details into category semantics | SES002-DEC011 |
+| INT-003 | T102-STD-005-CLAUSE-005F amendment needed | Amend to: "only one current ADR; superseded ADRs retained for audit" | SES002-DEC004 |
+| INT-004 | Substandard token registration | STD-005-CLAUSE-002 taxonomy may need a `SUBSTD` entry or explicit note | SES002-DEC002/DEC003 |
+| INT-005 | IGs in STD-004 References may be superseded | T102-IG-007, T102-IG-008, T102-IG-009 — need verification during ST002 | SES002 Round 1 COMMENT 0.5 |
+
+## Changelog
+| Version | Date | Type | Summary |
+|:--|:--|:--|:--|
+| v0.1.0 | 2026-02-15 | Initial | Recorded AC009 SES002 GATE-001 QA review decisions; 18 decisions captured; AC009.1 sub-activity commissioned; STD-005 integration issues flagged for ST002 |

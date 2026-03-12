@@ -13,8 +13,8 @@ decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
 procedural_guideline: 'prompt/templates/consultant/workspace/guideline_workspace_plan.md'
 parent_plan: 'prompt/artifacts/tasks/T102/T102C/workspace/PH000/plan_T102C-PH000.md'
-ssot_sps_target: 'prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md'
-ssot_concept_target: 'prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md'
+ssot_sps_target: 'prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md'
+ssot_concept_target: 'prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md'
 ---
 
 <!--
@@ -65,25 +65,25 @@ Decisions below are treated as authoritative for Phase 1 planning as of **2026-0
 ## III. CONTEXT MATERIALS & PREREQUISITES
 
 **Primary SSOT targets**:
-- `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
-- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+- `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md`
+- `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`
 
 **T102C standards inputs**:
-- `prompt/artifacts/tasks/T102/consultant/standards/T102C-STD-001_concept-architectural-framework.md`
+- `prompt/artifacts/tasks/T102/T102C/standard/standard_T102C-STD-001_concept-architectural-framework.md`
 
 **Communication (task inventory source)**:
-- `prompt/artifacts/tasks/T102/T102C/workspace/communication/comm_T102-RES-006_concept-refactoring-scope.md`
+- `prompt/artifacts/tasks/T102/T102C/workspace/PH000/communication/comm_T102-RES-006_concept-refactoring-scope.md`
 
 **Initiative research inputs (absorbed)**:
-- `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-004_issues-risks-architecture.md`
-- `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md`
-- `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-006_integration-impact.md`
+- `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-004_issues-risks-architecture.md`
+- `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md`
+- `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-006_integration-impact.md`
 
 **Upstream initiative plan dependency**:
-- `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md` (Standards Amendment Execution — gate dependency for `T102C-PH001-GATE-001`)
+- `prompt/artifacts/tasks/T102/workspace/PH001/ST005/plan_T102-PH001-ST005.md` (Standards Amendment Execution — gate dependency for `T102C-PH001-GATE-001`)
 
 **Sibling epic reference (structural exemplar)**:
-- `prompt/artifacts/tasks/T102/T102A/workspace/plan/plan_T102A-PH001.md`
+- `prompt/artifacts/tasks/T102/T102A/workspace/PH001/plan_T102A-PH001.md`
 
 ---
 
@@ -140,16 +140,16 @@ Decisions below are treated as authoritative for Phase 1 planning as of **2026-0
 | Plan | ST001 | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST001/plan_T102C-PH001-ST001.md` |
 | Plan | ST002 | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST002/plan_T102C-PH001-ST002.md` |
 | Notes | PH001 Notes Register | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/notes_T102C-PH001.md` |
-| SSOT | SPS | `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md` |
-| SSOT | Concept | `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` |
-| Standard | T102C-STD-001 | `prompt/artifacts/tasks/T102/consultant/standards/T102C-STD-001_concept-architectural-framework.md` |
-| Communication | RES-006 Handoff | `prompt/artifacts/tasks/T102/T102C/workspace/communication/comm_T102-RES-006_concept-refactoring-scope.md` |
-| Plan (dependency) | T102 ST005 Standards Amendment | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md` |
-| Plan (overlap) | T102 ST006 Plan | `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST006.md` |
-| Sibling | T102A PH001 Plan | `prompt/artifacts/tasks/T102/T102A/workspace/plan/plan_T102A-PH001.md` |
-| Analysis (input) | RES-004 integration analysis | `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-004_issues-risks-architecture.md` |
-| Analysis (input) | RES-005 integration analysis | `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md` |
-| Analysis (input) | RES-006 integration analysis | `prompt/artifacts/tasks/T102/consultant/workspace/analysis/analysis_T102-RES-006_integration-impact.md` |
+| SSOT | SPS | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| SSOT | Concept | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` |
+| Standard | T102C-STD-001 | `prompt/artifacts/tasks/T102/T102C/standard/standard_T102C-STD-001_concept-architectural-framework.md` |
+| Communication | RES-006 Handoff | `prompt/artifacts/tasks/T102/T102C/workspace/PH000/communication/comm_T102-RES-006_concept-refactoring-scope.md` |
+| Plan (dependency) | T102 ST005 Standards Amendment | `prompt/artifacts/tasks/T102/workspace/PH001/ST005/plan_T102-PH001-ST005.md` |
+| Plan (overlap) | T102 ST006 Plan | `prompt/artifacts/tasks/T102/workspace/PH001/ST006/plan_T102-PH001-ST006.md` |
+| Sibling | T102A PH001 Plan | `prompt/artifacts/tasks/T102/T102A/workspace/PH001/plan_T102A-PH001.md` |
+| Analysis (input) | RES-004 integration analysis | `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-004_issues-risks-architecture.md` |
+| Analysis (input) | RES-005 integration analysis | `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-005_cross-scope-coordination-architecture.md` |
+| Analysis (input) | RES-006 integration analysis | `prompt/artifacts/tasks/T102/workspace/PH000/analysis/analysis_T102-RES-006_integration-impact.md` |
 | Guideline | Plan Authoring Rules | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |
 | Guideline | Notes Authoring Rules | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 

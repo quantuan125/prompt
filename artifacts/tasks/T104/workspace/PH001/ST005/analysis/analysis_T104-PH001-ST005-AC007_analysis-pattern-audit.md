@@ -34,7 +34,7 @@ plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST005/plan_T104-PH0
 - `prompt/templates/consultant/workspace/guideline_workspace_verification.md` (role boundary + findings schema reference)
 - `prompt/templates/consultant/workspace/workspace_documentation_rules.md`
 - `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` (T104-IG-002 body)
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md`
+- `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md`
 
 ---
 
@@ -161,7 +161,7 @@ The following cross-checks are required after TK002 and TK003 are complete:
 
 | # | Cross-Check Target | What to Verify | Standard / Artifact |
 |:--|:--|:--|:--|
-| 1 | T102-STD-006 (Research Artifacts Index) | Guideline §III research synthesis lifecycle references correct T102-STD-006 CLAUSE IDs (CLAUSE-001 ID patterns, CLAUSE-002 table schemas, CLAUSE-005 cross-artifact referencing). No semantic drift. | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md` |
+| 1 | T102-STD-006 (Research Artifacts Index) | Guideline §III research synthesis lifecycle references correct T102-STD-006 CLAUSE IDs (CLAUSE-001 ID patterns, CLAUSE-002 table schemas, CLAUSE-005 cross-artifact referencing). No semantic drift. | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md` |
 | 2 | T104-IG-002 (Research Linking) | Guideline's research synthesis lifecycle matches the Brief→Report→Analysis→Proposal chain exactly. "No duplication; reference by ID and section" rule is reflected. | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` (IG-002 body) |
 | 3 | `guideline_workspace_verification.md §VI` | Analysis findings schema (guideline §VI) does not contradict verification findings schema. Analysis findings must be clearly distinguished as non-gate-blocking. | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
 | 4 | `workspace_documentation_rules.md` | After TK002/TK003 delivery: §3 ANALYSIS row description reflects delivered guideline scope; §4.F template entry is current; §5 ANALYSIS guideline entry updated from "(Draft 1 planned)" to delivered path. | `prompt/templates/consultant/workspace/workspace_documentation_rules.md` |
@@ -199,7 +199,7 @@ The following design decisions are open. They will be resolved via Socratic cons
 | Verification Guideline | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
 | Workspace Documentation Rules | `prompt/templates/consultant/workspace/workspace_documentation_rules.md` |
 | T104 SPS (T104-IG-002 source) | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` |
-| T102-STD-006 Research Artifacts Index | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md` |
+| T102-STD-006 Research Artifacts Index | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md` |
 | AC005 Pattern Audit (structural precedent) | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/analysis/analysis_T104-PH001-ST005-AC005_verification-pattern-audit.md` |
 | P-STD-004 File Naming & Directory Convention | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` |
 

@@ -42,7 +42,7 @@ developer_verification_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST00
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md`
 
 **TK006 deliverable**
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`
+- `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md`
 
 **TK007 deliverable**
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`
@@ -57,8 +57,8 @@ developer_verification_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST00
 
 **TK009 downstream plans**
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST002/plan_T104-PH001-ST002.md`
-- `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST005.md`
-- `prompt/artifacts/tasks/T102/consultant/workspace/plan/plan_T102-PH001-ST002.md`
+- `prompt/artifacts/tasks/T102/workspace/PH001/ST005/plan_T102-PH001-ST005.md`
+- `prompt/artifacts/tasks/T102/workspace/PH001/ST002/plan_T102-PH001-ST002.md`
 
 **TK010 developer verification**
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/verification/verification_P-PH000-ST001-AC006_tk005-to-tk009.md`
@@ -238,7 +238,7 @@ The developer note states "pushed to origin/main at 4a420ff" but the git log sho
 | Activity Plan (v1.2.0) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md` |
 | Promotion Contract (v1.1.0) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/proposal/proposal_P-PH000-ST001-AC006_promotion-contract-t102-std-005-to-p-std-005.md` |
 | P-STD-005 (deliverable) | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` |
-| T102-STD-005 (superseded source) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
+| T102-STD-005 (superseded source) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
 | P-STD-001 (format reference) | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` |
 | SPS (P-PROGRAM) | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` |
 | Developer verification (TK010) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/verification/verification_P-PH000-ST001-AC006_tk005-to-tk009.md` |

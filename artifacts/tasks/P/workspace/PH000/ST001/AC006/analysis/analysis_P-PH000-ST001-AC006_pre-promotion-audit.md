@@ -9,7 +9,7 @@ author: 'LLM_Reviewer'
 decision_owner_role: 'Client'
 subject: 'Pre-Promotion Audit: T102-STD-005 vs P-STD-001 (AC006-TK003)'
 target_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md'
-target_standard: 'prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md'
+target_standard: 'prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md'
 reference_standard: 'prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md'
 ---
 
@@ -28,7 +28,7 @@ reference_standard: 'prompt/artifacts/tasks/P/standard/standard_P-STD-001_progra
 ## II. SCOPE & INPUTS
 
 **In scope**:
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md`
+- `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md`
 
 **Reference authority**:
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`

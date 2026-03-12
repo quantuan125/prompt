@@ -37,7 +37,7 @@ This plan defines the conversion of existing Codex skill `t102-std-005-id-spec` 
 ### A. Required Reading Before Implementation
 
 **Initiative Governance**:
-- `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md` — T102-STD-005 (ID Specification & Rules) source
+- `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` — T102-STD-005 (ID Specification & Rules) source
 - `documentation/general.md` — Master governance document
 
 **Existing Implementation** (Codex version):
@@ -888,7 +888,7 @@ Update to:
   - `prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
   - `prompt/skills/t102-std-004-drs-index/scripts/print_t102_adr_004.py`
   - `prompt/skills/t102-std-007-issues-risks-index/scripts/print_t102_adr_007.py`
-- Concept SSOT: `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
+- Concept SSOT: `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`
 
 **Task List**:
 1. Add a shared extraction module + CLI, e.g.:

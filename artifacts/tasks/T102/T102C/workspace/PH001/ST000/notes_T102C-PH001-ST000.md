@@ -33,7 +33,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Session | Session ID | Title | Date | Notes File |
 |:--|:--|:--|:--|:--|
-| SES001 | `T102C-PH001-ST000-SES001` | Phase Planning Consultation — Structural Realignment & Stream Model | 2026-02-12 | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST000/notes_T102C-PH001-ST000-SES001.md` |
+| SES001 | `T102C-PH001-ST000-SES001` | Phase Planning Consultation — Structural Realignment & Stream Model | 2026-02-12 | `prompt/artifacts/tasks/T102/T102C/workspace/PH001/ST000/snotes/snotes_T102C-PH001-ST000-SES001.md` |
 
 ---
 

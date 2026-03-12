@@ -163,8 +163,8 @@ Option B (Full Promotion) wins under all reasonable weighting schemes. Option A 
 
 | Reference | Path |
 |:--|:--|
-| T102-STD-004 (upstream standard) | `prompt/artifacts/tasks/T102/consultant/standards/standard_T102-STD-004_specification-standard-and-guideline.md` |
-| T102-STD-005 (ID specification rules) | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-005_id-specification-rules.md` |
+| T102-STD-004 (upstream standard) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-004_specification-standard-and-guideline.md` |
+| T102-STD-005 (ID specification rules) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
 | AC002 Activity Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/plan_P-PH000-ST001-AC002.md` |
 | Program SPS | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` |
 | Guideline (standard specs) | `prompt/templates/consultant/standards/guideline_standard_specs.md` |

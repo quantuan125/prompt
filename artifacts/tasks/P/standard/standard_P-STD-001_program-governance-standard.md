@@ -506,7 +506,7 @@
 | Alias Window | Active — existing `T102-STD-004-CLAUSE-*` references valid as aliases until migration completion |
 | Original Authoring | T102-PH001-ST001 (Initiative T102, Consultancy Development Workflow) |
 | Original Author(s) | LLM_Consultant |
-| Original Provenance | `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md`, `prompt/artifacts/tasks/T102/consultant/workspace/proposal/proposal_T102-CWD_PH001-ST001-AC009_1_tk003_std-004-clause-019-sequencing-amendment.md` |
+| Original Provenance | `prompt/artifacts/tasks/T102/workspace/PH001/ST001/AC009/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md`, `prompt/artifacts/tasks/T102/workspace/PH001/ST001/AC009.1/proposal/proposal_T102-CWD_PH001-ST001-AC009.1_tk003_std-004-clause-019-sequencing-amendment.md` |
 | Promotion Author | LLM_Consultant |
 | Analysis Evidence | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/analysis/analysis_P-PH000-ST001-AC002_promotion-methodology-comparison.md` |
 | Session Evidence | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/snotes/snotes_P-PH000-ST001-AC002-SES001.md` |

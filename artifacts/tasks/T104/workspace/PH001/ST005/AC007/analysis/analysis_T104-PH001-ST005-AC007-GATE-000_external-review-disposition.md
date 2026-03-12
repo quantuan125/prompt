@@ -324,7 +324,7 @@ The four gap items (GAP-001 through GAP-004) are implementation-level obligation
 | Verification Guideline (§VI findings schema) | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
 | External Review Structural Precedent | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/analysis/analysis_T104-PH001-ST002-AC000_external-review.md` |
 | T104 SPS (T104-IG-002 source) | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` |
-| T102-STD-006 Research Artifacts Index | `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md` |
+| T102-STD-006 Research Artifacts Index | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md` |
 
 ---
 

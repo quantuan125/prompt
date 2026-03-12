@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'verification_authoring'
-version: '1.3.0'
-date: '2026-03-08'
+version: '1.4.0'
+date: '2026-03-12'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -139,6 +139,7 @@ Each `OBS-###` MUST include: Description, Context, Recommendation (optional).
 1. **Definition**: The deliverable is deficient because the upstream plan or standard failed to specify the necessary requirement or constraint.
 2. **Path**: Reviewer issues FINDING-### (Situation B). Role owner amends the plan. Developer executes the amendment.
 3. **Handoff rule**: The plan MUST be amended before the developer has authority to act. The verification artifact identifies the gap; the plan amendment provides the developer's formal work authority via a new tracked task or sub-task (`TK###` / `TK###.n`) per `guideline_workspace_plan.md §IV.E`. The verification artifact MUST reference the plan amendment.
+4. **Recycle-loop rule**: When the governing gate verdict is `RECYCLE`, the plan amendment MUST attach the remediation work to the same gate's reassessment loop. The gate remains the same gate ID; the amendment does not create a derived gate ID for re-review.
 
 ### C. Cross-Boundary Handoff
 
@@ -175,6 +176,7 @@ The plan is the developer's work authority. The verification artifact identifies
 - Verdict MUST be one of the five enumerated values (no variants).
 - CONDITIONAL PASS conditions MUST be enumerated in the Gate Recommendation.
 - PASS WITH DEFERRALS deferrals MUST reference the owning activity/stream.
+- RECYCLE recommendations MUST explicitly identify the same gate ID to be reassessed, the remediation task/sub-task set required before re-review, and the downstream tasks that remain blocked.
 
 ### B. Client Decisions (in GDR)
 
@@ -194,6 +196,7 @@ The plan is the developer's work authority. The verification artifact identifies
 - New or updated findings sections are added/modified. Resolved findings have their Resolution Status updated to `resolved` with a Resolution Date.
 - If the verification TASK methodology needs rework (not just the assessed deliverable), a sub-task (TK###.n) is created for the verification task, following `guideline_workspace_plan.md §VII` (Sub-Activity Rules).
 - Re-assessment versioning applies to all artifacts in a Verification Package (primary + supplementary). Version bumps SHOULD be coordinated.
+- Re-assessment remains tied to the same governing gate ID; `RECYCLE` does not create a new gate identity for the subsequent review cycle.
 
 ## X. GATE DECISION RECORD (GDR) — CROSS-REFERENCE
 
@@ -235,6 +238,7 @@ The verification artifact's role at a gate is to provide evidence and a reviewer
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.4.0 | 2026-03-12 | Amendment | Clarified RECYCLE handling across §VII, §VIII, and §IX. Situation B plan amendments now attach remediation to the same gate's reassessment loop, RECYCLE recommendations must name the same gate/remediation/downstream block set, and re-assessment versioning explicitly preserves the original gate ID. |
 | v1.2.0 | 2026-03-05 | Maintenance | Resolved legacy GDR ownership references in §II, §III, and §IV. Workflow and role boundaries now correctly identify the proposal artifact as the GDR host. |
 | v1.1.0 | 2026-03-04 | Amendment | §X (GDR) replaced with cross-reference to `guideline_workspace_proposal.md` §VII. Full GDR specification (field set, lifecycle, enforcement) migrated to proposal guideline per T104-PH001-ST008-AC001 Option B approval. Verification artifact retains Gate Recommendation (§VII template section) for reviewer verdict; GDR now hosted exclusively in gate_disposition proposals. |
 | v1.0.0 | 2026-02-25 | Initial | Draft 1 (exemplar-derived). Covers: role boundary, TK-before-gate workflow, verification package, evidence rules, findings schema, gate outcome rework paths (migrated from guideline_workspace_plan.md §VI.G), verdict taxonomy, re-assessment versioning, GDR, naming convention. Source: T104-PH001-ST005-AC005-SES001 consultation. |

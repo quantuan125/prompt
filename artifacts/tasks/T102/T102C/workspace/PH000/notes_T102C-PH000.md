@@ -10,7 +10,7 @@ date: '2026-02-12'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
-roadmap_reference: 'prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CDW.md'
+roadmap_reference: 'prompt/artifacts/tasks/T102/ssot/roadmap_T102-CDW.md'
 plan_reference: 'prompt/artifacts/tasks/T102/T102C/workspace/PH000/plan_T102C-PH000.md'
 ---
 
@@ -48,7 +48,7 @@ Navigation index for T102C Phase 0 (Planning & Scope Definition). Phase 0 docume
 ## IV. LINKS (PRIMARY)
 
 - Phase plan: `prompt/artifacts/tasks/T102/T102C/workspace/PH000/plan_T102C-PH000.md`
-- Initiative roadmap: `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CDW.md`
+- Initiative roadmap: `prompt/artifacts/tasks/T102/ssot/roadmap_T102-CDW.md`
 - Notes guideline: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
 
 ---
