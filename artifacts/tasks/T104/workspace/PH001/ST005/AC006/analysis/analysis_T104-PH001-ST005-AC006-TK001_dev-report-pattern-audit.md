@@ -7,7 +7,7 @@ phase: '1'
 stream_id: 'T104-PH001-ST005'
 activity_id: 'T104-PH001-ST005-AC006'
 task_id: 'T104-PH001-ST005-AC006-TK001'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-03-12'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -135,23 +135,23 @@ sed -n '1,260p' <each exemplar and guideline listed in Inputs reviewed>
 - **Package-style reports need explicit permission**: consolidated evidence and retroactive closeout reports appear in current practice, but only when scope is bounded and the relationship to source artifacts is explicit.
 
 ### D. Downstream Decisions / Actions
-See Section VIII (Downstream Actions).
+See Section VI (Downstream Actions).
 
 ---
 
-## VIII. DOWNSTREAM ACTIONS
+## VI. DOWNSTREAM ACTIONS
 
 | downstream_artifact_type | target_reference | trigger_condition | responsible_role | notes |
 |:--|:--|:--|:--|:--|
 | proposal | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC006/proposal/proposal_T104-PH001-ST005-AC006-TK001.1_gir-disposition-package.md` | Immediate | LLM_Consultant | Disposition GAP-001 through GAP-011 into a decision-complete GATE-000 package. |
 | plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/plan_T104-PH001-ST005.md` | Immediate | LLM_Consultant | Correct stale AC006 success-criteria paths and normalize GIR wording before TK002+ execution. |
-| guideline | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` | After GATE-000 approves or approves with conditions | LLM_Developer | Encode the approved trigger rules, section inventory, naming/placement rules, and evidence posture. |
-| template | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` | After GATE-000 approves or approves with conditions | LLM_Developer | Materialize the approved frontmatter baseline and required section structure. |
+| guideline | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` | After GATE-000 approves or approves with conditions | LLM_Consultant | Encode the approved trigger rules, section inventory, naming/placement rules, and evidence posture. |
+| template | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` | After GATE-000 approves or approves with conditions | LLM_Consultant | Materialize the approved frontmatter baseline and required section structure. |
 | analysis | `T104-PH001-ST005-AC006-TK004` | After TK002/TK003 | LLM_Consultant | Cross-check DEV-REPORT guideline/template against workspace rules, plan, verification, proposal, analysis, notes, `P-STD-004`, and `P-STD-005`. |
 
 ---
 
-## IX. REFERENCES / LINKS REGISTER
+## VII. REFERENCES / LINKS REGISTER
 
 | Item | Reference |
 |:--|:--|
@@ -170,8 +170,9 @@ See Section VIII (Downstream Actions).
 
 ---
 
-## X. CHANGELOG
+## VIII. CHANGELOG
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-12 | Maintenance | Corrected role assignment in Downstream Actions (LLM_Developer → LLM_Consultant for guideline/template authoring per AC006 activity ownership). Renumbered sections VIII–X → VI–VIII to eliminate numbering gap after omitted research-only sections. |
 | v1.0.0 | 2026-03-12 | Initial | Draft 1 DEV-REPORT pattern audit for AC006 TK001. Audited legacy and current exemplars, identified 11 guidance/template gaps, captured stable authoring patterns, and produced the decision inputs needed for TK001.1 and downstream TK002–TK004. |

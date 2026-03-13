@@ -7,13 +7,14 @@ stream_id: 'T104-PH001-ST005'
 activity_id: 'T104-PH001-ST005-AC006'
 task_id: 'T104-PH001-ST005-AC006-TK001.1'
 gate_id: 'T104-PH001-ST005-AC006-GATE-000'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-03-12'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST005/plan_T104-PH001-ST005.md'
 analysis_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC006/analysis/analysis_T104-PH001-ST005-AC006-TK001_dev-report-pattern-audit.md'
+external_review_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC006/analysis/analysis_T104-PH001-ST005-AC006-GATE-000_external-review.md'
 purpose: 'GATE-000 decision disposition package for DEV-REPORT authoring. Locks the naming, structure, trigger, evidence, and handoff rules that govern AC006 TK002–TK004.'
 consumers:
   - 'T104-PH001-ST005-AC006-GATE-000'
@@ -42,6 +43,7 @@ consumers:
 | Exemplar | T104 ST005 AC008 DEV-REPORT | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC008/dev-report/dev-report_T104-PH001-ST005-AC008_proposal-guideline-and-templates_2026-03-04.md` | Same-stream exemplar for guideline/template authoring closeout. |
 | Exemplar | T104 ST008 AC001.1 DEV-REPORT | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.1/dev-report/dev-report_T104-PH001-ST008-AC001.1_tk001-to-gate-001-implementation_2026-03-12.md` | Latest bounded closeout + local gate package pattern. |
 | Exemplar | T104 ST007 AC005 DEV-REPORT | `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC005/dev-report/dev-report_T104-PH001-ST007-AC005_tk008.1-to-tk008.4-pre-live-readiness_2026-03-12.md` | Latest pre-live readiness + handoff pattern. |
+| External Review | AC006 GATE-000 External Review | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC006/analysis/analysis_T104-PH001-ST005-AC006-GATE-000_external-review.md` | Independent review confirming deliverable sufficiency; recommendation: APPROVE. |
 
 ---
 
@@ -337,20 +339,18 @@ Downstream enforcement:
 
 ---
 
-## VI. GATE DECISION RECORD (GDR)
-
-## Gate Decision Record
+## VI. GATE DECISION RECORD
 
 | Field | Value |
 |:--|:--|
 | Gate ID | `T104-PH001-ST005-AC006-GATE-000` |
 | Reviewer Verdict | `N/A — decision gate` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
-| Conditions (if any) | `-` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
+| Conditions (if any) | `—` |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-12` |
+| Decision Reference | `prompt/artifacts/tasks/T104/workspace/PH001/ST005/AC006/analysis/analysis_T104-PH001-ST005-AC006-GATE-000_external-review.md` |
 
 If `Client Decision = RECYCLE`:
 - `Gate Status After Decision` MUST be `in_progress`
@@ -373,4 +373,5 @@ If `Client Decision = RECYCLE`:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-12 | Gate closure | GATE-000 approved by Client. GDR updated to APPROVE. Added external_review_reference. Fixed double H2 heading in GDR section. |
 | v1.0.0 | 2026-03-12 | Initial | Initial AC006 GATE-000 disposition package. Locks the Draft 1 DEV-REPORT decisions for naming/placement, frontmatter, trigger boundary, section inventory, evidence posture, traceability/handoff rules, and TK004 cross-check scope. |

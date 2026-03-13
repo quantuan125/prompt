@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '2.6.0'
-date: '2026-03-08'
+version: '2.7.0'
+date: '2026-03-13'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -37,7 +37,7 @@ Phase → Stream → Activity → Task
 | ANALYSIS | `analysis_` | Workspace synthesis/audits/assessments/external reviews (type-scoped via `analysis_type`) | `prompt/templates/consultant/workspace/template_workspace_analysis.md` | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` |
 | VERIFICATION | `verification_` | Gate evidence + findings register + rework handoff + reviewer verdict | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
 | PROPOSAL | `proposal_` | Archetype-specific proposal authoring: E-ID workspace, gate disposition (incl. Gate Decision Record), promotion contract, standards input | `prompt/templates/consultant/workspace/template_workspace_proposal_<archetype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` |
-| DEV-REPORT | `dev-report_` | Developer execution log + plan traceability | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` (Draft 1 planned) | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` (Draft 1 planned) |
+| DEV-REPORT | `dev-report_` | Developer execution log + validation evidence + handoff traceability | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` |
 
 ---
 
@@ -67,7 +67,7 @@ Phase → Stream → Activity → Task
 - `prompt/templates/consultant/workspace/template_workspace_verification.md`
 
 ### E. DEV-REPORT Templates
-- `prompt/templates/consultant/workspace/template_workspace_dev-report.md` (Draft 1 planned — `T104-PH001-ST005-AC006`)
+- `prompt/templates/consultant/workspace/template_workspace_dev-report.md`
 
 ### F. ANALYSIS Templates
 - `prompt/templates/consultant/workspace/template_workspace_analysis.md`
@@ -89,7 +89,7 @@ Phase → Stream → Activity → Task
 - ROADMAP: `prompt/templates/consultant/workspace/guideline_workspace_roadmap.md`
 - NOTES: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
 - VERIFICATION: `prompt/templates/consultant/workspace/guideline_workspace_verification.md`
-- DEV-REPORT: `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` (Draft 1 planned — `T104-PH001-ST005-AC006`)
+- DEV-REPORT: `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md`
 - ANALYSIS: `prompt/templates/consultant/workspace/guideline_workspace_analysis.md`
 - PROPOSAL: `prompt/templates/consultant/workspace/guideline_workspace_proposal.md`
 
@@ -169,6 +169,7 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.7.0 | 2026-03-13 | Update | Delivered DEV-REPORT Draft 1 authoring surfaces under AC006: registered `guideline_workspace_dev-report.md` and `template_workspace_dev-report.md`, and removed DEV-REPORT “Draft 1 planned” markers from §3, §4.E, and §5. |
 | v2.5.0 | 2026-03-04 | Update | §3 VERIFICATION purpose: removed "Gate Decision Record (GDR)", replaced with "reviewer verdict". §3 PROPOSAL purpose: added "(incl. Gate Decision Record)". §6.D Reviewer boundary: clarified that GDR is hosted in consultant-owned gate_disposition proposal, reviewer produces verdict only. Source: T104-PH001-ST008-AC001 Option B approval. |
 | v2.4.0 | 2026-03-03 | Update | Delivered PROPOSAL Draft 1 inventory for AC008: added archetype-specific proposal templates, marked proposal guideline as delivered, and recorded legacy proposal template deprecation + archive path. |
 | v2.3.0 | 2026-03-01 | Update | Marked ANALYSIS guideline as delivered and updated ANALYSIS purpose to multi-type (via `analysis_type`). |
