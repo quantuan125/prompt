@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.16'
-date: '2026-03-12'
+version: '0.1.18'
+date: '2026-03-13'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -43,7 +43,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `completed` | LLM_Consultant | AC002 | `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md` |
 | AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `completed` | LLM_Consultant | AC006 | `analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md` + updated `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/plan_P-PH000-ST001-AC007.md` |
 | AC008 | `P-PH000-ST001-AC008` | Author Evidence-Retention Governance Policy (Sibling Artifact) | `planned` | LLM_Consultant | AC003 | Future program-level governance policy artifact for evidence-retention duration | — |
-| AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `planned` | LLM_Consultant | `P-PH000-ST004-AC003` | Updated `standard_P-STD-001_program-governance-standard.md` + updated guideline/template derivatives + updated `AGENTS.md` | — |
+| AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `planned` | LLM_Consultant | `P-PH000-ST004-AC003-GATE-002` | Updated `standard_P-STD-001_program-governance-standard.md` + updated guideline/template derivatives + updated `AGENTS.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md` |
 | AC010 | `P-PH000-ST001-AC010` | Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs) | `planned` | LLM_Consultant | AC009 | Updated P-STD-002, P-STD-004, P-STD-005 (YAML + Provenance + References alignment) | — |
 
 ---
@@ -284,9 +284,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
   - Research commissioning (that belongs to ST004-AC003)
   - Repo-wide reference sweeps
 
-**Depends On**: `P-PH000-ST004-AC003` (P-RES-003 integration recommendations sign-off)
+**Depends On**: `P-PH000-ST004-AC003-GATE-002` (P-RES-003 report and integration package approval)
 
-**Activity Plan**: TBD (standalone plan to be authored when AC009 transitions to `in_progress`)
+**Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md`
 
 **Success Criteria Checklist (summary)**:
 - [ ] New P-STD-001 CLAUSEs authored for YAML frontmatter, version tracking, Provenance structure, References structure
@@ -295,6 +295,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 - [ ] AGENTS.md updated with all P-STD references (P-STD-002, P-STD-004, P-STD-005)
 - [ ] Specification Index updated for new CLAUSEs
 - [ ] All new CLAUSEs traceable to P-RES-003 findings
+- [ ] AC009 output package accepted and ready for AC010 handoff
 
 #### Activity AC010: Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs)
 
@@ -334,7 +335,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 ## IV. DEPENDENCY NOTES (DOWNSTREAM ADOPTERS)
 
-- **AC009** (Harden P-STD-001) depends on `P-PH000-ST004-AC003` GATE-003 (P-RES-003 integration recommendations sign-off). Research must be completed and recommendations approved before any CLAUSE drafting begins.
+- **AC009** (Harden P-STD-001) depends on `P-PH000-ST004-AC003-GATE-002` (closed 2026-03-13, APPROVE WITH CONDITIONS). The intake surface includes the report, client-facing integration analysis, Gate-002 disposition proposal, and external review analysis. AC009 may now begin execution.
 - **AC010** (Cross-Standard Conformance) depends on AC009 completion. New P-STD-001 CLAUSEs must be finalized before applying conformance fixes to governed standards.
 - **T104 adoption/binding** (e.g., `T104-PH001-ST002-AC000`) is downstream work and SHOULD be treated as dependent on:
   - `P-PH000-ST001-AC002` (Program Governance Standard authoring) and
@@ -348,6 +349,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.18 | 2026-03-13 | Housekeeping | Updated AC009 dependency note to reflect Gate-002 closure (2026-03-13). Evidence: proposal GDR v1.2.0. |
+| v0.1.17 | 2026-03-13 | Amendment | Linked AC009 to its standalone activity plan, updated the dependency from generic ST004-AC003 sign-off to the explicit `P-PH000-ST004-AC003-GATE-002` approval, and aligned the stream-plan contract to the 2-gate AC003 model. Evidence: Gate-002 integration package authoring session. |
 | v0.1.16 | 2026-03-12 | Amendment | Registered AC009 (Harden P-STD-001: Research-Backed Metadata & Structure Governance) and AC010 (Cross-Standard Conformance Pass) with contract stubs. AC009 depends on ST004-AC003 (P-RES-003 research); AC010 depends on AC009. Evidence: consultation session (2026-03-12). |
 | v0.1.15 | 2026-03-08 | Amendment | Amendment: Registered AC008 (Author Evidence-Retention Governance Policy) with contract stub, depends-on AC003, and TK007 input reference. Updated AC003 contract stub scope to authorize CLAUSE-038 amendment and defer retention to AC008. Evidence: SES005. |
 | v0.1.14 | 2026-03-06 | Amendment | AC003 contract stub updated for Gate-003 implementation readiness: added post-acceptance package deliverables, expanded scope through `GATE-003`, and enriched success criteria to cover TK007/TK008 outputs and Gate-003 package preparation. Evidence: SES004. |

@@ -7,8 +7,8 @@ phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC001'
 gate_id: 'T104-PH001-ST008-AC001-GATE-001'
-version: '1.0.0'
-date: '2026-03-08'
+version: '2.0.0'
+date: '2026-03-13'
 status: 'draft'
 author: 'LLM_Reviewer'
 decision_owner_role: 'Client'
@@ -23,6 +23,7 @@ targets:
   - 'prompt/templates/consultant/workspace/guideline_workspace_plan.md'
   - 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
   - 'prompt/templates/consultant/workspace/template_workspace_proposal_gate-disposition.md'
+  - 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001/verification/verification_T104-PH001-ST008-AC001_gate-001_evidence-integrity.md'
 verification_scope: 'Gate-001 review of AC001 current-state GDR authority reconciliation, residual drift scan, and gate-entry readiness against the activity plan.'
 method: 'Evidence-first review of the live AC001 target set, targeted line-level inspection of gate and guideline surfaces, targeted search for duplicate GDR authority, and comparison of the March 7 developer report against current repository state.'
 session_reference: '—'
@@ -105,8 +106,8 @@ session_reference: '—'
 | Classification | Situation A (deliverable deficiency) |
 | Required Action | Update the AC001 activity plan to reflect actual TK002-TK007 execution state with evidence-backed `Action` entries, or keep the tasks planned and defer Gate-001 until that execution evidence exists. Re-present Gate-001 only after the plan-level evidence trail is complete. |
 | Owner | Developer |
-| Resolution Status | open |
-| Resolution Date | — |
+| Resolution Status | resolved |
+| Resolution Date | 2026-03-13 |
 
 ### FINDING-002 — Producer Evidence Does Not Reconcile with the Live AC001 State
 
@@ -118,8 +119,8 @@ session_reference: '—'
 | Classification | Situation A (deliverable deficiency) |
 | Required Action | Publish updated developer evidence that reconciles the current live target-surface state with AC001 execution history, including whether each conformance point was implemented during AC001 or already existed before Gate-001 review. |
 | Owner | Developer |
-| Resolution Status | open |
-| Resolution Date | — |
+| Resolution Status | resolved |
+| Resolution Date | 2026-03-13 |
 
 ## V. Observations
 
@@ -136,20 +137,46 @@ The current blocker is not a newly discovered competing GDR definition. The gate
 | Entry Criterion | Status | Evidence |
 |:--|:--|:--|
 | Gate-000 remains recorded as `APPROVE` in the proposal GDR | **MET** | `proposal_T104-PH001-ST008-AC001-TK001_gir-disposition-package.md:159-171` |
-| TK002 through TK006 are completed with evidence-backed `Action` entries in this activity plan | **NOT MET** | `plan_T104-PH001-ST008-AC001.md:53-57` remain `planned` with `Action = —`; gate criteria at `:214-219` require completed evidence-backed entries. |
-| TK007 consistency pass confirms no competing GDR definitions remain | **NOT MET** | Substantive scan result is positive (Checklist D1), but `plan_T104-PH001-ST008-AC001.md:58` still records TK007 as `planned` with no `Action`, so the criterion is not formally evidenced in the governing plan. |
+| TK002 through TK006 are completed with evidence-backed `Action` entries in this activity plan | **MET** | `plan_T104-PH001-ST008-AC001.md` v2.0.0 task register |
+| TK007 consistency pass confirms no competing GDR definitions remain | **MET** | `plan_T104-PH001-ST008-AC001.md` v2.0.0 TK007 row + checklist D1 |
 | Gate-001 verification artifact is drafted at `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001/verification/verification_T104-PH001-ST008-AC001_gate-001.md` | **MET** | This verification artifact exists at the required path. |
-| Gate-001 `gate_disposition` proposal is drafted at `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001/proposal/proposal_T104-PH001-ST008-AC001-GATE-001_gir-disposition-package.md` | **MET** | Companion proposal drafted in the same gate package. |
+| Gate-001 `gate_disposition` proposal is drafted at `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001/proposal/proposal_T104-PH001-ST008-AC001-GATE-001_gir-disposition-package.md` | **MET** | Companion proposal v2.0.0 |
 
 ## VII. Gate Recommendation
 
-**Verdict**: **RECYCLE**
+**Verdict**: **PASS**
 
 **Rationale**:
-- Gate-000 approval is valid and the current target surfaces are substantively aligned to the approved Option B GDR authority model.
-- No competing GDR definition was found across the AC001 target set.
-- Gate-001 still cannot pass because the governing activity plan does not show completed, evidence-backed execution for TK002-TK007 as required by its own entry criteria.
-- The March 7 developer report no longer fully reconciles the live AC001 state, leaving the execution trail incomplete for audit-quality gate closure.
+- All five Gate-001 entry criteria are now MET.
+- All substantive conformance checks (A1-C3, D1) were PASS in the original v1.0.0 review and remain valid.
+- The two evidence-trail findings (FINDING-001, FINDING-002) are resolved through the activity plan update and supplementary evidence-integrity assessment.
+- No new technical drift or competing GDR definitions have been introduced.
+
+## VII-A. Re-assessment (v2.0.0)
+
+**Re-assessment date**: 2026-03-13
+**Trigger**: GATE-001 recycle remediation tasks TK008-TK010 completed.
+
+### Findings Addressed
+
+| Finding | Original Status | Resolution | Evidence |
+|:--|:--|:--|:--|
+| FINDING-001 (Gate-001 entry evidence gap) | open | **resolved** | AC001 activity plan v2.0.0 task register records TK002-TK007 as `completed` with evidence-backed `Action` entries referencing this verification's checklist results (A1-C3, D1). Supplementary verification `_evidence-integrity.md` confirms reviewer-as-evidence-of-record rationale. |
+| FINDING-002 (Producer evidence mismatch) | open | **resolved** | Supplementary verification `_evidence-integrity.md` confirms: (1) March 7 dev-report accurately reflects its own scope, (2) conforming state predates AC001 task execution, (3) reviewer's independent inspection constitutes sufficient evidence, (4) no new dev-report required. |
+
+### Entry Criteria Re-evaluation
+
+| Entry Criterion | Original Status | Re-assessed Status | Evidence |
+|:--|:--|:--|:--|
+| Gate-000 remains recorded as `APPROVE` | MET | **MET** | Unchanged |
+| TK002-TK006 completed with evidence-backed `Action` entries | NOT MET | **MET** | `plan_T104-PH001-ST008-AC001.md` v2.0.0 task register |
+| TK007 consistency pass confirmed | NOT MET | **MET** | `plan_T104-PH001-ST008-AC001.md` v2.0.0 TK007 row + checklist D1 |
+| Verification artifact drafted | MET | **MET** | This artifact + supplementary |
+| Gate-001 proposal drafted | MET | **MET** | Companion proposal v2.0.0 |
+
+### Updated Verdict
+
+**Verdict**: **PASS**
 
 > **Note**: The Gate Decision Record (GDR) is hosted in the `gate_disposition` proposal artifact, not in the verification artifact. See `guideline_workspace_proposal.md` §VII for GDR specification. The verification artifact's Gate Recommendation (above) provides the reviewer verdict that is consumed by the proposal's GDR.
 
@@ -171,4 +198,5 @@ The current blocker is not a newly discovered competing GDR definition. The gate
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.0.0 | 2026-03-13 | Re-assessment | Gate-001 re-assessment after recycle remediation. FINDING-001 and FINDING-002 resolved. Evidence-trail gaps closed through activity plan update (TK002-TK007 evidence-backed completion) and supplementary evidence-integrity verification. Verdict updated from RECYCLE to PASS. |
 | v1.0.0 | 2026-03-08 | Initial | Initial Gate-001 verification for AC001. Verified current-state authority-model conformance and identified remaining gate-readiness evidence gaps requiring recycle. |

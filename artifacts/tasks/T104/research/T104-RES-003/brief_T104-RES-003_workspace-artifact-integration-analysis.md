@@ -4,9 +4,9 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 research_id: 'T104-RES-003'
 title: 'Workspace Artifact Integration & Industry Benchmark Analysis'
-version: '1.0.0'
-iteration: '1'
-date: '2026-03-11'
+version: '1.1.0'
+iteration: '2'
+date: '2026-03-13'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -20,18 +20,18 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 
 ## I. EXECUTIVE SUMMARY
 
-**Context**: T104 Phase 1 Stream ST008 (Vertical Guideline Integration & Documentation Rules Alignment) has completed AC001 (GDR Ownership Resolution), resolving normative duplication of the Gate Decision Record across verification and proposal guidelines. AC002 now commissions research to perform a comprehensive vertical integration analysis and industry benchmark assessment across all workspace artifact types before the documentation rules can be finalized in AC004. ST005 produced Draft 1 guidelines and templates for 7 artifact types (PLAN, ROADMAP, NOTES, VERIFICATION, DEV-REPORT, ANALYSIS, PROPOSAL) through horizontal development — each developed independently. The cross-cutting consistency issues discovered in AC001 (GDR duplication) demonstrate that horizontal-only development creates integration gaps that must be systematically identified and resolved. Without this vertical integration analysis, AC003 (gap resolution) and AC004 (documentation rules consolidation) risk inheriting undetected inconsistencies across the full guideline suite.
+**Context**: T104 Phase 1 Stream ST008 (Vertical Guideline Integration & Documentation Rules Alignment) now needs a research commission that evaluates the consultant workspace from two equally important lenses: traditional SE/PM artifact-governance practice and LLM-agentic workspace operating patterns. ST005 produced Draft 1 guidelines and templates for 7 artifact types (PLAN, ROADMAP, NOTES, VERIFICATION, DEV-REPORT, ANALYSIS, PROPOSAL) through horizontal development — each developed independently. AC001 resolved one major cross-cutting inconsistency (GDR ownership), demonstrating that horizontal-only development creates integration gaps that must be systematically identified and resolved before the documentation rules can be finalized. Prior research `T104-RES-001` and the T104 SPS also establish deterministic retrieval and agentic automation as first-class initiative concerns, so this commission must not treat agentic considerations as a minor overlay.
 
 **Objective**: Produce a research report that:
-1. Benchmarks the T104 artifact inventory (7 in-scope types mapped to epics T104A, T104B, T104C, T104D, T104F, T104H, T104I) against industry-standard SE workspace artifact taxonomies, lifecycle models, and workflow integration patterns.
+1. Benchmarks the T104 artifact inventory (7 in-scope types mapped to epics T104A, T104B, T104C, T104D, T104F, T104H, T104I) against both: (a) established SE/PM artifact-governance patterns, and (b) LLM-agentic workspace patterns for retrieval, context transfer, and multi-agent handoff.
 2. Performs a detailed vertical integration audit across all 7 guideline files and their associated templates, identifying cross-cutting inconsistencies, role boundary contradictions, gate semantics misalignment, and cross-reference integrity failures.
 3. Assesses SPS requirement coverage — mapping every SPS requirement (CON, QG, DEP, IF, STD, IG) to guideline coverage and identifying uncovered or ambiguously covered requirements.
-4. Synthesizes findings into a high-level integration model suitable for incorporation into `workspace_documentation_rules.md`, deferring detailed artifact authoring to respective epic development.
+4. Synthesizes findings into a high-level integration model suitable for incorporation into `workspace_documentation_rules.md`, explicitly reconciling traditional governance needs with agent-oriented retrievability, parseability, and handoff requirements.
 
 **Target Deliverable**: A research report consumed by `LLM_Consultant` to:
 - Provide the gap register required by AC002 success criteria (all 7 guideline files + all template files covered).
 - Map each gap to a downstream action target and responsible role (seeding AC003 task register).
-- Deliver industry-grounded recommendations for artifact workflow integration patterns.
+- Deliver industry-grounded recommendations for artifact workflow integration patterns across both traditional and agentic operating models.
 - Produce an integration model draft for `workspace_documentation_rules.md` alignment in AC004.
 
 **Scope Exclusions**: T104E (CHANGELOG Standardization) and T104G (COMMUNICATION Standardization) are explicitly **out of scope** for this research. Neither has Draft 1 guidelines or templates, and both are accepted as not requiring development at this stage.
@@ -40,42 +40,43 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 
 ## II. RESEARCH SCOPE & TOPICS
 
-### Part A: Industry Benchmarking & Comparative Analysis
+### Part A: Dual-Lens Benchmarking & Comparative Analysis
+
+**Part A balance requirement**: Traditional SE/PM benchmarking and LLM-agentic benchmarking MUST receive materially comparable treatment. Part A is not complete if agentic analysis appears only as a sub-question or single rubric row.
 
 #### Topic 1: SE Workspace Artifact Taxonomy Benchmark (Critical)
-**Objective**: Benchmark the T104 artifact inventory (7 in-scope types) against industry-standard SE workspace artifact taxonomies to validate coverage, identify gaps, and assess alignment with recognized documentation categories for the discovery and define phases of software engineering.
-**Context**: T104 defines 7 artifact types for the consultant workspace: PLAN, ROADMAP, NOTES, ANALYSIS, PROPOSAL, VERIFICATION, DEV-REPORT. Each is mapped to a dedicated epic (T104A/B/C/D/F/H/I). The question is whether this set represents a complete and well-categorized workspace for SE consultancy workflows — or whether standard artifact types are missing, redundant, or misclassified.
+**Objective**: Benchmark the T104 artifact inventory (7 in-scope types) against both traditional SE/PM artifact taxonomies and agentic workspace taxonomies to validate coverage, identify gaps, and assess whether T104 is coherent for both human-governed and agent-consumable workflows.
+**Context**: T104 defines 7 artifact types for the consultant workspace: PLAN, ROADMAP, NOTES, ANALYSIS, PROPOSAL, VERIFICATION, DEV-REPORT. Each is mapped to a dedicated epic (T104A/B/C/D/F/H/I). The research must now answer two questions in parallel: whether this set is a coherent consultancy workspace by traditional standards, and whether it is a coherent workspace for deterministic agent retrieval, parsing, and coordination.
 **Specific Questions**:
-* How do T104's 7 artifact types map to PRINCE2 management products (Project Brief, Highlight Report, End Stage Report, Lessons Log, Issue Register, Risk Register, Stage Plan, Work Package)?
-* How do T104's 7 artifact types map to PMI/PMBOK knowledge areas and process group outputs for Initiating and Planning phases?
-* How do T104's 7 artifact types map to Agile/SAFe ceremony outputs (Sprint Planning artifacts, Retrospective logs, Definition of Done, Acceptance Criteria)?
-* How do T104's 7 artifact types map to SE discovery/define phase artifacts (PRD, BRD, SRS, Design Document, ADR, RFC, Technical Spike)?
-* Are there standard SE workspace artifact types that the T104 inventory does not cover? If so, what are they, what purpose do they serve, and should they be considered for future epics?
+* Traditional Track 1: How do T104's 7 artifact types map to structured PM/governance artifact families (for example PRINCE2 and PMBOK-style management/lifecycle products)?
+* Traditional Track 2: How do T104's 7 artifact types map to SE discovery/define and decision-record artifact families (for example PRD/BRD/SRS/design/RFC/ADR-style surfaces)?
+* Agentic Track 1: Which T104 artifact types behave as deterministic retrieval surfaces, context packaging surfaces, or machine-consumable navigation spines for LLM agents?
+* Agentic Track 2: Which artifact types are missing, overloaded, or poorly separated when evaluated as context-bearing handoff surfaces between multiple agents?
+* Are there standard traditional or agentic workspace artifact types that T104 does not yet cover? If so, are they genuine future-epic candidates or better handled as conventions inside the existing 7 types?
 * Are any T104 artifact types redundant with each other or with artifacts already governed by other initiatives (T102 SSOT artifacts: SPS, Request, Concept)?
-**Deliverable**: A comprehensive mapping matrix: T104 Artifact Type x PM/SE Framework Equivalent x Coverage Assessment x Gap/Redundancy Notes. Per-framework sub-tables with scored rubric evaluation.
+**Deliverable**: Three outputs: (1) a traditional benchmark matrix, (2) an agentic benchmark matrix, and (3) a reconciliation note identifying where the two taxonomies agree, diverge, or require T104-specific tradeoffs.
 
 #### Topic 2: Artifact Lifecycle & Workflow Patterns (Critical)
-**Objective**: Research industry best-practice artifact lifecycle models to establish how each T104 artifact type should be created, authored, reviewed, approved, consumed, and retired within a structured SE consultancy workflow.
-**Context**: T104's current guidelines define individual artifact structures but do not explicitly codify the end-to-end lifecycle: what triggers creation, who authors, who reviews/approves, who consumes the output, and when/how the artifact is retired or superseded. The `workspace_documentation_rules.md` §6 defines role boundaries but does not map them to artifact lifecycle stages.
+**Objective**: Research lifecycle models for each T104 artifact type across both human governance workflows and agentic operating workflows: how artifacts are created, authored, reviewed, approved, consumed, resumed, and retired.
+**Context**: T104's current guidelines define individual artifact structures but do not yet codify the full end-to-end lifecycle from either a traditional governance perspective or an LLM-agent perspective. The revised research must therefore compare human-governed lifecycle expectations with agent-facing lifecycle expectations such as context packaging, resumability, and state recovery.
 **Specific Questions**:
-* What are the recognized lifecycle stages for SE governance artifacts (e.g., Draft → Review → Approved → Active → Superseded → Archived)?
-* How do industry frameworks define authoring ownership vs. review ownership vs. approval ownership for each artifact type?
-* What are the standard trigger conditions for artifact creation (e.g., phase entry, gate checkpoint, research commission, implementation start)?
-* How do industry frameworks handle artifact versioning, amendment, and supersession?
-* What consumption patterns exist — which artifacts are inputs to which downstream artifacts?
-* How do industry frameworks define artifact retirement criteria?
-**Deliverable**: A lifecycle model per T104 artifact type: Creation Trigger x Author (Role) x Reviewer (Role) x Approver (Role) x Consumer(s) x Retirement Condition. Compared against at least 2 industry framework lifecycle models.
+* Traditional Track 1: What are the recognized lifecycle stages for SE governance artifacts (for example Draft → Review → Approved → Active → Superseded → Archived)?
+* Traditional Track 2: How do established frameworks define authoring ownership vs review ownership vs approval ownership for each artifact type?
+* Agentic Track 1: What lifecycle states matter for agent-consumable artifacts (for example discoverable, loadable, current, superseded, resumable, archived)?
+* Agentic Track 2: What context payload, metadata, and structural requirements are needed for an artifact to survive partial-context recovery, reassignment to another agent, or reuse in later sessions?
+* Where do traditional artifact retirement criteria diverge from agentic retention/retrieval needs?
+**Deliverable**: Two lifecycle models per artifact type: (1) traditional governance lifecycle and (2) agentic consumption lifecycle, followed by a reconciliation commentary for T104.
 
 #### Topic 3: Cross-Artifact Integration & Handoff Patterns (High)
-**Objective**: Research how industry SE frameworks define handoff chains, dependency relationships, and integration patterns between artifact types — and compare against T104's implicit integration model.
-**Context**: T104 has an implicit artifact chain (e.g., PLAN defines work → DEV-REPORT logs execution → VERIFICATION validates → PROPOSAL packages for approval). However, this chain is not formally defined in any single governing document. Different guidelines reference different handoff patterns, and the consistency of these references is unknown. `T104-IG-002 (Research Linking)` defines one chain (Brief → Report → Analysis → Proposal/SPS) but does not cover the full artifact workflow.
+**Objective**: Compare how handoff chains, dependency relationships, and integration patterns work in traditional consultancy workflows versus LLM-agentic workflows, then define what T104 should codify as a hybrid model.
+**Context**: T104 has an implicit artifact chain (for example PLAN defines work → DEV-REPORT logs execution → VERIFICATION validates → PROPOSAL packages for approval), but that chain is not formally defined in one place. The revised research must also examine how context handoff between agents changes the requirements for link surfaces, metadata, ownership boundaries, and restart behavior.
 **Specific Questions**:
-* How do industry frameworks define inter-artifact dependency types (e.g., triggers, inputs, outputs, validation gates)?
-* What are the standard handoff patterns for plan→execution→verification→approval chains?
-* How do industry frameworks handle parallel artifact workflows (e.g., research running alongside implementation)?
-* What integration patterns exist for role-to-role handoffs (Consultant→Developer, Developer→Reviewer, Reviewer→Client)?
-* How do agentic/LLM workflow frameworks define context handoff between agents working on different artifact types?
-**Deliverable**: An integration pattern catalogue with: Handoff Pattern Name x Source Artifact x Target Artifact x Trigger Condition x Handoff Contract (what data flows). Mapped to T104 role model.
+* Traditional Track 1: How do industry frameworks define inter-artifact dependency types (for example triggers, inputs, outputs, validation gates)?
+* Traditional Track 2: What are the standard handoff patterns for plan → execution → verification → approval chains, including parallel workstreams?
+* Agentic Track 1: How should context handoff between agents be modeled when different artifact types serve as navigation, working-state, validation, or approval surfaces?
+* Agentic Track 2: What makes a handoff deterministic enough for another agent to resume work without hidden assumptions, stale context, or duplicated reasoning?
+* Reconciliation: Where should T104 intentionally preserve human-oriented artifact behavior, and where should it optimize for agentic parseability, resumability, and drift resistance?
+**Deliverable**: An integration pattern catalogue with both traditional and agentic handoff patterns, plus a reconciliation matrix: Pattern Family x Source Artifact x Target Artifact x Trigger Condition x Handoff Contract x T104 Implication.
 
 ### Part B: Internal Vertical Integration Audit
 
@@ -105,13 +106,14 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 
 #### Topic 6: Template-Guideline Conformance Audit (High)
 **Objective**: Verify that each template structurally matches its governing guideline's section requirements — identifying mismatches, missing sections, orphaned template content, and guideline requirements not reflected in templates.
-**Context**: Templates are the instantiation surface for guidelines. If a guideline requires section X but the template omits it, authors will inconsistently add or skip that section. Conversely, if a template contains sections not mentioned in the guideline, the section's purpose and governance are ambiguous.
+**Context**: Templates are the instantiation surface for guidelines. If a guideline requires section X but the template omits it, authors will inconsistently add or skip that section. Conversely, if a template contains sections not mentioned in the guideline, the section's purpose and governance are ambiguous. In the revised brief, conformance should also consider whether templates expose enough metadata and structural predictability for reliable agent consumption.
 **Specific Questions**:
 * For each guideline-template pair: does the template contain all sections required by the guideline?
 * Does the template contain sections not mentioned or governed by the guideline?
 * Are template YAML frontmatter fields consistent with guideline requirements?
 * For artifact types with multiple templates (PLAN: 3 levels; NOTES: 6 templates; PROPOSAL: 4 archetypes): are the template variants consistent with each other and with the governing guideline?
 * Does each template include correct governance rule references (pointing to its guideline and `workspace_documentation_rules.md`)?
+* Do templates expose enough stable frontmatter, naming, and section predictability for deterministic agent parsing and retrieval?
 **Deliverable**: A template-guideline conformance matrix: Guideline Section x Template Section x Conformance Status (MATCH/MISSING-IN-TEMPLATE/ORPHAN-IN-TEMPLATE/MISMATCH).
 
 ### Part C: Workflow Integration & Documentation Rules Alignment
@@ -131,7 +133,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 
 #### Topic 8: Documentation Rules Integration Model (Critical)
 **Objective**: Synthesize findings from Topics 1–7 into a high-level integration model for `workspace_documentation_rules.md` that defines: complete artifact type inventory (all 7 in-scope types), workflow chains between artifact types, role-to-artifact ownership matrix, and inter-artifact linkage rules — suitable for initiative-level governance with detail deferred to respective epic development.
-**Context**: `workspace_documentation_rules.md` (v2.6.0) currently defines §3 (Artifact Type Inventory), §5 (Guideline Inventory), §6 (Role Boundary Rules), and §8 (Anti-Drift Rules). However, it lacks: a formal workflow chain definition showing how artifacts flow through the consultancy lifecycle, an explicit role-to-artifact ownership matrix beyond prose boundaries, and inter-artifact linkage rules beyond the general "Link Don't Duplicate" principle. The AC004 activity will use this integration model to consolidate the documentation rules with SPS alignment.
+**Context**: `workspace_documentation_rules.md` (v2.6.0) currently defines §3 (Artifact Type Inventory), §5 (Guideline Inventory), §6 (Role Boundary Rules), and §8 (Anti-Drift Rules). However, it lacks: a formal workflow chain definition showing how artifacts flow through the consultancy lifecycle, an explicit role-to-artifact ownership matrix beyond prose boundaries, inter-artifact linkage rules beyond the general "Link Don't Duplicate" principle, and explicit agent-oriented rules for context packaging and deterministic consumption. The AC004 activity will use this integration model to consolidate the documentation rules with SPS alignment.
 **Specific Questions**:
 * Based on industry benchmarks (Topics 1–3) and internal audit findings (Topics 4–6): what is the recommended high-level workflow chain for the 7 in-scope artifact types?
 * What is the recommended role-to-artifact ownership matrix (Author / Reviewer / Approver / Consumer per artifact type)?
@@ -139,7 +141,8 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 * What new sections or subsections should `workspace_documentation_rules.md` add to serve as the integration surface?
 * Where should `workspace_documentation_rules.md` remain deliberately thin (pointer-only to guidelines) vs. where should it contain normative integration rules?
 * How should the integration model accommodate DEV-REPORT (T104I) given its "dynamic/continuous development posture" per `T104I-IG-001`?
-**Deliverable**: A recommended integration model specification for `workspace_documentation_rules.md` including: proposed section structure, workflow chain diagram (textual), role-to-artifact matrix, inter-artifact linkage rule catalogue, and explicit deferred-to-epic boundary markers.
+* What agent-oriented rules should be codified for context payloads, metadata sufficiency, retrieval predictability, and handoff boundaries?
+**Deliverable**: A recommended integration model specification for `workspace_documentation_rules.md` including: proposed section structure, workflow chain diagram (textual), role-to-artifact matrix, inter-artifact linkage rule catalogue, explicit deferred-to-epic boundary markers, and agent-oriented operating rules.
 
 ---
 
@@ -151,6 +154,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 * **Candidate-only integration model**: The Topic 8 integration model is a recommendation for AC004 consumption, not a finalized specification.
 * **Repo-first evidence**: All internal claims MUST cite specific repo files with repo-relative paths.
 * **External grounding required**: External web research MUST be used for Part A topics (industry benchmarking). All "industry best practice" claims MUST be sourced with citations (framework name, edition/version, specific section/chapter where applicable). If external browsing is unavailable, state limitations explicitly.
+* **Balanced benchmark requirement**: Part A MUST treat traditional and agentic benchmarking as co-equal lenses. Agentic analysis MUST NOT be collapsed into a single sub-question or isolated appendix.
 * **AC001 post-condition**: All guidelines are assumed to reflect the AC001 deliverables (GDR ownership resolution). The research MUST verify this assumption in Topic 5.
 * **Gap register completeness**: The gap register produced by this research MUST cover all 7 guideline files and all associated template files per AC002 success criteria.
 
@@ -159,6 +163,7 @@ governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation
 * DEV-REPORT guideline (`guideline_workspace_dev-report.md`) and template (`template_workspace_dev-report.md`) exist and are available for audit at their canonical paths under `prompt/templates/consultant/workspace/`.
 * The SPS (`sps_T104-CWS.md` v1.1.0) represents the current authoritative requirement set for T104.
 * T102 standards adopted by T104 (per `T104-DEP-001`) represent stable external dependencies.
+* `T104-RES-001` is a mandatory inherited context surface for the agentic half of this research, not optional background reading.
 * `workspace_documentation_rules.md` v2.6.0 reflects all changes through AC001 but has not yet been updated for ST008 vertical integration findings.
 
 ### C. Methodology "Hierarchy of Truth"
@@ -178,18 +183,20 @@ Recommended precedence for this research:
 
 ### D. Evaluation Rubric (per T102-STD-006-CLAUSE-008)
 
-This research commissions comparative evaluation in Part A (Topics 1–3). The following weighted rubric MUST be applied when comparing T104 artifact types against industry framework equivalents.
+This research commissions comparative evaluation in Part A (Topics 1–3). The following balanced rubric MUST be applied when comparing T104 artifact types against both traditional and agentic framework equivalents.
 
 | Dimension | Weight (1–5) | Description |
 |:--|:--|:--|
-| Coverage Completeness | 5 | Does the artifact type fully cover the purpose and content expected by the industry equivalent? A score of 5 means complete functional equivalence; 1 means major gaps. |
-| Role Clarity | 4 | Are authoring, review, and approval responsibilities clearly and unambiguously defined for the artifact type? A score of 5 means no ambiguity; 1 means roles undefined or conflicting. |
-| Workflow Traceability | 5 | Can the artifact be traced through the full lifecycle — from creation trigger through consumption to retirement? A score of 5 means full traceability chain documented; 1 means no traceability. |
-| Scalability | 3 | Does the artifact pattern scale across initiatives of varying size and complexity? A score of 5 means proven scalability; 1 means single-initiative-only. |
-| Agentic Retrievability | 4 | Can LLM agents deterministically locate, parse, and consume the artifact through predictable naming, structure, and metadata? A score of 5 means fully deterministic; 1 means unpredictable. |
-| Drift Resistance | 4 | Does the artifact design resist content drift, duplication, and semantic erosion over time? A score of 5 means strong anti-drift mechanisms; 1 means high drift risk. |
+| Coverage Completeness | 4 | Traditional lens: does the artifact type cover the purpose and content expected by the closest SE/PM equivalent? |
+| Governance / Role Clarity | 4 | Traditional lens: are authoring, review, and approval responsibilities clearly and unambiguously defined? |
+| Workflow Traceability | 4 | Traditional lens: can the artifact be traced through creation, consumption, and retirement inside a governed workflow? |
+| Scalability | 3 | Traditional lens: does the artifact pattern scale across initiatives of varying size and complexity? |
+| Deterministic Retrievability | 4 | Agentic lens: can LLM agents locate and retrieve the artifact deterministically using predictable naming and placement? |
+| Parseability / Metadata Discipline | 4 | Agentic lens: is the artifact structured and annotated clearly enough for reliable machine parsing and context loading? |
+| Handoff Determinism | 4 | Agentic lens: does the artifact support explicit, low-ambiguity handoff between agents without hidden assumptions? |
+| Recovery / Drift Control | 3 | Agentic lens: can work resume safely after interruption while resisting duplication, stale state, or semantic drift? |
 
-**Rubric Application**: Research report MUST apply this rubric to all Topics 1–3 comparisons, producing per-artifact-type scores (1–5 per dimension) and weighted totals. The rubric is NOT applicable to Part B (internal audit) or Part C (synthesis) topics.
+**Rubric Application**: Research report MUST apply this rubric to all Topics 1–3 comparisons, producing both traditional weighted totals and agentic weighted totals per artifact type. The report MUST then reconcile those totals in a short commentary for each artifact type. The rubric is NOT applicable to Part B (internal audit) or Part C (synthesis) topics.
 
 ---
 
@@ -199,7 +206,8 @@ This research commissions comparative evaluation in Part A (Topics 1–3). The f
 * **Integration Question 1**: How do the industry benchmark findings (Topics 1–3) validate or challenge the internal audit findings (Topics 4–6)? Where industry patterns diverge from T104's current implementation, is the divergence intentional (by design) or accidental (a gap)?
 * **Integration Question 2**: How does the SPS requirement coverage assessment (Topic 7) relate to the cross-reference integrity audit (Topic 4)? Are SPS requirement gaps caused by missing guideline coverage, or by guidelines that cover the requirement but fail to reference the SPS item?
 * **Integration Question 3**: How should the integration model (Topic 8) prioritize gap resolution? Which gaps from Topics 4–6 are systemic (require model-level changes to `workspace_documentation_rules.md`) vs. localized (require individual guideline fixes only)?
-* **Integration Question 4**: Where do industry lifecycle models (Topic 2) and cross-artifact handoff patterns (Topic 3) converge or diverge with T104's role model (Consultant/Planner/Developer/Reviewer/Client)? Are there industry-standard role handoff patterns that T104's model does not yet support?
+* **Integration Question 4**: Where do traditional lifecycle models (Topic 2) and agentic handoff patterns (Topic 3) converge or diverge with T104's role model (Consultant/Planner/Developer/Reviewer/Client)?
+* **Integration Question 5**: Which traditional governance norms should T104 preserve as-is, and which should be adapted because an LLM-agentic environment imposes different constraints on retrieval, context transfer, and resumability?
 * **Gap Analysis**: What is the minimum set of changes needed to `workspace_documentation_rules.md` to serve as a coherent integration surface for all 7 artifact types — given both internal audit findings and industry benchmark insights?
 
 ---
@@ -208,8 +216,8 @@ This research commissions comparative evaluation in Part A (Topics 1–3). The f
 
 ### A. Core Governance (SSOT)
 * T104 SPS: `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md`
-* T102 SPS (cross-reference): `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md`
-* T102 Concept (cross-reference): `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md`
+* T102 SPS (cross-reference): `prompt/artifacts/tasks/T102/consultant/sps/sps_T102-CONSULTANT.md`
+* T102 Concept (cross-reference): `prompt/artifacts/tasks/T102/consultant/concept/concept_T102-CONSULTANT.md`
 
 ### B. Integration Target
 * Workspace Documentation Rules: `prompt/templates/consultant/workspace/workspace_documentation_rules.md`
@@ -253,6 +261,9 @@ This research commissions comparative evaluation in Part A (Topics 1–3). The f
 * AC001 Activity Plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001/plan_T104-PH001-ST008-AC001.md`
 
 ### F. Prior Research
+* **Mandatory inherited context for agentic lens**:
+  - `prompt/artifacts/tasks/T104/research/T104-RES-001/brief_T104-RES-001_agentic-workspace-assessment.md`
+  - `prompt/artifacts/tasks/T104/research/T104-RES-001/report_T104-RES-001_agentic-workspace-assessment.md`
 * T104-RES-001 Brief: `prompt/artifacts/tasks/T104/research/T104-RES-001/brief_T104-RES-001_agentic-workspace-assessment.md`
 * T104-RES-001 Report: `prompt/artifacts/tasks/T104/research/T104-RES-001/report_T104-RES-001_agentic-workspace-assessment.md`
 * T104-RES-002 Brief: `prompt/artifacts/tasks/T104/research/T104-RES-002/brief_T104-RES-002_requirements-candidate-research.md`
@@ -264,9 +275,9 @@ This research commissions comparative evaluation in Part A (Topics 1–3). The f
 * Phase 1 Plan: `prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md`
 
 ### H. Standards & Governance
-* T102-STD-006 (Research Artifacts Index): `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md`
-* T102-STD-003 (Explicit Inheritance Model): `prompt/artifacts/tasks/T102/standard/standard_T102-STD-003_explicit-inheritance-model.md`
-* T102-STD-005 (ID Specification): Load via `python3 prompt/skills/t102-std-005-id-spec/scripts/print_t102_adr_005.py`
+* T102-STD-006 (Research Artifacts Index): `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-006_research-artifacts-index.md`
+* T102-STD-003 (Explicit Inheritance Model): `prompt/artifacts/tasks/T102/consultant/standards/T102-STD-003_explicit-inheritance-model.md`
+* T102-STD-005 (ID Specification): Load via `python3 prompt/skills/t102-adr-005-id-spec/scripts/print_t102_adr_005.py`
 * Research Report Template: `prompt/templates/researcher/template_research_report.md`
 
 ### I. Anti-Patterns / Exclusions
@@ -286,11 +297,11 @@ The research report MUST use the standard template located at:
 
 1. **Section I (Exec Summary)**: MUST end with:
    - A gap register summary: total gaps identified, broken down by category (cross-reference / role boundary / gate semantics / template conformance / SPS coverage).
-   - An industry benchmark summary: key alignment strengths, key gaps vs. industry standard, and recommended additions.
+   - A dual-lens benchmark summary: key traditional alignment strengths, key agentic alignment strengths, key divergences, and recommended additions.
 
 2. **Section III (Topic Findings)**: For each topic, include:
    - Internal evidence (file references with repo-relative paths).
-   - External references (framework name, edition/version, specific section/chapter citations).
+   - External references (framework name, edition/version, specific section/chapter citations) for both traditional and agentic benchmark tracks where applicable.
    - Rubric scores (Part A topics only — per evaluation rubric in §III.D).
    - A practical recommendation tied to specific downstream actions (AC003 gap resolution or AC004 documentation rules updates).
 
@@ -298,20 +309,22 @@ The research report MUST use the standard template located at:
    | Gap ID | Category | Source Guideline | Target Guideline/Template | Description | Severity | Downstream Action | Responsible Role |
    |:--|:--|:--|:--|:--|:--|:--|:--|
    - Gap ID: Sequential `T104-RES-003-GAP-###`.
-   - Category: One of `CROSS-REF`, `ROLE-BOUNDARY`, `GATE-SEMANTICS`, `TEMPLATE-CONFORMANCE`, `SPS-COVERAGE`.
+   - Category: One of `CROSS-REF`, `ROLE-BOUNDARY`, `GATE-SEMANTICS`, `TEMPLATE-CONFORMANCE`, `SPS-COVERAGE`, `AGENTIC-INTEGRATION`.
    - Severity: One of `Critical`, `High`, `Medium`, `Low`.
    - Downstream Action: Either `AC003` (individual guideline fix) or `AC004` (documentation rules integration).
    - Responsible Role: LLM_Consultant, LLM_Developer, or LLM_Reviewer.
 
-4. **Industry Benchmark Scoring (Part A)**: MUST produce per-artifact-type rubric evaluation tables:
-   | Artifact Type | Coverage Completeness (x5) | Role Clarity (x4) | Workflow Traceability (x5) | Scalability (x3) | Agentic Retrievability (x4) | Drift Resistance (x4) | Weighted Total |
-   |:--|:--|:--|:--|:--|:--|:--|:--|
+4. **Industry Benchmark Scoring (Part A)**: MUST produce:
+   - A traditional benchmark matrix with per-artifact-type traditional rubric scores and weighted totals.
+   - An agentic benchmark matrix with per-artifact-type agentic rubric scores and weighted totals.
+   - A reconciliation matrix: `Artifact Type x Traditional Recommendation x Agentic Recommendation x T104 Integration Implication x Downstream Action`.
 
 5. **Integration Model (Topic 8)**: MUST include:
    - Proposed `workspace_documentation_rules.md` section structure (table of contents).
    - Textual workflow chain diagram showing artifact flow through consultancy lifecycle.
    - Role-to-artifact ownership matrix (Author / Reviewer / Approver / Consumer).
    - Inter-artifact linkage rule catalogue with explicit "codify here" vs. "defer to guideline" markers.
+   - Agent-oriented operating rules covering metadata sufficiency, context payload expectations, retrieval predictability, and handoff boundaries.
 
 6. **Completeness**: Do NOT delete empty sections. If a topic has no findings, explicitly state "None identified".
 
@@ -371,12 +384,14 @@ Map research findings to the specific governance artifacts and activities they i
 
 * The gap register covers all 7 guideline files and all associated template files (per AC002 success criteria from stream plan).
 * Each gap has a downstream action target (`AC003` or `AC004`) and a responsible role.
-* Industry benchmarking covers at least 3 established SE/PM frameworks (e.g., PMBOK, PRINCE2, SAFe/Agile, IEEE 12207) with specific section citations.
-* Per-artifact-type rubric evaluation tables are produced for all 7 artifact types using the §III.D evaluation rubric.
+* Part A uses the locked curated 4-track benchmark model: 2 traditional tracks and 2 agentic tracks.
+* Industry benchmarking covers both traditional and agentic sources with specific citations; agentic benchmarking is not relegated to a single sub-question or appendix.
+* Per-artifact-type traditional weighted totals and agentic weighted totals are produced for all 7 artifact types using the §III.D evaluation rubric.
+* The report produces all three required Part A outputs: traditional benchmark matrix, agentic benchmark matrix, and reconciliation matrix.
 * The SPS-to-guideline traceability matrix covers all SPS requirement items (CON-001–005, QG-001–005, DEP-001–006, IF-001–005, STD-001–003, IG-001–002).
 * Cross-reference integrity audit identifies all broken, stale, or missing references across the 7 guidelines.
 * Role boundary audit identifies all contradictions or ambiguities in role definitions across guidelines.
 * Post-AC001 verification confirms GDR ownership resolution is consistently reflected across all affected guidelines.
-* The integration model (Topic 8) is actionable as direct input to AC004 without requiring additional research.
+* The integration model (Topic 8) is actionable as direct input to AC004 without requiring additional research and includes explicit agent-oriented governance rules.
 * New issues/risks are surfaced if identified (not suppressed), continuing sequential numbering from SPS registers.
 * The report is structured per `template_research_report.md` with all sections populated or explicitly marked "None identified".

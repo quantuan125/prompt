@@ -2,8 +2,8 @@
 artifact_type: 'SPS'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
-version: '0.8.0'
-date: '2026-03-09'
+version: '0.9.0'
+date: '2026-03-13'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -77,7 +77,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 |:-------|:------|:-------|:------|:----------|:-----------|:---------------|:-------------|:------------|:----------|
 | `P-STD-001` | **Program Governance Standard** | `accepted` | LLM_Consultant | 2026-02-22 | `T102-STD-004` | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | Review: all CLAUSEs re-identified; alias window documented; guideline/template aligned; gap remediation per promotion contract; SES003 derivative conformance audit passed | `P-STD-005` | — |
 | `P-STD-002` | **Program Status Standard** | `accepted` | LLM_Consultant | 2026-03-04 | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Review: GATE-001 verification completed and authoritative GDR recorded (APPROVE, 2026-03-04); GATE-003 later approved the CLAUSE-038 stale-state amendment (APPROVE, 2026-03-09). Standard governs canonical 7-state lifecycle, transitions, health/RAG, dependency visibility, evidence linkage, stale-state governance, update protocol, and status artifact rules | `P-STD-001` | `P-RES-001` |
-| `P-STD-003` | **Program Governance Standards Model** | `planned` | LLM_Consultant | — | — | `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md` | Review: combined governance spec aligns with ADR-004 + ADR-009; enforce adoption/authoring requirements | `P-STD-001` | `T102-STD-009` |
+| `P-STD-003` | **Program Governance Standards Model** | `cancelled` | LLM_Consultant | — | — | `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md` | Review: combined governance spec aligns with ADR-004 + ADR-009; enforce adoption/authoring requirements | `P-STD-001` | `T102-STD-009` |
 | `P-STD-004` | **File Naming & Directory Convention** | `draft` | LLM_Consultant | — | — | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` | Review: initiative dirs conform to naming/directory rules; CI: lint file prefixes + directory structure | `P-STD-001` | — |
 | `P-STD-005` | **Universal ID Specification** | `draft` | LLM_Consultant | — | `T102-STD-005` | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` | CI: regex validation of all IDs; Review: scope/token compliance | `P-STD-001` | `T102-STD-005`, `T104-STD-002` |
 
@@ -114,6 +114,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 | :--- | :--- | :--- | :--- | :--- | :--- |
 | `P-RES-001` | **Status Standard Research** | Deep research into program-level status governance: canonical 7-state enum + transition rules, health/RAG thresholds, unified dependency schema (FS/SS/FF/SF), evidence linkage protocol, update protocol (role accountability), status artifact format options. Consumed by `P-PH000-ST001-AC003`. | `P-PH000-ST001-AC003` | `prompt/artifacts/tasks/P/research/P-RES-001/brief_P-RES-001_status-standard-research.md` | `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md` |
 | `P-RES-002` | **Agentic Status Systems Research** | Research benchmarking agentic CLI + orchestration-layer status systems (Codex CLI, Claude Code, Gemini CLI; GitHub Actions + GitLab CI/CD; GitHub Checks vs Commit Status) to inform repo-native evidence linkage, aggregation semantics, and bridging patterns for `P-STD-002`. Consumed by `P-PH000-ST001-AC003`. | `P-PH000-ST001-AC003` | `prompt/artifacts/tasks/P/research/P-RES-002/brief_P-RES-002_agentic-status-research.md` | `prompt/artifacts/tasks/P/research/P-RES-002/report_P-RES-002_agentic-status-research.md` |
+| `P-RES-003` | **Specification Metadata Governance Research** | Research benchmarking specification metadata governance across traditional standards bodies and agentic-native directive ecosystems to inform `P-STD-001` hardening for YAML/frontmatter, version tracking, Provenance/References structure, metadata delineation, and derivative instruction-surface governance. Consumed by `P-PH000-ST001-AC009`. | `P-PH000-ST001-AC009` | `prompt/artifacts/tasks/P/research/P-RES-003/brief_P-RES-003_specification-metadata-governance-research.md` | `prompt/artifacts/tasks/P/research/P-RES-003/report_P-RES-003_specification-metadata-governance-research.md` |
 
 #### 10. Issues & Risks
 
@@ -145,6 +146,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.9.0 | 2026-03-13 | Amendment | Registered `P-RES-003` in the Research table with brief + report links for `P-PH000-ST001-AC009`. |
 | v0.8.0 | 2026-03-09 | Amendment | Updated P-STD-002 registration after GATE-003-approved CLAUSE-038 amendment. Verification text now records the 2026-03-09 stale-state governance approval, and the body entry now includes stale-state governance / `P-STD-002-CLAUSE-038` in minimum viable conformance. |
 | v0.7.0 | 2026-03-07 | Amendment | P-STD-002 registered as `accepted` after authoritative GATE-001 approval (effective 2026-03-04). Added P-STD-002 body entry with minimum viable conformance + external references. Evidence: `proposal_P-PH000-ST001-AC003-GATE-001_gir-disposition-package.md` and AC003 TK005 implementation. |
 | v0.6.1 | 2026-03-01 | Update | P-STD-004 registered as `draft` with Canonical Path set to the authored standard file. |

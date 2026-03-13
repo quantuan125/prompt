@@ -6,8 +6,8 @@ phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC001'
 gate_id: 'T104-PH001-ST008-AC001-GATE-001'
-version: '1.0.0'
-date: '2026-03-08'
+version: '2.0.0'
+date: '2026-03-13'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -35,6 +35,7 @@ consumers:
 | Plan | AC001 activity plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001/plan_T104-PH001-ST008-AC001.md` | Governs Gate-001 entry criteria and task evidence requirements |
 | Proposal | Gate-000 disposition package | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001/proposal/proposal_T104-PH001-ST008-AC001-TK001_gir-disposition-package.md` | Records Option B approval and Gate-000 `APPROVE` state |
 | Dev-Report | March 7 implementation report | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001/dev-report/dev-report_T104-PH001-ST008-AC001_gate-000-closeout-and-planning-implementation_2026-03-07.md` | Historical producer evidence used for traceability comparison |
+| Verification (supplementary) | Gate-001 evidence-integrity assessment | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001/verification/verification_T104-PH001-ST008-AC001_gate-001_evidence-integrity.md` | Supplementary evidence-integrity review documenting evidence-trail closure rationale for reassessment |
 
 ---
 
@@ -42,8 +43,8 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--:|:--|
-| GIR-001 | Gate-001 entry evidence gap | Whether Gate-001 may pass without completed task-register evidence for TK002-TK007 | (a) RECYCLE until the activity plan records evidence-backed completion for TK002-TK007 | AC001 activity plan + re-presented Gate-001 package | Yes | `pending` |
-| GIR-002 | Producer evidence mismatch | How to reconcile the March 7 dev-report with the live AC001 target-set state | (a) Require updated developer evidence before re-presenting Gate-001 | Updated AC001 execution evidence | No | `pending` |
+| GIR-001 | `(a) APPROVE` |
+| GIR-002 | `(a) APPROVE` |
 
 ---
 
@@ -72,7 +73,7 @@ Rationale:
 - The approved AC001 activity plan makes evidence-backed completion entries part of Gate-001 entry readiness. Closing the gate without that evidence would override the plan's own control surface and weaken downstream auditability.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: ____________________`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: ____________________`
 
 ---
 
@@ -99,23 +100,22 @@ Rationale:
 - The mismatch is not a reason to redesign AC001, but it should be repaired before gate closure so the final package has a coherent producer-to-reviewer trace.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: ____________________`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: ____________________`
+
+**Implementation note**: Updated developer evidence was provided through the supplementary evidence-integrity verification (`verification_T104-PH001-ST008-AC001_gate-001_evidence-integrity.md`) rather than a new dev-report. The supplementary artifact documents that the conforming state predates AC001 task execution and the reviewer's independent inspection constitutes sufficient evidence-of-record. Client approved this approach on 2026-03-13.
 
 ---
 
 ## V. GATE RECOMMENDATION
 
 Reviewer recommendation state:
-- `RECYCLE`
+- `PASS`
 
 Conditions and/or deferrals:
 - —
 
 Downstream enforcement:
-- `T104-PH001-ST008-AC001-GATE-001` remains open until:
-  - the AC001 activity plan records evidence-backed completion state for TK002 through TK007,
-  - updated producer evidence reconciles the March 7 dev-report with the live repo state, and
-  - Gate-001 verification is rerun and yields `PASS` or `CONDITIONAL PASS`.
+- `T104-PH001-ST008-AC001-GATE-001` is closed. AC001 may proceed to completion subject to activity completion rule (all task register rows terminal + success criteria verified).
 
 ---
 
@@ -126,12 +126,13 @@ Downstream enforcement:
 | Field | Value |
 |:--|:--|
 | Gate ID | `T104-PH001-ST008-AC001-GATE-001` |
-| Reviewer Verdict | `RECYCLE` |
-| Client Decision | `pending` |
-| Conditions (if any) | `1) Update AC001 activity-plan task evidence for TK002-TK007. 2) Reconcile producer evidence with the live AC001 repository state before re-presenting Gate-001.` |
+| Reviewer Verdict | `PASS` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
+| Conditions (if any) | — |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-13` |
+| Decision Reference | `This consultation session (2026-03-13). Client approved GIR-001(a) and GIR-002(a), confirmed evidence-trail closure via supplementary verification rather than new dev-report, and approved GATE-001 passage.` |
 
 ---
 
@@ -150,4 +151,5 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.0.0 | 2026-03-13 | Re-assessment | Gate-001 reassessment closure. GIR-001 and GIR-002 dispositioned with client approval of option (a). GDR updated: Reviewer Verdict PASS, Client Decision APPROVE, Gate Status completed. Evidence-trail closure achieved via supplementary verification rather than new dev-report per client direction. |
 | v1.0.0 | 2026-03-08 | Initial | Initial Gate-001 disposition package for AC001. Records remaining gate-readiness GIRs and a pending GDR with reviewer verdict `RECYCLE`. |

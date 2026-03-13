@@ -6,9 +6,9 @@ phase: '1'
 stream_id: 'T104-PH001-ST005'
 activity_id: 'T104-PH001-ST005-AC006'
 gate_id: 'T104-PH001-ST005-AC006-GATE-001'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-03-13'
-status: 'draft'
+status: 'approved'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST005/plan_T104-PH001-ST005.md'
@@ -50,9 +50,9 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--|:--|
-| GIR-001 | Draft 1 Package Completeness | Are all AC006 Draft 1 deliverables complete and verified? | (a) Accept — all success criteria verified PASS | GATE-001 closure | Yes | pending |
-| GIR-002 | GATE-001 Entry Criteria | Are the external Draft 2 prerequisites satisfied? | (a) Accept — P-PH000-ST001-AC004 approved and P-STD-004 exists | GATE-001 closure | Yes | pending |
-| GIR-003 | Draft 2 Deferral | Is TK901 (Draft 2 alignment) properly deferred? | (a) Accept deferral — TK901 remains deferred until scheduled | TK901 | No | pending |
+| GIR-001 | Draft 1 Package Completeness | Are all AC006 Draft 1 deliverables complete and verified? | (a) Accept — all success criteria verified PASS | GATE-001 closure | Yes | `(a)` |
+| GIR-002 | GATE-001 Entry Criteria | Are the external Draft 2 prerequisites satisfied? | (a) Accept — P-PH000-ST001-AC004 approved and P-STD-004 exists | GATE-001 closure | Yes | `(a)` |
+| GIR-003 | Draft 2 Deferral | Is TK901 (Draft 2 alignment) properly deferred? | (a) Accept deferral — TK901 remains deferred until scheduled | TK901 | No | `(a)` |
 
 ---
 
@@ -79,7 +79,7 @@ Rationale:
 - Independent verification confirms full compliance with all approved GIR-001 through GIR-011 decisions. All deliverable files exist, have no whitespace defects, and are properly registered in the workspace authority chain.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b) Override: _______`
+- `[x] (a)` / `[ ] (b) Override: _______`
 
 ### GIR-002 - GATE-001 Entry Criteria Satisfied
 
@@ -102,7 +102,7 @@ Rationale:
 - Both entry criteria are independently verifiable and have been confirmed. The precedent from AC007-GATE-001 closure on the same basis further supports acceptance.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b) Override: _______`
+- `[x] (a)` / `[ ] (b) Override: _______`
 
 ### GIR-003 - Draft 2 Deferral Acceptance
 
@@ -125,7 +125,7 @@ Rationale:
 - Draft 2 alignment is a cross-cutting effort that should be coordinated across all ST005 activities (AC001-AC003, AC005-AC008) rather than executed piecemeal.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b) Override: _______`
+- `[x] (a)` / `[ ] (b) Override: _______`
 
 ---
 
@@ -151,12 +151,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `T104-PH001-ST005-AC006-GATE-001` |
 | Reviewer Verdict | `PASS WITH DEFERRALS` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
 | Conditions (if any) | TK901 (Draft 2 alignment) deferred per plan structure |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-13` |
+| Decision Reference | `inline` |
 
 ---
 
@@ -176,4 +176,5 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-13 | Gate closure | Client approved GIR-001 through GIR-003. GATE-001 closed. |
 | v1.0.0 | 2026-03-13 | Initial | GATE-001 disposition package for AC006 DEV-REPORT Guideline + Template Package. Presents full Draft 1 verification results (PASS WITH DEFERRALS), GATE-001 entry criteria confirmation, and TK901 deferral acceptance for Client decision. |
