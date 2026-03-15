@@ -2,8 +2,8 @@
 artifact_type: 'SPS'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
-version: '0.9.0'
-date: '2026-03-13'
+version: '0.10.0'
+date: '2026-03-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -56,7 +56,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 * **P-CON-001 (Authority Boundary)** — Program standards govern `prompt/artifacts/tasks/**` only (including raw + SSOT + workspace artifacts) and do not govern all of `prompt/**`.
 * **P-CON-002 (Link Don’t Duplicate)** — Adopter initiatives SHALL reference program standards by ID/path and SHALL NOT duplicate program normative content.
-* **P-CON-003 (Artifact Format Governance)** — (A) Planning, SSOT, and governance specification artifacts — including plans, notes, roadmaps, SPS files, combined standard-specification files, and decision records — SHALL be Markdown files (`.md`) with YAML frontmatter, per `P-STD-001`. (B) Programmatic execution artifacts — including status ledgers and machine-readable schema files — MAY use non-Markdown formats (e.g., `.yaml`, `.json`) when explicitly permitted by the governing standard for that artifact type. File naming and placement SHALL still conform to `P-STD-004`.
+* **P-CON-003 (Artifact Format Governance)** — (A) Planning, SSOT, and governance specification artifacts — including plans, notes, roadmaps, SPS files, combined standard-specification files, and decision records — SHALL be Markdown files (`.md`) with YAML frontmatter. For combined standard-specification files, the required metadata schema and current-state-versus-Provenance authority split are governed by `P-STD-001-CLAUSE-031` through `P-STD-001-CLAUSE-036`. (B) Programmatic execution artifacts — including status ledgers and machine-readable schema files — MAY use non-Markdown formats (e.g., `.yaml`, `.json`) when explicitly permitted by the governing standard for that artifact type. File naming and placement SHALL still conform to `P-STD-004`.
 
 #### 4. Quality Goals
 
@@ -146,6 +146,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.10.0 | 2026-03-16 | Amendment | Clarified `P-CON-003` so the YAML-frontmatter requirement for combined standard-specification files now points to `P-STD-001-CLAUSE-031` through `P-STD-001-CLAUSE-036`, including the current-state versus Provenance authority split. |
 | v0.9.0 | 2026-03-13 | Amendment | Registered `P-RES-003` in the Research table with brief + report links for `P-PH000-ST001-AC009`. |
 | v0.8.0 | 2026-03-09 | Amendment | Updated P-STD-002 registration after GATE-003-approved CLAUSE-038 amendment. Verification text now records the 2026-03-09 stale-state governance approval, and the body entry now includes stale-state governance / `P-STD-002-CLAUSE-038` in minimum viable conformance. |
 | v0.7.0 | 2026-03-07 | Amendment | P-STD-002 registered as `accepted` after authoritative GATE-001 approval (effective 2026-03-04). Added P-STD-002 body entry with minimum viable conformance + external references. Evidence: `proposal_P-PH000-ST001-AC003-GATE-001_gir-disposition-package.md` and AC003 TK005 implementation. |

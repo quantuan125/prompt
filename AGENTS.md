@@ -1,9 +1,24 @@
+---
+artifact_type: 'AGENT_GUIDANCE'
+scope: 'prompt'
+applies_to: 'prompt/**'
+version: '1.0.0'
+date: '2026-03-16'
+authority: 'P-STD-001'
+---
+
 # Prompt System Development
 
 This directory contains the agentic workflow system for multi-role LLM collaboration.
 
 ## Purpose
 Design and maintain consultant, planner, developer, and reviewer role configurations that orchestrate structured problem-solving workflows.
+
+## Scope & Authority
+- This file is the scoped governance surface for `prompt/**`.
+- Same-family guidance inside `prompt/` takes precedence over broader same-family routing when both apply.
+- This file is not a wrapper and therefore does not declare `delegates_to`.
+- `AGENTS.md` at the repo root, `.claude/CLAUDE.md`, and role `CLAUDE_*` wrappers remain explicit deferred surfaces outside AC009 scope.
 
 ## Primary Focus
 Currently developing consultant and developer modes with emphasis on Socratic exploration and systematic implementation practices.
@@ -14,6 +29,7 @@ Currently developing consultant and developer modes with emphasis on Socratic ex
   - **Template**: `prompt/templates/consultant/standards/template_standard_specs.md`
 - The guideline and template are governed by `P-STD-001` (Program Governance Standard) at `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`.
 - Per `P-STD-001-CLAUSE-005B`, any CLAUSE modification in `P-STD-001` requires updating these derivatives in the same changeset.
+- `P-STD-001-CLAUSE-031` through `P-STD-001-CLAUSE-036` now govern the standard-file metadata layer: YAML frontmatter is the current-state authority; `## Provenance` is the history / lineage authority.
 
 ## Advisory: P-STD-001 Authority & Alias Window
 - `P-STD-001` (Program Governance Standard) is the authoritative standard for combined standard-specification file authoring.

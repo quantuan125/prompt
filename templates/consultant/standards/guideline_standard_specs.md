@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_standards'
 topic: 'standard_specs_authoring'
-version: '5.0.0'
-date: '2026-02-22'
+version: '6.0.0'
+date: '2026-03-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -50,6 +50,31 @@ Every combined file MUST include these headings, in this order:
 4. `## References`
 5. `## Provenance`
 
+### D. Frontmatter baseline `P-STD-001-CLAUSE-031`, `P-STD-001-CLAUSE-032`, `P-STD-001-CLAUSE-034`
+
+Every combined standard file MUST begin with YAML frontmatter immediately before the title heading.
+
+Required frontmatter keys:
+- `artifact_type`
+- `initiative_id`
+- `initiative_code`
+- `standard_id`
+- `version`
+- `date`
+- `status`
+- `author`
+- `decision_owner_role`
+
+Conditional frontmatter keys:
+- `approval_date`
+- `effective_date`
+- `supersedes`
+- `superseded_by`
+- `deprecation_date`
+
+Authoring rule:
+- Frontmatter is the authoritative current-state layer. Historical notes, lineage, and amendment narratives belong in `## Provenance`.
+
 ---
 
 ## III. CONTENT RULES
@@ -73,6 +98,32 @@ The nested DR is informative rationale and does not replace normative `CLAUSE` a
 
 `## References` and `## Provenance` MUST remain STD-level sections and MUST NOT be nested under the DR body.
 
+### D. References taxonomy `P-STD-001-CLAUSE-035`
+
+`## References` MUST contain:
+- `### Normative References`
+- `### Informative References`
+
+Each references table MUST use:
+- `| ID | Title | Scope | Source Path |`
+
+Use `Normative References` for governing authorities required to interpret or apply the standard.
+Use `Informative References` for supporting material, legacy context, or non-governing evidence.
+
+### E. Provenance taxonomy `P-STD-001-CLAUSE-034`, `P-STD-001-CLAUSE-036`
+
+`## Provenance` MUST contain:
+- `### Status`
+- `### Lineage / Authority`
+- `### Amendment History`
+- `### Input Sources`
+
+Authoring boundary:
+- `Status` complements, but does not override, current frontmatter state.
+- `Lineage / Authority` holds promotion, supersession, and alias-window pointers.
+- `Amendment History` is concise and version-oriented; git remains the full diff authority.
+- `Input Sources` lists only the lineage inputs materially used to author or amend the standard.
+
 ---
 
 ## IV. INDEXING RULES `P-STD-001-CLAUSE-012`
@@ -87,12 +138,15 @@ Concept indexes MUST link to standard-spec files using full repo-relative canoni
 - [ ] File lives under `prompt/artifacts/tasks/<SID>/standard/`
 - [ ] Filename matches `<STD-ID>_<title-slug>.md`
 - [ ] File section order is `Specification` → `Decision Record` → `References` → `Provenance`
+- [ ] YAML frontmatter exists and includes the governed current-state keys
 - [ ] Clause IDs are `<STD-ID>-CLAUSE-###` and sequential
 - [ ] DR body ID is `<STD-ID>-ADR-001`
+- [ ] `## References` uses `Normative References` and `Informative References`
+- [ ] `## Provenance` uses `Status`, `Lineage / Authority`, `Amendment History`, and `Input Sources`
 - [ ] Concept index row includes the full repo-relative `Canonical Path`
 - [ ] All guideline rules cite their governing CLAUSE(s)
 
-> **Note — Deferred Topics**: This guideline is a quick-start authoring guide. For full rules on Specification Index authoring (`P-STD-001-CLAUSE-002`), substandard architecture (`P-STD-001-CLAUSE-003`), anchor stability (`P-STD-001-CLAUSE-006`), normative vocabulary (`P-STD-001-CLAUSE-008`), CLAUSE ordering (`P-STD-001-CLAUSE-019`), subclause rendering (`P-STD-001-CLAUSE-020`), normative/informative boundary (`P-STD-001-CLAUSE-021`), and promotion/demotion lifecycle (`P-STD-001-CLAUSE-030`), consult `P-STD-001` directly.
+> **Note — Deferred Topics**: This guideline is a quick-start authoring guide. For full rules on Specification Index authoring (`P-STD-001-CLAUSE-002`), substandard architecture (`P-STD-001-CLAUSE-003`), anchor stability (`P-STD-001-CLAUSE-006`), normative vocabulary (`P-STD-001-CLAUSE-008`), derivative metadata (`P-STD-001-CLAUSE-033`), CLAUSE ordering (`P-STD-001-CLAUSE-019`), subclause rendering (`P-STD-001-CLAUSE-020`), normative/informative boundary (`P-STD-001-CLAUSE-021`), and promotion/demotion lifecycle (`P-STD-001-CLAUSE-030`), consult `P-STD-001` directly.
 
 ---
 
@@ -124,6 +178,7 @@ The template (`prompt/templates/consultant/standards/template_standard_specs.md`
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v6.0.0 | 2026-03-16 | Major | Added governed standard-file frontmatter guidance, normalized `References` into `Normative References` / `Informative References`, normalized `Provenance` into `Status` / `Lineage / Authority` / `Amendment History` / `Input Sources`, and aligned checklist language to `P-STD-001-CLAUSE-031` through `P-STD-001-CLAUSE-036`. |
 | v5.0.0 | 2026-02-22 | Major | Citation format migrated from the legacy per-wrapper form to `<CLAUSE-ID>` per amended `P-STD-001-CLAUSE-005D`. 4 mis-cited governing CLAUSEs corrected (III.A→018B, III.B→025, III.C→028, IV→012; II.B→024A). DR subheadings corrected to CLAUSE-025B (Alternatives, +Traceability). Deferred topics note added. Blast radius enumeration and impact analysis practice added to Section VI. (GATE-002 remediation pass 2) |
 | v4.1.0 | 2026-02-21 | Fix | Naming format (II.B) corrected to match `P-STD-001-CLAUSE-015A` (`standard_<SID-STD>_<kebab-title>.md`). Governing citations corrected: II.A → CLAUSE-015A, VI → CLAUSE-005B, VII → CLAUSE-005A. (GATE-002 remediation) |
 | v4.0.0 | 2026-02-20 | Major | Authority chain migrated from `T102-STD-004` to `P-STD-001` following full promotion (`P-STD-001-ADR-003`). All CLAUSE references updated. Hardcoded T102 paths replaced with `<SID>/standard/` portable form per `P-STD-001-CLAUSE-015A`. Pre-existing CLAUSE-016 mis-citations corrected to CLAUSE-001. |

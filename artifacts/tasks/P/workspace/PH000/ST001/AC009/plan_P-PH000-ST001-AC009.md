@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC009'
-version: '1.3.0'
-date: '2026-03-15'
+version: '1.4.0'
+date: '2026-03-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -55,10 +55,10 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
 | TK000 | `P-PH000-ST001-AC009-TK000` | Produce AC009 implementation-readiness package (assessment + gate-disposition proposal) | `completed` | LLM_Consultant | `P-PH000-ST004-AC003-GATE-002` | AC009 analysis + proposal package | Approved ST004 AC003 Gate-002 package | — |
 | GATE-000 | `P-PH000-ST001-AC009-GATE-000` | Gate: Client accepts AC009 readiness package and unblocks drafting execution | `completed` | Client | TK000 | Pass/fail | `guideline_workspace_plan.md`, `guideline_workspace_proposal.md` | Client APPROVE (2026-03-15). GDR: `proposal_P-PH000-ST001-AC009-TK000_gate-000-readiness-disposition-package.md` v1.1.0. |
-| TK001 | `P-PH000-ST001-AC009-TK001` | Ingest Gate-002 package and produce P-STD-001 amendment map | `planned` | LLM_Consultant | GATE-000 | Analysis artifact + drafting matrix | `P-RES-003` Gate-002 package | — |
-| TK002 | `P-PH000-ST001-AC009-TK002` | Draft metadata-governance amendments in `P-STD-001` | `planned` | LLM_Consultant | TK001 | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | TK001 amendment map | — |
-| TK003 | `P-PH000-ST001-AC009-TK003` | Self-align `P-STD-001` to its new governance model | `planned` | LLM_Consultant | TK002 | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | TK002 drafted CLAUSEs | — |
-| TK004 | `P-PH000-ST001-AC009-TK004` | Cascade derivative updates required by conformance coupling | `planned` | LLM_Consultant | TK003 | Guideline + template + AGENTS + SPS touchpoints | `P-STD-001-CLAUSE-005B` | — |
+| TK001 | `P-PH000-ST001-AC009-TK001` | Ingest Gate-002 package and produce P-STD-001 amendment map | `completed` | LLM_Consultant | GATE-000 | Analysis artifact + drafting matrix | `P-RES-003` Gate-002 package | Amendment map authored at `analysis_P-PH000-ST001-AC009-TK001_p-std-001-amendment-map.md`. |
+| TK002 | `P-PH000-ST001-AC009-TK002` | Draft metadata-governance amendments in `P-STD-001` | `completed` | LLM_Consultant | TK001 | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | TK001 amendment map | Added metadata-governance clauses `031` through `036` and standardized the governing schema. |
+| TK003 | `P-PH000-ST001-AC009-TK003` | Self-align `P-STD-001` to its new governance model | `completed` | LLM_Consultant | TK002 | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | TK002 drafted CLAUSEs | Added frontmatter and normalized `References` / `Provenance` to the new model. |
+| TK004 | `P-PH000-ST001-AC009-TK004` | Cascade derivative updates required by conformance coupling | `completed` | LLM_Consultant | TK003 | Guideline + template + AGENTS + SPS touchpoints | `P-STD-001-CLAUSE-005B` | Prompt-owned derivatives and `P-CON-003` aligned in the same changeset; see grouped dev-report. |
 | TK005 | `P-PH000-ST001-AC009-TK005` | Produce verification and gate-readiness package | `planned` | LLM_Reviewer | TK004 | AC009 verification artifact | `guideline_workspace_verification.md` | — |
 | GATE-001 | `P-PH000-ST001-AC009-GATE-001` | Gate: Client acceptance of P-STD-001 metadata hardening package | `planned` | Client | TK005 | Pass/fail | — | — |
 | TK006 | `P-PH000-ST001-AC009-TK006` | Prepare AC010 handoff and conformance boundary package | `planned` | LLM_Consultant | GATE-001 | AC010 handoff note / plan amendment inputs | Approved AC009 package | — |
@@ -399,7 +399,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | Plan (this file) | AC009 Activity Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md` |
 | Plan | ST001 Stream Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
 | Readiness Analysis | AC009 TK000 Assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/analysis/analysis_P-PH000-ST001-AC009-TK000_activity-plan-readiness-assessment.md` |
+| Analysis | AC009 TK001 Amendment Map | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/analysis/analysis_P-PH000-ST001-AC009-TK001_p-std-001-amendment-map.md` |
 | Readiness Proposal | AC009 GATE-000 Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/proposal/proposal_P-PH000-ST001-AC009-TK000_gate-000-readiness-disposition-package.md` |
+| DEV-REPORT | TK001-TK004 Implementation | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/dev-report/dev-report_P-PH000-ST001-AC009_tk001-tk004-implementation_2026-03-16.md` |
 | Session Notes | AC009 SES001 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES001.md` |
 | Upstream Proposal | AC003 Gate-002 Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC003/proposal/proposal_P-PH000-ST004-AC003_gate-002_report-and-integration-disposition.md` |
 | Upstream Analysis | P-RES-003 Integration Package | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC003/analysis/analysis_P-PH000-ST004-AC003-TK003_content-sufficiency-assessment_P-RES-003.md` |
@@ -412,6 +414,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.4.0 | 2026-03-16 | Implementation | Marked `TK001` through `TK004` completed after AC009 metadata-governance execution. Added the TK001 amendment map and grouped TK001-TK004 dev-report to the Links Register. |
 | v1.3.0 | 2026-03-15 | Gate closure | Updated task register: TK000 → `completed`, GATE-000 → `completed` with GDR reference. Added external review analysis to Context and Links Register. Evidence: GATE-000 GDR (proposal v1.1.0), external review v1.0.0. |
 | v1.2.0 | 2026-03-15 | Readiness packaging | Added `TK000` + `GATE-000` for AC009 implementation readiness. Locked AC009 to consume `P-PH000-ST004-AC003-GATE-002` without mutating upstream research artifacts, narrowed derivative instruction-surface scope to prompt-owned surfaces, made `P-CON-003` clarification explicit in `TK004`, and added AC009-local readiness analysis/proposal/session-note artifacts. |
 | v1.1.0 | 2026-03-13 | Amendment | Added external review analysis as formal TK001 input. Enhanced TK001 scope with explicit verification carry-forward items (FINDING-001/002/003) and analysis GAPs. Added carry-forward resolution step and success criterion. Evidence: Gate-002 external review (2026-03-13). |
