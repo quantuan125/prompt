@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '2.7.0'
-date: '2026-03-13'
+version: '2.8.0'
+date: '2026-03-15'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -121,7 +121,56 @@ Phase → Stream → Activity → Task
 
 ---
 
-## 7. FILE NAMING & DIRECTORY CONVENTIONS
+## 7. WORKFLOW CHAIN AND HANDOFF CONTRACTS
+
+### A. Canonical Workflow Chain
+
+The workspace artifact suite follows a canonical workflow chain. Each artifact type has a defined position in the lifecycle:
+
+`ROADMAP → PLAN → NOTES / ANALYSIS / DEV-REPORT → VERIFICATION → PROPOSAL (GDR where applicable) → SPS / downstream approved artifacts`
+
+Rules:
+- `ROADMAP` sets direction. `PLAN` establishes executable work authority.
+- `NOTES`, `ANALYSIS`, and `DEV-REPORT` are working artifacts that capture session state, synthesis, and implementation evidence respectively. They feed downstream artifacts but do not close gates.
+- `VERIFICATION` produces independent reviewer evidence and a reviewer verdict.
+- `PROPOSAL` packages decisions and hosts the authoritative Gate Decision Record (GDR) for `gate_disposition` proposals.
+- Approved proposal decisions update plan status surfaces and unblock downstream work.
+
+### B. Gate-Readiness Stack (Plan-Level Encoding)
+
+The workflow chain is encoded at the plan level through the **Gate-Readiness Stack** — a canonical pre-gate task sequence. For the full pattern, ownership rules, and exception for pure decision gates, see `guideline_workspace_plan.md` §VI.L.
+
+### C. Inter-Artifact Linkage Rules
+
+| Rule | Authority |
+|:--|:--|
+| `ROADMAP` points to execution surfaces; it does not duplicate execution state | Initiative-level |
+| `PLAN` is the authority for tracked work and gate placement | Initiative-level |
+| `NOTES` captures session history and pending decisions; it is not a baseline authority | Initiative-level |
+| `ANALYSIS` synthesizes evidence and findings, but does not close gates | Initiative-level |
+| `DEV-REPORT` captures producer evidence only; it does not claim gate closure or verdicts | Initiative-level |
+| `VERIFICATION` holds reviewer verdict and findings; it does not host the GDR | Initiative-level |
+| `PROPOSAL` hosts the authoritative GDR for `gate_disposition` proposals | Initiative-level |
+
+---
+
+## 8. ROLE-TO-ARTIFACT OWNERSHIP MATRIX
+
+| Artifact Type | Author | Reviewer | Approver / Decision Owner | Primary Consumer |
+|:--|:--|:--|:--|:--|
+| ROADMAP | LLM_Consultant | LLM_Consultant / Client as needed | Client where governed decisions apply | Consultant, Client, downstream roles |
+| PLAN | LLM_Consultant or LLM_Planner per scope | Reviewer only when gated | Client where approval gates apply | Consultant, Planner, Developer, Reviewer |
+| NOTES | LLM_Consultant | None by default | None by default | All roles |
+| ANALYSIS | LLM_Consultant | Client / Consultant review as needed | Client when analysis drives approval | Consultant, Client |
+| PROPOSAL | LLM_Consultant | Reviewer input when gate-backed | Client | Consultant, Client, downstream implementers |
+| VERIFICATION | LLM_Reviewer (preferred) | Client consumes verdict | Client decides through GDR | Consultant, Client |
+| DEV-REPORT | LLM_Developer | Reviewer consumes as evidence | None directly | Reviewer, Consultant |
+
+Source: `T104-RES-003` Topic 8 (Workspace Artifact Integration & Industry Benchmark Analysis).
+
+---
+
+## 9. FILE NAMING & DIRECTORY CONVENTIONS
 
 This workspace adopts the approved directory and file naming conventions defined in:
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` (`P-STD-004`)
@@ -135,7 +184,7 @@ This workspace adopts the approved directory and file naming conventions defined
 
 ---
 
-## 8. ANTI-DRIFT RULES
+## 10. ANTI-DRIFT RULES
 
 ### A. Link Don't Duplicate
 
@@ -152,11 +201,11 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 
 - Session notes (`notes_...-SES###.md`) capture execution history.
 - Plans and roadmaps capture intent, not history.
-- Proposals capture development workspace, not final decisions.
+- `gate_disposition` proposals host the authoritative Gate Decision Record (GDR) for gate closure decisions.
 
 ---
 
-## 9. MARKDOWN STRUCTURE
+## 11. MARKDOWN STRUCTURE
 
 | Level | Markdown | Usage |
 |:--|:--|:--|
@@ -165,10 +214,11 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 
 ---
 
-## 10. CHANGELOG
+## 12. CHANGELOG
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.8.0 | 2026-03-15 | Amendment | Added §7 (Workflow Chain and Handoff Contracts) with canonical workflow chain, Gate-Readiness Stack cross-reference, and inter-artifact linkage rules. Added §8 (Role-to-Artifact Ownership Matrix). Fixed stale "proposals are not final decisions" in anti-drift rules (GAP-008). Source: T104-PH001-ST008-AC001.2; T104-RES-003 Topics 2, 3, 8. |
 | v2.7.0 | 2026-03-13 | Update | Delivered DEV-REPORT Draft 1 authoring surfaces under AC006: registered `guideline_workspace_dev-report.md` and `template_workspace_dev-report.md`, and removed DEV-REPORT “Draft 1 planned” markers from §3, §4.E, and §5. |
 | v2.5.0 | 2026-03-04 | Update | §3 VERIFICATION purpose: removed "Gate Decision Record (GDR)", replaced with "reviewer verdict". §3 PROPOSAL purpose: added "(incl. Gate Decision Record)". §6.D Reviewer boundary: clarified that GDR is hosted in consultant-owned gate_disposition proposal, reviewer produces verdict only. Source: T104-PH001-ST008-AC001 Option B approval. |
 | v2.4.0 | 2026-03-03 | Update | Delivered PROPOSAL Draft 1 inventory for AC008: added archetype-specific proposal templates, marked proposal guideline as delivered, and recorded legacy proposal template deprecation + archive path. |

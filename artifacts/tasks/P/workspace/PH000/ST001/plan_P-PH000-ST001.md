@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.18'
-date: '2026-03-13'
+version: '0.1.20'
+date: '2026-03-15'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -43,7 +43,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `completed` | LLM_Consultant | AC002 | `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md` |
 | AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `completed` | LLM_Consultant | AC006 | `analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md` + updated `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/plan_P-PH000-ST001-AC007.md` |
 | AC008 | `P-PH000-ST001-AC008` | Author Evidence-Retention Governance Policy (Sibling Artifact) | `planned` | LLM_Consultant | AC003 | Future program-level governance policy artifact for evidence-retention duration | — |
-| AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `planned` | LLM_Consultant | `P-PH000-ST004-AC003-GATE-002` | Updated `standard_P-STD-001_program-governance-standard.md` + updated guideline/template derivatives + updated `AGENTS.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md` |
+| AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `planned` | LLM_Consultant | `P-PH000-ST004-AC003-GATE-002` | AC009 readiness package (`TK000` + `GATE-000`) + updated `standard_P-STD-001_program-governance-standard.md` + updated prompt-owned derivatives + `P-CON-003` clarification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md` |
 | AC010 | `P-PH000-ST001-AC010` | Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs) | `planned` | LLM_Consultant | AC009 | Updated P-STD-002, P-STD-004, P-STD-005 (YAML + Provenance + References alignment) | — |
 
 ---
@@ -260,16 +260,21 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Activity ID**: `P-PH000-ST001-AC009`
 
-**Purpose**: Harden `P-STD-001` (Program Governance Standard) by adding new normative CLAUSEs for specification metadata governance — YAML frontmatter requirements, in-file version tracking, Provenance subsection structure, and References subsection structure — grounded in industry best practices from `P-RES-003` research. Additionally, apply self-alignment to P-STD-001's own structure so the meta-standard conforms to its own new CLAUSEs, and update all derivative files (guideline, template, AGENTS.md).
+**Purpose**: Harden `P-STD-001` (Program Governance Standard) by first locking AC009 as implementation-ready through an internal readiness package, then adding new normative CLAUSEs for specification metadata governance — YAML frontmatter requirements, in-file version tracking, Provenance subsection structure, and References subsection structure — grounded in industry best practices from `P-RES-003` research. Additionally, apply self-alignment to P-STD-001's own structure so the meta-standard conforms to its own new CLAUSEs, update prompt-owned derivative files, and clarify `P-CON-003`.
 
 **Deliverable (contract stub)**:
+- Readiness package:
+  - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/analysis/analysis_P-PH000-ST001-AC009-TK000_activity-plan-readiness-assessment.md`
+  - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/proposal/proposal_P-PH000-ST001-AC009-TK000_gate-000-readiness-disposition-package.md`
 - Updated standard: `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`
 - Updated guideline: `prompt/templates/consultant/standards/guideline_standard_specs.md`
 - Updated template: `prompt/templates/consultant/standards/template_standard_specs.md`
 - Updated directive: `prompt/AGENTS.md`
+- Updated SPS clause clarification: `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md`
 
 **Scope**:
 - In scope:
+  - Add AC009-local readiness packaging (`TK000` + `GATE-000`) before drafting begins
   - Draft new P-STD-001 CLAUSEs based on P-RES-003 integration recommendations:
     - YAML frontmatter requirements for combined standard-specification files (required fields, schema)
     - In-file version tracking / amendment history requirements
@@ -277,11 +282,14 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
     - References subsection canonical structure (heading normalization)
   - Self-alignment: apply new CLAUSEs to P-STD-001's own Provenance, References, and add YAML frontmatter
   - Conformance coupling: update guideline + template derivatives per P-STD-001-CLAUSE-005B
-  - Update AGENTS.md with P-STD-002, P-STD-004, P-STD-005 governance references
+  - Update `prompt/AGENTS.md` with the prompt-repo authoring guidance required by the new metadata model
+  - Clarify `sps_P-PROGRAM.md` `P-CON-003` to point to the new `P-STD-001` metadata schema and authority split
   - Specification Index update for new CLAUSEs
 - Out of scope:
   - Modifying P-STD-002, P-STD-004, P-STD-005 content (that belongs to AC010)
   - Research commissioning (that belongs to ST004-AC003)
+  - Editing upstream ST004 / `P-RES-003` artifacts as part of AC009
+  - Updating root `AGENTS.md`, `.claude/CLAUDE.md`, or role `CLAUDE_*` wrappers in this activity
   - Repo-wide reference sweeps
 
 **Depends On**: `P-PH000-ST004-AC003-GATE-002` (P-RES-003 report and integration package approval)
@@ -289,10 +297,11 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 **Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md`
 
 **Success Criteria Checklist (summary)**:
+- [x] AC009 readiness package accepted through `P-PH000-ST001-AC009-GATE-000`
 - [ ] New P-STD-001 CLAUSEs authored for YAML frontmatter, version tracking, Provenance structure, References structure
 - [ ] P-STD-001 self-aligns to its own new CLAUSEs (YAML block added, Provenance restructured, References heading normalized)
 - [ ] Guideline + template updated per conformance coupling (P-STD-001-CLAUSE-005B)
-- [ ] AGENTS.md updated with all P-STD references (P-STD-002, P-STD-004, P-STD-005)
+- [ ] `prompt/AGENTS.md` and `P-CON-003` updated to reflect the new metadata authority model
 - [ ] Specification Index updated for new CLAUSEs
 - [ ] All new CLAUSEs traceable to P-RES-003 findings
 - [ ] AC009 output package accepted and ready for AC010 handoff
@@ -335,7 +344,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 ## IV. DEPENDENCY NOTES (DOWNSTREAM ADOPTERS)
 
-- **AC009** (Harden P-STD-001) depends on `P-PH000-ST004-AC003-GATE-002` (closed 2026-03-13, APPROVE WITH CONDITIONS). The intake surface includes the report, client-facing integration analysis, Gate-002 disposition proposal, and external review analysis. AC009 may now begin execution.
+- **AC009** (Harden P-STD-001) depends on `P-PH000-ST004-AC003-GATE-002` (closed 2026-03-13, APPROVE WITH CONDITIONS). The intake surface includes the report, client-facing integration analysis, Gate-002 disposition proposal, and external review analysis. AC009 may now begin local readiness packaging (`TK000` / `GATE-000`), but drafting execution remains blocked until `P-PH000-ST001-AC009-GATE-000` records an approving GDR.
 - **AC010** (Cross-Standard Conformance) depends on AC009 completion. New P-STD-001 CLAUSEs must be finalized before applying conformance fixes to governed standards.
 - **T104 adoption/binding** (e.g., `T104-PH001-ST002-AC000`) is downstream work and SHOULD be treated as dependent on:
   - `P-PH000-ST001-AC002` (Program Governance Standard authoring) and
@@ -349,6 +358,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.20 | 2026-03-15 | Gate closure | Checked AC009 GATE-000 readiness success criterion. Evidence: GATE-000 GDR (proposal v1.1.0). |
+| v0.1.19 | 2026-03-15 | Amendment | AC009 contract amended for implementation readiness: added local readiness packaging (`TK000` + `GATE-000`), clarified the explicit upstream dependency on `P-PH000-ST004-AC003-GATE-002`, locked a consume-only boundary for ST004 / `P-RES-003` artifacts, narrowed derivative instruction-surface scope to prompt-owned surfaces, and added `P-CON-003` clarification to the AC009 deliverable contract. |
 | v0.1.18 | 2026-03-13 | Housekeeping | Updated AC009 dependency note to reflect Gate-002 closure (2026-03-13). Evidence: proposal GDR v1.2.0. |
 | v0.1.17 | 2026-03-13 | Amendment | Linked AC009 to its standalone activity plan, updated the dependency from generic ST004-AC003 sign-off to the explicit `P-PH000-ST004-AC003-GATE-002` approval, and aligned the stream-plan contract to the 2-gate AC003 model. Evidence: Gate-002 integration package authoring session. |
 | v0.1.16 | 2026-03-12 | Amendment | Registered AC009 (Harden P-STD-001: Research-Backed Metadata & Structure Governance) and AC010 (Cross-Standard Conformance Pass) with contract stubs. AC009 depends on ST004-AC003 (P-RES-003 research); AC010 depends on AC009. Evidence: consultation session (2026-03-12). |

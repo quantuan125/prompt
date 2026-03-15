@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
-version: '1.0.0'
-date: '2026-03-09'
+version: '1.1.0'
+date: '2026-03-15'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -38,7 +38,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | Activity | Activity ID | Name | Status | Owner | Depends On | Deliverable | Reference |
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | AC001 | `P-PH000-ST002-AC001` | Define status artifact schema + update protocol | `completed` | LLM_Consultant | — | Absorbed by P-STD-002 acceptance (normative authority: P-STD-002E CLAUSEs 043–054) | SES001-DEC002 |
-| AC002 | `P-PH000-ST002-AC002` | Design & Author Program Status Artifact Set | `planned` | LLM_Consultant / LLM_Developer | ST001-AC003 (satisfied) | Ledger (`status_program.yaml`) + Narrative (`status_program.md`) at `prompt/artifacts/tasks/P/status/` | `analysis_P-PH000-ST002_status-system-implementation-requirements.md` |
+| AC002 | `P-PH000-ST002-AC002` | Design & Author Program Status Artifact Set | `planned` | LLM_Consultant / LLM_Developer | ST001-AC003 (satisfied) | Ledger (`status_program.yaml`) + Narrative (`status_program.md`) at `prompt/artifacts/tasks/P/status/` | `plan_P-PH000-ST002-AC002.md` |
 | AC003 | `P-PH000-ST002-AC003` | Backfill & Validate Initial Program Entries | `planned` | LLM_Developer / LLM_Reviewer | AC002 | Populated P + T102 + T104 entries at activity-level granularity | AC002 deliverables |
 
 ---
@@ -103,41 +103,25 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 **Deliverables**:
 - `prompt/artifacts/tasks/P/status/status_program.yaml` — Canonical program status ledger
 - `prompt/artifacts/tasks/P/status/status_program.md` — Derived program status narrative + operational protocol + changelog
-- Activity plan: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md`
+
+**Scope**:
+- In scope: resolve remaining design decisions (GATE-001), author ledger skeleton per CLAUSE-046, author narrative template per CLAUSE-043, validate P-STD-002E conformance
+- Out of scope: populating initiative data (deferred to AC003); evidence-retention governance (deferred to P-PH000-ST001-AC008)
+
+**Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md`
+
+**Primary Input**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-implementation-requirements.md`
 
 **Depends On**:
 - `P-PH000-ST001-AC003` (Program Status Standard — satisfied)
 
-**Primary Input**:
-- `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-implementation-requirements.md` — Implementation requirements analysis (§V.C–E: ledger schema, narrative structure, agent-role binding)
-
-**Scope**:
-- In scope: resolve remaining design decisions (AC002-TK001), author ledger skeleton with CLAUSE-046 baseline schema, author narrative template with CLAUSE-043 sections + operational protocol, validate P-STD-002E conformance
-- Out of scope: populating initiative data (deferred to AC003); evidence-retention governance (deferred to ST001-AC008)
-
-**Confirmed Design Decisions** (from SES001):
-- Ledger format: `.yaml` (SES001-DEC003)
-- Entry granularity: Activity level (SES001-DEC004)
-- Narrative sections: CLAUSE-043 recommended set (SES001-DEC005)
-- Changelog: embedded in narrative (SES001-DEC006)
-- Operational protocol: embedded in narrative (SES001-DEC007)
-- `P` self-entry: included (SES001-DEC009)
-- SID hierarchy: generalized per P-STD-005 (SES001-DEC010)
-
-**Task Overview** (detailed task register in activity plan):
-- TK001: Resolve remaining implementation design decisions (consultation)
-- TK002: Author ledger skeleton (`status_program.yaml`)
-- TK003: Author narrative template (`status_program.md`)
-- TK004: Validate P-STD-002E conformance
-- GATE-001: Client acceptance of artifact set skeleton
-
-**Success Criteria**:
+**Success Criteria (summary)**:
 - [ ] Ledger exists at canonical path with CLAUSE-046 baseline schema
 - [ ] Narrative exists at canonical path with all required sections
 - [ ] Operational update protocol maps P-STD-002D RACI to workspace agent roles
-- [ ] Both artifacts pass P-STD-002E conformance validation (CLAUSE-043 through CLAUSE-054)
-- [ ] MVAT fields present in all entry skeletons (CLAUSE-054)
-- [ ] P-STD-004 placement rules satisfied (CLAUSE-047)
+- [ ] Both artifacts pass P-STD-002E conformance validation (CLAUSEs 043–054)
+- [ ] GATE-002 GDR records client acceptance
 
 #### Activity AC003: Backfill & Validate Initial Program Entries
 
@@ -185,6 +169,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-15 | Amendment | AC002 section simplified to contract stub per guideline_workspace_plan.md §IV.D. Detailed task register, design decisions, and execution-level content moved to standalone activity plan (`plan_P-PH000-ST002-AC002.md`). Activity Register Reference updated. GATE-001 (design decision approval) added between TK001 and TK002 in activity plan. Evidence: current consultation session. |
 | v1.0.0 | 2026-03-09 | Major Amendment | Stream plan revised for implementation readiness. AC001 marked `completed` (absorbed by P-STD-002 acceptance per SES001-DEC002). AC002 re-scoped as "Design & Author Program Status Artifact Set" with expanded deliverables and confirmed design decisions. AC003 added as new activity for backfill and validation. Implementation requirements analysis registered as primary input. Stream dependency `P-PH000-ST001-AC003` confirmed satisfied (GATE-003 APPROVE, 2026-03-09). Evidence: `snotes_P-PH000-ST002-SES001.md`. |
 | v0.1.2 | 2026-02-26 | Amendment | Added informative research integration note to AC002 section documenting combined P-RES-001 + P-RES-002 impact on implementation schema. No structural or dependency changes. Evidence: consultant session 2026-02-26. |
 | v0.1.1 | 2026-02-23 | Amendment | AC001 schema annotated as informative seed only per SES001-DEC-002; authoritative contract deferred to P-STD-002. Evidence: `raw_P-PH000-ST001-AC003-SES001.txt` |

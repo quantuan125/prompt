@@ -6,8 +6,8 @@ initiative_code: '[INITIATIVE-CODE]'
 phase: '[PHASE-NUMBER]'
 stream_id: '[INIT-PH###-ST###]'
 activity_id: '[INIT-PH###-ST###-AC### or INIT-PH###-ST###-AC###.#]'
-version: '1.1.0'
-date: 'YYYY-MM-DD'
+version: '1.2.0'
+date: '2026-03-15'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -63,6 +63,11 @@ Task Register:
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
 | TK001 | `T###-PH###-ST###-AC###-TK001` | [Task name] | `planned` | LLM_Developer | - | [Target] | - | - |
 | TK001.1 | `T###-PH###-ST###-AC###-TK001.1` | [Sub-task name] | `planned` | LLM_Developer | TK001 | [Target] | - | - |
+| TK002 | `T###-PH###-ST###-AC###-TK002` | [Last implementation task] | `planned` | LLM_Developer | TK001 | [Target] | - | - |
+| TK003 | `T###-PH###-ST###-AC###-TK003` | Produce dev-report for GATE-001 | `planned` | LLM_Developer | TK002 | `dev-report/` | `guideline_workspace_dev-report.md` | - |
+| TK004 | `T###-PH###-ST###-AC###-TK004` | Produce GATE-001 verification | `planned` | LLM_Reviewer | TK003 | `verification/` | `guideline_workspace_verification.md` | - |
+| TK005 | `T###-PH###-ST###-AC###-TK005` | Produce GATE-001 gate-disposition proposal | `planned` | LLM_Consultant | TK004 | `proposal/` | `guideline_workspace_proposal.md` | - |
+| GATE-001 | `T###-PH###-ST###-AC###-GATE-001` | Gate: [description] | `planned` | Client | TK005 | Pass/fail | `guideline_workspace_plan.md` | - |
 
 ---
 
@@ -128,6 +133,87 @@ Steps have no ID pattern, no register row, and no directory implications.
 
 ---
 
+<!--
+Gate-Readiness Stack:
+  When an activity includes a gate, the task register and detailed sections
+  SHOULD follow the Gate-Readiness Stack pattern per guideline_workspace_plan.md §VI.L.
+  The sequence is: implementation tasks → DEV-REPORT → verification → gate-disposition → gate.
+  Pure decision gates MAY omit the DEV-REPORT task.
+-->
+
+### Task TK003: Produce Dev-Report for GATE-001
+
+**Task ID**: `T###-PH###-ST###-AC###-TK003`
+
+**Purpose**: Capture bounded implementation evidence for the gate review package.
+
+**Deliverable**:
+- `[dev-report path per guideline_workspace_dev-report.md §VII]`
+
+**Steps**:
+1. Record implementation outcomes for TK001–TK002
+2. Produce validation evidence per `guideline_workspace_dev-report.md` §VI
+
+**Success Criteria**:
+- [ ] Dev-report exists with required sections per `guideline_workspace_dev-report.md` §V
+
+---
+
+### Task TK004: Produce GATE-001 Verification
+
+**Task ID**: `T###-PH###-ST###-AC###-TK004`
+
+**Purpose**: Produce independent reviewer evidence for the gate review.
+
+**Deliverable**:
+- `[verification path per guideline_workspace_verification.md §XI]`
+
+**Steps**:
+1. Perform evidence-first verification per `guideline_workspace_verification.md` §V
+2. Record reviewer verdict in Gate Recommendation section
+
+**Success Criteria**:
+- [ ] Verification artifact exists with reviewer verdict
+
+---
+
+### Task TK005: Produce GATE-001 Gate-Disposition Proposal
+
+**Task ID**: `T###-PH###-ST###-AC###-TK005`
+
+**Purpose**: Package the gate decision items and prepare the GDR for client disposition.
+
+**Deliverable**:
+- `[proposal path per guideline_workspace_proposal.md §IX]`
+
+**Steps**:
+1. Author gate-disposition proposal per `guideline_workspace_proposal.md` §V.B
+2. Populate GDR fields in pending state per `guideline_workspace_proposal.md` §VII.D
+
+**Success Criteria**:
+- [ ] Gate-disposition proposal exists with GDR section in pending state
+
+---
+
+### GATE-001: [Gate Title]
+
+**Gate ID**: `T###-PH###-ST###-AC###-GATE-001`
+
+**Entry Criteria**:
+- TK001 through TK005 are completed
+- Verification artifact exists with a reviewer verdict
+- Gate-disposition proposal exists with a populated GDR (pending state)
+
+**Reviewer**: Client
+
+**Exit Criteria**:
+- Client records decision in the GDR per `guideline_workspace_proposal.md` §VII.D
+- Gate status transitions per verdict/decision mapping
+
+**Gate-Disposition Proposal**: `[repo-relative path to gate_disposition proposal]`
+
+---
+
 ## IV. LINKS REGISTER
 
 | Link Type | Target | Path |
@@ -142,6 +228,7 @@ Steps have no ID pattern, no register row, and no directory implications.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-15 | Amendment | Added Gate-Readiness Stack example (TK003 dev-report → TK004 verification → TK005 gate-disposition → GATE-001) to Task Register and Tasks (Detailed) sections. Added `Gate-Disposition Proposal` field to gate construct example. Source: T104-PH001-ST008-AC001.2; `guideline_workspace_plan.md` §VI.L. |
 | v1.1.0 | YYYY-MM-DD | Amendment | Template updated to distinguish registered Tasks/Sub-Tasks from informal Steps and to show a dotted sub-task example. |
 | v1.0.1 | YYYY-MM-DD | Amendment | Status guidance note updated to defer to `P-STD-002` canonical work-item states. |
 | v1.0.0 | YYYY-MM-DD | Initial | Activity plan created |

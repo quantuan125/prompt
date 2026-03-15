@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'analysis_authoring'
-version: '1.1.0'
-date: '2026-03-05'
+version: '1.2.0'
+date: '2026-03-15'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -86,21 +86,35 @@ All analysis types MUST include these universal sections, in order:
 
 Then include the type-specific sections (conditional).
 
-### A. Scope & Inputs
+### A. Executive Summary (Audience-Awareness Rule)
+
+Every analysis artifact MUST include an Executive Summary as the first body section.
+
+When an analysis is consumed at a gate — specifically, when it feeds a `gate_disposition` proposal as `analysis_reference` — the Executive Summary MUST include a **Client Summary** subsection.
+
+**Client Summary requirements**:
+- Written at a level the `decision_owner_role` (typically Client) can act on without reading the full artifact body.
+- Covers: what was found, what it means for the project, and what decisions are needed at the gate.
+- Length: 5–10 bullet points recommended. Keep concise; the full analysis body provides depth.
+- MUST NOT introduce findings or recommendations not present in the analysis body.
+
+**Non-gate analysis**: When an analysis is not consumed at a gate (e.g., internal consultant working artifact), the Executive Summary follows normal authoring conventions without the Client Summary subsection requirement.
+
+### B. Scope & Inputs
 
 Scope & Inputs MUST:
 - declare in-scope and out-of-scope boundaries,
 - enumerate all primary inputs (repo-relative paths),
 - state what is assumed vs verified (if applicable).
 
-### B. Evidence / Methodology
+### C. Evidence / Methodology
 
 Evidence / Methodology MUST:
 - state how claims were derived (file reads, searches, manual checks),
 - include commands run (if any) and what they demonstrated,
 - avoid evidence-free claims.
 
-### C. Findings / GAP Register (DEC006, DEC012)
+### D. Findings / GAP Register (DEC006, DEC012)
 
 Analysis findings MUST use a lightweight GAP register (not verification findings), with bounded dispositions.
 
@@ -120,7 +134,7 @@ Analysis findings MUST use a lightweight GAP register (not verification findings
 - GAPs are tracking items. They are not “blocking” in the verification sense.
 - If something is gate-blocking, it MUST be escalated into a VERIFICATION finding at the relevant gate.
 
-### D. Downstream Actions (DEC013)
+### E. Downstream Actions (DEC013)
 
 All non-research analysis types MUST include a **Downstream Actions** section with a minimal required field set (table or bullets are acceptable). Required fields:
 - `downstream_artifact_type`
@@ -199,6 +213,7 @@ Per `P-STD-004-CLAUSE-008E`, `analysis_` artifacts MUST NOT be treated as resear
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-15 | Amendment | Added §V.A (Executive Summary Audience-Awareness Rule): when an analysis feeds a gate_disposition proposal, the Executive Summary MUST include a Client Summary subsection written for the decision_owner_role. Existing §V subsections renumbered (A→B, B→C, C→D, D→E). |
 | v1.1.0 | 2026-03-05 | Maintenance | Resolved legacy GDR ownership reference in §II (removed verification artifact as GDR host). |
 | v1.0.0 | 2026-03-01 | Initial | Draft 1 authoring guideline for ANALYSIS artifacts. Encodes AC007 GATE-000 decisions (DEC001–DEC009, DEC011–DEC013) and aligns naming/placement guidance to `P-STD-004` and `P-STD-005`. |
 

@@ -1,0 +1,63 @@
+---
+artifact_type: 'NOTES'
+notes_type: 'REGISTER_STREAM'
+initiative_id: 'T104'
+initiative_code: 'CWS'
+phase: '1'
+stream: 'ST008'
+version: '1.0.0'
+date: '2026-03-15'
+status: 'draft'
+author: 'LLM_Consultant'
+decision_owner_role: 'Client'
+plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/plan_T104-PH001-ST008.md'
+---
+
+<!--
+INDEX-ONLY: This file MUST NOT embed session bodies.
+Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-register planned activities.
+-->
+
+# STREAM NOTES REGISTER: T104 (CWS) — Phase 1 / Stream ST008: Vertical Guideline Integration & Documentation Rules Alignment
+
+## I. STREAM SUMMARY
+
+**Stream**: ST008 (Vertical Guideline Integration & Documentation Rules Alignment)
+**Scope**: Supersedes ST005-AC004. Commissions and reviews a dual-lens research report (T104-RES-003) benchmarking the 7-artifact workspace against traditional SE/PM and LLM-agentic patterns, performs a vertical integration audit, and synthesizes findings into an integration model for `workspace_documentation_rules.md`. Downstream activities (AC003: cross-guideline gap resolution, AC004: documentation rules consolidation) consume the accepted research package.
+**Status**: `in_progress`
+
+---
+
+## II. STREAM-LEVEL SESSION NOTES REGISTER
+
+| Session | Session ID | Title | Date | Notes File |
+|:--|:--|:--|:--|:--|
+| — | — | — | — | — |
+
+---
+
+## III. ACTIVITY NOTES REGISTER
+
+| Activity | Session ID | Name | Notes File |
+|:--|:--|:--|:--|
+| AC002 | `T104-PH001-ST008-AC002-SES001` | Research Brief Scoping & Commissioning | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/snotes/snotes_T104-PH001-ST008-AC002-SES001.md` |
+| AC002 | `T104-PH001-ST008-AC002-SES002` | GATE-001 Readiness Remediation + Dual-Lens Brief Update | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/snotes/snotes_T104-PH001-ST008-AC002-SES002.md` |
+| AC002 | `T104-PH001-ST008-AC002-SES003` | GATE-002 External Review, Package Gap Analysis & Guideline Enhancement Decisions | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/snotes/snotes_T104-PH001-ST008-AC002-SES003.md` |
+
+---
+
+## IV. LINKS (PRIMARY)
+
+- Stream plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST008/plan_T104-PH001-ST008.md`
+- AC002 Activity Plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/plan_T104-PH001-ST008-AC002.md`
+- Phase plan: `prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md`
+- Phase notes register: `prompt/artifacts/tasks/T104/workspace/PH001/notes_T104-PH001.md`
+- Notes guideline: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
+
+---
+
+## V. CHANGELOG
+
+| Version | Date | Type | Summary |
+|:--|:--|:--|:--|
+| v1.0.0 | 2026-03-15 | Initial | Stream notes register created for ST008. Backfilled AC002-SES001 and AC002-SES002 (existing session files without a register). Registered AC002-SES003 (GATE-002 external review and guideline enhancement decisions). |

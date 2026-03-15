@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'proposal_authoring'
-version: '1.2.0'
-date: '2026-03-12'
+version: '1.4.0'
+date: '2026-03-15'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -101,7 +101,7 @@ Required ordered sections:
 
 Required ordered sections:
 1. Executive Summary
-2. Evidence Index
+2. Gate Package
 3. Disposition Summary Register
 4. Detailed Disposition Register
 5. Gate Recommendation
@@ -110,6 +110,28 @@ Required ordered sections:
 8. Changelog
 
 Disposition item token rule: use `GIR-###`.
+
+**Gate Package section specification**:
+
+The Gate Package section (Section II) MUST include two subsections:
+
+**A. Gate Package Index** — A deliverables-oriented table showing what was produced up to the gate, its status, and reading guidance for the client. This is the client's primary navigation surface.
+
+Required columns: `| Deliverable | Producing Task | Status | Acceptance | Client Priority | Path |`
+
+Column definitions:
+- `Deliverable`: Plain-language name of the output (e.g., "Research Report", "Verification Report")
+- `Producing Task`: The task ID that produced this deliverable (e.g., `TK002`)
+- `Status`: Deliverable completion status per `P-STD-002` (e.g., `completed`, `in_progress`)
+- `Acceptance`: Gate-level acceptance status: `accepted`, `accepted-provisional`, `blocked`, `pending`, or `N/A`
+- `Client Priority`: Reading guidance for the client: `Required` (client must review), `Recommended` (client should review for context), `Reference` (available if needed)
+- `Path`: Repo-relative path to the deliverable
+
+**B. Evidence Index** — The existing governance traceability table linking all artifacts reviewed at the gate.
+
+Required columns: `| Evidence Type | Artifact | Path | Notes |`
+
+This table retains its current purpose: linking evidence artifacts (verification, analysis, plans, standards) for audit traceability. It MAY include artifacts not listed in the Gate Package Index (e.g., governing standards, prior gate records, session notes).
 
 ### C. `promotion_contract`
 
@@ -186,6 +208,7 @@ Policy: additional optional keys are permitted when justified by the archetype; 
 - The authoritative approval signal is the proposal-embedded `## Gate Decision Record` section.
 - Decision-gate proposals MAY use a proposal-embedded GDR without a separate verification artifact.
 - When a verification artifact also exists for the same gate, the proposal-embedded GDR is the authoritative decision record.
+- **Plan-level positioning**: The gate-disposition proposal task SHOULD appear as part of the Gate-Readiness Stack — after the verification task and immediately before the gate row in the plan's Task Register. The gate construct MUST include a `Gate-Disposition Proposal` field referencing the proposal path. For the full pattern, see `guideline_workspace_plan.md` §VI.L.
 
 ### B. Verification gate
 
@@ -297,6 +320,8 @@ Legacy compatibility surface:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.4.0 | 2026-03-15 | Amendment | §VII.A: Added Gate-Readiness Stack cross-reference to `guideline_workspace_plan.md` §VI.L for plan-level positioning of gate-disposition proposal tasks and mandatory `Gate-Disposition Proposal` gate field. Source: T104-PH001-ST008-AC001.2. |
+| v1.3.0 | 2026-03-15 | Amendment | Split complex schema mappings (§IV/§VIII) into distinct sections: §VIII (Artifact vs Package Concept), §IX (Package Layout Examples), and §X (Template Inventory). Eliminated nested index-of-arrays representation. Refined `gate_disposition` definition in §V.B to resolve template drift. Source: T104-PH001-ST008-AC002 (GATE-002 Verification). |
 | v1.2.0 | 2026-03-12 | Amendment | Clarified verification-gate RECYCLE handling in §VII. Added `Gate Status After Decision` to the GDR, defined RECYCLE as same-gate reassessment with `in_progress` gate status, required remediation/re-entry details in RECYCLE conditions, and made downstream blocking explicit until the same gate later receives an approving decision. |
 | v1.1.0 | 2026-03-04 | Amendment | §VII expanded from "Decision Gate vs Verification Gate Semantics" to "Gate Semantics & Gate Decision Record (GDR)". Now includes full GDR field specification (§VII.C), GDR lifecycle (§VII.D), and GDR enforcement (§VII.E) — migrated from `guideline_workspace_verification.md` §X per T104-PH001-ST008-AC001 Option B approval. Proposal guideline is now the sole normative GDR authority. |
 | v1.0.0 | 2026-03-03 | Initial | Draft 1 proposal authoring guideline delivered for AC008 TK002. Encodes GATE-000 decisions for archetype taxonomy, multi-template posture, frontmatter baseline, gate semantics, authority references, naming/placement, and template inventory. |

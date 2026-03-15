@@ -5,7 +5,7 @@ initiative_id: '[INITIATIVE-ID]'
 initiative_code: '[INITIATIVE-CODE]'
 phase: '[PHASE-NUMBER]'
 stream_id: '[INIT-PH###-ST###]'
-version: '1.0.1'
+version: '1.0.2'
 date: 'YYYY-MM-DD'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -48,7 +48,8 @@ parent_plan: '[path/to/phase/plan.md]'
 <!--
 Activities here are CONTRACT-LEVEL.
   - If no standalone Activity Plan exists, include the Task Register here.
-  - If a standalone Activity Plan exists, keep only the contract stub here (Purpose/Deliverable/Scope/Inputs + short Success Criteria summary) and omit the Task Register to avoid drift.
+  - If a standalone Activity Plan exists, keep only the contract stub here (Purpose/Deliverable/Scope/Activity Plan link + short Success Criteria summary).
+  - Do not duplicate task/gate registers, package breakdowns, evidence inventories, gate criteria, or execution-history detail here when the standalone Activity Plan exists.
 -->
 ## III. ACTIVITIES (HIGH-LEVEL)
 
@@ -69,6 +70,7 @@ Activities here are CONTRACT-LEVEL.
 
 **Activity Plan** (optional, recommended when detailed decomposition is needed):
 - `[path/to/activity/plan.md]` — MUST match Activity Register `Reference` when present
+- When present, detailed tasks, gates, evidence, and sequencing live in the linked Activity Plan.
 
 **Inputs Required** (optional):
 - `[input path]` — [Why needed]
@@ -79,7 +81,8 @@ Use canonical P-STD-002 work-item states per guideline_workspace_plan.md §III.B
 
 ANTI-DRIFT:
   - If `Activity Plan` is present (not `—`), DO NOT duplicate a full Task Register here.
-  - Keep only the contract stub (Purpose/Deliverable/Scope/Inputs) + a short Success Criteria summary.
+  - Keep only the contract stub (Purpose/Deliverable/Scope/Activity Plan link) + a short Success Criteria summary.
+  - Do not add detailed package composition, evidence lists, gate criteria, or execution-status narrative here.
 -->
 **Task Register** (omit when Activity Plan exists):
 
@@ -135,5 +138,6 @@ See T104-STD-001 CLAUSE-004 (pending).
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.0.2 | YYYY-MM-DD | Amendment | Tightened standalone Activity Plan anti-drift comments: stream activity sections remain high-level stubs only and must not duplicate task/gate/package/evidence detail from linked activity plans. |
 | v1.0.1 | YYYY-MM-DD | Amendment | Register comments updated to defer to `P-STD-002` canonical work-item states. |
 | v1.0.0 | YYYY-MM-DD | Initial | Stream plan created |

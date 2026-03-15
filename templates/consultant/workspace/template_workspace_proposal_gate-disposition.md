@@ -7,7 +7,7 @@ stream_id: '[SID-PH###-ST###]'
 activity_id: '[SID-PH###-ST###-AC###]'
 task_id: '[SID-PH###-ST###-AC###-TK###]'
 gate_id: '[SID-PH###-ST###-AC###-GATE-###]'
-version: '1.1.0'
+version: '1.2.0'
 date: 'YYYY-MM-DD'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -30,12 +30,19 @@ consumers:
 
 ---
 
-## II. EVIDENCE INDEX
+## II. GATE PACKAGE
+
+### A. Gate Package Index
+
+| Deliverable | Producing Task | Status | Acceptance | Client Priority | Path |
+|:--|:--|:--|:--|:--|:--|
+| [deliverable name] | `[TK###]` | `[status]` | `[acceptance]` | [Required/Recommended/Reference] | `[path]` |
+
+### B. Evidence Index
 
 | Evidence Type | Artifact | Path | Notes |
 |:--|:--|:--|:--|
-| Analysis | [name] | `[analysis path]` | [why relevant] |
-| Plan | [name] | `[plan path]` | [dependency/gate rules] |
+| [type] | [name] | `[path]` | [why relevant] |
 
 ---
 
@@ -129,5 +136,6 @@ If `Client Decision = RECYCLE`:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-15 | Amendment | Restructured Section II from flat Evidence Index to two-part Gate Package: Gate Package Index (deliverables inventory with client reading priority) and Evidence Index (governance traceability). Aligns with guideline_workspace_proposal.md v1.3.0 §V.B. |
 | v1.1.0 | 2026-03-12 | Amendment | Added explicit recycle reassessment path guidance to the Gate Recommendation section and added `Gate Status After Decision` plus RECYCLE-specific notes to the GDR section. |
 | v1.0.0 | YYYY-MM-DD | Initial | Initial template instantiation. |

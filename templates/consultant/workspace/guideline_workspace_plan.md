@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.12.0'
-date: '2026-03-12'
+version: '1.14.0'
+date: '2026-03-15'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -110,7 +110,15 @@ Minimum contract stub in the Stream plan Activity section:
 - **Success Criteria Checklist (summary)** (max 5 checkboxes recommended)
 
 Anti-drift boundary:
-- Detailed task decomposition MUST live in the dedicated Activity Plan (do not duplicate a full Task Register in the Stream plan when an Activity Plan exists).
+- When a dedicated Activity Plan exists, the Stream plan Activity section becomes a **high-level skeleton only**.
+- Detailed execution authority MUST live in the dedicated Activity Plan; authors MUST NOT duplicate a full Task Register in the Stream plan when an Activity Plan exists.
+- Authors MUST NOT duplicate execution-level detail in the Stream plan Activity section, including:
+  - task or gate registers
+  - per-task or per-gate status histories / action trails
+  - detailed package composition or deliverable inventories beyond the concise deliverable contract
+  - evidence inventories, detailed dependency sequencing, or gate entry / exit criteria
+  - execution notes, remediation sequencing, or exemplar references whose purpose is implementation guidance rather than contract-level understanding
+- The Stream plan Activity Register row remains the canonical stream-level surface for Activity `Status`, `Depends On`, deliverable summary, and `Reference`; the dedicated Activity Plan owns detailed sequencing and evidence state.
 
 **Canonical link location**:
 - For Activities (`AC00x`): the Stream plan **Activity Register `Reference`** cell is the canonical link location.
@@ -181,6 +189,7 @@ Every Gate MUST include:
 - **Entry Criteria**: What must be ready for the gate review
 - **Reviewer**: Role responsible for the review decision
 - **Exit Criteria**: What approval/evidence is needed to pass
+- **Gate-Disposition Proposal**: Repo-relative path to the `gate_disposition` proposal that will host the authoritative GDR for this gate, or `pending` if not yet authored. See `guideline_workspace_proposal.md` §VII for GDR specification.
 
 ### D. Placement in Task Register
 
@@ -266,6 +275,49 @@ Purpose:
 - Preserve a single gate identity for a single decision boundary
 - Make recycle-loop authority and downstream blocking explicit
 - Avoid any implication that remediation completion alone unblocks downstream work
+
+### L. Gate-Readiness Stack
+
+#### Purpose
+
+The Gate-Readiness Stack is a canonical pre-gate task sequence that ensures every gate receives a structured decision package composed of producer evidence, independent verification, and a consultant-authored disposition proposal. The pattern codifies the workflow chain identified by `T104-RES-003` (Topics 2, 3, 8).
+
+#### Default Sequence
+
+Every gate SHOULD be preceded by the following ordered task sequence in the plan's Task Register:
+
+1. **Implementation tasks** — owned by `LLM_Developer` (or the implementation-responsible role). Produce the deliverables that the gate will review.
+2. **DEV-REPORT task** — owned by `LLM_Developer`. Produces bounded execution evidence per `guideline_workspace_dev-report.md`. The dev-report is verification input, not verification itself.
+3. **Verification task** — owned by `LLM_Reviewer`. Produces independent evidence-first verification per `guideline_workspace_verification.md`. Records the reviewer verdict in the verification artifact's Gate Recommendation section.
+4. **Gate-disposition proposal task** — owned by `LLM_Consultant` (or `LLM_Planner`). Produces the `gate_disposition` proposal per `guideline_workspace_proposal.md`. Hosts the authoritative Gate Decision Record (GDR).
+5. **Gate** — owned by `Client`. Consumes the gate package and records the decision in the GDR.
+
+#### Exception: Pure Decision Gates
+
+When no developer-implemented work precedes a gate (e.g., readiness-check gates, scope-boundary gates, design-decision gates), the DEV-REPORT task MAY be omitted. The verification task and gate-disposition proposal task remain mandatory.
+
+#### Task Register Placement
+
+Gate-Readiness Stack tasks MUST appear immediately before their governing gate row in the Task Register, in the sequence defined above. Downstream tasks that depend on the gate MUST appear after the gate row per §VI.D.
+
+#### Ownership
+
+Each Gate-Readiness Stack task has a fixed role owner:
+
+| Stack Position | Fixed Owner | Artifact Type | Governing Guideline |
+|:--|:--|:--|:--|
+| Implementation tasks | `LLM_Developer` | Deliverables (per plan) | Plan (this guideline) |
+| DEV-REPORT task | `LLM_Developer` | `DEV-REPORT` | `guideline_workspace_dev-report.md` |
+| Verification task | `LLM_Reviewer` | `VERIFICATION` | `guideline_workspace_verification.md` |
+| Gate-disposition proposal task | `LLM_Consultant` | `PROPOSAL` (`gate_disposition`) | `guideline_workspace_proposal.md` |
+| Gate | `Client` | Decision (GDR) | `guideline_workspace_proposal.md` §VII |
+
+#### Cross-Reference
+
+- For DEV-REPORT trigger and lifecycle rules, see `guideline_workspace_dev-report.md` §III.
+- For verification workflow and TK-before-gate pattern, see `guideline_workspace_verification.md` §III.
+- For gate-disposition proposal structure and GDR specification, see `guideline_workspace_proposal.md` §V.B and §VII.
+- For the workflow chain and role-to-artifact ownership matrix, see `workspace_documentation_rules.md` §7 and §8.
 
 ## VII. SUB-ACTIVITY RULES (AC00x.x)
 
@@ -369,6 +421,8 @@ The following templates are available for PLAN artifacts. Each template defines 
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.14.0 | 2026-03-15 | Amendment | Added §VI.C mandatory `Gate-Disposition Proposal` gate field and §VI.L Gate-Readiness Stack pattern. Codifies the canonical pre-gate task sequence ( implementation → dev-report → verification → gate-disposition → gate) with fixed role ownership and a pure-decision-gate exception. Source: T104-PH001-ST008-AC001.2 consultation; research backing T104-RES-003 Topics 2, 3, 8. |
+| v1.13.0 | 2026-03-14 | Amendment | Strengthened standalone Activity Plan anti-drift rules. Stream-level Activity sections are now explicitly high-level skeletons only when a dedicated Activity Plan exists; detailed package, gate, evidence, and execution-history duplication is prohibited. |
 | v1.12.0 | 2026-03-12 | Amendment | Added explicit recycle/reassessment-loop rules to §VI.D, §VI.E, and new §VI.K. Recycle tasks now must appear immediately after the governing gate row, use `Depends On: GATE-###`, and be documented under a mandatory `Recycle Re-entry Block` without minting derived gate IDs such as `GATE-001.1`. |
 | v1.11.0 | 2026-03-08 | Amendment | Added §IV.E task decomposition rules to formalize registered dotted sub-tasks (`TK###.n`) vs informal Steps, explicitly prohibited task/sub-task directories, and cross-linked sub-activity directory placement to `P-STD-004`. |
 | v1.10.0 | 2026-03-07 | Amendment | Aligned plan work-item status guidance to `P-STD-002` canonical lifecycle authority. Replaced legacy `deferred`/general `failed` semantics with canonical subset rules, clarified `on_hold`/`cancelled` usage, and scoped `failed` as gate-only. |

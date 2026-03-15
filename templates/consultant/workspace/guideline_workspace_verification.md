@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'verification_authoring'
-version: '1.4.0'
-date: '2026-03-12'
+version: '1.6.0'
+date: '2026-03-15'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -46,6 +46,8 @@ Verification follows a "TK-before-gate" pattern:
 
 **Mandatory Rule**: The separation of verification task (evidence production) from gate (decision) is mandatory. Verification evidence MUST NOT be produced as part of the gate event itself.
 
+**Plan-level positioning**: The verification task (step 3 above) SHOULD appear as part of the Gate-Readiness Stack — after the DEV-REPORT task and before the gate-disposition proposal task. For the full pattern, including the pure-decision-gate exception and role ownership rules, see `guideline_workspace_plan.md` §VI.L.
+
 ## IV. VERIFICATION PACKAGE
 
 ### A. Verification Package (Scope Decomposition)
@@ -57,6 +59,8 @@ Verification follows a "TK-before-gate" pattern:
 - Frontmatter linking: Primary lists supplementary paths; supplementary references primary via `primary_verification` frontmatter key.
 - The primary artifact contains the Gate Recommendation section. Supplementary artifacts contain aspect-specific findings that feed into the primary recommendation.
 - When to decompose: When a gate review covers multiple independent verification dimensions (e.g., technical correctness + convention compliance + commissioning readiness).
+- **Revision checklist use case**: When a `RECYCLE` verdict involves complex Situation A deficiencies where the primary verification's findings alone do not provide sufficient developer-actionable detail for rework execution, the reviewer SHOULD produce a supplementary verification file with aspect `revision-checklist` (e.g., `verification_<activity-UID>_gate-###_revision-checklist.md`). This supplementary file translates verification findings into developer-executable revision specifications.
+
 
 ### B. Re-assessment (Temporal Iteration)
 
@@ -133,6 +137,13 @@ Each `OBS-###` MUST include: Description, Context, Recommendation (optional).
 1. **Definition**: The requirement was correctly specified in the approved plan or standard, but the deliverable fails to meet it.
 2. **Path**: Reviewer issues FINDING-### (Situation A). Developer performs rework.
 3. **Handoff rule**: The verification artifact's findings register IS the rework handoff. No plan amendment required. No additional artifact needed. The developer reads the finding, understands the required action, and performs rework under the same task ID.
+
+**Complex revision guidance**: When findings involve multiple deliverable deficiencies with specific format or schema requirements (e.g., missing matrices with defined column structures, missing lifecycle models with paired outputs), the findings register alone may not provide sufficient implementation detail. In such cases:
+- The reviewer SHOULD produce a **supplementary verification file** (per §IV.A, aspect: `revision-checklist`) that translates each blocking finding into explicit revision items.
+- Each revision item MUST include: (1) finding reference (link to FINDING-### in primary verification), (2) revision deliverable (what the developer must produce), (3) expected format (exact schema, columns, or structure — derived from the governing brief, plan, or standard), and (4) acceptance criteria (what the reviewer will check during re-assessment).
+- The supplementary file is a scope decomposition artifact (§IV.A), NOT a re-assessment artifact (§IV.B). It is authored once alongside the primary verification and updated during re-assessment only to track resolution status.
+- The primary verification remains the gate evidence and verdict surface. The supplementary revision checklist is a developer handoff surface.
+
 
 ### B. Situation B — Scope Gap
 
@@ -238,7 +249,10 @@ The verification artifact's role at a gate is to provide evidence and a reviewer
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.6.0 | 2026-03-15 | Amendment | §III: Added Gate-Readiness Stack cross-reference to `guideline_workspace_plan.md` §VI.L for plan-level positioning of verification tasks in the pre-gate sequence. Source: T104-PH001-ST008-AC001.2. |
+| v1.5.0 | 2026-03-15 | Amendment | Added revision-checklist guidance to §IV.A and §VII.A. For complex Situation A deficiencies, reviewers SHOULD produce a supplementary verification file (aspect: revision-checklist) containing explicit revision items with finding references, expected formats, and acceptance criteria. |
 | v1.4.0 | 2026-03-12 | Amendment | Clarified RECYCLE handling across §VII, §VIII, and §IX. Situation B plan amendments now attach remediation to the same gate's reassessment loop, RECYCLE recommendations must name the same gate/remediation/downstream block set, and re-assessment versioning explicitly preserves the original gate ID. |
 | v1.2.0 | 2026-03-05 | Maintenance | Resolved legacy GDR ownership references in §II, §III, and §IV. Workflow and role boundaries now correctly identify the proposal artifact as the GDR host. |
 | v1.1.0 | 2026-03-04 | Amendment | §X (GDR) replaced with cross-reference to `guideline_workspace_proposal.md` §VII. Full GDR specification (field set, lifecycle, enforcement) migrated to proposal guideline per T104-PH001-ST008-AC001 Option B approval. Verification artifact retains Gate Recommendation (§VII template section) for reviewer verdict; GDR now hosted exclusively in gate_disposition proposals. |
 | v1.0.0 | 2026-02-25 | Initial | Draft 1 (exemplar-derived). Covers: role boundary, TK-before-gate workflow, verification package, evidence rules, findings schema, gate outcome rework paths (migrated from guideline_workspace_plan.md §VI.G), verdict taxonomy, re-assessment versioning, GDR, naming convention. Source: T104-PH001-ST005-AC005-SES001 consultation. |
+```

@@ -4,8 +4,8 @@ initiative_id: 'T104'
 epic_id: 'T104'
 research_id: 'T104-RES-003'
 version: '1.0.0'
-iteration: '1'
-date: '2026-03-13'
+iteration: '2'
+date: '2026-03-15'
 status: 'draft'
 author: 'LLM_Researcher'
 decision_owner_role: 'Client'
@@ -172,6 +172,42 @@ The strongest lifecycle fit for T104 is:
 
 Traditional governance emphasizes approval stages and controlled baselines; agentic governance emphasizes resumable state and precise handoff bundles. T104 already has most of the chain components, but it does not yet state the hybrid lifecycle centrally enough.
 
+**Traditional Governance Lifecycle**
+
+| Artifact Type | Creation Trigger | Authoring Stage | Review/Gate Stage | Approval Stage | Active/Baseline Stage | Retirement/Supersession |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| ROADMAP | Initiative or major scope direction needs sequencing | Consultant drafts phased direction and dependencies | Client / consultant review of scope and ordering | Approved when used as the governing spine for a phase | Guides phase and stream planning without carrying execution detail | Superseded by a newer roadmap version or absorbed into approved plans |
+| PLAN | Approved roadmap, stream, or activity needs executable authority | Consultant decomposes phases, streams, activities, tasks, and gates | Reviewer / client review where gate-bearing execution authority is introduced | Approved when the governed scope can enter execution | Active work authority for dependencies, statuses, and gate placement | Completed, cancelled, or superseded by version bump |
+| NOTES | A session occurs or decisions need a durable register | Session notes or register rows are captured at the correct scope | Light self-review or consumer lookup; not a formal gate surface | No direct approval; promoted decisions are approved elsewhere | Working memory and navigation surface across sessions | Archived as immutable session history or superseded by promoted artifacts |
+| ANALYSIS | Evidence must be synthesized into recommendations | Consultant assembles findings, gaps, and downstream actions | Consultant / client review when used to inform decisions | Approved only indirectly when consumed by a proposal or plan update | Active synthesis input for proposals, planning, and standards work | Superseded by later analysis or promoted into governed artifacts |
+| DEV-REPORT | A bounded implementation slice starts or completes | Developer records execution evidence and outcomes | Reviewer consumes as verification input | No direct approval; any gate approval occurs downstream | Active producer-evidence surface for verification and handoff | Frozen after the slice completes or consolidated into later evidence |
+| VERIFICATION | A gate or readiness check requires independent review | Reviewer performs evidence-first checks and writes findings | Reviewer finalizes checklist, findings, and verdict | Client acts on the verdict through the proposal GDR | Active gate-evidence baseline until a client decision is recorded | Superseded by reassessment version or closed with the gate |
+| PROPOSAL | A decision, approval, or gate disposition is required | Consultant packages options, recommendations, and GDR fields | Client reviews with reviewer evidence as needed | Client records the authoritative decision in the GDR | Active decision and downstream-unblock surface | Closed after decision or superseded by a later proposal revision |
+
+**Agentic Consumption Lifecycle**
+
+| Artifact Type | Discovery/Loading | Context Packaging | Active Consumption | Handoff/Transfer | Recovery/Resumption | Archival/Supersession |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| ROADMAP | Loaded by initiative / phase ID as the top-level navigation spine | Carries only high-level phase ordering, links, and dependency context | Used to choose which phase or stream plan to load next | Transfers attention to child plans rather than replaying execution detail | Recovery starts from the latest roadmap plus linked plans | Older roadmap versions become historical once a new spine is published |
+| PLAN | Loaded by exact scope ID, task ID, or gate ID | Packages bounded scope, dependencies, statuses, and gate references | Serves as the primary execution and coordination contract | Hands off to developers, reviewers, or consultants through explicit task/gate references | Resume work from the current task/gate row rather than full conversation history | Superseded by the newest plan version for the same scope |
+| NOTES | Loaded by register path or exact `snotes_...SES###` identifier | Packages time-bounded working state with pending vs confirmed decisions | Supports session recall, context recovery, and quick lookup | Transfers bounded session context to another agent without promoting authority | Resume from the latest session note plus referenced authority artifacts | Register persists as index; session files remain immutable history |
+| ANALYSIS | Loaded from plan, proposal, or research links | Packages evidence-backed synthesis and downstream recommendations | Used to understand implications without re-reading the entire evidence set | Hands off concise findings/gaps to proposals, plans, or standards work | Recovery starts from the executive summary and findings register | Superseded by newer analysis when recommendations are refreshed |
+| DEV-REPORT | Loaded by task or target gate reference | Packages execution evidence only, without redefining scope | Used by reviewers and consultants as navigational evidence | Transfers implementation outcomes into verification and later planning | Recovery uses the bounded slice summary instead of raw terminal history | Closed once the slice is verified or consolidated |
+| VERIFICATION | Loaded by gate ID and linked target deliverables | Packages checklist evidence, findings, and reviewer verdict | Used as the reviewer-owned truth surface for gate readiness | Transfers explicit findings to developers and verdict to proposals | Recovery follows versioned reassessment history for the same gate ID | Older versions become historical after reassessment |
+| PROPOSAL | Loaded by gate ID or task decision surface | Packages decision options, recommendation, and GDR fields | Used by the client as the approval / disposition surface | Transfers approved decisions into downstream plans and execution | Recovery starts from the latest proposal version and current GDR state | Closed proposals become audit records after decision capture |
+
+**Lifecycle Reconciliation Commentary**
+
+| Artifact Type | Traditional Recommendation | Agentic Recommendation | T104 Integration Implication |
+| :--- | :--- | :--- | :--- |
+| ROADMAP | Keep the roadmap thin and directional | Keep it as a navigation spine, not a state dump | AC004 should codify roadmap-as-pointer behavior |
+| PLAN | Preserve plans as the baseline work authority | Preserve plans as the main resumable execution contract | The workflow chain should explicitly anchor downstream work on plans |
+| NOTES | Treat notes as non-authoritative working records | Keep notes session-bounded and explicit about pending vs confirmed state | AC003 should harden the notes package to protect handoff quality |
+| ANALYSIS | Preserve analysis as synthesis, not approval evidence | Preserve it as a compressed reasoning surface for later agents | Keep analysis outside gate closure while making it a first-class handoff surface |
+| DEV-REPORT | Preserve it as producer evidence only | Preserve it as replay-safe execution context | AC004 should keep DEV-REPORT separate from scope or verdict authority |
+| VERIFICATION | Preserve reviewer-owned gate evidence | Preserve versioned reassessment as the recovery pattern | The same gate ID should remain authoritative across recycle loops |
+| PROPOSAL | Preserve proposal as the client decision package | Preserve it as the final approval / unblock packet | AC003 / AC004 should continue to keep GDR ownership inside proposals |
+
 #### C. Governance Implication
 AC004 should treat lifecycle codification as integration work, not as a future optional refinement. Without a documented workflow chain, downstream agents and human contributors are forced to infer sequencing from scattered guidelines rather than one initiative-level surface.
 
@@ -197,6 +233,21 @@ The hybrid model T104 needs is not a new artifact type. It is a contract layer a
 - deterministic link surfaces
 - compact handoff payloads
 - clear separation between evidence, verdict, and decision
+
+**Integration-Pattern Catalogue Matrix**
+
+| Pattern Family | Source Artifact | Target Artifact | Trigger Condition | Handoff Contract | T104 Implication |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| Traditional - Baseline Cascade | ROADMAP | PLAN | A phase or stream moves from direction-setting into executable planning | Roadmap points to the governing plan; the plan absorbs execution detail and gate placement | AC004 should codify roadmap-as-thin-spine behavior |
+| Traditional - Research Commission | RESEARCH_BRIEF | REPORT | `GATE-001` approves the commissioned research brief | The report must answer the brief topic contracts with explicit deliverable surfaces and citations | AC002 gate discipline depends on brief-complete report delivery |
+| Hybrid - Research Synthesis | REPORT | ANALYSIS | Report findings need downstream consumption without changing report scope | Analysis separates reusable findings from gate defects and maps them to next activities | Keep analysis as the non-gate synthesis layer for AC003 / AC004 |
+| Traditional - Execution Authority | PLAN | DEV-REPORT | A bounded implementation slice starts under tracked task authority | Plan provides scope and gate targets; DEV-REPORT records execution evidence only | Preserve the plan as work authority and DEV-REPORT as evidence only |
+| Agentic - Session Capture | PLAN | NOTES | Live execution or consultation work generates transient state that must be resumed later | Notes capture session-bounded state and pending decisions while linking back to the authoritative plan | AC003 notes cleanup is required for deterministic retrieval |
+| Hybrid - Evidence Review | DEV-REPORT | VERIFICATION | A deliverable or gate must be reviewed independently | Reviewer uses DEV-REPORT as navigation input but produces independent verification evidence | Maintain evidence-first verification and avoid producer-verdict blending |
+| Hybrid - Gate Decision | VERIFICATION | PROPOSAL | Reviewer verdict is ready for client disposition | Proposal packages the verdict into client decision surfaces and hosts the authoritative GDR | AC003 / AC004 must preserve the proposal-owned GDR model |
+| Agentic - Resumable Handoff | NOTES | ANALYSIS | Another agent needs compressed reasoning without replaying the full session log | Promote bounded notes into evidence-backed synthesis rather than passing raw history | AC004 should add explicit handoff-bundle rules |
+| Hybrid - Approval Closure | PROPOSAL | PLAN | Client approves a gate or decision that unblocks downstream work | Approved proposal state updates plan statuses and unblocks dependent tasks | Gate closure should update plan status surfaces, not duplicate authority elsewhere |
+| Hybrid - Standards Registration | REPORT | SPS | Commissioned research reaches package-ready state and must be indexed | SPS stores canonical brief/report links while the report remains the substantive evidence surface | SPS registration stays in the same gate package but does not replace report acceptance |
 
 #### C. Governance Implication
 This is the primary justification for a Topic 8 integration model. AC004 should not simply restate artifact inventory; it should codify the handoff contract among artifacts and roles.
@@ -235,6 +286,22 @@ The cross-reference problem is not evenly distributed. Most post-AC001 gate refe
 - NOTES template linkage
 - stale version/path references in planning/briefing surfaces
 
+**Cross-Reference Integrity Matrix**
+
+| Source Guideline | Referenced Target | Reference Type | Resolution Status |
+| :--- | :--- | :--- | :--- |
+| `guideline_workspace_plan.md` | `prompt/templates/consultant/workspace/README.md` (`template_reference`) | path | STALE |
+| `guideline_workspace_plan.md` | legacy naming / placement authority surfaces instead of `P-STD-004` | path | STALE |
+| `guideline_workspace_roadmap.md` | legacy naming / placement authority surfaces instead of `P-STD-004` | path | STALE |
+| `guideline_workspace_notes.md` | `template_workspace_notes_register_phase.md` register/session example alignment | path | STALE |
+| `guideline_workspace_notes.md` | `template_workspace_notes_register_stream.md` register/session example alignment | path | STALE |
+| `guideline_workspace_notes.md` | `template_workspace_notes_register_activity.md` register/session example alignment | path | STALE |
+| `guideline_workspace_analysis.md` | `template_workspace_analysis.md` | path | OK |
+| `guideline_workspace_proposal.md` | `template_workspace_proposal_gate-disposition.md` GDR placement ordering | anchor | BROKEN |
+| `guideline_workspace_proposal.md` | `template_workspace_proposal_gate-disposition.md` allowed-value set (`pending`, `N/A — decision gate`) | anchor | BROKEN |
+| `guideline_workspace_verification.md` | `guideline_workspace_plan.md §VII` vs `§IV.E` for verification-driven rework authority | anchor | BROKEN |
+| `guideline_workspace_dev-report.md` | `template_workspace_dev-report.md` | path | OK |
+
 #### C. Governance Implication
 These are localized but real defects. They should seed AC003 because they create retrieval ambiguity and audit friction without requiring a model change.
 
@@ -265,6 +332,35 @@ The gate model itself is workable. The unresolved problem is interpretability:
 - who may decompose tasks
 - which surface is authoritative for role definitions
 
+**Role-Boundary Consistency Matrix**
+
+| Guideline | Role | Defined Boundary | Conflicts with Other Guidelines |
+| :--- | :--- | :--- | :--- |
+| `guideline_workspace_plan.md` | `LLM_Consultant` | Consultant authors plan artifacts and live activity plans currently carry task/gate decomposition | Conflicts with `workspace_documentation_rules.md` language that implies consultant-authored implementation decomposition should stay out of scoped rules |
+| `guideline_workspace_plan.md` | `LLM_Planner` | Planner role is implicit in plan consumption but not granted exclusive scoped authoring authority | Diverges from the broader role model where Planner is a named operational role |
+| `guideline_workspace_roadmap.md` | `LLM_Consultant` | Consultant maintains the roadmap as a thin planning spine | No material guideline-to-guideline conflict observed |
+| `guideline_workspace_notes.md` | `Unspecified` | Notes remains session-scoped, but no explicit author-role contract is stated inside the guideline | Weaker role clarity than ANALYSIS / DEV-REPORT / PROPOSAL / VERIFICATION |
+| `guideline_workspace_analysis.md` | `LLM_Consultant` | Consultant is the sole analysis author; analysis cannot claim gate closure | Consistent with verification/proposal separation |
+| `guideline_workspace_analysis.md` | `Client` | Client consumes analysis for decisions when analysis feeds proposals | Consistent, but depends on proposal/GDR ownership remaining stable |
+| `guideline_workspace_proposal.md` | `LLM_Consultant` | Consultant is the primary proposal author | Consistent with live gate package usage |
+| `guideline_workspace_proposal.md` | `Client` | Client owns approval and gate closure through proposal artifacts | Consistent with post-AC001 GDR ownership |
+| `guideline_workspace_verification.md` | `LLM_Reviewer` | Reviewer is the preferred verification author and owns verdicts | Consistent, but role authority remains fragmented across SPS / prompt surfaces |
+| `guideline_workspace_verification.md` | `LLM_Consultant` | Consultant may author readiness-oriented supplementary verification artifacts | Acceptable in scope, but increases dependence on a clearer role catalog |
+| `guideline_workspace_dev-report.md` | `LLM_Developer` | Developer owns DEV-REPORT authoring and supplies evidence only | Consistent with verification and proposal boundaries |
+| `guideline_workspace_dev-report.md` | `LLM_Reviewer` | Reviewer consumes DEV-REPORT as verification input only | Consistent with evidence-first review expectations |
+
+**Gate-Semantics Consistency Register**
+
+| Guideline | Gate Concept Referenced | Definition Used | Consistency Status |
+| :--- | :--- | :--- | :--- |
+| `guideline_workspace_plan.md` | Gate rows, entry criteria, exit criteria, and dependent-task blocking | Plans define gate placement and status transitions for governed work | consistent |
+| `guideline_workspace_roadmap.md` | No formal gate semantics in scoped roadmap authoring | Roadmaps stay above execution-gate detail | not-referenced |
+| `guideline_workspace_notes.md` | No gate semantics defined | Notes stay session-scoped and non-authoritative | not-referenced |
+| `guideline_workspace_analysis.md` | Analysis must not claim gate closure | Analysis is decision-support only, not gate evidence | consistent |
+| `guideline_workspace_proposal.md` | `gate_disposition`, GDR lifecycle, client decision capture | Proposal hosts the authoritative GDR and decision record | consistent |
+| `guideline_workspace_verification.md` | Reviewer verdict taxonomy, TK-before-gate workflow, recycle reassessment | Verification owns evidence and verdict, but not the GDR | consistent |
+| `guideline_workspace_dev-report.md` | DEV-REPORT must not claim gate closure or verdicts | DEV-REPORT is producer evidence only | consistent |
+
 #### C. Governance Implication
 The role/gate issues do not force a pivot, but they do block a clean AC004 integration layer. They should be treated as high-priority AC003 cleanup before or alongside documentation-rules consolidation.
 
@@ -288,6 +384,30 @@ The NOTES package is the only package where guideline intent and template instan
 - PROPOSAL legacy redirect behavior is coherent.
 - VERIFICATION’s template reflects the GDR relocation.
 - PLAN and ROADMAP templates consistently carry governance pointers.
+
+**Template-Guideline Conformance Matrix**
+
+| Guideline Section | Template Section | Conformance Status |
+| :--- | :--- | :--- |
+| `guideline_workspace_plan.md` register / hierarchy rules | `template_workspace_plan_phase.md` phase anti-drift and phase structure | MATCH |
+| `guideline_workspace_plan.md` register / hierarchy rules | `template_workspace_plan_stream.md` stream summary and activity register structure | MATCH |
+| `guideline_workspace_plan.md` task / gate decomposition rules | `template_workspace_plan_activity.md` task register, gate sections, and step guidance | MATCH |
+| `guideline_workspace_roadmap.md` roadmap semantics and thin-spine posture | `template_workspace_roadmap.md` roadmap frontmatter and phase-plan linkage sections | MATCH |
+| `guideline_workspace_notes.md` phase register naming / session split | `template_workspace_notes_register_phase.md` session path examples | MISMATCH |
+| `guideline_workspace_notes.md` stream register naming / session split | `template_workspace_notes_register_stream.md` session path and status examples | MISMATCH |
+| `guideline_workspace_notes.md` activity register naming / session split | `template_workspace_notes_register_activity.md` session path examples | MISMATCH |
+| `guideline_workspace_notes.md` session-notes contract | `template_workspace_notes_session_phase.md` session body structure | MATCH |
+| `guideline_workspace_notes.md` session-notes contract | `template_workspace_notes_session_stream.md` session body structure | MATCH |
+| `guideline_workspace_notes.md` session-notes contract | `template_workspace_notes_session_activity.md` session body structure | MATCH |
+| `guideline_workspace_notes.md` register/session split and current naming posture | `template_workspace_notes.md` legacy combined notes template | ORPHAN-IN-TEMPLATE |
+| `guideline_workspace_analysis.md` universal analysis structure | `template_workspace_analysis.md` universal sections and frontmatter | MATCH |
+| `guideline_workspace_proposal.md` `eid_workspace` required structure | `template_workspace_proposal_eid-workspace.md` | MATCH |
+| `guideline_workspace_proposal.md` `gate_disposition` required structure | `template_workspace_proposal_gate-disposition.md` | MATCH |
+| `guideline_workspace_proposal.md` `promotion_contract` required structure | `template_workspace_proposal_promotion-contract.md` | MATCH |
+| `guideline_workspace_proposal.md` `standards_input` required structure | `template_workspace_proposal_standards-input.md` | MATCH |
+| `guideline_workspace_proposal.md` multi-template posture | `template_workspace_proposal.md` legacy redirect surface | ORPHAN-IN-TEMPLATE |
+| `guideline_workspace_verification.md` evidence, findings, and recommendation structure | `template_workspace_verification.md` | MATCH |
+| `guideline_workspace_dev-report.md` bounded execution-evidence structure | `template_workspace_dev-report.md` | MATCH |
 
 #### C. Governance Implication
 NOTES cleanup should be one of the first AC003 slices because it affects both human navigation and agentic retrieval quality.
@@ -498,11 +618,25 @@ The Topic 8 model is directly actionable for AC004. It does not require more res
   * `prompt/templates/consultant/workspace/guideline_workspace_proposal.md`
   * `prompt/templates/consultant/workspace/guideline_workspace_verification.md`
   * `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md`
+  * `prompt/templates/consultant/workspace/template_workspace_plan_phase.md`
+  * `prompt/templates/consultant/workspace/template_workspace_plan_stream.md`
+  * `prompt/templates/consultant/workspace/template_workspace_plan_activity.md`
+  * `prompt/templates/consultant/workspace/template_workspace_roadmap.md`
   * `prompt/templates/consultant/workspace/template_workspace_notes_register_phase.md`
   * `prompt/templates/consultant/workspace/template_workspace_notes_register_stream.md`
   * `prompt/templates/consultant/workspace/template_workspace_notes_register_activity.md`
+  * `prompt/templates/consultant/workspace/template_workspace_notes_session_phase.md`
+  * `prompt/templates/consultant/workspace/template_workspace_notes_session_stream.md`
+  * `prompt/templates/consultant/workspace/template_workspace_notes_session_activity.md`
   * `prompt/templates/consultant/workspace/template_workspace_notes.md`
+  * `prompt/templates/consultant/workspace/template_workspace_analysis.md`
+  * `prompt/templates/consultant/workspace/template_workspace_proposal.md`
+  * `prompt/templates/consultant/workspace/template_workspace_proposal_eid-workspace.md`
+  * `prompt/templates/consultant/workspace/template_workspace_proposal_gate-disposition.md`
+  * `prompt/templates/consultant/workspace/template_workspace_proposal_promotion-contract.md`
+  * `prompt/templates/consultant/workspace/template_workspace_proposal_standards-input.md`
   * `prompt/templates/consultant/workspace/template_workspace_verification.md`
+  * `prompt/templates/consultant/workspace/template_workspace_dev-report.md`
   * `prompt/artifacts/tasks/T104/research/T104-RES-001/report_T104-RES-001_agentic-workspace-assessment.md`
   * `prompt/artifacts/tasks/T104/research/T104-RES-002/report_T104-RES-002_requirements-candidate-research.md`
 

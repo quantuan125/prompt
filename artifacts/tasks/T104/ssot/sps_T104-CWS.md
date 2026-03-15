@@ -203,10 +203,11 @@ External Reference: `T102-STD-005-CLAUSE-002`
 
 #### 9. Research
 
-| Research ID | Title | Summary | Reference |
-| :--- | :--- | :--- | :--- |
-| `T104-RES-001` | **Agentic Workspace Assessment** | Assessed current workspace state, identified structural/naming drift and retrieval risks; informed SPS migration and AC002 consultation scope. | [brief](../research/brief/brief_T104-RES-001_agentic-workspace-assessment.md) \| [report](../research/report/report_T104-RES-001_agentic-workspace-assessment.md) \|
-| `T104-RES-002` | **Requirements Candidate Research** | Inventoried SPS III.B gaps; proposed 42 candidate IDs across 12 categories; mapped T102 cross-dependencies; validated epic appropriateness; primary input for AC002 consultation. | [brief](../research/brief/brief_T104-RES-002_requirements-candidate-research.md) \| [report](../research/report/report_T104-RES-002_requirements-candidate-research.md) \|
+| Research ID | Title | Summary | Reference | Brief | Report |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+| `T104-RES-001` | **Agentic Workspace Assessment** | Assessed current workspace state, identified structural/naming drift and retrieval risks, and informed early AC002 agentic-workspace framing. | `T104-PH001-ST008-AC002` | [brief](../research/T104-RES-001/brief_T104-RES-001_agentic-workspace-assessment.md) | [report](../research/T104-RES-001/report_T104-RES-001_agentic-workspace-assessment.md) |
+| `T104-RES-002` | **Requirements Candidate Research** | Inventoried SPS III.B gaps, proposed candidate IDs across the initiative requirement set, and provided primary input to AC002 scope definition. | `T104-PH001-ST008-AC002` | [brief](../research/T104-RES-002/brief_T104-RES-002_requirements-candidate-research.md) | [report](../research/T104-RES-002/report_T104-RES-002_requirements-candidate-research.md) |
+| `T104-RES-003` | **Workspace Artifact Integration Analysis** | Benchmarked the 7-artifact workspace model, audited cross-guideline/template integration, and produced the AC003 / AC004 gap register and integration model recommendations. | `T104-PH001-ST008-AC002`, `T104-PH001-ST008-AC003`, `T104-PH001-ST008-AC004` | [brief](../research/T104-RES-003/brief_T104-RES-003_workspace-artifact-integration-analysis.md) | [report](../research/T104-RES-003/report_T104-RES-003_workspace-artifact-integration-analysis.md) |
 
 #### 10. Issues & Risks
 
