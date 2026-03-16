@@ -7,9 +7,9 @@ stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC002'
 task_id: 'T104-PH001-ST008-AC002-TK005'
 gate_id: 'T104-PH001-ST008-AC002-GATE-002'
-version: '2.0.0'
-date: '2026-03-15'
-status: 'draft'
+version: '2.1.0'
+date: '2026-03-16'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/plan_T104-PH001-ST008-AC002.md'
@@ -59,10 +59,10 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--:|:--|
-| GIR-001 | Revised report-package acceptance | Whether the reassessed package should close `GATE-002` | (a) Approve revised package | `T104-PH001-ST008-AC002-GATE-002` | Yes | pending |
-| GIR-002 | Reassessment sufficiency | Whether the revision fully resolves the prior blocking findings without recommission | (a) Accept reassessment as sufficient | `T104-PH001-ST008-AC002-TK002` | Yes | pending |
-| GIR-003 | Downstream planning activation | Whether AC003/AC004 may now consume the accepted report as the authoritative basis | (a) Activate downstream use on approval | `T104-PH001-ST008-AC003`, `T104-PH001-ST008-AC004` | No | pending |
-| GIR-004 | SPS registration acceptance | Whether the normalized SPS research-table update should stand as a finalized part of the package | (a) Accept SPS registration update | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` | No | pending |
+| GIR-001 | Revised report-package acceptance | Whether the reassessed package should close `GATE-002` | (a) Approve revised package | `T104-PH001-ST008-AC002-GATE-002` | Yes | **(a) APPROVED** |
+| GIR-002 | Reassessment sufficiency | Whether the revision fully resolves the prior blocking findings without recommission | (a) Accept reassessment as sufficient | `T104-PH001-ST008-AC002-TK002` | Yes | **(a) APPROVED** |
+| GIR-003 | Downstream planning activation | Whether AC003/AC004 may now consume the accepted report as the authoritative basis | (a) Activate downstream use on approval | `T104-PH001-ST008-AC003`, `T104-PH001-ST008-AC004` | No | **(a) APPROVED** |
+| GIR-004 | SPS registration acceptance | Whether the normalized SPS research-table update should stand as a finalized part of the package | (a) Accept SPS registration update | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` | No | **(a) APPROVED** |
 
 ## IV. DETAILED DISPOSITION REGISTER
 
@@ -89,7 +89,7 @@ Rationale:
 - The package now meets the brief-complete acceptance threshold without expanding scope or creating a new gate.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: ____________________`
+- `[x] (a)` — Approved 2026-03-16
 
 ### GIR-002 - Accept Reassessment As Sufficient
 
@@ -113,7 +113,7 @@ Rationale:
 - The original issue was deliverable completeness, not research direction. The revised package resolves those completeness defects without opening new scope gaps.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: ____________________`
+- `[x] (a)` — Approved 2026-03-16
 
 ### GIR-003 - Activate Downstream Use On Approval
 
@@ -136,7 +136,7 @@ Rationale:
 - The package has now passed reviewer reassessment, so continued provisional-only treatment would add delay without reducing meaningful uncertainty.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: ____________________`
+- `[x] (a)` — Approved 2026-03-16
 
 ### GIR-004 - Finalize SPS Research Registration Update
 
@@ -158,7 +158,7 @@ Rationale:
 - `T102-STD-006` requires commissioned research to be indexed in the local SPS table, and the report already exists at its canonical path.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: ____________________`
+- `[x] (a)` — Approved 2026-03-16
 
 ## V. GATE RECOMMENDATION
 
@@ -179,12 +179,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `T104-PH001-ST008-AC002-GATE-002` |
 | Reviewer Verdict | `PASS` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
-| Conditions (if any) | `-` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
+| Conditions (if any) | `—` |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-16` |
+| Decision Reference | `Gate-002 external review and client disposition session (2026-03-16)` |
 
 If `Client Decision = RECYCLE`:
 - `Gate Status After Decision` MUST be `in_progress`
@@ -203,6 +203,7 @@ If `Client Decision = RECYCLE`:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.1.0 | 2026-03-16 | Gate Closure | Client approved all four GIR items (GIR-001 through GIR-004) as recommended. GDR updated: `Client Decision: APPROVE`, `Gate Status After Decision: completed`, `Decision Date: 2026-03-16`. Gate-002 is now closed. Downstream AC003/AC004 are formally unblocked. |
 | v2.0.0 | 2026-03-15 | Reassessment | Refreshed the package for the revised `T104-RES-003` report and the `v2.0.0` reassessment verification. Updated Section II acceptance statuses, converted the GIR surfaces from recycle-oriented to closure-oriented decisions, and changed the reviewer recommendation from `RECYCLE` to `PASS` while keeping the client GDR pending for the next Gate-002 review. |
 | v1.1.0 | 2026-03-15 | Amendment | Restructured §II from flat Evidence Index to two-part Gate Package per guideline_workspace_proposal.md v1.3.0 §V.B: Gate Package Index (deliverables with acceptance status and client reading priority) and Evidence Index (governance traceability). Added supplementary revision checklist to evidence set. |
 | v1.0.0 | 2026-03-14 | Initial | Initial `GATE-002` disposition package for AC002. Recommends same-gate `RECYCLE`, records the revision-vs-recommission decision surface, accepts SPS registration as package evidence, and keeps the client GDR pending. |

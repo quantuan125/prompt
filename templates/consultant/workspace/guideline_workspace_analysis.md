@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'analysis_authoring'
-version: '1.2.0'
-date: '2026-03-15'
+version: '1.3.0'
+date: '2026-03-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -32,7 +32,7 @@ This guideline is Draft 1 (exemplar-derived). It is intended as the binding auth
 - **LLM_Reviewer** authors VERIFICATION artifacts; verification findings are gate-oriented and may be blocking.
 - **Client** is the decision owner for gates and proposal acceptance; client decisions are recorded in Gate Decision Records (GDRs) inside proposal artifacts where applicable.
 
-**Boundary rule**: ANALYSIS artifacts may contain findings/gaps and downstream recommendations, but they MUST NOT be written as gate evidence and MUST NOT claim gate closure.
+**Boundary rule**: ANALYSIS artifacts may contain findings/gaps and downstream recommendations, and may feed consultation-only gate packages as consultant-authored inputs. They MUST NOT be written as VERIFICATION artifacts and MUST NOT claim gate closure.
 
 ---
 
@@ -68,11 +68,14 @@ These lifecycle positions are **Draft 1 preliminary** and SHOULD be refined as m
 | analysis_type | Typical upstream trigger | Typical downstream handoff |
 |:--|:--|:--|
 | `pattern_audit` | Need to standardize a template/guideline surface; exemplar drift detection | Guideline/template authoring tasks; plan updates; potential proposal for decisions |
-| `compliance_audit` | Need to check an artifact against standards/guidelines | Remediation tasks; (if gated) follow-on VERIFICATION artifact (not inside analysis) |
+| `compliance_audit` | Need to check an artifact against standards/guidelines | Remediation tasks; for implementation-backed gates, follow-on VERIFICATION artifact (not inside analysis) |
 | `assessment` | Need to evaluate readiness, hardening, or options tradeoffs | Remediation roadmap, decisions/proposals, implementation tasks |
-| `external_review` | Third-party assessment requested; may be transcript-converted | Decision package for client; transition plan and risk register |
+| `external_review` | Third-party assessment requested; may be transcript-converted | Consultation-only decision package for client; transition plan and risk register |
 
-**Gate boundary reminder**: If a gate decision is required, the gate’s evidence MUST be authored as VERIFICATION (not as ANALYSIS).
+**Gate boundary reminder**:
+- Implementation-backed gates use VERIFICATION as the reviewer evidence surface.
+- Consultation-only gates MAY use ANALYSIS artifacts, including `external_review`, as package inputs to a `gate_disposition` proposal.
+- In both cases, ANALYSIS artifacts MUST NOT claim gate closure or replace the proposal-hosted GDR.
 
 ---
 
@@ -213,7 +216,7 @@ Per `P-STD-004-CLAUSE-008E`, `analysis_` artifacts MUST NOT be treated as resear
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.3.0 | 2026-03-16 | Amendment | Clarified the gate boundary for consultation-only workflows. ANALYSIS artifacts may now explicitly feed consultation-only gate packages as inputs, while VERIFICATION remains reserved for implementation-backed gates. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
 | v1.2.0 | 2026-03-15 | Amendment | Added §V.A (Executive Summary Audience-Awareness Rule): when an analysis feeds a gate_disposition proposal, the Executive Summary MUST include a Client Summary subsection written for the decision_owner_role. Existing §V subsections renumbered (A→B, B→C, C→D, D→E). |
 | v1.1.0 | 2026-03-05 | Maintenance | Resolved legacy GDR ownership reference in §II (removed verification artifact as GDR host). |
 | v1.0.0 | 2026-03-01 | Initial | Draft 1 authoring guideline for ANALYSIS artifacts. Encodes AC007 GATE-000 decisions (DEC001–DEC009, DEC011–DEC013) and aligns naming/placement guidance to `P-STD-004` and `P-STD-005`. |
-

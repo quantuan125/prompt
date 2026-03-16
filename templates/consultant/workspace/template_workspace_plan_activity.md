@@ -6,8 +6,8 @@ initiative_code: '[INITIATIVE-CODE]'
 phase: '[PHASE-NUMBER]'
 stream_id: '[INIT-PH###-ST###]'
 activity_id: '[INIT-PH###-ST###-AC### or INIT-PH###-ST###-AC###.#]'
-version: '1.2.0'
-date: '2026-03-15'
+version: '1.3.0'
+date: '2026-03-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -137,8 +137,9 @@ Steps have no ID pattern, no register row, and no directory implications.
 Gate-Readiness Stack:
   When an activity includes a gate, the task register and detailed sections
   SHOULD follow the Gate-Readiness Stack pattern per guideline_workspace_plan.md §VI.L.
-  The sequence is: implementation tasks → DEV-REPORT → verification → gate-disposition → gate.
-  Pure decision gates MAY omit the DEV-REPORT task.
+  Implementation-backed sequence: implementation tasks → DEV-REPORT → verification → gate-disposition → gate.
+  Consultation-only sequence: consultant-owned preparatory tasks → gate-disposition → gate.
+  Consultation-only gates omit both DEV-REPORT and verification.
 -->
 
 ### Task TK003: Produce Dev-Report for GATE-001
@@ -228,6 +229,7 @@ Gate-Readiness Stack:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.3.0 | 2026-03-16 | Amendment | Updated Gate-Readiness Stack guidance comment to distinguish implementation-backed and consultation-only gate sequences. Consultation-only gates now explicitly omit DEV-REPORT and verification. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
 | v1.2.0 | 2026-03-15 | Amendment | Added Gate-Readiness Stack example (TK003 dev-report → TK004 verification → TK005 gate-disposition → GATE-001) to Task Register and Tasks (Detailed) sections. Added `Gate-Disposition Proposal` field to gate construct example. Source: T104-PH001-ST008-AC001.2; `guideline_workspace_plan.md` §VI.L. |
 | v1.1.0 | YYYY-MM-DD | Amendment | Template updated to distinguish registered Tasks/Sub-Tasks from informal Steps and to show a dotted sub-task example. |
 | v1.0.1 | YYYY-MM-DD | Amendment | Status guidance note updated to defer to `P-STD-002` canonical work-item states. |

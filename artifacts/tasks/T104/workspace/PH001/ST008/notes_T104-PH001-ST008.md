@@ -5,8 +5,8 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST008'
-version: '1.0.0'
-date: '2026-03-15'
+version: '1.1.0'
+date: '2026-03-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -43,12 +43,14 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC002 | `T104-PH001-ST008-AC002-SES001` | Research Brief Scoping & Commissioning | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/snotes/snotes_T104-PH001-ST008-AC002-SES001.md` |
 | AC002 | `T104-PH001-ST008-AC002-SES002` | GATE-001 Readiness Remediation + Dual-Lens Brief Update | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/snotes/snotes_T104-PH001-ST008-AC002-SES002.md` |
 | AC002 | `T104-PH001-ST008-AC002-SES003` | GATE-002 External Review, Package Gap Analysis & Guideline Enhancement Decisions | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/snotes/snotes_T104-PH001-ST008-AC002-SES003.md` |
+| AC001.2 | `T104-PH001-ST008-AC001.2-SES001` | Gate-Readiness Stack Consultation & Implementation Planning | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.2/snotes/snotes_T104-PH001-ST008-AC001.2-SES001.md` |
 
 ---
 
 ## IV. LINKS (PRIMARY)
 
 - Stream plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST008/plan_T104-PH001-ST008.md`
+- AC001.2 Activity Plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.2/plan_T104-PH001-ST008-AC001.2.md`
 - AC002 Activity Plan: `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/plan_T104-PH001-ST008-AC002.md`
 - Phase plan: `prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md`
 - Phase notes register: `prompt/artifacts/tasks/T104/workspace/PH001/notes_T104-PH001.md`
@@ -60,4 +62,5 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-16 | Amendment | Registered AC001.2-SES001 (Gate-Readiness Stack consultation and implementation planning). Added AC001.2 activity plan link to Links section. |
 | v1.0.0 | 2026-03-15 | Initial | Stream notes register created for ST008. Backfilled AC002-SES001 and AC002-SES002 (existing session files without a register). Registered AC002-SES003 (GATE-002 external review and guideline enhancement decisions). |

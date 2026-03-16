@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '2.8.0'
-date: '2026-03-15'
+version: '2.9.0'
+date: '2026-03-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -112,7 +112,7 @@ Phase → Stream → Activity → Task
 
 ### D. Reviewer (LLM_Reviewer)
 - Owns: verification artifacts for gates, findings classification, and rework handoff evidence.
-- Produces verification as a task (TK-before-gate pattern) prior to the Client-owned gate decision. The reviewer's verdict is recorded in the verification artifact's Gate Recommendation section; the Gate Decision Record (GDR) is hosted in the consultant-owned `gate_disposition` proposal per `guideline_workspace_proposal.md` §VII.
+- Produces verification as a task (TK-before-gate pattern) only for implementation-backed gates after developer execution and DEV-REPORT handoff. The reviewer's verdict is recorded in the verification artifact's Gate Recommendation section; the Gate Decision Record (GDR) is hosted in the consultant-owned `gate_disposition` proposal per `guideline_workspace_proposal.md` §VII.
 - Boundary: MUST NOT alter contract-level scope; scope gaps discovered in verification escalate as Situation B findings per `guideline_workspace_verification.md §VII`.
 
 ### E. Client
@@ -125,20 +125,24 @@ Phase → Stream → Activity → Task
 
 ### A. Canonical Workflow Chain
 
-The workspace artifact suite follows a canonical workflow chain. Each artifact type has a defined position in the lifecycle:
+The workspace artifact suite follows two canonical workflow variants depending on whether the gate reviews developer-mutated deliverables or consultant-owned decision-preparation artifacts.
 
-`ROADMAP → PLAN → NOTES / ANALYSIS / DEV-REPORT → VERIFICATION → PROPOSAL (GDR where applicable) → SPS / downstream approved artifacts`
+Implementation-backed:
+`ROADMAP → PLAN → NOTES / ANALYSIS → implementation deliverables → DEV-REPORT → VERIFICATION → PROPOSAL (GDR where applicable) → SPS / downstream approved artifacts`
+
+Consultation-only:
+`ROADMAP → PLAN → NOTES / ANALYSIS → PROPOSAL (GDR where applicable) → downstream approved artifacts`
 
 Rules:
 - `ROADMAP` sets direction. `PLAN` establishes executable work authority.
 - `NOTES`, `ANALYSIS`, and `DEV-REPORT` are working artifacts that capture session state, synthesis, and implementation evidence respectively. They feed downstream artifacts but do not close gates.
-- `VERIFICATION` produces independent reviewer evidence and a reviewer verdict.
+- `VERIFICATION` produces independent reviewer evidence and a reviewer verdict for implementation-backed gates only.
 - `PROPOSAL` packages decisions and hosts the authoritative Gate Decision Record (GDR) for `gate_disposition` proposals.
 - Approved proposal decisions update plan status surfaces and unblock downstream work.
 
 ### B. Gate-Readiness Stack (Plan-Level Encoding)
 
-The workflow chain is encoded at the plan level through the **Gate-Readiness Stack** — a canonical pre-gate task sequence. For the full pattern, ownership rules, and exception for pure decision gates, see `guideline_workspace_plan.md` §VI.L.
+The workflow chain is encoded at the plan level through the **Gate-Readiness Stack** — a canonical pre-gate task sequence. For the full pattern, ownership rules, and the distinction between implementation-backed and consultation-only gates, see `guideline_workspace_plan.md` §VI.L.
 
 ### C. Inter-Artifact Linkage Rules
 
@@ -218,6 +222,7 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.9.0 | 2026-03-16 | Amendment | Refined §6.D and §7 to distinguish implementation-backed gates from consultation-only gates. Verification is now explicitly limited to implementation-backed flows after DEV-REPORT handoff; consultation-only flows proceed from NOTES/ANALYSIS to PROPOSAL without VERIFICATION. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
 | v2.8.0 | 2026-03-15 | Amendment | Added §7 (Workflow Chain and Handoff Contracts) with canonical workflow chain, Gate-Readiness Stack cross-reference, and inter-artifact linkage rules. Added §8 (Role-to-Artifact Ownership Matrix). Fixed stale "proposals are not final decisions" in anti-drift rules (GAP-008). Source: T104-PH001-ST008-AC001.2; T104-RES-003 Topics 2, 3, 8. |
 | v2.7.0 | 2026-03-13 | Update | Delivered DEV-REPORT Draft 1 authoring surfaces under AC006: registered `guideline_workspace_dev-report.md` and `template_workspace_dev-report.md`, and removed DEV-REPORT “Draft 1 planned” markers from §3, §4.E, and §5. |
 | v2.5.0 | 2026-03-04 | Update | §3 VERIFICATION purpose: removed "Gate Decision Record (GDR)", replaced with "reviewer verdict". §3 PROPOSAL purpose: added "(incl. Gate Decision Record)". §6.D Reviewer boundary: clarified that GDR is hosted in consultant-owned gate_disposition proposal, reviewer produces verdict only. Source: T104-PH001-ST008-AC001 Option B approval. |

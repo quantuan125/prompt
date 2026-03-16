@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'verification_authoring'
-version: '1.6.0'
-date: '2026-03-15'
+version: '1.7.0'
+date: '2026-03-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -15,7 +15,7 @@ analysis_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST005/analysis/
 
 ## I. PURPOSE
 
-This guideline defines the authoring rules and gate-oriented verification workflow for VERIFICATION workspace artifacts. It provides a standardized framework for independent cross-verification using an evidence-first methodology. This guideline is intended for all LLM roles involved in producing or consuming verification artifacts.
+This guideline defines the authoring rules and gate-oriented verification workflow for VERIFICATION workspace artifacts. It provides a standardized framework for independent cross-verification using an evidence-first methodology for implementation-backed gate reviews. This guideline is intended for all LLM roles involved in producing or consuming verification artifacts.
 
 **Cross-reference**: See `guideline_workspace_plan.md §VI` for the structure of gates within plans.
 **Status notice**: This is a dynamic Draft 1 (exemplar-derived); normative binding is deferred to T104H.
@@ -25,7 +25,7 @@ This guideline defines the authoring rules and gate-oriented verification workfl
 The following roles interact with verification artifacts:
 
 - **LLM_Reviewer** (preferred): Primary author of gate verification artifacts. Performs independent cross-verification using evidence-first methodology.
-- **LLM_Consultant**: Permitted for pre-gate commissioning assessments and readiness reviews. May author supplementary verification artifacts when the assessment focuses on evidence integrity or commissioning readiness rather than technical correctness.
+- **LLM_Consultant**: Permitted for implementation-backed commissioning assessments and readiness reviews. Consultation-only gate assessments belong in `ANALYSIS`, not `VERIFICATION`.
 - **Client**: Decision owner. All gate decisions require Client approval signal, which is recorded in the proposal's Gate Decision Record (GDR) section.
 - **LLM_Developer**: NOT an author of verification artifacts. Developer-produced evidence (dev-reports, execution logs) serves as verification INPUT, not verification itself.
 
@@ -33,20 +33,23 @@ Note: Role definitions are informative pending T101 (Role Standardization).
 
 ## III. VERIFICATION WORKFLOW
 
+This workflow applies only when a gate reviews developer-mutated deliverables or other implementation-backed outputs. Consultation-only gates use `ANALYSIS` + `PROPOSAL` surfaces instead and MUST NOT produce `VERIFICATION` artifacts.
+
 Verification follows a "TK-before-gate" pattern:
 
 1. **Plan defines gate**: The gate appears in the task register with entry/exit criteria per `guideline_workspace_plan.md §VI.C`.
-2. **Upstream tasks complete**: All tasks listed in the gate's entry criteria reach terminal status.
-3. **Verification task starts**: A reviewer-owned task (e.g., `TK006`) in the task register is assigned to produce verification evidence. Gate status transitions to `in_progress`.
-4. **Reviewer produces verification artifact**: Following this guideline's evidence rules (§V), findings schema (§VI), and template structure.
-5. **Reviewer issues verdict**: One of the verdict values defined in §VIII.
-6. **Client reviews**: Client examines the verification artifact (entry criteria assessment, findings, recommendation).
-7. **Client issues decision**: Decision recorded in the `gate_disposition` proposal's Gate Decision Record (GDR). Gate status transitions per §VIII mapping.
-8. **Downstream enforcement**: Tasks with `Depends On: GATE-###` MUST verify that the gate's `gate_disposition` proposal contains a populated GDR with APPROVE or APPROVE WITH CONDITIONS before starting.
+2. **Upstream implementation tasks complete**: All developer-owned tasks listed in the gate's entry criteria reach terminal status.
+3. **DEV-REPORT is authored**: A developer-owned `DEV-REPORT` task captures the bounded implementation evidence and handoff package for review.
+4. **Verification task starts**: A reviewer-owned task (e.g., `TK006`) in the task register is assigned to produce verification evidence. Gate status transitions to `in_progress`.
+5. **Reviewer produces verification artifact**: Following this guideline's evidence rules (§V), findings schema (§VI), and template structure.
+6. **Reviewer issues verdict**: One of the verdict values defined in §VIII.
+7. **Client reviews**: Client examines the verification artifact (entry criteria assessment, findings, recommendation).
+8. **Client issues decision**: Decision recorded in the `gate_disposition` proposal's Gate Decision Record (GDR). Gate status transitions per §VIII mapping.
+9. **Downstream enforcement**: Tasks with `Depends On: GATE-###` MUST verify that the gate's `gate_disposition` proposal contains a populated GDR with APPROVE or APPROVE WITH CONDITIONS before starting.
 
 **Mandatory Rule**: The separation of verification task (evidence production) from gate (decision) is mandatory. Verification evidence MUST NOT be produced as part of the gate event itself.
 
-**Plan-level positioning**: The verification task (step 3 above) SHOULD appear as part of the Gate-Readiness Stack — after the DEV-REPORT task and before the gate-disposition proposal task. For the full pattern, including the pure-decision-gate exception and role ownership rules, see `guideline_workspace_plan.md` §VI.L.
+**Plan-level positioning**: In implementation-backed gates, the verification task SHOULD appear as part of the Gate-Readiness Stack — after the DEV-REPORT task and before the gate-disposition proposal task. Consultation-only gates omit verification entirely. For the full pattern, see `guideline_workspace_plan.md` §VI.L.
 
 ## IV. VERIFICATION PACKAGE
 
@@ -249,6 +252,7 @@ The verification artifact's role at a gate is to provide evidence and a reviewer
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.7.0 | 2026-03-16 | Amendment | Clarified that VERIFICATION applies only to implementation-backed gates after developer work and DEV-REPORT handoff. Consultation-only gates now explicitly use `ANALYSIS` + `PROPOSAL` instead of `VERIFICATION`. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
 | v1.6.0 | 2026-03-15 | Amendment | §III: Added Gate-Readiness Stack cross-reference to `guideline_workspace_plan.md` §VI.L for plan-level positioning of verification tasks in the pre-gate sequence. Source: T104-PH001-ST008-AC001.2. |
 | v1.5.0 | 2026-03-15 | Amendment | Added revision-checklist guidance to §IV.A and §VII.A. For complex Situation A deficiencies, reviewers SHOULD produce a supplementary verification file (aspect: revision-checklist) containing explicit revision items with finding references, expected formats, and acceptance criteria. |
 | v1.4.0 | 2026-03-12 | Amendment | Clarified RECYCLE handling across §VII, §VIII, and §IX. Situation B plan amendments now attach remediation to the same gate's reassessment loop, RECYCLE recommendations must name the same gate/remediation/downstream block set, and re-assessment versioning explicitly preserves the original gate ID. |

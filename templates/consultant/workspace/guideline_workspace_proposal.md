@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'proposal_authoring'
-version: '1.4.0'
-date: '2026-03-15'
+version: '1.5.0'
+date: '2026-03-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -208,7 +208,7 @@ Policy: additional optional keys are permitted when justified by the archetype; 
 - The authoritative approval signal is the proposal-embedded `## Gate Decision Record` section.
 - Decision-gate proposals MAY use a proposal-embedded GDR without a separate verification artifact.
 - When a verification artifact also exists for the same gate, the proposal-embedded GDR is the authoritative decision record.
-- **Plan-level positioning**: The gate-disposition proposal task SHOULD appear as part of the Gate-Readiness Stack — after the verification task and immediately before the gate row in the plan's Task Register. The gate construct MUST include a `Gate-Disposition Proposal` field referencing the proposal path. For the full pattern, see `guideline_workspace_plan.md` §VI.L.
+- **Plan-level positioning**: The gate-disposition proposal task SHOULD appear as part of the Gate-Readiness Stack — after the verification task for implementation-backed gates, or immediately before the gate row for consultation-only gates. The gate construct MUST include a `Gate-Disposition Proposal` field referencing the proposal path. For the full pattern, see `guideline_workspace_plan.md` §VI.L.
 
 ### B. Verification gate
 
@@ -320,6 +320,7 @@ Legacy compatibility surface:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.5.0 | 2026-03-16 | Amendment | Clarified §VII.A plan-level positioning for gate-disposition proposals: implementation-backed gates place the proposal after verification; consultation-only gates place it immediately before the gate with no verification artifact required. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
 | v1.4.0 | 2026-03-15 | Amendment | §VII.A: Added Gate-Readiness Stack cross-reference to `guideline_workspace_plan.md` §VI.L for plan-level positioning of gate-disposition proposal tasks and mandatory `Gate-Disposition Proposal` gate field. Source: T104-PH001-ST008-AC001.2. |
 | v1.3.0 | 2026-03-15 | Amendment | Split complex schema mappings (§IV/§VIII) into distinct sections: §VIII (Artifact vs Package Concept), §IX (Package Layout Examples), and §X (Template Inventory). Eliminated nested index-of-arrays representation. Refined `gate_disposition` definition in §V.B to resolve template drift. Source: T104-PH001-ST008-AC002 (GATE-002 Verification). |
 | v1.2.0 | 2026-03-12 | Amendment | Clarified verification-gate RECYCLE handling in §VII. Added `Gate Status After Decision` to the GDR, defined RECYCLE as same-gate reassessment with `in_progress` gate status, required remediation/re-entry details in RECYCLE conditions, and made downstream blocking explicit until the same gate later receives an approving decision. |

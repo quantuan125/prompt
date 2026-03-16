@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.14.0'
-date: '2026-03-15'
+version: '1.15.0'
+date: '2026-03-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -280,11 +280,13 @@ Purpose:
 
 #### Purpose
 
-The Gate-Readiness Stack is a canonical pre-gate task sequence that ensures every gate receives a structured decision package composed of producer evidence, independent verification, and a consultant-authored disposition proposal. The pattern codifies the workflow chain identified by `T104-RES-003` (Topics 2, 3, 8).
+The Gate-Readiness Stack is a canonical pre-gate task sequence that ensures every gate receives a structured decision package appropriate to the work being reviewed. Two variants exist:
+- **Implementation-backed gates**: review developer-mutated deliverables and therefore require producer evidence plus reviewer verification.
+- **Consultation-only gates**: disposition consultant-owned analysis/proposal work before downstream execution and therefore do not require `DEV-REPORT` or `VERIFICATION`.
 
-#### Default Sequence
+#### Implementation-Backed Sequence
 
-Every gate SHOULD be preceded by the following ordered task sequence in the plan's Task Register:
+Every gate that reviews developer-executed deliverables SHOULD be preceded by the following ordered task sequence in the plan's Task Register:
 
 1. **Implementation tasks** — owned by `LLM_Developer` (or the implementation-responsible role). Produce the deliverables that the gate will review.
 2. **DEV-REPORT task** — owned by `LLM_Developer`. Produces bounded execution evidence per `guideline_workspace_dev-report.md`. The dev-report is verification input, not verification itself.
@@ -292,13 +294,20 @@ Every gate SHOULD be preceded by the following ordered task sequence in the plan
 4. **Gate-disposition proposal task** — owned by `LLM_Consultant` (or `LLM_Planner`). Produces the `gate_disposition` proposal per `guideline_workspace_proposal.md`. Hosts the authoritative Gate Decision Record (GDR).
 5. **Gate** — owned by `Client`. Consumes the gate package and records the decision in the GDR.
 
-#### Exception: Pure Decision Gates
+#### Consultation-Only Sequence
 
-When no developer-implemented work precedes a gate (e.g., readiness-check gates, scope-boundary gates, design-decision gates), the DEV-REPORT task MAY be omitted. The verification task and gate-disposition proposal task remain mandatory.
+When all tasks before a gate are consultant-owned and no developer-mutated deliverable is being assessed, the gate SHOULD be preceded by this reduced sequence:
+
+1. **Consultation tasks** — owned by `LLM_Consultant`. Produce the notes, analyses, plan amendments, and other decision-preparation artifacts that the gate will review.
+2. **Gate-disposition proposal task** — owned by `LLM_Consultant` (or `LLM_Planner`). Produces the `gate_disposition` proposal per `guideline_workspace_proposal.md`. Hosts the authoritative Gate Decision Record (GDR).
+3. **Gate** — owned by `Client`. Consumes the gate package and records the decision in the GDR.
+
+Rule:
+- Consultation-only gates MUST NOT introduce `DEV-REPORT` or `VERIFICATION` tasks unless the gate scope is expanded to review developer-mutated deliverables.
 
 #### Task Register Placement
 
-Gate-Readiness Stack tasks MUST appear immediately before their governing gate row in the Task Register, in the sequence defined above. Downstream tasks that depend on the gate MUST appear after the gate row per §VI.D.
+Gate-Readiness Stack tasks MUST appear immediately before their governing gate row in the Task Register, using the applicable sequence above. Downstream tasks that depend on the gate MUST appear after the gate row per §VI.D.
 
 #### Ownership
 
@@ -309,13 +318,14 @@ Each Gate-Readiness Stack task has a fixed role owner:
 | Implementation tasks | `LLM_Developer` | Deliverables (per plan) | Plan (this guideline) |
 | DEV-REPORT task | `LLM_Developer` | `DEV-REPORT` | `guideline_workspace_dev-report.md` |
 | Verification task | `LLM_Reviewer` | `VERIFICATION` | `guideline_workspace_verification.md` |
+| Consultation tasks | `LLM_Consultant` | `NOTES` / `ANALYSIS` / plan-owned deliverables | Respective artifact guidelines |
 | Gate-disposition proposal task | `LLM_Consultant` | `PROPOSAL` (`gate_disposition`) | `guideline_workspace_proposal.md` |
 | Gate | `Client` | Decision (GDR) | `guideline_workspace_proposal.md` §VII |
 
 #### Cross-Reference
 
 - For DEV-REPORT trigger and lifecycle rules, see `guideline_workspace_dev-report.md` §III.
-- For verification workflow and TK-before-gate pattern, see `guideline_workspace_verification.md` §III.
+- For verification workflow and implementation-backed gate rules, see `guideline_workspace_verification.md` §III.
 - For gate-disposition proposal structure and GDR specification, see `guideline_workspace_proposal.md` §V.B and §VII.
 - For the workflow chain and role-to-artifact ownership matrix, see `workspace_documentation_rules.md` §7 and §8.
 
@@ -421,6 +431,7 @@ The following templates are available for PLAN artifacts. Each template defines 
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.15.0 | 2026-03-16 | Amendment | Refined §VI.L Gate-Readiness Stack into two variants: implementation-backed gates (`implementation → dev-report → verification → gate-disposition → gate`) and consultation-only gates (`consultation tasks → gate-disposition → gate`). Clarified that consultation-only gates MUST NOT require `DEV-REPORT` or `VERIFICATION`. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
 | v1.14.0 | 2026-03-15 | Amendment | Added §VI.C mandatory `Gate-Disposition Proposal` gate field and §VI.L Gate-Readiness Stack pattern. Codifies the canonical pre-gate task sequence ( implementation → dev-report → verification → gate-disposition → gate) with fixed role ownership and a pure-decision-gate exception. Source: T104-PH001-ST008-AC001.2 consultation; research backing T104-RES-003 Topics 2, 3, 8. |
 | v1.13.0 | 2026-03-14 | Amendment | Strengthened standalone Activity Plan anti-drift rules. Stream-level Activity sections are now explicitly high-level skeletons only when a dedicated Activity Plan exists; detailed package, gate, evidence, and execution-history duplication is prohibited. |
 | v1.12.0 | 2026-03-12 | Amendment | Added explicit recycle/reassessment-loop rules to §VI.D, §VI.E, and new §VI.K. Recycle tasks now must appear immediately after the governing gate row, use `Depends On: GATE-###`, and be documented under a mandatory `Recycle Re-entry Block` without minting derived gate IDs such as `GATE-001.1`. |

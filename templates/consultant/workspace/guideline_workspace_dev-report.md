@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'dev-report_authoring'
-version: '1.1.0'
-date: '2026-03-15'
+version: '1.2.0'
+date: '2026-03-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -46,6 +46,8 @@ Boundary rules:
 
 Author a DEV-REPORT whenever developer-executed work mutates deliverables and reaches a bounded review, handoff, or gate-ready boundary.
 
+Consultation-only gates with no developer-mutated deliverables MUST NOT produce a DEV-REPORT.
+
 Valid bounded slices include:
 - a single task,
 - a grouped contiguous task range,
@@ -66,8 +68,9 @@ Consolidated or retroactive DEV-REPORT artifacts are allowed only when:
 
 - The plan remains the execution authority.
 - The DEV-REPORT records what was implemented under that authority.
-- When a gate follows, the DEV-REPORT provides producer evidence and handoff inputs only; the verification artifact provides the reviewer verdict, and the proposal-hosted GDR records the client decision.
-- **Plan-level positioning**: When a gate follows, the DEV-REPORT task SHOULD appear as part of the Gate-Readiness Stack — immediately after the implementation tasks and before the verification task. For the full pattern, see `guideline_workspace_plan.md` §VI.L.
+- When an implementation-backed gate follows, the DEV-REPORT provides producer evidence and handoff inputs only; the verification artifact provides the reviewer verdict, and the proposal-hosted GDR records the client decision.
+- Consultation-only gates omit DEV-REPORT because no developer execution slice is being reviewed.
+- **Plan-level positioning**: When an implementation-backed gate follows, the DEV-REPORT task SHOULD appear as part of the Gate-Readiness Stack — immediately after the implementation tasks and before the verification task. For the full pattern, see `guideline_workspace_plan.md` §VI.L.
 
 ---
 
@@ -253,5 +256,6 @@ DEV-REPORT uses a date suffix by design. The dated filename does not replace the
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-16 | Amendment | Clarified that DEV-REPORT is required only for implementation-backed gates reviewing developer-mutated deliverables. Consultation-only gates now explicitly omit DEV-REPORT. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
 | v1.1.0 | 2026-03-15 | Amendment | §III.D: Added Gate-Readiness Stack cross-reference to `guideline_workspace_plan.md` §VI.L for plan-level positioning of DEV-REPORT tasks in the pre-gate sequence. Source: T104-PH001-ST008-AC001.2. |
 | v1.0.0 | 2026-03-13 | Initial | Draft 1 DEV-REPORT authoring guideline for AC006. Encodes approved GIR decisions for trigger boundary, frontmatter baseline, required sections, validation evidence posture, traceability/handoff rules, naming/placement, and session-notes boundary. |

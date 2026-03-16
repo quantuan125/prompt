@@ -7,7 +7,7 @@ stream_id: '[SID-PH###-ST###]'
 activity_id: '[SID-PH###-ST###-AC###]'
 task_id: '[SID-PH###-ST###-AC###-TK###]'
 gate_id: '[SID-PH###-ST###-AC###-GATE-###]'
-version: '1.2.0'
+version: '1.3.0'
 date: 'YYYY-MM-DD'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -84,8 +84,8 @@ Client Decision:
 
 ## V. GATE RECOMMENDATION
 
-Reviewer recommendation state:
-- `PASS` / `CONDITIONAL PASS` / `PASS WITH DEFERRALS` / `RECYCLE` / `FAIL`
+Recommendation state:
+- `PASS` / `CONDITIONAL PASS` / `PASS WITH DEFERRALS` / `RECYCLE` / `FAIL` / `N/A — decision gate`
 
 Conditions and/or deferrals:
 - [enumerate or use `-`]
@@ -107,13 +107,16 @@ Downstream enforcement:
 | Field | Value |
 |:--|:--|
 | Gate ID | `[gate_id]` |
-| Reviewer Verdict | `[PASS / CONDITIONAL PASS / PASS WITH DEFERRALS / RECYCLE / FAIL]` |
+| Reviewer Verdict | `[PASS / CONDITIONAL PASS / PASS WITH DEFERRALS / RECYCLE / FAIL / N/A — decision gate]` |
 | Client Decision | `[APPROVE / APPROVE WITH CONDITIONS / RECYCLE / REJECT / pending]` |
 | Gate Status After Decision | `[completed / in_progress / failed / pending]` |
 | Conditions (if any) | `[enumerated list or "-"]` |
 | Decided By | `Client` |
 | Decision Date | `YYYY-MM-DD` |
 | Decision Reference | `[session notes path, inline statement, or pending]` |
+
+If no verification artifact exists for the gate:
+- `Reviewer Verdict` MAY be the consultant's recommendation verdict or `N/A — decision gate`
 
 If `Client Decision = RECYCLE`:
 - `Gate Status After Decision` MUST be `in_progress`
@@ -136,6 +139,7 @@ If `Client Decision = RECYCLE`:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.3.0 | 2026-03-16 | Amendment | Generalized Section V wording from reviewer-only to recommendation state and extended the GDR Reviewer Verdict placeholder to support consultation-only decision gates with no verification artifact. |
 | v1.2.0 | 2026-03-15 | Amendment | Restructured Section II from flat Evidence Index to two-part Gate Package: Gate Package Index (deliverables inventory with client reading priority) and Evidence Index (governance traceability). Aligns with guideline_workspace_proposal.md v1.3.0 §V.B. |
 | v1.1.0 | 2026-03-12 | Amendment | Added explicit recycle reassessment path guidance to the Gate Recommendation section and added `Gate Status After Decision` plus RECYCLE-specific notes to the GDR section. |
 | v1.0.0 | YYYY-MM-DD | Initial | Initial template instantiation. |

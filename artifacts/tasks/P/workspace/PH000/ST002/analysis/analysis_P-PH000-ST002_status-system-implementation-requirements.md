@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
-version: '1.0.0'
-date: '2026-03-09'
+version: '1.1.0'
+date: '2026-03-16'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -22,7 +22,7 @@ purpose: 'Comprehensive implementation requirements analysis for the Program Sta
 
 **Scope**: This analysis covers the full implementation surface for the status artifact set: ledger schema, narrative structure, operational update protocol, agent-role binding, initial population scope, and conformance validation requirements. It is the primary input for the AC002 and AC003 activity plans.
 
-**Conclusion / Recommendation**: The implementation is feasible within the revised AC002/AC003 structure. The P-STD-002E ledger schema (CLAUSE-046) provides a concrete baseline. Activity-level granularity adds complexity to the backfill phase (AC003) but is manageable given existing plan data across P, T102, and T104. The primary risk is the agent update methodology gap — no operational binding currently maps P-STD-002D abstract RACI roles to concrete workspace agent roles.
+**Conclusion / Recommendation**: The implementation is feasible within the revised AC002/AC003 structure. The P-STD-002E ledger schema (CLAUSE-046) provides a concrete baseline. Activity-level granularity adds complexity to the backfill phase (AC003) but is manageable given existing plan data across P, T102, and T104. SES002 narrowed the remaining Gate 001 scope to a consultation-only decision package: explicit terminal/reopen authorization rules, full-UID decision references, and a clarified v1 activity-only population posture.
 
 ---
 
@@ -46,6 +46,7 @@ purpose: 'Comprehensive implementation requirements analysis for the Program Sta
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` (v1.1.0, accepted) — primary normative authority
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` (v0.1.2) — current stream plan
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-research.md` (v1.0.0) — informal seed analysis
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES002.md` — GATE-001 structure directive, full-UID rule, external-review scope
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md` — AC003 activity plan (P-STD-002 authoring source)
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-003_execution-disposition-package.md` (v1.2.0) — GATE-003 GDR
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` (v0.1.15) — ST001 stream plan (AC008 registration)
@@ -63,6 +64,7 @@ purpose: 'Comprehensive implementation requirements analysis for the Program Sta
 - P-STD-002 v1.1.0 is the accepted normative authority (effective 2026-03-04, GATE-001 APPROVE; CLAUSE-038 amended 2026-03-09 per GATE-003 APPROVE)
 - The informal seed analysis (`analysis_P-PH000-ST002_status-system-research.md`) is classified as an informal working note (not a formal P-RES artifact). Its architectural concepts are validated by P-STD-002 but its specific schema/protocol details are superseded.
 - GATE-003 disposition package (v1.2.0) confirms all six GIR decisions as APPROVE, including GIR-006(d) authorizing post-gate CLAUSE-038 amendment inside AC003.
+- SES002 (2026-03-15) confirms that AC002 GATE-001 is a consultation-only decision gate, requires full timeline UIDs in all decision references, and requires an external-review analysis comparing the package against both SES001 and SES002.
 
 ---
 
@@ -71,7 +73,7 @@ purpose: 'Comprehensive implementation requirements analysis for the Program Sta
 | GAP ID | Category | Title | Description | Disposition | Downstream Target | Notes |
 |:--|:--|:--|:--|:--|:--|:--|
 | GAP-001 | Schema | Seed schema superseded by P-STD-002E | AC001 seed schema (6 fields per stream entry) is substantially thinner than CLAUSE-046 baseline (12+ fields including health, dependencies, evidence, aggregation_policy, execution_refs, extensions). Implementation MUST use CLAUSE-046, not the seed. | `resolved` | AC002-TK002 | Resolved by SES001-DEC002 (AC001 absorbed) |
-| GAP-002 | Protocol | No operational binding for agent update workflow | P-STD-002D defines abstract RACI-based accountability but no concrete mapping to LLM_Consultant/Developer/Reviewer/Client roles or update trigger points in the plan/notes/gate workflow. | `deferred_to_TK001` | AC002-TK001 | SES001-DEC007 approved embedding protocol in narrative |
+| GAP-002 | Protocol | No operational binding for agent update workflow | P-STD-002D defines abstract RACI-based accountability but no concrete mapping to LLM_Consultant/Developer/Reviewer/Client roles or update trigger points in the plan/notes/gate workflow. | `resolved` | AC002-TK001 | Resolved in §V.E by explicit delegate-authorization and conflict-resolution rules; pending client approval at GATE-001 |
 | GAP-003 | Hierarchy | Entry granularity not specified in seed plan | Original plan assumed stream-level; client approved activity-level (SES001-DEC004). Implementation schema must support activity-level `scope_uid` entries. | `resolved` | AC002-TK001, AC002-TK002 | Resolved by SES001-DEC004 |
 | GAP-004 | Format | Dual-artifact format not specified in seed plan | Seed plan described a single `status_program.md` file. P-STD-002E CLAUSE-043 requires dual-artifact (ledger + narrative). CLAUSE-045 permits non-Markdown ledger. | `resolved` | AC002-TK002, AC002-TK003 | Resolved by SES001-DEC003 (`.yaml` ledger) |
 | GAP-005 | Scope | `P` self-entry not in original seed scope | AC001 §D specified only T102 + T104. Client approved adding `P` self-entry (SES001-DEC009). | `resolved` | AC003-TK001 | Adds PH000 streams/activities to backfill scope |
@@ -85,7 +87,7 @@ purpose: 'Comprehensive implementation requirements analysis for the Program Sta
 
 **P-STD-002 acceptance status**: Accepted (v1.1.0, effective 2026-03-04). 55 CLAUSEs across 5 substandards. CLAUSE-038 is now normative (stale-state governance, amended 2026-03-09).
 
-**ST002 stream plan status**: v0.1.2 (draft, last updated 2026-02-26). Two activities, both `planned`. AC001's seed content is explicitly annotated as informative only. AC002 has a single task and a research integration note acknowledging the P-STD-002E gap.
+**ST002 stream plan status**: v1.1.0 (draft, last updated 2026-03-15). AC002 is now linked to a standalone activity plan and the stream section has been simplified to a contract stub per SES002.
 
 **Existing status artifacts**: None. No `status/` directory exists under any initiative in `prompt/artifacts/tasks/`.
 
@@ -187,7 +189,9 @@ as_of: "YYYY-MM-DD"
 updated_by: "<actor>"
 last_updated: "YYYY-MM-DD"
 
-# SID entries (activity-level granularity per SES001-DEC004)
+# SID entries
+# - schema-valid scope types: initiative | phase | stream | activity
+# - AC003 v1 population posture: activity entries only (per SES001-DEC004 + SES002 comparison)
 entries:
   - scope_uid: "<SID per P-STD-005>"  # e.g., "P-PH000-ST001-AC003"
     scope_type: "<initiative|phase|stream|activity>"  # structural level
@@ -265,7 +269,7 @@ ledger_reference: 'prompt/artifacts/tasks/P/status/status_program.yaml'
 
 ### E. Agent-Role Binding Specification
 
-This section defines the mapping from P-STD-002D abstract RACI labels to concrete workspace agent roles. This resolves GAP-002.
+This section defines the mapping from P-STD-002D abstract RACI labels to concrete workspace agent roles. This resolves GAP-002 and encodes the remaining Gate 001 design decision surface.
 
 | P-STD-002 RACI Label | Workspace Agent Role | Typical Responsibilities |
 |:--|:--|:--|
@@ -282,6 +286,14 @@ This section defines the mapping from P-STD-002D abstract RACI labels to concret
 5. Health reassessment trigger (per CLAUSE-017: transition to `ready`/`in_progress`, entering `blocked`/`on_hold`, terminal)
 6. Stale-state review cycle (per CLAUSE-038: at least every 7 calendar days)
 
+**Terminal / reopen execution rule**:
+- The Accountable role (Client) executes terminal transitions and reopen transitions directly, or explicitly authorizes a named delegate to perform the update.
+- Any delegated terminal/reopen update MUST record authorization evidence using the ledger evidence schema (`type`, `ref`, `date`, `by`, `summary`) so the approval trail is auditable per CLAUSEs 008, 030, 032, and 039.
+
+**Conflict resolution rule** (per CLAUSE-037):
+- When conflicting updates occur, the most recent update remains authoritative until reviewed.
+- Any dispute over the correct status MUST be escalated to the Client as Accountable role, and the resolution decision MUST be recorded as evidence.
+
 **Update sequence** (per CLAUSE-048):
 1. Validate evidence (plan + notes + changed artifacts)
 2. Update ledger entry (canonical)
@@ -290,13 +302,13 @@ This section defines the mapping from P-STD-002D abstract RACI labels to concret
 
 ### F. Initial Population Scope (AC003)
 
-Per AC001 §D (confirmed) + SES001-DEC009 (P self-entry):
+Per AC001 §D (confirmed) + SES001-DEC009 (P self-entry), with the AC003 v1 population unit locked to **activity entries only**:
 
-| SID | Scope | Estimated Entry Count | Data Source |
+| SID | Activity-entry scope | Estimated Entry Count | Data Source |
 |:--|:--|:--|:--|
-| P | PH000: ST001 (7 activities), ST002 (3 activities), ST004 (2+ activities) | ~15–20 activity entries | `plan_P-PH000-ST001.md`, `plan_P-PH000-ST002.md`, ST004 plans |
-| T102 | PH001: active streams/activities | TBD — requires T102 plan review | T102 workspace plans |
-| T104 | PH001: active streams/activities (ST001–ST008+) | TBD — requires T104 plan review | T104 workspace plans |
+| P | PH000 activities under ST001, ST002, ST004 | ~15–20 activity entries | `plan_P-PH000-ST001.md`, `plan_P-PH000-ST002.md`, ST004 plans |
+| T102 | PH001 active activity entries | TBD — requires T102 plan review | T102 workspace plans |
+| T104 | PH001 active activity entries | TBD — requires T104 plan review | T104 workspace plans |
 
 **Backfill methodology**:
 - Extract current activity statuses from existing plan registers (activity/task register tables)
@@ -305,22 +317,22 @@ Per AC001 §D (confirmed) + SES001-DEC009 (P self-entry):
 - Record plan file paths as evidence pointers (type: `note` or `decision`)
 - Set `as_of` to the backfill date; `updated_by` to `LLM_Developer`
 
+Schema-valid `initiative`, `phase`, and `stream` `scope_uid` examples remain useful reference patterns for future roll-ups, but they are not required population units for AC003 v1.
+
 ### G. Conformance Validation Checklist (GATE input)
 
-This checklist is the minimum validation surface for AC002 GATE-001 and AC003 GATE-002:
+This checklist is the minimum validation surface for AC002 GATE-001 and downstream implementation gates:
 
-**Structural conformance (AC002 GATE-001)**:
-- [ ] Ledger file exists at `prompt/artifacts/tasks/P/status/status_program.yaml`
-- [ ] Narrative file exists at `prompt/artifacts/tasks/P/status/status_program.md`
-- [ ] Ledger includes `schema_version: "1.0"`
-- [ ] Ledger baseline schema matches CLAUSE-046 requirements (all baseline fields present)
-- [ ] Ledger extensibility hooks follow `extensions` / `x_` prefix convention
-- [ ] Narrative includes all 8 required sections (Summary through Changelog)
-- [ ] Narrative `ledger_reference` points to correct ledger path
-- [ ] Operational update protocol section is present and maps RACI to agent roles
-- [ ] P-STD-004 placement rules satisfied (CLAUSE-047)
+**Decision-package conformance (AC002 GATE-001)**:
+- [ ] Implementation requirements analysis encodes explicit terminal/reopen authorization and delegate-evidence rules
+- [ ] Implementation requirements analysis encodes conflict resolution per CLAUSE-037
+- [ ] AC003 v1 population posture is explicit: activity entries only
+- [ ] All decision references use full timeline UIDs per SES002 and P-STD-005
+- [ ] Reassessment external review compares the package against both SES001 and SES002
+- [ ] Gate-disposition proposal contains 3 GIR items aligned to the revised analysis
+- [ ] AC002 activity plan encodes GATE-001 as a consultation-only decision gate with a mandatory `Gate-Disposition Proposal` field
 
-**Content conformance (AC003 GATE-002)**:
+**Structural/content conformance (AC002 GATE-002 / AC003 GATE-002)**:
 - [ ] P, T102, T104 SID entries present at activity-level granularity
 - [ ] All entries satisfy MVAT (CLAUSE-054): status, `as_of`, `updated_by`, `last_updated`, evidence pointers
 - [ ] Health dimensions present (may be `unassessed`)
@@ -337,6 +349,7 @@ This checklist is the minimum validation surface for AC002 GATE-001 and AC003 GA
 | Downstream Artifact Type | Target Reference | Trigger Condition | Responsible Role | Notes |
 |:--|:--|:--|:--|:--|
 | PLAN (Activity) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md` | ST002 plan amendment complete | LLM_Consultant | AC002 activity plan with detailed task register; consumes this analysis §V.C–E as input |
+| ANALYSIS (External Review) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md` | TK001 design package revised | LLM_Consultant | Consultation-only Gate 001 reassessment comparing revised package against SES001 and SES002 |
 | PLAN (Activity) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/plan_P-PH000-ST002-AC003.md` | AC002 GATE-001 passed | LLM_Consultant | AC003 activity plan with detailed task register; consumes this analysis §V.F–G as input |
 | STATUS (Ledger) | `prompt/artifacts/tasks/P/status/status_program.yaml` | AC002-TK002 execution authorized | LLM_Developer | Canonical program status ledger per §V.C schema |
 | STATUS (Narrative) | `prompt/artifacts/tasks/P/status/status_program.md` | AC002-TK003 execution authorized | LLM_Developer | Derived narrative per §V.D structure |
@@ -353,6 +366,7 @@ This checklist is the minimum validation surface for AC002 GATE-001 and AC003 GA
 | ST002 Stream Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | ST002 Seed Analysis (Informal) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-research.md` |
 | SES001 Session Notes | `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES001.md` |
+| SES002 Session Notes | `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES002.md` |
 | AC003 Activity Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md` |
 | GATE-003 Disposition Package | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-003_execution-disposition-package.md` |
 | Program SPS | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` |
@@ -366,4 +380,5 @@ This checklist is the minimum validation surface for AC002 GATE-001 and AC003 GA
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-16 | Amendment | Updated Gate 001 decision package baseline after SES002. Added SES002 as governing comparison input, resolved GAP-002 with explicit delegate-authorization and conflict-resolution rules, clarified AC003 v1 activity-only population posture, and retargeted §V.G to decision-package conformance for consultation-only GATE-001. |
 | v1.0.0 | 2026-03-09 | Initial | Implementation requirements assessment for ST002 Program Status System. Covers P-STD-002 CLAUSE mapping, ledger/narrative schema specifications, agent-role binding, initial population scope, and conformance validation checklist. Source: SES001 consultation. |

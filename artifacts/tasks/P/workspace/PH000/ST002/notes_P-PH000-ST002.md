@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream: 'ST002'
-version: '1.0.0'
-date: '2026-03-09'
+version: '1.1.0'
+date: '2026-03-15'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -33,6 +33,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | Session | Session ID | Title | Date | Notes File |
 |:--|:--|:--|:--|:--|
 | SES001 | `P-PH000-ST002-SES001` | ST002 Implementation Readiness Assessment & Plan Revision | 2026-03-09 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES001.md` |
+| SES002 | `P-PH000-ST002-SES002` | Plan Amendment: AC002 Gate Structure + Activity Plan Directive | 2026-03-15 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES002.md` |
 
 ---
 
@@ -55,4 +56,5 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-15 | Amendment | SES002 registered: Plan Amendment — AC002 gate structure + activity plan directive. |
 | v1.0.0 | 2026-03-09 | Initial | Stream notes register created; SES001 registered. |
