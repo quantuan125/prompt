@@ -6,15 +6,15 @@
 | # | Substandard | CLAUSE ID | Title | Description |
 |:--|:--|:--|:--|:--|
 | 1 | General | P-STD-002-CLAUSE-055 | Forward-Only Adoption (General) | Defines forward-only adoption for P-STD-002 requirements per P-ASSUM-001. |
-| 2 | P-STD-002A | P-STD-002-CLAUSE-001 | Canonical Status Vocabulary | Defines the canonical 7-state program status enum and per-state semantics. |
+| 2 | P-STD-002A | P-STD-002-CLAUSE-001 | Canonical Status Vocabulary | Defines the canonical 8-state program status enum and per-state semantics. |
 | 3 | P-STD-002A | P-STD-002-CLAUSE-002 | Tool Meta-Category Mapping | Requires deterministic mapping of program statuses to tool meta-categories. |
 | 4 | P-STD-002A | P-STD-002-CLAUSE-003 | Local Status Extension Mapping | Permits local extension states, but requires mapping to the canonical vocabulary. |
 | 5 | P-STD-002A | P-STD-002-CLAUSE-004 | Initial and Terminal States | Defines initial and terminal states and their normative meaning at program scope. |
 | 6 | P-STD-002A | P-STD-002-CLAUSE-005 | Transition Matrix | Defines the allowed status transitions and their evidence/role markings. |
-| 7 | P-STD-002A | P-STD-002-CLAUSE-006 | Guard Conditions | Defines minimum guard conditions (G1–G9) required for allowed transitions. |
+| 7 | P-STD-002A | P-STD-002-CLAUSE-006 | Guard Conditions | Defines minimum guard conditions (G1–G10) required for allowed transitions. |
 | 8 | P-STD-002A | P-STD-002-CLAUSE-007 | Evidence-Required Transitions | Defines which transitions require evidence pointers and validation. |
 | 9 | P-STD-002A | P-STD-002-CLAUSE-008 | Role-Restricted Transitions | Defines which transitions are role-restricted using generic RACI labels. |
-| 10 | P-STD-002A | P-STD-002-CLAUSE-009 | Blocked vs On-Hold Semantics | Defines operational meaning of `blocked` vs `on_hold`, including attribute-compatible encoding. |
+| 10 | P-STD-002A | P-STD-002-CLAUSE-009 | Blocked vs On-Hold vs Deferred Semantics | Defines operational meaning of `blocked` vs `on_hold` vs `deferred`, including attribute-compatible encoding. |
 | 11 | P-STD-002A | P-STD-002-CLAUSE-010 | Execution Posture Fields (Non-Status) | Defines how execution posture is recorded without extending the status vocabulary. |
 | 12 | P-STD-002A | P-STD-002-CLAUSE-011 | Manual Gate Crosswalk (Informative) | Provides a cause-based mapping for manual gates and “waiting approval” states. |
 | 13 | P-STD-002B | P-STD-002-CLAUSE-012 | Standard Health Dimensions | Defines required health dimensions at program roll-up and initiative-level deferral rules. |
@@ -43,7 +43,7 @@
 | 36 | P-STD-002D | P-STD-002-CLAUSE-035 | Role-Transition Matrix | Defines transition permissions using generic RACI labels (not named roles). |
 | 37 | P-STD-002D | P-STD-002-CLAUSE-036 | Update Attribution Fields | Requires `updated_by` and `last_updated` fields to support auditability. |
 | 38 | P-STD-002D | P-STD-002-CLAUSE-037 | Conflict Resolution | Defines dispute handling for conflicting updates and escalation requirements. |
-| 39 | P-STD-002D | P-STD-002-CLAUSE-038 | Stale-State Governance | Defines minimum stale-state review thresholds, escalation posture, and non-automation boundary for active non-terminal states. |
+| 39 | P-STD-002D | P-STD-002-CLAUSE-038 | Stale-State Governance | Defines minimum stale-state review thresholds, escalation posture, and non-automation boundary for active non-terminal states, including `deferred`. |
 | 40 | P-STD-002D | P-STD-002-CLAUSE-039 | Repo-Verifiable Evidence Requirement | Requires terminal transitions to cite repo-verifiable evidence, with platform-agnostic fallbacks. |
 | 41 | P-STD-002D | P-STD-002-CLAUSE-040 | Evidence Type Extensions | Extends evidence types with `check`, `workflow_run`, and optional `execution_trace`. |
 | 42 | P-STD-002D | P-STD-002-CLAUSE-041 | Aggregation Policy Declaration | Requires explicit aggregation policy for multi-evidence updates with clear semantics. |
@@ -60,6 +60,7 @@
 | 53 | P-STD-002E | P-STD-002-CLAUSE-052 | Aggregation Policy Field | Defines how aggregation policy is represented in the ledger schema. |
 | 54 | P-STD-002E | P-STD-002-CLAUSE-053 | Execution Posture Fields (Optional) | Defines optional fields capturing sandbox/approval posture without status vocabulary drift. |
 | 55 | P-STD-002E | P-STD-002-CLAUSE-054 | Minimum Viable Audit Trail (MVAT) | Defines the minimum required fields per status entry for traceability integrity. |
+| 56 | General | P-STD-002-CLAUSE-056 | Status Enum Casing Convention | Requires all canonical status values to use `lowercase_underscore` format. Non-lifecycle enums SHOULD adopt consistent casing within their governing artifact. |
 
 
 ### General Provisions
@@ -70,16 +71,25 @@
    - existing artifacts are not required to retroactively conform
    - conformance applies at the next status update or artifact creation event
 
+2) **P-STD-002-CLAUSE-056 (Status Enum Casing Convention)**
+
+   All canonical status values defined in `P-STD-002-CLAUSE-001` MUST be encoded in `lowercase_underscore` format (e.g., `on_hold`, `in_progress`, `deferred`).
+
+   Non-lifecycle enums (e.g., gate verdicts, client decisions) defined outside `P-STD-002` are not governed by this CLAUSE but SHOULD adopt a consistent casing convention within their own governing artifact.
+
+   This convention applies forward-only per `P-STD-002-CLAUSE-055`.
+
 ### P-STD-002A — Status Vocabulary
 
 2) **P-STD-002-CLAUSE-001 (Canonical Status Vocabulary)**
 
-   Program status values MUST be one of the following seven canonical states:
+   Program status values MUST be one of the following eight canonical states:
    - `planned`
    - `ready`
    - `in_progress`
    - `blocked`
    - `on_hold`
+   - `deferred`
    - `completed`
    - `cancelled`
 
@@ -89,25 +99,27 @@
      - `in_progress`: active work is underway.
      - `blocked`: progress cannot continue due to an impediment not yet resolved.
      - `on_hold`: work is deliberately paused due to a policy or decision (not an unmet prerequisite).
+     - `deferred`: work is intentionally postponed beyond the current scope or cycle. May be resumed in a future scope.
      - `completed`: work is finished and accepted.
      - `cancelled`: work is intentionally terminated and will not be completed.
 
 3) **P-STD-002-CLAUSE-002 (Tool Meta-Category Mapping)**
 
    Any artifact that uses program status values MUST support a deterministic mapping to tool meta-categories:
-   - **To Do**: `planned`, `ready`
+   - **To Do**: `planned`, `ready`, `deferred`
    - **In Progress**: `in_progress`, `blocked`, `on_hold`
    - **Done**: `completed`, `cancelled`
 
 4) **P-STD-002-CLAUSE-003 (Local Status Extension Mapping)**
 
-   Initiatives MAY define local status values in addition to the canonical seven, but:
+   Initiatives MAY define local status values in addition to the canonical eight, but:
    - local statuses MUST map to exactly one canonical status for program roll-ups, and
    - local statuses MUST NOT redefine the semantics of any canonical status.
 
 5) **P-STD-002-CLAUSE-004 (Initial and Terminal States)**
 
    - `planned` MUST be treated as the initial state.
+   - `deferred` MUST be treated as a non-terminal, non-initial state. Deferred work may be resumed via `ready` or cancelled.
    - `completed` and `cancelled` MUST be treated as terminal states.
 
 6) **P-STD-002-CLAUSE-005 (Transition Matrix)**
@@ -120,15 +132,16 @@
    - `*` suffix = evidence-required
    - `^` suffix = role-restricted
 
-   | From \\ To | `planned` | `ready` | `in_progress` | `blocked` | `on_hold` | `completed` | `cancelled` |
-   |:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
-   | `planned` | D | A(G1) | D | D | D | D | A^*(G7) |
-   | `ready` | D | D | A(G2) | D | A(G5) | D | A^*(G7) |
-   | `in_progress` | D | D | D | A(G3) | A(G5) | A^*(G8) | A^*(G7) |
-   | `blocked` | D | D | A*(G4) | D | A(G5) | D | A^*(G7) |
-   | `on_hold` | D | A(G6) | D | D | D | D | A^*(G7) |
-   | `completed` | D | D | A^*(G9) | D | D | D | D |
-   | `cancelled` | D | D | A^*(G9) | D | D | D | D |
+   | From \\ To | `planned` | `ready` | `in_progress` | `blocked` | `on_hold` | `deferred` | `completed` | `cancelled` |
+   |:--|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+   | `planned` | D | A(G1) | D | D | D | A(G10) | D | A^*(G7) |
+   | `ready` | D | D | A(G2) | D | A(G5) | A(G10) | D | A^*(G7) |
+   | `in_progress` | D | D | D | A(G3) | A(G5) | A(G10) | A^*(G8) | A^*(G7) |
+   | `blocked` | D | D | A*(G4) | D | A(G5) | A(G10) | D | A^*(G7) |
+   | `on_hold` | D | A(G6) | D | D | D | A(G10) | D | A^*(G7) |
+   | `deferred` | D | A(G10) | D | D | D | D | D | A^*(G7) |
+   | `completed` | D | D | A^*(G9) | D | D | D | D | D |
+   | `cancelled` | D | D | A^*(G9) | D | D | D | D | D |
 
 7) **P-STD-002-CLAUSE-006 (Guard Conditions)**
 
@@ -145,6 +158,7 @@
    | `G7` | Cancellation reason + decision evidence pointer | Yes | Yes |
    | `G8` | Completion evidence pointer(s) + acceptance confirmation | Yes | Yes |
    | `G9` | Reopen rationale + new plan/work item reference + approval evidence pointer | Yes | Yes |
+   | `G10` | Deferral decision + target scope/cycle reference + next review date | No | No |
 
    * **P-STD-002-CLAUSE-006A (Role restriction semantics)** — When a guard is role restricted, it MUST use generic RACI labels (e.g., “Accountable”) and MUST NOT name specific program roles.
 
@@ -156,10 +170,11 @@
 
    Any transition marked as role-restricted (`^`) in `P-STD-002-CLAUSE-005` MUST be executed only by the **Accountable** role (generic RACI), or by a delegate explicitly authorized by the Accountable role and recorded via evidence.
 
-10) **P-STD-002-CLAUSE-009 (Blocked vs On-Hold Semantics)**
+10) **P-STD-002-CLAUSE-009 (Blocked vs On-Hold vs Deferred Semantics)**
 
    - `blocked` MUST indicate an unmet prerequisite or external impediment that prevents progress.
    - `on_hold` MUST indicate an intentional pause due to a decision or policy, not an unmet prerequisite.
+   - `deferred` MUST indicate an intentional postponement to a future scope or cycle, not a temporary pause within the current scope. `deferred` is distinct from `on_hold` in that deferred work is moved to a future cycle, while on-hold work is expected to resume in the current cycle.
 
    `blocked` MAY be encoded either:
    - as the program status value `blocked`, or
@@ -383,13 +398,14 @@
 
 39) **P-STD-002-CLAUSE-038 (Stale-State Governance)**
 
-   Status entries in active non-terminal states (`ready`, `in_progress`, `blocked`, `on_hold`) MUST be reviewed for staleness using the `last_updated` field.
+   Status entries in active non-terminal states (`ready`, `in_progress`, `blocked`, `on_hold`, `deferred`) MUST be reviewed for staleness using the `last_updated` field.
 
    Minimum stale-state thresholds:
    - `ready`: 7 calendar days without update
    - `in_progress`: 7 calendar days without update
    - `blocked`: 3 calendar days without update
    - `on_hold`: 14 calendar days without update
+   - `deferred`: 30 calendar days without re-evaluation
 
    Stale-state review MUST run on a recurring schedule of at least once every 7 calendar days.
 
@@ -481,7 +497,7 @@
    ```yaml
    schema_version: "1.0"
    scope_uid: "<timeline UID or other governed scope UID>"
-   status: "<planned|ready|in_progress|blocked|on_hold|completed|cancelled>"
+   status: "<planned|ready|in_progress|blocked|on_hold|deferred|completed|cancelled>"
    as_of: "YYYY-MM-DD"
    updated_by: "<actor>"
    last_updated: "YYYY-MM-DD"
@@ -581,14 +597,15 @@
     Inputs:
     - P-RES-001 integration recommendations (baseline coverage across domains A–E)
     - P-RES-002 integration recommendations (evidence anchoring, execution references, aggregation policy)
-    - Consolidated Decision Register (CDR) confirmations (13 binding decisions) in `proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md`
+    - Consolidated Decision Register (CDR) confirmations (14 binding decisions, including the deferred-state amendment) in `proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md`
 
     CDR numbering note:
     - “CDR-03 (7-state vocabulary stability)” was not elevated to a binding client-facing decision because both research streams independently confirmed the 7-state vocabulary before the consolidated register was assembled. It is recorded as a non-CDR confirmation in the CDR proposal preamble. The numbering gap (CDR-02 → CDR-04) is intentional.
+    - The deferred-state amendment is captured separately as CDR-15 after the original 13 binding decisions.
 
   * **Decision**
-    `P-STD-002` adopts the confirmed 13 binding CDR decisions as normative inputs:
-    - CDR-01: keep tool execution states out of the 7-state vocabulary; record as non-status fields.
+    `P-STD-002` adopts the confirmed 14 binding CDR decisions as normative inputs:
+    - CDR-01: keep tool execution states out of the 8-state vocabulary; record as non-status fields.
     - CDR-02: disallow `planned` → `in_progress` direct transition (must go through `ready`).
     - CDR-04: use generic RACI labels, not named program roles, for role restrictions.
     - CDR-05: map “manual gate / waiting approval” by cause to `on_hold` vs `blocked`.
@@ -601,6 +618,7 @@
     - CDR-12: `benefits` is required at program roll-up; may be deferred at initiative level with explicit recording.
     - CDR-13: narrative artifact has recommended sections, not a fixed required template (see `P-STD-002-CLAUSE-043`).
     - CDR-14: changelog location is not prescribed in v1.
+    - CDR-15: add `deferred` as 8th canonical state, semantically distinct from `on_hold`; map to "To Do" meta-category; 30-day staleness threshold; add CLAUSE-056 casing convention for status enums.
 
   * **Alternatives**
     - Reduce to a 3-state vocabulary with attributes (`todo/in_progress/done` + flags) — rejected; loses governance precision.
@@ -626,6 +644,7 @@
     - `P-PH000-ST001-AC003-TK001` (CDR proposal + theme mapping)
     - `P-PH000-ST001-AC003-TK002` (author Specification)
     - `P-PH000-ST001-AC003-TK003` (author ADR-001)
+    - `P-PH000-ST001-AC003-TK013` (deferred-state + casing convention amendment)
     - `P-PH000-ST004-AC001-TK003` (P-RES-001 integration recommendations)
     - `P-PH000-ST004-AC002-TK003` (P-RES-002 integration recommendations)
 
@@ -648,6 +667,7 @@
 - `accepted` (GATE-001 APPROVE, 2026-03-04)
 
 ### Amendment History
+- v1.2.0 (2026-03-18): Added `deferred` as 8th canonical lifecycle state (CLAUSE-001/001A). Added CLAUSE-056 (Status Enum Casing Convention). Updated transition matrix (CLAUSE-005 + G10), stale-state thresholds (CLAUSE-038), tool meta-category mapping (CLAUSE-002), initial/terminal states (CLAUSE-004), and blocked/on-hold/deferred semantics (CLAUSE-009). CDR-15 recorded. Source: T104-PH001-ST008-AC003-SES002 client directive + industry analysis (ITIL 4, PMI PMBOK, ISO 12207).
 - v1.1.0 (2026-03-09): Replaced reserved `P-STD-002-CLAUSE-038` placeholder with approved normative stale-state governance text per GATE-003 approval and TK008 source text.
 - v1.0.0 (2026-02-27): Initial authoring (54 CLAUSEs across P-STD-002A..E) + ADR-001.
 - v1.0.1 (2026-02-27): Remediated Decision Record keyword hygiene per `P-STD-001-CLAUSE-021B` (no Specification changes).
