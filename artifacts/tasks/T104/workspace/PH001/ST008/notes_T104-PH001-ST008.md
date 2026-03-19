@@ -5,8 +5,8 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST008'
-version: '1.4.0'
-date: '2026-03-18'
+version: '1.8.0'
+date: '2026-03-19'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -46,7 +46,11 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC002 | `T104-PH001-ST008-AC002-SES002` | GATE-001 Readiness Remediation + Dual-Lens Brief Update | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/snotes/snotes_T104-PH001-ST008-AC002-SES002.md` |
 | AC002 | `T104-PH001-ST008-AC002-SES003` | GATE-002 External Review, Package Gap Analysis & Guideline Enhancement Decisions | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/snotes/snotes_T104-PH001-ST008-AC002-SES003.md` |
 | AC001.2 | `T104-PH001-ST008-AC001.2-SES001` | Gate-Readiness Stack Consultation & Implementation Planning | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.2/snotes/snotes_T104-PH001-ST008-AC001.2-SES001.md` |
+| AC001.3 | `T104-PH001-ST008-AC001.3-SES004` | Independent Gate Review, IMPLEMENTATION Family Architecture & Package Expansion | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES004.md` |
+| AC001.3 | `T104-PH001-ST008-AC001.3-SES003` | Reconciled Analysis, TK004 Authoring & Gate-001 Staging | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES003.md` |
+| AC001.3 | `T104-PH001-ST008-AC001.3-SES002` | Deliverable Review, External Consultation & Artifact Type Decision | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES002.md` |
 | AC001.3 | `T104-PH001-ST008-AC001.3-SES001` | Gate Remediation Artifact Model Resolution Kickoff | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES001.md` |
+| AC001.4 | `T104-PH001-ST008-AC001.4-SES001` | Gate Impact Classification Consultation & Sub-Activity Registration | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/snotes/snotes_T104-PH001-ST008-AC001.4-SES001.md` |
 
 ---
 
@@ -66,6 +70,10 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.8.0 | 2026-03-19 | Amendment | Registered AC001.4 activity session `T104-PH001-ST008-AC001.4-SES001` for gate-impact classification consultation and sub-activity registration. |
+| v1.7.0 | 2026-03-19 | Amendment | Registered AC001.3-SES004 (Independent Gate Review, IMPLEMENTATION Family Architecture & Package Expansion). |
+| v1.6.0 | 2026-03-19 | Amendment | Registered AC001.3-SES003 (Reconciled Analysis, TK004 Authoring & Gate-001 Staging). |
+| v1.5.0 | 2026-03-18 | Amendment | Registered AC001.3-SES002 (Deliverable Review, External Consultation & Artifact Type Decision). |
 | v1.4.0 | 2026-03-18 | Amendment | Registered AC003-SES002 (GATE-001 Package Review & Cross-Activity Gap Routing) and added the AC003 session notes file to the Activity Notes Register. |
 | v1.3.0 | 2026-03-17 | Amendment | Registered AC001.3-SES001 (Gate Remediation Artifact Model Resolution Kickoff) and added the AC001.3 activity plan to primary links. |
 | v1.2.0 | 2026-03-17 | Amendment | Registered AC003-SES001 (TK001–TK003 execution: gap extraction, implementation spec, and GATE-001 proposal). |

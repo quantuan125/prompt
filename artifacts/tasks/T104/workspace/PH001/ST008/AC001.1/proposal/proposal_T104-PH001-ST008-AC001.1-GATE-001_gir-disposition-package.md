@@ -6,8 +6,8 @@ phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC001.1'
 gate_id: 'T104-PH001-ST008-AC001.1-GATE-001'
-version: '1.0.0'
-date: '2026-03-12'
+version: '1.1.0'
+date: '2026-03-19'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -44,7 +44,7 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--:|:--|
-| GIR-001 | Bounded closeout package readiness | Whether the `AC001.1` evidence package is sufficient to accept the implemented closeout slice for local gate purposes | (a) APPROVE local Gate-001 package as drafted | `T104-PH001-ST008-AC001.1-GATE-001` | No | `pending` |
+| GIR-001 | Bounded closeout package readiness | Whether the `AC001.1` evidence package is sufficient to accept the implemented closeout slice for local gate purposes | (a) APPROVE local Gate-001 package as drafted | `T104-PH001-ST008-AC001.1-GATE-001` | No | `(a) APPROVED` |
 
 ---
 
@@ -72,7 +72,7 @@ Rationale:
 - The local package is complete, internally consistent, and provides the missing bounded evidence surfaces without rewriting the parent AC001 gate history.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -97,12 +97,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `T104-PH001-ST008-AC001.1-GATE-001` |
 | Reviewer Verdict | `PASS` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
-| Conditions (if any) | `-` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
+| Conditions (if any) | `—` |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-19` |
+| Decision Reference | `Client inline direction (2026-03-19) — administrative closure, no further review required` |
 
 ---
 
@@ -120,4 +120,5 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-19 | Amendment | GDR closed: Client Decision = APPROVE, Gate Status = completed. Administrative closure per client inline direction (2026-03-19). GIR-001 marked APPROVED. |
 | v1.0.0 | 2026-03-12 | Initial | Initial local Gate-001 disposition package for AC001.1. Records the pending client decision for the bounded implementation-closeout review package. |

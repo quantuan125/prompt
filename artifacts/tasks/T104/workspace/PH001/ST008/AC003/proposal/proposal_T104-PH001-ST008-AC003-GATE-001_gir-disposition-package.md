@@ -99,7 +99,7 @@ consumers:
 **Evidence**: The implementation spec (§III) provides for each gap:
 - Target file path and target section heading
 - Current-state evidence quoted from the live file
-- Required change description
+- Recommended change description
 - Acceptance criterion (1-2 lines)
 
 **Notable items**:

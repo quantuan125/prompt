@@ -6,15 +6,15 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC002'
-task_id: 'P-PH000-ST002-AC002-TK001.1'
+task_id: 'P-PH000-ST002-AC002-TK001.6'
 gate_id: 'P-PH000-ST002-AC002-GATE-001'
-version: '1.0.0'
-date: '2026-03-16'
+version: '1.1.0'
+date: '2026-03-19'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md'
-purpose: 'Independent reassessment of the remediated consultation-only GATE-001 package before client disposition.'
+purpose: 'Independent reassessment of the remediated same-gate recycle package for AC002 before the next client review of GATE-001.'
 target_artifact: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md'
 ---
 
@@ -22,33 +22,37 @@ target_artifact: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: Independently reassess the remediated Gate 001 package for AC002 after the design-decision package was updated to match SES001, SES002, and the revised consultation-only gate model.
-**Scope**: Review the revised implementation requirements analysis, the revised AC002 activity plan, and the current Gate 001 gate-disposition proposal as one consultation-only decision package.
-**Conclusion / Recommendation**: The remediated package is decision-ready and supports a PASS recommendation for the next client review of `P-PH000-ST002-AC002-GATE-001`. No remaining gaps require a verification artifact because this gate does not review developer-mutated deliverables.
+**Purpose**: Independently reassess the remediated same-gate recycle package for AC002 after the March 18, 2026 `P-STD-002 v1.2.0` amendment invalidated the earlier Gate-001 package.
+
+**Scope**: Review the current-state assessment, rebaselined implementation requirements analysis, amended AC002 activity plan, refreshed gate-disposition proposal, and recorded session decisions as one consultant-owned package for the next review of `P-PH000-ST002-AC002-GATE-001`.
+
+**Conclusion / Recommendation**: The recycle package is now structurally coherent and consultant-side remediation is complete. The package is suitable for same-gate reassessment of `GIR-001` through `GIR-003` at the next client review. This external review does not approve the gate; it confirms that the recycled package is ready to be reconsidered under the same gate ID.
 
 **Client Summary**:
-- The package now matches the consultation-only gate rule: consultant artifacts feed the gate directly; no `DEV-REPORT` or `VERIFICATION` artifact is required.
-- SES001 design decisions remain intact and are used as the stream-level baseline.
-- SES002 directives are now satisfied: standalone activity plan, full timeline UID references, consultation-only Gate 001 structure, and required external review scope.
-- The implementation requirements analysis now closes the earlier agent-role gap by making terminal/reopen authorization explicit.
-- The v1 population model is now clear: AC003 backfills activity entries only, while higher scope types remain schema-valid examples for future use.
-- The Gate 001 proposal now points to the current package and no longer relies on the earlier advisory review as if it were the active gate review.
-- The prior external review remains preserved as historical context, which keeps the audit trail intact.
-- Recommendation: client can disposition GIR-001 through GIR-003 at the next Gate 001 review without further consultant-side remediation.
+- The earlier Gate-001 package was stale because it still reflected the pre-amendment seven-state `P-STD-002` model.
+- The current package now aligns to `P-STD-002 v1.2.0`, including the `deferred` state, `G10`, and the revised stale-state rules.
+- The AC002 plan now explicitly encodes a same-gate recycle loop and keeps downstream implementation blocked.
+- The new current-state assessment is now the latest consultant analysis for Gate-001.
+- The refreshed proposal records the current client disposition as `RECYCLE` and preserves the same `GATE-001` for reassessment.
+- No additional consultant-owned remediation artifacts are required before the next Gate-001 review.
+- Recommendation: use this external review as supporting evidence for the next review of the same gate, not as a gate-closing PASS statement.
 
 ## II. SCOPE & INPUTS
 
 **In scope**:
-- Compare the remediated Gate 001 package against SES001 and SES002 decisions.
-- Check whether the updated package is decision-complete for the client.
-- Confirm that the gate packaging matches the revised consultation-only gate model in the shared guidelines.
+- Check the remediated Gate-001 package against `P-STD-002 v1.2.0`
+- Confirm same-gate recycle handling is encoded correctly in the plan and proposal
+- Confirm the refreshed package is decision-ready for the next client review of the same gate
 
 **Out of scope**:
-- Verifying implementation outputs from TK002, TK003, or TK004.
-- Closing GATE-001 inside this analysis artifact.
-- Producing a reviewer verdict or verification findings.
+- Approving `GATE-001` inside this analysis artifact
+- Implementing `TK002`, `TK003`, or `TK004`
+- Broader governance cleanup outside the AC002 package
 
 **Inputs reviewed (repo-relative paths)**:
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/snotes/snotes_P-PH000-ST002-AC002-SES001.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_current-state-assessment.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-implementation-requirements.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md`
@@ -62,25 +66,25 @@ target_artifact: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/
 ## III. EVIDENCE / METHODOLOGY
 
 **Method**:
-- Reviewed the revised implementation requirements analysis to confirm the remaining Gate 001 decisions are now encoded directly in the source analysis rather than deferred to implementers.
-- Reviewed the revised AC002 activity plan to confirm Gate 001 is structured as a consultation-only decision gate with the proposal immediately before the gate.
-- Reviewed the revised gate-disposition proposal to confirm the Gate Package and GIR items now reflect the remediated package.
-- Compared the revised package against SES001 and SES002 to confirm all previously locked decisions and directives are satisfied.
-- Reviewed the prior external review analysis only as historical context to verify that its concerns were either resolved or superseded in the remediated package.
+- Reviewed the new current-state assessment to confirm the recycle rationale, same-gate posture, and re-entry basis are explicitly recorded.
+- Reviewed the rebaselined implementation requirements analysis to confirm the package now reflects `P-STD-002 v1.2.0` rather than the obsolete seven-state model.
+- Reviewed the amended AC002 activity plan to confirm `GATE-001` remains open, remediation tasks are registered, and downstream implementation remains blocked.
+- Reviewed the refreshed gate-disposition proposal to confirm the GDR records `RECYCLE` and points to the updated package.
+- Compared the current package against the prior external review only as historical context so the audit trail of the stale package remains preserved.
 
 **Commands run (if any)**:
 ```bash
-nl -ba prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-implementation-requirements.md | sed -n '160,360p'
-nl -ba prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md | sed -n '1,220p'
-nl -ba prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md | sed -n '1,220p'
-sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES001.md
-sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES002.md
+sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_current-state-assessment.md
+sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-implementation-requirements.md
+sed -n '1,320p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md
+sed -n '1,320p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md
+git -C prompt diff dea56d0ffe31399123a736b41226fffb68dd2086 4a1bbd67b36a512bf8e526571cafb58a45476bc6 -- artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md
 ```
 
 **Evidence notes**:
-- SES001 provides the stream-level design baseline: ledger format, activity granularity, embedded protocol/changelog, `P` self-entry, and SID-generalized hierarchy.
-- SES002 provides the gate-structure baseline: standalone activity plan required, full UID references mandatory, Gate 001 is a consultation-only decision gate, and an external review analysis is required as a gate package input.
-- The prior external review correctly surfaced the original package weaknesses, but it is no longer the gate-feeding review artifact because the package changed after the review.
+- `P-STD-002 v1.2.0` is the current normative authority for the status model.
+- The new Gate-001 current-state assessment is now the latest consultant analysis artifact for this gate.
+- The earlier implementation recommendations review remains historical context; it is not the active external review surface for the next gate review.
 
 ## IV. FINDINGS / GAP REGISTER
 
@@ -88,58 +92,65 @@ sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-P
 
 | GAP ID | Category | Title | Description | Disposition | Downstream Target | Notes |
 |:--|:--|:--|:--|:--|:--|:--|
-| — | — | No material package gaps identified | The remediated Gate 001 package is now decision-complete for a consultation-only client disposition gate. | — | — | Historical review preserved separately for audit trail. |
+| GAP-001 | package | Consultant-side recycle remediation | The stale package posture identified during the current-state assessment required analysis, plan, proposal, and external-review refresh before the same gate could be reconsidered. | `resolved` | `P-PH000-ST002-AC002-TK001.3` to `P-PH000-ST002-AC002-TK001.7` | Remediation tasks completed in the same-gate recycle loop. |
+| GAP-002 | governance | Local guideline wording still trails the standard | `guideline_workspace_plan.md` still contains seven-state wording that conflicts with `P-STD-002 v1.2.0`. | `deferred` | Future governance task | Not a blocker to the AC002 gate package because the package now defers directly to the standard. |
 
 ## V. EXTERNAL REVIEW (INDEPENDENT ASSESSMENT)
 
-**Engagement scope**: Independent reassessment of the remediated consultation-only Gate 001 package for AC002 before the next client gate review.
+**Engagement scope**: Independent reassessment of the remediated same-gate recycle package for AC002 before the next client review of `P-PH000-ST002-AC002-GATE-001`.
 
 **Materials reviewed**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_current-state-assessment.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-implementation-requirements.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/snotes/snotes_P-PH000-ST002-AC002-SES001.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES001.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES002.md`
-- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002_implementation-recommendations-review.md`
 
 ### A. Strengths
-- The package now matches the revised gate model: Gate 001 is explicitly a consultation-only decision gate, so the plan no longer implies that verification is mandatory.
-- The implementation requirements analysis now closes the earlier agent-role ambiguity by stating how terminal and reopen transitions are executed and how delegated execution must be evidenced.
-- The revised scope decision for `scope_uid` patterns is cleaner: schema-valid examples remain broad, but AC003 v1 population is explicitly limited to activity entries.
-- SES002 directives are now reflected directly in the package instead of living only in session notes.
-- The proposal now consumes the current package and demotes the earlier external review to historical context rather than treating it as the active gate review.
+- The package now uses the current `P-STD-002 v1.2.0` baseline rather than the obsolete seven-state model.
+- The AC002 plan now encodes same-gate recycle mechanics explicitly, including remediation tasks and a re-entry block.
+- The latest consultant posture is now captured in a dedicated current-state assessment rather than being inferred from older reviews.
+- The refreshed proposal no longer implies that developer work may begin immediately; it records `RECYCLE` and keeps the gate open.
+- The package still preserves the original historical review trail, which keeps the decision history auditable.
 
 ### B. Concerns / Risks
-- **RISK-001 (Low)**: GATE-002 remains a future implementation-backed gate and will need its own `DEV-REPORT` / `VERIFICATION` sequencing when developer execution occurs. This does not block Gate 001.
-- **RISK-002 (Low)**: The historical advisory review remains on disk and could confuse future readers if they skip the new reassessment artifact. The revised proposal mitigates this by treating the prior review as historical context.
+- **RISK-001 (Low)**: The next client review still needs to disposition `GIR-001` through `GIR-003`; this external review does not collapse those decisions into consultant authority.
+- **RISK-002 (Low)**: `guideline_workspace_plan.md` still contains stale seven-state wording, which could confuse future authors outside this package if the governance follow-up is not scheduled.
 
 ### C. Recommendations
-- Treat this artifact as the active external review for the next Gate 001 attempt.
-- Use the revised gate-disposition proposal as the authoritative client decision package for GIR-001 through GIR-003.
-- Preserve the prior external review file without amendment so the audit trail of the original package remains intact.
-- Proceed to the next client review of `P-PH000-ST002-AC002-GATE-001`; no further consultant-side remediation is recommended before that review.
+- Treat this artifact as the active external review for the next review of `P-PH000-ST002-AC002-GATE-001`.
+- Use the refreshed proposal, current-state assessment, and rebaselined implementation requirements analysis as the authoritative package for that same-gate reassessment.
+- Keep downstream implementation tasks blocked until the proposal GDR later records `APPROVE` or `APPROVE WITH CONDITIONS`.
+- Do not create a new gate ID or new activity for this remediation.
 
 ## VIII. DOWNSTREAM ACTIONS
 
 | downstream_artifact_type | target_reference | trigger_condition | responsible_role | notes |
 |:--|:--|:--|:--|:--|
-| proposal_gate_disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md` | External review accepted as current package input | LLM_Consultant | Proposal should remain the GDR host for the next client review. |
-| client_gate_review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md` | Client reviews current Gate 001 package | Client | Gate may record APPROVE / APPROVE WITH CONDITIONS / RECYCLE / REJECT in the proposal GDR. |
-| implementation_execution | `prompt/artifacts/tasks/P/status/status_program.yaml` | Gate 001 client decision = APPROVE or APPROVE WITH CONDITIONS | LLM_Developer | TK002 and TK003 remain blocked until the proposal GDR records an approving decision. |
+| proposal_gate_disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md` | External review refreshed against current package | LLM_Consultant | Proposal remains the GDR host for the next client review of the same gate. |
+| client_gate_review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md` | Client reviews remediated same-gate recycle package | Client | Same gate ID is reconsidered in the next session. |
+| implementation_execution | `prompt/artifacts/tasks/P/status/status_program.yaml` | Proposal GDR later records `APPROVE` or `APPROVE WITH CONDITIONS` | LLM_Developer | `TK002` and `TK003` remain blocked until the same gate later closes with an approving decision. |
+| governance_follow_up | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` | AC002 package stabilized after next gate review | LLM_Consultant | Align stale seven-state guidance with `P-STD-002 v1.2.0`. |
 
 ## IX. REFERENCES / LINKS REGISTER
 
 | Item | Reference |
 |:--|:--|
 | Governing plan | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md` |
-| Revised implementation requirements analysis | `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-implementation-requirements.md` |
+| Current-state assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_current-state-assessment.md` |
+| Rebaselined implementation requirements analysis | `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-implementation-requirements.md` |
 | Gate-disposition proposal | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md` |
 | Prior external review (historical) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002_implementation-recommendations-review.md` |
+| AC002 session notes | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/snotes/snotes_P-PH000-ST002-AC002-SES001.md` |
 | SES001 session notes | `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES001.md` |
 | SES002 session notes | `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES002.md` |
+| Standard authority | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` |
 
 ## X. CHANGELOG
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-19 | Amendment | Retargeted the external review to the same-gate recycle package after the `P-STD-002 v1.2.0` amendment. Added the latest current-state assessment, rebaselined package inputs, and updated the conclusion from PASS posture to readiness for same-gate reassessment. |
 | v1.0.0 | 2026-03-16 | Initial | Reassessment external review for the remediated consultation-only GATE-001 package. Compares the current package against SES001 and SES002, preserves the earlier review as historical context, and recommends PASS posture for the next client gate review. |

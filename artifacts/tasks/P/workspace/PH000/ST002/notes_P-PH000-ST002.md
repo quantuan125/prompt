@@ -41,6 +41,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Activity | Session ID | Name | Notes File |
 |:--|:--|:--|:--|
+| AC002 | `P-PH000-ST002-AC002-SES001` | Gate-001 Recycle Planning & Current-State Assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/snotes/snotes_P-PH000-ST002-AC002-SES001.md` |
 
 ---
 
@@ -56,5 +57,6 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-19 | Amendment | Registered AC002 activity session `P-PH000-ST002-AC002-SES001` for Gate-001 recycle planning and current-state assessment. |
 | v1.1.0 | 2026-03-15 | Amendment | SES002 registered: Plan Amendment — AC002 gate structure + activity plan directive. |
 | v1.0.0 | 2026-03-09 | Initial | Stream notes register created; SES001 registered. |

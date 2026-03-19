@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
-version: '1.1.0'
-date: '2026-03-16'
+version: '1.2.0'
+date: '2026-03-19'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -18,7 +18,7 @@ purpose: 'Comprehensive implementation requirements analysis for the Program Sta
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: Document all implementation requirements for the Program Status System (P-PH000-ST002) based on P-STD-002 (v1.1.0, 55 CLAUSEs), consultation decisions from SES001, and gap analysis against the original ST002 stream plan seed materials.
+**Purpose**: Document all implementation requirements for the Program Status System (P-PH000-ST002) based on P-STD-002 (v1.2.0, 56 CLAUSEs), consultation decisions from SES001 and SES002, and gap analysis against the original ST002 stream plan seed materials.
 
 **Scope**: This analysis covers the full implementation surface for the status artifact set: ledger schema, narrative structure, operational update protocol, agent-role binding, initial population scope, and conformance validation requirements. It is the primary input for the AC002 and AC003 activity plans.
 
@@ -43,7 +43,7 @@ purpose: 'Comprehensive implementation requirements analysis for the Program Sta
 - Stale-state automation tooling (CLAUSE-038 is human-governed in baseline)
 
 **Inputs reviewed (repo-relative paths)**:
-- `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` (v1.1.0, accepted) — primary normative authority
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` (v1.2.0, accepted) — primary normative authority
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` (v0.1.2) — current stream plan
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-research.md` (v1.0.0) — informal seed analysis
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES002.md` — GATE-001 structure directive, full-UID rule, external-review scope
@@ -61,7 +61,7 @@ purpose: 'Comprehensive implementation requirements analysis for the Program Sta
 **Method**: Requirements extraction from P-STD-002 normative CLAUSEs mapped to implementation tasks, cross-referenced against consultation decisions (SES001-DEC001 through DEC010) and gap analysis against the original seed materials.
 
 **Evidence notes**:
-- P-STD-002 v1.1.0 is the accepted normative authority (effective 2026-03-04, GATE-001 APPROVE; CLAUSE-038 amended 2026-03-09 per GATE-003 APPROVE)
+- P-STD-002 v1.2.0 is the current normative authority. The March 18, 2026 amendment added `deferred` as an eighth canonical lifecycle state, added guard `G10`, added CLAUSE-056, and revised stale-state governance and status semantics.
 - The informal seed analysis (`analysis_P-PH000-ST002_status-system-research.md`) is classified as an informal working note (not a formal P-RES artifact). Its architectural concepts are validated by P-STD-002 but its specific schema/protocol details are superseded.
 - GATE-003 disposition package (v1.2.0) confirms all six GIR decisions as APPROVE, including GIR-006(d) authorizing post-gate CLAUSE-038 amendment inside AC003.
 - SES002 (2026-03-15) confirms that AC002 GATE-001 is a consultation-only decision gate, requires full timeline UIDs in all decision references, and requires an external-review analysis comparing the package against both SES001 and SES002.
@@ -85,7 +85,7 @@ purpose: 'Comprehensive implementation requirements analysis for the Program Sta
 
 ### A. Current State Summary
 
-**P-STD-002 acceptance status**: Accepted (v1.1.0, effective 2026-03-04). 55 CLAUSEs across 5 substandards. CLAUSE-038 is now normative (stale-state governance, amended 2026-03-09).
+**P-STD-002 acceptance status**: Accepted and currently at v1.2.0. The standard now has 56 CLAUSEs across 5 substandards plus General Provisions, with the March 18, 2026 amendment adding `deferred`, `G10`, and CLAUSE-056.
 
 **ST002 stream plan status**: v1.1.0 (draft, last updated 2026-03-15). AC002 is now linked to a standalone activity plan and the stream section has been simplified to a contract stub per SES002.
 
@@ -101,18 +101,19 @@ This is the core requirements extraction. Each row maps a P-STD-002 CLAUSE (or C
 
 | CLAUSE(s) | Requirement | Implementation Target | Notes |
 |:--|:--|:--|:--|
-| 001 | Use 7-state canonical vocabulary: `planned`, `ready`, `in_progress`, `blocked`, `on_hold`, `completed`, `cancelled` | Ledger `status` field enum | Enforce in schema validation |
+| 001 | Use 8-state canonical vocabulary: `planned`, `ready`, `in_progress`, `blocked`, `on_hold`, `deferred`, `completed`, `cancelled` | Ledger `status` field enum | Enforce in schema validation |
 | 001A | Use canonical state definitions at program scope | Narrative — reference definitions when reporting status | Informative; no structural impact |
 | 002 | Support deterministic mapping to tool meta-categories (To Do / In Progress / Done) | Ledger schema — ensure `status` values map 1:1 | May be useful for derived views |
 | 003 | Local status extensions MUST map to exactly one canonical status | Ledger `extensions` hook — if any local statuses used | Not expected in v1 |
-| 004 | `planned` = initial state; `completed`/`cancelled` = terminal | Ledger — enforce initial/terminal constraints | Validation rule |
+| 004 | `planned` = initial state; `deferred` = non-terminal/non-initial; `completed`/`cancelled` = terminal | Ledger — enforce initial/terminal constraints | Validation rule |
 | 005 | Transition matrix governance (state machine) | Operational protocol — agents MUST follow allowed transitions | Key operational requirement |
-| 006 | Guard conditions G1–G9 | Operational protocol — minimum conditions per transition | Documentation in narrative protocol section |
+| 006 | Guard conditions G1–G10 | Operational protocol — minimum conditions per transition | Documentation in narrative protocol section |
 | 007 | Evidence-required transitions (`*` suffix) | Ledger — evidence pointers required for marked transitions | Links to CLAUSE-030 |
 | 008 | Role-restricted transitions (`^` suffix) — Accountable role only | Operational protocol — terminal/reopen transitions restricted | Links to CLAUSE-035 |
-| 009 | `blocked` vs `on_hold` semantics | Operational protocol — agents must distinguish impediment vs deliberate pause | Documentation |
+| 009 | `blocked` vs `on_hold` vs `deferred` semantics | Operational protocol — agents must distinguish impediment, deliberate pause, and future-cycle deferral | Documentation |
 | 010 | Execution posture fields (non-status) — `approval_policy`, `sandbox_mode`, `execution_platform` | Ledger — optional non-status metadata fields | Use `extensions` or `x_` prefix per CLAUSE-046 |
 | 011 | Manual gate crosswalk (informative) | Operational protocol — reference mapping table | Informative only |
+| 056 | Canonical status values use `lowercase_underscore` format | Ledger and narrative status rendering | Already satisfied by the current enum tokens |
 
 **P-STD-002B — Health Assessment (CLAUSEs 012–018)**
 
@@ -123,7 +124,7 @@ This is the core requirements extraction. Each row maps a P-STD-002 CLAUSE (or C
 | 014 | Independent per-dimension RAG computation | Ledger — each dimension independently assessed | No cross-dimension dependency |
 | 015 | Overall RAG aggregation: any Red → Red; 2+ Amber → Amber; else Green | Ledger `health.overall` — deterministic derivation | Validation rule |
 | 016 | Initiative-configured tolerance values; optional additional dimensions | Ledger `extensions` — tolerance config per SID | v1: all dimensions `unassessed` (SES001-DEC008) |
-| 017 | Health reassessment cadence: on transition to `ready`/`in_progress`, entering `blocked`/`on_hold`, terminal state | Operational protocol — trigger-based reassessment | Supplements CLAUSE-038 stale-state review |
+| 017 | Health reassessment cadence: on transition to `ready`/`in_progress`, entering `blocked`/`on_hold`/`deferred`, terminal state | Operational protocol — trigger-based reassessment | Supplements CLAUSE-038 stale-state review |
 | 018 | Allowed-failure health impact: NOT Green if allowed failures exist; mark `quality`/`risk` Amber/Red | Operational protocol — health reporting constraint | Links to CLAUSE-041/042 |
 
 **P-STD-002C — Dependency Visibility (CLAUSEs 019–029)**
@@ -154,7 +155,7 @@ This is the core requirements extraction. Each row maps a P-STD-002 CLAUSE (or C
 | 035 | Role-transition matrix: Responsible for routine; Accountable for terminal/reopen | Operational protocol — agent-role binding | Must map to LLM_Consultant/Developer/Reviewer/Client |
 | 036 | Update attribution: `updated_by` + `last_updated` | Ledger fields | MVAT requirement |
 | 037 | Conflict resolution: most recent authoritative; disputes to Accountable | Operational protocol | Documentation |
-| 038 | Stale-state governance: thresholds (ready=7d, in_progress=7d, blocked=3d, on_hold=14d), progressive escalation, no auto-downgrade | Operational protocol + ledger `last_updated` monitoring | Normative as of v1.1.0 |
+| 038 | Stale-state governance: thresholds (ready=7d, in_progress=7d, blocked=3d, on_hold=14d, deferred=30d), progressive escalation, no auto-downgrade | Operational protocol + ledger `last_updated` monitoring | Includes deferred-state review obligation in v1.2.0 |
 | 039 | Repo-verifiable evidence for terminal transitions | Operational protocol | Links to CLAUSE-032 |
 | 040 | Evidence type extensions: `check`, `workflow_run`, `execution_trace` | Ledger `evidence[].type` extended enum | Optional extensions |
 | 041 | Aggregation policy declaration for multi-evidence: `fail_fast`, `allow_failure`, `continue_on_error`, `manual_gate` | Ledger `aggregation_policy` field | Required when applicable |
@@ -197,7 +198,7 @@ entries:
     scope_type: "<initiative|phase|stream|activity>"  # structural level
     initiative_id: "<SID root>"  # e.g., "P", "T102", "T104"
     name: "<human-readable name>"
-    status: "<planned|ready|in_progress|blocked|on_hold|completed|cancelled>"
+    status: "<planned|ready|in_progress|blocked|on_hold|deferred|completed|cancelled>"
     as_of: "YYYY-MM-DD"
     updated_by: "<actor>"
     last_updated: "YYYY-MM-DD"
@@ -283,8 +284,9 @@ This section defines the mapping from P-STD-002D abstract RACI labels to concret
 2. Gate closure (GATE-### APPROVE/RECYCLE → activity and dependent status updates)
 3. Blocker recorded or resolved (→ `blocked` or `blocked` → `in_progress`)
 4. Deliberate pause or resume (→ `on_hold` or `on_hold` → `ready`)
-5. Health reassessment trigger (per CLAUSE-017: transition to `ready`/`in_progress`, entering `blocked`/`on_hold`, terminal)
-6. Stale-state review cycle (per CLAUSE-038: at least every 7 calendar days)
+5. Explicit deferral or reactivation (→ `deferred` or `deferred` → `ready`) with target scope/cycle and next review date
+6. Health reassessment trigger (per CLAUSE-017: transition to `ready`/`in_progress`, entering `blocked`/`on_hold`/`deferred`, terminal)
+7. Stale-state review cycle (per CLAUSE-038: at least every 7 calendar days, with `deferred` items re-evaluated within 30 days)
 
 **Terminal / reopen execution rule**:
 - The Accountable role (Client) executes terminal transitions and reopen transitions directly, or explicitly authorizes a named delegate to perform the update.
@@ -326,10 +328,11 @@ This checklist is the minimum validation surface for AC002 GATE-001 and downstre
 **Decision-package conformance (AC002 GATE-001)**:
 - [ ] Implementation requirements analysis encodes explicit terminal/reopen authorization and delegate-evidence rules
 - [ ] Implementation requirements analysis encodes conflict resolution per CLAUSE-037
+- [ ] Implementation requirements analysis reflects the current 8-state P-STD-002 status model, including `deferred`, `G10`, and CLAUSE-056 casing rules
 - [ ] AC003 v1 population posture is explicit: activity entries only
 - [ ] All decision references use full timeline UIDs per SES002 and P-STD-005
 - [ ] Reassessment external review compares the package against both SES001 and SES002
-- [ ] Gate-disposition proposal contains 3 GIR items aligned to the revised analysis
+- [ ] Gate-disposition proposal records recycle conditions and re-entry basis aligned to the revised analysis
 - [ ] AC002 activity plan encodes GATE-001 as a consultation-only decision gate with a mandatory `Gate-Disposition Proposal` field
 
 **Structural/content conformance (AC002 GATE-002 / AC003 GATE-002)**:
@@ -380,5 +383,6 @@ This checklist is the minimum validation surface for AC002 GATE-001 and downstre
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-19 | Amendment | Rebaselined the implementation requirements analysis to P-STD-002 v1.2.0 after Gate-001 recycle review. Updated the status model from 7 states to 8 states (`deferred` added), added G10 / CLAUSE-056 coverage, revised stale-state governance and trigger text, and aligned the Gate-001 conformance checklist to the recycle package. |
 | v1.1.0 | 2026-03-16 | Amendment | Updated Gate 001 decision package baseline after SES002. Added SES002 as governing comparison input, resolved GAP-002 with explicit delegate-authorization and conflict-resolution rules, clarified AC003 v1 activity-only population posture, and retargeted §V.G to decision-package conformance for consultation-only GATE-001. |
 | v1.0.0 | 2026-03-09 | Initial | Implementation requirements assessment for ST002 Program Status System. Covers P-STD-002 CLAUSE mapping, ledger/narrative schema specifications, agent-role binding, initial population scope, and conformance validation checklist. Source: SES001 consultation. |

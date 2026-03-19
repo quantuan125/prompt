@@ -57,7 +57,7 @@ This session was a comprehensive GATE-001 package review session, covering the c
 
 **P-STD-002 TK013 execution**: The client approved adding `deferred` as the 8th canonical lifecycle state to P-STD-002 and adding CLAUSE-056 (Status Enum Casing Convention). TK013 is to be executed immediately with status `completed`. A new GATE-004 is required for the TK011–TK013 amendment package, with a full gate-readiness stack (verification + gate-disposition proposal).
 
-**Implementation plan**: A detailed implementation plan was created at `.claude/plans/plan_T104-AC003-gate-001-amendments-and-P-STD-002-deferred-state.md` covering both work streams (Work Stream A: T104-AC003 amendments; Work Stream B: P-STD-002 changes + GATE-004).
+**Implementation plan**: A detailed implementation plan was created at `.claude/plans/plan_T104-PH001-ST008-AC003_gate-001-amendments-and-P-STD-002-deferred-state.md` covering both work streams (Work Stream A: T104-AC003 amendments; Work Stream B: P-STD-002 changes + GATE-004).
 
 Session closed with the implementation plan authored and the client approving subagent-driven execution.
 
@@ -94,7 +94,7 @@ Session closed with the implementation plan authored and the client approving su
 | `T104-PH001-ST008-AC003-SES002-DEC007` | P-STD-002 `deferred` state + CLAUSE-056 (casing governance) added via new `P-PH000-ST001-AC003-TK013`; TK013 status `completed` immediately | Technical | Confirmed | Client | 2026-03-18 | P-STD-002 lacks `deferred`; semantically distinct from `on_hold` per industry analysis; casing inconsistency is P-STD-002-level issue | Client explicit approval (Answer 2, new task recommendation) | This session; industry analysis |
 | `T104-PH001-ST008-AC003-SES002-DEC008` | GATE-004 gate-readiness package authorized for `P-PH000-ST001-AC003` covering TK011–TK013: verification (TK014) + gate-disposition proposal (TK015) | Governance | Confirmed | Client | 2026-03-18 | Implementation-backed gate required for P-STD-002 amendment package; follows §VI.L gate-readiness stack | Client explicit approval (Answer 2) | `guideline_workspace_plan.md` §VI.L |
 | `T104-PH001-ST008-AC003-SES002-DEC009` | AC004 scope constrained to `workspace_documentation_rules.md` + T104 SPS governance only; SSOT updates deferred | Scope | Confirmed | Client | 2026-03-18 | T104A, T102A, T102C dependencies unresolved | Client explicit direction (AC004 Comment 1) | This session |
-| `T104-PH001-ST008-AC003-SES002-DEC010` | Implementation plan authored at `.claude/plans/plan_T104-AC003-gate-001-amendments-and-P-STD-002-deferred-state.md` covering Work Streams A and B | Structural | Confirmed | LLM_Consultant | 2026-03-18 | Client approved subagent-driven execution of consolidated plan | Client approval (Answer 3) | This session |
+| `T104-PH001-ST008-AC003-SES002-DEC010` | Implementation plan authored at `.claude/plans/plan_T104-PH001-ST008-AC003_gate-001-amendments-and-P-STD-002-deferred-state.md` covering Work Streams A and B | Structural | Confirmed | LLM_Consultant | 2026-03-18 | Client approved subagent-driven execution of consolidated plan | Client approval (Answer 3) | This session |
 
 ---
 
@@ -130,7 +130,7 @@ Session closed with the implementation plan authored and the client approving su
 
 **Artifacts produced this session**:
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/snotes/snotes_T104-PH001-ST008-AC003-SES002.md` (this file)
-- `.claude/plans/plan_T104-AC003-gate-001-amendments-and-P-STD-002-deferred-state.md` (implementation plan)
+- `.claude/plans/plan_T104-PH001-ST008-AC003_gate-001-amendments-and-P-STD-002-deferred-state.md` (implementation plan)
 
 **Artifacts to be updated by Work Stream A**:
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_implementation-spec.md` (v1.0.0 → v1.1.0)
