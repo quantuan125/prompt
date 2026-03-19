@@ -7,9 +7,9 @@ stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC001.3'
 task_id: 'T104-PH001-ST008-AC001.3-TK004'
 gate_id: 'T104-PH001-ST008-AC001.3-GATE-001'
-version: '2.2.0'
+version: '2.3.1'
 date: '2026-03-19'
-status: 'draft'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/plan_T104-PH001-ST008-AC001.3.md'
@@ -40,11 +40,11 @@ consumers:
 | SES001 Session Notes | `TK002` | `completed` | `accepted` | Reference | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES001.md` |
 | SES002 Session Notes | `TK002` (ext) | `completed` | `accepted` | Recommended | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES002.md` |
 | Options Analysis: Gate Remediation Artifact Options | `TK003` | `completed` | `accepted` | Recommended | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/analysis/analysis_T104-PH001-ST008-AC001.3_gate-remediation-artifact-options.md` |
-| Comparative Analysis: Remediation Artifact Type Comparison (v2.0.0) | `TK003` (ext) | `completed` | `pending` | Required | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/analysis/analysis_T104-PH001-ST008-AC001.3_remediation-artifact-type-comparison.md` |
+| Comparative Analysis: Remediation Artifact Type Comparison (v2.0.0) | `TK003` (ext) | `completed` | `accepted` | Required | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/analysis/analysis_T104-PH001-ST008-AC001.3_remediation-artifact-type-comparison.md` |
 | External Review: GATE-001 Package Assessment | External review | `completed` | `accepted` | Required | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/analysis/analysis_T104-PH001-ST008-AC001.3_external-review_gate-001-package.md` |
-| Standards-Input Proposal: IMPLEMENTATION Family Architecture | `TK004.1` | `completed` | `pending` | Required | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/proposal/proposal_T104-PH001-ST008-AC001.3_implementation-family-architecture.md` |
+| Standards-Input Proposal: IMPLEMENTATION Family Architecture | `TK004.1` | `completed` | `accepted` | Required | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/proposal/proposal_T104-PH001-ST008-AC001.3_implementation-family-architecture.md` |
 | SES004 Session Notes | `TK002` (ext) | `completed` | `accepted` | Recommended | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES004.md` |
-| Gate-Disposition Proposal (this document) | `TK004` | `completed` | `pending` | Required | This file |
+| Gate-Disposition Proposal (this document) | `TK004` | `completed` | `accepted` | Required | This file |
 
 ### B. Evidence Index
 
@@ -57,6 +57,7 @@ consumers:
 | NOTES | SES001 Session Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES001.md` | Initial consultation establishing AC001.3 scope |
 | NOTES | SES002 Session Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES002.md` | Full pre-GATE review, external consultation, client Path C proposal, DEC001-DEC007 |
 | NOTES | SES004 Session Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES004.md` | IMPLEMENTATION family architecture and gate package expansion |
+| NOTES | SES005 Session Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES005.md` | Gate-001 approval decision reference and post-approval replan record |
 | EXTERNAL | GPT 5.4 Consultation (SES002) | External output (2026-03-18) | Confirmed Hybrid model; recommended Path B; flagged section 6.L conflict |
 | EXTERNAL | GPT 5.4 Review (SES003) | External output (2026-03-19) | Grade-by-grade review of comparative analysis; rescored B>C; flagged authority-chain clarity gap |
 | PLAN | AC001.3 Sub-Activity Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/plan_T104-PH001-ST008-AC001.3.md` | Governing plan for this gate |
@@ -71,17 +72,17 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--|:--|
-| GIR-001 | Hybrid model architecture confirmation | Architecture | (a) Confirm Hybrid model | TK005 | Yes | `[ ]` |
-| GIR-002 | Artifact family placement for remediation implementation detail | Architecture | (a) Path B - New dedicated artifact family | TK005 | Yes | `[ ]` |
-| GIR-003 | Legacy naming continuity for remediation artifact | Naming | (a) Retain `implementation_detail` only as legacy fallback; live package uses `IMPLEMENTATION` | TK005 | No | `[ ]` |
-| GIR-004 | Remediation artifact governance rules | Governance | (a) Accept governance rule package | TK005 | Yes | `[ ]` |
-| GIR-005 | Plan guideline section 6.L amendment routing | Governance | (a) Route to TK005 | TK005 | No | `[ ]` |
-| GIR-006 | TK005 expanded scope | Scope | (a) Accept expanded scope per DEC006 | TK005 | No | `[ ]` |
-| GIR-007 | IMPLEMENTATION artifact family creation | Architecture | (a) Accept IMPLEMENTATION family | TK005 | Yes | `[ ]` |
-| GIR-008 | Two-subtype taxonomy | Architecture | (a) Accept two-subtype taxonomy | TK005 | Yes | `[ ]` |
-| GIR-009 | Plan guideline integration | Governance | (a) Accept plan integration rules | TK005 | Yes | `[ ]` |
-| GIR-010 | Verification guideline vertical integration - revision-checklist replacement question | Governance | (a) Route to future session | TK005 | No | `[ ]` |
-| GIR-011 | Epic T104J (IMPLEMENTATION Standardization) registration in SPS | Scope | (a) Register immediately upon GATE-001 approval | SPS | No | `[ ]` |
+| GIR-001 | Hybrid model architecture confirmation | Architecture | (a) Confirm Hybrid model | TK005 | Yes | **(a) APPROVED** |
+| GIR-002 | Artifact family placement for remediation implementation detail | Architecture | (a) Path B - New dedicated artifact family | TK005 | Yes | **(a) APPROVED** |
+| GIR-003 | Legacy naming continuity for remediation artifact | Naming | (a) Retain `implementation_detail` only as legacy fallback; live package uses `IMPLEMENTATION` | TK005 | No | **(a) APPROVED** |
+| GIR-004 | Remediation artifact governance rules | Governance | (a) Accept governance rule package | TK005 | Yes | **(a) APPROVED** |
+| GIR-005 | Plan guideline section 6.L amendment routing | Governance | (a) Route to TK005 | TK005 | No | **(a) APPROVED** |
+| GIR-006 | TK005 expanded scope | Scope | (a) Accept expanded scope per DEC006 | TK005 | No | **(a) APPROVED** |
+| GIR-007 | IMPLEMENTATION artifact family creation | Architecture | (a) Accept IMPLEMENTATION family | TK005 | Yes | **(a) APPROVED** |
+| GIR-008 | Two-subtype taxonomy | Architecture | (a) Accept two-subtype taxonomy | TK005 | Yes | **(a) APPROVED** |
+| GIR-009 | Plan guideline integration | Governance | (a) Accept plan integration rules | TK005 | Yes | **(a) APPROVED** |
+| GIR-010 | Verification guideline vertical integration - revision-checklist replacement question | Governance | (a) Route to future session | Future session | No | **(a) APPROVED** |
+| GIR-011 | Epic T104J (IMPLEMENTATION Standardization) registration in SPS | Scope | (a) Register immediately upon GATE-001 approval | SPS | No | **(a) APPROVED** |
 
 ---
 
@@ -109,7 +110,7 @@ Rationale:
 - Preserves plan authority while avoiding plan bloat. Corrective-action detail has its own surface, consistent with ISO 9001 CAR, PRINCE2 Exception Plan, and PMBOK Corrective Action Log patterns.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` — Approved 2026-03-19
 
 ---
 
@@ -139,7 +140,7 @@ Rationale:
 - Path C is a defensible alternative if governance cost is the binding constraint, but requires guardrails and carries residual anti-drift and authority-chain risks.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` — Approved 2026-03-19
 
 ---
 
@@ -166,7 +167,7 @@ Rationale:
 - The live package has already moved to family-level naming. Retaining the old term as fallback keeps the history readable without reintroducing ambiguity into the current architecture.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` — Approved 2026-03-19
 
 ---
 
@@ -191,7 +192,7 @@ Rationale:
 - Rule (1) prevents GDR duplication. Rule (2) ensures authority-chain traceability. Rule (3) addresses the authority-chain clarity concern. Rule (4) implements Directive B. Rule (5) preserves role-boundary clarity with extensibility.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b): _______` / `[ ] Override: _______`
+- `[x] (a)` — Approved 2026-03-19
 
 ---
 
@@ -217,7 +218,7 @@ Rationale:
 - The remaining plan-guideline changes are directly consequent to this gate decision and are most efficiently packaged with the other TK005 amendment inputs.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` — Approved 2026-03-19
 
 ---
 
@@ -242,7 +243,7 @@ Rationale:
 - All six items are required consequences of the architecture decision. Deferring any item would leave governance gaps.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b): _______` / `[ ] Override: _______`
+- `[x] (a)` — Approved 2026-03-19
 
 ---
 
@@ -269,7 +270,7 @@ Rationale:
 - The dedicated family is the cleanest fit for the authority-chain split already established in the analysis work.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` — Approved 2026-03-19
 
 ---
 
@@ -297,7 +298,7 @@ Rationale:
 - Additional subtype requests can be handled later through a future amendment if live demand emerges.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` — Approved 2026-03-19
 
 ---
 
@@ -324,7 +325,7 @@ Rationale:
 - This keeps the plan readable and prevents duplication of implementation detail.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` — Approved 2026-03-19
 
 ---
 
@@ -351,7 +352,7 @@ Rationale:
 - Deferral avoids conflating family creation with a separate standards decision.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` — Approved 2026-03-19
 
 ---
 
@@ -377,7 +378,7 @@ Rationale:
 - This is consistent with how T104H and T104I were registered when the corresponding families were identified.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` — Approved 2026-03-19
 
 ---
 
@@ -387,15 +388,14 @@ Recommendation state:
 - `N/A - decision gate`
 
 Conditions and/or deferrals:
-- GIR-002 (artifact family placement) is the primary decision item. GIR-007 through GIR-011 are consequent architectural detail items that depend on GIR-002 selecting Path B.
-- If the client selects Path B (GIR-002 option a), GIR-007 through GIR-011 become active and should be dispositioned.
-- If the client selects Path C (GIR-002 option b), GIR-007 through GIR-011 are void and the standards-input proposal does not apply.
-- GIR-010 (revision-checklist replacement) is explicitly deferred regardless of GIR-002 outcome.
+- Gate-001 approved the recommended Path B package on `2026-03-19`.
+- GIR-010 remains intentionally deferred as an approved future-session question; it is not a blocking condition on the approved architecture.
 
 Downstream enforcement:
-- TK005 MUST NOT begin until this GDR records an approving client decision.
-- AC009 GATE-001 (cross-initiative) remains blocked on AC001.3 outcome per AC009 dependency chain.
-- Epic T104J registration (GIR-011) is an administrative action concurrent with GDR closure.
+- `TK005` is now unblocked as the consultant-owned bridge task for the approved Path B implementation lane.
+- `AC009` GATE-001 (cross-initiative) remains dependent on the approved model being converted into live governed surfaces through the follow-on AC001.3 implementation sequence.
+- Epic `T104J` registration (GIR-011) is an administrative action concurrent with GDR closure.
+- Completion of `AC001.3` now remains governed by a later implementation-backed acceptance gate (`GATE-002`), not by Gate-001 alone.
 
 ---
 
@@ -407,12 +407,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `T104-PH001-ST008-AC001.3-GATE-001` |
 | Reviewer Verdict | `N/A - decision gate` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
-| Conditions (if any) | `-` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
+| Conditions (if any) | `—` |
 | Decided By | `Client` |
-| Decision Date | `-` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-19` |
+| Decision Reference | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES005.md` |
 
 ---
 
@@ -427,6 +427,7 @@ Downstream enforcement:
 | SES001 Session Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES001.md` |
 | SES002 Session Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES002.md` |
 | SES004 Session Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES004.md` |
+| SES005 Session Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES005.md` |
 | Proposal Guideline | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` |
 | Verification Guideline | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
 | Plan Guideline | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |
@@ -438,6 +439,8 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.3.1 | 2026-03-19 | Amendment | Corrected the GIR-010 execution target to `Future session` to match the approved deferral posture and added SES005 to the evidence index as the post-approval decision-reference surface. |
+| v2.3.0 | 2026-03-19 | Gate Closure | Recorded client approval of the recommended Path B package. Updated all 11 GIR rows to approved state, closed the GDR with `Client Decision = APPROVE` and `Gate Status After Decision = completed`, added SES005 as the decision reference, and shifted downstream enforcement from Gate-001 disposition to the post-gate implementation sequence. |
 | v2.2.0 | 2026-03-19 | Amendment | Added the formal external-review analysis artifact to the gate package and evidence index, updated `external_review_reference` to the canonical analysis path, marked the gate-disposition proposal row as completed, and clarified GIR-006 as path-conditional downstream scope. |
 | v2.1.0 | 2026-03-19 | Amendment | Normalized the live package language to the approved IMPLEMENTATION family and two-subtype model. Added SES004 to the Gate Package Index, corrected stale `implementation_detail` usage to legacy-only context, and removed encoding corruption from the gate package text. |
 | v2.0.0 | 2026-03-19 | Major | Expanded gate package from 6 to 11 GIR items. Added GIR-007 (IMPLEMENTATION family creation), GIR-008 (two-subtype taxonomy), GIR-009 (plan guideline integration), GIR-010 (verification integration - deferred), and GIR-011 (T104J epic registration). Added standards-input companion proposal with architectural design, vertical integration sketch, non-remediation use case assessment, revised comparative impact, and AC009 draft exemplar appendix. Gate Package Index and Evidence Index updated. Gate Recommendation conditions updated to reflect conditional activation of GIR-007-GIR-011 on GIR-002 Path B selection. Source: SES004 consultation. |

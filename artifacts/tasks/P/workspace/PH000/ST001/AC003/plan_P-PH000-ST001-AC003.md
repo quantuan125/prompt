@@ -1,4 +1,4 @@
-﻿---
+---
 artifact_type: 'PLAN'
 planning_level: 'ACTIVITY'
 initiative_id: 'P'
@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC003'
-version: '0.10.0'
-date: '2026-03-19'
+version: '0.12.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -16,7 +16,7 @@ procedural_guideline: 'prompt/templates/consultant/workspace/guideline_workspace
 parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md'
 ---
 
-# PLAN: P (PROGRAM) â€” Phase 0 / Stream ST001 / Activity AC003: Author P-STD-002 (Program Status Standard)
+# PLAN: P (PROGRAM) — Phase 0 / Stream ST001 / Activity AC003: Author P-STD-002 (Program Status Standard)
 
 
 ## I. EXECUTIVE SUMMARY
@@ -35,7 +35,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 **Depends On**: `P-PH000-ST004-AC001` (P-RES-001 integration sign-off via GATE-003) + `P-PH000-ST004-AC002` (P-RES-002 integration sign-off via GATE-003)
 
 **Context**:
-- `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` (deliverable â€” created)
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` (deliverable — created)
 - `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` (P-STD-002 row update)
 - `prompt/templates/consultant/standards/guideline_standard_specs.md` (authoring rules)
 - `prompt/templates/consultant/standards/template_standard_specs.md` (structural skeleton)
@@ -46,19 +46,19 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - `prompt/templates/consultant/workspace/guideline_workspace_verification.md` (verification workflow)
 - `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC001-TK003_integration-recommendations-P-RES-001.md` (P-RES-001 integration recommendations)
 - `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC002-TK003_integration-recommendations-P-RES-002.md` (P-RES-002 integration recommendations)
-- `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md` (CDR resolution proposal â€” TK001 deliverable)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md` (CDR resolution proposal — TK001 deliverable)
 
 ### Task Register
 
 | Task | Task ID | Name | Status | Owner | Depends On | Target | Reference | Action |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
-| TK000 | `P-PH000-ST001-AC003-TK000` | Confirm sps_P P-CON-003 amendment applied | `completed` | LLM_Consultant | â€” | sps_P | DEC-003 | Verified in sps_P (P-CON-003 updated) |
+| TK000 | `P-PH000-ST001-AC003-TK000` | Confirm sps_P P-CON-003 amendment applied | `completed` | LLM_Consultant | — | sps_P | DEC-003 | Verified in sps_P (P-CON-003 updated) |
 | TK001 | `P-PH000-ST001-AC003-TK001` | Ingest P-RES-001 and P-RES-002 integration recommendations, map to CLAUSE domains, and produce CDR resolution proposal | `completed` | LLM_Consultant | ST004-AC001-GATE-003 + ST004-AC002-GATE-003 | proposal/ + AC003/analysis/ | P-RES-001 + P-RES-002 analyses | Client confirmed defaults (2026-02-27) |
-| TK001.1 | `P-PH000-ST001-AC003-TK001.1` | Verify TK001 deliverables â€” CDR review and readiness assessment for TK002 | `completed` | LLM_Consultant | TK001 | AC003/verification/ | guideline_workspace_verification | CONDITIONAL PASS; APPROVE WITH CONDITIONS (2026-02-27) |
+| TK001.1 | `P-PH000-ST001-AC003-TK001.1` | Verify TK001 deliverables — CDR review and readiness assessment for TK002 | `completed` | LLM_Consultant | TK001 | AC003/verification/ | guideline_workspace_verification | CONDITIONAL PASS; APPROVE WITH CONDITIONS (2026-02-27) |
 | TK002 | `P-PH000-ST001-AC003-TK002` | Draft P-STD-002 combined file: Specification section (54 CLAUSE themes across 5 domains) | `completed` | LLM_Consultant | TK001.1 | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Authored P-STD-002 Specification (54 CLAUSEs) per TK002. Evidence: `dev-report_P-PH000-ST001-AC003_tk002-tk003-execution_2026-02-27.md` |
 | TK003 | `P-PH000-ST001-AC003-TK003` | Draft P-STD-002-ADR-001 in Decision Record section (address 13 binding CDR decisions) | `completed` | LLM_Consultant | TK002 | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Authored embedded `P-STD-002-ADR-001` per TK003. Evidence: `dev-report_P-PH000-ST001-AC003_tk002-tk003-execution_2026-02-27.md` |
 | TK004 | `P-PH000-ST001-AC003-TK004` | Produce GATE-001 verification artifact (includes validation vs P-STD-001 authoring rules) | `completed` | LLM_Reviewer | TK003 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-001.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` | Verification complete (v1.2.0). Verdict: CONDITIONAL PASS. Historical verification GDR retained for audit trail; authoritative gate decision later superseded by the Gate-001 proposal package. |
-| GATE-001 | `P-PH000-ST001-AC003-GATE-001` | **Gate: Client acceptance of P-STD-002**. Entry: TK004 verification complete (verdict issued; proposal GDR pending). Reviewer: Client. Exit: explicit acceptance recorded. | `completed` | Client | TK004 | â€” | â€” | Gate closed. Client decision: APPROVE (2026-03-04). Authoritative GDR: `proposal_P-PH000-ST001-AC003-GATE-001_gir-disposition-package.md` v1.1.0 Â§VI (supersedes verification GDR per SES003-DEC001). Prior conditions (FINDING-003/004) resolved. |
+| GATE-001 | `P-PH000-ST001-AC003-GATE-001` | **Gate: Client acceptance of P-STD-002**. Entry: TK004 verification complete (verdict issued; proposal GDR pending). Reviewer: Client. Exit: explicit acceptance recorded. | `completed` | Client | TK004 | — | — | Gate closed. Client decision: APPROVE (2026-03-04). Authoritative GDR: `proposal_P-PH000-ST001-AC003-GATE-001_gir-disposition-package.md` v1.1.0 Â§VI (supersedes verification GDR per SES003-DEC001). Prior conditions (FINDING-003/004) resolved. |
 | TK005 | `P-PH000-ST001-AC003-TK005` | Update sps_P P-STD-002 row (status â†’ `accepted`, canonical path, effective date) | `completed` | LLM_Developer | GATE-001 | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` | P-STD-001-CLAUSE-012 | P-STD-002 SPS row accepted (effective 2026-03-04) and body entry added. Evidence: `dev-report_P-PH000-ST001-AC003_tk005-tk006-implementation_2026-03-07.md`. |
 | TK006 | `P-PH000-ST001-AC003-TK006` | Cascade P-STD-002 status authority to downstream workspace guidance/templates | `completed` | LLM_Developer | GATE-001 | `prompt/templates/consultant/workspace/` | DEC-008 | Workspace plan/roadmap guidance + templates aligned to P-STD-002 canonical status authority; gate-only `failed` preserved as specialization. Evidence: `dev-report_P-PH000-ST001-AC003_tk005-tk006-implementation_2026-03-07.md`. |
 | TK007 | `P-PH000-ST001-AC003-TK007` | Retention-Policy Ownership Assessment (GIR-003 / GAP-002) | `completed` | LLM_Consultant | GATE-001 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK007_retention-policy-ownership-assessment.md` | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` | Assessment authored. Recommended sibling-policy ownership for evidence-retention duration; downstream actions recorded in the analysis artifact. |
@@ -71,7 +71,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | TK013 | `P-PH000-ST001-AC003-TK013` | Apply `deferred` canonical state + casing governance CLAUSE amendments to P-STD-002 | `completed` | LLM_Developer | TK012 | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | T104-PH001-ST008-AC003-SES002 (client directive) + industry analysis | Added `deferred` as 8th canonical state (CLAUSE-001/001A), added CLAUSE-056 (Status Enum Casing Convention), updated transition matrix (CLAUSE-005), guard conditions (CLAUSE-006 G10), staleness thresholds (CLAUSE-038), tool meta-category mapping (CLAUSE-002), blocked/on-hold semantics (CLAUSE-009). P-STD-002 v1.2.0. |
 | TK014 | `P-PH000-ST001-AC003-TK014` | Produce GATE-004 verification evidence for TK011-TK013 package | `completed` | LLM_Reviewer | TK013 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-004.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` | Verification complete. Verdict: PASS. Artifact explicitly records that no dedicated TK013 dev-report exists and that review was performed directly against the live standard and governing approval inputs. |
 | TK015 | `P-PH000-ST001-AC003-TK015` | Prepare GATE-004 gate-disposition proposal | `completed` | LLM_Consultant | TK014 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-004_amendment-disposition-package.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` | Gate-disposition proposal authored with Gate Package Index, Evidence Index, GIR register, and pending GDR for client review. |
-| GATE-004 | `P-PH000-ST001-AC003-GATE-004` | Gate: Client review of TK011-TK013 amendment package | `in_progress` | Client | TK015 | Pass/fail | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` | Gate-ready package assembled. Reviewer verdict recorded in `verification_P-PH000-ST001-AC003_gate-004.md`; authoritative client decision pending in `proposal_P-PH000-ST001-AC003-GATE-004_amendment-disposition-package.md`. |
+| TK016 | `P-PH000-ST001-AC003-TK016` | External Review Analysis + SPS Fix | `completed` | LLM_Consultant | TK013 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-004_external-review-assessment.md` | guideline_workspace_analysis | External review assessment PASS; Program SPS updated (8-state/casing). |
+| GATE-004 | `P-PH000-ST001-AC003-GATE-004` | Gate: Client review of TK011-TK013 & TK016 amendment package | `completed` | Client | TK015, TK016 | Pass/fail | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` | Gate closed: Client Decision APPROVE (2026-03-20) recorded in proposal GDR. |
 
 ---
 
@@ -83,13 +84,13 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 **Purpose**: Pre-work verification that the P-CON-003 revision from SES001 has been applied to sps_P before AC003 execution begins.
 
-**Deliverable**: Verification only â€” no artifact produced.
+**Deliverable**: Verification only — no artifact produced.
 
 **Steps**:
 1. Open `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md`
 2. Confirm P-CON-003 title reads `(Artifact Format Governance)`
 3. Confirm body has (A) and (B) sub-rules as specified in DEC-003
-4. If not applied, escalate â€” this is a blocking prerequisite
+4. If not applied, escalate — this is a blocking prerequisite
 
 **Success Criteria**:
 - [ ] P-CON-003 revision confirmed in sps_P
@@ -108,15 +109,15 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - CLAUSE theme mapping artifact: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK001_clause-theme-mapping.md`
 
 **Inputs Required**:
-- `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC001-TK003_integration-recommendations-P-RES-001.md` â€” P-RES-001 integration recommendations (baseline: 41 CLAUSE themes, 9 decisions)
-- `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC002-TK003_integration-recommendations-P-RES-002.md` â€” P-RES-002 integration recommendations (complement: 13 CLAUSE themes, 4 decisions, combined synthesis)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC001-TK003_integration-recommendations-P-RES-001.md` — P-RES-001 integration recommendations (baseline: 41 CLAUSE themes, 9 decisions)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST004/analysis/analysis_P-PH000-ST004-AC002-TK003_integration-recommendations-P-RES-002.md` — P-RES-002 integration recommendations (complement: 13 CLAUSE themes, 4 decisions, combined synthesis)
 
 **Combined CLAUSE domain totals**:
-- **P-STD-002A â€” Status Vocabulary**: 11 CLAUSE themes (9 baseline + 2 P-RES-002: execution posture fields, manual-gate crosswalk)
-- **P-STD-002B â€” Health Assessment**: 7 CLAUSE themes (6 baseline + 1 P-RES-002: allowed-failure health impact rule)
-- **P-STD-002C â€” Dependency Visibility**: 11 CLAUSE themes (9 baseline + 2 P-RES-002: orchestration reference fields, category taxonomy extension)
-- **P-STD-002D â€” Update Protocol**: 13 CLAUSE themes (9 baseline + 4 P-RES-002: repo-verifiable evidence, evidence type taxonomy extension, aggregation policy, silent allowed-failure prohibition)
-- **P-STD-002E â€” Status Artifact**: 12 CLAUSE themes (8 baseline + 4 P-RES-002: execution reference schema, aggregation policy field, execution posture fields, MVAT)
+- **P-STD-002A — Status Vocabulary**: 11 CLAUSE themes (9 baseline + 2 P-RES-002: execution posture fields, manual-gate crosswalk)
+- **P-STD-002B — Health Assessment**: 7 CLAUSE themes (6 baseline + 1 P-RES-002: allowed-failure health impact rule)
+- **P-STD-002C — Dependency Visibility**: 11 CLAUSE themes (9 baseline + 2 P-RES-002: orchestration reference fields, category taxonomy extension)
+- **P-STD-002D — Update Protocol**: 13 CLAUSE themes (9 baseline + 4 P-RES-002: repo-verifiable evidence, evidence type taxonomy extension, aggregation policy, silent allowed-failure prohibition)
+- **P-STD-002E — Status Artifact**: 12 CLAUSE themes (8 baseline + 4 P-RES-002: execution reference schema, aggregation policy field, execution posture fields, MVAT)
 
 **Steps**:
 1. Read both integration recommendation packages in full
@@ -134,7 +135,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 ---
 
-### Task TK001.1: Verify TK001 Deliverables â€” CDR Readiness Review
+### Task TK001.1: Verify TK001 Deliverables — CDR Readiness Review
 
 **Task ID**: `P-PH000-ST001-AC003-TK001.1`
 
@@ -144,8 +145,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003-TK001.1_cdr-review.md`
 
 **Inputs Required**:
-- `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md` (TK001 deliverable â€” Client confirmation of the prior TK001 analysis inputs)
-- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK001_clause-theme-mapping.md` (TK001 deliverable â€” 54 theme mapping)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md` (TK001 deliverable — Client confirmation of the prior TK001 analysis inputs)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK001_clause-theme-mapping.md` (TK001 deliverable — 54 theme mapping)
 - `prompt/templates/consultant/workspace/guideline_workspace_verification.md` + `prompt/templates/consultant/workspace/template_workspace_verification.md`
 
 **Steps**:
@@ -161,7 +162,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 ---
 
-### Task TK002: Draft P-STD-002 Combined File â€” Specification Section
+### Task TK002: Draft P-STD-002 Combined File — Specification Section
 
 **Task ID**: `P-PH000-ST001-AC003-TK002`
 
@@ -170,16 +171,16 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 **Deliverable**: `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md`
 
 **Inputs Required**:
-- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK001_clause-theme-mapping.md` (primary â€” 54 themes across 5 domains)
-- TK001 CDR resolution proposal with Client-confirmed decisions (primary â€” 13 CDR entries)
-- `prompt/templates/consultant/standards/template_standard_specs.md` â€” Structural skeleton
-- `prompt/templates/consultant/standards/guideline_standard_specs.md` â€” Authoring rules
-- `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` â€” Authority chain
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-TK001_clause-theme-mapping.md` (primary — 54 themes across 5 domains)
+- TK001 CDR resolution proposal with Client-confirmed decisions (primary — 13 CDR entries)
+- `prompt/templates/consultant/standards/template_standard_specs.md` — Structural skeleton
+- `prompt/templates/consultant/standards/guideline_standard_specs.md` — Authoring rules
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` — Authority chain
 
 **Steps**:
 1. Copy `template_standard_specs.md` to deliverable path
 2. Fill frontmatter: `artifact_type: 'STANDARD'`, `initiative_id: 'P'`, `std_id: 'P-STD-002'`, `governed_by: 'P-STD-001'`
-3. Set heading: `# P-STD-002 â€” Program Status Standard`
+3. Set heading: `# P-STD-002 — Program Status Standard`
 4. Author `## Specification` with substandard headings per planned domains (P-STD-002A through P-STD-002E)
 5. For each substandard, incorporate P-RES-002-originated CLAUSE themes per the combined mapping:
    - P-STD-002A: CLAUSE themes A-10 (Execution Posture Fields), A-11 (Manual-Gate Crosswalk)
@@ -192,7 +193,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 8. Use `MUST`/`SHOULD`/`MAY` keywords per `P-STD-001-CLAUSE-008` (BCP 14 primary vocabulary)
 9. Include subclauses where needed per `P-STD-001-CLAUSE-020`
 10. Author a `### General Provisions` subsection immediately before the `### P-STD-002A` substandard heading. Include a forward-only adoption CLAUSE: "P-STD-002 requirements apply forward-only from the standard's effective date. Existing artifacts are not required to retroactively conform; conformance applies to the next status update or artifact creation event." Cite `P-ASSUM-001` as the governing assumption. (Scope gap FINDING-001 from TK001.1 review)
-11. Within `P-STD-002D` authoring, after all normative CLAUSEs, include a reserved section header for theme D-9: `#### Stale-State Governance [Reserved â€” Phase 2]` with informative note: "Reserved for Phase 2. No normative requirements in this version. Scope: time-since-update thresholds, cadence enforcement, escalation paths." (Scope gap FINDING-003 from TK001.1 review)
+11. Within `P-STD-002D` authoring, after all normative CLAUSEs, include a reserved section header for theme D-9: `#### Stale-State Governance [Reserved — Phase 2]` with informative note: "Reserved for Phase 2. No normative requirements in this version. Scope: time-since-update thresholds, cadence enforcement, escalation paths." (Scope gap FINDING-003 from TK001.1 review)
 12. Within `P-STD-002D` authoring of theme D-12 (Aggregation Policy Declaration), include an informative definitions table for the four aggregation policy modes: `fail_fast` (first failure terminates the evidence set), `allow_failure` (individual failures do not block the overall outcome), `continue_on_error` (failures noted but execution continues to completion), `manual_gate` (human approval required before outcome is determined). (Authoring guidance from TK001.1 OBS-004)
 13. Within `P-STD-002E` authoring of theme E-4 (Ledger Schema Requirements), define the extensibility mechanism concretely: extension fields MUST use a reserved namespace prefix (e.g., `x_`) or MUST be appended to defined arrays without replacing baseline fields. Extensions MUST NOT override or redefine any baseline normative field. (Authoring guidance from TK001.1 OBS-003; CDR-11)
 14. When authoring CLAUSEs for themes D-4 and D-10 (evidence validation and repo-verifiable evidence), ensure CLAUSE text explicitly distinguishes "primary recommendation" (GitHub Checks) from "required platform." Commit-status API MUST be presented as a first-class fallback for non-GitHub environments, not a footnote. CLAUSE text MUST NOT read as if GitHub is the only acceptable platform. (Authoring guidance from TK001.1 OBS-002; CDR-09)
@@ -231,7 +232,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
    | Risk | Source | Mitigation |
    |:--|:--|:--|
    | P-RES-001-RISK-001 (overfitting to one tool) | P-RES-001 Â§V | CDR-04 (RACI labels keep standard role-agnostic) + CDR-09 (commit-status fallback) + Domain C interface-contract model |
-   | P-RES-001-RISK-002 (narrative/ledger drift) | P-RES-001 Â§V | Domain E CLAUSEs: authority hierarchy (E-2), update sequence (E-6), drift prevention contract (E-7) â€” all normative (MUST) |
+   | P-RES-001-RISK-002 (narrative/ledger drift) | P-RES-001 Â§V | Domain E CLAUSEs: authority hierarchy (E-2), update sequence (E-6), drift prevention contract (E-7) — all normative (MUST) |
    | P-RES-002-RISK-001 (Checks-only portability) | P-RES-002 Â§V | CDR-09 (commit-status fallback) + platform-agnostic evidence schema (type/ref/date/by/summary) |
    | P-RES-002-RISK-002 (silent allowed failures) | P-RES-002 Â§V | CDR-10 (aggregation policy MUST) + D-12 (aggregation policy declaration) + D-13 (silent allowed-failure prohibition) + B-7 (allowed-failure health impact rule) |
 
@@ -292,7 +293,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 **Steps**:
 1. In `sps_P-PROGRAM.md` STD Index, update P-STD-002 row:
    - Status: `planned` â†’ `accepted`
-   - Effective: `â€”` â†’ acceptance date (ISO-8601)
+   - Effective: `—` â†’ acceptance date (ISO-8601)
    - Canonical Path: confirm correct path
    - Verification: update with final verification criteria
 2. Add or update the P-STD-002 body paragraph below the STD Index (matching the P-STD-001 body pattern)
@@ -326,7 +327,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 **Steps**:
 1. **Identify all guideline files referencing status enums**:
-   - Read `prompt/templates/consultant/workspace/guideline_workspace_plan.md` â€” Â§III.A (Stream/Activity register status enums) and Â§III.B (Task register status enums)
+   - Read `prompt/templates/consultant/workspace/guideline_workspace_plan.md` — Â§III.A (Stream/Activity register status enums) and Â§III.B (Task register status enums)
    - Confirm the currently hardcoded register-status surfaces listed in Scope remain the only intended targets for this task
 2. **Update `guideline_workspace_plan.md`**:
    - Â§III.A: Current text says status MUST be one of `planned`, `deferred`, `completed`, `cancelled`. Update to reference P-STD-002 as the canonical authority for status enums. Add note that register contexts may use a subset of the full canonical set as appropriate, but MUST NOT introduce states not defined in P-STD-002.
@@ -421,7 +422,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
    - Maximum time-since-update threshold per status state (e.g., `in_progress` items not updated within N days trigger review)
    - Cadence enforcement: minimum update frequency requirements by status category
    - Escalation paths: what happens when stale-state is detected (notification â†’ forced review â†’ status downgrade)
-4. Assess interaction with existing CLAUSE-017 (Health Assessment Cadence) and the TK007 recommendation â€” ensure no conflict or ownership ambiguity
+4. Assess interaction with existing CLAUSE-017 (Health Assessment Cadence) and the TK007 recommendation — ensure no conflict or ownership ambiguity
 5. Author the proposal as a `standards_input` artifact with:
    - current state summary,
    - proposed stale-state conventions,
@@ -671,7 +672,30 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - [ ] GIR items map to TK011 and TK013 verification results
 - [ ] GDR pending for client decision
 
-### GATE-004: Client Review of TK011â€“TK013 Amendment Package
+---
+
+### Task TK016: External Review Analysis + SPS Fix
+
+**Task ID**: `P-PH000-ST001-AC003-TK016`
+
+**Purpose**: Author the independent external review analysis for the GATE-004 amendment package (covering TK011–TK013) and update the Program SPS to reflect the P-STD-002 v1.2.0 status vocabulary (8-state) and casing governance.
+
+**Deliverables**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-004_external-review-assessment.md`
+- `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` (updated)
+
+**Steps**:
+1. Author the external review analysis (`analysis_type: 'external_review'`) following `guideline_workspace_analysis.md`.
+2. Update the Program SPS (`sps_P-PROGRAM.md`) to fix the P-STD-002 description and Minimum Viable Conformance sections.
+
+**Success Criteria**:
+- [x] External review analysis authored with `PASS` verdict
+- [x] Program SPS updated with 8-state and casing governance references
+- [x] Deliverables match the GATE-004 closure plan requirements
+
+---
+
+### GATE-004: Client Review of TK011–TK013 & TK016 Amendment Package
 
 **Gate ID**: `P-PH000-ST001-AC003-GATE-004`
 
@@ -683,6 +707,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - TK013 completed (`deferred` state + CLAUSE-056 applied)
 - TK014 completed (verification evidence with verdict)
 - TK015 completed (gate-disposition proposal authored)
+- TK016 completed (External Review Analysis + SPS Fix)
 
 **Reviewer**: LLM_Reviewer (verdict) / Client (decision owner)
 
@@ -694,7 +719,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 ### Future Scope: Dependency Schedule Enrichment Uplift (GIR-005)
 
-> **Informative â€” not a registered task.** External review GAP-005 identified that dependency schedule enrichment (CLAUSE-024, FS/SS/FF/SF) is optional in v1. GIR-005 client disposition: keep v1 unchanged, evaluate conditional uplift for critical dependencies in a future version study. This item is tracked as future scope without immediate TK registration. If a future version study is initiated, it should assess whether mandatory schedule enrichment for `criticality: critical` dependencies materially improves program critical-path visibility.
+> **Informative — not a registered task.** External review GAP-005 identified that dependency schedule enrichment (CLAUSE-024, FS/SS/FF/SF) is optional in v1. GIR-005 client disposition: keep v1 unchanged, evaluate conditional uplift for critical dependencies in a future version study. This item is tracked as future scope without immediate TK registration. If a future version study is initiated, it should assess whether mandatory schedule enrichment for `criticality: critical` dependencies materially improves program critical-path visibility.
 
 ## IV. LINKS REGISTER
 
@@ -732,6 +757,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | Deliverable | TK011 Deliverable (Standard) | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` |
 | Deliverable | TK014 Gate-004 Verification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-004.md` |
 | Deliverable | TK015 Gate-004 Disposition Proposal | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-004_amendment-disposition-package.md` |
+| Deliverable | TK016 External Review Analysis | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-004_external-review-assessment.md` |
 | Evidence | TK012 Verification Evidence | (Task Register Action Field) |
 
 ---
@@ -740,8 +766,10 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.12.0 | 2026-03-20 | Housekeeping | Closed GATE-004: marked TK016 and GATE-004 as `completed` after recording client APPROVE decision in the disposition proposal GDR. |
+| v0.11.0 | 2026-03-20 | Amendment | Registered TK016 (External Review Analysis + SPS Fix) and updated GATE-004 dependencies to include TK016 per the closure plan. |
 | v0.10.0 | 2026-03-19 | Update | Completed TK012 light verification and authored the full Gate-004 package: TK014 verification artifact and TK015 gate-disposition proposal. Updated task-register actions, added Gate-004 deliverables to the Links Register, and moved GATE-004 to `in_progress` pending client decision in the proposal GDR. |
-| v0.9.0 | 2026-03-18 | Amendment | Added TK013 (`deferred` canonical state + CLAUSE-056 casing convention amendment), TK014 (GATE-004 verification), TK015 (GATE-004 gate-disposition proposal), and GATE-004 (client review of TK011â€“TK013 package). Source: T104-PH001-ST008-AC003-SES002 client directive â€” P-STD-002 lacks `deferred` (semantically distinct from `on_hold` per industry analysis). TK013 status: `completed`. |
+| v0.9.0 | 2026-03-18 | Amendment | Added TK013 (`deferred` canonical state + CLAUSE-056 casing convention amendment), TK014 (GATE-004 verification), TK015 (GATE-004 gate-disposition proposal), and GATE-004 (client review of TK011â€“TK013 package). Source: T104-PH001-ST008-AC003-SES002 client directive — P-STD-002 lacks `deferred` (semantically distinct from `on_hold` per industry analysis). TK013 status: `completed`. |
 | v0.8.0 | 2026-03-09 | Update | Gate-003 closed and TK011 executed. Reordered Task Register and detailed sections to keep post-gate tasks after `GATE-003` per dependency order. Clarified Gate-003 exit criteria to separate gate passage from AC003 closure. Updated Gate-003/TK011 task-register actions to reflect proposal GDR approval and CLAUSE-038 amendment execution. |
 | v0.7.0 | 2026-03-08 | Amendment | Amendment: Added TK011 (apply approved CLAUSE-038 amendment) and TK012 (verify amendment) as post-GATE-003 execution tasks. Updated Non-goal to authorize CLAUSE-038 amendment inside AC003. Updated GATE-003 exit criteria to require TK011/TK012 completion before AC003 closure. Evidence: SES005. |
 | v0.6.0 | 2026-03-07 | Update | Completed `TK007` through `TK010`. Added the GATE-003 verification artifact, external-review analysis, and gate-disposition proposal; updated task-register evidence/actions; converted TK007/TK008/TK009/TK010 links from planned deliverables to active deliverables; set `GATE-003` to `in_progress` pending client dispositions and GDR completion. |

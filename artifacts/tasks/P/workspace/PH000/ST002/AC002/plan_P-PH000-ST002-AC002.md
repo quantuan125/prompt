@@ -133,7 +133,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
   - requirements analysis reflects `P-STD-002 v1.2.0`
   - external review reflects the remediated package
   - proposal GDR records `RECYCLE` with explicit conditions and re-entry basis
-- **Reassessment Rule**: Reassess the same `P-PH000-ST002-AC002-GATE-001` in the next client review session; do not create a derived gate ID. Hold note: external-impact governance remains open under `T104-PH001-ST008-AC001.4` until the external-baseline change model is approved.
+- **Reassessment Rule**: ~~Reassess the same `P-PH000-ST002-AC002-GATE-001` in the next client review session; do not create a derived gate ID~~ — **HELD**: Reassessment paused pending `T104-PH001-ST008-AC001.4-GATE-001` governance resolution. The same-gate RECYCLE treatment is under reconsideration because the trigger was an external baseline change (`P-STD-002 v1.2.0` amendment), not an internal review finding. Do not reassess this gate until the external-impact governance model is approved. See `P-PH000-ST002-AC002-SES001` Plan Amendment Addendum (§I) and `T104-PH001-ST008-AC001.4-SES001` for the full decision trail.
 - **Downstream Block**: `TK002` and `TK003` MUST NOT begin until the same gate later records an approving decision
 
 ### Task TK001.3: Record Gate-001 Recycle Session Notes

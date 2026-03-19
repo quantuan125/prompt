@@ -105,10 +105,13 @@ All IDs use `T104-PH001-ST008-AC001.4-SES001-ACT###` prefix:
 
 - AC001.4 is registered in the ST008 stream plan with a full sub-activity plan.
 - The governance gap (internal-only recycle rules applied to external impact) is confirmed and scoped.
+- AC002 gate reassessment is held pending AC001.4 GATE-001 approval of the governance model.
+- Next session should produce TK003 (assessment analysis) and TK004 (gate-disposition proposal) for AC001.4 GATE-001.
+- The P-PH000-ST002-AC002 plan and session notes are amended to reflect the hold.
 
 ## H. Changelog
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
-| v1.0.0 | 2026-03-19 | Initial | Kickoff session for AC001.4. Recorded why the sub-activity exists, locked the temporary AC009 workaround boundary, and fixed the first-cycle task sequence (plan + session notes + options analysis + architecture gate). |
+| v1.0.0 | 2026-03-19 | Initial | Session notes created to record Gate Impact Classification consultation, including external-vs-internal impact distinction, forward-amendment decision, rules-first sequencing, analysis deprecation model, interim hold mechanism, and comprehensive edge case scope for AC001.4. |
 

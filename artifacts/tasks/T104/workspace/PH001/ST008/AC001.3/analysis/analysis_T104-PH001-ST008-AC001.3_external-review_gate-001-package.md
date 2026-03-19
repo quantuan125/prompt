@@ -7,7 +7,7 @@ phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC001.3'
 gate_id: 'T104-PH001-ST008-AC001.3-GATE-001'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-03-19'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -25,7 +25,7 @@ target_proposal: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/prop
 
 **Scope**: This review covers the governing plan, both analysis artifacts, both proposal artifacts, SES001-SES004 session notes, and the relevant workspace guideline surfaces that the package relies on.
 
-**Conclusion / Recommendation**: The `GATE-001` package is **ready for client disposition**. The evidence base is sufficient, the core architecture recommendation is coherent, and no blocking content gap remains for decision-making. I agree with the recommended resolutions for GIR-001 through GIR-005 and GIR-007 through GIR-011. I agree with GIR-006 **with one interpretation constraint**: its downstream execution scope must remain conditional on the GIR-002 path the client actually selects. If Path B is approved, the current TK005 expansion is coherent. If Path C is approved instead, the Path B-only IMPLEMENTATION-family deliverables must not proceed unchanged.
+**Conclusion / Recommendation**: The `GATE-001` package was decision-ready and the client has now approved the recommended Path B package on `2026-03-19`. That approval is supportable from the current evidence set. The post-approval downstream assessment remains the same: `TK005` is sufficient only as the immediate bridge task that packages the approved architecture into developer-ready implementation authority. It is not sufficient to complete `AC001.3` end-to-end without the subsequent implementation-backed sequence, verification, and a second acceptance gate.
 
 ### Client Summary
 
@@ -39,6 +39,7 @@ target_proposal: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/prop
 - GIR-010 is appropriately deferred; the revision-checklist replacement question should not be forced into this gate.
 - If this gate is approved on Path B, downstream standardization work becomes materially larger and should start under explicit epic/control surfaces immediately.
 - If this gate is approved on Path C, the downstream blast radius is smaller, but proposal-family drift risk remains materially higher.
+- With Path B now approved, `TK005` should be treated as the bridge into implementation, not as the final completion vehicle for the activity.
 
 ## II. SCOPE & INPUTS
 
@@ -103,6 +104,7 @@ rg --files prompt/artifacts/tasks | rg "analysis_.*external-review"
 | GAP-001 | consistency | Comparative analysis retains pre-SES004 naming posture | `analysis_T104-PH001-ST008-AC001.3_remediation-artifact-type-comparison.md` still reflects the earlier `implementation_detail` framing in parts of its narrative and mitigation logic, while the live package has moved to `IMPLEMENTATION` plus two subtypes. | `accepted_as_is` | `T104-PH001-ST008-AC001.3-GATE-001` | Non-blocking because the proposal and standards-input companion normalize the current architecture and decision language. |
 | GAP-002 | lifecycle | GIR-006 downstream scope is conditional on GIR-002 outcome | The package correctly states that GIR-007 through GIR-011 are Path-B-dependent, but GIR-006 can be misread if treated as unconditional authorization for Path-B-only follow-on work even under a Path C override. | `resolved` | `T104-PH001-ST008-AC001.3-GATE-001` | Clarified in the gate-disposition proposal during this review cycle. |
 | GAP-003 | workflow | Revision-checklist replacement remains intentionally unresolved | The relationship between `remediation_specification` and the existing revision-checklist pattern is still open. | `accepted_as_is` | Future session | This is correctly deferred by GIR-010 and should not block Gate-001. |
+| GAP-004 | lifecycle | `TK005` is bridge-sufficient, not completion-sufficient | The approved package now supports launching the post-gate implementation work, but `TK005` alone does not close the activity. Implementation of the family surfaces, vertical integration patches, execution evidence, independent verification, and a second client acceptance gate are still required. | `resolved` | `T104-PH001-ST008-AC001.3` | This is a post-approval planning and sequencing clarification, not a reason to reopen Gate-001. |
 
 ## V. EXTERNAL REVIEW (INDEPENDENT ASSESSMENT)
 
@@ -132,11 +134,10 @@ rg --files prompt/artifacts/tasks | rg "analysis_.*external-review"
 - If the client approves Path B but downstream work is delayed, temporary workaround patterns may continue to spread before the new family is codified.
 
 ### C. Recommendations
-1. Proceed to client disposition at `GATE-001`; no additional pre-decision artifact is required.
-2. Approve GIR-001 through GIR-005 as recommended.
-3. Approve GIR-007 through GIR-011 as recommended **if and only if** GIR-002 selects Path B.
-4. Read GIR-006 as a path-conditional scope authorization, not as unconditional approval for Path-B-specific deliverables under all outcomes.
-5. Keep GIR-010 deferred; do not expand this gate into a full verification-guideline redesign.
+1. Keep the recorded `GATE-001` approval intact; no reopening is justified by the current evidence.
+2. Treat `TK005` as the consultant-owned bridge task that converts the approved Path B architecture into developer-ready implementation authority.
+3. Keep the follow-on implementation, DEV-REPORT, VERIFICATION, and `GATE-002` acceptance sequence explicit in the activity plan; do not imply that Gate-001 approval alone completes the activity.
+4. Keep GIR-010 deferred; do not expand this approval into a full verification-guideline redesign.
 
 ## VI. PACKAGE COMPLETENESS AND READINESS ASSESSMENT
 
@@ -145,7 +146,7 @@ rg --files prompt/artifacts/tasks | rg "analysis_.*external-review"
 | 1 | TK001 through TK004.1 completed | Plan, analyses, proposal, companion proposal, and session-note trail exist in canonical locations | PASS |
 | 2 | Options analysis exists and is indexed | Present and referenced from the gate proposal | PASS |
 | 3 | Comparative analysis v2.0.0 exists with reconciled multi-consultant scoring | Present and used as the main analysis reference | PASS |
-| 4 | Gate-disposition proposal exists with populated pending GDR | Present; GDR remains pending as expected for a decision gate | PASS |
+| 4 | Gate-disposition proposal exists with populated GDR | Present; GDR now records `APPROVE` on `2026-03-19` | PASS |
 | 5 | External review of the package completed | Completed by this artifact | PASS |
 | 6 | Standards-input proposal exists and is indexed | Present and referenced in the proposal | PASS |
 | 7 | Gate package is decision-ready for client use | Yes; remaining issues are non-blocking and execution-oriented | PASS |
@@ -187,13 +188,19 @@ rg --files prompt/artifacts/tasks | rg "analysis_.*external-review"
 - The second major risk is delay after approval: if the chosen model is not codified quickly, the repo may continue accumulating interim local patterns.
 - The package does not justify expanding this gate to settle the revision-checklist replacement question; doing so would enlarge scope prematurely.
 
+### D. TK005 Sufficiency Assessment
+
+- `TK005` is sufficient as the immediate post-approval bridge because it can package the approved Path B architecture into a developer-ready amendment/implementation package and anchor the work under `T104J`.
+- `TK005` is not sufficient to complete `AC001.3` by itself because the approved model still has to be authored into live governed surfaces, evidenced by a developer handoff artifact, independently verified, and accepted at a later implementation gate.
+- The remaining post-approval gaps are therefore execution gaps, not decision gaps: authoring the IMPLEMENTATION family surfaces, integrating the vertical governance updates, preserving plan/implementation authority boundaries in live files, and proving the rollout works through verification.
+
 ## IX. DOWNSTREAM ACTIONS
 
 | downstream_artifact_type | target_reference | trigger_condition | responsible_role | notes |
 |:--|:--|:--|:--|:--|
 | PROPOSAL | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/proposal/proposal_T104-PH001-ST008-AC001.3-GATE-001_gir-disposition-package.md` | External review completed | LLM_Consultant | Keep this external review indexed in the gate package and use it during client disposition. |
-| PLAN | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/plan_T104-PH001-ST008-AC001.3.md` | Client approves GATE-001 | LLM_Consultant | Execute only the downstream scope implied by the actual GIR-002 decision. |
-| SPS | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` | Client approves Path B | LLM_Consultant | Register `T104J` immediately if GIR-011 is accepted. |
+| PLAN | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/plan_T104-PH001-ST008-AC001.3.md` | Gate-001 approval recorded | LLM_Consultant | Expand the activity into the post-gate implementation-backed sequence and keep `TK005` bridge-only. |
+| SPS | `prompt/artifacts/tasks/T104/ssot/sps_T104-CWS.md` | Gate-001 approval recorded for Path B | LLM_Consultant | Register `T104J` immediately as the governance home for the approved family rollout. |
 | GUIDELINE | `prompt/templates/consultant/workspace/workspace_documentation_rules.md` | Client approves Path B | LLM_Consultant | Add IMPLEMENTATION family inventory, workflow-chain, and role-matrix updates. |
 | GUIDELINE | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` | Client approves Path C | LLM_Consultant | Apply only if the client overrides to proposal-family expansion. |
 | GUIDELINE | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` | Future session only | LLM_Consultant | Revisit the revision-checklist replacement question after the chosen model exists. |
@@ -217,4 +224,5 @@ rg --files prompt/artifacts/tasks | rg "analysis_.*external-review"
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-19 | Amendment | Updated the external review after Gate-001 approval. Added post-approval downstream sufficiency analysis clarifying that `TK005` is bridge-sufficient but not completion-sufficient, added the remaining execution-gap assessment, and aligned the package-readiness section to the recorded `APPROVE` GDR state. |
 | v1.0.0 | 2026-03-19 | Initial | Independent external review of the full AC001.3 GATE-001 package. Assessed package completeness, gate readiness, GIR recommendation quality, residual risks, and downstream impact if approved. Conclusion: ready for client disposition; agree with all recommended GIR resolutions, with GIR-006 interpreted conditionally by GIR-002 outcome. |

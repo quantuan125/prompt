@@ -7,14 +7,16 @@ stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC003'
 task_id: 'P-PH000-ST001-AC003-TK015'
 gate_id: 'P-PH000-ST001-AC003-GATE-004'
-version: '1.0.0'
-date: '2026-03-19'
-status: 'draft'
+version: '1.1.1'
+date: '2026-03-20'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md'
-analysis_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-004.md'
-external_review_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/snotes/snotes_T104-PH001-ST008-AC003-SES002.md'
+analysis_reference:
+  - 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-004.md'
+  - 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-004_external-review-assessment.md'
+external_review_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/snotes/snotes_T104-PH001-ST008-AC001.3-SES002.md'
 purpose: 'Gate-004 disposition package for the TK011 through TK013 P-STD-002 amendment package. The authoritative client decision will be recorded in the embedded GDR.'
 consumers:
   - 'P-PH000-ST001-AC003-GATE-004'
@@ -34,11 +36,12 @@ consumers:
 
 | Deliverable | Producing Task | Status | Acceptance | Client Priority | Path |
 |:--|:--|:--|:--|:--|:--|
-| P-STD-002 CLAUSE-038 Amendment | `P-PH000-ST001-AC003-TK011` | `completed` | `pending` | Required | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` |
-| TK012 Light Verification Evidence | `P-PH000-ST001-AC003-TK012` | `completed` | `pending` | Recommended | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md` |
-| P-STD-002 Deferred-State + CLAUSE-056 Amendment | `P-PH000-ST001-AC003-TK013` | `completed` | `pending` | Required | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` |
-| Gate-004 Verification Artifact | `P-PH000-ST001-AC003-TK014` | `completed` | `pending` | Required | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-004.md` |
-| Gate-004 Disposition Proposal | `P-PH000-ST001-AC003-TK015` | `completed` | `pending` | Required | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-004_amendment-disposition-package.md` |
+| P-STD-002 CLAUSE-038 Amendment | `P-PH000-ST001-AC003-TK011` | `completed` | `accepted` | Required | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` |
+| TK012 Light Verification Evidence | `P-PH000-ST001-AC003-TK012` | `completed` | `accepted` | Recommended | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md` |
+| P-STD-002 Deferred-State + CLAUSE-056 Amendment | `P-PH000-ST001-AC003-TK013` | `completed` | `accepted` | Required | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` |
+| Gate-004 Verification Artifact | `P-PH000-ST001-AC003-TK014` | `completed` | `accepted` | Required | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-004.md` |
+| Gate-004 Disposition Proposal | `P-PH000-ST001-AC003-TK015` | `completed` | `accepted` | Required | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-004_amendment-disposition-package.md` |
+| TK016 External Review Analysis | `P-PH000-ST001-AC003-TK016` | `completed` | `accepted` | Required | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-004_external-review-assessment.md` |
 
 ### B. Evidence Index
 
@@ -46,6 +49,7 @@ consumers:
 |:--|:--|:--|:--|
 | Standard | P-STD-002 live amended text | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Single implementation surface for TK011 and TK013 |
 | Verification | Gate-004 verification evidence | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-004.md` | Reviewer verdict for the full TK011 through TK013 package (`PASS`) |
+| Analysis | GATE-004 external review assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-004_external-review-assessment.md` | Independent external review of the TK011–TK013 package; identified GAP-001 (SPS bookkeeping, resolved) |
 | Proposal | TK008 stale-state standards input | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-TK008_stale-state-governance-standards-input.md` | Approved source text baseline for `CLAUSE-038` |
 | Proposal | GATE-003 disposition package / GDR | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-003_execution-disposition-package.md` | Records the GIR-003 through GIR-006 approvals that authorized TK011/TK012 |
 | Session | SES002 authorization notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/snotes/snotes_T104-PH001-ST008-AC003-SES002.md` | Records client approval for TK013 and the Gate-004 package |
@@ -56,10 +60,10 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--|:--|
-| GIR-001 | Amendment package acceptance | Whether the TK011 through TK015 package is gate-ready | (a) APPROVE package and proceed | `P-PH000-ST001-AC003-GATE-004` | Yes | `pending` |
-| GIR-002 | CLAUSE-038 amendment correctness | Whether TK011/TK012 satisfactorily implemented and verified the stale-state amendment | (a) Accept the live `CLAUSE-038` implementation | `P-PH000-ST001-AC003-TK011` / `P-PH000-ST001-AC003-TK012` | Yes | `pending` |
-| GIR-003 | Deferred-state integration | Whether TK013 correctly adds `deferred` across the P-STD-002 lifecycle model | (a) Accept the deferred-state integration as implemented | `P-PH000-ST001-AC003-TK013` | Yes | `pending` |
-| GIR-004 | CLAUSE-056 casing governance | Whether the new casing convention should be accepted as part of the amendment package | (a) Accept `CLAUSE-056` as implemented | `P-PH000-ST001-AC003-TK013` | Yes | `pending` |
+| GIR-001 | Amendment package acceptance | Whether the TK011 through TK016 package is gate-ready | (a) APPROVE package and proceed | `P-PH000-ST001-AC003-GATE-004` | Yes | `APPROVE` |
+| GIR-002 | CLAUSE-038 amendment correctness | Whether TK011/TK012 satisfactorily implemented and verified the stale-state amendment | (a) Accept the live `CLAUSE-038` implementation | `P-PH000-ST001-AC003-TK011` / `P-PH000-ST001-AC003-TK012` | Yes | `APPROVE` |
+| GIR-003 | Deferred-state integration | Whether TK013 correctly adds `deferred` across the P-STD-002 lifecycle model | (a) Accept the deferred-state integration as implemented | `P-PH000-ST001-AC003-TK013` | Yes | `APPROVE` |
+| GIR-004 | CLAUSE-056 casing governance | Whether the new casing convention should be accepted as part of the amendment package | (a) Accept `CLAUSE-056` as implemented | `P-PH000-ST001-AC003-TK013` | Yes | `APPROVE` |
 
 ## IV. DETAILED DISPOSITION REGISTER
 
@@ -85,7 +89,7 @@ Rationale:
 - The reviewer verification passed and the package contains the complete registered gate-readiness stack for this implementation-backed gate.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -112,7 +116,7 @@ Rationale:
 - The live clause matches the approved source posture, the reserved state is gone, and no internal clause conflict was identified during Gate-004 verification.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -138,7 +142,7 @@ Rationale:
 - Gate-004 verification found the integration complete and internally consistent across all plan-listed touchpoints.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -164,7 +168,7 @@ Rationale:
 - The clause is narrowly scoped, internally consistent with the eight-state enum, and directly addresses the SES002 governance gap.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ## V. GATE RECOMMENDATION
 
@@ -186,12 +190,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `P-PH000-ST001-AC003-GATE-004` |
 | Reviewer Verdict | `PASS` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
 | Conditions (if any) | `—` |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-20` |
+| Decision Reference | [analysis_P-PH000-ST001-AC003-GATE-004_external-review-assessment.md](file:///c:/Users/quant/OneDrive/Documents/Purpose/Crypto/PERP/prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-004_external-review-assessment.md) |
 
 ## VII. REFERENCES
 
@@ -199,6 +203,7 @@ Downstream enforcement:
 |:--|:--|
 | Governing Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md` |
 | Gate-004 Verification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/verification/verification_P-PH000-ST001-AC003_gate-004.md` |
+| Gate-004 External Review | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/analysis/analysis_P-PH000-ST001-AC003-GATE-004_external-review-assessment.md` |
 | TK008 Source Proposal | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-TK008_stale-state-governance-standards-input.md` |
 | GATE-003 Disposition Package | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-003_execution-disposition-package.md` |
 | SES002 Session Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/snotes/snotes_T104-PH001-ST008-AC003-SES002.md` |
@@ -207,4 +212,6 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.1 | 2026-03-20 | Remediation | Amending structural and content-fidelity gaps identified during verification. Updated analysis_reference to array, set Acceptance to 'accepted' for all rows, added external review analysis to Evidence Index and References. |
+| v1.1.0 | 2026-03-20 | Decision | GDR closed: Client Decision set to `APPROVE` for the TK011–TK013 & TK016 amendment package. Post-gate status set to `completed`. |
 | v1.0.0 | 2026-03-19 | Initial | Initial Gate-004 disposition package for the AC003 amendment set. Packages TK011 through TK015, initializes the pending GDR, and explicitly records in the evidence package that no dedicated TK011/TK013 dev-report file exists. |

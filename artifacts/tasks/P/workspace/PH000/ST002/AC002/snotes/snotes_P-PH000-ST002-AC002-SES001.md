@@ -94,13 +94,30 @@ The agreed next step for implementation in this session was to author the recycl
 
 ---
 
-## H. Plan Amendment Addendum
-
-The recycle-planning record above remains the authoritative SES001 history for AC002. This addendum records the follow-on plan-amendment outcome: `T104-PH001-ST008-AC001.4` now carries the external-impact governance question, the AC002 restructure remains a forward amendment, and the gate stays open under the same `GATE-001` until the external-impact model is finalized. No separate SES002 file is created for this amendment.
-
-## I. Changelog
+## H. Changelog
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
-| v1.1.0 | 2026-03-19 | Amendment | Added Plan Amendment addendum to preserve the SES001 recycle-planning history while recording the AC001.4 governance lane and hold posture. |
+| v1.1.0 | 2026-03-19 | Amendment | Added Plan Amendment Addendum (§I) recording external-impact governance reconsideration. The same-gate RECYCLE treatment is under review; gate restructure is held pending T104-PH001-ST008-AC001.4-GATE-001. Cross-reference to AC001.4 consultation session and sub-activity plan. |
 | v1.0.0 | 2026-03-19 | Initial | Activity session notes created to record Gate-001 recycle planning, current-state assessment conclusions, and the approved remediation packaging for AC002. |
+
+---
+
+## I. Plan Amendment Addendum (2026-03-19): External Impact Governance Reconsideration
+
+### Context
+
+Following the completion of the GATE-001 recycle package (recorded in sections A–H above), a subsequent consultation session identified that the same-gate RECYCLE treatment applied to GATE-001 was based on internal recycle rules (`guideline_workspace_plan.md` §VI.K) that do not address external impact scenarios. The trigger for the GATE-001 package refresh was an external event — the `P-STD-002 v1.2.0` amendment on 2026-03-18 — not an internal review finding. The current workspace governance rules lack a distinction between internal rework and external baseline change.
+
+### Decisions (Plan Amendment)
+
+| ID | Decision | Type | Status | Owner | Date | Rationale |
+|:---|:---------|:-----|:-------|:------|:-----|:----------|
+| `P-PH000-ST002-AC002-SES001-DEC005` | The same-gate RECYCLE treatment for GATE-001 is under reconsideration; gate restructure is pending `T104-PH001-ST008-AC001.4-GATE-001` governance resolution | Governance | Confirmed | Client | 2026-03-19 | External impacts may warrant gate supersession rather than same-gate recycle; rules must be established first |
+| `P-PH000-ST002-AC002-SES001-DEC006` | Forward amendment (not git rollback) will be used for the AC002 gate restructure | Design | Confirmed | Client | 2026-03-19 | Preserves consultation history (this session note), analysis work, and audit trail |
+| `P-PH000-ST002-AC002-SES001-DEC007` | GATE-001 reassessment is HELD — do not reassess until `T104-PH001-ST008-AC001.4-GATE-001` approves the external-impact governance model | Governance | Confirmed | Client | 2026-03-19 | Prevents setting ungoverned precedent; the governance model must exist before the gate restructure is applied |
+
+### Cross-Reference
+
+- Full consultation decisions: `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/snotes/snotes_T104-PH001-ST008-AC001.4-SES001.md`
+- Governance resolution activity: `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/plan_T104-PH001-ST008-AC001.4.md`
