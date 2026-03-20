@@ -7,18 +7,21 @@ stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC002'
 task_id: 'P-PH000-ST002-AC002-TK001.7'
 gate_id: 'P-PH000-ST002-AC002-GATE-001'
-version: '1.2.0'
-date: '2026-03-19'
-status: 'draft'
+version: '1.3.0'
+date: '2026-03-20'
+status: 'superseded'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md'
 analysis_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_current-state-assessment.md'
 external_review_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md'
+superseded_by: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-002_design-decision-disposition.md'
 purpose: 'Gate disposition package for the same-gate recycle loop at GATE-001, recording the current RECYCLE decision and packaging the remediated consultant-owned materials for next-session reassessment.'
 consumers:
   - 'P-PH000-ST002-AC002-GATE-001'
 ---
+
+> **SUPERSEDED**: This gate-disposition proposal was produced against the `P-STD-002 v1.1.0` baseline. GATE-001 has been closed with `Client Decision: SUPERSEDE` due to an external decision-boundary change (`P-STD-002 v1.2.0` amendment, 2026-03-18). This proposal is preserved as the historical GATE-001 record. The successor gate package is at `proposal_P-PH000-ST002-AC002-GATE-002_design-decision-disposition.md`.
 
 # PROPOSAL: Gate Disposition Package — P-PH000-ST002-AC002-GATE-001 (Design Decision Approval)
 
@@ -149,13 +152,13 @@ Downstream enforcement:
 | Field | Value |
 |:--|:--|
 | Gate ID | `P-PH000-ST002-AC002-GATE-001` |
-| Reviewer Verdict | `RECYCLE` |
-| Client Decision | `RECYCLE` |
-| Gate Status After Decision | `in_progress` |
-| Conditions (if any) | `TK001.3` Record AC002 recycle session notes; `TK001.4` Produce Gate-001 current-state assessment; `TK001.5` Rebaseline implementation requirements analysis to `P-STD-002 v1.2.0`; `TK001.6` Refresh reassessment external review; `TK001.7` Refresh gate-disposition proposal and package the same-gate re-entry basis. |
+| Consultant Recommendation | `SUPERSEDE` |
+| Client Decision | `SUPERSEDE` |
+| Gate Status After Decision | `superseded` |
+| Conditions (if any) | Successor gate: `P-PH000-ST002-AC002-GATE-002`. External event: `P-STD-002 v1.2.0` amendment (2026-03-18) changed the decision boundary. Prior assessment preserved as historically valid for the v1.1.0 baseline. |
 | Decided By | Client |
-| Decision Date | `2026-03-19` |
-| Decision Reference | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/snotes/snotes_P-PH000-ST002-AC002-SES001.md` |
+| Decision Date | `2026-03-20` |
+| Decision Reference | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/analysis/analysis_T104-PH001-ST008-AC001.4_retroactive-ac002-application-guidance.md` |
 
 ## VII. REFERENCES
 
@@ -176,6 +179,7 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.3.0 | 2026-03-20 | Amendment | GDR updated to record `Client Decision: SUPERSEDE` and `Gate Status After Decision: superseded`. Frontmatter marked `status: superseded` with `superseded_by` reference to GATE-002 proposal. Deprecation notice added. Source: T104-PH001-ST008-AC001.4-GATE-001 governance model approval and retroactive application guidance (TK009). |
 | v1.2.0 | 2026-03-19 | Amendment | Retargeted the proposal to the same-gate recycle package after the `P-STD-002 v1.2.0` amendment. Frontmatter now points to the latest current-state assessment; Gate Package and Evidence Index now include the recycle artifacts; Gate Recommendation and GDR now record `RECYCLE`, preserve the same gate ID, and block downstream implementation pending next-session reassessment. |
 | v1.1.0 | 2026-03-16 | Amendment | Retargeted the package for a consultation-only Gate 001 reassessment. Frontmatter now points to TK001.2 and the new reassessment external review. GIR-001 now encodes explicit terminal/reopen authorization rules; GIR-002 now locks activity-only v1 population alongside P-STD-005 naming patterns; SES002 added to the evidence set. |
 | v1.0.0 | 2026-03-15 | Initial | Gate disposition package for GATE-001 (Design Decision Approval). Three GIR items: agent-role binding, scope_uid naming patterns, optional field v1 scope. GDR pending client decision. |

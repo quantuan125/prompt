@@ -1,4 +1,4 @@
-<!-- Template governed by P-STD-001-CLAUSE-001, P-STD-001-CLAUSE-018, P-STD-001-CLAUSE-025, P-STD-001-CLAUSE-031, P-STD-001-CLAUSE-034, P-STD-001-CLAUSE-035, and P-STD-001-CLAUSE-036 -->
+<!-- Template governed by P-STD-001-CLAUSE-001, P-STD-001-CLAUSE-008, P-STD-001-CLAUSE-018, P-STD-001-CLAUSE-025, P-STD-001-CLAUSE-031, P-STD-001-CLAUSE-034, P-STD-001-CLAUSE-035, and P-STD-001-CLAUSE-036 -->
 ---
 artifact_type: 'STANDARD'
 initiative_id: '<SID>'
@@ -21,7 +21,7 @@ deprecation_date: 'YYYY-MM-DD'
 ## Specification
 
 1) **<STD-ID>-CLAUSE-001 (<Clause Title>)**
-   - MUST / SHOULD / MAY statement.
+   - MUST / SHOULD / MAY statement using the program-scope BCP 14 primary vocabulary.
 
 2) **<STD-ID>-CLAUSE-002 (<Clause Title>)**
    - MUST / SHOULD / MAY statement.
@@ -65,11 +65,15 @@ deprecation_date: 'YYYY-MM-DD'
 
 ### Status
 
-- Current lifecycle posture: `draft`
+| Field | Value |
+|:--|:--|
+| Current lifecycle posture | `draft` |
 
 ### Lineage / Authority
 
-- Supersedes: `—`
+| Field | Value |
+|:--|:--|
+| Supersedes | `—` |
 
 ### Amendment History
 

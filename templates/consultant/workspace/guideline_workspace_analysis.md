@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'analysis_authoring'
-version: '1.3.0'
-date: '2026-03-16'
+version: '1.5.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -33,6 +33,8 @@ This guideline is Draft 1 (exemplar-derived). It is intended as the binding auth
 - **Client** is the decision owner for gates and proposal acceptance; client decisions are recorded in Gate Decision Records (GDRs) inside proposal artifacts where applicable.
 
 **Boundary rule**: ANALYSIS artifacts may contain findings/gaps and downstream recommendations, and may feed consultation-only gate packages as consultant-authored inputs. They MUST NOT be written as VERIFICATION artifacts and MUST NOT claim gate closure.
+
+**IMPLEMENTATION boundary**: When an `IMPLEMENTATION` artifact exists for the same scope (task or gate remediation), ANALYSIS artifacts retain their informative/advisory role. ANALYSIS findings and recommendations MAY inform the IMPLEMENTATION specification, but the ANALYSIS artifact MUST NOT duplicate implementation-level specification detail that belongs in the IMPLEMENTATION artifact. The ANALYSIS artifact remains consultant-owned synthesis; the IMPLEMENTATION artifact provides developer-facing specification depth.
 
 ---
 
@@ -212,10 +214,74 @@ Per `P-STD-004-CLAUSE-008E`, `analysis_` artifacts MUST NOT be treated as resear
 
 ---
 
-## IX. CHANGELOG
+## IX. SUPERSEDED ANALYSIS ARTIFACTS
+
+This section governs how ANALYSIS artifacts are deprecated when a gate is superseded due to an external baseline change. The rules here implement Layer 1 of the three-layer deprecation model (see `workspace_documentation_rules.md` §7.C for the full model).
+
+### A. When Supersession Applies
+
+An ANALYSIS artifact must be deprecated when:
+1. The gate it supports has been superseded (`Client Decision = SUPERSEDE` per `guideline_workspace_proposal.md` §VII.C), AND
+2. The artifact was produced against the **prior** normative baseline (not the successor baseline).
+
+ANALYSIS artifacts produced against the **successor** baseline carry forward as-is and do NOT require deprecation.
+
+### B. Frontmatter Requirements for Superseded Analysis
+
+When an ANALYSIS artifact is superseded, update its frontmatter:
+
+```yaml
+status: 'superseded'
+superseded_by: '<repo-relative path to the successor artifact>'
+```
+
+- `status: 'superseded'` replaces the prior `status` value (e.g., `draft`, `active`, `completed`).
+- `superseded_by` points to the artifact that assesses the same scope against the updated normative baseline.
+- Both keys are required when the artifact is superseded. `superseded_by` MUST NOT be left blank.
+
+### C. Deprecation Notice Format (Required)
+
+A deprecation notice MUST be added as the **first line of the body** (immediately after the frontmatter block, before the `# ANALYSIS:` heading):
+
+```
+> **SUPERSEDED**: This artifact was produced against [baseline X]. It has been superseded by [successor artifact path] which assesses against [baseline Y]. This artifact is preserved for historical traceability only.
+```
+
+Fill in:
+- `[baseline X]`: The normative standard/version the artifact was produced against (e.g., `P-STD-002 v1.1.0`)
+- `[successor artifact path]`: Repo-relative path to the successor artifact
+- `[baseline Y]`: The normative standard/version the successor artifact is produced against (e.g., `P-STD-002 v1.2.0`)
+
+### D. Version Bump and Changelog
+
+When applying the superseded status:
+- Bump the version (minor version increment, e.g., v1.0.0 → v1.1.0)
+- Add a changelog entry explaining the supersession: which gate triggered it, which baseline changed, and what the successor artifact is
+
+### E. Body Preservation Rule
+
+The body content of a superseded ANALYSIS artifact MUST NOT be altered. Only the following changes are applied:
+1. `status` frontmatter key updated to `superseded`
+2. `superseded_by` frontmatter key added
+3. Deprecation notice added as first body line
+4. Version bumped and changelog entry added
+
+The analysis content itself (findings, assessments, recommendations) is preserved unchanged as a historical record of work done under the prior baseline.
+
+### F. Three-Layer Model Context
+
+Layer 1 (this guideline, §IX) handles the artifact-level deprecation signal. The full deprecation model also requires:
+- **Layer 2** (Evidence Index in successor gate-disposition proposal): Move superseded analysis from active evidence to `Historical Evidence` subsection with `SUPERSEDED` annotation. See `guideline_workspace_proposal.md` §V.B.
+- **Layer 3** (Plan Links Register): Add or update the links register entry with `superseded` annotation. See `guideline_workspace_plan.md` §VI.M.
+
+---
+
+## X. CHANGELOG
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.5.0 | 2026-03-20 | Amendment | Added §IX (Superseded Analysis Artifacts): when-to-apply rules, required frontmatter keys (`status: 'superseded'`, `superseded_by`), deprecation notice format, version-bump and changelog requirements, body-preservation rule, and three-layer model context (this guideline covers Layer 1; Layers 2–3 are in proposal guideline and workspace documentation rules). Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
+| v1.4.0 | 2026-03-20 | Amendment | Added IMPLEMENTATION boundary clarification in §II: ANALYSIS artifacts MUST NOT duplicate implementation-level specification detail when an IMPLEMENTATION artifact exists for the same scope. Source: T104-PH001-ST008-AC001.3-GATE-001 Path B approval. |
 | v1.3.0 | 2026-03-16 | Amendment | Clarified the gate boundary for consultation-only workflows. ANALYSIS artifacts may now explicitly feed consultation-only gate packages as inputs, while VERIFICATION remains reserved for implementation-backed gates. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
 | v1.2.0 | 2026-03-15 | Amendment | Added §V.A (Executive Summary Audience-Awareness Rule): when an analysis feeds a gate_disposition proposal, the Executive Summary MUST include a Client Summary subsection written for the decision_owner_role. Existing §V subsections renumbered (A→B, B→C, C→D, D→E). |
 | v1.1.0 | 2026-03-05 | Maintenance | Resolved legacy GDR ownership reference in §II (removed verification artifact as GDR host). |

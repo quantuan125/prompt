@@ -7,13 +7,14 @@ stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC003'
 task_id: 'T104-PH001-ST008-AC003-TK003'
 gate_id: 'T104-PH001-ST008-AC003-GATE-001'
-version: '1.1.0'
-date: '2026-03-18'
+version: '1.2.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/plan_T104-PH001-ST008-AC003.md'
 analysis_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_implementation-spec.md'
+implementation_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/implementation/implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md'
 purpose: 'Decision disposition package for GATE-001: implementation spec readiness review before developer execution begins.'
 consumers:
   - 'LLM_Developer (TK004-TK007 implementation authority)'
@@ -56,18 +57,22 @@ consumers:
 | # | Deliverable | Producing Task | Status | Reading Priority | Path |
 |:--|:--|:--|:--|:--|:--|
 | 1 | Gap Extraction Table (TK001 output) | TK001 | `completed` | Reference | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §II |
-| 2 | Implementation Specification (TK002 output) | TK002 | `completed` | **Primary** | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §III |
+| 2 | Implementation Specification — informative source (TK002 output) | TK002 | `completed` | Reference | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §III |
 | 3 | AC003/AC004 Scope Boundary | TK002 | `completed` | Review | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §IV |
 | 4 | Dependency Sequencing | TK002 | `completed` | Informational | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §V |
-| 5 | Remediation Checklist (SES002 supplement) | SES002 | `completed` | Review | `analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md` |
+| 5 | Remediation Checklist — informative source (SES002 supplement) | SES002 | `completed` | Reference | `analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md` |
+| 6 | **IMPLEMENTATION Task Specification** (authoritative developer spec) | SES003 (2026-03-20) | `completed` | **Primary** | `implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md` |
+| 7 | External Review — GATE-001 Package Readiness | SES003 (2026-03-20) | `completed` | Review | `analysis_T104-PH001-ST008-AC003_external-review_gate-001-package.md` |
 
 ### Evidence Index
 
 | Document | Role | Path |
 |:--|:--|:--|
 | AC003 Activity Plan | Governing plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/plan_T104-PH001-ST008-AC003.md` |
-| Implementation Specification | Primary deliverable | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_implementation-spec.md` |
-| Remediation Checklist | SES002 supplement | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md` |
+| **IMPLEMENTATION Task Specification** | **Authoritative developer specification** | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/implementation/implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md` |
+| External Review — GATE-001 Package | Independent readiness assessment | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_external-review_gate-001-package.md` |
+| Implementation Specification (informative) | Historical analysis source | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_implementation-spec.md` |
+| Remediation Checklist (informative) | Historical SES002 tracking surface | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md` |
 | T104-RES-003 Report | Gap register source | `prompt/artifacts/tasks/T104/research/T104-RES-003/report_T104-RES-003_workspace-artifact-integration-analysis.md` |
 | AC002 Integration Analysis | Synthesis source | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/analysis/analysis_T104-PH001-ST008-AC002_report-integration-and-downstream-impact.md` |
 | Plan Guideline | Governing guideline | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |
@@ -215,11 +220,18 @@ Client Decision:
 
 ## V. GATE RECOMMENDATION
 
-Recommendation state:
-- `N/A — decision gate`
+**Consultant Recommendation**: `APPROVE WITH CONDITIONS`
 
-Conditions and/or deferrals:
-- None
+All 7 GIR items carry an APPROVE recommendation. The implementation package is complete and developer-ready following the v1.2.0 amendments:
+- The authoritative developer specification has been migrated to the IMPLEMENTATION `task_specification` artifact (per GATE-001 package item #6)
+- The external review confirms no substantive gaps and validates the scope boundary, cluster sequencing, and cross-activity impact assessment
+- GIR-007 (analysis informative-only routing to AC001.3) is resolved — AC001.3 completed on 2026-03-20 with this rule codified
+
+**Conditions**:
+1. Developer MUST verify current-state evidence (line numbers, quoted text) against live files at implementation time — file versions have shifted since spec authoring due to AC001.3 and AC001.5 patches
+2. Cluster D (GAP-002, ADR scripts) remains deferred to T103 — no developer action in AC003 scope
+
+There is no verification artifact for this gate (consultation-only per `guideline_workspace_plan.md` §VI.L).
 
 ---
 
@@ -230,16 +242,13 @@ Conditions and/or deferrals:
 | Field | Value |
 |:--|:--|
 | Gate ID | `T104-PH001-ST008-AC003-GATE-001` |
-| Reviewer Verdict | `N/A — decision gate` |
+| Consultant Recommendation | `APPROVE WITH CONDITIONS` |
 | Client Decision | `pending` |
 | Gate Status After Decision | `pending` |
-| Conditions (if any) | — |
+| Conditions (if any) | (1) Developer must verify current-state evidence at implementation time — file versions have shifted since spec authoring. (2) Cluster D (GAP-002) remains deferred to T103. |
 | Decided By | Client |
 | Decision Date | — |
 | Decision Reference | `pending` |
-
-If no verification artifact exists for the gate:
-- `Reviewer Verdict` is `N/A — decision gate` (consultation-only gate; no formal reviewer verification)
 
 ---
 
@@ -248,7 +257,9 @@ If no verification artifact exists for the gate:
 | Document | Path |
 |:--|:--|
 | Activity Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/plan_T104-PH001-ST008-AC003.md` |
-| Implementation Specification | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_implementation-spec.md` |
+| IMPLEMENTATION Task Specification (authoritative) | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/implementation/implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md` |
+| External Review | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_external-review_gate-001-package.md` |
+| Implementation Specification (informative) | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_implementation-spec.md` |
 
 ---
 
@@ -256,5 +267,6 @@ If no verification artifact exists for the gate:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-20 | Amendment | SES003 amendments: (1) GDR updated to current guideline_workspace_proposal.md §VII.C format — `Reviewer Verdict` replaced with `Consultant Recommendation: APPROVE WITH CONDITIONS`; conditions enumerated. (2) §V Gate Recommendation updated with full consultant advisory rationale. (3) Gate Package Index: items #1–5 relabelled as reference/informative; item #6 added (IMPLEMENTATION task_specification — authoritative developer spec); item #7 added (external review). (4) Evidence Index updated — IMPLEMENTATION artifact and external review added as primary entries. (5) §VII References expanded. (6) frontmatter: added `implementation_reference`. Source: AC001.3 GATE-002 approval (2026-03-20) triggered IMPLEMENTATION family adoption; external review package readiness assessed. |
 | v1.1.0 | 2026-03-18 | Amendment | Incorporated SES002 client feedback. Added GIR-004 (`deferred` retention + P-STD-002 harmonization), GIR-005 (Cluster D deferral to T103), GIR-006 (GAP-006 refined disposition → T101), and GIR-007 (process gap routing to AC001.3). Updated Executive Summary with SES002 directives. Added remediation checklist to Gate Package Index and Evidence Index. Analysis file v1.1.0 referenced (informative posture). |
 | v1.0.0 | 2026-03-17 | Initial | GATE-001 gate-disposition proposal for AC003 implementation spec readiness review. Consultation-only gate with 3 GIR items: implementation spec approval, AC003/AC004 scope boundary confirmation, and implementation cluster sequencing (recommended A → B → C → D). GDR pending client decision. |

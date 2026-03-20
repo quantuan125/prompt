@@ -2,8 +2,8 @@
 artifact_type: 'AGENT_GUIDANCE'
 scope: 'prompt'
 applies_to: 'prompt/**'
-version: '1.0.0'
-date: '2026-03-16'
+version: '1.1.0'
+date: '2026-03-20'
 authority: 'P-STD-001'
 ---
 
@@ -30,6 +30,7 @@ Currently developing consultant and developer modes with emphasis on Socratic ex
 - The guideline and template are governed by `P-STD-001` (Program Governance Standard) at `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`.
 - Per `P-STD-001-CLAUSE-005B`, any CLAUSE modification in `P-STD-001` requires updating these derivatives in the same changeset.
 - `P-STD-001-CLAUSE-031` through `P-STD-001-CLAUSE-036` now govern the standard-file metadata layer: YAML frontmatter is the current-state authority; `## Provenance` is the history / lineage authority.
+- `P-STD-001-CLAUSE-008` governs normative drafting vocabulary at program scope. New normative text should use the BCP 14 primary vocabulary set (`MUST`, `MUST NOT`, `SHOULD`, `SHOULD NOT`, `MAY`).
 
 ## Advisory: P-STD-001 Authority & Alias Window
 - `P-STD-001` (Program Governance Standard) is the authoritative standard for combined standard-specification file authoring.

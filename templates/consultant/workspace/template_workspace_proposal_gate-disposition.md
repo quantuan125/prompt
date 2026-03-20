@@ -7,7 +7,7 @@ stream_id: '[SID-PH###-ST###]'
 activity_id: '[SID-PH###-ST###-AC###]'
 task_id: '[SID-PH###-ST###-AC###-TK###]'
 gate_id: '[SID-PH###-ST###-AC###-GATE-###]'
-version: '1.3.0'
+version: '1.4.0'
 date: 'YYYY-MM-DD'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -82,13 +82,18 @@ Client Decision:
 
 ---
 
-## V. GATE RECOMMENDATION
+## V. CONSULTANT GATE RECOMMENDATION
 
-Recommendation state:
-- `PASS` / `CONDITIONAL PASS` / `PASS WITH DEFERRALS` / `RECYCLE` / `FAIL` / `N/A — decision gate`
+Consultant recommendation:
+- `APPROVE` / `APPROVE WITH CONDITIONS` / `RECYCLE` / `REJECT`
+
+Reviewer verdict alignment (implementation-backed gates only):
+- Reviewer verdict: `[verdict from verification artifact or "N/A — consultation-only gate"]`
+- Verification artifact: `[path to verification artifact or "—"]`
+- Alignment: `[Aligned / Departs — <rationale if departing>]`
 
 Conditions and/or deferrals:
-- [enumerate or use `-`]
+- [enumerate or use `—`]
 
 Recycle reassessment path (`RECYCLE` only):
 - `Same Gate Reassessed: [GATE-ID]`
@@ -107,7 +112,7 @@ Downstream enforcement:
 | Field | Value |
 |:--|:--|
 | Gate ID | `[gate_id]` |
-| Reviewer Verdict | `[PASS / CONDITIONAL PASS / PASS WITH DEFERRALS / RECYCLE / FAIL / N/A — decision gate]` |
+| Consultant Recommendation | `[APPROVE / APPROVE WITH CONDITIONS / RECYCLE / REJECT]` |
 | Client Decision | `[APPROVE / APPROVE WITH CONDITIONS / RECYCLE / REJECT / pending]` |
 | Gate Status After Decision | `[completed / in_progress / failed / pending]` |
 | Conditions (if any) | `[enumerated list or "-"]` |
@@ -115,8 +120,7 @@ Downstream enforcement:
 | Decision Date | `YYYY-MM-DD` |
 | Decision Reference | `[session notes path, inline statement, or pending]` |
 
-If no verification artifact exists for the gate:
-- `Reviewer Verdict` MAY be the consultant's recommendation verdict or `N/A — decision gate`
+The `Consultant Recommendation` is populated at authoring time (not pending). It represents the consultant's consolidated advisory signal synthesizing all GIR item dispositions. For implementation-backed gates, Section V documents the relationship to the reviewer's verdict (which remains only in the verification artifact).
 
 If `Client Decision = RECYCLE`:
 - `Gate Status After Decision` MUST be `in_progress`
@@ -139,6 +143,7 @@ If `Client Decision = RECYCLE`:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.4.0 | 2026-03-20 | Amendment | §V: Renamed from "Gate Recommendation" to "Consultant Gate Recommendation". Taxonomy changed from reviewer verdict values (`PASS/FAIL`) to client decision taxonomy (`APPROVE/REJECT`). Added reviewer verdict alignment subsection for implementation-backed gates. §VI: Replaced `Reviewer Verdict` with `Consultant Recommendation` in GDR table. Updated guidance notes to reflect consultant-owned advisory signal. Source: T104-PH001-ST008-AC001.5. |
 | v1.3.0 | 2026-03-16 | Amendment | Generalized Section V wording from reviewer-only to recommendation state and extended the GDR Reviewer Verdict placeholder to support consultation-only decision gates with no verification artifact. |
 | v1.2.0 | 2026-03-15 | Amendment | Restructured Section II from flat Evidence Index to two-part Gate Package: Gate Package Index (deliverables inventory with client reading priority) and Evidence Index (governance traceability). Aligns with guideline_workspace_proposal.md v1.3.0 §V.B. |
 | v1.1.0 | 2026-03-12 | Amendment | Added explicit recycle reassessment path guidance to the Gate Recommendation section and added `Gate Status After Decision` plus RECYCLE-specific notes to the GDR section. |

@@ -7,14 +7,17 @@ phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC002'
 gate_id: 'P-PH000-ST002-AC002-GATE-001'
-version: '1.0.0'
-date: '2026-03-15'
-status: 'draft'
+version: '1.1.0'
+date: '2026-03-20'
+status: 'superseded'
+superseded_by: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md'
 purpose: 'Independent assessment of the implementation requirements analysis recommendations for the Program Status System, feeding GATE-001 design decision approval.'
 ---
+
+> **SUPERSEDED**: This artifact was produced against the `P-STD-002 v1.1.0` baseline. It has been superseded by `analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md` which assesses against the `P-STD-002 v1.2.0` baseline. This artifact is preserved for historical traceability only.
 
 # ANALYSIS: Implementation Recommendations Review (P-PH000-ST002-AC002)
 
@@ -145,4 +148,5 @@ purpose: 'Independent assessment of the implementation requirements analysis rec
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-20 | Amendment | Marked `status: superseded` with `superseded_by` reference to `analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md`. Deprecation notice added. This artifact was produced against the P-STD-002 v1.1.0 baseline; the v1.2.0 reassessment supersedes it. Source: T104-PH001-ST008-AC001.4-GATE-001 governance model approval and retroactive application guidance (TK009). |
 | v1.0.0 | 2026-03-15 | Initial | Independent external review of implementation requirements analysis recommendations. Covers 5 domains: ledger schema, narrative structure, agent-role binding, gap register, conformance checklist. Feeds GATE-001 design decision approval. |

@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'verification_authoring'
-version: '1.7.0'
-date: '2026-03-16'
+version: '1.9.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -135,6 +135,8 @@ Each `OBS-###` MUST include: Description, Context, Recommendation (optional).
 
 ## VII. GATE OUTCOME REWORK PATHS
 
+> **Scope note**: This section covers **internal rework paths** — Situation A (deliverable deficiency) and Situation B (scope gap) — both of which originate from the gate's own review process. External baseline changes (e.g., a standard amendment that alters the gate's normative baseline) are **not** verification findings and MUST NOT be classified as Situation A or Situation B. If an external baseline change is detected during a verification in progress, the reviewer MUST pause the verification and escalate to the plan level for impact classification per `guideline_workspace_plan.md` §VI.M. External impacts are resolved at the plan/proposal governance layer, not the verification layer.
+
 ### A. Situation A — Deliverable Deficiency
 
 1. **Definition**: The requirement was correctly specified in the approved plan or standard, but the deliverable fails to meet it.
@@ -196,12 +198,12 @@ The plan is the developer's work authority. The verification artifact identifies
 
 | Decision | Definition |
 |:--|:--|
-| **APPROVE** | Accept PASS verdict. Gate closed. |
+| **APPROVE** | Accept gate outcomes. Gate closed. |
 | **APPROVE WITH CONDITIONS** | Accept with conditions. Gate closed; conditions tracked. |
 | **RECYCLE** | Agree rework needed. Gate stays open. |
 | **REJECT** | Terminate gate. Work killed/redirected. |
 
-**Rule**: Client MAY override reviewer verdict (e.g., REJECT a PASS if Client identifies concerns the reviewer missed). Override MUST be documented with rationale in the GDR.
+**Rule**: Client MAY override the consultant recommendation (e.g., REJECT when consultant recommends APPROVE, if Client identifies concerns missed by both reviewer and consultant). Override MUST be documented with rationale in the GDR.
 
 ## IX. RE-ASSESSMENT VERSIONING
 
@@ -216,7 +218,12 @@ The plan is the developer's work authority. The verification artifact identifies
 
 The Gate Decision Record (GDR) specification, lifecycle, and enforcement rules are defined in `guideline_workspace_proposal.md` §VII (Gate Semantics & Gate Decision Record).
 
-The verification artifact's role at a gate is to provide evidence and a reviewer verdict (§VIII Verdict Taxonomy, §VII Gate Recommendation template section). The GDR — which records the client's decision — is hosted in the `gate_disposition` proposal artifact, not in the verification artifact.
+The gate decision flow produces three distinct signals:
+1. **Reviewer Verdict** (in this artifact's Gate Recommendation section, §VIII): Evidence-based quality/compliance signal using verdict taxonomy (`PASS / CONDITIONAL PASS / PASS WITH DEFERRALS / RECYCLE / FAIL`). Recorded only in the verification artifact — NOT duplicated into the GDR.
+2. **Consultant Recommendation** (in the proposal's GDR): Consolidated advisory signal synthesizing reviewer findings and GIR dispositions. Uses client decision taxonomy (`APPROVE / APPROVE WITH CONDITIONS / RECYCLE / REJECT`).
+3. **Client Decision** (in the proposal's GDR): Authoritative closure signal. Client MAY override the consultant recommendation.
+
+The verification artifact's role at a gate is to provide evidence and a reviewer verdict. The GDR — which records the consultant's recommendation and the client's decision — is hosted in the `gate_disposition` proposal artifact, not in the verification artifact.
 
 **Cross-reference**: For GDR field specification, lifecycle, and enforcement rules, see `guideline_workspace_proposal.md` §VII.C–E.
 
@@ -252,6 +259,8 @@ The verification artifact's role at a gate is to provide evidence and a reviewer
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.9.0 | 2026-03-20 | Amendment | §VII: Added scope note clarifying that Situations A and B cover internal rework paths only; external baseline changes are not verification findings and must be escalated to the plan level for impact classification per `guideline_workspace_plan.md` §VI.M. No Situation C added — consistent with GATE-001-approved recommendation (GIR-007) that external impacts are handled at the plan/proposal governance layer, not the verification layer. Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
+| v1.8.0 | 2026-03-20 | Amendment | §VIII.B: Updated Client Decision definitions to remove reviewer-verdict coupling (e.g., "Accept PASS verdict" → "Accept gate outcomes"). Override rule now references consultant recommendation instead of reviewer verdict. §X: Expanded GDR cross-reference to document the three-signal model (reviewer verdict in verification, consultant recommendation in GDR, client decision in GDR). Clarified that the reviewer verdict is NOT duplicated into the GDR. Source: T104-PH001-ST008-AC001.5. |
 | v1.7.0 | 2026-03-16 | Amendment | Clarified that VERIFICATION applies only to implementation-backed gates after developer work and DEV-REPORT handoff. Consultation-only gates now explicitly use `ANALYSIS` + `PROPOSAL` instead of `VERIFICATION`. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
 | v1.6.0 | 2026-03-15 | Amendment | §III: Added Gate-Readiness Stack cross-reference to `guideline_workspace_plan.md` §VI.L for plan-level positioning of verification tasks in the pre-gate sequence. Source: T104-PH001-ST008-AC001.2. |
 | v1.5.0 | 2026-03-15 | Amendment | Added revision-checklist guidance to §IV.A and §VII.A. For complex Situation A deficiencies, reviewers SHOULD produce a supplementary verification file (aspect: revision-checklist) containing explicit revision items with finding references, expected formats, and acceptance criteria. |

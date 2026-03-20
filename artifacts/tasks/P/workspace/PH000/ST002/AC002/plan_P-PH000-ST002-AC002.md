@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC002'
-version: '1.3.0'
-date: '2026-03-19'
+version: '1.4.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -19,7 +19,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: Design and author the program status artifact set — a canonical YAML ledger (`status_program.yaml`) and a derived Markdown narrative (`status_program.md`) with embedded operational update protocol and changelog — per the current `P-STD-002 v1.2.0` baseline. This activity is currently in a same-gate recycle loop at `P-PH000-ST002-AC002-GATE-001` after the earlier gate package was found stale against the March 18, 2026 standard amendment.
+**Purpose**: Design and author the program status artifact set — a canonical YAML ledger (`status_program.yaml`) and a derived Markdown narrative (`status_program.md`) with embedded operational update protocol and changelog — per the current `P-STD-002 v1.2.0` baseline. GATE-001 (v1.1.0 baseline design decision approval) has been superseded by the external-impact governance model approved at T104-PH001-ST008-AC001.4-GATE-001 on 2026-03-20. The external baseline change (`P-STD-002 v1.2.0` amendment, 2026-03-18) changed the decision boundary; the correct treatment is gate supersession. GATE-002 is the design decision approval gate for the `P-STD-002 v1.2.0` baseline. GATE-003 (renamed from GATE-002) remains the implementation acceptance gate.
 
 **Non-goal**: Populating initiative data entries (deferred to AC003); evidence-retention governance (deferred to P-PH000-ST001-AC008); broader workspace-guideline cleanup outside the AC002 package.
 
@@ -43,16 +43,17 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 | TK001 | `P-PH000-ST002-AC002-TK001` | Resolve remaining implementation design decisions | `completed` | LLM_Consultant | — | Revised decision package inputs | Analysis §V.E, §V.F, §V.G | Rebaselined design inputs now reflect the current standard baseline and recycle posture. |
 | TK001.1 | `P-PH000-ST002-AC002-TK001.1` | Produce GATE-001 reassessment external review | `completed` | LLM_Consultant | TK001 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md` | Analysis guideline; SES002 DEC004 | External review refreshed to assess the remediated recycle package. |
 | TK001.2 | `P-PH000-ST002-AC002-TK001.2` | Produce GATE-001 gate-disposition proposal | `completed` | LLM_Consultant | TK001, TK001.1 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md` | Proposal guideline §V.B, §VII | Proposal updated and GDR now records the client recycle decision. |
-| GATE-001 | `P-PH000-ST002-AC002-GATE-001` | Design Decision Approval | `in_progress` | Client | TK001.2 | GDR in gate_disposition proposal | Plan guideline §VI.K | `RECYCLE` recorded on 2026-03-19; same-gate reassessment loop active. |
+| GATE-001 | `P-PH000-ST002-AC002-GATE-001` | Design Decision Approval (v1.1.0 baseline) | `superseded` | Client | TK001.2 | GDR in gate_disposition proposal | Plan guideline §VI.M | `SUPERSEDE` recorded on 2026-03-20; gate superseded due to external baseline change (P-STD-002 v1.2.0). Succeeded by GATE-002. |
 | TK001.3 | `P-PH000-ST002-AC002-TK001.3` | Record Gate-001 recycle session notes | `completed` | LLM_Consultant | GATE-001 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/snotes/snotes_P-PH000-ST002-AC002-SES001.md` | Notes guideline §1.6, §5.1 | Activity session notes authored and registered in the stream notes register. |
 | TK001.4 | `P-PH000-ST002-AC002-TK001.4` | Produce Gate-001 current-state assessment | `completed` | LLM_Consultant | GATE-001 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_current-state-assessment.md` | Analysis guideline (`assessment`) | Latest consultant Gate-001 state assessment authored for the recycle package. |
 | TK001.5 | `P-PH000-ST002-AC002-TK001.5` | Rebaseline implementation requirements analysis to P-STD-002 v1.2.0 | `completed` | LLM_Consultant | GATE-001 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-implementation-requirements.md` | P-STD-002; current-state assessment | Requirements analysis updated to the 8-state lifecycle model and current gate checklist. |
 | TK001.6 | `P-PH000-ST002-AC002-TK001.6` | Refresh Gate-001 reassessment external review | `completed` | LLM_Consultant | GATE-001, TK001.4, TK001.5 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md` | Analysis guideline (`external_review`) | External review now assesses the remediated recycle package and references the new latest assessment. |
 | TK001.7 | `P-PH000-ST002-AC002-TK001.7` | Refresh Gate-001 gate-disposition proposal and record recycle GDR | `completed` | LLM_Consultant | GATE-001, TK001.4, TK001.6 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md` | Proposal guideline §VII | Proposal frontmatter, package indexes, recommendation posture, and GDR updated for same-gate recycle. |
-| TK002 | `P-PH000-ST002-AC002-TK002` | Author ledger skeleton | `planned` | LLM_Developer | GATE-001 | `prompt/artifacts/tasks/P/status/status_program.yaml` | Analysis §V.C | — |
-| TK003 | `P-PH000-ST002-AC002-TK003` | Author narrative template | `planned` | LLM_Developer | GATE-001 | `prompt/artifacts/tasks/P/status/status_program.md` | Analysis §V.D | — |
+| GATE-002 | `P-PH000-ST002-AC002-GATE-002` | Design Decision Approval (v1.2.0 baseline) | `planned` | Client | TK001.7 | GDR in gate_disposition proposal (to be authored) | Plan guideline §VI.M, §VI.L | Successor gate to superseded GATE-001. Entry criteria reference P-STD-002 v1.2.0 baseline. |
+| TK002 | `P-PH000-ST002-AC002-TK002` | Author ledger skeleton | `planned` | LLM_Developer | GATE-002 | `prompt/artifacts/tasks/P/status/status_program.yaml` | Analysis §V.C | — |
+| TK003 | `P-PH000-ST002-AC002-TK003` | Author narrative template | `planned` | LLM_Developer | GATE-002 | `prompt/artifacts/tasks/P/status/status_program.md` | Analysis §V.D | — |
 | TK004 | `P-PH000-ST002-AC002-TK004` | Validate P-STD-002E conformance | `planned` | LLM_Developer | TK002, TK003 | Conformance validation report | Analysis §V.G | — |
-| GATE-002 | `P-PH000-ST002-AC002-GATE-002` | Client acceptance of artifact set skeleton | `planned` | Client | TK004 | GDR in gate_disposition proposal | — | — |
+| GATE-003 | `P-PH000-ST002-AC002-GATE-003` | Client acceptance of artifact set skeleton | `planned` | Client | TK004 | GDR in gate_disposition proposal | — | — |
 
 ## III. TASKS (DETAILED)
 
@@ -124,17 +125,36 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 - Gate-disposition proposal: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md`
 - Session baselines: `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES001.md`, `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES002.md`, `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/snotes/snotes_P-PH000-ST002-AC002-SES001.md`
 
-**Recycle Re-entry Block**:
-- **Gate Status**: `in_progress`
-- **Recycle Trigger**: Gate package found stale against `P-STD-002 v1.2.0`, particularly the 8-state lifecycle model and deferred-state governance
-- **Remediation Tasks**: `TK001.3`, `TK001.4`, `TK001.5`, `TK001.6`, `TK001.7`
-- **Re-entry Criteria**:
-  - latest Gate-001 assessment exists
-  - requirements analysis reflects `P-STD-002 v1.2.0`
-  - external review reflects the remediated package
-  - proposal GDR records `RECYCLE` with explicit conditions and re-entry basis
-- **Reassessment Rule**: ~~Reassess the same `P-PH000-ST002-AC002-GATE-001` in the next client review session; do not create a derived gate ID~~ — **HELD**: Reassessment paused pending `T104-PH001-ST008-AC001.4-GATE-001` governance resolution. The same-gate RECYCLE treatment is under reconsideration because the trigger was an external baseline change (`P-STD-002 v1.2.0` amendment), not an internal review finding. Do not reassess this gate until the external-impact governance model is approved. See `P-PH000-ST002-AC002-SES001` Plan Amendment Addendum (§I) and `T104-PH001-ST008-AC001.4-SES001` for the full decision trail.
-- **Downstream Block**: `TK002` and `TK003` MUST NOT begin until the same gate later records an approving decision
+**Supersession Block**:
+- **Gate Status**: `superseded`
+- **Supersession Trigger**: External baseline change — `P-STD-002 v1.2.0` amendment (2026-03-18) changed the normative baseline against which design decisions were being evaluated. Classified as a decision-boundary external impact per T104-PH001-ST008-AC001.4-GATE-001 governance model.
+- **Prior Assessment**: Historically valid for the v1.1.0 baseline. Preserved per the three-layer deprecation model.
+- **Successor Gate**: `P-PH000-ST002-AC002-GATE-002` — design decision approval for the v1.2.0 baseline.
+- **GDR Reference**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md` (records `Client Decision: SUPERSEDE`)
+- **Governance Authority**: `T104-PH001-ST008-AC001.4-GATE-001` approval, 2026-03-20; `guideline_workspace_plan.md` §VI.M
+
+### GATE-002: Design Decision Approval (v1.2.0 Baseline)
+
+**Gate ID**: `P-PH000-ST002-AC002-GATE-002`
+
+**Type**: Consultation-only decision gate (successor to superseded GATE-001)
+
+**Normative Baseline**: `P-STD-002 v1.2.0` (8-state lifecycle model, deferred-state governance, CLAUSE-056)
+
+**Entry Criteria**:
+- New gate-disposition proposal authored with clean Evidence Index for v1.2.0 baseline
+- Design decisions GIR-001 through GIR-003 refreshed against v1.2.0 requirements
+- Rebaselined implementation requirements analysis (TK001.5) confirmed as current
+
+**Reviewer**: LLM_Consultant (recommendation); Client (decision owner)
+
+**Exit Criteria**: GDR in the gate-disposition proposal records `Client Decision: APPROVE` or `APPROVE WITH CONDITIONS`
+
+**Gate-Disposition Proposal**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-002_design-decision-disposition.md` (to be authored)
+
+**Depends On**: TK001.7 (all v1.2.0 remediation work complete)
+
+**Note**: All remediation work from TK001.3–TK001.7 carries forward into this gate package. No additional remediation is required before GATE-002 can be assessed.
 
 ### Task TK001.3: Record Gate-001 Recycle Session Notes
 
@@ -253,9 +273,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 - [ ] Results documented with evidence
 - [ ] Any failures identified with remediation guidance
 
-### GATE-002: Client Acceptance of Artifact Set Skeleton
+### GATE-003: Client Acceptance of Artifact Set Skeleton
 
-**Gate ID**: `P-PH000-ST002-AC002-GATE-002`
+**Gate ID**: `P-PH000-ST002-AC002-GATE-003`
 
 **Type**: Verification/decision gate
 
@@ -268,7 +288,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 **Exit Criteria**: GDR records `Client Decision: APPROVE` or `APPROVE WITH CONDITIONS`
 
-**Downstream enforcement**: AC003 (`P-PH000-ST002-AC003`) MUST NOT begin until GATE-002 GDR records an approving client decision.
+**Downstream enforcement**: AC003 (`P-PH000-ST002-AC003`) MUST NOT begin until GATE-003 GDR records an approving client decision.
 
 ## IV. LINKS REGISTER
 
@@ -280,6 +300,10 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 | Analysis | Implementation Requirements | `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-implementation-requirements.md` |
 | Analysis | Reassessment External Review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md` |
 | Proposal | GATE-001 Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md` |
+| Proposal | GATE-002 Disposition (to be authored) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-002_design-decision-disposition.md` |
+| Analysis (superseded) | Prior Implementation Recommendations Review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002_implementation-recommendations-review.md` | superseded — v1.1.0 baseline; succeeded by reassessment external review |
+| Governance Authority | T104-PH001-ST008-AC001.4 Activity Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/plan_T104-PH001-ST008-AC001.4.md` |
+| Application Guidance | AC002 Retroactive Application Guidance | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/analysis/analysis_T104-PH001-ST008-AC001.4_retroactive-ac002-application-guidance.md` | superseded annotation |
 | Session Notes | AC002 SES001 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/snotes/snotes_P-PH000-ST002-AC002-SES001.md` |
 | Session Notes | SES001 (Stream-level) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES001.md` |
 | Session Notes | SES002 (Stream-level) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES002.md` |
@@ -290,6 +314,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.4.0 | 2026-03-20 | Amendment | Retroactive gate supersession per T104-PH001-ST008-AC001.4-GATE-001 approved governance model. GATE-001 closed with `SUPERSEDE` (external decision-boundary change — P-STD-002 v1.2.0). GATE-002 created as design decision approval gate for v1.2.0 baseline. Previous GATE-002 (implementation acceptance) renumbered to GATE-003. All Depends On references updated. Recycle Re-entry Block replaced by Supersession Block. Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
 | v1.3.0 | 2026-03-19 | Amendment | Added the AC001.4 hold annotation to the recycle re-entry block and carried the plan-amendment trail into the AC002 session note. |
 | v1.2.0 | 2026-03-19 | Amendment | Converted AC002 Gate-001 into an active same-gate recycle loop after identifying package drift against P-STD-002 v1.2.0. Added remediation tasks TK001.3–TK001.7, added the latest Gate-001 current-state assessment artifact and AC002 activity session notes, set GATE-001 to `in_progress`, and added a formal Recycle Re-entry Block. |
 | v1.1.0 | 2026-03-16 | Amendment | Reworked GATE-001 as a consultation-only decision gate. Added TK001.1 (reassessment external review) and TK001.2 (gate-disposition proposal), made the mandatory `Gate-Disposition Proposal` field explicit, aligned TK001 with SES001/SES002, and clarified that GATE-001 does not use DEV-REPORT or VERIFICATION artifacts. |

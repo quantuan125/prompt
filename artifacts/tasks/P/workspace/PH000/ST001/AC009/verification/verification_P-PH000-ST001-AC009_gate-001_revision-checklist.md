@@ -7,27 +7,29 @@ phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC009'
 gate_id: 'P-PH000-ST001-AC009-GATE-001'
-version: '1.0.0'
-date: '2026-03-17'
+version: '1.1.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 primary_verification: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/verification/verification_P-PH000-ST001-AC009_gate-001.md'
 target_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md'
-purpose: 'Temporary AC009-only revision checklist translating consultant external-review findings into implementation-ready remediation items while the durable remediation-artifact model is deferred to T104-PH001-ST008-AC001.3.'
+purpose: 'Historical AC009 temporary revision checklist retained for audit traceability only. Superseded by the Gate-001 remediation-specification IMPLEMENTATION artifact after AC001.3 established the governed remediation-detail model.'
 ---
 
 # VERIFICATION (Supplementary): GATE-001 Revision Checklist — `P-PH000-ST001-AC009`
 
 ## I. Purpose & Scope
 
-**Purpose**: Translate the consultant external-review findings for AC009 Gate-001 into explicit remediation items that can be executed before Gate-001 is reassessed.
+**Superseded handling note**: This file is retained as a historical record of the pre-AC001.3 temporary workaround only. The live remediation-detail authority for the AC009 Gate-001 recycle loop is now `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_gate-001-remediation-specification.md`.
+
+**Purpose**: Preserve the original temporary workaround that translated the consultant external-review findings for AC009 Gate-001 into remediation items before the IMPLEMENTATION family existed.
 
 **Primary verification**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/verification/verification_P-PH000-ST001-AC009_gate-001.md`
 
-**Scope**: This checklist covers AC009-local content remediation only. It does not replace the primary reviewer verification, and it does not define the permanent workflow standard for where remediation implementation detail should live.
+**Scope**: Historical reference only. This file does not replace the primary reviewer verification, and it no longer acts as the live remediation-detail surface.
 
-**Temporary handling rule**: This file is an interim AC009-only workaround. The durable artifact model for gate remediation implementation detail is deferred to `T104-PH001-ST008-AC001.3`.
+**Supersession rule**: The durable artifact model for gate remediation implementation detail was established by `T104-PH001-ST008-AC001.3`. Active remediation detail now lives in the AC009 IMPLEMENTATION artifact.
 
 **Target task**: `P-PH000-ST001-AC009-TK005` (verification and gate-readiness package remediation loop)
 
@@ -91,9 +93,9 @@ purpose: 'Temporary AC009-only revision checklist translating consultant externa
 ## III. Re-Assessment Expectations
 
 1. The primary verification artifact remains the reviewer-owned verdict surface for AC009 Gate-001.
-2. This supplementary checklist is consumed as consultant-authored remediation input only.
+2. This supplementary checklist is retained as superseded historical context only.
 3. After AC009 content remediation is complete, the primary verification should be version-bumped and re-assessed under the same gate ID.
-4. The durable workflow answer for remediation-detail storage is expected from `T104-PH001-ST008-AC001.3`; this file should not be treated as proof that supplementary verification is the final standard.
+4. The durable workflow answer for remediation-detail storage was resolved by `T104-PH001-ST008-AC001.3`; this file should not be treated as the active standard or the live remediation surface.
 
 ## IV. References
 
@@ -108,4 +110,5 @@ purpose: 'Temporary AC009-only revision checklist translating consultant externa
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-20 | Supersession | Retained the temporary revision-checklist as a historical record only after the IMPLEMENTATION family became available through `T104-PH001-ST008-AC001.3`. Redirected live remediation authority to `implementation_P-PH000-ST001-AC009_gate-001-remediation-specification.md`. |
 | v1.0.0 | 2026-03-17 | Initial | Temporary AC009-only revision checklist created to hold remediation implementation detail for Gate-001 recycle. Tracks 5 revision items covering authority cleanup, references refresh, Provenance tightening, SPS/STD boundary cleanup, and final reassessment inputs. Durable artifact-model decision deferred to `T104-PH001-ST008-AC001.3`. |

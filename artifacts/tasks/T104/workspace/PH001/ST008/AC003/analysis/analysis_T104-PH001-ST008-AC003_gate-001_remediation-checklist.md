@@ -6,8 +6,8 @@ initiative_code: 'CWS'
 phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC003'
-version: '1.0.0'
-date: '2026-03-18'
+version: '1.1.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -18,7 +18,9 @@ purpose: 'Supplementary analysis providing a structured remediation checklist fo
 
 # ANALYSIS (Assessment): AC003 GATE-001 — Remediation Checklist
 
-> **Artifact model note**: This file uses a checklist structure modeled on the revision-checklist pattern from `guideline_workspace_verification.md` §IV.A, but is authored as an ANALYSIS artifact (not VERIFICATION) because AC003 GATE-001 is a **consultation-only gate** per `guideline_workspace_verification.md` §III. This is NOT an officially registered analysis subtype in `guideline_workspace_analysis.md`. Its use here is a temporary, pragmatic adaptation pending the outcome of `T104-PH001-ST008-AC001.3` (Gate Remediation Artifact Model Resolution), which will determine the durable artifact model for holding gate remediation implementation detail.
+> **INFORMATIVE-ONLY NOTICE (2026-03-20)**: This analysis artifact retains its historical role as the SES002-derived remediation tracking surface. The authoritative developer-ready specification has been migrated to the IMPLEMENTATION `task_specification` artifact at `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/implementation/implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md`. Developers should reference the IMPLEMENTATION artifact for execution; this checklist is preserved for traceability.
+
+> **Artifact model note (historical)**: This file was authored as a temporary, pragmatic adaptation pending the outcome of `T104-PH001-ST008-AC001.3` (Gate Remediation Artifact Model Resolution). AC001.3 has since completed (GATE-002 approved 2026-03-20), delivering the IMPLEMENTATION artifact family with `remediation_specification` and `task_specification` subtypes. The content of this checklist has been migrated to the IMPLEMENTATION `task_specification` artifact above.
 
 ## I. EXECUTIVE SUMMARY
 
@@ -101,4 +103,5 @@ purpose: 'Supplementary analysis providing a structured remediation checklist fo
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-20 | Amendment | Marked as informative-only. Developer-ready content migrated to IMPLEMENTATION `task_specification` artifact (`implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md`). Historical artifact model note updated to reflect AC001.3 completion (IMPLEMENTATION family now live). |
 | v1.0.0 | 2026-03-18 | Initial | Created remediation checklist from SES002 client feedback. 10 Cluster A items (3 retracted — `deferred` retained), 8 Cluster B items, 3 Cluster C items (1 pre-resolved), 1 Cluster D item (deferred to T103), 5 cross-activity routing items. |

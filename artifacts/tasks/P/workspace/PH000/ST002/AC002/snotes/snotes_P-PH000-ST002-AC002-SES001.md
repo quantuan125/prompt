@@ -7,8 +7,8 @@ phase: '0'
 stream: 'ST002'
 activity_id: 'P-PH000-ST002-AC002'
 session: 'SES001'
-version: '1.1.0'
-date: '2026-03-19'
+version: '1.2.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -98,6 +98,7 @@ The agreed next step for implementation in this session was to author the recycl
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-20 | Amendment | Added resolution note to §I Plan Amendment Addendum. T104-PH001-ST008-AC001.4-GATE-001 approved the external-impact governance model on 2026-03-20. HOLD lifted; gate supersession confirmed and applied. GATE-001 → SUPERSEDE; GATE-002 created; prior GATE-002 renumbered GATE-003. Source: T104-PH001-ST008-AC001.4 TK009 retroactive application guidance. |
 | v1.1.0 | 2026-03-19 | Amendment | Added Plan Amendment Addendum (§I) recording external-impact governance reconsideration. The same-gate RECYCLE treatment is under review; gate restructure is held pending T104-PH001-ST008-AC001.4-GATE-001. Cross-reference to AC001.4 consultation session and sub-activity plan. |
 | v1.0.0 | 2026-03-19 | Initial | Activity session notes created to record Gate-001 recycle planning, current-state assessment conclusions, and the approved remediation packaging for AC002. |
 
@@ -121,3 +122,15 @@ Following the completion of the GATE-001 recycle package (recorded in sections A
 
 - Full consultation decisions: `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/snotes/snotes_T104-PH001-ST008-AC001.4-SES001.md`
 - Governance resolution activity: `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/plan_T104-PH001-ST008-AC001.4.md`
+
+### Resolution (2026-03-20)
+
+The external-impact governance model was approved at `T104-PH001-ST008-AC001.4-GATE-001` on 2026-03-20. The HOLD on GATE-001 reassessment (DEC007) is now lifted.
+
+Classification confirmed: The `P-STD-002 v1.2.0` amendment is an **external, decision-boundary impact** under the approved governance model. Gate supersession is the correct treatment.
+
+Retroactive application: GATE-001 is closed with `Client Decision: SUPERSEDE`. GATE-002 is created as the design decision approval gate for the v1.2.0 baseline. The original GATE-002 (implementation acceptance) is renumbered to GATE-003.
+
+Application authority: `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/analysis/analysis_T104-PH001-ST008-AC001.4_retroactive-ac002-application-guidance.md` (TK009)
+
+Status of remediation work: TK001.3–TK001.7 are all completed and their outputs carry forward into the GATE-002 package. No additional remediation is required.

@@ -3,8 +3,8 @@ artifact_type: 'STANDARD'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
 standard_id: 'P-STD-001'
-version: '1.0.0'
-date: '2026-03-16'
+version: '1.1.0'
+date: '2026-03-20'
 status: 'accepted'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -27,7 +27,7 @@ supersedes: 'T102-STD-004'
 | 5 | P-STD-001A | P-STD-001-CLAUSE-005 | Authority Derivation & Conformance Coupling | Defines authority chain and conformance coupling for guideline/template derivatives. |
 | 6 | P-STD-001A | P-STD-001-CLAUSE-006 | Anchor Stability | Defines anchor normalization, stability rules, and migration handling for title changes. |
 | 7 | P-STD-001A | P-STD-001-CLAUSE-007 | Automation & Linting Checks | Defines recommended lint checks for required headings, indexes, and anchor rules. |
-| 8 | P-STD-001A | P-STD-001-CLAUSE-008 | Normative Vocabulary Guidance | Defers normative keyword meanings to T102-CON-009 and standardizes drafting vocabulary. |
+| 8 | P-STD-001A | P-STD-001-CLAUSE-008 | Normative Vocabulary Guidance | Defines the program-scope handling of normative drafting vocabulary and controlled keyword usage. |
 | 9 | P-STD-001A | P-STD-001-CLAUSE-031 | Standard-File YAML Frontmatter | Defines the governed current-state metadata schema for combined standard files. |
 | 10 | P-STD-001A | P-STD-001-CLAUSE-032 | Metadata Authority & Overlap Control | Splits machine-readable current-state metadata from historical provenance metadata. |
 | 11 | P-STD-001B | P-STD-001-CLAUSE-009 | STD Semantics & Scope | Defines STD token semantics, allowed scopes, and invalid usages. |
@@ -147,11 +147,13 @@ supersedes: 'T102-STD-004'
 
 8) **P-STD-001-CLAUSE-008 (Normative Vocabulary Guidance)**
 
-   Normative vocabulary in specification sections MUST conform to `T102-CON-009 (Normative Keywords)` and the subclauses below.
+   Normative vocabulary in specification sections MUST follow the program-scope drafting contract defined by the subclauses below.
 
-   * **P-STD-001-CLAUSE-008A (Normative keywords authority)** — Normative requirement keywords MUST be interpreted per `T102-CON-009 (Normative Keywords)`. Keywords carrying normative meaning MUST be written in UPPERCASE.
+   * **P-STD-001-CLAUSE-008A (Program drafting vocabulary authority)** — Program standards MUST use the BCP 14 primary vocabulary set (`MUST`, `MUST NOT`, `SHOULD`, `SHOULD NOT`, `MAY`) as the authoritative drafting keywords for normative requirement statements. Keywords carrying normative meaning MUST be written in UPPERCASE.
 
-   * **P-STD-001-CLAUSE-008B (Drafting consistency)** — Authors SHOULD use BCP 14 primary vocabulary (`MUST`, `MUST NOT`, `SHOULD`, `SHOULD NOT`, `MAY`) and SHOULD avoid RFC 2119 synonyms (`SHALL`, `REQUIRED`, `RECOMMENDED`, `OPTIONAL`) in new normative text for drafting consistency.
+   * **P-STD-001-CLAUSE-008B (Legacy equivalence note)** — Lower-scope vocabulary references such as `T102-CON-009` MAY be cited only as informative lineage context during migration or alias-window handling. They MUST NOT be presented as the unqualified steady-state normative authority for program-scope specification drafting.
+
+   * **P-STD-001-CLAUSE-008C (Drafting consistency)** — Authors SHOULD avoid RFC 2119 synonym forms (`SHALL`, `REQUIRED`, `RECOMMENDED`, `OPTIONAL`) in new normative text unless a governing upstream adoption explicitly requires them.
 
 9) **P-STD-001-CLAUSE-031 (Standard-File YAML Frontmatter)**
 
@@ -477,13 +479,13 @@ supersedes: 'T102-STD-004'
 
    * **P-STD-001-CLAUSE-036A (Minimum subsection taxonomy)** — `## Provenance` MUST contain `### Status`, `### Lineage / Authority`, `### Amendment History`, and `### Input Sources`.
 
-   * **P-STD-001-CLAUSE-036B (Status subsection)** — `Status` SHOULD capture the present accepted/draft posture in concise form and MAY include approval/effective context that complements, but does not override, frontmatter.
+   * **P-STD-001-CLAUSE-036B (Status subsection)** — `Status` SHOULD capture the present accepted/draft posture in concise form using a compact table or similarly scannable governed structure. It MAY include approval/effective context that complements, but does not override, frontmatter.
 
-   * **P-STD-001-CLAUSE-036C (Lineage / Authority subsection)** — `Lineage / Authority` MUST capture supersession, promotion, alias-window, or comparable authority-chain pointers relevant to the current specification.
+   * **P-STD-001-CLAUSE-036C (Lineage / Authority subsection)** — `Lineage / Authority` MUST capture supersession, promotion, alias-window, or comparable authority-chain pointers relevant to the current specification. The subsection SHOULD prefer compact key/value rendering over narrative bullets when that keeps the authority chain clearer.
 
    * **P-STD-001-CLAUSE-036D (Amendment History subsection)** — `Amendment History` MUST record concise dated change summaries and SHOULD defer full diff detail to version control and process artifacts.
 
-   * **P-STD-001-CLAUSE-036E (Input Sources subsection)** — `Input Sources` MUST list the proposals, analyses, session notes, research, or other concise lineage pointers that materially informed the specification.
+   * **P-STD-001-CLAUSE-036E (Input Sources subsection)** — `Input Sources` MUST list the proposals, analyses, session notes, research, or other concise lineage pointers that materially informed the specification. The list SHOULD be limited to materially used sources and SHOULD avoid carrying stale context that no longer informs the current state.
 
    * **P-STD-001-CLAUSE-036F (Extension control)** — Additional provenance subsections MAY be added only when they do not duplicate the minimum taxonomy and when a governing standard or approved activity explicitly requires them.
 
@@ -590,38 +592,40 @@ supersedes: 'T102-STD-004'
 | ID | Title | Scope | Source Path |
 |:--|:--|:--|:--|
 | `P-STD-005` | Universal ID Specification | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` |
-| `T102-CON-009` | Controlled Vocabulary for Normative Language | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| `P-STD-004` | File Naming & Directory Convention | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` |
 
 ### Informative References
 
 | ID | Title | Scope | Source Path |
 |:--|:--|:--|:--|
-| `T102-QG-001` | Client Readability | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
-| `T102-STD-001` | Consultancy Operating Model Standard | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
-| `T102-STD-009` | Governance Standards Specification | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
-| `T102-IG-007` | ID Standard | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
-| `T102-IG-008` | Decision Logging | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
-| `T102-IG-009` | Traceability Framework | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| `T102-CON-009` | Controlled Vocabulary for Normative Language | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| `P-RES-003` | Specification Metadata Governance Research | Program (P) | `prompt/artifacts/tasks/P/research/P-RES-003/report_P-RES-003_specification-metadata-governance-research.md` |
+| `P-PH000-ST001-AC002` | P-STD-001 Promotion Methodology Comparison | Program (P) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/analysis/analysis_P-PH000-ST001-AC002_promotion-methodology-comparison.md` |
 
 ## Provenance
 
 ### Status
 
-- Current lifecycle posture: `accepted`
-- Approved: 2026-02-22
-- Effective: 2026-02-22
+| Field | Value |
+|:--|:--|
+| Current lifecycle posture | `accepted` |
+| Approved | 2026-02-22 |
+| Effective | 2026-02-22 |
 
 ### Lineage / Authority
 
-- Supersedes: `T102-STD-004` (Specification Standard & Guideline)
-- Promotion contract: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/proposal/proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md`
-- Promotion decision: `P-STD-001-ADR-003`
-- Alias window: active — existing `T102-STD-004-CLAUSE-*` references remain valid aliases until migration completion
-- Original authoring scope: `T102-PH001-ST001`
-- Original author: `LLM_Consultant`
+| Field | Value |
+|:--|:--|
+| Supersedes | `T102-STD-004` (Specification Standard & Guideline) |
+| Promotion contract | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/proposal/proposal_P-PH000-ST001-AC002_promotion-contract-t102-std-004-to-p-std-001.md` |
+| Promotion decision | `P-STD-001-ADR-003` |
+| Alias window | Active — existing `T102-STD-004-CLAUSE-*` references remain valid aliases until migration completion |
+| Original authoring scope | `T102-PH001-ST001` |
+| Original author | `LLM_Consultant` |
 
 ### Amendment History
 
+- v1.1.0 (2026-03-20): Replaced lower-scope normative vocabulary authority with a program-scope drafting contract, refreshed `References` to a current-state authority set, and tightened the governed compact rendering for `Status` and `Lineage / Authority`.
 - v1.0.0 (2026-03-16): Added metadata-governance clauses `031` through `036`, standardized frontmatter / References / Provenance governance, self-aligned `P-STD-001`, and aligned prompt-owned derivatives and `P-CON-003`.
 - Pre-baseline history (2026-02-22): Amended `P-STD-001-CLAUSE-005D` to align derivative citation format with `P-STD-005-CLAUSE-004`; removed the legacy `[per <CLAUSE-ID>]` wrapper.
 - Pre-baseline history (2026-02-21): Amended `P-STD-001-CLAUSE-019A` to decouple display numbering from CLAUSE ID numbering for non-terminal substandard appends.
@@ -635,3 +639,4 @@ supersedes: 'T102-STD-004'
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC002/snotes/snotes_P-PH000-ST001-AC002-SES001.md`
 - `prompt/artifacts/tasks/P/research/P-RES-003/report_P-RES-003_specification-metadata-governance-research.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/analysis/analysis_P-PH000-ST001-AC009-TK001_p-std-001-amendment-map.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_gate-001-remediation-specification.md`

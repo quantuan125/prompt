@@ -6,14 +6,16 @@ initiative_code: 'CWS'
 phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC003'
-version: '1.1.0'
-date: '2026-03-18'
+version: '1.2.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/plan_T104-PH001-ST008-AC003.md'
 purpose: 'Developer-ready implementation specification for 13 AC003-scoped gaps from T104-RES-003. Structured as TK001 gap extraction + TK002 per-gap change specifications.'
 ---
+
+> **INFORMATIVE-ONLY NOTICE (2026-03-20)**: This analysis artifact retains its historical and analytical role as the source material for AC003 gap extraction and specification development. The authoritative developer-ready specification has been migrated to the IMPLEMENTATION `task_specification` artifact at `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/implementation/implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md`. Developers should reference the IMPLEMENTATION artifact for execution; this analysis is preserved for traceability.
 
 # ANALYSIS (Assessment): AC003 Cross-Guideline Gap Resolution — Implementation Specification
 
@@ -590,5 +592,6 @@ The 4 clusters are independent — no cluster's changes depend on another cluste
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-20 | Amendment | Marked as informative-only. Developer-ready specification content migrated to IMPLEMENTATION `task_specification` artifact (`implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md`). This analysis retains its historical/analytical role per `guideline_workspace_analysis.md` §II IMPLEMENTATION boundary rule. |
 | v1.1.0 | 2026-03-18 | Amendment | Relabeled all "Required change" to "Recommended change" (informative posture). Added Executive Summary governance disclaimer. Retracted `deferred` → `on_hold` recommendations (retained `deferred` pending P-STD-002 harmonization at `P-PH000-ST001-AC003-TK013`). Added `<INIT>` → `<SID>` alignment note (P-STD-005). Reclassified Cluster D as `deferred_to_T103`. Refined GAP-006 disposition (flag + defer to T101). |
 | v1.0.0 | 2026-03-17 | Initial | Combined TK001 gap extraction + TK002 implementation specification. 13 AC003-scoped gaps mapped into 4 implementation clusters (A: NOTES, B: Cross-refs, C: Role/gate, D: Scripts). Key findings: GAP-008 pre-resolved in AC001.2; GAP-001 does not affect any in-scope target file; GAP-017 partially pre-resolved in template v1.3.0. Recommended execution order: A → B → C → D. |

@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '2.9.0'
-date: '2026-03-16'
+version: '3.2.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -38,6 +38,20 @@ Phase → Stream → Activity → Task
 | VERIFICATION | `verification_` | Gate evidence + findings register + rework handoff + reviewer verdict | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
 | PROPOSAL | `proposal_` | Archetype-specific proposal authoring: E-ID workspace, gate disposition (incl. Gate Decision Record), promotion contract, standards input | `prompt/templates/consultant/workspace/template_workspace_proposal_<archetype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` |
 | DEV-REPORT | `dev-report_` | Developer execution log + validation evidence + handoff traceability | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` |
+| IMPLEMENTATION | `implementation_` | Detailed implementation specification: remediation specifications (gate RECYCLE response), task specifications (complex implementation detail) | `prompt/templates/consultant/workspace/template_workspace_implementation_<subtype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_implementation.md` |
+
+**Artifact status vocabulary** (canonical values for `status` frontmatter key):
+
+| Status | Definition | Applicable Artifact Types |
+|:--|:--|:--|
+| `draft` | Artifact is being actively authored; not yet finalized | All |
+| `active` | Artifact is current and authoritative for its scope | All |
+| `completed` | Artifact has fulfilled its purpose; no further changes expected | PLAN, NOTES, ANALYSIS, VERIFICATION, DEV-REPORT, IMPLEMENTATION |
+| `failed` | Gate-specific terminal state: work killed or abandoned. MUST NOT be used for non-gate artifacts | Gate rows in PLAN (via PROPOSAL GDR) |
+| `superseded` | Artifact was valid for its normative baseline but that baseline has changed due to an external event. A successor artifact/gate exists. The artifact is preserved for historical traceability. MUST NOT be deleted. | ANALYSIS, PROPOSAL, VERIFICATION (gate-scope artifacts) |
+| `cancelled` | Work item deliberately terminated before completion. Per `P-STD-002` canonical states. | PLAN work-item rows |
+
+Note: `superseded` is distinct from `cancelled` (deliberate early termination) and from `failed` (quality failure / gate termination). `superseded` carries no quality judgment — the artifact was valid for its baseline; the baseline moved.
 
 ---
 
@@ -81,6 +95,10 @@ Phase → Stream → Activity → Task
   - `prompt/templates/consultant/workspace/template_workspace_proposal.md`
   - Archived full legacy template: `prompt/templates/consultant/workspace/archive/deprecated/template_workspace_proposal.md`
 
+### H. IMPLEMENTATION Templates
+- `prompt/templates/consultant/workspace/template_workspace_implementation_remediation-specification.md`
+- `prompt/templates/consultant/workspace/template_workspace_implementation_task-specification.md`
+
 ---
 
 ## 5. GUIDELINE INVENTORY
@@ -92,6 +110,7 @@ Phase → Stream → Activity → Task
 - DEV-REPORT: `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md`
 - ANALYSIS: `prompt/templates/consultant/workspace/guideline_workspace_analysis.md`
 - PROPOSAL: `prompt/templates/consultant/workspace/guideline_workspace_proposal.md`
+- IMPLEMENTATION: `prompt/templates/consultant/workspace/guideline_workspace_implementation.md`
 
 ---
 
@@ -128,16 +147,25 @@ Phase → Stream → Activity → Task
 The workspace artifact suite follows two canonical workflow variants depending on whether the gate reviews developer-mutated deliverables or consultant-owned decision-preparation artifacts.
 
 Implementation-backed:
-`ROADMAP → PLAN → NOTES / ANALYSIS → implementation deliverables → DEV-REPORT → VERIFICATION → PROPOSAL (GDR where applicable) → SPS / downstream approved artifacts`
+`ROADMAP → PLAN → NOTES / ANALYSIS → [IMPLEMENTATION task_specification where needed] → implementation deliverables → DEV-REPORT → VERIFICATION → [IMPLEMENTATION remediation_specification where RECYCLE] → PROPOSAL (GDR where applicable) → SPS / downstream approved artifacts`
 
 Consultation-only:
 `ROADMAP → PLAN → NOTES / ANALYSIS → PROPOSAL (GDR where applicable) → downstream approved artifacts`
 
+**Conditional external-impact assessment step**:
+
+When an external event (e.g., a standard amendment, cross-initiative change, regulatory update) is detected that may affect a gate's normative baseline, an impact assessment step precedes gate disposition:
+
+`[External event detected] → ANALYSIS (external-impact classification) → [Decision-Boundary Test] → [boundary unchanged: continue workflow] / [boundary changed: gate supersession — PROPOSAL updated with SUPERSEDE GDR, successor gate created, superseded artifacts deprecated] → downstream gates/artifacts`
+
+This conditional step applies to both implementation-backed and consultation-only workflow variants. It activates only when an external event is detected — it is not a mandatory step for every gate. Full classification and decision-boundary test rules are in `guideline_workspace_plan.md` §VI.M and `guideline_workspace_proposal.md` §VII.D Step 4a.
+
 Rules:
 - `ROADMAP` sets direction. `PLAN` establishes executable work authority.
 - `NOTES`, `ANALYSIS`, and `DEV-REPORT` are working artifacts that capture session state, synthesis, and implementation evidence respectively. They feed downstream artifacts but do not close gates.
-- `VERIFICATION` produces independent reviewer evidence and a reviewer verdict for implementation-backed gates only.
-- `PROPOSAL` packages decisions and hosts the authoritative Gate Decision Record (GDR) for `gate_disposition` proposals.
+- `IMPLEMENTATION` provides detailed specification depth between plan task authority and developer execution. It does not hold work authority (PLAN) or decision authority (PROPOSAL GDR).
+- `VERIFICATION` produces independent reviewer evidence and a reviewer verdict for implementation-backed gates only. The reviewer verdict is recorded only in the verification artifact.
+- `PROPOSAL` packages decisions and hosts the authoritative Gate Decision Record (GDR) for `gate_disposition` proposals. The GDR carries the consultant's recommendation (advisory) and the client's decision (authoritative). The reviewer verdict is not duplicated into the GDR.
 - Approved proposal decisions update plan status surfaces and unblock downstream work.
 
 ### B. Gate-Readiness Stack (Plan-Level Encoding)
@@ -153,8 +181,28 @@ The workflow chain is encoded at the plan level through the **Gate-Readiness Sta
 | `NOTES` captures session history and pending decisions; it is not a baseline authority | Initiative-level |
 | `ANALYSIS` synthesizes evidence and findings, but does not close gates | Initiative-level |
 | `DEV-REPORT` captures producer evidence only; it does not claim gate closure or verdicts | Initiative-level |
-| `VERIFICATION` holds reviewer verdict and findings; it does not host the GDR | Initiative-level |
-| `PROPOSAL` hosts the authoritative GDR for `gate_disposition` proposals | Initiative-level |
+| `VERIFICATION` holds reviewer verdict and findings; it does not host the GDR. The reviewer verdict is not duplicated into the GDR | Initiative-level |
+| `PROPOSAL` hosts the authoritative GDR containing the consultant recommendation (advisory) and client decision (authoritative) for `gate_disposition` proposals | Initiative-level |
+| `IMPLEMENTATION` provides detailed specification depth; it does not hold work authority (PLAN) or decision authority (PROPOSAL GDR) | Initiative-level |
+
+**Superseded artifact linkage rules** (three-layer deprecation model):
+
+When a gate is superseded (`Client Decision = SUPERSEDE`), artifacts produced for the superseded baseline are deprecated using a three-layer model. Each layer serves a different audience:
+
+| Layer | Surface | Required Action | Purpose |
+|:--|:--|:--|:--|
+| **Layer 1: Frontmatter** | Superseded artifact (ANALYSIS, PROPOSAL, or VERIFICATION) | Set `status: 'superseded'`; add `superseded_by: '<successor-path>'`; add deprecation notice as first body line | Self-documenting: any reader of the artifact immediately sees it is not current |
+| **Layer 2: Evidence Index** | Active successor gate-disposition proposal | Move superseded artifact from active evidence to a `Historical Evidence` subsection with `SUPERSEDED` annotation | Gate package clarity: reviewer/client see only current evidence in the primary index |
+| **Layer 3: Links Register** | Governing plan (plan-level Links Register) | Add or update links register entry with `superseded` annotation and successor reference | Plan traceability: plan-level audit trail shows the succession chain |
+
+**Deprecation notice format** (Layer 1):
+```
+> **SUPERSEDED**: This artifact was produced against [baseline X]. It has been superseded by [successor artifact path] which assesses against [baseline Y]. This artifact is preserved for historical traceability only.
+```
+
+**Rule**: Superseded artifacts MUST NOT be deleted. They are preserved as historically valid records of work conducted under the prior baseline. Only `status` and the `superseded_by` frontmatter key are changed; the body content is not altered.
+
+**Cross-reference**: For full supersession mechanics, see `guideline_workspace_plan.md` §VI.M and `guideline_workspace_proposal.md` §VII.D Step 4a. For analysis-artifact authoring guidance on `status: 'superseded'` and `superseded_by`, see `guideline_workspace_analysis.md` §IX.
 
 ---
 
@@ -169,6 +217,7 @@ The workflow chain is encoded at the plan level through the **Gate-Readiness Sta
 | PROPOSAL | LLM_Consultant | Reviewer input when gate-backed | Client | Consultant, Client, downstream implementers |
 | VERIFICATION | LLM_Reviewer (preferred) | Client consumes verdict | Client decides through GDR | Consultant, Client |
 | DEV-REPORT | LLM_Developer | Reviewer consumes as evidence | None directly | Reviewer, Consultant |
+| IMPLEMENTATION | LLM_Consultant (`remediation_specification`); LLM_Consultant or LLM_Planner (`task_specification`) | Reviewer consumes as re-assessment input | Client where gated | Developer, Reviewer |
 
 Source: `T104-RES-003` Topic 8 (Workspace Artifact Integration & Industry Benchmark Analysis).
 
@@ -205,7 +254,7 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 
 - Session notes (`notes_...-SES###.md`) capture execution history.
 - Plans and roadmaps capture intent, not history.
-- `gate_disposition` proposals host the authoritative Gate Decision Record (GDR) for gate closure decisions.
+- `gate_disposition` proposals host the authoritative Gate Decision Record (GDR), including the consultant's gate recommendation and the client's closure decision.
 
 ---
 
@@ -222,6 +271,9 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v3.2.0 | 2026-03-20 | Amendment | §7.A: Added conditional external-impact assessment step to the canonical workflow chain — when an external event affects a gate's normative baseline, an impact assessment step precedes gate disposition; supersession path replaces the normal gate close. §7.C: Added three-layer deprecation model for superseded artifacts (frontmatter + Evidence Index + Links Register), deprecation notice format, and preservation rule. §3: Added artifact status vocabulary table with `superseded` definition (distinct from `failed` and `cancelled`). Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
+| v3.1.0 | 2026-03-20 | Amendment | §7.A: Clarified that reviewer verdict stays in VERIFICATION only and PROPOSAL GDR carries consultant recommendation + client decision (three-signal model). §7.C: Updated VERIFICATION and PROPOSAL linkage rules to reflect GDR no longer duplicating reviewer verdict. §10.C: Updated GDR execution history note. Source: T104-PH001-ST008-AC001.5. |
+| v3.0.0 | 2026-03-20 | Amendment | Added IMPLEMENTATION artifact family: §3 artifact type inventory row, §4.H template entries, §5 guideline entry, §7.A workflow chain with IMPLEMENTATION placement, §7.A IMPLEMENTATION linkage rule, §7.C inter-artifact linkage row, §8 role-to-artifact ownership row. New artifact family = major version bump. Source: T104-PH001-ST008-AC001.3-GATE-001 Path B approval. |
 | v2.9.0 | 2026-03-16 | Amendment | Refined §6.D and §7 to distinguish implementation-backed gates from consultation-only gates. Verification is now explicitly limited to implementation-backed flows after DEV-REPORT handoff; consultation-only flows proceed from NOTES/ANALYSIS to PROPOSAL without VERIFICATION. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
 | v2.8.0 | 2026-03-15 | Amendment | Added §7 (Workflow Chain and Handoff Contracts) with canonical workflow chain, Gate-Readiness Stack cross-reference, and inter-artifact linkage rules. Added §8 (Role-to-Artifact Ownership Matrix). Fixed stale "proposals are not final decisions" in anti-drift rules (GAP-008). Source: T104-PH001-ST008-AC001.2; T104-RES-003 Topics 2, 3, 8. |
 | v2.7.0 | 2026-03-13 | Update | Delivered DEV-REPORT Draft 1 authoring surfaces under AC006: registered `guideline_workspace_dev-report.md` and `template_workspace_dev-report.md`, and removed DEV-REPORT “Draft 1 planned” markers from §3, §4.E, and §5. |

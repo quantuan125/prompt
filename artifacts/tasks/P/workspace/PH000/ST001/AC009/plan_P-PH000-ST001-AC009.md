@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC009'
-version: '1.4.0'
-date: '2026-03-16'
+version: '1.5.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -59,8 +59,13 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | TK002 | `P-PH000-ST001-AC009-TK002` | Draft metadata-governance amendments in `P-STD-001` | `completed` | LLM_Consultant | TK001 | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | TK001 amendment map | Added metadata-governance clauses `031` through `036` and standardized the governing schema. |
 | TK003 | `P-PH000-ST001-AC009-TK003` | Self-align `P-STD-001` to its new governance model | `completed` | LLM_Consultant | TK002 | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | TK002 drafted CLAUSEs | Added frontmatter and normalized `References` / `Provenance` to the new model. |
 | TK004 | `P-PH000-ST001-AC009-TK004` | Cascade derivative updates required by conformance coupling | `completed` | LLM_Consultant | TK003 | Guideline + template + AGENTS + SPS touchpoints | `P-STD-001-CLAUSE-005B` | Prompt-owned derivatives and `P-CON-003` aligned in the same changeset; see grouped dev-report. |
-| TK005 | `P-PH000-ST001-AC009-TK005` | Produce verification and gate-readiness package | `planned` | LLM_Reviewer | TK004 | AC009 verification artifact | `guideline_workspace_verification.md` | — |
-| GATE-001 | `P-PH000-ST001-AC009-GATE-001` | Gate: Client acceptance of P-STD-001 metadata hardening package | `planned` | Client | TK005 | Pass/fail | — | — |
+| TK005 | `P-PH000-ST001-AC009-TK005` | Produce verification and gate-readiness package | `in_progress` | LLM_Reviewer | TK004 | AC009 recycle / reassessment package | `guideline_workspace_verification.md` | Recycle loop active; see `TK005.1` through `TK005.5`. |
+| GATE-001 | `P-PH000-ST001-AC009-GATE-001` | Gate: Client acceptance of P-STD-001 metadata hardening package | `in_progress` | Client | TK005 | Pass/fail | `guideline_workspace_plan.md` §VI.K, `guideline_workspace_proposal.md` | Recycle path active. Prior proposal recommended `RECYCLE`; same gate ID remains open pending reassessment and approving GDR. |
+| TK005.1 | `P-PH000-ST001-AC009-TK005.1` | Author Gate-001 remediation specification | `planned` | LLM_Consultant | GATE-001 | IMPLEMENTATION remediation spec | `guideline_workspace_implementation.md` | Create `implementation/implementation_P-PH000-ST001-AC009_gate-001-remediation-specification.md` and retire the temporary revision-checklist from live package use. |
+| TK005.2 | `P-PH000-ST001-AC009-TK005.2` | Execute AC009 Gate-001 remediation changes | `planned` | LLM_Developer | TK005.1 | Remediated `P-STD-001` + derivative + package surfaces | TK005.1 remediation specification | Fix authority/reference/provenance/package gaps identified in the recycle loop. |
+| TK005.3 | `P-PH000-ST001-AC009-TK005.3` | Produce recycle dev-report for the remediation pass | `planned` | LLM_Developer | TK005.2 | Recycle-pass dev-report | `guideline_workspace_dev-report.md` | Record remediation execution evidence for reviewer reassessment. |
+| TK005.4 | `P-PH000-ST001-AC009-TK005.4` | Re-run Gate-001 verification after remediation | `planned` | LLM_Reviewer | TK005.3 | Refreshed Gate-001 verification artifact | `guideline_workspace_verification.md` | Reassess the same gate ID against the remediated package and implementation artifact. |
+| TK005.5 | `P-PH000-ST001-AC009-TK005.5` | Refresh Gate-001 disposition proposal for re-presentation | `planned` | LLM_Consultant | TK005.4 | Updated Gate-001 proposal package | `guideline_workspace_proposal.md` | Replace temporary-handling language with IMPLEMENTATION-backed gate package language. |
 | TK006 | `P-PH000-ST001-AC009-TK006` | Prepare AC010 handoff and conformance boundary package | `planned` | LLM_Consultant | GATE-001 | AC010 handoff note / plan amendment inputs | Approved AC009 package | — |
 
 ---
@@ -354,15 +359,24 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 ### GATE-001: Client Acceptance of the `P-STD-001` Metadata Hardening Package
 
 **Entry Criteria**:
-- TK001 through TK005 complete
-- Verification artifact exists and records a reviewer verdict
-- Derivative updates are present in the same changeset as the `P-STD-001` amendments
+- Initial review complete and recycle loop formally opened
+- `TK005.1` through `TK005.5` complete for the active reassessment cycle
+- Refreshed verification artifact exists and records the current reviewer verdict
+- Current proposal package exists and hosts the authoritative GDR for the same gate ID
 
 **Reviewer**: Client
 
 **Exit Criteria**:
 - Client approves or approves with conditions the completed metadata-governance hardening package
 - Approved package becomes the authority surface for `AC010`
+
+**Recycle Re-entry Block**:
+- **Gate Status**: `in_progress`
+- **Recycle Trigger**: Prior Gate-001 package recommended `RECYCLE` because of unresolved authority/reference defects in `P-STD-001`, gate-package inconsistency, and a temporary remediation-detail workaround that has since been superseded by the IMPLEMENTATION family.
+- **Remediation Tasks**: `TK005.1`, `TK005.2`, `TK005.3`, `TK005.4`, `TK005.5`
+- **Re-entry Criteria**: Remediation specification authored; remediated deliverables and recycle dev-report complete; same gate re-verified; refreshed proposal package prepared.
+- **Reassessment Rule**: The same gate ID (`P-PH000-ST001-AC009-GATE-001`) MUST be re-assessed. No derived gate IDs are permitted.
+- **Downstream Block**: `TK006` remains blocked until the Gate Decision Record for `P-PH000-ST001-AC009-GATE-001` records `APPROVE` or `APPROVE WITH CONDITIONS`.
 
 ---
 
@@ -401,12 +415,15 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | Readiness Analysis | AC009 TK000 Assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/analysis/analysis_P-PH000-ST001-AC009-TK000_activity-plan-readiness-assessment.md` |
 | Analysis | AC009 TK001 Amendment Map | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/analysis/analysis_P-PH000-ST001-AC009-TK001_p-std-001-amendment-map.md` |
 | Readiness Proposal | AC009 GATE-000 Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/proposal/proposal_P-PH000-ST001-AC009-TK000_gate-000-readiness-disposition-package.md` |
+| IMPLEMENTATION | Gate-001 Remediation Specification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_gate-001-remediation-specification.md` |
 | DEV-REPORT | TK001-TK004 Implementation | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/dev-report/dev-report_P-PH000-ST001-AC009_tk001-tk004-implementation_2026-03-16.md` |
 | Session Notes | AC009 SES001 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES001.md` |
 | Upstream Proposal | AC003 Gate-002 Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC003/proposal/proposal_P-PH000-ST004-AC003_gate-002_report-and-integration-disposition.md` |
 | Upstream Analysis | P-RES-003 Integration Package | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC003/analysis/analysis_P-PH000-ST004-AC003-TK003_content-sufficiency-assessment_P-RES-003.md` |
 | Upstream Verification | Report Compliance Assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC003/verification/verification_P-PH000-ST004-AC003_report-compliance-assessment_P-RES-003.md` |
 | External Review | Gate-002 Package Assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC003/analysis/analysis_P-PH000-ST004-AC003_external-review_gate-002-package.md` |
+| Proposal | Gate-001 Recycle / Reassessment Package | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/proposal/proposal_P-PH000-ST001-AC009_gate-001_metadata-hardening-disposition.md` |
+| Verification | Gate-001 Reviewer Verification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/verification/verification_P-PH000-ST001-AC009_gate-001.md` |
 
 ---
 
@@ -414,6 +431,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.5.0 | 2026-03-20 | Recycle amendment | Converted `GATE-001` into an active recycle/reassessment loop. Marked `TK005` and `GATE-001` as `in_progress`, added `TK005.1` through `TK005.5` as formal remediation/reassessment subtasks, added the required Recycle Re-entry Block, and registered the new Gate-001 remediation specification artifact. |
 | v1.4.0 | 2026-03-16 | Implementation | Marked `TK001` through `TK004` completed after AC009 metadata-governance execution. Added the TK001 amendment map and grouped TK001-TK004 dev-report to the Links Register. |
 | v1.3.0 | 2026-03-15 | Gate closure | Updated task register: TK000 → `completed`, GATE-000 → `completed` with GDR reference. Added external review analysis to Context and Links Register. Evidence: GATE-000 GDR (proposal v1.1.0), external review v1.0.0. |
 | v1.2.0 | 2026-03-15 | Readiness packaging | Added `TK000` + `GATE-000` for AC009 implementation readiness. Locked AC009 to consume `P-PH000-ST004-AC003-GATE-002` without mutating upstream research artifacts, narrowed derivative instruction-surface scope to prompt-owned surfaces, made `P-CON-003` clarification explicit in `TK004`, and added AC009-local readiness analysis/proposal/session-note artifacts. |

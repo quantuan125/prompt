@@ -2,8 +2,8 @@
 artifact_type: 'SPS'
 initiative_id: 'T104'
 initiative_code: 'CWS'
-version: '1.1.0'
-date: '2026-02-25'
+version: '1.2.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -252,6 +252,7 @@ External Reference: `T102-STD-005-CLAUSE-002`
 | 2 | Epic | T104G | Communication Standardization |
 | 2 | Epic | T104H | Verification Standardization |
 | 2 | Epic | T104I | Dev-Report Standardization |
+| 2 | Epic | T104J | Implementation Standardization |
 
 ---
 
@@ -1256,6 +1257,131 @@ To standardize the **Dev-Report** artifact (`dev-report_...`) as the LLM_Develop
 
 ---
 
+#### 10. `T104J` Epic: `IMPLEMENTATION` - Implementation Standardization
+
+```yaml
+epic_id: 'T104J'
+epic_code: 'IMPLEMENTATION'
+epic_title: 'Implementation Standardization'
+epic_type: 'new'
+epic_status: 'draft'
+epic_owner: 'LLM_Consultant'
+```
+
+##### i. Purpose
+Register the **IMPLEMENTATION** artifact family as a governed workspace surface. The family provides detailed implementation specification between plan task authority and developer execution evidence, covering both gate-remediation workflows (`remediation_specification`) and proactive complex-task workflows (`task_specification`). This Epic establishes the IMPLEMENTATION family as the authoritative specification surface for implementation detail that exceeds plan-step capacity.
+
+##### ii. Scope
+
+* **In Scope:**
+  * Family definition: `IMPLEMENTATION` artifact type with `implementation_` prefix and `<AC>/implementation/` placement.
+  * Two-subtype taxonomy: `remediation_specification` (gate RECYCLE response) and `task_specification` (complex implementation detail).
+  * Shared guideline: `guideline_workspace_implementation.md` governing all subtypes.
+  * Two subtype templates: `template_workspace_implementation_remediation-specification.md` and `template_workspace_implementation_task-specification.md`.
+  * Vertical integration: updates to `workspace_documentation_rules.md` (§3/§4/§5/§7/§8), `guideline_workspace_plan.md` (§IV/§VI.L), and `guideline_workspace_analysis.md` (§II).
+* **Out of Scope:**
+  * Retroactive migration of existing ad-hoc remediation artifacts (AC009 revision-checklist, AC003 remediation-checklist). Forward-only adoption applies.
+  * Revision-checklist replacement assessment (deferred per GIR-010).
+  * Expansion beyond the approved two-subtype Draft 1 taxonomy.
+
+##### iii. Inherited Considerations
+
+| Source Artifact | Source ID | Category | Inherited Rule IDs |
+| :-------------- | :-------- | :------- | :----------------- |
+| `guideline_workspace_plan.md` | §VI.K | Gate recycle rules | Remediation task placement above gate row |
+| `guideline_workspace_plan.md` | §VI.L | Gate-Readiness Stack | IMPLEMENTATION placement in remediation loops |
+| `workspace_documentation_rules.md` | §6 | Role Boundaries | Consultant-authored specification, developer-consumed |
+| `workspace_documentation_rules.md` | §7 | Workflow Chain | IMPLEMENTATION position in canonical sequences |
+
+##### iv. Governance & Roadmap
+
+**Scope & Ownership**
+- Owner: LLM_Consultant (epic governance)
+- Artifact Author: LLM_Consultant (`remediation_specification`); LLM_Consultant or LLM_Planner (`task_specification`)
+- Decision Owner: Client
+- Support: LLM_Developer (primary consumer), LLM_Reviewer (re-assessment consumer for `remediation_specification`)
+
+**Phase & Gates**
+| Phase | Title | Intent | Key Exit Milestone | Duration Band | Gate Approver (A) | Phase Lead (R) | Plan Link |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+
+**References**
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/plan_T104-PH001-ST008-AC001.3.md` (AC001.3 governing plan)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/proposal/proposal_T104-PH001-ST008-AC001.3-GATE-001_gir-disposition-package.md` (Gate-001 GDR: APPROVE)
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/proposal/proposal_T104-PH001-ST008-AC001.3_implementation-family-architecture.md` (Standards-input proposal)
+
+##### v. Feature Register
+
+| ID | Code | Title | Purpose | Feature Lead (R) | Status | Canonical Link (Request) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| T104J-FEAT-001 | IMPL-REG | Family registration in workspace documentation rules | Register IMPLEMENTATION in §3/§4/§5/§7/§8 | LLM_Consultant | `draft` | — |
+| T104J-FEAT-002 | IMPL-SURFACES | Two subtype templates and shared guideline | Author guideline + 2 templates | LLM_Consultant | `draft` | — |
+| T104J-FEAT-003 | IMPL-PLAN-INT | Plan boundary rule integration | §IV.F and §VI.L amendments | LLM_Consultant | `draft` | — |
+| T104J-FEAT-004 | IMPL-VERIF-LINK | Verification guideline linkage for remediation specification | Deferred to future session | LLM_Consultant | `draft` | — |
+
+##### vi. Epic Requirements
+
+* **Assumptions**
+
+  * **ASSUM Validation Lifecycle Summary**
+
+    | ID | Title | Status | Validation Method | Timing | Owner | If Invalidated | CON Cross-Ref |
+    |:---|:------|:-------|:------------------|:-------|:------|:---------------|:--------------|
+    | — | — | — | — | — | — | — | — |
+
+  * **T104J-ASSUM-001** — IMPLEMENTATION artifacts are expected at task or gate scope. If broader scope is needed, the subtype taxonomy may expand.
+
+* **Constraints**
+  * **T104J-CON-001** — IMPLEMENTATION artifacts SHALL NOT hold work authority (PLAN) or decision authority (PROPOSAL GDR).
+
+* **Quality Goals**
+  * **T104J-QG-001** — Every IMPLEMENTATION artifact MUST include mandatory frontmatter backlinks per CONV-007.
+
+* **Dependencies**
+  * **T104J-DEP-001** — `P-PH000-ST001-AC004` (P-STD-004 File Naming & Directory Convention): the `implementation_` prefix and `<AC>/implementation/` placement convention are expected to be codified in P-STD-004. Draft 2 SHALL adopt P-STD-004 as authoritative naming source.
+
+* **Interfaces**
+  * **T104J-IF-001** — **Plan Task Register Interface**: IMPLEMENTATION artifacts reference specific task IDs or gate IDs.
+  * **T104J-IF-002** — **Verification Consumer Interface**: For `remediation_specification`, the artifact references verification findings and is consumed during re-assessment.
+  * **T104J-RISK-001** — Boundary ambiguity with plan task steps must be controlled by CONV-011 and the plan guideline amendment.
+
+##### vii. Epic Standards
+
+| STD ID | Title | Status | Owner | Effective | Supersedes | Adopts | Verification | Reference |
+|:-------|:------|:-------|:------|:----------|:-----------|:-------|:-------------|:----------|
+
+* **T104J-STD-001** —
+  - **Minimum Viable Conformance**:
+    1) —
+    2) —
+
+##### viii. Epic Development Guidances
+
+* **Implementation Guidance**
+  * **T104J-IG-001** — **Dynamic/Continuous Development Posture**: This epic is in a pre-normative, dynamic development phase. `guideline_workspace_implementation.md` and the two subtype templates are Draft 1 artifacts (delivered under `T104-PH001-ST008-AC001.3`). They SHALL be treated as authoritative for current usage but are expected to evolve as patterns mature. Full normative binding via T104J epic standards is deferred until the epic is activated.
+
+* **Integration Guidance**
+  * **T104J-INT-001** —
+
+**Research**
+
+| Research ID | Title | Summary | Reference | Brief | Report |
+| :--- | :--- | :--- | :--- | :--- | :--- |
+
+**Notes**
+* **2026-03-20**: Epic scaffold created. T104J registered as IMPLEMENTATION Standardization epic. Draft 1 guideline+template delivery scoped under `T104-PH001-ST008-AC001.3` (TK006/TK007). Development posture: dynamic/continuous (pre-normative). Gate-001 approved Path B on 2026-03-19.
+
+**Issues**
+| ID | Title | Description | Owner | Status | Priority | Proposed Date | Resolution Notes | Resolution Date |
+|:---|:------|:------------|:------|:-------|:---------|:--------------|:-----------------|:----------------|
+
+**Risks**
+| ID | Title | Description | Owner | Status | Priority | Proposed Date | Mitigation Notes | Mitigation Date |
+|:---|:------|:------------|:------|:-------|:---------|:--------------|:-----------------|:----------------|
+| `T104J-RISK-001` | Boundary ambiguity with plan task steps | IMPLEMENTATION specification and plan task steps may overlap without CONV-011 enforcement. Without plan-guideline integration, authors may produce redundant detail or skip the IMPLEMENTATION artifact. | LLM_Consultant | `MONITORED` | `MEDIUM` | 2026-03-20 | Mitigation: CONV-011 codified in plan guideline §IV.F; cross-check during TK007 vertical integration | — |
+
+---
+
 ### D. Project Glossary
 *   **Workflow Tool**: An artifact used to manage the process of work (e.g., Roadmap, Notes), as opposed to defining the product (SSOT).
 *   **SSOT Artifact**: An artifact that defines the authoritative state of the product or governance (e.g., SPS, Request, Concept).
@@ -1293,4 +1419,5 @@ To standardize the **Dev-Report** artifact (`dev-report_...`) as the LLM_Develop
 ## IX. CHANGELOG
 *   **v1.0.0**: Initial scaffolding created.
 *   **v1.0.1**: TK006 SPS compliance remediation (ADR-007 enums/coupling, ADR-009 STD index schema, external references, traceability links).
+*   **v1.2.0** (2026-03-20): Added T104J (IMPLEMENTATION Standardization) epic. WBS Map updated. Full scaffold dossier added following T104H/T104I pattern. Gate-001 approved Path B on 2026-03-19; Draft 1 delivery scoped under T104-PH001-ST008-AC001.3 (TK006/TK007). Source: T104-PH001-ST008-AC001.3-TK005.
 *   **v1.1.0** (2026-02-25): Added T104H (VERIFICATION Standardization) and T104I (DEV-REPORT Standardization) epics. WBS Map updated. Full scaffold dossiers added with role boundaries, inherited considerations, epic requirements, and T104H-RISK-001 / T104I-RISK-001. Draft 1 delivery scoped under T104-PH001-ST005 AC005 and AC006 respectively.

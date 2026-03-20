@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_standards'
 topic: 'standard_specs_authoring'
-version: '6.0.0'
-date: '2026-03-16'
+version: '6.1.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -121,6 +121,7 @@ Use `Informative References` for supporting material, legacy context, or non-gov
 Authoring boundary:
 - `Status` complements, but does not override, current frontmatter state.
 - `Lineage / Authority` holds promotion, supersession, and alias-window pointers.
+- `Status` and `Lineage / Authority` SHOULD use compact key/value rendering when possible.
 - `Amendment History` is concise and version-oriented; git remains the full diff authority.
 - `Input Sources` lists only the lineage inputs materially used to author or amend the standard.
 
@@ -146,7 +147,7 @@ Concept indexes MUST link to standard-spec files using full repo-relative canoni
 - [ ] Concept index row includes the full repo-relative `Canonical Path`
 - [ ] All guideline rules cite their governing CLAUSE(s)
 
-> **Note — Deferred Topics**: This guideline is a quick-start authoring guide. For full rules on Specification Index authoring (`P-STD-001-CLAUSE-002`), substandard architecture (`P-STD-001-CLAUSE-003`), anchor stability (`P-STD-001-CLAUSE-006`), normative vocabulary (`P-STD-001-CLAUSE-008`), derivative metadata (`P-STD-001-CLAUSE-033`), CLAUSE ordering (`P-STD-001-CLAUSE-019`), subclause rendering (`P-STD-001-CLAUSE-020`), normative/informative boundary (`P-STD-001-CLAUSE-021`), and promotion/demotion lifecycle (`P-STD-001-CLAUSE-030`), consult `P-STD-001` directly.
+> **Note — Deferred Topics**: This guideline is a quick-start authoring guide. For full rules on Specification Index authoring (`P-STD-001-CLAUSE-002`), substandard architecture (`P-STD-001-CLAUSE-003`), anchor stability (`P-STD-001-CLAUSE-006`), normative vocabulary (`P-STD-001-CLAUSE-008`), derivative metadata (`P-STD-001-CLAUSE-033`), CLAUSE ordering (`P-STD-001-CLAUSE-019`), subclause rendering (`P-STD-001-CLAUSE-020`), normative/informative boundary (`P-STD-001-CLAUSE-021`), and promotion/demotion lifecycle (`P-STD-001-CLAUSE-030`), consult `P-STD-001` directly. New normative drafting should use the program-scope BCP 14 primary vocabulary set governed by `P-STD-001-CLAUSE-008`.
 
 ---
 
@@ -178,6 +179,7 @@ The template (`prompt/templates/consultant/standards/template_standard_specs.md`
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v6.1.0 | 2026-03-20 | Amendment | Tightened Provenance authoring guidance so `Status` and `Lineage / Authority` prefer compact key/value rendering, and clarified that normative drafting follows the program-scope vocabulary contract in `P-STD-001-CLAUSE-008`. |
 | v6.0.0 | 2026-03-16 | Major | Added governed standard-file frontmatter guidance, normalized `References` into `Normative References` / `Informative References`, normalized `Provenance` into `Status` / `Lineage / Authority` / `Amendment History` / `Input Sources`, and aligned checklist language to `P-STD-001-CLAUSE-031` through `P-STD-001-CLAUSE-036`. |
 | v5.0.0 | 2026-02-22 | Major | Citation format migrated from the legacy per-wrapper form to `<CLAUSE-ID>` per amended `P-STD-001-CLAUSE-005D`. 4 mis-cited governing CLAUSEs corrected (III.A→018B, III.B→025, III.C→028, IV→012; II.B→024A). DR subheadings corrected to CLAUSE-025B (Alternatives, +Traceability). Deferred topics note added. Blast radius enumeration and impact analysis practice added to Section VI. (GATE-002 remediation pass 2) |
 | v4.1.0 | 2026-02-21 | Fix | Naming format (II.B) corrected to match `P-STD-001-CLAUSE-015A` (`standard_<SID-STD>_<kebab-title>.md`). Governing citations corrected: II.A → CLAUSE-015A, VI → CLAUSE-005B, VII → CLAUSE-005A. (GATE-002 remediation) |

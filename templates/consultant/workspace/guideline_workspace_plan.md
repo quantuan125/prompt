@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.15.0'
-date: '2026-03-16'
+version: '1.17.0'
+date: '2026-03-20'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -146,6 +146,16 @@ Do NOT use a registered sub-task when:
 - The work is only execution detail and fits as informal Steps.
 - The work needs its own filesystem scope. Tasks and sub-tasks are planning constructs only; directory-bearing scope starts at Activity/Sub-Activity.
 
+### F. Plan-Step Boundary When IMPLEMENTATION Artifact Exists
+
+When an `IMPLEMENTATION` artifact exists for a task:
+- Plan task steps SHALL be described at high-level summary only.
+- The plan step SHALL reference the `IMPLEMENTATION` artifact path for detail.
+- This prevents content drift between plan and implementation surfaces.
+- The plan retains tracked-work authority; the `IMPLEMENTATION` artifact provides specification depth.
+
+Source: CONV-011 approved at T104-PH001-ST008-AC001.3-GATE-001.
+
 ---
 
 ## V. STREAM AUTHORING RULES
@@ -194,9 +204,10 @@ Every Gate MUST include:
 ### D. Placement in Task Register
 
 Gates appear in the Task Register as a special row type:
-- Status enum: `planned` (not yet reached), `in_progress` (verification task active / gate review underway), `completed` (gate passed — GDR recorded), or `failed` (gate terminated — work killed or abandoned)
-- These gate states are a plan-structure specialization layered on top of the broader `P-STD-002` work-item status authority. `failed` is gate-only and MUST NOT be used for general stream/activity/task lifecycle rows.
+- Status enum: `planned` (not yet reached), `in_progress` (verification task active / gate review underway), `completed` (gate passed — GDR recorded), `failed` (gate terminated — work killed or abandoned), or `superseded` (gate validly assessed but its normative baseline has been replaced by a successor baseline — see §VI.M)
+- These gate states are a plan-structure specialization layered on top of the broader `P-STD-002` work-item status authority. `failed` and `superseded` are gate-only and MUST NOT be used for general stream/activity/task lifecycle rows.
 - `failed` is a terminal status. It MUST NOT be used for rework scenarios. When rework is needed, the gate stays `in_progress` until the rework cycle completes and the gate is re-assessed.
+- `superseded` is a terminal status that MUST NOT be confused with `failed`. `superseded` means the gate's work was valid for its normative baseline but that baseline changed due to an external event. A successor gate exists. See §VI.M for the full supersession mechanics. `superseded` MUST NOT be used for internal recycle outcomes — those use `in_progress` per §VI.K.
 - Gates MUST be listed in dependency order alongside tasks
 - Downstream tasks that depend on the gate MUST use `Depends On: GATE-###`
 - A task with `Depends On: GATE-###` MUST appear after that gate row in the Task Register, even when the task is pre-registered before the gate has passed.
@@ -252,7 +263,9 @@ Gate execution and decision-recording are governed by two companion guidelines:
 
 This guideline (§VI) defines how gates are **structured in plans**. The verification guideline defines how gates are **executed** (evidence production, verdicts, rework). The proposal guideline defines how gate decisions are **recorded** (GDR in gate_disposition proposals).
 
-### K. Gate Recycle And Reassessment Pattern
+### K. Gate Recycle And Reassessment Pattern (Internal Recycle Only)
+
+> **Scope**: This section governs **internal recycle** — where the gate remains the same gate because the decision boundary is unchanged and a gate review identified deficiencies to be remediated. If the disruption originated from an **external event** (e.g., a standard amendment) rather than from the gate's own review process, see §VI.M (Gate Impact Classification & External Baseline Change) to determine whether gate supersession applies instead.
 
 When a gate review returns `RECYCLE`, the gate remains the same gate. Authors MUST NOT create derived gate IDs such as `GATE-001.1`, `GATE-001A`, or similar variants merely to represent re-review of the same decision boundary.
 
@@ -289,6 +302,9 @@ The Gate-Readiness Stack is a canonical pre-gate task sequence that ensures ever
 Every gate that reviews developer-executed deliverables SHOULD be preceded by the following ordered task sequence in the plan's Task Register:
 
 1. **Implementation tasks** — owned by `LLM_Developer` (or the implementation-responsible role). Produce the deliverables that the gate will review.
+
+> **Note**: When a gate enters `RECYCLE` and remediation work requires detailed specification, a `remediation_specification` IMPLEMENTATION artifact SHOULD be authored to specify the corrective-action detail. The IMPLEMENTATION artifact is a formal task in the remediation loop, placed above the gate row per §VI.K. See `guideline_workspace_implementation.md` for authoring rules.
+
 2. **DEV-REPORT task** — owned by `LLM_Developer`. Produces bounded execution evidence per `guideline_workspace_dev-report.md`. The dev-report is verification input, not verification itself.
 3. **Verification task** — owned by `LLM_Reviewer`. Produces independent evidence-first verification per `guideline_workspace_verification.md`. Records the reviewer verdict in the verification artifact's Gate Recommendation section.
 4. **Gate-disposition proposal task** — owned by `LLM_Consultant` (or `LLM_Planner`). Produces the `gate_disposition` proposal per `guideline_workspace_proposal.md`. Hosts the authoritative Gate Decision Record (GDR).
@@ -320,6 +336,7 @@ Each Gate-Readiness Stack task has a fixed role owner:
 | Verification task | `LLM_Reviewer` | `VERIFICATION` | `guideline_workspace_verification.md` |
 | Consultation tasks | `LLM_Consultant` | `NOTES` / `ANALYSIS` / plan-owned deliverables | Respective artifact guidelines |
 | Gate-disposition proposal task | `LLM_Consultant` | `PROPOSAL` (`gate_disposition`) | `guideline_workspace_proposal.md` |
+| IMPLEMENTATION task (where applicable) | `LLM_Consultant` | `IMPLEMENTATION` | `guideline_workspace_implementation.md` |
 | Gate | `Client` | Decision (GDR) | `guideline_workspace_proposal.md` §VII |
 
 #### Cross-Reference
@@ -328,6 +345,73 @@ Each Gate-Readiness Stack task has a fixed role owner:
 - For verification workflow and implementation-backed gate rules, see `guideline_workspace_verification.md` §III.
 - For gate-disposition proposal structure and GDR specification, see `guideline_workspace_proposal.md` §V.B and §VII.
 - For the workflow chain and role-to-artifact ownership matrix, see `workspace_documentation_rules.md` §7 and §8.
+
+### M. Gate Impact Classification & External Baseline Change
+
+This section governs how to respond when an **external event** (such as a standard amendment, cross-initiative change, regulatory update, or upstream dependency change) affects a gate's normative baseline. This is distinct from §VI.K (internal recycle), which governs gate disruptions originating from the gate's own review process.
+
+**Authoritative design source**: Assessment §V.B in `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/analysis/analysis_T104-PH001-ST008-AC001.4_gate-impact-classification-assessment.md`
+
+#### M.1 Impact Taxonomy (Binary Classification)
+
+| Impact Type | Definition | Origin | Effect on Gate |
+|:--|:--|:--|:--|
+| **Internal** | A gate review outcome identifies deficiencies within the original scope and normative baseline. | Gate's own review process (verification findings, reviewer verdict) | Decision boundary unchanged. Same gate, same question. Apply §VI.K. |
+| **External** | An event outside the gate's review scope alters the normative baseline against which the gate's decision is or was made. | Standard amendment, cross-initiative change, regulatory update, upstream dependency change | Decision boundary may be changed. Apply the Decision-Boundary Test (§VI.M.2). |
+
+**Classification test**: "Did the event originate from this gate's own review process?"
+- Yes → Internal impact → §VI.K recycle pattern applies
+- No → External impact → Apply the Decision-Boundary Test (§VI.M.2)
+
+#### M.2 Decision-Boundary Test (External Impacts Only)
+
+When an external impact is identified, the following test determines the correct gate response:
+
+| Test Question | Answer | Gate Response | Rationale |
+|:--|:--|:--|:--|
+| Does the external event change the **decision boundary** (i.e., the question the gate is answering or the normative baseline against which the answer is evaluated)? | **Yes** | **Gate Supersession** (§VI.M.3) | The prior gate assessed a different question. Its assessment is historically valid but no longer current. A new gate with the updated baseline is required. |
+| | **No** | **Same-Gate Reassessment** (§VI.K recycle pattern) | The question is the same; only inputs have changed. The existing §VI.K recycle mechanics apply. |
+
+**Decision boundary** is defined as: the combination of (a) the normative standard/baseline cited in the gate's entry criteria, and (b) the scope of the decision the gate is asked to make. If either changes, the decision boundary has changed.
+
+#### M.3 Gate Supersession Mechanics
+
+When gate supersession is the determined response:
+
+1. **Close the superseded gate**: Update the gate's GDR with `Client Decision: SUPERSEDE` and `Gate Status After Decision: superseded`. The prior assessment is preserved as historically valid-for-baseline.
+2. **Create the successor gate**: A new gate ID is minted (e.g., `GATE-002` if `GATE-001` is superseded). The successor gate's entry criteria reference the updated normative baseline.
+3. **Renumber downstream gates if needed**: If the superseded gate's ordinal conflicts with the successor, downstream gate IDs are renumbered to maintain monotonic ordering.
+4. **Update dependencies**: All `Depends On: GATE-###` references pointing to the superseded gate are updated to point to the successor gate.
+5. **Deprecate superseded artifacts**: Analysis/verification artifacts produced for the prior baseline are marked `status: 'superseded'` with a deprecation notice per the three-layer model. See `guideline_workspace_analysis.md` §IX and `workspace_documentation_rules.md` §7.C for the full model.
+
+**Supersession is NOT failure**: `superseded` is a lifecycle outcome, not a quality judgment. The prior gate's work was valid for its baseline; the baseline itself moved.
+
+**Task Register representation**: Replace the gate's existing Recycle Re-entry Block (if any) with a **Supersession Block** containing:
+- **Gate Status**: `superseded`
+- **Supersession Trigger**: Description of the external event
+- **Prior Assessment**: Note that the prior work was historically valid for the old baseline
+- **Successor Gate**: The new gate ID
+- **GDR Reference**: Path to the gate-disposition proposal recording `Client Decision: SUPERSEDE`
+- **Governance Authority**: Reference to the plan/proposal guideline §VI.M
+
+#### M.4 Gate Reopening (Approved Gates with External Impact)
+
+When an **approved** gate (GDR records `APPROVE`) is affected by an external baseline change after approval:
+
+1. The approved gate's GDR remains unchanged (it was correctly decided for its baseline).
+2. A new gate is created as a reassessment gate with the updated baseline — this is gate supersession applied post-approval.
+3. The prior gate's `Gate Status After Decision` transitions from `completed` to `superseded` via a GDR amendment recording `Client Decision: SUPERSEDE`.
+4. Downstream work already authorized by the prior gate is assessed for impact:
+   - If downstream work is not yet started: block on the new gate.
+   - If downstream work is in progress: issue a HOLD pending the new gate's resolution.
+
+#### M.5 Cross-References
+
+- **GDR-level changes** (Client Decision enum `SUPERSEDE`, Gate Status `superseded`, GDR lifecycle Step 4a): See `guideline_workspace_proposal.md` §VII.
+- **Analysis artifact deprecation** (three-layer model — frontmatter, Evidence Index, Links Register): See `guideline_workspace_analysis.md` §IX and `workspace_documentation_rules.md` §7.C.
+- **Workflow chain** (external-impact assessment step): See `workspace_documentation_rules.md` §7.A.
+
+---
 
 ## VII. SUB-ACTIVITY RULES (AC00x.x)
 
@@ -431,6 +515,8 @@ The following templates are available for PLAN artifacts. Each template defines 
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.17.0 | 2026-03-20 | Amendment | Added §VI.M (Gate Impact Classification & External Baseline Change): binary Internal/External impact taxonomy, classification test, Decision-Boundary Test (two-question flow), gate supersession mechanics (close superseded gate, create successor, renumber downstream, update dependencies, deprecate artifacts), gate reopening rules for approved gates, and cross-references to proposal/analysis/documentation-rules guidelines. Extended §VI.D gate status enum: added `superseded` as a gate-specific terminal status distinct from `failed`. Amended §VI.K: added scope note clarifying §VI.K covers internal recycle only; external impacts follow §VI.M. Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
+| v1.16.0 | 2026-03-20 | Amendment | Added §IV.F (Plan-Step Boundary When IMPLEMENTATION Artifact Exists) encoding CONV-011. Added IMPLEMENTATION reference note and ownership row in §VI.L Gate-Readiness Stack. Source: T104-PH001-ST008-AC001.3-GATE-001 Path B approval. |
 | v1.15.0 | 2026-03-16 | Amendment | Refined §VI.L Gate-Readiness Stack into two variants: implementation-backed gates (`implementation → dev-report → verification → gate-disposition → gate`) and consultation-only gates (`consultation tasks → gate-disposition → gate`). Clarified that consultation-only gates MUST NOT require `DEV-REPORT` or `VERIFICATION`. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
 | v1.14.0 | 2026-03-15 | Amendment | Added §VI.C mandatory `Gate-Disposition Proposal` gate field and §VI.L Gate-Readiness Stack pattern. Codifies the canonical pre-gate task sequence ( implementation → dev-report → verification → gate-disposition → gate) with fixed role ownership and a pure-decision-gate exception. Source: T104-PH001-ST008-AC001.2 consultation; research backing T104-RES-003 Topics 2, 3, 8. |
 | v1.13.0 | 2026-03-14 | Amendment | Strengthened standalone Activity Plan anti-drift rules. Stream-level Activity sections are now explicitly high-level skeletons only when a dedicated Activity Plan exists; detailed package, gate, evidence, and execution-history duplication is prohibited. |
