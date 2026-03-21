@@ -6,8 +6,8 @@ phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC002'
 gate_id: 'P-PH000-ST002-AC002-GATE-002'
-version: '1.0.0'
-date: '2026-03-20'
+version: '1.1.0'
+date: '2026-03-21'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -41,6 +41,7 @@ consumers:
 | Refreshed Reassessment External Review (v1.2.0) | `P-PH000-ST002-AC002-TK001.6` | `completed` | `pending` | Required | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md` |
 | Gate-Disposition Proposal (this file) | `P-PH000-ST002-AC002` | `draft` | `pending` | Required | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-002_design-decision-disposition.md` |
 | AC002 Activity Plan | `P-PH000-ST002-AC002` | `completed` | `accepted` | Recommended | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md` |
+| Task Specification (TK002–TK004 Developer Spec) | `P-PH000-ST002-AC002` | `completed` | `pending` | Required | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/implementation/implementation_P-PH000-ST002-AC002_task-specification.md` |
 
 ### B. Evidence Index — Primary Evidence (v1.2.0 Baseline)
 
@@ -51,6 +52,7 @@ consumers:
 | Analysis | Refreshed Reassessment External Review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md` | v1.2.0 external review (TK001.6) — carries forward into GATE-002 |
 | Session | AC002 SES001 (incl. Plan Amendment Addendum) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/snotes/snotes_P-PH000-ST002-AC002-SES001.md` | Documents DEC005–DEC007 (HOLD) and the governance resolution reference |
 | Standard | P-STD-002 v1.2.0 | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` | Current normative authority |
+| IMPLEMENTATION | Task Specification (TK002–TK004) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/implementation/implementation_P-PH000-ST002-AC002_task-specification.md` | Developer-facing implementation spec for approved GIR decisions |
 | Governance | T104-PH001-ST008-AC001.4 GATE-001 Application Guidance | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/analysis/analysis_T104-PH001-ST008-AC001.4_retroactive-ac002-application-guidance.md` | Authorized restructure instructions |
 
 ### C. Evidence Index — Historical Evidence (v1.1.0 Baseline, Superseded)
@@ -146,12 +148,13 @@ consumers:
 
 ```
 Consultant recommendation state:
-- [to be populated when package is ready for review]
+- APPROVE
 
-Conditions and/or entry basis:
+Basis:
 - All remediation work from TK001.3–TK001.7 is complete and carries forward.
-- GIR-001 through GIR-003 require client decision against the v1.2.0 baseline.
-- No additional remediation is required before GATE-002 can be assessed.
+- GIR-001 through GIR-003 have been independently assessed against the v1.2.0 baseline and all three recommended options (a) are confirmed as sound.
+- The task specification (implementation_P-PH000-ST002-AC002_task-specification.md) distills approved GIR decisions into concrete developer instructions for TK002–TK004.
+- No blocking gaps remain. The deferred guideline wording cleanup (guideline_workspace_plan.md 7→8 state) is addressed in a parallel amendment and does not block this gate.
 
 Downstream enforcement:
 - `TK002` (Author ledger skeleton) and `TK003` (Author narrative template) MUST NOT begin until this gate records `APPROVE` or `APPROVE WITH CONDITIONS` in the GDR.
@@ -162,7 +165,7 @@ Downstream enforcement:
 | Field | Value |
 |:--|:--|
 | Gate ID | `P-PH000-ST002-AC002-GATE-002` |
-| Consultant Recommendation | `pending` |
+| Consultant Recommendation | `APPROVE` |
 | Client Decision | `pending` |
 | Gate Status After Decision | `pending` |
 | Conditions (if any) | — |
@@ -190,4 +193,5 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-21 | Amendment | Populated consultant recommendation (APPROVE) in §V and §VI GDR. Added task specification to Gate Package Index and Evidence Index. Source: GATE-002 independent package review session. |
 | v1.0.0 | 2026-03-20 | Initial | GATE-002 gate-disposition proposal created as the successor to superseded GATE-001. Authored per T104-PH001-ST008-AC001.4-GATE-001 approved governance model and TK009 retroactive application guidance. Evidence Index contains only v1.2.0-baseline artifacts; historical v1.1.0 artifacts segregated in Historical Evidence subsection. GIR-001 through GIR-003 carry forward from GATE-001 with v1.2.0 reassessment stubs. GDR in pending state. |

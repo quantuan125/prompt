@@ -5,34 +5,36 @@ initiative_code: 'CWS'
 phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC003'
-task_id: 'T104-PH001-ST008-AC003-TK003'
+task_id: 'T104-PH001-ST008-AC003-TK003.1'
 gate_id: 'T104-PH001-ST008-AC003-GATE-001'
-version: '1.2.0'
-date: '2026-03-20'
+version: '1.3.0'
+date: '2026-03-21'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/plan_T104-PH001-ST008-AC003.md'
-analysis_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_implementation-spec.md'
+analysis_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003-GATE-001_external-review-reassessment.md'
 implementation_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/implementation/implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md'
-purpose: 'Decision disposition package for GATE-001: implementation spec readiness review before developer execution begins.'
+purpose: 'Decision disposition package for the corrected AC003 GATE-001 same-gate reassessment before any developer execution begins.'
 consumers:
-  - 'LLM_Developer (TK004-TK007 implementation authority)'
-  - 'Client (scope boundary confirmation)'
+  - 'Client (decision owner)'
+  - 'LLM_Consultant (package maintenance and reassessment)'
 ---
 
-# PROPOSAL (Gate Disposition): GATE-001 — AC003 Implementation Spec Readiness Review
+# PROPOSAL (Gate Disposition): GATE-001 — AC003 Same-Gate Reassessment
 
 ## I. EXECUTIVE SUMMARY
 
 **Gate**: `T104-PH001-ST008-AC003-GATE-001` — Consultation-only readiness review
 **Gate Type**: Consultation-only (no DEV-REPORT or VERIFICATION required per `guideline_workspace_plan.md` §VI.L)
-**Purpose**: Obtain client approval of the AC003 implementation specification before developer execution of gap resolution fixes (TK004-TK007).
+**Purpose**: Obtain client disposition on the corrected AC003 same-gate package before developer execution of gap resolution fixes begins.
 
 **What is being reviewed**:
-- The implementation specification (`analysis_T104-PH001-ST008-AC003_implementation-spec.md`) containing per-gap change specifications for all 13 AC003-scoped gaps
-- The AC003/AC004 scope boundary (13 gaps in AC003, 4 deferred to AC004)
-- The recommended implementation cluster execution order (A → B → C → D)
+- The corrected gate-disposition package, including the new same-gate reassessment external review and historical evidence separation
+- The AC003 activity plan coherence amendments required for TK003.1, TK007 cancellation, and active-scope A-C only
+- The AC003 IMPLEMENTATION task specification for the active implementation clusters
+- SES004 session notes and ST008 registration trail for the correction session
+- The superseded historical external review retained for traceability only
 
 **Key findings from the implementation specification**:
 - **GAP-008 is pre-resolved**: The stale "proposals are not final decisions" sentence was already removed from `workspace_documentation_rules.md` during AC001.2 (v2.8.0, 2026-03-15). Developer confirms current state only.
@@ -40,13 +42,13 @@ consumers:
 - **GAP-017 is partially pre-resolved**: Template v1.3.0 already added `N/A — decision gate` to Reviewer Verdict. Only the guideline's Client Decision enum needs `pending` added.
 - All 13 gaps have per-gap change specifications with target file, target section, current-state evidence, required change description, and acceptance criterion.
 
-**SES002 Client Feedback Incorporated (v1.1.0)**:
-- Analysis file amended to informative posture ("Recommended change" instead of "Required change")
-- All `deferred` → `on_hold` recommendations retracted; `deferred` retained pending P-STD-002 harmonization at `P-PH000-ST001-AC003-TK013`
-- Cluster D (GAP-002, ADR scripts) reclassified as `deferred_to_T103` and removed from active implementation scope
-- GAP-006 disposition refined: pointer note only; full resolution deferred to T101
-- `<INIT>` → `<SID>` alignment note added as an informative P-STD-005 conformance item
-- Supplementary remediation checklist created: `analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md`
+**SES004 Package-Correction Pass Incorporated (v1.3.0)**:
+- New reassessment external review created and used as the current same-gate evidence
+- `SES004` captures the correction-session decisions and is registered in ST008
+- The proposal now separates current evidence from historical evidence
+- The corrected AC003 plan and implementation spec align on active scope A-C only; TK007 is routed to T103
+- The same gate remains open and pending client disposition
+- No downstream developer execution is commissioned by this package-correction pass
 
 ---
 
@@ -61,22 +63,31 @@ consumers:
 | 3 | AC003/AC004 Scope Boundary | TK002 | `completed` | Review | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §IV |
 | 4 | Dependency Sequencing | TK002 | `completed` | Informational | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §V |
 | 5 | Remediation Checklist — informative source (SES002 supplement) | SES002 | `completed` | Reference | `analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md` |
-| 6 | **IMPLEMENTATION Task Specification** (authoritative developer spec) | SES003 (2026-03-20) | `completed` | **Primary** | `implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md` |
-| 7 | External Review — GATE-001 Package Readiness | SES003 (2026-03-20) | `completed` | Review | `analysis_T104-PH001-ST008-AC003_external-review_gate-001-package.md` |
+| 6 | SES004 Session Notes | SES004 | `completed` | Reference | `snotes_T104-PH001-ST008-AC003-SES004.md` |
+| 7 | **IMPLEMENTATION Task Specification** (authoritative developer spec) | TK003.1 | `completed` | **Primary** | `implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md` |
+| 8 | External Review — GATE-001 Same-Gate Reassessment | TK003.1 | `completed` | Review | `analysis_T104-PH001-ST008-AC003-GATE-001_external-review-reassessment.md` |
 
 ### Evidence Index
+
+#### Primary Evidence
 
 | Document | Role | Path |
 |:--|:--|:--|
 | AC003 Activity Plan | Governing plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/plan_T104-PH001-ST008-AC003.md` |
+| ST008 Notes Register | Session registration trail | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/notes_T104-PH001-ST008.md` |
+| SES004 Session Notes | Same-gate correction trail | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/snotes/snotes_T104-PH001-ST008-AC003-SES004.md` |
 | **IMPLEMENTATION Task Specification** | **Authoritative developer specification** | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/implementation/implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md` |
-| External Review — GATE-001 Package | Independent readiness assessment | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_external-review_gate-001-package.md` |
+| External Review — GATE-001 Same-Gate Reassessment | Independent readiness assessment | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003-GATE-001_external-review-reassessment.md` |
+
+#### Historical Evidence
+
+| Document | Role | Path |
+|:--|:--|:--|
+| External Review — GATE-001 Package | Superseded readiness assessment | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_external-review_gate-001-package.md` |
 | Implementation Specification (informative) | Historical analysis source | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_implementation-spec.md` |
 | Remediation Checklist (informative) | Historical SES002 tracking surface | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md` |
 | T104-RES-003 Report | Gap register source | `prompt/artifacts/tasks/T104/research/T104-RES-003/report_T104-RES-003_workspace-artifact-integration-analysis.md` |
 | AC002 Integration Analysis | Synthesis source | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC002/analysis/analysis_T104-PH001-ST008-AC002_report-integration-and-downstream-impact.md` |
-| Plan Guideline | Governing guideline | `prompt/templates/consultant/workspace/guideline_workspace_plan.md` |
-| Proposal Guideline | Authoring guideline | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` |
 | P-STD-002 | Enum harmonization dependency | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` |
 
 ---
@@ -85,135 +96,121 @@ consumers:
 
 | GIR | Topic | Recommendation |
 |:--|:--|:--|
-| GIR-001 | Implementation spec approval | APPROVE |
-| GIR-002 | AC003/AC004 scope boundary confirmation | APPROVE |
-| GIR-003 | Implementation cluster sequencing | APPROVE (A → B → C → D) |
-| GIR-004 | `deferred` retention + P-STD-002 harmonization routing | APPROVE (retain `deferred`; harmonize at P-STD-002) |
-| GIR-005 | Cluster D reclassification | APPROVE (`deferred_to_T103`) |
-| GIR-006 | GAP-006 refined disposition | APPROVE (flag + defer to T101) |
-| GIR-007 | Process gap routing to AC001.3 | APPROVE (analysis informative-only rule via AC001.3 TK005) |
+| GIR-001 | Corrected package completeness | APPROVE |
+| GIR-002 | Same-gate boundary confirmation | APPROVE |
+| GIR-003 | Active implementation sequencing | APPROVE (A → B → C only) |
+| GIR-004 | `deferred` alignment and workspace posture | APPROVE (retain `deferred`) |
+| GIR-005 | TK007 cancellation and T103 routing | APPROVE |
+| GIR-006 | GAP-006 localized pointer disposition | APPROVE |
+| GIR-007 | Same-gate correction evidence trail | APPROVE |
 
 ---
 
 ## IV. DETAILED DISPOSITION REGISTER
 
-### GIR-001: Implementation Spec Approval
+### GIR-001: Corrected Package Completeness
 
-**Question**: Are the 13 per-gap change specifications in the implementation specification acceptable for developer execution?
+**Question**: Is the corrected AC003 GATE-001 package complete enough to present for the next client review of the same gate?
 
-**Evidence**: The implementation spec (§III) provides for each gap:
-- Target file path and target section heading
-- Current-state evidence quoted from the live file
-- Recommended change description
-- Acceptance criterion (1-2 lines)
+**Evidence**: The package now includes the refreshed gate-disposition proposal, the same-gate reassessment external review, the active-scope IMPLEMENTATION task specification, the corrected activity-plan amendments, the SES004 session record, and the historical external review preserved for traceability.
 
-**Notable items**:
-- GAP-008 is documented as pre-resolved (developer confirms, no edit needed)
-- GAP-001 is documented as not applicable to in-scope files (developer confirms via grep, no edit needed)
-- GAP-002 offers two retargeting options; the consultant recommends Option A (retarget to standalone standard files)
-- GAP-006 is explicitly scoped as a localized pointer-only mitigation; full resolution deferred to AC004
-
-**Recommendation**: APPROVE — The spec is precise enough for developer execution without further clarification.
+**Recommendation**: APPROVE — The package is complete enough for the next client review of the same gate.
 
 Client Decision:
-- `[ ] (a) Approve implementation spec as-is`
+- `[ ] (a) Approve corrected package completeness`
 - `[ ] (b) Approve with conditions: _______`
 - `[ ] Override: _______`
 
 ---
 
-### GIR-002: AC003/AC004 Scope Boundary Confirmation
+### GIR-002: Same-Gate Boundary Confirmation
 
-**Question**: Are the 13 AC003 gaps (GAP-001–008, GAP-013–017) and 4 AC004 deferrals (GAP-009–012) correctly scoped?
+**Question**: Does the correction pass preserve the original gate identity and avoid creating a new gate boundary?
 
-**Evidence**: The scope boundary (§IV of the implementation spec) documents:
-- **AC003**: 13 gaps — localized guideline/template/script fixes
-- **AC004**: 4 gaps — SPS schema, agentic integration model, documentation rules consolidation
-- **Pre-resolved observations**: GAP-009 may have been resolved by AC002 TK006 (SPS research table normalization). GAP-011 was partially addressed by `workspace_documentation_rules.md` v2.8.0 (§7/§8 added). These observations are informational for AC004 planning.
+**Evidence**: The gate remains `T104-PH001-ST008-AC003-GATE-001`. The correction pass updates package evidence and plan coherence only; it does not create a new gate or close the existing gate.
 
-**Recommendation**: APPROVE — The boundary is correctly drawn and consistent with the T104-RES-003 gap register's `Downstream Action` assignments.
+**Recommendation**: APPROVE — The same gate is preserved and remains pending client disposition.
 
 Client Decision:
-- `[ ] (a) Confirm AC003/AC004 boundary as scoped`
-- `[ ] (b) Adjust boundary: _______`
+- `[ ] (a) Confirm same-gate boundary`
+- `[ ] (b) Adjust gate boundary: _______`
 - `[ ] Override: _______`
 
 ---
 
-### GIR-003: Implementation Cluster Sequencing
+### GIR-003: Active Implementation Sequencing
 
-**Question**: Is the recommended execution order (A → B → C → D) acceptable, or does the client prefer a different sequencing?
+**Question**: Is the active AC003 execution sequence limited to A → B → C, with Cluster D removed from the active path?
 
-**Evidence**: The 4 clusters are independent (no inter-cluster dependencies). The recommended order is:
+**Evidence**: The corrected plan and implementation specification both restrict active AC003 scope to TK004, TK005, and TK006. TK007 is cancelled from the active AC003 path and routed to T103.
 
 | Order | Cluster | Task | Rationale |
 |:--|:--|:--|:--|
-| 1 | A — NOTES package | TK004 | Self-contained; highest visibility naming drift; 5 files touched |
-| 2 | B — Cross-refs | TK005 | Largest cluster (6 gaps); touches the most guidelines |
-| 3 | C — Role/gate | TK006 | 1 of 3 gaps pre-resolved; localized changes |
-| 4 | D — Scripts | TK007 | Separate developer ownership; self-contained |
+| 1 | A — NOTES package | TK004 | Active AC003 scope |
+| 2 | B — Cross-refs | TK005 | Active AC003 scope |
+| 3 | C — Role/gate | TK006 | Active AC003 scope |
 
-**Recommendation**: APPROVE — A → B → C → D.
+**Recommendation**: APPROVE — Active sequencing is A → B → C only.
 
 Client Decision:
-- `[ ] (a) Accept recommended sequencing (A → B → C → D)`
+- `[ ] (a) Accept active sequencing (A → B → C only)`
 - `[ ] (b) Specify alternative order: _______`
 - `[ ] Override: _______`
 
 ---
 
-### GIR-004: `deferred` Retention and P-STD-002 Harmonization
+### GIR-004: `deferred` Alignment and Workspace Posture
 
-**Question**: Should the analysis file's recommendation to replace `deferred` with `on_hold` be retracted, and should enum harmonization be routed to P-STD-002 development?
+**Question**: Should `deferred` remain the workspace-accepted lifecycle value, with no further standard harmonization required as a gate condition?
 
-**Evidence**: Industry analysis (ITIL 4, PMI PMBOK, ISO 12207) confirms `deferred` (intentional postponement beyond current scope) is semantically distinct from `on_hold` (temporary pause within current scope). P-STD-002 currently defines a 7-state canonical lifecycle without `deferred`. The recommendation was not client-consulted and was not recorded in any prior proposal/GDR.
+**Evidence**: The live status vocabulary now includes `deferred`, so the remaining issue in the corrected package is local alignment, not a missing standard-state capability.
 
-**Recommendation**: APPROVE — Retain `deferred` in all T104 templates. Route enum harmonization to `P-PH000-ST001-AC003-TK013` (new task adding `deferred` + casing governance to P-STD-002).
+**Recommendation**: APPROVE — Retain `deferred` and keep the package aligned to the current workspace standard.
 
 Client Decision:
-- `[ ] (a) Approve: retain deferred, route to P-STD-002`
+- `[ ] (a) Approve: retain `deferred``
 - `[ ] Override: _______`
 
 ---
 
-### GIR-005: Cluster D Reclassification to `deferred_to_T103`
+### GIR-005: TK007 Cancellation and T103 Routing
 
-**Question**: Should Cluster D (GAP-002, ADR helper scripts) be removed from AC003 active implementation scope?
+**Question**: Should the ADR helper script work be removed from the active AC003 path and routed to T103?
 
-**Evidence**: Both scripts (`print_t102_adr_005.py`, `print_t102_adr_007.py`) are deprecated and will be revised under T103 initiative development (not yet commissioned).
+**Evidence**: The corrected plan marks TK007 as `cancelled`, and the implementation specification treats Cluster D as out of active AC003 scope. The package now records the routing to T103 instead of keeping TK007 in the execution chain.
 
-**Recommendation**: APPROVE — Mark GAP-002 as `deferred_to_T103`. Remove Cluster D from active scope.
+**Recommendation**: APPROVE — TK007 is cancelled from active AC003 scope and routed to T103.
 
 Client Decision:
-- `[ ] (a) Approve: defer to T103`
+- `[ ] (a) Approve: cancel TK007 and route to T103`
 - `[ ] Override: _______`
 
 ---
 
-### GIR-006: GAP-006 Refined Disposition
+### GIR-006: GAP-006 Localized Pointer Disposition
 
-**Question**: Should GAP-006 (Role Authority Fragmentation) be limited to a localized pointer + flag, with full resolution deferred to T101?
+**Question**: Should GAP-006 remain a localized pointer/flag disposition rather than a broader AC003 consolidation effort?
 
-**Evidence**: Full role consolidation requires T101 initiative (not commissioned). `workspace_documentation_rules.md` is the current highest authority for roles and organization description.
+**Evidence**: Full role consolidation remains future T101 work. The corrected package keeps the AC003 treatment localized so the gate package stays aligned with the current scope boundary.
 
-**Recommendation**: APPROVE — Apply localized pointer note to SPS. Defer full resolution to T101.
+**Recommendation**: APPROVE — Retain the localized pointer disposition for AC003.
 
 Client Decision:
-- `[ ] (a) Approve: pointer + defer to T101`
+- `[ ] (a) Approve: localized pointer only`
 - `[ ] Override: _______`
 
 ---
 
-### GIR-007: Process Gap Routing to AC001.3
+### GIR-007: Same-Gate Correction Evidence Trail
 
-**Question**: Should the analysis informative-only rule (requiring `guideline_workspace_analysis.md` update) be routed through `T104-PH001-ST008-AC001.3` TK005?
+**Question**: Does the new reassessment review plus SES004 provide sufficient correction-session traceability for the same-gate package?
 
-**Evidence**: AC001.3 is the active sub-activity for resolving where gate remediation implementation details should live across the workspace artifact suite. The analysis informative-only rule is a process governance change that fits AC001.3's mandate.
+**Evidence**: The old external review is superseded, the new reassessment review is current evidence, SES004 captures the session decisions, and the proposal now separates primary from historical evidence.
 
-**Recommendation**: APPROVE — Route as amendment input to AC001.3 TK005.
+**Recommendation**: APPROVE — The correction-session evidence trail is sufficient for the next client review.
 
 Client Decision:
-- `[ ] (a) Approve: route to AC001.3 TK005`
+- `[ ] (a) Accept same-gate correction evidence trail`
 - `[ ] Override: _______`
 
 ---
@@ -222,14 +219,17 @@ Client Decision:
 
 **Consultant Recommendation**: `APPROVE WITH CONDITIONS`
 
-All 7 GIR items carry an APPROVE recommendation. The implementation package is complete and developer-ready following the v1.2.0 amendments:
-- The authoritative developer specification has been migrated to the IMPLEMENTATION `task_specification` artifact (per GATE-001 package item #6)
-- The external review confirms no substantive gaps and validates the scope boundary, cluster sequencing, and cross-activity impact assessment
-- GIR-007 (analysis informative-only routing to AC001.3) is resolved — AC001.3 completed on 2026-03-20 with this rule codified
+All 7 GIR items carry an APPROVE recommendation. The corrected package is ready for the next client review of the same gate:
+- The package now uses the reassessment external review as current evidence
+- The historical external review is preserved and clearly superseded
+- The active AC003 implementation path is limited to TK004, TK005, and TK006
+- TK007 is cancelled from active AC003 scope and routed to T103
+- SES004 is registered as the correction-session trail
 
 **Conditions**:
-1. Developer MUST verify current-state evidence (line numbers, quoted text) against live files at implementation time — file versions have shifted since spec authoring due to AC001.3 and AC001.5 patches
-2. Cluster D (GAP-002, ADR scripts) remains deferred to T103 — no developer action in AC003 scope
+1. The gate remains open until the client records a decision in the GDR
+2. No developer-owned implementation work begins before client disposition
+3. Active AC003 scope remains A-C only; TK007 stays cancelled and routed to T103
 
 There is no verification artifact for this gate (consultation-only per `guideline_workspace_plan.md` §VI.L).
 
@@ -245,7 +245,7 @@ There is no verification artifact for this gate (consultation-only per `guidelin
 | Consultant Recommendation | `APPROVE WITH CONDITIONS` |
 | Client Decision | `pending` |
 | Gate Status After Decision | `pending` |
-| Conditions (if any) | (1) Developer must verify current-state evidence at implementation time — file versions have shifted since spec authoring. (2) Cluster D (GAP-002) remains deferred to T103. |
+| Conditions (if any) | (1) The gate remains open until the client records a decision in the GDR. (2) No developer-owned implementation work begins before client disposition. (3) Active AC003 scope remains A-C only; TK007 stays cancelled and routed to T103. |
 | Decided By | Client |
 | Decision Date | — |
 | Decision Reference | `pending` |
@@ -257,8 +257,11 @@ There is no verification artifact for this gate (consultation-only per `guidelin
 | Document | Path |
 |:--|:--|
 | Activity Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/plan_T104-PH001-ST008-AC003.md` |
+| ST008 Notes Register | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/notes_T104-PH001-ST008.md` |
+| SES004 Session Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/snotes/snotes_T104-PH001-ST008-AC003-SES004.md` |
 | IMPLEMENTATION Task Specification (authoritative) | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/implementation/implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md` |
-| External Review | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_external-review_gate-001-package.md` |
+| Same-Gate Reassessment External Review | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003-GATE-001_external-review-reassessment.md` |
+| Superseded External Review | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_external-review_gate-001-package.md` |
 | Implementation Specification (informative) | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_implementation-spec.md` |
 
 ---
@@ -267,6 +270,7 @@ There is no verification artifact for this gate (consultation-only per `guidelin
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.3.0 | 2026-03-21 | Amendment | SES004 same-gate correction pass: added reassessment external review as current evidence, preserved the prior external review as historical evidence only, separated primary vs historical evidence, inserted SES004 session trail, updated GIRs for same-gate completeness and active-scope A-C only, and kept GDR pending with `APPROVE WITH CONDITIONS`. |
 | v1.2.0 | 2026-03-20 | Amendment | SES003 amendments: (1) GDR updated to current guideline_workspace_proposal.md §VII.C format — `Reviewer Verdict` replaced with `Consultant Recommendation: APPROVE WITH CONDITIONS`; conditions enumerated. (2) §V Gate Recommendation updated with full consultant advisory rationale. (3) Gate Package Index: items #1–5 relabelled as reference/informative; item #6 added (IMPLEMENTATION task_specification — authoritative developer spec); item #7 added (external review). (4) Evidence Index updated — IMPLEMENTATION artifact and external review added as primary entries. (5) §VII References expanded. (6) frontmatter: added `implementation_reference`. Source: AC001.3 GATE-002 approval (2026-03-20) triggered IMPLEMENTATION family adoption; external review package readiness assessed. |
 | v1.1.0 | 2026-03-18 | Amendment | Incorporated SES002 client feedback. Added GIR-004 (`deferred` retention + P-STD-002 harmonization), GIR-005 (Cluster D deferral to T103), GIR-006 (GAP-006 refined disposition → T101), and GIR-007 (process gap routing to AC001.3). Updated Executive Summary with SES002 directives. Added remediation checklist to Gate Package Index and Evidence Index. Analysis file v1.1.0 referenced (informative posture). |
 | v1.0.0 | 2026-03-17 | Initial | GATE-001 gate-disposition proposal for AC003 implementation spec readiness review. Consultation-only gate with 3 GIR items: implementation spec approval, AC003/AC004 scope boundary confirmation, and implementation cluster sequencing (recommended A → B → C → D). GDR pending client decision. |

@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.17.0'
-date: '2026-03-20'
+version: '1.18.0'
+date: '2026-03-21'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -35,14 +35,14 @@ This guideline is intended to be referenced by initiative plans (e.g., `T104`) a
 ### A. Status enums (Registers)
 
 - Stream Register and Activity Register `Status` values for program work items MUST defer to `P-STD-002` as the canonical lifecycle authority.
-- Register rows MAY use a context-appropriate subset of the seven canonical states defined by `P-STD-002-CLAUSE-001`: `planned`, `ready`, `in_progress`, `blocked`, `on_hold`, `completed`, `cancelled`.
+- Register rows MAY use a context-appropriate subset of the eight canonical states defined by `P-STD-002-CLAUSE-001`: `planned`, `ready`, `in_progress`, `blocked`, `on_hold`, `deferred`, `completed`, `cancelled`.
 - Workspace plan registers MUST NOT introduce local work-item states outside that canonical set.
-- Deliberate deferral/pause MUST be represented as `on_hold`; unrecoverable work-item termination MUST be represented as `cancelled`.
+- Deliberate pause MUST be represented as `on_hold`; explicit deferral to a future cycle MUST be represented as `deferred` (per `P-STD-002-CLAUSE-009`); unrecoverable work-item termination MUST be represented as `cancelled`.
 - In all register tables, `Status` values MUST be wrapped in backticks.
 
 ### B. Status enums (Task Registers)
 
-- Task Register `Status` values for program work items MUST use the same `P-STD-002` canonical lifecycle authority and MAY use a context-appropriate subset of the seven canonical states.
+- Task Register `Status` values for program work items MUST use the same `P-STD-002` canonical lifecycle authority and MAY use a context-appropriate subset of the eight canonical states.
 - Workspace task registers MUST NOT introduce local work-item states outside `P-STD-002`.
 - `failed` is not a valid general work-item lifecycle state in workspace task registers.
 - In all Task Register tables, `Status` values MUST be wrapped in backticks.
@@ -515,6 +515,7 @@ The following templates are available for PLAN artifacts. Each template defines 
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.18.0 | 2026-03-21 | Maintenance | §III.A and §III.B: Updated canonical state count from seven to eight and added `deferred` to the enum list, aligning with P-STD-002 v1.2.0 (CLAUSE-001, CLAUSE-009). Revised deferral/pause guidance to distinguish `on_hold` (deliberate pause) from `deferred` (future-cycle deferral). Source: P-PH000-ST002-AC002 GATE-002 session review. |
 | v1.17.0 | 2026-03-20 | Amendment | Added §VI.M (Gate Impact Classification & External Baseline Change): binary Internal/External impact taxonomy, classification test, Decision-Boundary Test (two-question flow), gate supersession mechanics (close superseded gate, create successor, renumber downstream, update dependencies, deprecate artifacts), gate reopening rules for approved gates, and cross-references to proposal/analysis/documentation-rules guidelines. Extended §VI.D gate status enum: added `superseded` as a gate-specific terminal status distinct from `failed`. Amended §VI.K: added scope note clarifying §VI.K covers internal recycle only; external impacts follow §VI.M. Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
 | v1.16.0 | 2026-03-20 | Amendment | Added §IV.F (Plan-Step Boundary When IMPLEMENTATION Artifact Exists) encoding CONV-011. Added IMPLEMENTATION reference note and ownership row in §VI.L Gate-Readiness Stack. Source: T104-PH001-ST008-AC001.3-GATE-001 Path B approval. |
 | v1.15.0 | 2026-03-16 | Amendment | Refined §VI.L Gate-Readiness Stack into two variants: implementation-backed gates (`implementation → dev-report → verification → gate-disposition → gate`) and consultation-only gates (`consultation tasks → gate-disposition → gate`). Clarified that consultation-only gates MUST NOT require `DEV-REPORT` or `VERIFICATION`. Source: P-PH000-ST002-AC002 Gate 001 consultation. |

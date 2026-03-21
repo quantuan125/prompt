@@ -7,14 +7,17 @@ phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC003'
 gate_id: 'T104-PH001-ST008-AC003-GATE-001'
-version: '1.0.0'
-date: '2026-03-20'
-status: 'draft'
+version: '1.1.0'
+date: '2026-03-21'
+status: 'superseded'
+superseded_by: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003-GATE-001_external-review-reassessment.md'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/plan_T104-PH001-ST008-AC003.md'
 purpose: 'Independent external review of the AC003 GATE-001 package (implementation spec, remediation checklist, gate-disposition proposal) assessing readiness for developer execution, with particular attention to cross-activity impacts from AC001.3, AC001.4, AC001.5, and AC001.6.'
 ---
+
+> **SUPERSEDED**: This artifact was produced against the original AC003 GATE-001 readiness baseline. It has been superseded by `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003-GATE-001_external-review-reassessment.md` which assesses the corrected same-gate package baseline. This artifact is preserved for historical traceability only.
 
 # ANALYSIS (External Review): AC003 GATE-001 Package Readiness Assessment
 
@@ -164,4 +167,5 @@ purpose: 'Independent external review of the AC003 GATE-001 package (implementat
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-21 | Amendment | Superseded by the same-gate reassessment external review at `analysis_T104-PH001-ST008-AC003-GATE-001_external-review-reassessment.md`. Historical traceability preserved; body content retained. |
 | v1.0.0 | 2026-03-20 | Initial | External review of AC003 GATE-001 package. Assessed 13-gap implementation spec, remediation checklist, and gate-disposition proposal. Key findings: GDR format stale (ER-001), implementation spec in wrong artifact family (ER-002), current-state evidence drift (ER-003, mitigated), remediation checklist temporary status (ER-004), Gate Package Index incomplete (ER-005). Recommendation: APPROVE WITH CONDITIONS. Cross-activity impacts from AC001.3 (completed), AC001.4 (pending), AC001.5 (pending closure), AC001.6 (not yet commissioned) assessed — none blocking. |

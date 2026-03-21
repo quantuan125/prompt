@@ -5,8 +5,8 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST008'
-version: '2.6.0'
-date: '2026-03-20'
+version: '2.10.0'
+date: '2026-03-21'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -40,6 +40,10 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Activity | Session ID | Name | Notes File |
 |:--|:--|:--|:--|
+| AC001.6 | `T104-PH001-ST008-AC001.6-SES003` | QA Consultation: IMPLEMENTATION Artifact Family Horizontal Development, Execution Audience Parametrization & Orchestrated Phase 1 Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/snotes/snotes_T104-PH001-ST008-AC001.6-SES003.md` |
+| AC003 | `T104-PH001-ST008-AC003-SES004` | GATE-001 Package Correction, Same-Gate Reassessment & Plan Amendment | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/snotes/snotes_T104-PH001-ST008-AC003-SES004.md` |
+| AC001.6 | `T104-PH001-ST008-AC001.6-SES002` | GATE-001 Supplementary Consultation: Comparative Assessment, Recyclable Prompts & comparative_analysis Subtype Commissioning | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/snotes/snotes_T104-PH001-ST008-AC001.6-SES002.md` |
+| AC003 | `T104-PH001-ST008-AC003-SES003` | GATE-001 Final Package Assembly, Cross-Activity Impact Review & Phase 0 Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/snotes/snotes_T104-PH001-ST008-AC003-SES003.md` |
 | AC001.6 | `T104-PH001-ST008-AC001.6-SES001` | AC001.6 Commissioning: External Second-Opinion Review, Scope Decisions & Implementation Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/snotes/snotes_T104-PH001-ST008-AC001.6-SES001.md` |
 | AC001.5 | `T104-PH001-ST008-AC001.5-SES001` | Consultant Recommendation Signal — Problem Discovery & Implementation Planning | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.5/snotes/snotes_T104-PH001-ST008-AC001.5-SES001.md` |
 | AC001.3 | `T104-PH001-ST008-AC001.3-SES006` | Post-GATE-002 QA, Scope Placement Challenge & External Second-Opinion Commissioning | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.3/snotes/snotes_T104-PH001-ST008-AC001.3-SES006.md` |
@@ -79,6 +83,10 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.10.0 | 2026-03-21 | Amendment | Registered AC001.6-SES003 (QA Consultation: IMPLEMENTATION Artifact Family Horizontal Development, Execution Audience Parametrization & Orchestrated Phase 1 Execution). SES003 records: client QA on TK003.1 (P-STD-005 compliance, hybrid SPEC structure, DEV-REPORT backlink), execution audience parametrization (Option B approved), horizontal amendments scope placement in AC001.6, standards-input proposal and task specification commissioning, and orchestrated 4-wave Phase 1 execution producing 10 deliverables. GATE-001 package augmented to GIR-001–011. |
+| v2.9.0 | 2026-03-21 | Amendment | Registered AC003-SES004 (GATE-001 Package Correction, Same-Gate Reassessment & Plan Amendment). SES004 records the decision to create a new reassessment external review, keep GATE-001 open as the same gate, limit AC003 plan changes to coherence fixes, cancel TK007 from active AC003 scope, and include the new session record in the corrected package. |
+| v2.8.0 | 2026-03-21 | Amendment | Registered AC001.6-SES002 (GATE-001 Supplementary Consultation: Comparative Assessment, Recyclable Prompts & comparative_analysis Subtype Commissioning). SES002 records: in-session comparative workflow assessment (IMPLEMENTATION vs .claude/plans), recyclable prompt split decision (author/execute variants), comparative_analysis subtype gap identification and AC001.7 commissioning, .claude/plans deprecation posture approval, and TK003.1 supplementary spec authoring. |
+| v2.7.0 | 2026-03-21 | Amendment | Registered AC003-SES003 (GATE-001 Final Package Assembly, Cross-Activity Impact Review & Phase 0 Execution). SES003 records Phase 0 pre-closure execution: external review authored, IMPLEMENTATION task_specification created, analysis artifacts deprecated to informative-only, GATE-001 proposal updated to v1.2.0 (current GDR format), AC003 plan updated to v1.3.0. |
 | v2.6.0 | 2026-03-20 | Gate Closure | Registered AC001.4-SES003 (GATE-002 Administrative Closure & Client Approval Recording). GATE-002 closed: Client Decision APPROVE (2026-03-20). AC001.4 complete. |
 | v2.5.0 | 2026-03-20 | Amendment | Added the AC001.6 activity plan to the primary links section after Phase 1 artifact authoring. Existing AC001.6-SES001 notes-register entry was re-verified against the canonical notes path and final activity-plan title. |
 | v2.4.0 | 2026-03-20 | Amendment | Registered AC001.6-SES001 (AC001.6 Commissioning: External Second-Opinion Review, Scope Decisions & Implementation Plan). |

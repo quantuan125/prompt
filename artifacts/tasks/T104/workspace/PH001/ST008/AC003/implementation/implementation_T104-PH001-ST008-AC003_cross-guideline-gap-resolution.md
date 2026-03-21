@@ -7,27 +7,30 @@ phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC003'
 task_id: 'T104-PH001-ST008-AC003-TK004'
-version: '1.0.0'
-date: '2026-03-20'
+version: '1.1.0'
+date: '2026-03-21'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/plan_T104-PH001-ST008-AC003.md'
-purpose: 'Developer-ready execution specification for AC003 post-GATE-001 implementation: 13 AC003-scoped gaps across 3 active clusters (A, B, C) plus 1 deferred cluster (D).'
+purpose: 'Developer-ready execution specification for AC003 post-GATE-001 implementation: active scope A-C only, with the ADR-script gap routed to T103 outside the active AC003 path.'
 ---
 
 # IMPLEMENTATION (Task Specification): AC003 Cross-Guideline Gap Resolution
 
 ## I. PURPOSE & AUTHORITY
 
-- **Purpose**: This artifact specifies the complete HOW for executing AC003 post-GATE-001 gap resolution work across three active implementation clusters (NOTES package, cross-reference repairs, role/gate wording) covering plan tasks TK004, TK005, and TK006. Cluster D (ADR scripts) is deferred to T103.
-- **Authority chain**: Activity plan `T104-PH001-ST008-AC003` authorizes the work (TK004–TK007) → This artifact specifies HOW → Dev-report (TK008) records execution → GATE-002 closes the activity.
+- **Purpose**: This artifact specifies the complete HOW for executing AC003 post-GATE-001 gap resolution work across three active implementation clusters (NOTES package, cross-reference repairs, role/gate wording) covering plan tasks TK004, TK005, and TK006. Cluster D (ADR scripts) is routed to T103 and is not part of the active AC003 path.
+- **Authority chain**: Activity plan `T104-PH001-ST008-AC003` authorizes the active AC003 work (TK004–TK006) → This artifact specifies HOW → Dev-report (TK008) records execution → GATE-002 closes the active AC003 activity.
 - **Audience**: LLM_Developer (primary consumer for execution), LLM_Reviewer (secondary consumer for GATE-002 verification)
 - **This artifact does NOT hold a GDR.** Gate decisions are recorded in the gate-disposition proposals at `AC003/proposal/`.
 
 **Source material**: This specification migrates developer-ready content from:
 - `analysis_T104-PH001-ST008-AC003_implementation-spec.md` v1.1.0 (§III per-gap change specifications) — now informative-only
 - `analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md` v1.0.0 (§II remediation register) — now informative-only
+- `analysis_T104-PH001-ST008-AC003-GATE-001_external-review-reassessment.md` v1.0.0 (current same-gate reassessment review)
+- `proposal_T104-PH001-ST008-AC003-GATE-001_gir-disposition-package.md` v1.3.0 (corrected same-gate proposal package)
+- `snotes_T104-PH001-ST008-AC003-SES004.md` v1.0.0 (same-gate correction session trail)
 
 **Current-state verification requirement**: File versions have shifted since the source analysis was authored (2026-03-17/18). The developer MUST verify current-state evidence (line numbers, quoted text) against live files before applying each change. The gap fix *intent* documented in each SPEC item remains valid.
 
@@ -35,8 +38,9 @@ purpose: 'Developer-ready execution specification for AC003 post-GATE-001 implem
 
 ## II. TASK SCOPE
 
-- **Governing plan tasks**: `TK004` (Cluster A), `TK005` (Cluster B), `TK006` (Cluster C), `TK007` (Cluster D — deferred)
-- **Trigger**: Task complexity — 13 gaps across 4 clusters touching 13+ target files require structured specification beyond plan-step capacity.
+- **Governing plan tasks**: `TK004` (Cluster A), `TK005` (Cluster B), `TK006` (Cluster C)
+- **Out-of-scope routing**: `TK007` (Cluster D) is cancelled from active AC003 scope and routed to T103
+- **Trigger**: Task complexity — 13 gaps with 3 active clusters plus an out-of-scope routed cluster touching 13+ target files require structured specification beyond plan-step capacity.
 - **Deliverable contract**: Updated guidelines, templates, and governance files per the AC003 activity plan Task Register.
 - **Depends On**: `T104-PH001-ST008-AC003-GATE-001` (must record APPROVE or APPROVE WITH CONDITIONS)
 
@@ -275,17 +279,15 @@ purpose: 'Developer-ready execution specification for AC003 post-GATE-001 implem
 
 ---
 
-### Cluster D — ADR Script Path Fixes (TK007) — DEFERRED
-
-#### SPEC-D01 — GAP-002: ADR Helper Script Default Paths
+### Out-of-Scope Note — ADR Script Path Fixes (TK007) Routed to T103
 
 | Field | Detail |
 |:--|:--|
 | Requirement Source | GAP-002 from T104-RES-003 |
 | Target File | `print_t102_adr_005.py`, `print_t102_adr_007.py` |
-| Implementation Detail | **DEFERRED TO T103 (SES002)**. Both ADR helper scripts are deprecated and will be revised under T103 initiative development. No AC003 action. |
+| Implementation Detail | **OUT OF ACTIVE AC003 SCOPE**. ADR helper script work is routed to T103 and is not part of the active AC003 implementation path. |
 | Acceptance Criteria | N/A — no AC003 action. |
-| Status | `deferred_to_T103` |
+| Status | `routed_to_T103` |
 
 ---
 
@@ -298,7 +300,7 @@ purpose: 'Developer-ready execution specification for AC003 post-GATE-001 implem
 | 1 | A — NOTES package | TK004 | Self-contained; highest visibility naming drift; 5 files touched |
 | 2 | B — Cross-refs | TK005 | Largest cluster (6 gaps); touches the most guidelines |
 | 3 | C — Role/gate | TK006 | 1 of 3 gaps pre-resolved; localized changes |
-| — | ~~D — Scripts~~ | ~~TK007~~ | **DEFERRED to T103** |
+| — | ~~D — Scripts~~ | ~~TK007~~ | **Routed to T103; not part of active AC003 scope** |
 
 ### Intra-Cluster Notes
 
@@ -324,8 +326,10 @@ Before applying any SPEC item, the developer MUST:
 | Governing Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/plan_T104-PH001-ST008-AC003.md` |
 | Source Analysis (informative) | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_implementation-spec.md` |
 | Source Remediation Checklist (informative) | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md` |
-| External Review | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_external-review_gate-001-package.md` |
+| Same-Gate Reassessment External Review | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003-GATE-001_external-review-reassessment.md` |
 | GATE-001 Proposal | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/proposal/proposal_T104-PH001-ST008-AC003-GATE-001_gir-disposition-package.md` |
+| SES004 Session Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/snotes/snotes_T104-PH001-ST008-AC003-SES004.md` |
+| Historical External Review | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/analysis/analysis_T104-PH001-ST008-AC003_external-review_gate-001-package.md` |
 | T104-RES-003 Report | `prompt/artifacts/tasks/T104/research/T104-RES-003/report_T104-RES-003_workspace-artifact-integration-analysis.md` |
 | Implementation Guideline | `prompt/templates/consultant/workspace/guideline_workspace_implementation.md` |
 
@@ -335,4 +339,5 @@ Before applying any SPEC item, the developer MUST:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-21 | Amendment | Same-gate reassessment refresh: aligned the implementation spec to the corrected AC003 package, added the new reassessment external review and SES004 to the evidence trail, reduced active scope to TK004-TK006 only, and routed TK007 / GAP-002 to T103 outside the active AC003 path. |
 | v1.0.0 | 2026-03-20 | Initial | IMPLEMENTATION task_specification created for AC003 post-GATE-001 gap resolution. Migrated 13 per-gap change specifications from analysis artifacts into 16 SPEC items across 4 clusters: A (NOTES, 10 items — 3 retracted), B (cross-refs, 6 items), C (role/gate, 3 items — 1 pre-resolved), D (scripts, 1 item — deferred to T103). Source: analysis_T104-PH001-ST008-AC003_implementation-spec.md v1.1.0 + analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md v1.0.0. |
