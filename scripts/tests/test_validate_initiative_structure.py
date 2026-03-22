@@ -111,6 +111,7 @@ def test_allows_phase_level_type_directories(tmp_path: Path) -> None:
     (initiative_root / "workspace/PH000/raw").mkdir(parents=True, exist_ok=True)
     (initiative_root / "workspace/PH000/analysis").mkdir(parents=True, exist_ok=True)
     (initiative_root / "workspace/PH001/snotes").mkdir(parents=True, exist_ok=True)
+    (initiative_root / "workspace/PH001/raw").mkdir(parents=True, exist_ok=True)
     (initiative_root / "workspace/PH001/raw/raw_T104-PH001-SES001.txt").write_text(
         "phase raw",
         encoding="utf-8",
@@ -182,6 +183,39 @@ def test_allows_activity_analysis_and_proposal_directories(tmp_path: Path) -> No
 
     code, output = _run_validate(initiative_root)
     assert code == 0, output
+
+
+def test_allows_activity_implementation_directory_and_prefix(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    (initiative_root / "workspace/PH001/ST001/AC001/implementation").mkdir(parents=True, exist_ok=True)
+    (
+        initiative_root
+        / "workspace/PH001/ST001/AC001/implementation/implementation_T104-PH001-ST001-AC001_scope.md"
+    ).write_text(
+        "implementation",
+        encoding="utf-8",
+    )
+
+    code, output = _run_validate(initiative_root)
+    assert code == 0, output
+
+
+def test_flags_implementation_prefix_when_misplaced_under_wrong_activity_type_directory(tmp_path: Path) -> None:
+    initiative_root = _create_base_initiative(tmp_path)
+    _add_minimal_ssot(initiative_root)
+    (initiative_root / "workspace/PH001/ST001/AC001/analysis").mkdir(parents=True, exist_ok=True)
+    (
+        initiative_root
+        / "workspace/PH001/ST001/AC001/analysis/implementation_T104-PH001-ST001-AC001_scope.md"
+    ).write_text(
+        "misplaced implementation",
+        encoding="utf-8",
+    )
+
+    code, output = _run_validate(initiative_root)
+    assert code == 1
+    assert "expected `implementation/` for `implementation_`" in output
 
 
 def test_allows_dotted_sub_activity_directories(tmp_path: Path) -> None:

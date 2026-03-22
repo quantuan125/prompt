@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'verification_authoring'
-version: '1.9.0'
-date: '2026-03-20'
+version: '1.10.0'
+date: '2026-03-22'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -62,7 +62,7 @@ Verification follows a "TK-before-gate" pattern:
 - Frontmatter linking: Primary lists supplementary paths; supplementary references primary via `primary_verification` frontmatter key.
 - The primary artifact contains the Gate Recommendation section. Supplementary artifacts contain aspect-specific findings that feed into the primary recommendation.
 - When to decompose: When a gate review covers multiple independent verification dimensions (e.g., technical correctness + convention compliance + commissioning readiness).
-- **Revision checklist use case**: When a `RECYCLE` verdict involves complex Situation A deficiencies where the primary verification's findings alone do not provide sufficient developer-actionable detail for rework execution, the reviewer SHOULD produce a supplementary verification file with aspect `revision-checklist` (e.g., `verification_<activity-UID>_gate-###_revision-checklist.md`). This supplementary file translates verification findings into developer-executable revision specifications.
+- **Revision checklist use case**: Existing `revision-checklist` supplementary files remain valid historical artifacts, and reviewers MAY still use a supplementary verification file with aspect `revision-checklist` for bounded checklist-style elaboration when no separate remediation specification is required. For new complex `RECYCLE` cases that require a developer-executable remediation plan, reviewers SHOULD route the detailed handoff through an `IMPLEMENTATION remediation_specification` instead.
 
 
 ### B. Re-assessment (Temporal Iteration)
@@ -144,10 +144,10 @@ Each `OBS-###` MUST include: Description, Context, Recommendation (optional).
 3. **Handoff rule**: The verification artifact's findings register IS the rework handoff. No plan amendment required. No additional artifact needed. The developer reads the finding, understands the required action, and performs rework under the same task ID.
 
 **Complex revision guidance**: When findings involve multiple deliverable deficiencies with specific format or schema requirements (e.g., missing matrices with defined column structures, missing lifecycle models with paired outputs), the findings register alone may not provide sufficient implementation detail. In such cases:
-- The reviewer SHOULD produce a **supplementary verification file** (per §IV.A, aspect: `revision-checklist`) that translates each blocking finding into explicit revision items.
-- Each revision item MUST include: (1) finding reference (link to FINDING-### in primary verification), (2) revision deliverable (what the developer must produce), (3) expected format (exact schema, columns, or structure — derived from the governing brief, plan, or standard), and (4) acceptance criteria (what the reviewer will check during re-assessment).
-- The supplementary file is a scope decomposition artifact (§IV.A), NOT a re-assessment artifact (§IV.B). It is authored once alongside the primary verification and updated during re-assessment only to track resolution status.
-- The primary verification remains the gate evidence and verdict surface. The supplementary revision checklist is a developer handoff surface.
+- The reviewer SHOULD trigger an `IMPLEMENTATION remediation_specification` authored per `guideline_workspace_implementation.md` to carry the developer-executable HOW for the remediation cycle.
+- Existing or already-authored `revision-checklist` supplementary files remain grandfathered and MAY continue to be used where they already exist.
+- A new supplementary `revision-checklist` MAY still be used as a bounded supporting checklist, but it is no longer the preferred primary handoff surface for new complex remediation planning.
+- The primary verification remains the gate evidence and verdict surface. The remediation specification becomes the detailed developer handoff surface for the new complex cycle.
 
 
 ### B. Situation B — Scope Gap
@@ -259,6 +259,7 @@ The verification artifact's role at a gate is to provide evidence and a reviewer
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.10.0 | 2026-03-22 | Amendment | Updated complex `RECYCLE` guidance so new complex remediation planning routes primarily through `IMPLEMENTATION remediation_specification` while grandfathering existing `revision-checklist` files and preserving limited checklist-style supplementary use. Source: T104-PH001-ST008-AC001.6-GATE-001 GIR-001. |
 | v1.9.0 | 2026-03-20 | Amendment | §VII: Added scope note clarifying that Situations A and B cover internal rework paths only; external baseline changes are not verification findings and must be escalated to the plan level for impact classification per `guideline_workspace_plan.md` §VI.M. No Situation C added — consistent with GATE-001-approved recommendation (GIR-007) that external impacts are handled at the plan/proposal governance layer, not the verification layer. Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
 | v1.8.0 | 2026-03-20 | Amendment | §VIII.B: Updated Client Decision definitions to remove reviewer-verdict coupling (e.g., "Accept PASS verdict" → "Accept gate outcomes"). Override rule now references consultant recommendation instead of reviewer verdict. §X: Expanded GDR cross-reference to document the three-signal model (reviewer verdict in verification, consultant recommendation in GDR, client decision in GDR). Clarified that the reviewer verdict is NOT duplicated into the GDR. Source: T104-PH001-ST008-AC001.5. |
 | v1.7.0 | 2026-03-16 | Amendment | Clarified that VERIFICATION applies only to implementation-backed gates after developer work and DEV-REPORT handoff. Consultation-only gates now explicitly use `ANALYSIS` + `PROPOSAL` instead of `VERIFICATION`. Source: P-PH000-ST002-AC002 Gate 001 consultation. |

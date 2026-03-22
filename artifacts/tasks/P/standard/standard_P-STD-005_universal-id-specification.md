@@ -104,6 +104,8 @@
      | `IID` | `IG` | **Implementation Guidance** | I, E, F | Informative how-to guidance: patterns, templates, and examples. MUST NOT introduce new obligations. Not a substitute for system requirements. |
      | `IID` | `INT` | **Integration Guidance** | I, E, F, S | Non-normative integration and cross-scope coordination guidance for external audiences; MUST NOT introduce new obligations. |
      | `OID` | `NOTE` | **Note** | I, E, F, S | Non-normative context; do not use for obligations. |
+
+     *Clarification*: The `IID` / `IG` token category (`Implementation Guidance`) is distinct from the workspace `IMPLEMENTATION` artifact family governed by `guideline_workspace_implementation.md` and `P-STD-004`. Shared English terminology does not imply shared artifact-family semantics.
      | `OID` | `ISSUE` | **Issue** | I, E, F | Known gap requiring resolution. |
      | `OID` | `RISK` | **Risk** | I, E, F | Potential negative event requiring mitigation. |
 
@@ -464,6 +466,7 @@
 - `T104-PH001-ST000-SES001 (Planning & Consultation QA Session)` — Inputs: Stable UIDs, Phases, LINK indirection
 - `T104-PH001-ST002 (Standards Stream Plan)` — Input: Timeline UID scope
 - `T104-PH001-ST002-AC000 (Directory & File Naming Convention Proposal)` — Approved naming convention
+- `T104-PH001-ST008-AC001.6-GATE-001` — Clarification input distinguishing `IID-IG` token semantics from the workspace `IMPLEMENTATION` artifact family
 
 ### Hardening
 - Activity: `P-PH000-ST001-AC007 (Harden P-STD-005)`

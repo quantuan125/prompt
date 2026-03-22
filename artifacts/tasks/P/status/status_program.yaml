@@ -1,0 +1,59 @@
+# Program Status Ledger — P (PROGRAM)
+# Canonical YAML ledger per P-STD-002E CLAUSE-046.
+# Authority: P-STD-002 v1.2.0 | Placement: P-STD-004 CLAUSE-047
+# This file is AUTHORITATIVE. The derived narrative (status_program.md) must not contradict it.
+#
+# GIR-003(a) field inclusion/exclusion:
+#   EXCLUDED: CLAUSE-024 (schedule_relation, lag) — no schedule data in plans
+#   EXCLUDED: CLAUSE-028 (platform, run_id, etc.) — no CI/CD integration
+#   INCLUDED: CLAUSE-051 (execution_refs[]) — low-cost audit alignment
+#   EXCLUDED: CLAUSE-053 (approval_policy, sandbox_mode) — no execution posture metadata
+#
+# Dependency edge sub-schema (CLAUSE-019) — reference for populating dependencies[] in AC003:
+#   - from_id: "<upstream scope_uid>"
+#     to_id: "<downstream scope_uid>"
+#     relationship: "<depends_on|blocks>"
+#     category: "<internal|external>"
+#     criticality: "<critical|near_critical|non_critical>"
+#     owner: "<resolution owner>"
+#     status: "<open|at_risk|resolved>"
+#     evidence: []
+#
+# Evidence pointer sub-schema (CLAUSE-030) — reference for populating evidence[] in AC003:
+#   - type: "<note|pr|build|test_result|decision|session|sign_off|check|workflow_run|execution_trace>"
+#     ref: "<repo-relative path, stable ID, or URL>"
+#     date: "YYYY-MM-DD"
+#     by: "<actor identifier>"
+#     summary: "<1-line description>"
+
+schema_version: "1.0"
+program_id: "P"
+as_of: "<YYYY-MM-DD>"
+updated_by: "<actor>"
+last_updated: "<YYYY-MM-DD>"
+
+entries:
+  # Example placeholder entry — demonstrates schema structure.
+  # All value fields remain as placeholders. AC003 populates real entries.
+  - scope_uid: "<P-PH000-ST001-AC003>"
+    scope_type: "<activity>"
+    initiative_id: "<P>"
+    name: "<human-readable activity name>"
+    status: "<planned|ready|in_progress|blocked|on_hold|deferred|completed|cancelled>"
+    as_of: "<YYYY-MM-DD>"
+    updated_by: "<actor>"
+    last_updated: "<YYYY-MM-DD>"
+    health:
+      overall: "<green|amber|red|unassessed>"
+      dimensions:
+        time: "<green|amber|red|unassessed>"
+        cost: "<green|amber|red|unassessed>"
+        scope: "<green|amber|red|unassessed>"
+        quality: "<green|amber|red|unassessed>"
+        risk: "<green|amber|red|unassessed>"
+        benefits: "<green|amber|red|unassessed>"
+    dependencies: []
+    evidence: []
+    aggregation_policy: ~
+    execution_refs: []
+    extensions: {}

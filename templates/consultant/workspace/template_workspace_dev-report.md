@@ -7,6 +7,7 @@ stream_id: '[UID]'
 activity_id: '[UID]'
 task_id: '[<TASK-UID> | <TASK-UID>..<GATE-ID>]'
 source_plan: '[repo-relative path to governing plan]'
+implementation_reference: '[repo-relative path to governing IMPLEMENTATION artifact, if applicable]'
 version: '1.0.0'
 date: 'YYYY-MM-DD'
 status: 'draft'
@@ -80,7 +81,7 @@ Resulting posture:
 
 | Work Item | Deliverable | Status | Reference |
 |:--|:--|:--|:--|
-| `[TASK/GATE ID]` | `[deliverable/evidence]` | `[completed/in_progress/etc.]` | `[path or artifact reference]` |
+| `[TASK/GATE ID or SPEC-###]` | `[deliverable/evidence]` | `[completed/in_progress/etc.]` | `[path or artifact reference]` |
 
 ## 5. HANDOFF
 

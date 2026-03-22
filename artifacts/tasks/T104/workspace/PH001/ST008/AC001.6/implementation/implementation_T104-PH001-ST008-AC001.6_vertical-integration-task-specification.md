@@ -7,32 +7,43 @@ phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC001.6'
 task_id: 'T104-PH001-ST008-AC001.6-TK001'
-version: '1.0.0'
-date: '2026-03-20'
+version: '1.1.0'
+date: '2026-03-22'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/plan_T104-PH001-ST008-AC001.6.md'
-purpose: 'Detailed execution specification for T104-PH001-ST008-AC001.6: IMPLEMENTATION Family Vertical Integration & Program-Authority Codification'
+purpose: 'Preliminary vertical integration execution specification retained for AC001.6 lineage; downstream commissioning authority is superseded by later gate-specific and horizontal implementation artifacts.'
 ---
 
-# IMPLEMENTATION (Task Specification): T104-PH001-ST008-AC001.6 Vertical Integration Execution Specification
+# IMPLEMENTATION (Task Specification): AC001.6 Phase 1 Vertical Integration Execution Specification
 
 ## I. PURPOSE & AUTHORITY
 
-- **Purpose**: This artifact specifies the complete HOW for executing `T104-PH001-ST008-AC001.6`, covering both the consultant-owned Phase 1 (vertical integration audit → GATE-001) and the developer-owned Phase 2 (implementation → GATE-002).
-- **Authority chain**: Activity plan `T104-PH001-ST008-AC001.6` authorizes the work → this artifact specifies HOW → dev-report records execution → GATE-002 closes the activity.
-- **Audience**: LLM_Consultant (Phase 1), LLM_Developer (Phase 2), LLM_Reviewer (TK011)
+- **Purpose**: This artifact records the original Phase 1 execution framing for `T104-PH001-ST008-AC001.6`, covering the consultant-owned audit and gate-preparation work. The Phase 2 material remains preliminary expected scope only.
+- **Authority chain**: Activity plan `T104-PH001-ST008-AC001.6` authorizes the work. This artifact is now a preliminary/context surface only. Downstream execution authority is governed by the finalized `GATE-001` proposal/GDR plus the later package-specific implementation artifacts (`TK003.4`, `TK003.5`, and the horizontal-development task specification).
+- **Audience**: LLM_Consultant (Phase 1), LLM_Developer (Phase 2 only after GATE-001 and the later implementation specs), LLM_Reviewer (TK011)
 - **This artifact does NOT hold a GDR.** Gate decisions are recorded in the gate-disposition proposals at `AC001.6/proposal/`.
 - **Trigger**: Task complexity (TK002 multi-dimension audit + two-gate structure) exceeds plan-step capacity.
+
+### Preliminary Authority Notice
+
+- This artifact remains valid as historical planning context for the original AC001.6 framing.
+- It is **not** the authoritative downstream commissioning surface after SES002-SES003, the external review, and the `TK003.4` / `TK003.5` package-normalization loop.
+- When Phase 2 developer work is commissioned, the authoritative scope must be taken from:
+  - the finalized `GATE-001` proposal/GDR,
+  - `implementation_T104-PH001-ST008-AC001.6_gate-001-to-gate-002-orchestration-plan.md`,
+  - `implementation_T104-PH001-ST008-AC001.6_horizontal-development-task-specification.md`,
+  - the activity plan task register dependencies as normalized after remediation.
+- Any conflict between this artifact and those later surfaces must be resolved in favor of the later surfaces.
 
 ---
 
 ## II. TASK SCOPE
 
-- **Governing plan task**: `T104-PH001-ST008-AC001.6-TK001` (Activity plan creation — this spec feeds TK001 and all downstream tasks)
+- **Governing plan task**: `T104-PH001-ST008-AC001.6-TK001` (Activity plan creation - this spec feeds the Phase 1 authority surface and downstream package-preparation tasks)
 - **Trigger**: AC001.3 GATE-002 closed with horizontal IMPLEMENTATION family delivery; full vertical integration and program-authority codification remain incomplete.
-- **Deliverable contract**: See AC001.6 activity plan Task Register (TK001–GATE-002)
+- **Deliverable contract**: See AC001.6 activity plan Task Register (TK001-TK003.5 and later gate-backed tasks), but treat this file as context-only for downstream commissioning once GATE-001 is normalized
 - **Depends On**: `T104-PH001-ST008-AC001.3` (completed, GATE-002 approved 2026-03-20)
 
 ---
@@ -178,9 +189,11 @@ For each found artifact, check:
 
 ---
 
-## V. SPECIFICATION ITEMS — PHASE 2: DEVELOPER-OWNED → GATE-002
+## V. SPECIFICATION ITEMS — PHASE 2: EXPECTED DEVELOPER-OWNED FOLLOW-ON
 
-**Important**: Phase 2 tasks are determined by GATE-001 approved findings. The specs below reflect the **preliminary expected scope** based on research conducted in SES001. Executing assistant MUST verify against the approved GATE-001 GIR items before beginning any Phase 2 task.
+**Important**: Phase 2 tasks are determined by finalized `GATE-001` approval and later normalization artifacts. The specs below remain a **preliminary expected scope** based on SES001-era research only. Executing assistants MUST treat them as context unless the scope is reaffirmed by the normalized plan, the finalized `GATE-001` proposal/GDR, and the later AC001.6 implementation artifacts.
+
+These items are not the final authority surface for developer execution. They are retained as expected follow-on slices until the gate-backed implementation specs and plan dependencies confirm them.
 
 ### SPEC-005 — Implement Verification Guideline Changes (TK004)
 
@@ -366,4 +379,5 @@ Phase 2 (Developer-owned, scope confirmed by GATE-001)
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-22 | Amendment | Reclassified this artifact as preliminary/context-only for downstream commissioning after the TK003.4/TK003.5 normalization loop. Added an explicit authority notice directing executors to the finalized GATE-001 package, orchestration plan, horizontal-development task specification, and normalized plan as the authoritative downstream surfaces. |
 | v1.0.0 | 2026-03-20 | Initial | Task specification for AC001.6 full execution. Covers Phase 1 (consultant-owned vertical integration audit → GATE-001, SPEC-001 through SPEC-004) and Phase 2 (developer-owned implementation → GATE-002, SPEC-005 through SPEC-014). Source: SES001 consultation decisions. |

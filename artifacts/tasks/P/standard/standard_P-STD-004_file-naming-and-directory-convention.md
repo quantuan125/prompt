@@ -61,7 +61,7 @@
 
    * **P-STD-004-CLAUSE-003C (Stream-level type subdirectories)** — Stream-level type subdirectories MUST be limited to: `raw/`, `snotes/`, `proposal/`, `analysis/`, `communication/`.
 
-   * **P-STD-004-CLAUSE-003D (Activity-level type subdirectories)** — Activity-level type subdirectories MUST be limited to: `snotes/`, `raw/`, `verification/`, `dev-report/`, `proposal/`, `analysis/`.
+   * **P-STD-004-CLAUSE-003D (Activity-level type subdirectories)** — Activity-level type subdirectories MUST be limited to: `snotes/`, `raw/`, `verification/`, `dev-report/`, `proposal/`, `analysis/`, `implementation/`.
 
    * **P-STD-004-CLAUSE-003E (AC directory trigger rule)** — An activity-scope directory matching the narrowest `AC` token used by associated live files MUST exist; UID identity is the sole trigger (file-count heuristics MUST NOT be used). Undotted activity scope uses `AC###/`; standalone sub-activity scope uses `AC###.N/`.
 
@@ -179,6 +179,7 @@
      | Developer report | `dev-report_` | `dev-report_<activity-UID>_<kebab-topic>_<date>.md` (date = `YYYY-MM-DD`) |
      | Proposal | `proposal_` | `proposal_<scope-UID>_<kebab-topic>.md` |
      | Analysis | `analysis_` | `analysis_<scope-UID>_<kebab-topic>.md` |
+     | Implementation | `implementation_` | `implementation_<scope-UID>_<kebab-topic>.md` |
      | Communication | `comm_` | `comm_<scope-UID>_<kebab-topic>.md` |
      | Research brief | `brief_` | `brief_<RES-ID>_<kebab-topic>.md` |
      | Research report | `report_` | `report_<RES-ID>_<kebab-topic>.md` |
@@ -275,3 +276,4 @@
 ### Seed Decision Inputs
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/snotes/snotes_P-PH000-ST001-AC004-SES001.md`
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES006.md`
+- `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/proposal/proposal_T104-PH001-ST008-AC001.6-GATE-001_gir-disposition-package.md`

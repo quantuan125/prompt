@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'dev-report_authoring'
-version: '1.2.0'
-date: '2026-03-16'
+version: '1.3.0'
+date: '2026-03-22'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -97,6 +97,7 @@ When applicable, include:
 - `activity_id`
 - `task_id`
 - `scope`
+- `implementation_reference`
 
 ### C. Bounded optional keys
 
@@ -156,6 +157,8 @@ Expected non-zero exits are allowed only when explicitly labeled as expected and
 ### D. Traceability Matrix
 
 Every DEV-REPORT artifact MUST include a traceability matrix that maps each task/gate in scope to its produced deliverable or evidence surface.
+
+When the execution slice is governed by an IMPLEMENTATION artifact, the Traceability Matrix SHOULD map the produced deliverables back to the relevant SPEC item IDs where practical.
 
 ### E. Handoff
 
@@ -223,6 +226,7 @@ DEV-REPORT uses a date suffix by design. The dated filename does not replace the
 ### A. Plan linkage
 
 - DEV-REPORT artifacts MUST reference the governing `source_plan`.
+- When an IMPLEMENTATION artifact governs the execution slice, the DEV-REPORT SHOULD include `implementation_reference` pointing to that specification surface.
 - Task and gate references inside the report MUST use fully qualified IDs or explicit repo-relative artifact paths.
 - The plan task register `Action` column remains the concise execution record; the DEV-REPORT is the fuller producer evidence surface.
 
@@ -256,6 +260,7 @@ DEV-REPORT uses a date suffix by design. The dated filename does not replace the
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.3.0 | 2026-03-22 | Amendment | Added `implementation_reference` as a recommended frontmatter key for IMPLEMENTATION-governed execution slices and clarified that the Traceability Matrix SHOULD map deliverables back to SPEC item IDs where practical. Source: T104-PH001-ST008-AC001.6-GATE-001 GIR-002 and GIR-010. |
 | v1.2.0 | 2026-03-16 | Amendment | Clarified that DEV-REPORT is required only for implementation-backed gates reviewing developer-mutated deliverables. Consultation-only gates now explicitly omit DEV-REPORT. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
 | v1.1.0 | 2026-03-15 | Amendment | §III.D: Added Gate-Readiness Stack cross-reference to `guideline_workspace_plan.md` §VI.L for plan-level positioning of DEV-REPORT tasks in the pre-gate sequence. Source: T104-PH001-ST008-AC001.2. |
 | v1.0.0 | 2026-03-13 | Initial | Draft 1 DEV-REPORT authoring guideline for AC006. Encodes approved GIR decisions for trigger boundary, frontmatter baseline, required sections, validation evidence posture, traceability/handoff rules, naming/placement, and session-notes boundary. |

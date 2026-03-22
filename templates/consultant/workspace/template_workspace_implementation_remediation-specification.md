@@ -42,10 +42,14 @@ purpose: '{{PURPOSE}}'
 | Field | Detail |
 |:--|:--|
 | Finding Reference | [FINDING-### from verification] |
-| Implementation Detail | [detailed HOW] |
+| Revision Deliverable | [what must be produced or changed] |
 | Expected Format | [schema, structure, output format] |
 | Acceptance Criteria | [what reviewer checks during re-assessment] |
 | Resolution Status | `open` / `resolved` |
+
+#### Implementation Detail
+
+[detailed HOW]
 
 [Repeat for each remediation item]
 

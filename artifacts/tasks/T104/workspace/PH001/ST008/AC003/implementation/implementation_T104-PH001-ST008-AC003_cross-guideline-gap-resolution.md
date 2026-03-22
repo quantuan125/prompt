@@ -6,9 +6,12 @@ initiative_code: 'CWS'
 phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC003'
-task_id: 'T104-PH001-ST008-AC003-TK004'
-version: '1.1.0'
-date: '2026-03-21'
+task_ids:
+  - 'T104-PH001-ST008-AC003-TK004'
+  - 'T104-PH001-ST008-AC003-TK005'
+  - 'T104-PH001-ST008-AC003-TK006'
+version: '1.2.0'
+date: '2026-03-22'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -339,5 +342,6 @@ Before applying any SPEC item, the developer MUST:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-22 | Maintenance | Frontmatter: replaced single task_id with task_ids YAML array covering TK004, TK005, TK006 to reflect actual multi-task scope. Source: Pre-GATE-001 remediation pass. |
 | v1.1.0 | 2026-03-21 | Amendment | Same-gate reassessment refresh: aligned the implementation spec to the corrected AC003 package, added the new reassessment external review and SES004 to the evidence trail, reduced active scope to TK004-TK006 only, and routed TK007 / GAP-002 to T103 outside the active AC003 path. |
 | v1.0.0 | 2026-03-20 | Initial | IMPLEMENTATION task_specification created for AC003 post-GATE-001 gap resolution. Migrated 13 per-gap change specifications from analysis artifacts into 16 SPEC items across 4 clusters: A (NOTES, 10 items — 3 retracted), B (cross-refs, 6 items), C (role/gate, 3 items — 1 pre-resolved), D (scripts, 1 item — deferred to T103). Source: analysis_T104-PH001-ST008-AC003_implementation-spec.md v1.1.0 + analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md v1.0.0. |

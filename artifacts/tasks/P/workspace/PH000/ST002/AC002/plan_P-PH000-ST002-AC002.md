@@ -6,9 +6,9 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC002'
-version: '1.5.0'
-date: '2026-03-21'
-status: 'draft'
+version: '1.7.0'
+date: '2026-03-22'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
@@ -49,14 +49,14 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 | TK001.5 | `P-PH000-ST002-AC002-TK001.5` | Rebaseline implementation requirements analysis to P-STD-002 v1.2.0 | `completed` | LLM_Consultant | GATE-001 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-implementation-requirements.md` | P-STD-002; current-state assessment | Requirements analysis updated to the 8-state lifecycle model and current gate checklist. |
 | TK001.6 | `P-PH000-ST002-AC002-TK001.6` | Refresh Gate-001 reassessment external review | `completed` | LLM_Consultant | GATE-001, TK001.4, TK001.5 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md` | Analysis guideline (`external_review`) | External review now assesses the remediated recycle package and references the new latest assessment. |
 | TK001.7 | `P-PH000-ST002-AC002-TK001.7` | Refresh Gate-001 gate-disposition proposal and record recycle GDR | `completed` | LLM_Consultant | GATE-001, TK001.4, TK001.6 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md` | Proposal guideline §VII | Proposal frontmatter, package indexes, recommendation posture, and GDR updated for same-gate recycle. |
-| GATE-002 | `P-PH000-ST002-AC002-GATE-002` | Design Decision Approval (v1.2.0 baseline) | `planned` | Client | TK001.7 | GDR in gate_disposition proposal (to be authored) | Plan guideline §VI.M, §VI.L | Successor gate to superseded GATE-001. Entry criteria reference P-STD-002 v1.2.0 baseline. |
-| TK002 | `P-PH000-ST002-AC002-TK002` | Author ledger skeleton | `planned` | LLM_Developer | GATE-002 | `prompt/artifacts/tasks/P/status/status_program.yaml` | Analysis §V.C | — |
-| TK003 | `P-PH000-ST002-AC002-TK003` | Author narrative template | `planned` | LLM_Developer | GATE-002 | `prompt/artifacts/tasks/P/status/status_program.md` | Analysis §V.D | — |
-| TK004 | `P-PH000-ST002-AC002-TK004` | Validate P-STD-002E conformance | `planned` | LLM_Developer | TK002, TK003 | Conformance validation report | Analysis §V.G | — |
-| TK005 | `P-PH000-ST002-AC002-TK005` | Produce DEV-REPORT for TK002–TK004 | `planned` | LLM_Developer | TK002, TK003, TK004 | `dev-report/` | `guideline_workspace_dev-report.md` | — |
-| TK006 | `P-PH000-ST002-AC002-TK006` | Produce GATE-003 verification | `planned` | LLM_Reviewer | TK005 | `verification/` | `guideline_workspace_verification.md` | — |
-| TK007 | `P-PH000-ST002-AC002-TK007` | Produce GATE-003 gate-disposition proposal | `planned` | LLM_Consultant | TK006 | `proposal/` | `guideline_workspace_proposal.md` | — |
-| GATE-003 | `P-PH000-ST002-AC002-GATE-003` | Client acceptance of artifact set skeleton | `planned` | Client | TK007 | GDR in gate_disposition proposal | — | — |
+| GATE-002 | `P-PH000-ST002-AC002-GATE-002` | Design Decision Approval (v1.2.0 baseline) | `completed` | Client | TK001.7 | GDR in gate_disposition proposal | Plan guideline §VI.M, §VI.L | Client Decision: APPROVE (2026-03-22). All GIR items approved Option (a). |
+| TK002 | `P-PH000-ST002-AC002-TK002` | Author ledger skeleton | `completed` | LLM_Developer | GATE-002 | `prompt/artifacts/tasks/P/status/status_program.yaml` | Analysis §V.C | Ledger skeleton authored per SPEC-001. |
+| TK003 | `P-PH000-ST002-AC002-TK003` | Author narrative template | `completed` | LLM_Developer | GATE-002 | `prompt/artifacts/tasks/P/status/status_program.md` | Analysis §V.D | Narrative template authored per SPEC-002. |
+| TK004 | `P-PH000-ST002-AC002-TK004` | Validate P-STD-002E conformance | `completed` | LLM_Developer | TK002, TK003 | Conformance validation in DEV-REPORT §3 | Analysis §V.G | 8/8 checklist items PASS. |
+| TK005 | `P-PH000-ST002-AC002-TK005` | Produce DEV-REPORT for TK002–TK004 | `completed` | LLM_Developer | TK002, TK003, TK004 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/dev-report/dev-report_P-PH000-ST002-AC002_TK002-TK004.md` | `guideline_workspace_dev-report.md` | Grouped task range DEV-REPORT authored. |
+| TK006 | `P-PH000-ST002-AC002-TK006` | Produce GATE-003 verification | `completed` | LLM_Reviewer | TK005 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/verification/verification_P-PH000-ST002-AC002_gate-003.md` | `guideline_workspace_verification.md` | 28/28 checks PASS, 0 findings, verdict: PASS. |
+| TK007 | `P-PH000-ST002-AC002-TK007` | Produce GATE-003 gate-disposition proposal | `completed` | LLM_Consultant | TK006 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-003_implementation-acceptance-disposition.md` | `guideline_workspace_proposal.md` | Consultant Recommendation: APPROVE. |
+| GATE-003 | `P-PH000-ST002-AC002-GATE-003` | Client acceptance of artifact set skeleton | `completed` | Client | TK007 | GDR in gate_disposition proposal | Plan guideline §VI.L | Client Decision: APPROVE (2026-03-22). AC002 complete; AC003 unblocked. |
 
 ## III. TASKS (DETAILED)
 
@@ -153,7 +153,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 **Exit Criteria**: GDR in the gate-disposition proposal records `Client Decision: APPROVE` or `APPROVE WITH CONDITIONS`
 
-**Gate-Disposition Proposal**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-002_design-decision-disposition.md` (to be authored)
+**Gate-Disposition Proposal**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-002_design-decision-disposition.md`
 
 **Depends On**: TK001.7 (all v1.2.0 remediation work complete)
 
@@ -241,11 +241,11 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 - `prompt/artifacts/tasks/P/status/status_program.yaml`
 
 **Success Criteria**:
-- [ ] File exists at `prompt/artifacts/tasks/P/status/status_program.yaml`
-- [ ] Entry schema reflects the current 8-state lifecycle model
-- [ ] Extensibility hooks follow `extensions` / `x_` prefix convention
-- [ ] P-STD-004 placement rules satisfied
-- [ ] MVAT fields present
+- [x] File exists at `prompt/artifacts/tasks/P/status/status_program.yaml`
+- [x] Entry schema reflects the current 8-state lifecycle model
+- [x] Extensibility hooks follow `extensions` / `x_` prefix convention
+- [x] P-STD-004 placement rules satisfied
+- [x] MVAT fields present
 
 **Implementation Specification**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/implementation/implementation_P-PH000-ST002-AC002_task-specification.md` (SPEC-001)
 
@@ -259,10 +259,10 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 - `prompt/artifacts/tasks/P/status/status_program.md`
 
 **Success Criteria**:
-- [ ] All 8 sections present
-- [ ] Operational Update Protocol reflects the current trigger set, including deferral handling
-- [ ] Authority hierarchy, update sequence, and drift prevention contract are stated
-- [ ] P-STD-004 placement rules satisfied
+- [x] All 8 sections present
+- [x] Operational Update Protocol reflects the current trigger set, including deferral handling
+- [x] Authority hierarchy, update sequence, and drift prevention contract are stated
+- [x] P-STD-004 placement rules satisfied
 
 **Implementation Specification**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/implementation/implementation_P-PH000-ST002-AC002_task-specification.md` (SPEC-002)
 
@@ -276,9 +276,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 - Conformance validation results
 
 **Success Criteria**:
-- [ ] All structural conformance criteria evaluated
-- [ ] Results documented with evidence
-- [ ] Any failures identified with remediation guidance
+- [x] All structural conformance criteria evaluated
+- [x] Results documented with evidence
+- [x] Any failures identified with remediation guidance
 
 **Implementation Specification**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/implementation/implementation_P-PH000-ST002-AC002_task-specification.md` (SPEC-003)
 
@@ -303,7 +303,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 **Exit Criteria**: GDR records `Client Decision: APPROVE` or `APPROVE WITH CONDITIONS`
 
-**Gate-Disposition Proposal**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-003_implementation-acceptance-disposition.md` (to be authored)
+**Gate-Disposition Proposal**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-003_implementation-acceptance-disposition.md`
 
 **Downstream enforcement**: AC003 (`P-PH000-ST002-AC003`) MUST NOT begin until GATE-003 GDR records an approving client decision.
 
@@ -317,7 +317,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 | Analysis | Implementation Requirements | `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-implementation-requirements.md` |
 | Analysis | Reassessment External Review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md` |
 | Proposal | GATE-001 Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-001_design-decision-disposition.md` |
-| Proposal | GATE-002 Disposition (to be authored) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-002_design-decision-disposition.md` |
+| Proposal | GATE-002 Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-002_design-decision-disposition.md` |
+| Proposal | GATE-003 Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/proposal/proposal_P-PH000-ST002-AC002-GATE-003_implementation-acceptance-disposition.md` |
+| Analysis | GATE-003 External Review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-003_external-review.md` |
 | Analysis (superseded) | Prior Implementation Recommendations Review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002_implementation-recommendations-review.md` | superseded — v1.1.0 baseline; succeeded by reassessment external review |
 | Governance Authority | T104-PH001-ST008-AC001.4 Activity Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/plan_T104-PH001-ST008-AC001.4.md` |
 | Application Guidance | AC002 Retroactive Application Guidance | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.4/analysis/analysis_T104-PH001-ST008-AC001.4_retroactive-ac002-application-guidance.md` | superseded annotation |
@@ -333,6 +335,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.7.0 | 2026-03-22 | Amendment | GATE-003 closed with Client Decision: APPROVE (2026-03-22). AC002 complete. Task register GATE-003 row updated to `completed`. TK002/TK003/TK004 success criteria checkboxes checked. Stale "to be authored" references resolved in GATE-002 section, GATE-003 section, and Links Register. GATE-003 proposal and external review added to Links Register. Plan status set to `completed`. Source: AC002 SES003 GATE-003 client approval + post-gate housekeeping per external review GAP-001. |
+| v1.6.0 | 2026-03-22 | Amendment | GATE-002 closed with Client Decision: APPROVE (2026-03-22). All GIR items (GIR-001(a), GIR-002(a), GIR-003(a)) approved. TK002–TK004 unblocked for developer execution. Source: AC002 SES003. |
 | v1.5.0 | 2026-03-21 | Amendment | Added GATE-003 readiness stack (TK005 DEV-REPORT, TK006 Verification, TK007 gate-disposition proposal) per guideline_workspace_plan.md §VI.L. Added Gate-Disposition Proposal field to GATE-003 per §VI.C. Added Implementation Specification references to TK002/TK003/TK004 per CONV-011. Added implementation artifacts to Links Register. Source: GATE-002 session review. |
 | v1.4.0 | 2026-03-20 | Amendment | Retroactive gate supersession per T104-PH001-ST008-AC001.4-GATE-001 approved governance model. GATE-001 closed with `SUPERSEDE` (external decision-boundary change — P-STD-002 v1.2.0). GATE-002 created as design decision approval gate for v1.2.0 baseline. Previous GATE-002 (implementation acceptance) renumbered to GATE-003. All Depends On references updated. Recycle Re-entry Block replaced by Supersession Block. Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
 | v1.3.0 | 2026-03-19 | Amendment | Added the AC001.4 hold annotation to the recycle re-entry block and carried the plan-amendment trail into the AC002 session note. |

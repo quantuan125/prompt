@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '3.2.0'
-date: '2026-03-20'
+version: '3.3.0'
+date: '2026-03-22'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -147,7 +147,7 @@ Note: `superseded` is distinct from `cancelled` (deliberate early termination) a
 The workspace artifact suite follows two canonical workflow variants depending on whether the gate reviews developer-mutated deliverables or consultant-owned decision-preparation artifacts.
 
 Implementation-backed:
-`ROADMAP → PLAN → NOTES / ANALYSIS → [IMPLEMENTATION task_specification where needed] → implementation deliverables → DEV-REPORT → VERIFICATION → [IMPLEMENTATION remediation_specification where RECYCLE] → PROPOSAL (GDR where applicable) → SPS / downstream approved artifacts`
+`ROADMAP → PLAN → NOTES / ANALYSIS → [IMPLEMENTATION task_specification where needed] → implementation deliverables → DEV-REPORT → VERIFICATION → [IMPLEMENTATION remediation_specification where RECYCLE] → remediation deliverables → DEV-REPORT → VERIFICATION (re-assessment) → PROPOSAL (GDR where applicable) → SPS / downstream approved artifacts`
 
 Consultation-only:
 `ROADMAP → PLAN → NOTES / ANALYSIS → PROPOSAL (GDR where applicable) → downstream approved artifacts`
@@ -164,6 +164,7 @@ Rules:
 - `ROADMAP` sets direction. `PLAN` establishes executable work authority.
 - `NOTES`, `ANALYSIS`, and `DEV-REPORT` are working artifacts that capture session state, synthesis, and implementation evidence respectively. They feed downstream artifacts but do not close gates.
 - `IMPLEMENTATION` provides detailed specification depth between plan task authority and developer execution. It does not hold work authority (PLAN) or decision authority (PROPOSAL GDR).
+- For governed work where an IMPLEMENTATION artifact exists, that artifact is the canonical execution-specification surface. Legacy `.claude/plans/` usage is ad hoc only and is not a co-equal governed authority surface.
 - `VERIFICATION` produces independent reviewer evidence and a reviewer verdict for implementation-backed gates only. The reviewer verdict is recorded only in the verification artifact.
 - `PROPOSAL` packages decisions and hosts the authoritative Gate Decision Record (GDR) for `gate_disposition` proposals. The GDR carries the consultant's recommendation (advisory) and the client's decision (authoritative). The reviewer verdict is not duplicated into the GDR.
 - Approved proposal decisions update plan status surfaces and unblock downstream work.
@@ -184,6 +185,10 @@ The workflow chain is encoded at the plan level through the **Gate-Readiness Sta
 | `VERIFICATION` holds reviewer verdict and findings; it does not host the GDR. The reviewer verdict is not duplicated into the GDR | Initiative-level |
 | `PROPOSAL` hosts the authoritative GDR containing the consultant recommendation (advisory) and client decision (authoritative) for `gate_disposition` proposals | Initiative-level |
 | `IMPLEMENTATION` provides detailed specification depth; it does not hold work authority (PLAN) or decision authority (PROPOSAL GDR) | Initiative-level |
+
+Reference rule:
+- Same-activity session references MAY use shorthand forms such as `SES003-DEC001` when the activity scope is already explicit from context.
+- Cross-activity session references MUST use fully-qualified timeline UIDs per `P-STD-005`.
 
 **Superseded artifact linkage rules** (three-layer deprecation model):
 
@@ -271,6 +276,7 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v3.3.0 | 2026-03-22 | Amendment | Expanded the implementation-backed workflow chain to make the full complex `RECYCLE` loop explicit (`IMPLEMENTATION remediation_specification` -> remediation deliverables -> DEV-REPORT -> VERIFICATION re-assessment). Added the governed-work note that IMPLEMENTATION is the canonical execution-specification surface where it exists and `.claude/plans/` is legacy/ad hoc only. Added bounded same-activity session-reference shorthand guidance in §7.C. Source: T104-PH001-ST008-AC001.6-GATE-001 GIR-003, GIR-007, GIR-008. |
 | v3.2.0 | 2026-03-20 | Amendment | §7.A: Added conditional external-impact assessment step to the canonical workflow chain — when an external event affects a gate's normative baseline, an impact assessment step precedes gate disposition; supersession path replaces the normal gate close. §7.C: Added three-layer deprecation model for superseded artifacts (frontmatter + Evidence Index + Links Register), deprecation notice format, and preservation rule. §3: Added artifact status vocabulary table with `superseded` definition (distinct from `failed` and `cancelled`). Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
 | v3.1.0 | 2026-03-20 | Amendment | §7.A: Clarified that reviewer verdict stays in VERIFICATION only and PROPOSAL GDR carries consultant recommendation + client decision (three-signal model). §7.C: Updated VERIFICATION and PROPOSAL linkage rules to reflect GDR no longer duplicating reviewer verdict. §10.C: Updated GDR execution history note. Source: T104-PH001-ST008-AC001.5. |
 | v3.0.0 | 2026-03-20 | Amendment | Added IMPLEMENTATION artifact family: §3 artifact type inventory row, §4.H template entries, §5 guideline entry, §7.A workflow chain with IMPLEMENTATION placement, §7.A IMPLEMENTATION linkage rule, §7.C inter-artifact linkage row, §8 role-to-artifact ownership row. New artifact family = major version bump. Source: T104-PH001-ST008-AC001.3-GATE-001 Path B approval. |

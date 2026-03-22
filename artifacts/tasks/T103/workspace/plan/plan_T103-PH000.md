@@ -3,8 +3,8 @@ artifact_type: 'PLAN'
 planning_level: 'PHASE'
 initiative_id: 'T103'
 phase: '0'
-version: '1.0.0'
-date: '2026-02-12'
+version: '1.1.0'
+date: '2026-03-22'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -76,13 +76,43 @@ This phase plan supersedes the Phase 0-2 completion tracking in `plan_T103_adr-s
 
 | Stream | ID | Name | Status | Owner | Depends On | Deliverable |
 |:--|:--|:--|:--|:--|:--|:--|
+| ST000 | T103-PH000-ST000 | Claude Code Skill Remediation Commissioning | `in_progress` | LLM_Consultant | — | Linked stream/activity governance chain, Gate-001 readiness package, downstream execution contract |
 | ST001 | T103-PH000-ST001 | Pre-Implementation Verification | `planned` | LLM_Consultant | Entry Criteria | Anchor verification report; extraction format assessment |
 | ST002 | T103-PH000-ST002 | ADR-to-STD Rename | `planned` | LLM_Developer | ST001 | All files, symbols, and references renamed |
 | ST003 | T103-PH000-ST003 | Extraction Retargeting | `planned` | LLM_Developer | ST002 | Extraction reads from canonical STD files |
 | ST004 | T103-PH000-ST004 | Verification & Validation | `planned` | LLM_Developer | ST003 | All skills extract and verify successfully |
 | ST005 | T103-PH000-ST005 | Documentation Update | `planned` | LLM_Consultant | ST004 | All documentation reflects STD naming and paths |
 
+### Activity Snapshot Index
+
+**Activity Snapshot As-Of**: 2026-03-22
+
+| Stream | Activity | Activity ID | Name | Status (snapshot) | Owner | Source (Stream Plan) |
+|:--|:--|:--|:--|:--|:--|:--|
+| ST000 | AC000 | `T103-PH000-ST000-AC000` | Claude Code skill remediation commissioning and gated execution package | `in_progress` | LLM_Consultant | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/plan_T103-PH000-ST000.md` |
+
 ### Stream Details
+
+---
+
+#### ST000: Claude Code Skill Remediation Commissioning
+
+**Objective**: Repair the missing governance chain around the AC000 Claude Code skill remediation package, then stage a consultation-only commissioning gate that can unlock the already-approved remediation specification for downstream developer execution.
+
+**Execution Mode**: GATED
+
+**Depends On**: —
+
+**Activities**:
+
+| Activity | ID | Name | Status | Deliverable |
+|:--|:--|:--|:--|:--|
+| AC000 | T103-PH000-ST000-AC000 | Claude Code skill remediation commissioning and gated execution package | `in_progress` | `plan_T103-PH000-ST000-AC000.md`; `proposal_T103-PH000-ST000-AC000_gate-001_claude-code-skill-remediation-readiness.md`; normalized remediation specification |
+
+**Success Criteria**:
+- [ ] ST000 stream plan exists and is linked from the phase plan
+- [ ] AC000 activity plan exists with Gate-001 and Gate-002 sequencing
+- [ ] Gate-001 readiness package is staged for client review before any developer work starts
 
 ---
 
@@ -228,6 +258,7 @@ This phase plan supersedes the Phase 0-2 completion tracking in `plan_T103_adr-s
 | L1 | Drives | `comm_T102-RES-006` | This plan | Communication defines required changes |
 | L2 | Supports | `analysis_T103-PH000_standards-retargeting-assessment.md` | This plan | Analysis provides impact inventory |
 | L3 | Constrains | `proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` | New T103 files | Naming convention compliance |
+| L3A | Governs | `plan_T103-PH000.md` | `plan_T103-PH000-ST000.md` | Phase plan now links the AC000 commissioning stream |
 | L4 | Supersedes (partial) | This plan | `plan_T103_adr-skills-system.md` | For retargeting scope only; legacy plan remains as historical record |
 | L5 | Impacts | This plan | `plan_T103A1-ADRSS_phase3.md` | Phase 3 must be revised post-retargeting |
 | L6 | Depends On | ST001-AC003 | T102-RES-006 GATE-003 | External dependency |
@@ -246,8 +277,22 @@ This phase plan supersedes the Phase 0-2 completion tracking in `plan_T103_adr-s
 
 ---
 
-## VI. CHANGELOG
+## VI. LINKS REGISTER
+
+| Link Type | Target | Path |
+|:--|:--|:--|
+| Plan (this file) | T103 phase plan | `prompt/artifacts/tasks/T103/workspace/plan/plan_T103-PH000.md` |
+| Plan | ST000 stream plan | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/plan_T103-PH000-ST000.md` |
+| Plan | Legacy T103 main plan | `prompt/artifacts/tasks/T103/workspace/plan/plan_T103_adr-skills-system.md` |
+| Plan | Legacy T103 Phase 3 plan | `prompt/artifacts/tasks/T103/workspace/plan/plan_T103A1-ADRSS_phase3.md` |
+| Analysis | T103 retargeting assessment | `prompt/artifacts/tasks/T103/workspace/analysis/analysis_T103-PH000_standards-retargeting-assessment.md` |
+| Communication | T102 integration communication | `prompt/artifacts/tasks/T103/workspace/communication/comm_T102-RES-006_skills-retargeting-integration.md` |
+
+---
+
+## VII. CHANGELOG
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-22 | Update | Added ST000 (Claude Code Skill Remediation Commissioning) to the phase stream register, introduced an Activity Snapshot Index row for AC000, and linked the new stream/activity governance chain used to commission the Claude Code skill remediation package. |
 | v1.0.0 | 2026-02-12 | Initial | Initial phase plan for T103-PH000 standards retargeting; 5 streams defined (Pre-Implementation Verification, ADR-to-STD Rename, Extraction Retargeting, Verification & Validation, Documentation Update); grounded in T103 analysis and T102-RES-006 communication |

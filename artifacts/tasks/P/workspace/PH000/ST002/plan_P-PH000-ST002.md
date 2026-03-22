@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
-version: '1.1.0'
-date: '2026-03-15'
+version: '1.2.0'
+date: '2026-03-22'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -19,7 +19,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: Implement the program-wide status artifact set (canonical ledger + derived narrative + operational update protocol) per P-STD-002 (v1.1.0, accepted 2026-03-04).
+**Purpose**: Implement the program-wide status artifact set (canonical ledger + derived narrative + operational update protocol) per P-STD-002 (v1.2.0, accepted 2026-03-04; amended 2026-03-18).
 
 **Dependency resolution**: `P-PH000-ST001-AC003` (Program Status Standard) is accepted. GATE-003 closed with APPROVE (2026-03-09). The blocking constraint is satisfied.
 
@@ -38,7 +38,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | Activity | Activity ID | Name | Status | Owner | Depends On | Deliverable | Reference |
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | AC001 | `P-PH000-ST002-AC001` | Define status artifact schema + update protocol | `completed` | LLM_Consultant | — | Absorbed by P-STD-002 acceptance (normative authority: P-STD-002E CLAUSEs 043–054) | SES001-DEC002 |
-| AC002 | `P-PH000-ST002-AC002` | Design & Author Program Status Artifact Set | `planned` | LLM_Consultant / LLM_Developer | ST001-AC003 (satisfied) | Ledger (`status_program.yaml`) + Narrative (`status_program.md`) at `prompt/artifacts/tasks/P/status/` | `plan_P-PH000-ST002-AC002.md` |
+| AC002 | `P-PH000-ST002-AC002` | Design & Author Program Status Artifact Set | `completed` | LLM_Consultant / LLM_Developer | ST001-AC003 (satisfied) | Ledger (`status_program.yaml`) + Narrative (`status_program.md`) at `prompt/artifacts/tasks/P/status/` | `plan_P-PH000-ST002-AC002.md` |
 | AC003 | `P-PH000-ST002-AC003` | Backfill & Validate Initial Program Entries | `planned` | LLM_Developer / LLM_Reviewer | AC002 | Populated P + T102 + T104 entries at activity-level granularity | AC002 deliverables |
 
 ---
@@ -117,11 +117,11 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 - `P-PH000-ST001-AC003` (Program Status Standard — satisfied)
 
 **Success Criteria (summary)**:
-- [ ] Ledger exists at canonical path with CLAUSE-046 baseline schema
-- [ ] Narrative exists at canonical path with all required sections
-- [ ] Operational update protocol maps P-STD-002D RACI to workspace agent roles
-- [ ] Both artifacts pass P-STD-002E conformance validation (CLAUSEs 043–054)
-- [ ] GATE-002 GDR records client acceptance
+- [x] Ledger exists at canonical path with CLAUSE-046 baseline schema
+- [x] Narrative exists at canonical path with all required sections
+- [x] Operational update protocol maps P-STD-002D RACI to workspace agent roles
+- [x] Both artifacts pass P-STD-002E conformance validation (CLAUSEs 043–054)
+- [x] GATE-003 GDR records client acceptance
 
 #### Activity AC003: Backfill & Validate Initial Program Entries
 
@@ -169,6 +169,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-22 | Amendment | AC002 marked `completed` in Activity Register (GATE-003 APPROVE, 2026-03-22). Executive Summary P-STD-002 version reference updated from v1.1.0 to v1.2.0. AC002 success criteria checked. Source: AC002 GATE-003 client approval. |
 | v1.1.0 | 2026-03-15 | Amendment | AC002 section simplified to contract stub per guideline_workspace_plan.md §IV.D. Detailed task register, design decisions, and execution-level content moved to standalone activity plan (`plan_P-PH000-ST002-AC002.md`). Activity Register Reference updated. GATE-001 (design decision approval) added between TK001 and TK002 in activity plan. Evidence: current consultation session. |
 | v1.0.0 | 2026-03-09 | Major Amendment | Stream plan revised for implementation readiness. AC001 marked `completed` (absorbed by P-STD-002 acceptance per SES001-DEC002). AC002 re-scoped as "Design & Author Program Status Artifact Set" with expanded deliverables and confirmed design decisions. AC003 added as new activity for backfill and validation. Implementation requirements analysis registered as primary input. Stream dependency `P-PH000-ST001-AC003` confirmed satisfied (GATE-003 APPROVE, 2026-03-09). Evidence: `snotes_P-PH000-ST002-SES001.md`. |
 | v0.1.2 | 2026-02-26 | Amendment | Added informative research integration note to AC002 section documenting combined P-RES-001 + P-RES-002 impact on implementation schema. No structural or dependency changes. Evidence: consultant session 2026-02-26. |

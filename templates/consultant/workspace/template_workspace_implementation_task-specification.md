@@ -13,6 +13,7 @@ status: 'draft'
 author: '{{AUTHOR_ROLE}}'
 decision_owner_role: 'Client'
 plan_reference: '{{PLAN_PATH}}'
+execution_audience: 'developer'
 purpose: '{{PURPOSE}}'
 ---
 
@@ -22,7 +23,7 @@ purpose: '{{PURPOSE}}'
 - Purpose: [what this task specification covers]
 - Authority chain: Plan authorizes work (task_id) -> This artifact specifies HOW ->
   Dev-report records execution
-- Audience: LLM_Developer (primary)
+- Audience: [LLM_Developer (primary) / LLM_Consultant when `execution_audience: 'consultant'`]
 - This artifact does NOT hold a GDR. Gate decisions (if applicable) are recorded
   in gate_disposition proposals.
 
@@ -38,10 +39,13 @@ purpose: '{{PURPOSE}}'
 | Field | Detail |
 |:--|:--|
 | Requirement Source | [plan task step or amendment reference] |
-| Implementation Detail | [detailed HOW] |
-| Expected Format | [schema, structure, output format] |
+| Output | [deliverable or changed surface] |
 | Acceptance Criteria | [what defines completion] |
 | Status | `open` / `resolved` |
+
+#### Implementation Detail
+
+[detailed HOW]
 
 [Repeat for each specification item]
 

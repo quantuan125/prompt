@@ -8,8 +8,8 @@ stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC001.6'
 task_id: 'T104-PH001-ST008-AC001.6-TK002'
 gate_id: 'T104-PH001-ST008-AC001.6-GATE-001'
-version: '1.0.0'
-date: '2026-03-20'
+version: '1.1.0'
+date: '2026-03-22'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -26,6 +26,17 @@ purpose: 'Definitive six-dimension audit of residual IMPLEMENTATION-family verti
 **Scope**: Six dimensions: cross-guideline integration, `workspace_documentation_rules.md`, P-level standards, T104 SPS expectations, validator/test-suite enforcement, and live usage validation of existing IMPLEMENTATION-path artifacts.
 
 **Conclusion / Recommendation**: The repo no longer has a broad IMPLEMENTATION-family inventory gap. The remaining work narrows to seven residual findings: three architectural cross-surface wording gaps, three direct codification/tooling gaps, and one live-usage exception that should be formally grandfathered rather than retroactively migrated. These findings are sufficiently bounded for a consultation-only `GATE-001` that explicitly approves the exact Phase 2 scope before any developer edits begin.
+
+### Client Summary
+
+- The broad IMPLEMENTATION-family rollout work is already done; this audit isolates only the remaining residual gaps.
+- Three residual issues are architectural wording/linkage decisions that need explicit gate approval before implementation.
+- Three residual issues are direct codification/tooling fixes that become straightforward once the gate approves them.
+- One residual issue is an older AC001.5 draft artifact that should be treated as grandfathered debt, not as a blocker.
+- The main policy decisions concern verification remediation routing, DEV-REPORT linkage to IMPLEMENTATION, and explicit RECYCLE-loop wording.
+- The main mechanical decisions concern codifying `implementation/` and `implementation_`, then aligning the validator and tests to that codified rule.
+- The recommended `GATE-001` posture is to approve the bounded Phase 2 scope rather than reopen the broader architecture.
+- The audit does not recommend retroactive migration of historical draft debt under AC001.6.
 
 ---
 
@@ -239,8 +250,11 @@ This keeps the Phase 2 mutation scope exact, small, and fully grounded in the li
 | P-STD-004 | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` |
 | P-STD-005 | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` |
 
+---
+
 ## X. CHANGELOG
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
-| v1.0.0 | 2026-03-20 | Initial | Six-dimension vertical integration audit for AC001.6. Recorded 7 residual findings: 3 architectural, 3 mechanical, and 1 grandfathered live-usage exception. Confirmed that the broad IMPLEMENTATION-family inventory/ownership integration delivered under AC001.3 and AC001.5 is already in place, so AC001.6 can focus on the remaining verification/dev-report/documentation-rules wording, P-STD-004 codification, validator/test alignment, and explicit handling of the AC001.5 draft-debt exception. |
+| v1.1.0 | 2026-03-22 | Amendment | Added the required gate-consumed `Client Summary` subsection to the Executive Summary without changing the audit findings or downstream recommendations. |
+| v1.0.0 | 2026-03-20 | Initial | Definitive six-dimension vertical integration audit for the IMPLEMENTATION family after AC001.3 / AC001.5 live-state delivery. |

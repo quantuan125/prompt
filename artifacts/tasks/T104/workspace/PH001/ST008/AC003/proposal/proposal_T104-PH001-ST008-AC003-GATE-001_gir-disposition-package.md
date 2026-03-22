@@ -7,8 +7,8 @@ stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC003'
 task_id: 'T104-PH001-ST008-AC003-TK003.1'
 gate_id: 'T104-PH001-ST008-AC003-GATE-001'
-version: '1.3.0'
-date: '2026-03-21'
+version: '1.4.0'
+date: '2026-03-22'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -56,16 +56,16 @@ consumers:
 
 ### Gate Package Index
 
-| # | Deliverable | Producing Task | Status | Reading Priority | Path |
+| Deliverable | Producing Task | Status | Acceptance | Client Priority | Path |
 |:--|:--|:--|:--|:--|:--|
-| 1 | Gap Extraction Table (TK001 output) | TK001 | `completed` | Reference | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §II |
-| 2 | Implementation Specification — informative source (TK002 output) | TK002 | `completed` | Reference | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §III |
-| 3 | AC003/AC004 Scope Boundary | TK002 | `completed` | Review | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §IV |
-| 4 | Dependency Sequencing | TK002 | `completed` | Informational | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §V |
-| 5 | Remediation Checklist — informative source (SES002 supplement) | SES002 | `completed` | Reference | `analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md` |
-| 6 | SES004 Session Notes | SES004 | `completed` | Reference | `snotes_T104-PH001-ST008-AC003-SES004.md` |
-| 7 | **IMPLEMENTATION Task Specification** (authoritative developer spec) | TK003.1 | `completed` | **Primary** | `implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md` |
-| 8 | External Review — GATE-001 Same-Gate Reassessment | TK003.1 | `completed` | Review | `analysis_T104-PH001-ST008-AC003-GATE-001_external-review-reassessment.md` |
+| Gap Extraction Table (TK001 output) | TK001 | `completed` | `accepted` | Reference | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §II |
+| Implementation Specification — informative source (TK002 output) | TK002 | `completed` | `accepted` | Reference | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §III |
+| AC003/AC004 Scope Boundary | TK002 | `completed` | `accepted` | Review | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §IV |
+| Dependency Sequencing | TK002 | `completed` | `N/A` | Informational | `analysis_T104-PH001-ST008-AC003_implementation-spec.md` §V |
+| Remediation Checklist — informative source (SES002 supplement) | SES002 | `completed` | `accepted` | Reference | `analysis_T104-PH001-ST008-AC003_gate-001_remediation-checklist.md` |
+| SES004 Session Notes | SES004 | `completed` | `accepted` | Reference | `snotes_T104-PH001-ST008-AC003-SES004.md` |
+| **IMPLEMENTATION Task Specification** (authoritative developer spec) | TK003.1 | `completed` | `accepted` | **Primary** | `implementation_T104-PH001-ST008-AC003_cross-guideline-gap-resolution.md` |
+| External Review — GATE-001 Same-Gate Reassessment | TK003.1 | `completed` | `accepted` | Review | `analysis_T104-PH001-ST008-AC003-GATE-001_external-review-reassessment.md` |
 
 ### Evidence Index
 
@@ -270,6 +270,7 @@ There is no verification artifact for this gate (consultation-only per `guidelin
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.4.0 | 2026-03-22 | Maintenance | §II Gate Package Index: corrected column schema to match guideline_workspace_proposal.md §V.B - added Acceptance column, renamed Reading Priority to Client Priority, dropped # column. §I frontmatter task_id alignment note added. Source: Pre-GATE-001 remediation pass. |
 | v1.3.0 | 2026-03-21 | Amendment | SES004 same-gate correction pass: added reassessment external review as current evidence, preserved the prior external review as historical evidence only, separated primary vs historical evidence, inserted SES004 session trail, updated GIRs for same-gate completeness and active-scope A-C only, and kept GDR pending with `APPROVE WITH CONDITIONS`. |
 | v1.2.0 | 2026-03-20 | Amendment | SES003 amendments: (1) GDR updated to current guideline_workspace_proposal.md §VII.C format — `Reviewer Verdict` replaced with `Consultant Recommendation: APPROVE WITH CONDITIONS`; conditions enumerated. (2) §V Gate Recommendation updated with full consultant advisory rationale. (3) Gate Package Index: items #1–5 relabelled as reference/informative; item #6 added (IMPLEMENTATION task_specification — authoritative developer spec); item #7 added (external review). (4) Evidence Index updated — IMPLEMENTATION artifact and external review added as primary entries. (5) §VII References expanded. (6) frontmatter: added `implementation_reference`. Source: AC001.3 GATE-002 approval (2026-03-20) triggered IMPLEMENTATION family adoption; external review package readiness assessed. |
 | v1.1.0 | 2026-03-18 | Amendment | Incorporated SES002 client feedback. Added GIR-004 (`deferred` retention + P-STD-002 harmonization), GIR-005 (Cluster D deferral to T103), GIR-006 (GAP-006 refined disposition → T101), and GIR-007 (process gap routing to AC001.3). Updated Executive Summary with SES002 directives. Added remediation checklist to Gate Package Index and Evidence Index. Analysis file v1.1.0 referenced (informative posture). |

@@ -25,9 +25,10 @@ TYPE_FIRST_WORKSPACE_DIRS = {"plan", "notes", "roadmap", "analysis", "proposal",
 WORKSPACE_ALLOWED_NON_PHASE_DIRS = {"_unresolved", "verification"}
 PHASE_TYPE_DIRS = {"raw", "proposal", "analysis", "communication", "snotes"}
 STREAM_TYPE_DIRS = {"raw", "proposal", "analysis", "communication", "snotes"}
-ACTIVITY_TYPE_DIRS = {"raw", "snotes", "verification", "dev-report", "analysis", "proposal"}
+ACTIVITY_TYPE_DIRS = {"raw", "snotes", "verification", "dev-report", "analysis", "proposal", "implementation"}
 ACTIVITY_TYPE_PREFIX_ALIGNMENT = {
     "verification_": "verification",
+    "implementation_": "implementation",
 }
 ALLOWED_PREFIXES = (
     "analysis_",
@@ -46,6 +47,7 @@ ALLOWED_PREFIXES = (
     "concept_",
     "verification_",
     "dev-report_",
+    "implementation_",
 )
 
 

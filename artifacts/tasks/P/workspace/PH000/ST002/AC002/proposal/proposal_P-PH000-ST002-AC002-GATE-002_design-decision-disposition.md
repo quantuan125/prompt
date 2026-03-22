@@ -6,9 +6,9 @@ phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC002'
 gate_id: 'P-PH000-ST002-AC002-GATE-002'
-version: '1.1.0'
-date: '2026-03-21'
-status: 'draft'
+version: '1.3.0'
+date: '2026-03-22'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md'
@@ -27,7 +27,7 @@ consumers:
 - **Context**: This is the successor gate to superseded `P-PH000-ST002-AC002-GATE-001`. GATE-001 was closed with `Client Decision: SUPERSEDE` on 2026-03-20 because the `P-STD-002 v1.2.0` amendment (2026-03-18) constituted an external, decision-boundary change under the governance model approved at `T104-PH001-ST008-AC001.4-GATE-001`. Gate supersession is the correct treatment per the approved external-impact governance model.
 - **Normative baseline**: `P-STD-002 v1.2.0` (8-state lifecycle model, deferred-state governance, CLAUSE-056). All evidence in this gate package is assessed against this baseline.
 - **Carrying forward**: All remediation work from TK001.3–TK001.7 is complete and carries forward into this gate package without modification. No additional remediation is required before GATE-002 can be assessed.
-- **Current gate state**: GDR is `pending`. This package must be reviewed and the three GIR items (GIR-001 through GIR-003) dispositioned against the v1.2.0 baseline before a client decision can be recorded.
+- **Current gate state**: GDR records `Client Decision: APPROVE` (2026-03-22). All three GIR items approved with Option (a). TK002–TK004 are unblocked for developer execution.
 - **Scope**: Consultation-only decision gate. Covers the rebaselined current-state assessment, the rebaselined implementation requirements analysis, the refreshed external review (all v1.2.0 baseline), and GIR stubs carrying forward from GATE-001 for v1.2.0 reassessment.
 
 ## II. GATE PACKAGE
@@ -68,9 +68,9 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option For Next Review | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--|:--|
-| GIR-001 | Agent-role binding | RACI to agent-role mapping plus delegate authorization rule | (a) Adopt revised analysis §V.E binding table (v1.2.0 rebaselined) | TK002, TK003 | Yes | `pending` |
-| GIR-002 | `scope_uid` naming patterns | Concrete UID examples plus AC003 v1 population posture | (a) Use `P-STD-005` timeline UID patterns and activity-only v1 population | TK002 | Yes | `pending` |
-| GIR-003 | Optional fields v1 scope | CLAUSEs 024, 028, 051, 053 | (a) Exclude 024/028/053 and include 051 structure empty | TK002 | Yes | `pending` |
+| GIR-001 | Agent-role binding | RACI to agent-role mapping plus delegate authorization rule | (a) Adopt revised analysis §V.E binding table (v1.2.0 rebaselined) | TK002, TK003 | Yes | `APPROVE (a)` |
+| GIR-002 | `scope_uid` naming patterns | Concrete UID examples plus AC003 v1 population posture | (a) Use `P-STD-005` timeline UID patterns and activity-only v1 population | TK002 | Yes | `APPROVE (a)` |
+| GIR-003 | Optional fields v1 scope | CLAUSEs 024, 028, 051, 053 | (a) Exclude 024/028/053 and include 051 structure empty | TK002 | Yes | `APPROVE (a) all rows` |
 
 ## IV. DETAILED DISPOSITION REGISTER
 
@@ -93,7 +93,7 @@ consumers:
 
 **Recommendation**: (a) — The binding table remains the most coherent fit for the v1.2.0 requirements analysis and the eight-state lifecycle model.
 
-**Client Decision**: `[ ] (a)` / `[ ] (b) Amendments: _______`
+**Client Decision**: `[x] (a)`
 
 ---
 
@@ -117,7 +117,7 @@ consumers:
 
 **Recommendation**: (a) — Ensures mechanical consistency with `P-STD-005`, satisfies the full-UID rule, and avoids over-scoping AC003 v1.
 
-**Client Decision**: `[ ] (a)` / `[ ] (b) Convention: _______`
+**Client Decision**: `[x] (a)`
 
 ---
 
@@ -142,7 +142,7 @@ consumers:
 
 **Recommendation**: (a) across all four rows. `CLAUSE-051` stays included because evidence-bearing execution references are low cost and audit-aligned; the other optional fields remain out of scope for v1.
 
-**Client Decision**: `[ ] (a) all rows` / `[ ] Override per row: _______`
+**Client Decision**: `[x] (a) all rows`
 
 ## V. GATE RECOMMENDATION
 
@@ -166,12 +166,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `P-PH000-ST002-AC002-GATE-002` |
 | Consultant Recommendation | `APPROVE` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
 | Conditions (if any) | — |
 | Decided By | Client |
-| Decision Date | — |
-| Decision Reference | pending |
+| Decision Date | 2026-03-22 |
+| Decision Reference | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/snotes/snotes_P-PH000-ST002-AC002-SES003.md` |
 
 ## VII. REFERENCES
 
@@ -193,5 +193,7 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.3.0 | 2026-03-22 | Amendment | Updated GDR Decision Reference from placeholder "(to be authored)" to actual SES003 path. Source: GATE-003 closure housekeeping; identified in external review analysis GAP-001/Concern #3. |
+| v1.2.0 | 2026-03-22 | Amendment | Recorded Client Decision: APPROVE for all three GIR items (GIR-001(a), GIR-002(a), GIR-003(a) all rows). GDR completed. Gate Status After Decision: completed. Source: AC002 SES003 client approval. |
 | v1.1.0 | 2026-03-21 | Amendment | Populated consultant recommendation (APPROVE) in §V and §VI GDR. Added task specification to Gate Package Index and Evidence Index. Source: GATE-002 independent package review session. |
 | v1.0.0 | 2026-03-20 | Initial | GATE-002 gate-disposition proposal created as the successor to superseded GATE-001. Authored per T104-PH001-ST008-AC001.4-GATE-001 approved governance model and TK009 retroactive application guidance. Evidence Index contains only v1.2.0-baseline artifacts; historical v1.1.0 artifacts segregated in Historical Evidence subsection. GIR-001 through GIR-003 carry forward from GATE-001 with v1.2.0 reassessment stubs. GDR in pending state. |

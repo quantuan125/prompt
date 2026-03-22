@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'implementation_authoring'
-version: '1.0.0'
-date: '2026-03-20'
+version: '1.1.0'
+date: '2026-03-22'
 status: 'draft'
 author: 'LLM_Developer'
 decision_owner_role: 'Client'
@@ -75,6 +75,8 @@ The following conventions govern all IMPLEMENTATION artifacts:
 | CONV-009 | For `remediation_specification`, the artifact SHALL exist as a formal task above the gate in the task register (Directive B) |
 | CONV-010 | One artifact per logical implementation scope (task-ID or gate-remediation-cycle scoping) |
 | CONV-011 | Plan task steps SHALL be high-level summary only when an IMPLEMENTATION artifact exists; the plan step SHALL reference the artifact path |
+| CONV-012 | SPEC items in both IMPLEMENTATION templates SHOULD use the hybrid structure: concise metadata table plus prose `Implementation Detail` block |
+| CONV-013 | `task_specification` MAY declare `execution_audience` to distinguish developer execution from consultant-orchestrated execution without creating a new subtype |
 
 ---
 
@@ -111,6 +113,12 @@ The following conventions govern all IMPLEMENTATION artifacts:
 
 None beyond the universal set.
 
+### D. Optional Fields — `task_specification`
+
+| Field | Value / Description |
+|:--|:--|
+| `execution_audience` | Optional. `'developer'` by default; `'consultant'` when the task specification governs consultant-orchestrated execution rather than developer-owned implementation |
+
 ---
 
 ## VI. LIFECYCLE RULES
@@ -137,13 +145,15 @@ None beyond the universal set.
 
 Plan retains tracked-work authority. IMPLEMENTATION provides specification depth. Plan steps reference the artifact path when one exists (CONV-011).
 
+For governed work where an IMPLEMENTATION artifact exists, legacy `.claude/plans/` surfaces are not a co-equal authority surface and should be treated as ad hoc only.
+
 ### B. Verification
 
 For `remediation_specification`, the artifact references verification findings by ID. Complementary relationship: revision-checklist = "what needs fixing" (reviewer), remediation specification = "how to fix it" (consultant).
 
 ### C. Dev-Report
 
-Developer execution evidence references the IMPLEMENTATION artifact as the specification input.
+Developer execution evidence references the IMPLEMENTATION artifact as the specification input. When an IMPLEMENTATION artifact governs the work, the DEV-REPORT SHOULD include `implementation_reference` per `guideline_workspace_dev-report.md`, and its Traceability Matrix SHOULD map deliverables back to relevant SPEC item IDs where practical.
 
 ### D. Proposal
 
@@ -162,4 +172,5 @@ IMPLEMENTATION does not hold decision authority. Gate decisions remain in `gate_
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-22 | Amendment | Added hybrid SPEC-item structure guidance for both IMPLEMENTATION templates, introduced optional `execution_audience` for `task_specification`, deprecated `.claude/plans/` as a co-equal governed authority surface where IMPLEMENTATION exists, and clarified the DEV-REPORT backlink posture via `implementation_reference`. Source: T104-PH001-ST008-AC001.6-GATE-001 GIR-007, GIR-009, GIR-010, GIR-011. |
 | v1.0.0 | 2026-03-20 | Initial | Draft 1 IMPLEMENTATION authoring guideline. Encodes CONV-006 through CONV-011, two-subtype taxonomy (remediation_specification, task_specification), frontmatter specification, lifecycle rules, and relationship to other artifacts. Source: T104-PH001-ST008-AC001.3-GATE-001 Path B approval. |
