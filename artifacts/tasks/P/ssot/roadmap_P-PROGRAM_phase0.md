@@ -5,7 +5,7 @@ initiative_code: 'PROGRAM'
 epic_id: '—'
 epic_code: '—'
 phase: '0'
-version: '0.2.0'
+version: '0.2.1'
 date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -53,7 +53,7 @@ roadmap_changelog: 'prompt/artifacts/tasks/P/archive/changelog_roadmap_P-PROGRAM
 | Focus Area | Current State | Next Milestone | Canonical Link |
 |:--|:--|:--|:--|
 | Program Standards Stack | `P-STD-001` and `P-STD-002` are accepted; `P-STD-004` and `P-STD-005` remain active hardening surfaces per current plan state | Continue ST001 standards work and derivative alignment | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
-| Program Status System | AC002 is complete and the status artifact skeletons are accepted; AC003 planning hardening is now in place; AC004 is registered as the operationalization follow-on | Commission AC003 execution for initial population and validation | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
+| Program Status System | AC002 is complete and the status artifact skeletons are accepted; AC003 is closed after Client APPROVE; AC004 is active for planning as the follow-on operationalization surface | Commission AC004 consultation-gate planning and the first operationalization slice | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | Program Research & Governance Inputs | P research surfaces exist and continue to support standards/status hardening | Reuse research outputs in downstream operationalization and standards hardening work | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 
 ---
@@ -85,6 +85,7 @@ roadmap_changelog: 'prompt/artifacts/tasks/P/archive/changelog_roadmap_P-PROGRAM
 
 | Version | Date | Type | Summary |
 |:-------|:-----|:-----|:--------|
+| v0.2.1 | 2026-03-23 | Amendment | Refreshed the phase-0 roadmap snapshot to mark AC003 as closed after APPROVE and AC004 as active for planning. Updated the next milestone to the AC004 consultation gate and first operationalization slice. |
 | v0.2.0 | 2026-03-23 | Amendment | Refactored the roadmap into a thin-spine initiative master roadmap. Removed execution-level stream/activity detail, added phase navigation and compact delivery snapshot, and updated the status-system snapshot to reflect AC002 completion, AC003 planning hardening, and AC004 registration. |
 | v0.1.1 | 2026-02-07 | Update | Repointed roadmap to P-STD-003 and added draft standard link |
 | v0.1.0 | 2026-02-07 | Initial | Created Phase 0 program roadmap with P-STD inventory and initial standards seeding plan |

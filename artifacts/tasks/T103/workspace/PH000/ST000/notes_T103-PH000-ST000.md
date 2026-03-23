@@ -5,7 +5,7 @@ initiative_id: 'T103'
 initiative_code: 'ADRSS'
 phase: '0'
 stream: 'ST000'
-version: '1.3.0'
+version: '1.5.0'
 date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -23,7 +23,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 ## I. STREAM SUMMARY
 
 **Stream**: ST000 (Claude Code Skill Remediation Commissioning)
-**Scope**: Index activity-scoped consultation notes for the AC000 commissioning package and gated execution path for Claude Code skill remediation.
+**Scope**: Index activity-scoped consultation notes for the AC000 commissioning package, the `GATE-003` closeout, the `AC000.1` monitoring/testing continuation path, and the AC001 orchestration execution-pattern draft consultation.
 **Status**: `in_progress`
 
 ---
@@ -41,6 +41,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | Activity | Activity ID | Name | Status | Notes File |
 |:--|:--|:--|:--|:--|
 | AC000 | `T103-PH000-ST000-AC000` | Claude Code Skill Gap Analysis & Remediation Planning | `in_progress` | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/snotes/snotes_T103-PH000-ST000-AC000-SES001.md` (SES001); `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/snotes/snotes_T103-PH000-ST000-AC000-SES002.md` (SES002); `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/snotes/snotes_T103-PH000-ST000-AC000-SES003.md` (SES003); `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/snotes/snotes_T103-PH000-ST000-AC000-SES004.md` (SES004) |
+| AC001 | `T103-PH000-ST000-AC001` | Orchestration Execution Pattern Draft Specification | `in_progress` | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC001/snotes/snotes_T103-PH000-ST000-AC001-SES001.md` (SES001) |
 
 ---
 
@@ -48,6 +49,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 - Stream plan: `prompt/artifacts/tasks/T103/workspace/PH000/ST000/plan_T103-PH000-ST000.md`
 - Activity plan: `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/plan_T103-PH000-ST000-AC000.md`
+- Activity plan: `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC001/plan_T103-PH000-ST000-AC001.md`
 - Phase plan: `prompt/artifacts/tasks/T103/workspace/plan/plan_T103-PH000.md`
 - Phase notes register: `—`
 - Notes guideline: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
@@ -58,6 +60,8 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.5.0 | 2026-03-23 | Amendment | Registered AC001 SES001 for the orchestration execution-pattern scope consultation and added the AC001 activity-plan link alongside the existing AC000 surfaces. |
+| v1.4.0 | 2026-03-23 | Amendment | Registered SES004 for the `GATE-003` closeout, external review concurrence, client approval, and `AC000.1` commissioning while keeping ST000 open. |
 | v1.3.0 | 2026-03-23 | Amendment | Registered AC000 SES004 for the post-`GATE-002` hardening execution package, consultant integrity review, and `GATE-003` proposal handoff. AC000 remains `in_progress` because the client `GATE-003` decision is still pending. |
 | v1.2.0 | 2026-03-23 | Amendment | Registered AC000 SES003 after GATE-002 external review, client GIR/gap decisions, and closure implementation specification were produced. |
 | v1.1.0 | 2026-03-22 | Amendment | Registered AC000 SES002 after Gate-001 closure and Gate-002 recycle packaging were recorded. |

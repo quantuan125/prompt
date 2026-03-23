@@ -7,14 +7,14 @@ stream_id: 'T103-PH000-ST000'
 activity_id: 'T103-PH000-ST000-AC000'
 task_id: 'T103-PH000-ST000-AC000-TK011'
 gate_id: 'T103-PH000-ST000-AC000-GATE-003'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/plan_T103-PH000-ST000-AC000.md'
 analysis_reference: 'prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/analysis/analysis_T103-PH000-ST000-AC000_claude-code-execution-reliability-hardening-assessment.md'
-external_review_reference: 'prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/verification/verification_T103-PH000-ST000-AC000_gate-003.md'
+external_review_reference: 'prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/analysis/analysis_T103-PH000-ST000-AC000_gate-003-external-review.md'
 purpose: 'Gate-003 disposition package for client acceptance of the Claude Code execution-reliability hardening package.'
 consumers:
   - 'T103-PH000-ST000-AC000-GATE-003'
@@ -24,9 +24,9 @@ consumers:
 
 ## I. EXECUTIVE SUMMARY
 
-- **Context**: `GATE-002` accepted the original Claude Code skill remediation package and commissioned the additive post-incident hardening lane. The developer has now completed `TK008` and `TK009`, and the reviewer has completed the `GATE-003` verification package with verdict `CONDITIONAL PASS`.
+- **Context**: `GATE-002` accepted the original Claude Code skill remediation package and commissioned the additive post-incident hardening lane. The developer completed `TK008` and `TK009`, the reviewer completed the `GATE-003` verification package with verdict `CONDITIONAL PASS`, an independent external review concurred with the `APPROVE WITH CONDITIONS` posture, and the client recorded `APPROVE WITH CONDITIONS` for `GATE-003`.
 - **Goal at gate**: Determine whether the implementation-backed hardening package is acceptable for client acceptance or must recycle at the same gate.
-- **Scope**: This gate covers the additive execution-reliability hardening package only: updated Claude Code skill surfaces, the bounded hardening DEV-REPORT chain, and the `GATE-003` verification package. It does not reopen the original `GATE-002` remediation package or claim runtime certification beyond the evidence actually attached.
+- **Scope**: This gate covers the additive execution-reliability hardening package only: updated Claude Code skill surfaces, the bounded hardening DEV-REPORT chain, the `GATE-003` verification package, and the external review evidence. It does not reopen the original `GATE-002` remediation package, and the follow-on monitoring/testing slice is commissioned separately as `AC000.1`.
 
 ---
 
@@ -42,7 +42,7 @@ consumers:
 | AC000 `GATE-003` primary verification | `TK010` | `completed` | `blocked` | Required | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/verification/verification_T103-PH000-ST000-AC000_gate-003.md` |
 | AC000 `GATE-003` supplementary verification: spec traceability | `TK010` | `completed` | `blocked` | Recommended | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/verification/verification_T103-PH000-ST000-AC000_gate-003_spec-traceability.md` |
 | AC000 `GATE-003` supplementary verification: evidence integrity | `TK010` | `completed` | `blocked` | Recommended | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/verification/verification_T103-PH000-ST000-AC000_gate-003_evidence-integrity.md` |
-| Gate-003 disposition proposal (this file) | `TK011` | `completed` | `pending` | Required | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/proposal/proposal_T103-PH000-ST000-AC000_gate-003_claude-code-execution-reliability-hardening-acceptance.md` |
+| Gate-003 disposition proposal (this file) | `TK011` | `completed` | `approved` | Required | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/proposal/proposal_T103-PH000-ST000-AC000_gate-003_claude-code-execution-reliability-hardening-acceptance.md` |
 
 ### B. Evidence Index
 
@@ -50,6 +50,7 @@ consumers:
 |:--|:--|:--|:--|
 | Plan | AC000 activity plan | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/plan_T103-PH000-ST000-AC000.md` | Governs `TK008` through `GATE-003` |
 | Analysis | AC000 execution-reliability hardening assessment | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/analysis/analysis_T103-PH000-ST000-AC000_claude-code-execution-reliability-hardening-assessment.md` | Consultant-owned incident baseline and hardening rationale |
+| Analysis | AC000 GATE-003 external review | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/analysis/analysis_T103-PH000-ST000-AC000_gate-003-external-review.md` | Independent external review concurring with the approve-with-conditions posture and supporting post-gate housekeeping |
 | Implementation | AC000 execution-reliability hardening specification | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/implementation/implementation_T103-PH000-ST000-AC000_claude-code-execution-reliability-hardening.md` | Approved execution authority for `TK008` |
 | Dev-report | AC000 hardening consolidated handoff | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/dev-report/dev-report_T103-PH000-ST000-AC000_claude-code-execution-reliability-hardening-tk009_2026-03-23.md` | Developer-owned consolidated evidence for `TK008..TK009` |
 | Verification | AC000 `GATE-003` verification | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/verification/verification_T103-PH000-ST000-AC000_gate-003.md` | Reviewer verdict and gate recommendation |
@@ -63,8 +64,8 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--:|:--|
-| GIR-001 | Gate-003 acceptance posture | Whether the current implementation-backed hardening package is sufficient to close `GATE-003` | (a) Approve with conditions and preserve the manual-only runtime boundary | `T103-PH000-ST000-AC000-GATE-003` | No | `pending` |
-| GIR-002 | Runtime-certification boundary | Whether the current package may be represented as full live-runtime certification without separate manual matrix evidence | (a) Preserve the manual-only runtime boundary and do not overclaim certification | `T103-PH000-ST000-AC000-GATE-003` | No | `pending` |
+| GIR-001 | Gate-003 acceptance posture | Whether the current implementation-backed hardening package is sufficient to close `GATE-003` | (a) Approve with conditions and preserve the manual-only runtime boundary | `T103-PH000-ST000-AC000-GATE-003` | No | `(a) Approve with conditions` |
+| GIR-002 | Runtime-certification boundary | Whether the current package may be represented as full live-runtime certification without separate manual matrix evidence | (a) Preserve the manual-only runtime boundary and do not overclaim certification | `T103-PH000-ST000-AC000-GATE-003` | No | `(a) Preserve the manual-only runtime boundary` |
 
 ---
 
@@ -93,7 +94,7 @@ Rationale:
 - The remaining limitation is already explicit: the current gate package proves the hardening contract and static evidence, but not full live-runtime replay.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -119,7 +120,7 @@ Rationale:
 - Forcing a stronger claim than the evidence supports would degrade traceability; forcing a recycle despite no blocking finding would change the gate boundary beyond the reviewer recommendation.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] Override: _______`
 
 ---
 
@@ -142,7 +143,8 @@ Recycle reassessment path (`RECYCLE` only):
 - `Downstream Tasks Still Blocked: —`
 
 Downstream enforcement:
-- `T103-PH000-ST000-AC000-GATE-003` remains open until the client records a GDR decision. No activity-complete claim may be made before the proposal GDR records `APPROVE` or `APPROVE WITH CONDITIONS`.
+- `T103-PH000-ST000-AC000-GATE-003` is closed once the client records the GDR decision.
+- Parent `AC000` remains open because `AC000.1` is commissioned as the follow-on monitoring/testing remediation slice.
 
 ---
 
@@ -154,12 +156,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `T103-PH000-ST000-AC000-GATE-003` |
 | Consultant Recommendation | `APPROVE WITH CONDITIONS` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
+| Client Decision | `APPROVE WITH CONDITIONS` |
+| Gate Status After Decision | `completed` |
 | Conditions (if any) | `If the client approves, preserve the explicit manual-only runtime boundary. The current package MUST NOT be described as full live-runtime certification unless separate manual matrix results are attached.` |
 | Decided By | `Client` |
-| Decision Date | `pending` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-23` |
+| Decision Reference | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/snotes/snotes_T103-PH000-ST000-AC000-SES004.md` |
 
 ---
 
@@ -169,6 +171,7 @@ Downstream enforcement:
 |:--|:--|
 | Governing Plan | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/plan_T103-PH000-ST000-AC000.md` |
 | Input Analysis | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/analysis/analysis_T103-PH000-ST000-AC000_claude-code-execution-reliability-hardening-assessment.md` |
+| External Review | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/analysis/analysis_T103-PH000-ST000-AC000_gate-003-external-review.md` |
 | Verification Artifact | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/verification/verification_T103-PH000-ST000-AC000_gate-003.md` |
 | Supplementary Verification: Spec Traceability | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/verification/verification_T103-PH000-ST000-AC000_gate-003_spec-traceability.md` |
 | Supplementary Verification: Evidence Integrity | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/verification/verification_T103-PH000-ST000-AC000_gate-003_evidence-integrity.md` |
@@ -180,4 +183,5 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-23 | Decision | Indexed the external review analysis, recorded the client `APPROVE WITH CONDITIONS` decision in the GDR, and commissioned `AC000.1` as the follow-on monitoring/testing slice while preserving the manual-only runtime boundary. |
 | v1.0.0 | 2026-03-23 | Initial | Created the implementation-backed `GATE-003` disposition package with consultant recommendation `APPROVE WITH CONDITIONS`, aligned to the reviewer `CONDITIONAL PASS` verdict and preserving the manual-only runtime boundary as an explicit condition pending client decision. |

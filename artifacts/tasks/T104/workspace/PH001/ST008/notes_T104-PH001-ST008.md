@@ -5,7 +5,7 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST008'
-version: '2.12.0'
+version: '2.13.0'
 date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -40,6 +40,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Activity | Session ID | Name | Notes File |
 |:--|:--|:--|:--|
+| AC001.9 | `T104-PH001-ST008-AC001.9-SES001` | Recyclable Loop Artifact Governance — Scope Consultation | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES001.md` |
 | AC001.6 | `T104-PH001-ST008-AC001.6-SES004` | GATE-001 External Review, Orchestration Recovery, Claude Variance Disposition, GATE-002 Package Normalization & GATE-002 Approval | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/snotes/snotes_T104-PH001-ST008-AC001.6-SES004.md` |
 | AC001.6 | `T104-PH001-ST008-AC001.6-SES003` | QA Consultation: IMPLEMENTATION Artifact Family Horizontal Development, Execution Audience Parametrization & Orchestrated Phase 1 Execution | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/snotes/snotes_T104-PH001-ST008-AC001.6-SES003.md` |
 | AC003 | `T104-PH001-ST008-AC003-SES004` | GATE-001 Package Correction, Same-Gate Reassessment & Plan Amendment | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC003/snotes/snotes_T104-PH001-ST008-AC003-SES004.md` |
@@ -84,6 +85,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.13.0 | 2026-03-23 | Amendment | Registered AC001.9-SES001 (Recyclable Loop Artifact Governance — Scope Consultation) after AC001.9 planning, assessment, and consultation-only GATE-001 package creation. |
 | v2.12.0 | 2026-03-23 | Amendment | Updated SES004 row title to reflect session continuation covering GATE-002 external review and client approval. |
 | v2.11.0 | 2026-03-22 | Amendment | Registered AC001.6-SES004 (GATE-001 External Review, Orchestration Recovery, Claude Variance Disposition & GATE-002 Package Normalization). SES004 records the external review, remediation artifact, orchestration-plan refinement, Claude runtime failure and T103 escalation, accepted-substitute readiness disposition, and final `GATE-002` package normalization. |
 | v2.10.0 | 2026-03-21 | Amendment | Registered AC001.6-SES003 (QA Consultation: IMPLEMENTATION Artifact Family Horizontal Development, Execution Audience Parametrization & Orchestrated Phase 1 Execution). SES003 records: client QA on TK003.1 (P-STD-005 compliance, hybrid SPEC structure, DEV-REPORT backlink), execution audience parametrization (Option B approved), horizontal amendments scope placement in AC001.6, standards-input proposal and task specification commissioning, and orchestrated 4-wave Phase 1 execution producing 10 deliverables. GATE-001 package augmented to GIR-001–011. |
