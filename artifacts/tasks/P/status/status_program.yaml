@@ -26,34 +26,2925 @@
 #     by: "<actor identifier>"
 #     summary: "<1-line description>"
 
-schema_version: "1.0"
-program_id: "P"
-as_of: "<YYYY-MM-DD>"
-updated_by: "<actor>"
-last_updated: "<YYYY-MM-DD>"
-
+schema_version: '1.0'
+program_id: P
+as_of: '2026-03-23'
+updated_by: LLM_Developer
+last_updated: '2026-03-23'
 entries:
-  # Example placeholder entry — demonstrates schema structure.
-  # All value fields remain as placeholders. AC003 populates real entries.
-  - scope_uid: "<P-PH000-ST001-AC003>"
-    scope_type: "<activity>"
-    initiative_id: "<P>"
-    name: "<human-readable activity name>"
-    status: "<planned|ready|in_progress|blocked|on_hold|deferred|completed|cancelled>"
-    as_of: "<YYYY-MM-DD>"
-    updated_by: "<actor>"
-    last_updated: "<YYYY-MM-DD>"
-    health:
-      overall: "<green|amber|red|unassessed>"
-      dimensions:
-        time: "<green|amber|red|unassessed>"
-        cost: "<green|amber|red|unassessed>"
-        scope: "<green|amber|red|unassessed>"
-        quality: "<green|amber|red|unassessed>"
-        risk: "<green|amber|red|unassessed>"
-        benefits: "<green|amber|red|unassessed>"
-    dependencies: []
-    evidence: []
-    aggregation_policy: ~
-    execution_refs: []
-    extensions: {}
+- scope_uid: P-PH000-ST001-AC001
+  scope_type: activity
+  initiative_id: P
+  name: Amend ID governance to allow `P-RES-###`
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for P-PH000-ST001-AC001 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST001-AC002
+  scope_type: activity
+  initiative_id: P
+  name: Author `P-STD-001` (Full Promotion from T102-STD-004)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST001-AC001
+    to_id: P-PH000-ST001-AC002
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for P-PH000-ST001-AC002: AC001'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for P-PH000-ST001-AC002 (status completed; raw depends_on: AC001)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST001-AC003
+  scope_type: activity
+  initiative_id: P
+  name: Author `P-STD-002` (Program Status Standard)
+  status: in_progress
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST004-AC001
+    to_id: P-PH000-ST001-AC003
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for P-PH000-ST001-AC003: AC001, `P-PH000-ST004-AC001`'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for P-PH000-ST001-AC003 (status in_progress; raw depends_on: AC001, `P-PH000-ST004-AC001`)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST001-AC004
+  scope_type: activity
+  initiative_id: P
+  name: Author `P-STD-004` (File Naming & Directory Convention)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for P-PH000-ST001-AC004 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST001-AC005
+  scope_type: activity
+  initiative_id: P
+  name: Align `P/standard/` naming to `standard_<SID-STD>_...`
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST001-AC004
+    to_id: P-PH000-ST001-AC005
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for P-PH000-ST001-AC005: AC004'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for P-PH000-ST001-AC005 (status planned; raw depends_on: AC004)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST001-AC006
+  scope_type: activity
+  initiative_id: P
+  name: Promote T102-STD-005 to P-STD-005 (Universal ID Specification)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST001-AC002
+    to_id: P-PH000-ST001-AC006
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for P-PH000-ST001-AC006: AC002'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for P-PH000-ST001-AC006 (status completed; raw depends_on: AC002)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST001-AC007
+  scope_type: activity
+  initiative_id: P
+  name: Harden P-STD-005 (Compliance, Refactoring & GIR Assessment)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST001-AC006
+    to_id: P-PH000-ST001-AC007
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for P-PH000-ST001-AC007: AC006'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for P-PH000-ST001-AC007 (status completed; raw depends_on: AC006)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST001-AC008
+  scope_type: activity
+  initiative_id: P
+  name: Author Evidence-Retention Governance Policy (Sibling Artifact)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST001-AC003
+    to_id: P-PH000-ST001-AC008
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: at_risk
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for P-PH000-ST001-AC008: AC003'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for P-PH000-ST001-AC008 (status planned; raw depends_on: AC003)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST001-AC009
+  scope_type: activity
+  initiative_id: P
+  name: Harden P-STD-001 (Research-Backed Metadata & Structure Governance)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST004-AC003-GATE-002
+    to_id: P-PH000-ST001-AC009
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for P-PH000-ST001-AC009: P-PH000-ST004-AC003-GATE-002'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for P-PH000-ST001-AC009 (status planned; raw depends_on: P-PH000-ST004-AC003-GATE-002)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST001-AC010
+  scope_type: activity
+  initiative_id: P
+  name: Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST001-AC009
+    to_id: P-PH000-ST001-AC010
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for P-PH000-ST001-AC010: AC009'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for P-PH000-ST001-AC010 (status planned; raw depends_on: AC009)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST002-AC001
+  scope_type: activity
+  initiative_id: P
+  name: Define status artifact schema + update protocol
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for P-PH000-ST002-AC001 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST002-AC002
+  scope_type: activity
+  initiative_id: P
+  name: Design & Author Program Status Artifact Set
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST001-AC003
+    to_id: P-PH000-ST002-AC002
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for P-PH000-ST002-AC002: ST001-AC003 (satisfied)'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for P-PH000-ST002-AC002 (status completed; raw depends_on: ST001-AC003 (satisfied))'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST002-AC003
+  scope_type: activity
+  initiative_id: P
+  name: Backfill & Validate Initial Program Entries
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST002-AC002
+    to_id: P-PH000-ST002-AC003
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant / LLM_Developer
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for P-PH000-ST002-AC003: AC002'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for P-PH000-ST002-AC003 (status planned; raw depends_on: AC002)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST002-AC004
+  scope_type: activity
+  initiative_id: P
+  name: Operationalize Status Update Workflow & Automation Baseline
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST002-AC003
+    to_id: P-PH000-ST002-AC004
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Developer / LLM_Reviewer / LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for P-PH000-ST002-AC004: AC003'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for P-PH000-ST002-AC004 (status planned; raw depends_on: AC003)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST004-AC001
+  scope_type: activity
+  initiative_id: P
+  name: Commission `P-RES-001` (Status Standard Research)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for P-PH000-ST004-AC001 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST004-AC002
+  scope_type: activity
+  initiative_id: P
+  name: Commission `P-RES-002` (Agentic Status Systems Research)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for P-PH000-ST004-AC002 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST004-AC003
+  scope_type: activity
+  initiative_id: P
+  name: Commission `P-RES-003` (Specification Metadata Governance Research)
+  status: in_progress
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for P-PH000-ST004-AC003 (status in_progress; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST001-AC001
+  scope_type: activity
+  initiative_id: T102
+  name: Comparative design analysis (Models A/B/C/D)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T102-PH001-ST001-AC001 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST001-AC002
+  scope_type: activity
+  initiative_id: T102
+  name: ADR Index Schema + Extraction Conventions (Model D)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST001-AC001
+    to_id: T102-PH001-ST001-AC002
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST001-AC002: AC001'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST001-AC002 (status completed; raw depends_on: AC001)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST001-AC003
+  scope_type: activity
+  initiative_id: T102
+  name: Prerequisite governance deltas (Concept-scoped)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST001-AC001
+    to_id: T102-PH001-ST001-AC003
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST001-AC003: AC001, AC002'
+  - from_id: T102-PH001-ST001-AC002
+    to_id: T102-PH001-ST001-AC003
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST001-AC003: AC001, AC002'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST001-AC003 (status completed; raw depends_on: AC001, AC002)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST001-AC004
+  scope_type: activity
+  initiative_id: T102
+  name: Rollout packaging decision (activate ST003)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST001-AC003
+    to_id: T102-PH001-ST001-AC004
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST001-AC004: AC003'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST001-AC004 (status completed; raw depends_on: AC003)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST001-AC005
+  scope_type: activity
+  initiative_id: T102
+  name: T102-STD-004 Redesign & Golden Exemplar
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST001-AC004
+    to_id: T102-PH001-ST001-AC005
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST001-AC005: AC004'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST001-AC005 (status completed; raw depends_on: AC004)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST001-AC006
+  scope_type: activity
+  initiative_id: T102
+  name: STD-Contains-CLAUSE Governance Migration
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST001-AC005
+    to_id: T102-PH001-ST001-AC006
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST001-AC006: AC005'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST001-AC006 (status completed; raw depends_on: AC005)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST001-AC007
+  scope_type: activity
+  initiative_id: T102
+  name: STD-004 Retitle + Staged Script Execution Hardening
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST001-AC006
+    to_id: T102-PH001-ST001-AC007
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST001-AC007: AC006'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST001-AC007 (status completed; raw depends_on: AC006)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST001-AC008
+  scope_type: activity
+  initiative_id: T102
+  name: STD-004 Self-Compliance Audit & Exemplar Hardening
+  status: in_progress
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST001-AC007
+    to_id: T102-PH001-ST001-AC008
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST001-AC008: AC007'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST001-AC008 (status in_progress; raw depends_on: AC007)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST001-AC009
+  scope_type: activity
+  initiative_id: T102
+  name: Research-Informed STD-004 Formalization
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST001-AC008
+    to_id: T102-PH001-ST001-AC009
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: at_risk
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST001-AC009: AC008, ST004-AC004 (GATE-002)'
+  - from_id: T102-PH001-ST004-AC004-GATE-002
+    to_id: T102-PH001-ST001-AC009
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST001-AC009: AC008, ST004-AC004 (GATE-002)'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST001-AC009 (status planned; raw depends_on: AC008, ST004-AC004 (GATE-002))'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST002-AC000
+  scope_type: activity
+  initiative_id: T102
+  name: ST005 Remediation Accounting & Scope Calibration
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST005-AC001-GATE-001
+    to_id: T102-PH001-ST002-AC000
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC000: All ST005 GATE-001'
+  - from_id: T102-PH001-ST005-AC002-GATE-001
+    to_id: T102-PH001-ST002-AC000
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC000: All ST005 GATE-001'
+  - from_id: T102-PH001-ST005-AC003-GATE-001
+    to_id: T102-PH001-ST002-AC000
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC000: All ST005 GATE-001'
+  - from_id: T102-PH001-ST005-AC004-GATE-001
+    to_id: T102-PH001-ST002-AC000
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC000: All ST005 GATE-001'
+  - from_id: T102-PH001-ST005-AC005-GATE-001
+    to_id: T102-PH001-ST002-AC000
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC000: All ST005 GATE-001'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST002-AC000 (status planned; raw depends_on: All ST005 GATE-001)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST002-AC001
+  scope_type: activity
+  initiative_id: T102
+  name: STD adoption & verification gap analysis (post-amendment)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST002-AC000
+    to_id: T102-PH001-ST002-AC001
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC001: AC000'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST002-AC001 (status planned; raw depends_on: AC000)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST002-AC002
+  scope_type: activity
+  initiative_id: T102
+  name: STD verification contract normalization
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST002-AC001
+    to_id: T102-PH001-ST002-AC002
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC002: AC001'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST002-AC002 (status planned; raw depends_on: AC001)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST002-AC003
+  scope_type: activity
+  initiative_id: T102
+  name: STD verification expectations (review checklist)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST002-AC002
+    to_id: T102-PH001-ST002-AC003
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC003: AC002'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST002-AC003 (status planned; raw depends_on: AC002)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST002-AC004
+  scope_type: activity
+  initiative_id: T102
+  name: SSOT alignment plan (SPS + Concept)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST002-AC002
+    to_id: T102-PH001-ST002-AC004
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC004: AC002, AC003, ST006'
+  - from_id: T102-PH001-ST002-AC003
+    to_id: T102-PH001-ST002-AC004
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC004: AC002, AC003, ST006'
+  - from_id: T102-PH001-ST006-AC001
+    to_id: T102-PH001-ST002-AC004
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC004: AC002, AC003, ST006'
+  - from_id: T102-PH001-ST006-AC002
+    to_id: T102-PH001-ST002-AC004
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC004: AC002, AC003, ST006'
+  - from_id: T102-PH001-ST006-AC003
+    to_id: T102-PH001-ST002-AC004
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC004: AC002, AC003, ST006'
+  - from_id: T102-PH001-ST006-AC004
+    to_id: T102-PH001-ST002-AC004
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC004: AC002, AC003, ST006'
+  - from_id: T102-PH001-ST006-AC005
+    to_id: T102-PH001-ST002-AC004
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST002-AC004: AC002, AC003, ST006'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST002-AC004 (status planned; raw depends_on: AC002, AC003, ST006)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST003-AC001
+  scope_type: activity
+  initiative_id: T102
+  name: Execute STD Migration for Remaining Standards
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST001-AC007
+    to_id: T102-PH001-ST003-AC001
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST003-AC001: ST001-AC007'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST003-AC001 (status completed; raw depends_on: ST001-AC007)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST003-AC002
+  scope_type: activity
+  initiative_id: T102
+  name: Validation & Handoff
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST003-AC001
+    to_id: T102-PH001-ST003-AC002
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Developer
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST003-AC002: AC001'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST003-AC002 (status completed; raw depends_on: AC001)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST004-AC001
+  scope_type: activity
+  initiative_id: T102
+  name: Commission `T102-RES-004` (Issues & Risks Architecture)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T102-PH001-ST004-AC001 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST004-AC002
+  scope_type: activity
+  initiative_id: T102
+  name: Commission `T102-RES-005` (Cross-Scope Coordination Architecture)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T102-PH001-ST004-AC002 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST004-AC003
+  scope_type: activity
+  initiative_id: T102
+  name: Commission `T102-RES-006` (Concept Role + Dynamic SSOT Registers)
+  status: in_progress
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST004-AC001-GATE-002
+    to_id: T102-PH001-ST004-AC003
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST004-AC003: AC001 (GATE-002), AC002 (GATE-002)'
+  - from_id: T102-PH001-ST004-AC002-GATE-002
+    to_id: T102-PH001-ST004-AC003
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST004-AC003: AC001 (GATE-002), AC002 (GATE-002)'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST004-AC003 (status in_progress; raw depends_on: AC001 (GATE-002), AC002 (GATE-002))'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST004-AC004
+  scope_type: activity
+  initiative_id: T102
+  name: Commission `T102-RES-007` (Standards Authoring Methodology Benchmarking)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T102-PH001-ST004-AC004 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST005-AC001
+  scope_type: activity
+  initiative_id: T102
+  name: Amend `T102-STD-007` (Issues & Risks Index)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST004-AC001-GATE-003
+    to_id: T102-PH001-ST005-AC001
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST005-AC001: ST004-AC001 GATE-003 (passed)'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST005-AC001 (status planned; raw depends_on: ST004-AC001 GATE-003 (passed))'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST005-AC002
+  scope_type: activity
+  initiative_id: T102
+  name: Amend `T102-STD-003` (Explicit Inheritance Model)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST004-AC002-GATE-003
+    to_id: T102-PH001-ST005-AC002
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST005-AC002: ST004-AC002 GATE-003 (passed)'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST005-AC002 (status planned; raw depends_on: ST004-AC002 GATE-003 (passed))'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST005-AC003
+  scope_type: activity
+  initiative_id: T102
+  name: Amend `T102-STD-006` (Research Artifacts Index)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST004-AC002-GATE-003
+    to_id: T102-PH001-ST005-AC003
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST005-AC003: ST004-AC002 GATE-003 (passed)'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST005-AC003 (status planned; raw depends_on: ST004-AC002 GATE-003 (passed))'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST005-AC004
+  scope_type: activity
+  initiative_id: T102
+  name: Amend `T102-STD-001` (Consultancy Operating Model)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST004-AC003-GATE-003
+    to_id: T102-PH001-ST005-AC004
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST005-AC004: ST004-AC003 GATE-003 (passed 2026-02-10)'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST005-AC004 (status planned; raw depends_on: ST004-AC003 GATE-003 (passed 2026-02-10))'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST005-AC005
+  scope_type: activity
+  initiative_id: T102
+  name: Amend `T102-STD-005` (ID Specification & Rules)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST004-AC002-GATE-003
+    to_id: T102-PH001-ST005-AC005
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST005-AC005: ST004-AC002 GATE-003 (passed)'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST005-AC005 (status planned; raw depends_on: ST004-AC002 GATE-003 (passed))'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST006-AC001
+  scope_type: activity
+  initiative_id: T102
+  name: Concept Link-Integrity Hygiene (Registers)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T102-PH001-ST006-AC001 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST006-AC002
+  scope_type: activity
+  initiative_id: T102
+  name: Concept I&R Aggregation Register (Pointers-Only)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST005-AC001-GATE-001
+    to_id: T102-PH001-ST006-AC002
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST006-AC002: ST005-AC001/AC004/AC005 GATE-001 (required)'
+  - from_id: T102-PH001-ST005-AC004-GATE-001
+    to_id: T102-PH001-ST006-AC002
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST006-AC002: ST005-AC001/AC004/AC005 GATE-001 (required)'
+  - from_id: T102-PH001-ST005-AC005-GATE-001
+    to_id: T102-PH001-ST006-AC002
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST006-AC002: ST005-AC001/AC004/AC005 GATE-001 (required)'
+  - from_id: T102-PH001-ST005-AC003-GATE-001
+    to_id: T102-PH001-ST006-AC002
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: at_risk
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST006-AC002: ST005-AC003 GATE-001 (conditional)'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST006-AC002 (status planned; raw depends_on: ST005-AC001/AC004/AC005 GATE-001 (required); ST005-AC003 GATE-001 (conditional))'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST006-AC003
+  scope_type: activity
+  initiative_id: T102
+  name: SPS Pointer Blocks to Concept I&R Aggregation
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST006-AC002
+    to_id: T102-PH001-ST006-AC003
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: Client
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for T102-PH001-ST006-AC003: ST006-AC002'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: 'Source plan row for T102-PH001-ST006-AC003 (status planned; raw depends_on: ST006-AC002)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST006-AC004
+  scope_type: activity
+  initiative_id: T102
+  name: T102A Owner Communication Brief (Option (c) Impacts)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T102-PH001-ST006-AC004 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T102-PH001-ST006-AC005
+  scope_type: activity
+  initiative_id: T102
+  name: 'Gate: Client Acceptance of Option (c) Transition Execution Output'
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: T102-PH001-ST006-AC001
+    to_id: T102-PH001-ST006-AC005
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: "Dependency clause from source plan row for T102-PH001-ST006-AC005: AC001\u2013AC004"
+  - from_id: T102-PH001-ST006-AC002
+    to_id: T102-PH001-ST006-AC005
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: "Dependency clause from source plan row for T102-PH001-ST006-AC005: AC001\u2013AC004"
+  - from_id: T102-PH001-ST006-AC003
+    to_id: T102-PH001-ST006-AC005
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: "Dependency clause from source plan row for T102-PH001-ST006-AC005: AC001\u2013AC004"
+  - from_id: T102-PH001-ST006-AC004
+    to_id: T102-PH001-ST006-AC005
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+      date: '2026-03-23'
+      by: LLM_Developer
+      summary: "Dependency clause from source plan row for T102-PH001-ST006-AC005: AC001\u2013AC004"
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T102/workspace/PH001/plan_T102-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T102-PH001-ST006-AC005 (status planned; raw depends_on: AC001\u2013AC004)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST000-AC001
+  scope_type: activity
+  initiative_id: T104
+  name: Conduct Phase 1 planning consultation (SES-002) and create phase plan
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST000-AC001 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST000-AC002
+  scope_type: activity
+  initiative_id: T104
+  name: Update notes file (normalize Stream 0 notes naming + IDs) and create notes guideline
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST000-AC002 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST000-AC003
+  scope_type: activity
+  initiative_id: T104
+  name: 'Plan amendment: align ST002/ST003/ST004/ST005 to support T104A/B/F parallel work'
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST000-AC003 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST001-AC000
+  scope_type: activity
+  initiative_id: T104
+  name: SPS Structural Migration
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST001-AC000 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST001-AC001
+  scope_type: activity
+  initiative_id: T104
+  name: Commission `T104-RES-002` (Requirements Candidate Research)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST001-AC001 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST001-AC002
+  scope_type: activity
+  initiative_id: T104
+  name: Initiative Considerations Consultation (cross-category)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST001-AC002 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST001-AC003
+  scope_type: activity
+  initiative_id: T104
+  name: Consultation Outcome Validation
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST001-AC003 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST002-AC000
+  scope_type: activity
+  initiative_id: T104
+  name: Folder + naming decisions (baseline)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST002-AC000 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST002-AC001
+  scope_type: activity
+  initiative_id: T104
+  name: Author T104-STD-001 (Planning Hierarchy + Role Boundaries)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST002-AC001 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST002-AC002
+  scope_type: activity
+  initiative_id: T104
+  name: Author T104-STD-002 (Timeline UID Convention)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST002-AC002 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST002-AC003
+  scope_type: activity
+  initiative_id: T104
+  name: Author T104-STD-003 (Gate Definition Standard)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST002-AC003 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST003-AC001
+  scope_type: activity
+  initiative_id: T104
+  name: Convert roadmap_T104A-ROADMAP_phase0.md to plan format
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST003-AC001 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST003-AC002
+  scope_type: activity
+  initiative_id: T104
+  name: Update roadmap_T104-CWS.md with PH001 scope
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST003-AC002 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST003-AC003
+  scope_type: activity
+  initiative_id: T104
+  name: Mark PH000 Streams 5/6/7 as migrated (Phase 0 refactor items)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST003-AC003 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST003-AC004
+  scope_type: activity
+  initiative_id: T104
+  name: "Update critical epic dossiers (T104A/T104B/T104F) sections i\u2013v only"
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST003-AC004 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST004-AC001
+  scope_type: activity
+  initiative_id: T104
+  name: Create communication brief (comm_) for T104A subconsultant
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST004-AC001 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST004-AC002
+  scope_type: activity
+  initiative_id: T104
+  name: Create communication brief (comm_) for T104B subconsultant
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST004-AC002 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST004-AC003
+  scope_type: activity
+  initiative_id: T104
+  name: Create communication brief (comm_) for T104F subconsultant
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST004-AC003 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST004-AC004
+  scope_type: activity
+  initiative_id: T104
+  name: Kickoff & placeholder registrations (critical epics)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST004-AC004 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST005-AC001
+  scope_type: activity
+  initiative_id: T104
+  name: PLAN Templates + Guideline Package
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST005-AC001 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST005-AC002
+  scope_type: activity
+  initiative_id: T104
+  name: ROADMAP Template + Guideline Alignment
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST005-AC002 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST005-AC003
+  scope_type: activity
+  initiative_id: T104
+  name: NOTES Templates + Guideline Alignment
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST005-AC003 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST005-AC004
+  scope_type: activity
+  initiative_id: T104
+  name: Workspace Documentation Rules Rewrite
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST005-AC004 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST006-AC001
+  scope_type: activity
+  initiative_id: T104
+  name: Execute validation checklist
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST006-AC001 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST006-AC002
+  scope_type: activity
+  initiative_id: T104
+  name: Phase 1 exit sign-off
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST006-AC002 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST007-AC001
+  scope_type: activity
+  initiative_id: T104
+  name: Script Development & Migration Execution (T104)
+  status: completed
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST007-AC001 (status completed; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST007-AC002
+  scope_type: activity
+  initiative_id: T104
+  name: Verification and cross-reference validation
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST007-AC002 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST007-AC003
+  scope_type: activity
+  initiative_id: T104
+  name: Archive tooling development
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST007-AC003 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST007-AC004
+  scope_type: activity
+  initiative_id: T104
+  name: Script Enhancement + P Directory Migration
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST007-AC004 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST007-AC005
+  scope_type: activity
+  initiative_id: T104
+  name: T102 Directory Migration
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST007-AC005 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST008-AC001
+  scope_type: activity
+  initiative_id: T104
+  name: GDR Ownership Resolution & Gate Semantics Alignment
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST008-AC001 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST008-AC002
+  scope_type: activity
+  initiative_id: T104
+  name: Vertical Integration Analysis (Research Commissioning)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST008-AC002 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST008-AC003
+  scope_type: activity
+  initiative_id: T104
+  name: Cross-Guideline Gap Resolution (Development)
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST008-AC003 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST008-AC004
+  scope_type: activity
+  initiative_id: T104
+  name: Documentation Rules Consolidation & SPS Alignment
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST008-AC004 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: T104-PH001-ST008-AC005
+  scope_type: activity
+  initiative_id: T104
+  name: Validation & Internal Review Gate
+  status: planned
+  as_of: '2026-03-23'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-23'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md
+    date: '2026-03-23'
+    by: LLM_Developer
+    summary: "Source plan row for T104-PH001-ST008-AC005 (status planned; raw depends_on: \u2014)"
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}

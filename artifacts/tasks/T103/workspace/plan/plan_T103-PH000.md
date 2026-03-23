@@ -3,8 +3,8 @@ artifact_type: 'PLAN'
 planning_level: 'PHASE'
 initiative_id: 'T103'
 phase: '0'
-version: '1.1.0'
-date: '2026-03-22'
+version: '1.2.0'
+date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -76,7 +76,7 @@ This phase plan supersedes the Phase 0-2 completion tracking in `plan_T103_adr-s
 
 | Stream | ID | Name | Status | Owner | Depends On | Deliverable |
 |:--|:--|:--|:--|:--|:--|:--|
-| ST000 | T103-PH000-ST000 | Claude Code Skill Remediation Commissioning | `in_progress` | LLM_Consultant | — | Linked stream/activity governance chain, Gate-001 readiness package, downstream execution contract |
+| ST000 | T103-PH000-ST000 | Claude Code Skill Remediation Commissioning | `in_progress` | LLM_Consultant | — | Linked stream/activity governance chain, original remediation acceptance path, and post-GATE-002 hardening continuation lane |
 | ST001 | T103-PH000-ST001 | Pre-Implementation Verification | `planned` | LLM_Consultant | Entry Criteria | Anchor verification report; extraction format assessment |
 | ST002 | T103-PH000-ST002 | ADR-to-STD Rename | `planned` | LLM_Developer | ST001 | All files, symbols, and references renamed |
 | ST003 | T103-PH000-ST003 | Extraction Retargeting | `planned` | LLM_Developer | ST002 | Extraction reads from canonical STD files |
@@ -85,7 +85,7 @@ This phase plan supersedes the Phase 0-2 completion tracking in `plan_T103_adr-s
 
 ### Activity Snapshot Index
 
-**Activity Snapshot As-Of**: 2026-03-22
+**Activity Snapshot As-Of**: 2026-03-23
 
 | Stream | Activity | Activity ID | Name | Status (snapshot) | Owner | Source (Stream Plan) |
 |:--|:--|:--|:--|:--|:--|:--|
@@ -97,7 +97,7 @@ This phase plan supersedes the Phase 0-2 completion tracking in `plan_T103_adr-s
 
 #### ST000: Claude Code Skill Remediation Commissioning
 
-**Objective**: Repair the missing governance chain around the AC000 Claude Code skill remediation package, then stage a consultation-only commissioning gate that can unlock the already-approved remediation specification for downstream developer execution.
+**Objective**: Repair the missing governance chain around the AC000 Claude Code skill remediation package, stage the original commissioning and acceptance path, and preserve the later execution-reliability hardening continuation lane after `GATE-002`.
 
 **Execution Mode**: GATED
 
@@ -107,12 +107,13 @@ This phase plan supersedes the Phase 0-2 completion tracking in `plan_T103_adr-s
 
 | Activity | ID | Name | Status | Deliverable |
 |:--|:--|:--|:--|:--|
-| AC000 | T103-PH000-ST000-AC000 | Claude Code skill remediation commissioning and gated execution package | `in_progress` | `plan_T103-PH000-ST000-AC000.md`; `proposal_T103-PH000-ST000-AC000_gate-001_claude-code-skill-remediation-readiness.md`; normalized remediation specification |
+| AC000 | T103-PH000-ST000-AC000 | Claude Code skill remediation commissioning and gated execution package | `in_progress` | `plan_T103-PH000-ST000-AC000.md`; `proposal_T103-PH000-ST000-AC000_gate-001_claude-code-skill-remediation-readiness.md`; normalized remediation specification; post-incident hardening continuation lane |
 
 **Success Criteria**:
 - [ ] ST000 stream plan exists and is linked from the phase plan
-- [ ] AC000 activity plan exists with Gate-001 and Gate-002 sequencing
+- [ ] AC000 activity plan exists with Gate-001, Gate-002, and post-`GATE-002` continuation sequencing
 - [ ] Gate-001 readiness package is staged for client review before any developer work starts
+- [ ] The post-incident continuation lane remains attached to AC000 instead of drifting into an ungoverned side package
 
 ---
 
@@ -294,5 +295,6 @@ This phase plan supersedes the Phase 0-2 completion tracking in `plan_T103_adr-s
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-23 | Update | Refreshed the ST000 phase-level summary so the stream now reflects AC000's incident-correction analysis and post-GATE-002 execution-reliability continuation lane in addition to the original remediation commissioning and acceptance path. |
 | v1.1.0 | 2026-03-22 | Update | Added ST000 (Claude Code Skill Remediation Commissioning) to the phase stream register, introduced an Activity Snapshot Index row for AC000, and linked the new stream/activity governance chain used to commission the Claude Code skill remediation package. |
 | v1.0.0 | 2026-02-12 | Initial | Initial phase plan for T103-PH000 standards retargeting; 5 streams defined (Pre-Implementation Verification, ADR-to-STD Rename, Extraction Retargeting, Verification & Validation, Documentation Update); grounded in T103 analysis and T102-RES-006 communication |

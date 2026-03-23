@@ -5,161 +5,56 @@ initiative_code: 'PROGRAM'
 epic_id: '—'
 epic_code: '—'
 phase: '0'
-version: '0.1.1'
-date: '2026-02-07'
+version: '0.2.0'
+date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
 template_reference: 'prompt/templates/consultant/workspace/template_workspace_roadmap.md'
+procedural_guideline: 'prompt/templates/consultant/workspace/guideline_workspace_roadmap.md'
+ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
+ssot_concept_target: 'prompt/artifacts/tasks/P/ssot/concept_P-PROGRAM.md'
+phase0_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
+phase1_plan: '—'
 parent_roadmap: '—'
 parent_activity: '—'
+roadmap_changelog: 'prompt/artifacts/tasks/P/archive/changelog_roadmap_P-PROGRAM_phase0.md'
 ---
 
-# ROADMAP: P (PROGRAM) — Phase 0: Program Standards Foundation
+# ROADMAP: P (PROGRAM) — Initiative Master Roadmap
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: Establish a program-level standards inventory and promotion plan that sequences P-STD authoring, including a new standards model derived from T102 governance exemplars.
+**Purpose**: Provide the initiative-wide roadmap spine for `P (PROGRAM)`:
+- high-level phase intent and navigation
+- a compact snapshot of current program standards/status-system delivery
+- links to the governing SSOT and execution plans
 
-**Phase 0 Objective**: Define the P-STD backlog and the sequencing needed to author program standards that govern `prompt/artifacts/tasks/**` and upstream standards-model adoption.
+**Thin-spine rule**: This roadmap MUST remain thin and MUST NOT contain stream/activity/task execution detail. Execution authority belongs in phase and stream plans.
 
-**Phase 0 Exit Milestone**: **Program Standards Roadmap Locked**
-- P-STD inventory is enumerated with clear purpose, adoption sources, and sequencing dependencies.
-- P-STD-003 draft (combined governance model) is created as the program-level adoption candidate.
-
-**Role Boundaries**:
-- `LLM_Consultant`: Drafts roadmap, P-STD inventory, and P-STD-003 seed standard.
-- `LLM_Developer`: Implementation support once standards are approved.
-- `Client`: Approves standards inventory and promotion sequence.
-
-**Locked Decisions (if any)**:
-- Program governance root is `prompt/artifacts/tasks/P/**` (see program SPS).
+**Phase Plans**:
+- Phase 0 Plan (current): `prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md`
 
 ---
 
-## II. CONTEXT MATERIALS & PREREQUISITES
+## II. INITIATIVE PHASE REGISTER (HIGH-LEVEL)
 
-**SSOT / Governance (read-only unless explicitly scoped)**:
-- `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` — program governance shell and standards placeholders.
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-ADR-004_decision-records-index.md` — decision records index spec exemplar.
-- `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md#t102-std-009-governance-standards-spec` — governance standards specification clauses.
-
-**Workspace Governance Rules**:
-- `prompt/templates/consultant/workspace/workspace_documentation_rules.md` — artifact role boundaries.
-
-**Structural Exemplars**:
-- `prompt/artifacts/tasks/T102/consultant/workspace/roadmap/roadmap_T102-CWD_phase0.md` — roadmap structure and stream/activities pattern.
+| Phase UID | Display Phase | Title | Intent | Key Exit Milestone | Plan Link |
+|:--|:--|:--|:--|:--|:--|
+| `P-PH000` | 0 | Bootstrap & Standards Foundation | Establish the program SSOT root, standards stack, and the initial status-system artifact set | **Program Governance Backbone Usable** | `prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md` |
+| `P-PH001` | 1 | Adoption & Operationalization | Operationalize cross-initiative adoption and program-level status maintenance patterns | **Program Status Workflow Operationalized** | — |
+| `P-PH002` | 2 | Cross-Initiative Integration | Demonstrate stable program-level governance across multiple active initiatives | **Program Roll-Up Stable Across Initiatives** | — |
 
 ---
 
-## III. PHASE 0: PROGRAM STANDARDS FOUNDATION
+## III. CURRENT DELIVERY SNAPSHOT (COMPACT)
 
-**Objective**: Inventory and sequence program standards (P-STD) while authoring a combined governance model (P-STD-003) for program-level adoption.
-
-**Constraints**:
-- Roadmap does not author full P-STD bodies; it sequences the work and references governing sources.
-- P-STD items MUST link to adopted specs rather than duplicating normative content.
-
-### Parallelism & Dependencies Standard (Roadmap)
-
-- **Execution Mode**:
-  - `PARALLEL`: may be executed concurrently (subject to `Depends On`)
-  - `SEQUENTIAL`: intended ordering signal (still enforce via `Depends On` if required)
-  - `GATED`: requires explicit exit evidence before dependent work starts
-- **Depends On**: comma-separated list of prerequisite **Stream IDs** and/or **Activity IDs**. Use `—` if none.
-- **Rule**: `Depends On` is the enforceable constraint; `Execution Mode` is the coordination intent.
-
-### Stream Register
-
-| Stream | Name | Objective | Status | Owner | Execution Mode | Depends On | Start | Target | Completion | Key Deliverables |
-|:------|:-----|:----------|:-------|:------|:--------------|:----------|:------|:-------|:-----------|:----------------|
-| 1 | **Program Standards Inventory** | Enumerate P-STD backlog and adoption sources | Planned | LLM_Consultant | SEQUENTIAL | — | — | — | — | P-STD inventory register in this roadmap |
-| 2 | **Standards Model Seeding (P-STD-003)** | Draft combined governance model for program adoption | Planned | LLM_Consultant | SEQUENTIAL | 1 | — | — | — | `P-STD-003` draft standard |
-| 3 | **Program Standards Sequencing** | Define dependencies between P-STD authoring streams for P-PH000 | Planned | LLM_Consultant | SEQUENTIAL | 2 | — | — | — | Sequenced activities for P-STD-001/002/003 |
-
-### Activity Register
-
-| Stream | Activity | Name | Status | Owner | Execution Mode | Depends On | Start | Target | Completion | Deliverable(s) |
-|:-------|:---------|:-----|:-------|:------|:--------------|:----------|:------|:-------|:-----------|:--------------|
-| 1 | 1.1 | **List P-STD Inventory** | Planned | LLM_Consultant | SEQUENTIAL | — | — | — | — | P-STD inventory section in this roadmap |
-| 2 | 2.1 | **Draft P-STD-003 (Combined Governance Model)** | Planned | LLM_Consultant | SEQUENTIAL | 1.1 | — | — | — | `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md` |
-| 3 | 3.1 | **Sequence P-STD Authoring for P-PH000** | Planned | LLM_Consultant | SEQUENTIAL | 2.1 | — | — | — | P-STD sequencing notes in this roadmap |
-
----
-
-### Stream 1: Program Standards Inventory
-
-**Objective**: Enumerate the required P-STD backlog and define each item’s adoption source.
-**Execution Mode**: SEQUENTIAL
-**Depends On**: —
-
-#### Activity 1.1: List P-STD Inventory
-
-**Purpose**: Capture the minimum necessary P-STD list to govern `prompt/artifacts/tasks/**` and enable consistent adoption across initiatives.
-**Status**: Planned
-**Deliverable**: P-STD inventory section (below).
-
-**P-STD Inventory (Draft)**
-
-| P-STD ID | Title | Purpose | Adopts | Notes |
-|:---------|:------|:--------|:-------|:------|
-| `P-STD-001` | Program Governance Standard | Canonicalize workspace placement, naming, and link discipline | Planned (P-ADR-001) | Already listed in program SPS as planned |
-| `P-STD-002` | Program Status Standard | Define program status schema + update protocol | Planned (P-ADR-002) | Depends on status schema in `P-PH000-ST002` |
-| `P-STD-003` | Program Governance Standards Model | Promote the combined governance model (STD + DR index) for program-level standards | `P-STD-003` (self-contained spec) | Combines ADR-004 + ADR-009 governance specs into a program standard |
-
-**Success Criteria Checklist**:
-- [ ] P-STD inventory lists purpose and adoption sources.
-- [ ] P-STD-003 explicitly references ADR-004 and ADR-009 governance clauses as adoption sources.
-
----
-
-### Stream 2: Standards Model Seeding (P-STD-003)
-
-**Objective**: Create a combined governance standard that fuses the Decision Records Index and Governance Standards Specification.
-**Execution Mode**: SEQUENTIAL
-**Depends On**: 1.1
-
-#### Activity 2.1: Draft P-STD-003 (Combined Governance Model)
-
-**Purpose**: Start the combined standard needed to promote into P-STD-003 without duplicating ADR-004/ADR-009 bodies.
-**Status**: Planned
-**Deliverable**: `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md`
-
-**Inputs Required**:
-- `prompt/artifacts/tasks/T102/consultant/standards/T102-ADR-004_decision-records-index.md`
-- `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md#t102-std-009-governance-standards-spec`
-
-**Task List**:
-1. Draft standard statement referencing ADR-004 + ADR-009.
-2. Define Minimum Viable Conformance referencing key clauses.
-3. Capture references and provenance.
-
-**Success Criteria Checklist**:
-- [ ] Draft standard references ADR-004 and ADR-009 clauses without duplicating their full content.
-- [ ] MVC list remains concise and references governing clause IDs.
-
----
-
-### Stream 3: Program Standards Sequencing
-
-**Objective**: Align P-STD authoring order with P-PH000 streams and dependencies.
-**Execution Mode**: SEQUENTIAL
-**Depends On**: 2.1
-
-#### Activity 3.1: Sequence P-STD Authoring for P-PH000
-
-**Purpose**: Translate the P-STD inventory into ordered work for P-PH000 streams.
-**Status**: Planned
-**Deliverable**: Sequencing notes (below).
-
-**Sequencing Notes (Draft)**
-1. Author `P-STD-003` first (self-contained combined spec) to establish program-level standards governance.
-2. Author `P-STD-001` next (workspace standard) to govern artifact placement and naming.
-3. Author `P-STD-002` last (status standard), dependent on status schema definition in `P-PH000-ST002`.
-
-**Success Criteria Checklist**:
-- [ ] Sequencing aligns with dependencies in program phase plan.
+| Focus Area | Current State | Next Milestone | Canonical Link |
+|:--|:--|:--|:--|
+| Program Standards Stack | `P-STD-001` and `P-STD-002` are accepted; `P-STD-004` and `P-STD-005` remain active hardening surfaces per current plan state | Continue ST001 standards work and derivative alignment | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
+| Program Status System | AC002 is complete and the status artifact skeletons are accepted; AC003 planning hardening is now in place; AC004 is registered as the operationalization follow-on | Commission AC003 execution for initial population and validation | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
+| Program Research & Governance Inputs | P research surfaces exist and continue to support standards/status hardening | Reuse research outputs in downstream operationalization and standards hardening work | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 
 ---
 
@@ -167,12 +62,14 @@ parent_activity: '—'
 
 | Link Type | Target | Path |
 |:----------|:-------|:-----|
-| Roadmap (this file) | Program Phase 0 Roadmap | `prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md` |
+| Roadmap (this file) | Initiative Master Roadmap | `prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md` |
 | Changelog | Roadmap Changelog | `prompt/artifacts/tasks/P/archive/changelog_roadmap_P-PROGRAM_phase0.md` |
 | SSOT | Program SPS | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` |
-| Standard | P-STD-003 Draft | `prompt/artifacts/tasks/P/standard/P-STD-003_governance-standards-and-dr-index.md` |
-| Reference | T102 ADR-004 Standard | `prompt/artifacts/tasks/T102/consultant/standards/T102-ADR-004_decision-records-index.md` |
-| Reference | T102 ADR-009 Spec (Concept) | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md#t102-std-009-governance-standards-spec` |
+| SSOT | Program Concept | `prompt/artifacts/tasks/P/ssot/concept_P-PROGRAM.md` |
+| Plan | Phase 0 Plan | `prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md` |
+| Plan | ST001 Stream Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
+| Plan | ST002 Stream Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
+| Plan | ST004 Stream Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 
 ---
 
@@ -180,7 +77,7 @@ parent_activity: '—'
 
 | ID | Topic | Question | Owner | Status | Proposed Date | Resolved Date |
 |:---|:------|:---------|:------|:-------|:--------------|:-------------|
-| OQ-P-001 | Adoption Contract | Should P-STD-003 adopt a combined spec or keep separate ADR-004/ADR-009 adoption pointers? | Client | Proposed | 2026-02-07 | — |
+| OQ-P-001 | Phase 1 Boundary | What is the correct boundary between post-AC003 operationalization and broader PH001 adoption work? | Client | Proposed | 2026-03-23 | — |
 
 ---
 
@@ -188,5 +85,6 @@ parent_activity: '—'
 
 | Version | Date | Type | Summary |
 |:-------|:-----|:-----|:--------|
-| v0.1.0 | 2026-02-07 | Initial | Created Phase 0 program roadmap with P-STD inventory and initial standards seeding plan |
+| v0.2.0 | 2026-03-23 | Amendment | Refactored the roadmap into a thin-spine initiative master roadmap. Removed execution-level stream/activity detail, added phase navigation and compact delivery snapshot, and updated the status-system snapshot to reflect AC002 completion, AC003 planning hardening, and AC004 registration. |
 | v0.1.1 | 2026-02-07 | Update | Repointed roadmap to P-STD-003 and added draft standard link |
+| v0.1.0 | 2026-02-07 | Initial | Created Phase 0 program roadmap with P-STD inventory and initial standards seeding plan |

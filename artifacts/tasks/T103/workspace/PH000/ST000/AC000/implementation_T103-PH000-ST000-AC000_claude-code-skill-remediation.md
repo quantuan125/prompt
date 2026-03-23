@@ -7,8 +7,8 @@ phase: '0'
 stream_id: 'T103-PH000-ST000'
 activity_id: 'T103-PH000-ST000-AC000'
 task_id: 'T103-PH000-ST000-AC000-TK003'
-version: '1.0.0'
-date: '2026-03-22'
+version: '1.1.0'
+date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -24,6 +24,7 @@ purpose: 'Task specification for 4-batch remediation of the Claude Code skill to
 
 - **Purpose**: Detailed implementation specification for remediating 12 identified gaps in the Claude Code skill (`.agents/skills/claude-code/`), organized into 4 sequentially ordered batches.
 - **Authority chain**: Assessment analysis identifies gaps (GAP-001 through GAP-012) → Client approves remediation scope (SES001-DEC001) → This artifact specifies HOW → Dev-report records execution.
+- **Seed analysis**: `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/analysis/analysis_T103-PH000-ST000-AC000_claude-code-skill-review.md` is the direct assessment seed for this implementation artifact. The 4-batch remediation scope in this file is intentionally limited to the gap set identified there; later execution-reliability hardening is commissioned separately by the post-incident AC000 assessment.
 - **Audience**: LLM_Developer (primary consumer for execution)
 - This artifact does NOT hold a GDR. Gate decisions (if applicable) are recorded in gate_disposition proposals.
 
@@ -267,4 +268,5 @@ Batches are sequentially ordered. Each batch should be reviewed before proceedin
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-23 | Amendment | Made the seed lineage explicit in-body: this implementation artifact is directly seeded from `analysis_T103-PH000-ST000-AC000_claude-code-skill-review.md`, and later execution-reliability hardening is intentionally scoped to a separate post-incident package. |
 | v1.0.0 | 2026-03-22 | Initial | Task specification for 4-batch Claude Code skill remediation. 13 SPEC items across 4 batches (Core Behavioral Parity, Safety Defaults, Usability & Polish, Validation & Error Handling). Source: SES001-DEC001 through DEC004. |

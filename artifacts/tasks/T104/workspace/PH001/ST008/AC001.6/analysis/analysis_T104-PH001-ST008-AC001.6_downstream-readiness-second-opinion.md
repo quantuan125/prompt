@@ -7,8 +7,8 @@ phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC001.6'
 task_id: 'T104-PH001-ST008-AC001.6-TK003.5'
-version: '1.1.0'
-date: '2026-03-22'
+version: '1.2.0'
+date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -26,12 +26,13 @@ communication_reference: 'prompt/artifacts/tasks/T103/workspace/PH000/ST000/comm
 
 **Scope**: Review the normalized AC001.6 plan, the closed `GATE-001` proposal package, the orchestration contract, the horizontal development task specification, and the updated DEV-REPORT / VERIFICATION guidance surfaces for downstream implementation readiness.
 
-**Conclusion / Recommendation**: No blocking downstream-readiness gap remains after the `TK003.4` remediation closure and the current plan/guideline normalization. Phase 2 may be commissioned under the serial wave model defined in the orchestration plan. The originally intended Claude-authored `external_review` artifact was not produced because the direct authoring attempt failed in this environment; this consultant-authored analysis is therefore the accepted substitute disposition for `SPEC-003`. One low-risk governance item remains: the workspace still does not define a formal supplementary DEV-REPORT package taxonomy, but the current bounded-plus-consolidated DEV-REPORT pattern is sufficient for AC001.6.
+**Conclusion / Recommendation**: No blocking downstream-readiness gap remains after the `TK003.4` remediation closure and the current plan/guideline normalization. Phase 2 may be commissioned under the serial wave model defined in the orchestration plan. The originally intended Claude direct repo-write path did not complete reliably in this environment, so this consultant-authored analysis remains the accepted substitute disposition for `SPEC-003`. Later runtime review in T103 clarified that Claude did generate comparable review content in a blocked session, but Codex materialized the surviving on-disk artifact locally after fallback. One low-risk governance item remains: the workspace still does not define a formal supplementary DEV-REPORT package taxonomy, but the current bounded-plus-consolidated DEV-REPORT pattern is sufficient for AC001.6.
 
 ### Client Summary
 
 - `GATE-001` package normalization closed the previously identified package-control issues.
-- The originally intended Claude-authored readiness artifact was not produced; this consultant-authored analysis is the accepted substitute used to close the readiness gate.
+- The originally intended Claude direct repo-write path did not complete; this consultant-authored analysis is the accepted substitute used to close the readiness gate.
+- Later runtime review in T103 clarified that Claude generated comparable analysis content in a blocked session, but Codex created the surviving on-disk artifact after fallback.
 - The plan now carries the correct gate/re-entry surfaces and no longer forces conditional Phase 2 tasks into unconditional DEV-REPORT dependencies.
 - The approved GIR set is now reflected in the actual guideline, template, standard, validator, and test surfaces targeted for implementation.
 - No additional consultant-owned normalization is required before Phase 2 commissioning.
@@ -79,14 +80,14 @@ claude -p --model opus --effort low --permission-mode plan ...
 ```
 
 **Evidence notes**:
-- The direct Claude file-authoring attempt did not complete within bounded non-interactive CLI execution in this environment, so no conflicting second-opinion artifact was produced by Claude itself.
+- The direct Claude repo-write path did not complete within bounded non-interactive CLI execution in this environment; later T103 incident review clarified that Claude still produced comparable review content in a blocked session, but Codex materialized the surviving on-disk artifact locally after fallback.
 - This artifact was accepted as the `SPEC-003` substitute disposition so the readiness gate could be closed explicitly rather than left implied.
 - The bounded readiness review surfaces examined after that attempt did not reveal a residual blocking gap beyond the already accepted DEV-REPORT taxonomy follow-up item.
 
 ## IV. EXECUTION VARIANCE DISPOSITION
 
 - **Original control expectation**: `SPEC-003` expected a Claude-authored repo-tracked `external_review` artifact before any Phase 2 developer commissioning.
-- **Actual runtime result**: Claude direct authoring did not complete reliably in the current environment, so that exact artifact was not produced.
+- **Actual runtime result**: Claude direct authoring did not complete reliably in the current environment, so the intended direct repo-write path for that exact artifact did not complete.
 - **Accepted substitute**: this consultant-authored analysis was used as the readiness disposition artifact for `TK003.5`.
 - **Why the substitute is acceptable**: the downstream readiness review did not identify any blocking planning/specification gap that would have altered Phase 2 commissioning authority.
 - **Follow-up path**: the Claude skill/runtime reliability issue was escalated separately to T103 via the referenced communication artifact; that process issue does not block AC001.6 gate progression.
@@ -129,5 +130,6 @@ The downstream package is now implementation-ready. The prior blocking concerns 
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-23 | Amendment | Clarified the `SPEC-003` provenance wording after later T103 runtime review: the intended Claude direct repo-write path did not complete, Claude still produced comparable content in a blocked session, and Codex materialized the surviving on-disk artifact after fallback. |
 | v1.1.0 | 2026-03-22 | Amendment | Recorded the `SPEC-003` execution variance explicitly: Claude direct authoring failed in this environment, this consultant-authored analysis is the accepted substitute readiness disposition, no blocking planning/specification gap was skipped, and the runtime issue was escalated separately to T103. |
 | v1.0.0 | 2026-03-22 | Initial | Downstream-readiness second-opinion disposition after `GATE-001` package normalization. Records that no blocking commissioning gap remains and Phase 2 may proceed, with only a low-risk future DEV-REPORT taxonomy follow-up noted. |

@@ -7,8 +7,8 @@ stream_id: 'T103-PH000-ST000'
 activity_id: 'T103-PH000-ST000-AC000'
 task_id: 'T103-PH000-ST000-AC000-TK006'
 gate_id: 'T103-PH000-ST000-AC000-GATE-002'
-version: '1.0.0'
-date: '2026-03-22'
+version: '1.1.0'
+date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -50,7 +50,7 @@ consumers:
 | Implementation | AC000 remediation specification | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/implementation_T103-PH000-ST000-AC000_claude-code-skill-remediation.md` | Approved execution authority for `TK003` |
 | Dev-report | AC000 `GATE-002` handoff | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/dev-report/dev-report_T103-PH000-ST000-AC000_claude-code-skill-remediation_2026-03-22.md` | Developer-owned current-state evidence |
 | Verification | AC000 `GATE-002` verification | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/verification/verification_T103-PH000-ST000-AC000_gate-002.md` | Reviewer verdict and warning-only observation set |
-| Notes | AC000 `SES002` | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/snotes/snotes_T103-PH000-ST000-AC000-SES002.md` | Session record for Gate-001 closure and Gate-002 recycle packaging |
+| Notes | AC000 `SES003` | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/snotes/snotes_T103-PH000-ST000-AC000-SES003.md` | Session record for GATE-002 external review, client decisions, and closure specification |
 
 ---
 
@@ -58,8 +58,8 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--:|:--|
-| GIR-001 | Gate-002 acceptance posture | Whether the current implementation-backed package is sufficient to close `GATE-002` | (a) Approve with conditions and track the warning-only live-smoke rerun | `T103-PH000-ST000-AC000-GATE-002` | No | |
-| GIR-002 | Treatment of non-blocking warnings | Whether warning-level validator and environment noise should expand the remediation scope in this cycle | (a) Keep warnings as observations and do not expand scope beyond the current warning-only live-smoke evidence | `T103-PH000-ST000-AC000-TK003` | No | |
+| GIR-001 | Gate-002 acceptance posture | Whether the current implementation-backed package is sufficient to close `GATE-002` | (a) Approve with conditions and track the warning-only live-smoke rerun | `T103-PH000-ST000-AC000-GATE-002` | No | `(a) Approve with conditions` |
+| GIR-002 | Treatment of non-blocking warnings | Whether warning-level validator and environment noise should expand the remediation scope in this cycle | (a) Keep warnings as observations and do not expand scope beyond the current warning-only live-smoke evidence | `T103-PH000-ST000-AC000-TK003` | No | `(a) Keep as observations` |
 
 ---
 
@@ -88,7 +88,7 @@ Rationale:
 - Closing with conditions preserves the implementation-backed acceptance path without misclassifying a quota warning as a skill regression.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -114,7 +114,7 @@ Rationale:
 - Expanding scope without a formal new requirement would blur the implementation authority and slow closeout unnecessarily.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] Override: _______`
 
 ---
 
@@ -149,12 +149,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `T103-PH000-ST000-AC000-GATE-002` |
 | Consultant Recommendation | `APPROVE WITH CONDITIONS` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
-| Conditions (if any) | `—` |
+| Client Decision | `APPROVE WITH CONDITIONS` |
+| Gate Status After Decision | `completed` |
+| Conditions (if any) | `Advisory: rerun the bounded live-smoke stage after the Claude account reset window if clean production-readiness confirmation is desired. Non-blocking; no formal timeline.` |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-23` |
+| Decision Reference | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC000/snotes/snotes_T103-PH000-ST000-AC000-SES003.md` |
 
 ---
 
@@ -174,4 +174,5 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-23 | Decision | Recorded client decision `APPROVE WITH CONDITIONS` in the GDR. GIR-001: option (a) approved. GIR-002: option (a) approved. Live-smoke rerun condition treated as advisory with no formal timeline. |
 | v1.0.0 | 2026-03-22 | Initial | Created the implementation-backed `GATE-002` disposition package with consultant recommendation `APPROVE WITH CONDITIONS`, aligned to the reviewer `CONDITIONAL PASS` verdict and the warning-only live-smoke follow-up condition. |

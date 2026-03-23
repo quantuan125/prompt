@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
-version: '1.2.0'
-date: '2026-03-22'
+version: '1.3.0'
+date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -39,7 +39,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 |:--|:--|:--|:--|:--|:--|:--|:--|
 | AC001 | `P-PH000-ST002-AC001` | Define status artifact schema + update protocol | `completed` | LLM_Consultant | — | Absorbed by P-STD-002 acceptance (normative authority: P-STD-002E CLAUSEs 043–054) | SES001-DEC002 |
 | AC002 | `P-PH000-ST002-AC002` | Design & Author Program Status Artifact Set | `completed` | LLM_Consultant / LLM_Developer | ST001-AC003 (satisfied) | Ledger (`status_program.yaml`) + Narrative (`status_program.md`) at `prompt/artifacts/tasks/P/status/` | `plan_P-PH000-ST002-AC002.md` |
-| AC003 | `P-PH000-ST002-AC003` | Backfill & Validate Initial Program Entries | `planned` | LLM_Developer / LLM_Reviewer | AC002 | Populated P + T102 + T104 entries at activity-level granularity | AC002 deliverables |
+| AC003 | `P-PH000-ST002-AC003` | Backfill & Validate Initial Program Entries | `in_progress` | LLM_Developer / LLM_Reviewer / LLM_Consultant | AC002 | Populated P + T102 + T104 activity entries + derived narrative + acceptance package | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/plan_P-PH000-ST002-AC003.md` |
+| AC004 | `P-PH000-ST002-AC004` | Operationalize Status Update Workflow & Automation Baseline | `planned` | LLM_Consultant | AC003 | Follow-on operating-model hardening for update cadence, helper-tooling, and session-close reminder surfaces | `prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md` |
 
 ---
 
@@ -147,13 +148,13 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Initial Health Posture**: All dimensions `unassessed` for v1 backfill (SES001-DEC008). Health populated on next status update cycle.
 
-**Task Overview** (detailed task register in activity plan):
-- TK001: Populate P initiative entries
-- TK002: Populate T102 initiative entries
-- TK003: Populate T104 initiative entries
-- TK004: Derive narrative from populated ledger
-- TK005: Cross-SID dependency edge validation + MVAT check
-- GATE-002: Client acceptance of populated status system
+**Operating Model Baseline**:
+- AC003 uses a human-mediated update model for the initial backfill.
+- Workspace plans remain the source inputs; the ledger remains the single source of truth.
+- Narrative updates are derived from the ledger only (ledger-first rule).
+- Automation, session-close enforcement, and helper-tooling are deferred to AC004.
+
+**Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/plan_P-PH000-ST002-AC003.md`
 
 **Success Criteria**:
 - [ ] P, T102, T104 SID entries present at activity-level granularity
@@ -163,12 +164,42 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 - [ ] Narrative sections 1–6 derived from ledger (CLAUSE-048)
 - [ ] No drift between ledger and narrative (CLAUSE-049)
 
+#### Activity AC004: Operationalize Status Update Workflow & Automation Baseline
+
+**Activity ID**: `P-PH000-ST002-AC004`
+
+**Purpose**: Define the post-backfill operating model for ongoing status maintenance, including update cadence, helper-tooling boundaries, and session-close reminder surfaces, without expanding AC003 beyond the initial population baseline.
+
+**Deliverables**:
+- Updated governance and planning surfaces for ongoing status maintenance
+- Follow-on automation/helper-tooling planning package
+- Session-close reminder/instruction alignment across relevant runtime surfaces
+
+**Scope**:
+- In scope: codify ownership and cadence for ongoing status updates; design helper-tooling boundaries; define where reminder logic belongs across standards, guidelines, AGENTS, and wrap-up surfaces
+- Out of scope: AC003 initial population execution; retroactive bulk automation across all initiatives unless explicitly re-scoped
+
+**Primary Inputs**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/plan_P-PH000-ST002-AC003.md`
+- `prompt/artifacts/tasks/P/status/status_program.yaml`
+- `prompt/artifacts/tasks/P/status/status_program.md`
+- `prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md`
+
+**Planning Posture**: AC004 is intentionally registered now but remains non-executable until its own activation/planning pass is commissioned after AC003.
+
+**Success Criteria (summary)**:
+- [ ] Follow-on operationalization scope is clearly separated from AC003
+- [ ] Target governance surfaces for future update-cadence hardening are identified
+- [ ] Helper-tooling and session-close reminder work is explicitly deferred out of AC003
+
 ---
 
 ## IV. CHANGELOG
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.4.0 | 2026-03-23 | Execution Update | AC003 moved from `planned` to `in_progress` in the Activity Register after execution reached gate-ready state: populated ledger and narrative completed, same-gate recycle loop closed with verification `PASS`, and the GATE-001 disposition package is now pending Client decision. |
+| v1.3.0 | 2026-03-23 | Amendment | Authored standalone AC003 activity plan and updated the AC003 Activity Register `Reference` to the canonical plan path. Added AC004 as the follow-on activity for status operationalization/automation and clarified that AC003 remains the initial human-mediated backfill baseline. |
 | v1.2.0 | 2026-03-22 | Amendment | AC002 marked `completed` in Activity Register (GATE-003 APPROVE, 2026-03-22). Executive Summary P-STD-002 version reference updated from v1.1.0 to v1.2.0. AC002 success criteria checked. Source: AC002 GATE-003 client approval. |
 | v1.1.0 | 2026-03-15 | Amendment | AC002 section simplified to contract stub per guideline_workspace_plan.md §IV.D. Detailed task register, design decisions, and execution-level content moved to standalone activity plan (`plan_P-PH000-ST002-AC002.md`). Activity Register Reference updated. GATE-001 (design decision approval) added between TK001 and TK002 in activity plan. Evidence: current consultation session. |
 | v1.0.0 | 2026-03-09 | Major Amendment | Stream plan revised for implementation readiness. AC001 marked `completed` (absorbed by P-STD-002 acceptance per SES001-DEC002). AC002 re-scoped as "Design & Author Program Status Artifact Set" with expanded deliverables and confirmed design decisions. AC003 added as new activity for backfill and validation. Implementation requirements analysis registered as primary input. Stream dependency `P-PH000-ST001-AC003` confirmed satisfied (GATE-003 APPROVE, 2026-03-09). Evidence: `snotes_P-PH000-ST002-SES001.md`. |

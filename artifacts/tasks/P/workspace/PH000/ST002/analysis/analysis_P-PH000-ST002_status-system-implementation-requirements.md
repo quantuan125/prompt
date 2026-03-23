@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
-version: '1.2.0'
-date: '2026-03-19'
+version: '1.3.0'
+date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -77,7 +77,7 @@ purpose: 'Comprehensive implementation requirements analysis for the Program Sta
 | GAP-003 | Hierarchy | Entry granularity not specified in seed plan | Original plan assumed stream-level; client approved activity-level (SES001-DEC004). Implementation schema must support activity-level `scope_uid` entries. | `resolved` | AC002-TK001, AC002-TK002 | Resolved by SES001-DEC004 |
 | GAP-004 | Format | Dual-artifact format not specified in seed plan | Seed plan described a single `status_program.md` file. P-STD-002E CLAUSE-043 requires dual-artifact (ledger + narrative). CLAUSE-045 permits non-Markdown ledger. | `resolved` | AC002-TK002, AC002-TK003 | Resolved by SES001-DEC003 (`.yaml` ledger) |
 | GAP-005 | Scope | `P` self-entry not in original seed scope | AC001 §D specified only T102 + T104. Client approved adding `P` self-entry (SES001-DEC009). | `resolved` | AC003-TK001 | Adds PH000 streams/activities to backfill scope |
-| GAP-006 | Placement | Status directory does not exist | `prompt/artifacts/tasks/P/status/` directory must be created. No existing status artifacts exist anywhere under `prompt/artifacts/tasks/`. | `deferred_to_TK002` | AC002-TK002 | P-STD-004 CLAUSE-047 governs placement |
+| GAP-006 | Placement | Status artifact placement baseline resolved | The earlier placement gap is now resolved: `prompt/artifacts/tasks/P/status/` exists and the accepted skeleton artifacts were created in AC002. AC003 now consumes these existing artifacts as inputs rather than creating them. | `resolved` | AC003-TK001, AC003-TK004 | P-STD-004 placement requirement is now satisfied for the baseline artifact set. |
 
 ---
 
@@ -87,9 +87,9 @@ purpose: 'Comprehensive implementation requirements analysis for the Program Sta
 
 **P-STD-002 acceptance status**: Accepted and currently at v1.2.0. The standard now has 56 CLAUSEs across 5 substandards plus General Provisions, with the March 18, 2026 amendment adding `deferred`, `G10`, and CLAUSE-056.
 
-**ST002 stream plan status**: v1.1.0 (draft, last updated 2026-03-15). AC002 is now linked to a standalone activity plan and the stream section has been simplified to a contract stub per SES002.
+**ST002 stream plan status**: v1.3.0 (draft, last updated 2026-03-23). AC002 is complete, AC003 now has a standalone activity plan, and AC004 is registered as the follow-on operationalization activity.
 
-**Existing status artifacts**: None. No `status/` directory exists under any initiative in `prompt/artifacts/tasks/`.
+**Existing status artifacts**: The accepted skeleton artifacts already exist at `prompt/artifacts/tasks/P/status/status_program.yaml` and `prompt/artifacts/tasks/P/status/status_program.md`. AC003 is therefore a population/validation activity, not an artifact-creation activity.
 
 **Dependency resolution**: `P-PH000-ST001-AC003` dependency is satisfied (GATE-003 APPROVE, 2026-03-09).
 
@@ -319,6 +319,13 @@ Per AC001 §D (confirmed) + SES001-DEC009 (P self-entry), with the AC003 v1 popu
 - Record plan file paths as evidence pointers (type: `note` or `decision`)
 - Set `as_of` to the backfill date; `updated_by` to `LLM_Developer`
 
+**AC003 v1 operating-model baseline**:
+- The initial population is human-mediated. AC003 does not introduce automatic status transitions or mandatory per-session writeback.
+- Local workspace plans, DEV-REPORTs, verification artifacts, and gate decisions remain the source inputs; `status_program.yaml` remains the single source of truth.
+- Narrative updates remain ledger-derived only; `status_program.md` must not become a second live status surface.
+- A single named update authority SHOULD perform each status-artifact write cycle to avoid concurrent truth-surface edits.
+- Helper-tooling, session-close reminder flows, and wider operational automation are deferred to `P-PH000-ST002-AC004`.
+
 Schema-valid `initiative`, `phase`, and `stream` `scope_uid` examples remain useful reference patterns for future roll-ups, but they are not required population units for AC003 v1.
 
 ### G. Conformance Validation Checklist (GATE input)
@@ -335,7 +342,7 @@ This checklist is the minimum validation surface for AC002 GATE-001 and downstre
 - [ ] Gate-disposition proposal records recycle conditions and re-entry basis aligned to the revised analysis
 - [ ] AC002 activity plan encodes GATE-001 as a consultation-only decision gate with a mandatory `Gate-Disposition Proposal` field
 
-**Structural/content conformance (AC002 GATE-002 / AC003 GATE-002)**:
+**Structural/content conformance (AC002 GATE-002 / AC003 GATE-001)**:
 - [ ] P, T102, T104 SID entries present at activity-level granularity
 - [ ] All entries satisfy MVAT (CLAUSE-054): status, `as_of`, `updated_by`, `last_updated`, evidence pointers
 - [ ] Health dimensions present (may be `unassessed`)
@@ -353,9 +360,10 @@ This checklist is the minimum validation surface for AC002 GATE-001 and downstre
 |:--|:--|:--|:--|:--|
 | PLAN (Activity) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/plan_P-PH000-ST002-AC002.md` | ST002 plan amendment complete | LLM_Consultant | AC002 activity plan with detailed task register; consumes this analysis §V.C–E as input |
 | ANALYSIS (External Review) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/analysis/analysis_P-PH000-ST002-AC002-GATE-001_external-review-reassessment.md` | TK001 design package revised | LLM_Consultant | Consultation-only Gate 001 reassessment comparing revised package against SES001 and SES002 |
-| PLAN (Activity) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/plan_P-PH000-ST002-AC003.md` | AC002 GATE-001 passed | LLM_Consultant | AC003 activity plan with detailed task register; consumes this analysis §V.F–G as input |
-| STATUS (Ledger) | `prompt/artifacts/tasks/P/status/status_program.yaml` | AC002-TK002 execution authorized | LLM_Developer | Canonical program status ledger per §V.C schema |
-| STATUS (Narrative) | `prompt/artifacts/tasks/P/status/status_program.md` | AC002-TK003 execution authorized | LLM_Developer | Derived narrative per §V.D structure |
+| PLAN (Activity) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/plan_P-PH000-ST002-AC003.md` | AC002 GATE-003 passed and AC003 readiness hardening commissioned | LLM_Consultant | AC003 activity plan with the detailed execution chain for the initial population baseline; consumes this analysis §V.F–G as input |
+| STATUS (Ledger) | `prompt/artifacts/tasks/P/status/status_program.yaml` | AC003 execution commissioned from the standalone AC003 plan | LLM_Developer | Canonical program status ledger populated using workspace plans as source inputs |
+| STATUS (Narrative) | `prompt/artifacts/tasks/P/status/status_program.md` | AC003 ledger population complete | LLM_Developer | Derived narrative refreshed from the populated ledger |
+| PLAN (Activity) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md` | AC003 complete or explicit client commission of follow-on operationalization | LLM_Consultant | Future operationalization/automation activity plan; not part of the AC003 baseline |
 
 ---
 
@@ -370,7 +378,7 @@ This checklist is the minimum validation surface for AC002 GATE-001 and downstre
 | ST002 Seed Analysis (Informal) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/analysis/analysis_P-PH000-ST002_status-system-research.md` |
 | SES001 Session Notes | `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES001.md` |
 | SES002 Session Notes | `prompt/artifacts/tasks/P/workspace/PH000/ST002/snotes/snotes_P-PH000-ST002-SES002.md` |
-| AC003 Activity Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md` |
+| AC003 Activity Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/plan_P-PH000-ST002-AC003.md` |
 | GATE-003 Disposition Package | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-003_execution-disposition-package.md` |
 | Program SPS | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` |
 | Analysis Guideline | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` |
@@ -383,6 +391,7 @@ This checklist is the minimum validation surface for AC002 GATE-001 and downstre
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.3.0 | 2026-03-23 | Amendment | Updated the analysis to post-AC002 reality. Marked the status-artifact placement gap as resolved, corrected the AC003 downstream trigger/linkage, documented the AC003 manual/human-mediated baseline, and registered AC004 as the deferred follow-on for operationalization and automation. |
 | v1.2.0 | 2026-03-19 | Amendment | Rebaselined the implementation requirements analysis to P-STD-002 v1.2.0 after Gate-001 recycle review. Updated the status model from 7 states to 8 states (`deferred` added), added G10 / CLAUSE-056 coverage, revised stale-state governance and trigger text, and aligned the Gate-001 conformance checklist to the recycle package. |
 | v1.1.0 | 2026-03-16 | Amendment | Updated Gate 001 decision package baseline after SES002. Added SES002 as governing comparison input, resolved GAP-002 with explicit delegate-authorization and conflict-resolution rules, clarified AC003 v1 activity-only population posture, and retargeted §V.G to decision-package conformance for consultation-only GATE-001. |
 | v1.0.0 | 2026-03-09 | Initial | Implementation requirements assessment for ST002 Program Status System. Covers P-STD-002 CLAUSE mapping, ledger/narrative schema specifications, agent-role binding, initial population scope, and conformance validation checklist. Source: SES001 consultation. |

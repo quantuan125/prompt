@@ -8,8 +8,8 @@ stream_id: 'ST008'
 activity_id: 'T104-PH001-ST008-AC001.6'
 task_id: 'T104-PH001-ST008-AC001.6-TK012'
 gate_id: 'T104-PH001-ST008-AC001.6-GATE-002'
-date: '2026-03-22'
-version: '1.1.0'
+date: '2026-03-23'
+version: '1.2.0'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -45,6 +45,7 @@ consumers:
 | Consolidated DEV-REPORT | `TK010` | `completed` | Primary developer handoff package complete | Required | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/dev-report/dev-report_T104-PH001-ST008-AC001.6_gate-002-handoff_2026-03-22.md` |
 | GATE-002 Verification | `TK011` | `completed` | Independent reviewer verdict recorded | Required | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/verification/verification_T104-PH001-ST008-AC001.6_gate-002.md` |
 | GATE-002 Disposition Package | `TK012` | `draft` | Consultant recommendation and pending client decision | Required | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/proposal/proposal_T104-PH001-ST008-AC001.6-GATE-002_gir-disposition-package.md` |
+| GATE-002 External Review | `External review` | `completed` | Independent reviewer concordance with all four GIR dispositions | Recommended | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/analysis/analysis_T104-PH001-ST008-AC001.6-GATE-002_external-review.md` |
 
 ### B. Evidence Index
 
@@ -55,6 +56,7 @@ consumers:
 | Analysis | Downstream-readiness second opinion | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/analysis/analysis_T104-PH001-ST008-AC001.6_downstream-readiness-second-opinion.md` | Accepted substitute commissioning-readiness disposition after Claude direct-authoring failure |
 | Verification | GATE-002 verification | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/verification/verification_T104-PH001-ST008-AC001.6_gate-002.md` | Reviewer verdict input |
 | Communication | Claude Code skill execution reliability issue | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/communication/comm_T104-PH001-ST008-AC001.6_claude-code-skill-external-review-execution-reliability.md` | Supporting process-trace evidence; not a gate blocker by itself |
+| Analysis | GATE-002 External Review | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/analysis/analysis_T104-PH001-ST008-AC001.6-GATE-002_external-review.md` | Independent external review with full GIR concordance; authored before client decision |
 
 ---
 
@@ -62,10 +64,10 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--|:--|
-| GIR-001 | Implementation scope execution completeness | Delivery completeness | Accept the delivered AC001.6 implementation package as complete for the approved `GATE-001` scope | `GATE-002` | Yes | `pending` |
-| GIR-002 | Verification and validation outcome | Quality/compliance signal | Accept the independent `PASS` verdict recorded in `TK011` | `GATE-002` | Yes | `pending` |
-| GIR-003 | Residual low-risk governance follow-up | Future governance refinement | Accept the DEV-REPORT supplementary-taxonomy item as future follow-up rather than gate blocker | Future governance work | No | `pending` |
-| GIR-004 | Downstream-readiness provenance variance | Process integrity | Accept the consultant-authored readiness analysis as the explicit substitute for the originally intended Claude-authored `SPEC-003` artifact because no blocking planning/specification gap was skipped and the Claude runtime issue was separately escalated to T103 | `GATE-002` / future T103 follow-up | Yes | `pending` |
+| GIR-001 | Implementation scope execution completeness | Delivery completeness | Accept the delivered AC001.6 implementation package as complete for the approved `GATE-001` scope | `GATE-002` | Yes | `APPROVE` |
+| GIR-002 | Verification and validation outcome | Quality/compliance signal | Accept the independent `PASS` verdict recorded in `TK011` | `GATE-002` | Yes | `APPROVE` |
+| GIR-003 | Residual low-risk governance follow-up | Future governance refinement | Accept the DEV-REPORT supplementary-taxonomy item as future follow-up rather than gate blocker | Future governance work | No | `APPROVE` |
+| GIR-004 | Downstream-readiness provenance variance | Process integrity | Accept the consultant-authored readiness analysis as the explicit substitute for the originally intended Claude-authored `SPEC-003` artifact because no blocking planning/specification gap was skipped and the Claude runtime issue was separately escalated to T103 | `GATE-002` / future T103 follow-up | Yes | `APPROVE` |
 
 ---
 
@@ -133,12 +135,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `T104-PH001-ST008-AC001.6-GATE-002` |
 | Consultant Recommendation | `APPROVE` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
 | Conditions (if any) | `—` |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-23` |
+| Decision Reference | `Client approval confirmed at SES004 continuation (2026-03-23) following independent external review with full GIR concordance.` |
 
 ---
 
@@ -159,5 +161,6 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-23 | Amendment | Recorded client `GATE-002` approval: all four GIR `Client Decision` cells set to `APPROVE`, GDR closed with `completed` status and decision date 2026-03-23, GATE-002 external review added to the gate package index and evidence index. |
 | v1.1.0 | 2026-03-22 | Amendment | Added `GIR-004` to disposition the downstream-readiness provenance variance explicitly: the consultant-authored readiness analysis is accepted as the substitute for the originally intended Claude-authored `SPEC-003` artifact, no blocking planning/specification gap was skipped, and the related Claude runtime issue was escalated separately to T103. |
 | v1.0.0 | 2026-03-22 | Initial | Initial implementation-backed gate-disposition package for AC001.6 `GATE-002`. |
