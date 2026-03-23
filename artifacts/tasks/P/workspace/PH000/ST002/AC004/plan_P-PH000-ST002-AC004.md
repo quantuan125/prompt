@@ -6,7 +6,7 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC004'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -20,16 +20,16 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: Define the follow-on operating model for program status maintenance after AC003 approval. AC004 separates consultation approval of the operating model from the implementation-backed first operationalization slice that will reconcile the accepted baseline with live plan registers, define cadence and ownership for updates, and establish helper-tooling and reminder boundaries.
+**Purpose**: Define the AC004 V1 operating model for program status maintenance after AC003 approval. AC004 separates consultation approval of the operating model from the implementation-backed first operationalization slice and uses `GATE-001` to review the full readiness package: operating-model analysis, pre-authored downstream task specification, and gate-disposition proposal for the V1 rollout across `P`, `T102`, and `T104`.
 
-**Non-goal**: Do not mutate the accepted AC003 baseline in this planning artifact. The actual ledger/narrative reconciliation and workflow hardening occur only after the AC004 consultation gate passes and the implementation task specification is commissioned.
+**Non-goal**: Do not mutate the accepted AC003 baseline in this planning artifact. The actual ledger/narrative reconciliation and workflow hardening occur only after the AC004 consultation gate passes. Do not open the future V2 status-system initiative inside AC004.
 
 ---
 
 ## II. ACTIVITY OUTLINE
 
 **Activity ID**: `P-PH000-ST002-AC004`
-**Objective**: Establish the operating model and first operationalization slice for ongoing status maintenance after AC003 closeout.
+**Objective**: Establish the operating model and first operationalization slice for ongoing status maintenance after AC003 closeout and package the downstream execution contract for client review at `GATE-001`.
 **Execution Mode**: `GATED`
 **Depends On**: `P-PH000-ST002-AC003-GATE-001` (completed)
 
@@ -47,17 +47,17 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 | Task | Task ID | Name | Status | Owner | Depends On | Target | Reference | Action |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
-| TK001 | `P-PH000-ST002-AC004-TK001` | Define AC004 operating model, reconciliation policy, and scope boundary | `planned` | LLM_Consultant | `P-PH000-ST002-AC003-GATE-001` | `analysis/` | `guideline_workspace_plan.md` | Draft the consultation-ready operating model and isolate the first operational slice. |
-| TK002 | `P-PH000-ST002-AC004-TK002` | Produce AC004 consultation gate-disposition proposal | `planned` | LLM_Consultant | TK001 | `proposal/` | `guideline_workspace_proposal.md` | Package the AC004 operating-model recommendation and record the proposal GDR in pending state. |
-| GATE-001 | `P-PH000-ST002-AC004-GATE-001` | Gate: Client approval of AC004 operating model | `planned` | Client | TK002 | GDR | `guideline_workspace_proposal.md` | Consultation approval is required before any implementation specification is commissioned. |
-| TK003 | `P-PH000-ST002-AC004-TK003` | Author AC004 implementation task specification for the first operationalization slice | `planned` | LLM_Consultant | GATE-001 | `implementation/` | `guideline_workspace_implementation.md` | Convert the approved operating model into the task_specification that will govern developer-owned implementation work. |
-| TK004 | `P-PH000-ST002-AC004-TK004` | Execute first operationalization slice | `planned` | LLM_Developer | TK003 | `prompt/artifacts/tasks/P/status/` and plan surfaces | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_first-operationalization-task-specification.md` | Reconcile the approved AC003 baseline with live registers, codify update cadence, and align helper-tooling/reminder boundaries. |
+| TK001 | `P-PH000-ST002-AC004-TK001` | Define AC004 operating model, reconciliation policy, and V1 rollout boundary | `completed` | LLM_Consultant | `P-PH000-ST002-AC003-GATE-001` | `analysis/` | `guideline_workspace_plan.md` | Authored the consultation-ready operating model, authority order, and bounded V1 rollout scope for `P`, `T102`, and `T104`. |
+| TK002 | `P-PH000-ST002-AC004-TK002` | Author AC004 implementation task specification for the first operationalization slice | `completed` | LLM_Consultant | TK001 | `implementation/` | `guideline_workspace_implementation.md` | Pre-authored the downstream `task_specification` so the client can review the execution contract as part of the `GATE-001` readiness package. |
+| TK003 | `P-PH000-ST002-AC004-TK003` | Produce AC004 consultation gate-disposition proposal | `completed` | LLM_Consultant | TK002 | `proposal/` | `guideline_workspace_proposal.md` | Packaged the AC004 operating-model recommendation, the pre-authored implementation contract, and the proposal GDR in pending state. |
+| GATE-001 | `P-PH000-ST002-AC004-GATE-001` | Gate: Client approval of AC004 operating model and first-slice execution package | `planned` | Client | TK003 | GDR | `guideline_workspace_proposal.md` | Consultation approval is required before any developer-owned execution starts. |
+| TK004 | `P-PH000-ST002-AC004-TK004` | Execute first operationalization slice | `planned` | LLM_Developer | GATE-001 | `prompt/artifacts/tasks/P/status/` and plan surfaces | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_first-operationalization-task-specification.md` | Reconcile the approved AC003 baseline with live registers, codify update cadence, and align helper-tooling/reminder boundaries. |
 | TK005 | `P-PH000-ST002-AC004-TK005` | Produce AC004 DEV-REPORT | `planned` | LLM_Developer | TK004 | `dev-report/` | `guideline_workspace_dev-report.md` | Capture bounded execution evidence for the first operationalization slice. |
 | TK006 | `P-PH000-ST002-AC004-TK006` | Produce AC004 verification | `planned` | LLM_Reviewer | TK005 | `verification/` | `guideline_workspace_verification.md` | Independently verify the operationalization slice and drive recycle if needed. |
 | TK007 | `P-PH000-ST002-AC004-TK007` | Produce AC004 implementation gate-disposition proposal | `planned` | LLM_Consultant | TK006 | `proposal/` | `guideline_workspace_proposal.md` | Package the implementation gate decision and prepare the GDR for Client disposition. |
 | GATE-002 | `P-PH000-ST002-AC004-GATE-002` | Gate: Client acceptance of the first operationalization slice | `planned` | Client | TK007 | GDR | `guideline_workspace_proposal.md` | Implementation acceptance is required before AC004 closes. |
 
-**Gate Model**: `GATE-001` is consultation-only. `GATE-002` is implementation-backed and depends on the first operationalization slice.
+**Gate Model**: `GATE-001` is consultation-only but reviews the full readiness package: analysis, implementation `task_specification`, and gate-disposition proposal. `GATE-002` is implementation-backed and depends on the first operationalization slice.
 
 ---
 
@@ -67,7 +67,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 **Task ID**: `P-PH000-ST002-AC004-TK001`
 
-**Purpose**: Establish the consultation-ready framing for AC004 so the Client can approve the operating model before implementation work begins.
+**Purpose**: Establish the consultation-ready framing for AC004 so the Client can approve the operating model, reconciliation authority, and bounded V1 rollout before implementation work begins.
 
 **Deliverable**:
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_operating-model-and-reconciliation-policy.md`
@@ -75,17 +75,22 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 **Scope**:
 - In scope:
   - Reconciliation policy for the accepted AC003 baseline versus live plan registers
+  - Source-of-truth hierarchy across stream plan, phase plan, roadmap, and status artifacts
   - Cadence, ownership, and evidence expectations for ongoing status updates
+  - Mandatory status-touchpoint expectations for future governed work in the V1 rollout scope
   - Helper-tooling boundary and session-close reminder surface boundaries
-  - First operationalization slice boundary
+  - V1 rollout boundary for `P`, `T102`, and `T104`
 - Out of scope:
   - Direct edits to `status_program.yaml` or `status_program.md`
   - Bulk automation beyond the first slice
+  - Opening the future V2 status-system initiative
 
 **Inputs Required**:
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/proposal/proposal_P-PH000-ST002-AC003-GATE-001_initial-population-acceptance-disposition.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/plan_P-PH000-ST002-AC003.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/analysis/analysis_P-PH000-ST002-AC003_gate-001-external-review.md`
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md`
+- `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md`
 - `prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md`
@@ -93,16 +98,53 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 **Steps**:
 1. Read the approved AC003 gate package and the current planning surfaces.
 2. Identify the exact operating-model decisions needed for AC004 consultation approval.
-3. Bound the first operationalization slice so later implementation work can be executed without scope creep.
+3. Make the authority order and mandatory status-touchpoint expectations explicit.
+4. Bound the first operationalization slice so later implementation work can be executed without scope creep.
 
 **Success Criteria**:
 - [ ] Operating model and reconciliation policy are explicit
-- [ ] AC004 scope boundary excludes bulk automation and baseline rewrite
+- [ ] Source precedence across stream plan, phase plan, roadmap, and status artifacts is explicit
+- [ ] V1 rollout scope for `P`, `T102`, and `T104` is explicit
+- [ ] AC004 scope boundary excludes bulk automation, baseline rewrite, and V2 initiative opening
 - [ ] The consultation gate question is decision-complete
 
-### Task TK002: Produce AC004 Consultation Gate-Disposition Proposal
+### Task TK002: Author AC004 Implementation Task Specification for the First Operationalization Slice
 
 **Task ID**: `P-PH000-ST002-AC004-TK002`
+
+**Purpose**: Pre-author the downstream implementation contract so the Client can review the exact first-slice execution boundary as part of the `GATE-001` readiness package.
+
+**Deliverable**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_first-operationalization-task-specification.md`
+
+**Scope**:
+- In scope:
+  - Developer-owned execution guidance for the first operationalization slice
+  - Explicit role boundaries for developer, reviewer, and consultant
+  - Reconciliation, planning-surface update, and reminder/enforcement boundary requirements for the bounded V1 rollout
+  - Pre-gate visibility for the client while keeping execution blocked
+- Out of scope:
+  - Direct implementation edits
+  - Any gate decision authority
+  - Opening the future V2 initiative
+
+**Inputs Required**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_operating-model-and-reconciliation-policy.md`
+- `prompt/templates/consultant/workspace/guideline_workspace_implementation.md`
+
+**Steps**:
+1. Translate the AC004 operating model into a `task_specification` artifact.
+2. Assign the downstream developer and reviewer roles explicitly.
+3. Make execution-blocked-until-approval status explicit inside the specification.
+
+**Success Criteria**:
+- [ ] Implementation task specification exists and is scoped to the first slice
+- [ ] Role ownership is explicit and unambiguous
+- [ ] The artifact is available before `GATE-001` for client review
+
+### Task TK003: Produce AC004 Consultation Gate-Disposition Proposal
+
+**Task ID**: `P-PH000-ST002-AC004-TK003`
 
 **Purpose**: Package the AC004 operating model into a consultation gate proposal and present the GDR for Client decision.
 
@@ -112,22 +154,23 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 **Scope**:
 - In scope:
   - Gate package index for the consultation decision
-  - Evidence index linking the AC003 closeout package and AC004 operating model
+  - Evidence index linking the AC003 closeout package, AC004 operating model, and AC004 implementation task specification
   - Proposal-embedded GDR in pending state
 - Out of scope:
   - Implementation evidence or developer verification
 
 **Inputs Required**:
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_operating-model-and-reconciliation-policy.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_first-operationalization-task-specification.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/proposal/proposal_P-PH000-ST002-AC003-GATE-001_initial-population-acceptance-disposition.md`
 
 **Steps**:
-1. Compose the consultation package using the approved AC003 closeout context.
+1. Compose the consultation package using the approved AC003 closeout context plus the pre-authored implementation specification.
 2. Populate the proposal GDR in pending state.
 
 **Success Criteria**:
 - [ ] Consultation proposal exists with a pending GDR
-- [ ] The proposed decision boundary is limited to AC004 operating-model approval
+- [ ] The proposed decision boundary covers AC004 operating-model approval and the downstream first-slice execution package
 
 ### GATE-001: Client Approval of AC004 Operating Model
 
@@ -136,44 +179,16 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 **Entry Criteria**:
 - TK001 complete
 - TK002 complete
+- TK003 complete
 
 **Reviewer**: Client
 
 **Exit Criteria**:
 - Client records approval or approval-with-conditions in the proposal GDR
-- The implementation task specification remains blocked until the gate passes
+- The operating model, V1 rollout boundary, and pre-authored first-slice `task_specification` are approved or approved-with-conditions
+- Developer-owned execution remains blocked until the gate passes
 
 **Gate-Disposition Proposal**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-001_operating-model-disposition.md`
-
-### Task TK003: Author AC004 Implementation Task Specification for the First Operationalization Slice
-
-**Task ID**: `P-PH000-ST002-AC004-TK003`
-
-**Purpose**: Convert the approved AC004 operating model into the implementation artifact that will govern developer-owned execution.
-
-**Deliverable**:
-- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_first-operationalization-task-specification.md`
-
-**Scope**:
-- In scope:
-  - Developer-owned execution guidance for the first operationalization slice
-  - Explicit role boundaries for developer, reviewer, and consultant
-  - Task decomposition for reconciliation, reporting, verification, and proposal packaging
-- Out of scope:
-  - Direct implementation edits
-  - Any gate decision authority
-
-**Inputs Required**:
-- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-001_operating-model-disposition.md`
-- `prompt/templates/consultant/workspace/guideline_workspace_implementation.md`
-
-**Steps**:
-1. Translate the approved AC004 operating model into a `task_specification` artifact.
-2. Assign the downstream developer and reviewer roles explicitly.
-
-**Success Criteria**:
-- [ ] Implementation task specification exists and is scoped to the first slice
-- [ ] Role ownership is explicit and unambiguous
 
 ### Task TK004: Execute First Operationalization Slice
 
@@ -189,11 +204,13 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 **Scope**:
 - In scope:
   - Reconcile the approved AC003 baseline with live plan registers
-  - Reflect AC004 activation in stream, phase, and roadmap surfaces
+  - Apply the approved authority order across stream plan, phase plan, roadmap, and status artifacts
+  - Reflect AC004 activation in stream, phase, and roadmap surfaces for the V1 rollout scope
   - Codify cadence, ownership, helper-tooling boundaries, and reminder-surface boundaries
 - Out of scope:
   - Bulk automation beyond the first slice
   - Unbounded repository-wide retrofits
+  - Opening the future V2 status-system initiative
 
 **Inputs Required**:
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_first-operationalization-task-specification.md`
@@ -283,6 +300,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 | Link Type | Target | Path |
 |:--|:--|:--|
 | Plan (this file) | ST002 Stream Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
+| Analysis | AC004 Operating Model Analysis | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_operating-model-and-reconciliation-policy.md` |
+| Implementation | AC004 First Operationalization Task Specification | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_first-operationalization-task-specification.md` |
+| Proposal | AC004 GATE-001 Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-001_operating-model-disposition.md` |
 | Proposal | AC003 GATE-001 Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/proposal/proposal_P-PH000-ST002-AC003-GATE-001_initial-population-acceptance-disposition.md` |
 | Analysis | AC003 External Review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/analysis/analysis_P-PH000-ST002-AC003_gate-001-external-review.md` |
 | Status Ledger | Program Status Ledger | `prompt/artifacts/tasks/P/status/status_program.yaml` |
@@ -297,4 +317,5 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-23 | Amendment | Reworked AC004 so `GATE-001` reviews the full readiness package: operating-model analysis, pre-authored first-slice implementation `task_specification`, and gate-disposition proposal. Locked the V1 rollout boundary to `P`, `T102`, and `T104`, and deferred future V2 initiative opening outside AC004. |
 | v1.0.0 | 2026-03-23 | Initial | Created the AC004 activity plan for the post-AC003 status workflow. The plan splits consultation approval from the implementation-backed first operationalization slice and registers both gates in dependency order. |

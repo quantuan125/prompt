@@ -5,7 +5,7 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream: 'ST002'
-version: '1.6.0'
+version: '1.7.0'
 date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -46,6 +46,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC002 | `P-PH000-ST002-AC002-SES003` | GATE-002 Approval, Implementation Execution & GATE-003 Presentation | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC002/snotes/snotes_P-PH000-ST002-AC002-SES003.md` |
 | AC003 | `P-PH000-ST002-AC003-SES001` | AC003 Orchestration Execution & GATE-001 Package Assembly | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/snotes/snotes_P-PH000-ST002-AC003-SES001.md` |
 | AC004 | `P-PH000-ST002-AC004-SES001` | AC004 Planning Activation & Dual-Gate Baseline | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES001.md` |
+| AC004 | `P-PH000-ST002-AC004-SES002` | AC004 Gate-001 Readiness Packaging & AC005 Stub Registration | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES002.md` |
 
 ---
 
@@ -61,6 +62,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.7.0 | 2026-03-23 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES002` for the `GATE-001` readiness-package rework, pre-gate implementation-spec packaging, V1 rollout boundary lock for `P/T102/T104`, and AC005 stub registration. |
 | v1.6.0 | 2026-03-23 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES001` for same-session activation after AC003 closeout and the initial dual-gate planning baseline. |
 | v1.5.0 | 2026-03-23 | Amendment | Registered AC003 activity session `P-PH000-ST002-AC003-SES001` for the AC003 orchestration execution, same-gate recycle loop, and GATE-001 package assembly. |
 | v1.4.0 | 2026-03-22 | Amendment | Registered AC002 activity session `P-PH000-ST002-AC002-SES003` for GATE-002 approval, implementation execution, and GATE-003 presentation. |

@@ -4,7 +4,7 @@ planning_level: 'PHASE'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
-version: '0.4.5'
+version: '0.4.6'
 date: '2026-03-23'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -46,7 +46,7 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 |:--|:--|:--|:--|:--|:--|:--|
 | 0 | `P-PH000-ST000` | Bootstrap Consultation + Program SPS Shell + Research Commission | SEQUENTIAL | — | `planned` | Stream plans + notes for AC001; `sps_P-PROGRAM.md`; planned `P-RES-001` commission |
 | 1 | `P-PH000-ST001` | Program Standards + ID Governance Enablement | SEQUENTIAL | ST000 | `planned` | Planned `P-RES` enablement (T102-STD-005 change); planned `P-STD-001` / `P-STD-002` authoring activities |
-| 2 | `P-PH000-ST002` | Program Status System (Schema + Protocol + Artifact) | SEQUENTIAL | ST001 | `in_progress` | AC003 closed after APPROVE; AC004 active for planning and will carry the first operationalization slice |
+| 2 | `P-PH000-ST002` | Program Status System (Schema + Protocol + Artifact) | SEQUENTIAL | ST001 | `in_progress` | AC003 closed after APPROVE; AC004 is assembling the `GATE-001` readiness package for the V1 rollout across `P/T102/T104`; AC005 is registered as the blocked V2 commissioning stub |
 | 4 | `P-PH000-ST004` | Program Research Commissioning | PARALLEL | — | `completed` | P-RES-001 + P-RES-002 briefs + reports + integration recommendations |
 
 **Note**: Stream `P-PH000-ST003` is intentionally reserved (no current purpose defined). ST004 numbering is deliberate.
@@ -74,6 +74,7 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 | 2 | AC002 | `P-PH000-ST002-AC002` | Design & Author Program Status Artifact Set | `completed` | LLM_Consultant / LLM_Developer | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | 2 | AC003 | `P-PH000-ST002-AC003` | Backfill & Validate Initial Program Entries | `completed` | LLM_Developer / LLM_Reviewer / LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | 2 | AC004 | `P-PH000-ST002-AC004` | Operationalize Status Update Workflow & Automation Baseline | `in_progress` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
+| 2 | AC005 | `P-PH000-ST002-AC005` | Commission Future Status-System Initiative (`T105` or next available ID) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | 4 | AC001 | `P-PH000-ST004-AC001` | Commission P-RES-001 (Status Standard Research) | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 | 4 | AC002 | `P-PH000-ST004-AC002` | Commission P-RES-002 (Agentic Status Systems Research) | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 | 4 | AC003 | `P-PH000-ST004-AC003` | Commission P-RES-003 (Specification Metadata Governance Research) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
@@ -108,6 +109,7 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.4.6 | 2026-03-23 | Housekeeping | Refreshed the PH000 stream and activity snapshot for ST002 so AC004 now reflects the full `GATE-001` readiness package for the bounded V1 rollout across `P/T102/T104`, and AC005 is registered as the blocked post-AC004 commissioning stub for future V2 status-system work. |
 | v0.4.5 | 2026-03-23 | Housekeeping | Refreshed the PH000 Activity Snapshot and phase register to mark ST002 AC003 as `completed` after Client APPROVE and AC004 as `in_progress` for the follow-on planning slice. |
 | v0.4.4 | 2026-03-23 | Housekeeping | Refreshed the PH000 Activity Snapshot to mark ST002 AC003 as `in_progress` after execution reached gate-ready state and the GATE-001 package was assembled pending Client disposition. |
 | v0.4.3 | 2026-03-23 | Housekeeping | Refreshed ST002 phase snapshot (As-Of 2026-03-23): AC001 and AC002 marked `completed`, AC003 registered as the next planned execution activity, AC004 added as the planned operationalization follow-on, and the ST002 stream register row updated from `planned` to `in_progress`. |
