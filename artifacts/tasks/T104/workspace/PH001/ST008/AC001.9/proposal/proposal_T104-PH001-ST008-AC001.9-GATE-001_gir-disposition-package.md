@@ -6,16 +6,18 @@ initiative_code: 'CWS'
 phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC001.9'
-task_id: 'T104-PH001-ST008-AC001.9-TK003'
+task_id: 'T104-PH001-ST008-AC001.9-TK003.1'
 gate_id: 'T104-PH001-ST008-AC001.9-GATE-001'
-version: '1.0.0'
-date: '2026-03-23'
+version: '1.2.0'
+date: '2026-03-24'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/plan_T104-PH001-ST008-AC001.9.md'
 analysis_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/analysis/analysis_T104-PH001-ST008-AC001.9_recyclable-loop-artifact-governance-gaps.md'
-purpose: 'Consultation-only gate-disposition package for AC001.9 GATE-001: approval of recyclable-loop artifact governance scope and recommended guideline targets.'
+implementation_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/implementation/implementation_T104-PH001-ST008-AC001.9_gate-001-package-hardening.md'
+external_review_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/analysis/analysis_T104-PH001-ST008-AC001.9_gate-001-external-review.md'
+purpose: 'Consultation-only gate-disposition package for AC001.9 GATE-001: approval of recyclable-loop artifact governance scope, same-gate package hardening, and recommended guideline targets.'
 consumers:
   - 'T104-PH001-ST008-AC001.9-GATE-001'
 ---
@@ -24,9 +26,10 @@ consumers:
 
 ## I. EXECUTIVE SUMMARY
 
-- Context: AC001.9 was commissioned after AC001.6 exposed four recyclable-loop artifact-governance gaps that were handled operationally but not yet codified in the workspace rules.
-- Goal at gate: Approve the consultant's recommended governance model for those four gaps so a Phase 2 implementation specification can be authored and downstream file mutations can proceed under explicit client authority.
-- Scope: This gate approves the governance model and target surfaces only. It does not approve final wording or implementation of the amendments; that work belongs to the later implementation-backed GATE-002.
+- Context: AC001.9 was commissioned after AC001.6 exposed four recyclable-loop artifact-governance gaps that were handled operationally but not yet codified in the workspace rules. This amended package now includes the independent external review as first-class evidence and uses a same-gate hardening slice to normalize the proposal package before client disposition.
+- Goal at gate: Approve the consultant's recommended governance model and the hardened package surface for those four gaps so a Phase 2 implementation specification can be authored and downstream file mutations can proceed under explicit client authority.
+- Scope: This gate approves the governance model and package hardening only. It does not approve final wording or implementation of the amendments; that work belongs to the later implementation-backed GATE-002 after the GDR is recorded.
+- Package-hardening result: the external review is integrated into the gate package, the lifecycle implementation spec is normalized to the actual TK001-TK012 map, and the client-facing evidence trail is complete enough for consultation review.
 
 ---
 
@@ -39,7 +42,9 @@ consumers:
 | AC001.9 Activity Plan | `TK001` | `completed` | `accepted` | Required | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/plan_T104-PH001-ST008-AC001.9.md` |
 | AC001.9 SES001 Session Notes | `TK001` | `completed` | `accepted` | Recommended | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES001.md` |
 | Recyclable-Loop Artifact Governance Gap Analysis | `TK002` | `completed` | `pending` | Required | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/analysis/analysis_T104-PH001-ST008-AC001.9_recyclable-loop-artifact-governance-gaps.md` |
-| GATE-001 Gate-Disposition Proposal (this file) | `TK003` | `completed` | `pending` | Required | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/proposal/proposal_T104-PH001-ST008-AC001.9-GATE-001_gir-disposition-package.md` |
+| AC001.9 GATE-001 Package Hardening Task Specification | `TK003.1` | `completed` | `accepted` | Primary | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/implementation/implementation_T104-PH001-ST008-AC001.9_gate-001-package-hardening.md` |
+| AC001.9 GATE-001 External Review | `TK003.1` | `completed` | `accepted` | Review | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/analysis/analysis_T104-PH001-ST008-AC001.9_gate-001-external-review.md` |
+| GATE-001 Gate-Disposition Proposal (this file) | `TK003.1` | `completed` | `pending` | Required | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/proposal/proposal_T104-PH001-ST008-AC001.9-GATE-001_gir-disposition-package.md` |
 
 ### B. Evidence Index
 
@@ -48,7 +53,9 @@ consumers:
 | Analysis | AC001.9 Recyclable-Loop Governance Assessment | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/analysis/analysis_T104-PH001-ST008-AC001.9_recyclable-loop-artifact-governance-gaps.md` | Primary decision input for all four GIR items. |
 | Session Notes | AC001.9 SES001 Scope Consultation | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES001.md` | Captures the boundary, scope, and gate-model decisions that established AC001.9. |
 | Plan | AC001.9 Activity Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/plan_T104-PH001-ST008-AC001.9.md` | Governing tracked-work authority for the activity. |
-| IMPLEMENTATION | AC001.9 Task Specification | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/implementation/implementation_T104-PH001-ST008-AC001.9_recyclable-loop-artifact-governance.md` | Governs the overall activity decomposition and Phase 1 / Phase 2 gate model. |
+| IMPLEMENTATION | AC001.9 GATE-001 Package Hardening Task Specification | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/implementation/implementation_T104-PH001-ST008-AC001.9_gate-001-package-hardening.md` | Same-gate execution authority for proposal hardening, external-review integration, and lifecycle-spec normalization. |
+| IMPLEMENTATION | AC001.9 Lifecycle Task Specification | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/implementation/implementation_T104-PH001-ST008-AC001.9_recyclable-loop-artifact-governance.md` | Governs the overall activity decomposition and Phase 1 / Phase 2 gate model. |
+| Analysis | AC001.9 GATE-001 External Review | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/analysis/analysis_T104-PH001-ST008-AC001.9_gate-001-external-review.md` | Independent readiness assessment for the hardened gate package. |
 | IMPLEMENTATION (exemplar) | AC001.6 Gate-to-Gate Orchestration Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/implementation/implementation_T104-PH001-ST008-AC001.6_gate-001-to-gate-002-orchestration-plan.md` | Primary execution exemplar that exposed the recyclable-loop governance gaps. |
 | Proposal (exemplar) | AC001.6 GATE-002 Disposition Package | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/proposal/proposal_T104-PH001-ST008-AC001.6-GATE-002_gir-disposition-package.md` | Records the accepted DEV-REPORT taxonomy deferral that AC001.9 now picks up. |
 | Verification (exemplar) | AC001.6 GATE-002 Verification | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/verification/verification_T104-PH001-ST008-AC001.6_gate-002.md` | Evidence that a reviewer already had to consume a multi-report DEV-REPORT stack. |
@@ -61,10 +68,10 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--|:--|
-| GIR-001 | DEV-REPORT package taxonomy | Artifact packaging semantics | Approve extension of `guideline_workspace_dev-report.md` with a formal primary / supplementary / consolidated package model | `TK005` | Yes | |
-| GIR-002 | VERIFICATION multi-report intake protocol | Reviewer evidence navigation | Approve extension of `guideline_workspace_verification.md` with deterministic intake and navigation rules for multi-report DEV-REPORT evidence sets | `TK006` | Yes | |
-| GIR-003 | Sub-consultant traceability audit protocol | Consultant-owned integrity assessment | Approve extension of `guideline_workspace_analysis.md` with a recyclable-loop integrity assessment trigger and schema for delegated sub-consultant audits | `TK007` | Yes | |
-| GIR-004 | Recyclable-loop evidence handoff contract | Cross-family workflow chain | Approve extension of `workspace_documentation_rules.md` §7 with explicit evidence accumulation, handoff, and lineage rules for recyclable loops | `TK008` | Yes | |
+| GIR-001 | DEV-REPORT package taxonomy | Artifact packaging semantics | Approve extension of `guideline_workspace_dev-report.md` with a formal primary / supplementary / consolidated package model | `TK005` | Yes | `APPROVE` |
+| GIR-002 | VERIFICATION multi-report intake protocol | Reviewer evidence navigation | Approve extension of `guideline_workspace_verification.md` with deterministic intake and navigation rules for multi-report DEV-REPORT evidence sets | `TK006` | Yes | `APPROVE` |
+| GIR-003 | Sub-consultant traceability audit protocol | Consultant-owned integrity assessment | Approve extension of `guideline_workspace_analysis.md` with a recyclable-loop integrity assessment trigger and schema for delegated sub-consultant audits | `TK007` | Yes | `APPROVE` |
+| GIR-004 | Recyclable-loop evidence handoff contract | Cross-family workflow chain | Approve extension of `workspace_documentation_rules.md` §7 with explicit evidence accumulation, handoff, and lineage rules for recyclable loops | `TK008` | Yes | `APPROVE` |
 
 ---
 
@@ -91,7 +98,7 @@ Rationale:
 - Package semantics belong with the artifact family that owns the producer evidence. Keeping them local to implementation specs would preserve the current ambiguity.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] Override: _______`
 
 ---
 
@@ -116,7 +123,7 @@ Rationale:
 - If multi-report developer evidence is allowed, reviewer intake of that package must also be governed explicitly rather than left to inference.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] Override: _______`
 
 ---
 
@@ -142,7 +149,7 @@ Rationale:
 - The audit is consultant-authored synthesis that checks process integrity and lineage, not reviewer verdict quality. ANALYSIS is the correct artifact family and preserves the role boundary cleanly.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -167,7 +174,7 @@ Rationale:
 - The workflow chain is the correct place to define cross-family handoff obligations. Companion guidelines can then specialize the behavior without competing for ownership of the canonical sequence.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] Override: _______`
 
 ---
 
@@ -202,12 +209,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `T104-PH001-ST008-AC001.9-GATE-001` |
 | Consultant Recommendation | `APPROVE` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
 | Conditions (if any) | `—` |
 | Decided By | `Client` |
-| Decision Date | `YYYY-MM-DD` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-24` |
+| Decision Reference | `Client approval confirmed in-session on 2026-03-24 after orchestrator review of the TK003.1-hardened GATE-001 package and integrated external review.` |
 
 ---
 
@@ -218,7 +225,9 @@ Downstream enforcement:
 | Governing Plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/plan_T104-PH001-ST008-AC001.9.md` |
 | Input Analysis | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/analysis/analysis_T104-PH001-ST008-AC001.9_recyclable-loop-artifact-governance-gaps.md` |
 | Session Notes | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES001.md` |
+| Package Hardening Specification | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/implementation/implementation_T104-PH001-ST008-AC001.9_gate-001-package-hardening.md` |
 | AC001.9 Implementation Specification | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/implementation/implementation_T104-PH001-ST008-AC001.9_recyclable-loop-artifact-governance.md` |
+| External Review | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/analysis/analysis_T104-PH001-ST008-AC001.9_gate-001-external-review.md` |
 
 ---
 
@@ -226,4 +235,6 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-24 | Gate Closure | Recorded client approval for all four GIR decisions, closed the GDR as `APPROVE`, and marked the hardened GATE-001 package complete after orchestrator review. |
+| v1.1.0 | 2026-03-24 | Amendment | Added `implementation_reference` and `external_review_reference`, integrated the external review into the Gate Package Index and Evidence Index, retargeted the gate package to `TK003.1`, normalized the proposal wording for same-gate hardening, and left the GDR pending for orchestrator closeout. |
 | v1.0.0 | 2026-03-23 | Initial | Consultation-only GATE-001 gate-disposition package created for AC001.9. Translates the four recyclable-loop governance gaps into GIR-001 through GIR-004, recommends approval of the bounded governance model, and leaves the GDR pending client decision. |

@@ -1,6 +1,6 @@
 ---
 artifact_type: 'ANALYSIS'
-analysis_type: '[pattern_audit|research_synthesis|compliance_audit|assessment|external_review]'
+analysis_type: '[pattern_audit|research_synthesis|compliance_audit|assessment|comparative_analysis|external_review]'
 initiative_id: '[ID]'
 initiative_code: '[CODE]'
 phase: '[#]'
@@ -30,7 +30,7 @@ SINGLE-TEMPLATE RULE:
 
 CONDITIONAL MARKER CONVENTION (DEC004):
 - Use HTML comments at section boundaries.
-- Example marker: place an HTML comment at the section header with text `RESEARCH_SYNTHESIS ONLY — omit for other analysis types`
+- Example marker: place an HTML comment at the section header with text `COMPARATIVE_ANALYSIS ONLY - omit for other analysis types`
 
 SUPERSEDED ANALYSIS AUTHORING (see guideline_workspace_analysis.md §IX):
 When this artifact is deprecated because the gate it supports was superseded:
@@ -131,6 +131,41 @@ See Section VIII (Downstream Actions).
 
 ---
 
+<!-- COMPARATIVE_ANALYSIS ONLY - omit for other analysis types -->
+## V. COMPARATIVE ANALYSIS (TRADE STUDY)
+
+### A. Options Under Comparison
+
+| Option | Label | Description |
+|:--|:--|:--|
+| [Option A] | [Label] | [Brief description] |
+| [Option B] | [Label] | [Brief description] |
+
+### B. Evaluation Criteria & Weighting
+
+| Criterion | Definition | Weight (High/Medium/Low or numeric) |
+|:--|:--|:--|
+| [Criterion 1] | [Definition] | [Weight] |
+| [Criterion 2] | [Definition] | [Weight] |
+
+At minimum, use ordinal weighting (High/Medium/Low). Numeric weighting (for example, 1-5 or percentage) is preferred for complex decisions with more than three criteria.
+
+### C. Comparative Assessment Matrix
+
+| Criterion | Weight | [Option A] | [Option B] | Notes |
+|:--|:--|:--|:--|:--|
+| [Criterion 1] | [Weight] | [Grade + brief rationale] | [Grade + brief rationale] | [Why this criterion matters] |
+| [Criterion 2] | [Weight] | [Grade + brief rationale] | [Grade + brief rationale] | [Why this criterion matters] |
+
+Use a consistent grading scale across all options. Each option cell MUST include both a grade or score and a brief rationale, not just a number.
+
+### D. Recommendation
+
+- State the recommended option with a scoring-based rationale.
+- Address dissenting considerations: where the non-recommended option(s) scored better and why those criteria were outweighed.
+
+---
+
 <!-- EXTERNAL_REVIEW ONLY — omit for other analysis types -->
 ## V. EXTERNAL REVIEW (INDEPENDENT ASSESSMENT)
 
@@ -216,5 +251,6 @@ See Section VIII (Downstream Actions).
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.2.0 | 2026-03-24 | Amendment | Added `comparative_analysis` to the frontmatter enum and added a COMPARATIVE_ANALYSIS conditional section (§V) with Options Under Comparison, Evaluation Criteria & Weighting, Comparative Assessment Matrix, and Recommendation subsections. Source: T104-PH001-ST008-AC001.7. |
 | v2.1.0 | 2026-03-20 | Amendment | Frontmatter: added comment block documenting `status: 'superseded'` and `superseded_by` key usage with inline guidance on when to apply. Added `SUPERSEDED ANALYSIS AUTHORING` comment block with step-by-step instructions for deprecating an analysis artifact. Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
 | v2.0.0 | 2026-03-01 | Rewrite | Replaced research-synthesis-only template with single-template, multi-type structure using conditional sections; added `analysis_type`, universal Scope/Inputs + Evidence + GAP register, and non-research Downstream Actions. |

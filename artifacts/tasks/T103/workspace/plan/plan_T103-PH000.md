@@ -3,8 +3,8 @@ artifact_type: 'PLAN'
 planning_level: 'PHASE'
 initiative_id: 'T103'
 phase: '0'
-version: '1.3.0'
-date: '2026-03-23'
+version: '1.6.0'
+date: '2026-03-24'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -76,7 +76,7 @@ This phase plan supersedes the Phase 0-2 completion tracking in `plan_T103_adr-s
 
 | Stream | ID | Name | Status | Owner | Depends On | Deliverable |
 |:--|:--|:--|:--|:--|:--|:--|
-| ST000 | T103-PH000-ST000 | Claude Code Skill Remediation Commissioning | `in_progress` | LLM_Consultant | — | Linked stream/activity governance chain, original remediation acceptance path, and AC000.1 monitoring/testing slice |
+| ST000 | T103-PH000-ST000 | Claude Code Skill Remediation Commissioning | `in_progress` | LLM_Consultant | — | Linked stream/activity governance chain, original remediation acceptance path, AC000.1 closeout, and AC000.2 successor planning lane |
 | ST001 | T103-PH000-ST001 | Pre-Implementation Verification | `planned` | LLM_Consultant | Entry Criteria | Anchor verification report; extraction format assessment |
 | ST002 | T103-PH000-ST002 | ADR-to-STD Rename | `planned` | LLM_Developer | ST001 | All files, symbols, and references renamed |
 | ST003 | T103-PH000-ST003 | Extraction Retargeting | `planned` | LLM_Developer | ST002 | Extraction reads from canonical STD files |
@@ -85,19 +85,21 @@ This phase plan supersedes the Phase 0-2 completion tracking in `plan_T103_adr-s
 
 ### Activity Snapshot Index
 
-**Activity Snapshot As-Of**: 2026-03-23
+**Activity Snapshot As-Of**: 2026-03-24
 
 | Stream | Activity | Activity ID | Name | Status (snapshot) | Owner | Source (Stream Plan) |
 |:--|:--|:--|:--|:--|:--|:--|
 | ST000 | AC000 | `T103-PH000-ST000-AC000` | Claude Code skill remediation commissioning and gated execution package | `in_progress` | LLM_Consultant | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/plan_T103-PH000-ST000.md` |
-
+| ST000 | AC000.1 | `T103-PH000-ST000-AC000.1` | Post-GATE-003 Claude Code skill monitoring & testing remediation | `completed` | LLM_Consultant | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/plan_T103-PH000-ST000.md` |
+| ST000 | AC000.2 | `T103-PH000-ST000-AC000.2` | Release-readiness and supervised monitoring planning | `in_progress` | LLM_Consultant | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/plan_T103-PH000-ST000.md` |
+| ST000 | AC001 | `T103-PH000-ST000-AC001` | Orchestration execution pattern draft specification | `in_progress` | LLM_Consultant | `prompt/artifacts/tasks/T103/workspace/PH000/ST000/plan_T103-PH000-ST000.md` |
 ### Stream Details
 
 ---
 
 #### ST000: Claude Code Skill Remediation Commissioning
 
-**Objective**: Repair the missing governance chain around the AC000 Claude Code skill remediation package, stage the original commissioning and acceptance path, and preserve the later `AC000.1` monitoring/testing continuation lane after `GATE-003`.
+**Objective**: Repair the missing governance chain around the AC000 Claude Code skill remediation package, stage the original commissioning and acceptance path, preserve the AC000.1 closeout record, and register `AC000.2` as the successor planning-only lane after `GATE-003`.
 
 **Execution Mode**: GATED
 
@@ -113,7 +115,7 @@ This phase plan supersedes the Phase 0-2 completion tracking in `plan_T103_adr-s
 - [ ] ST000 stream plan exists and is linked from the phase plan
 - [ ] AC000 activity plan exists with Gate-001, Gate-002, and post-`GATE-002` continuation sequencing
 - [ ] Gate-001 readiness package is staged for client review before any developer work starts
-- [ ] The `AC000.1` continuation lane remains attached to AC000 instead of drifting into an ungoverned side package
+- [ ] The AC000.1 closeout is recorded and the `AC000.2` successor planning lane remains attached to AC000 instead of drifting into an ungoverned side package
 
 ---
 
@@ -295,6 +297,8 @@ This phase plan supersedes the Phase 0-2 completion tracking in `plan_T103_adr-s
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.6.0 | 2026-03-24 | Update | Added AC001 to the phase activity snapshot so the phase view reflects all active ST000 activities alongside the AC000.1 closeout and AC000.2 successor lane. |
+| v1.5.0 | 2026-03-24 | Update | Recorded AC000.1 closeout at Gate-002, registered AC000.2 as the successor planning-only lane, and refreshed the phase activity snapshot so AC000.1 is completed and AC000.2 is in progress. |
 | v1.3.0 | 2026-03-23 | Update | Recorded `GATE-003` closure while keeping `ST000` and parent `AC000` in progress because `AC000.1` is now the commissioned monitoring/testing sub-activity. |
 | v1.2.0 | 2026-03-23 | Update | Refreshed the ST000 phase-level summary so the stream now reflects AC000's incident-correction analysis and post-GATE-002 execution-reliability continuation lane in addition to the original remediation commissioning and acceptance path. |
 | v1.1.0 | 2026-03-22 | Update | Added ST000 (Claude Code Skill Remediation Commissioning) to the phase stream register, introduced an Activity Snapshot Index row for AC000, and linked the new stream/activity governance chain used to commission the Claude Code skill remediation package. |

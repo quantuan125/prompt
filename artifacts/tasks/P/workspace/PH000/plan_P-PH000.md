@@ -4,9 +4,9 @@ planning_level: 'PHASE'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
-version: '0.4.6'
-date: '2026-03-23'
-status: 'draft'
+version: '0.4.8'
+date: '2026-03-24'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
@@ -46,14 +46,14 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 |:--|:--|:--|:--|:--|:--|:--|
 | 0 | `P-PH000-ST000` | Bootstrap Consultation + Program SPS Shell + Research Commission | SEQUENTIAL | — | `planned` | Stream plans + notes for AC001; `sps_P-PROGRAM.md`; planned `P-RES-001` commission |
 | 1 | `P-PH000-ST001` | Program Standards + ID Governance Enablement | SEQUENTIAL | ST000 | `planned` | Planned `P-RES` enablement (T102-STD-005 change); planned `P-STD-001` / `P-STD-002` authoring activities |
-| 2 | `P-PH000-ST002` | Program Status System (Schema + Protocol + Artifact) | SEQUENTIAL | ST001 | `in_progress` | AC003 closed after APPROVE; AC004 is assembling the `GATE-001` readiness package for the V1 rollout across `P/T102/T104`; AC005 is registered as the blocked V2 commissioning stub |
+| 2 | `P-PH000-ST002` | Program Status System (Schema + Protocol + Artifact) | SEQUENTIAL | ST001 | `in_progress` | AC004 `GATE-001` (consultation) closed with straight `APPROVE` on 2026-03-24; `TK004` unblocked for first operationalization slice; AC005 remains the blocked V2 commissioning stub |
 | 4 | `P-PH000-ST004` | Program Research Commissioning | PARALLEL | — | `completed` | P-RES-001 + P-RES-002 briefs + reports + integration recommendations |
 
 **Note**: Stream `P-PH000-ST003` is intentionally reserved (no current purpose defined). ST004 numbering is deliberate.
 
 ### Activity Snapshot Index
 
-**Activity Snapshot As-Of**: 2026-03-23
+**Activity Snapshot As-Of**: 2026-03-24
 
 | Stream | Activity | Activity ID | Name | Status (snapshot) | Owner | Source (Stream Plan) |
 |:--|:--|:--|:--|:--|:--|:--|
@@ -109,6 +109,8 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.4.8 | 2026-03-24 | Close Gate | Aligned phase plan to the AC004 `GATE-001` straight `APPROVE` decision; recorded the transition of ST002 to the implementation phase (TK004). |
+| v0.4.7 | 2026-03-24 | Housekeeping | Refreshed the PH000 stream and activity snapshot after the AC004 `GATE-001 RECYCLE` decision. ST002 now reflects same-gate consultant correction and re-presentation posture while AC005 remains blocked behind AC004 closure. |
 | v0.4.6 | 2026-03-23 | Housekeeping | Refreshed the PH000 stream and activity snapshot for ST002 so AC004 now reflects the full `GATE-001` readiness package for the bounded V1 rollout across `P/T102/T104`, and AC005 is registered as the blocked post-AC004 commissioning stub for future V2 status-system work. |
 | v0.4.5 | 2026-03-23 | Housekeeping | Refreshed the PH000 Activity Snapshot and phase register to mark ST002 AC003 as `completed` after Client APPROVE and AC004 as `in_progress` for the follow-on planning slice. |
 | v0.4.4 | 2026-03-23 | Housekeeping | Refreshed the PH000 Activity Snapshot to mark ST002 AC003 as `in_progress` after execution reached gate-ready state and the GATE-001 package was assembled pending Client disposition. |

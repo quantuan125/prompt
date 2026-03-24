@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'implementation_authoring'
-version: '1.1.0'
-date: '2026-03-22'
+version: '1.3.0'
+date: '2026-03-24'
 status: 'draft'
 author: 'LLM_Developer'
 decision_owner_role: 'Client'
@@ -73,7 +73,7 @@ The following conventions govern all IMPLEMENTATION artifacts:
 | CONV-007 | Mandatory frontmatter backlinks: `plan_reference`, `task_id` or `gate_id`, and triggering artifact reference (`verification_reference` or `proposal_reference`) |
 | CONV-008 | Mandatory audience/authority preamble in Section I distinguishing this artifact from plan authority and proposal decision authority |
 | CONV-009 | For `remediation_specification`, the artifact SHALL exist as a formal task above the gate in the task register (Directive B) |
-| CONV-010 | One artifact per logical implementation scope (task-ID or gate-remediation-cycle scoping) |
+| CONV-010 | One artifact per logical implementation scope. Logical implementation scope is scoped to a task-ID, a gate-remediation-cycle, or a multi-task implementation phase sharing a common design-decision boundary (e.g., tasks seeded by the same gate's GIR resolutions). |
 | CONV-011 | Plan task steps SHALL be high-level summary only when an IMPLEMENTATION artifact exists; the plan step SHALL reference the artifact path |
 | CONV-012 | SPEC items in both IMPLEMENTATION templates SHOULD use the hybrid structure: concise metadata table plus prose `Implementation Detail` block |
 | CONV-013 | `task_specification` MAY declare `execution_audience` to distinguish developer execution from consultant-orchestrated execution without creating a new subtype |
@@ -172,5 +172,6 @@ IMPLEMENTATION does not hold decision authority. Gate decisions remain in `gate_
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.3.0 | 2026-03-24 | Amendment | Normalized CONV-010 to the plan-authorized sentence structure and established the final AC001.8 provenance state for this file: one artifact per logical implementation scope, with scope defined as a task-ID, a gate-remediation-cycle, or a multi-task implementation phase sharing a common design-decision boundary. Source: T104-PH001-ST008-AC001.8. |
 | v1.1.0 | 2026-03-22 | Amendment | Added hybrid SPEC-item structure guidance for both IMPLEMENTATION templates, introduced optional `execution_audience` for `task_specification`, deprecated `.claude/plans/` as a co-equal governed authority surface where IMPLEMENTATION exists, and clarified the DEV-REPORT backlink posture via `implementation_reference`. Source: T104-PH001-ST008-AC001.6-GATE-001 GIR-007, GIR-009, GIR-010, GIR-011. |
 | v1.0.0 | 2026-03-20 | Initial | Draft 1 IMPLEMENTATION authoring guideline. Encodes CONV-006 through CONV-011, two-subtype taxonomy (remediation_specification, task_specification), frontmatter specification, lifecycle rules, and relationship to other artifacts. Source: T104-PH001-ST008-AC001.3-GATE-001 Path B approval. |

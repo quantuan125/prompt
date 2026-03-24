@@ -6,9 +6,9 @@ initiative_code: 'CWS'
 phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC001.9'
-task_id: 'T104-PH001-ST008-AC001.9-TK001 through TK014'
-version: '1.0.0'
-date: '2026-03-23'
+task_id: 'T104-PH001-ST008-AC001.9-TK001-TK012'
+version: '1.1.0'
+date: '2026-03-24'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -26,12 +26,12 @@ consumers:
 
 - **Purpose**: This artifact specifies the full task decomposition for AC001.9, covering both the consultation phase (through GATE-001) and the implementation phase (through GATE-002). It addresses four identified governance gaps in the workspace artifact suite that were exposed during AC001.6 multi-wave orchestrated execution.
 - **Authority chain**: AC001.9 activity plan authorizes tracked work -> This artifact specifies the HOW for each task -> DEV-REPORT records execution evidence -> VERIFICATION provides reviewer verdict -> PROPOSAL hosts GDR.
-- **Audience**: LLM_Consultant (TK001–TK004, TK013), LLM_Developer (TK005–TK011), LLM_Reviewer (TK012), Client (GATE-001, GATE-002).
+- **Audience**: LLM_Consultant (TK001–TK004, TK012), LLM_Developer (TK005–TK010), LLM_Reviewer (TK011), Client (GATE-001, GATE-002).
 - **Boundary**: This artifact does NOT hold a GDR. Gate decisions are recorded in the respective `gate_disposition` proposals per `guideline_workspace_proposal.md` §VII.
 
 ## II. TASK SCOPE
 
-- **Governing plan task**: `T104-PH001-ST008-AC001.9-TK001` through `TK014` (full activity lifecycle)
+- **Governing plan task**: `T104-PH001-ST008-AC001.9-TK001-TK012` (full activity lifecycle; gate checkpoints: GATE-001 and GATE-002)
 - **Trigger**: AC001.6 GATE-002 disposition (GIR-003) explicitly deferred the DEV-REPORT supplementary-taxonomy item as future governance work. The AC001.6 orchestration plan (TK003.5, SPEC-005 governance note) flagged DEV-REPORT package semantics as a future remediation candidate. Consultation during the current session (2026-03-23) identified three additional gaps beyond the DEV-REPORT taxonomy: VERIFICATION multi-report intake, sub-consultant traceability audit, and recyclable-loop evidence handoff.
 - **Deliverable contract**: Amended `guideline_workspace_dev-report.md`, `guideline_workspace_verification.md`, target guideline for traceability audit protocol, `workspace_documentation_rules.md` §7, and supporting template(s).
 
@@ -80,7 +80,7 @@ AC001.9 (T104) produces the **artifact-level authoring rules** that `T103-PH000-
    - **Objective**: Codify DEV-REPORT package taxonomy, VERIFICATION multi-report intake protocol, sub-consultant traceability audit protocol, and recyclable-loop evidence handoff contract across the workspace governance suite.
    - **Execution Mode**: `GATED`
    - **Depends On**: `T104-PH001-ST008-AC001.6` (completed; provides the exemplar evidence and deferred GIR-003 item)
-3. Populate the task register with the full task decomposition (TK001–TK014 + GATE-001 + GATE-002) as specified in this artifact's §V (Implementation Sequence).
+3. Populate the task register with the full task decomposition (TK001–TK012 + GATE-001 + GATE-002) as specified in this artifact's §V (Implementation Sequence).
 4. Register AC001.9 in the ST008 stream plan (`plan_T104-PH001-ST008.md`):
    - Add a row to the Activity Register after AC001.8
    - Add a contract stub in the Activities (High-Level) section with Purpose, Deliverable, Scope, Activity Plan link, and Success Criteria Checklist (summary)

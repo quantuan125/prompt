@@ -5,9 +5,9 @@ initiative_code: 'PROGRAM'
 epic_id: '—'
 epic_code: '—'
 phase: '0'
-version: '0.2.2'
-date: '2026-03-23'
-status: 'draft'
+version: '0.2.4'
+date: '2026-03-24'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
@@ -53,7 +53,7 @@ roadmap_changelog: 'prompt/artifacts/tasks/P/archive/changelog_roadmap_P-PROGRAM
 | Focus Area | Current State | Next Milestone | Canonical Link |
 |:--|:--|:--|:--|
 | Program Standards Stack | `P-STD-001` and `P-STD-002` are accepted; `P-STD-004` and `P-STD-005` remain active hardening surfaces per current plan state | Continue ST001 standards work and derivative alignment | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
-| Program Status System | AC002 is complete and the status artifact skeletons are accepted; AC003 is closed after Client APPROVE; AC004 is assembling the full `GATE-001` readiness package for the bounded V1 rollout across `P/T102/T104`; AC005 is pre-registered as the future V2 commissioning stub | Secure AC004 `GATE-001` approval of the operating model and first-slice execution package | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
+| Program Status System | AC004 `GATE-001` (consultation) closed with straight `APPROVE` on 2026-03-24 (SES004); all assessment findings resolved; `TK004` unblocked for V1 first-slice execution across `P/T102/T104`. | Commission `TK004` to a developer and execute the first operationalization slice | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | Program Research & Governance Inputs | P research surfaces exist and continue to support standards/status hardening | Reuse research outputs in downstream operationalization and standards hardening work | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 
 ---
@@ -85,6 +85,8 @@ roadmap_changelog: 'prompt/artifacts/tasks/P/archive/changelog_roadmap_P-PROGRAM
 
 | Version | Date | Type | Summary |
 |:-------|:-----|:-----|:--------|
+| v0.2.4 | 2026-03-24 | Close Gate | Aligned roadmap to the AC004 `GATE-001` straight `APPROVE` decision; recorded the unblocking of `TK004` for V1 first-slice execution. |
+| v0.2.3 | 2026-03-24 | Amendment | Refreshed the compact roadmap snapshot after the AC004 `GATE-001 RECYCLE` decision so the current milestone is same-gate package correction and re-presentation rather than immediate implementation start. |
 | v0.2.2 | 2026-03-23 | Amendment | Refreshed the compact roadmap snapshot so AC004 now reflects the full `GATE-001` readiness package for the bounded V1 rollout across `P/T102/T104`, and AC005 is noted as the blocked future V2 commissioning stub. |
 | v0.2.1 | 2026-03-23 | Amendment | Refreshed the phase-0 roadmap snapshot to mark AC003 as closed after APPROVE and AC004 as active for planning. Updated the next milestone to the AC004 consultation gate and first operationalization slice. |
 | v0.2.0 | 2026-03-23 | Amendment | Refactored the roadmap into a thin-spine initiative master roadmap. Removed execution-level stream/activity detail, added phase navigation and compact delivery snapshot, and updated the status-system snapshot to reflect AC002 completion, AC003 planning hardening, and AC004 registration. |

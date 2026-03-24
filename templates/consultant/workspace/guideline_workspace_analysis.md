@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'analysis_authoring'
-version: '1.5.0'
-date: '2026-03-20'
+version: '1.7.0'
+date: '2026-03-24'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -46,6 +46,9 @@ Every analysis artifact MUST declare `analysis_type` in frontmatter. Allowed val
 - `compliance_audit`
 - `assessment`
 - `external_review`
+- `comparative_analysis`
+
+The `comparative_analysis` subtype was introduced by `T104-PH001-ST008-AC001.7` to address the structural gap in formal option comparison methodology. See §IV.B for lifecycle position.
 
 **Single-template rule (DEC002)**: There is exactly one template (`template_workspace_analysis.md`). Type-specific sections are included/excluded via in-template conditional markers (DEC004).
 
@@ -72,7 +75,8 @@ These lifecycle positions are **Draft 1 preliminary** and SHOULD be refined as m
 | `pattern_audit` | Need to standardize a template/guideline surface; exemplar drift detection | Guideline/template authoring tasks; plan updates; potential proposal for decisions |
 | `compliance_audit` | Need to check an artifact against standards/guidelines | Remediation tasks; for implementation-backed gates, follow-on VERIFICATION artifact (not inside analysis) |
 | `assessment` | Need to evaluate readiness, hardening, or options tradeoffs | Remediation roadmap, decisions/proposals, implementation tasks |
-| `external_review` | Third-party assessment requested; may be transcript-converted | Consultation-only decision package for client; transition plan and risk register |
+| `comparative_analysis` | Need to compare two or more options/approaches against weighted evaluation criteria to support an architectural or process decision | Decision proposal (standards-input or gate-disposition); plan amendment; implementation task specification for the chosen option |
+| `external_review` | Third-party assessment requested; may be transcript-converted. When an `external_review` serves as a gate-readiness input for a consultation-only or implementation-backed gate, the review scope SHOULD include downstream task readiness and plan-guideline compliance for post-gate work. | Consultation-only decision package for client; transition plan and risk register |
 
 **Gate boundary reminder**:
 - Implementation-backed gates use VERIFICATION as the reviewer evidence surface.
@@ -177,6 +181,7 @@ When applicable, include:
 - `research_synthesis`: `research_id`, `research_brief`, `research_report`, `target_proposal`, `target_sps`
 - `compliance_audit`: `target_artifact`, `reference_standard` (and/or list), `audit_scope`
 - `assessment`: `target_artifact`, `assessment_scope`
+- `comparative_analysis`: `options_compared`, `evaluation_criteria`, `recommended_option`
 - `external_review`: `source_file`, `converted_on`
 - `pattern_audit`: `inputs_reviewed` (list) or a short `analysis_reference` pointer set
 
@@ -280,6 +285,8 @@ Layer 1 (this guideline, §IX) handles the artifact-level deprecation signal. Th
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.7.0 | 2026-03-24 | Amendment | Expanded the `external_review` lifecycle position so gate-readiness inputs SHOULD assess downstream task readiness and plan-guideline compliance for post-gate work. Source: T104-PH001-ST008-AC001.8. |
+| v1.6.0 | 2026-03-24 | Amendment | Added `comparative_analysis` to §III taxonomy, §IV.B lifecycle positions, and §VI.C frontmatter keys. Introduced the formal comparative-analysis subtype for weighted option comparison work. Source: T104-PH001-ST008-AC001.7. |
 | v1.5.0 | 2026-03-20 | Amendment | Added §IX (Superseded Analysis Artifacts): when-to-apply rules, required frontmatter keys (`status: 'superseded'`, `superseded_by`), deprecation notice format, version-bump and changelog requirements, body-preservation rule, and three-layer model context (this guideline covers Layer 1; Layers 2–3 are in proposal guideline and workspace documentation rules). Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
 | v1.4.0 | 2026-03-20 | Amendment | Added IMPLEMENTATION boundary clarification in §II: ANALYSIS artifacts MUST NOT duplicate implementation-level specification detail when an IMPLEMENTATION artifact exists for the same scope. Source: T104-PH001-ST008-AC001.3-GATE-001 Path B approval. |
 | v1.3.0 | 2026-03-16 | Amendment | Clarified the gate boundary for consultation-only workflows. ANALYSIS artifacts may now explicitly feed consultation-only gate packages as inputs, while VERIFICATION remains reserved for implementation-backed gates. Source: P-PH000-ST002-AC002 Gate 001 consultation. |

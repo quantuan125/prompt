@@ -1,24 +1,34 @@
 ---
 artifact_type: 'ANALYSIS'
-analysis_type: 'assessment'
+analysis_type: 'comparative_analysis'
 initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC001.6'
 task_id: 'T104-PH001-ST008-AC001.6-TK003.1'
-version: '1.0.0'
-date: '2026-03-21'
+version: '1.1.0'
+date: '2026-03-24'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/plan_T104-PH001-ST008-AC001.6.md'
-purpose: 'Comparative assessment of IMPLEMENTATION task_specification workflow vs. legacy .claude/plans workflow for developer-execution precision'
+purpose: 'Comparative analysis of IMPLEMENTATION task_specification workflow vs. legacy .claude/plans workflow for developer-execution precision'
+options_compared:
+  - 'IMPLEMENTATION task_specification'
+  - '.claude/plans workflow'
+evaluation_criteria:
+  - 'requirements_traceability'
+  - 'acceptance_criteria'
+  - 'authority_chain'
+  - 'separation_of_concerns'
+  - 'change_control'
+  - 'discoverability'
+  - 'authoring_cost'
+recommended_option: 'IMPLEMENTATION task_specification'
 ---
 
-# ANALYSIS: IMPLEMENTATION vs .claude/plans Comparative Assessment (T104-PH001-ST008-AC001.6)
-
-> **Forward-reference note**: This artifact uses `assessment` subtype as an interim classification. AC001.7 will introduce the `comparative_analysis` subtype, at which point this artifact's `analysis_type` will be reclassified.
+# ANALYSIS: IMPLEMENTATION vs .claude/plans Comparative Analysis (Trade Study) (T104-PH001-ST008-AC001.6)
 
 ## I. EXECUTIVE SUMMARY
 
@@ -26,7 +36,7 @@ purpose: 'Comparative assessment of IMPLEMENTATION task_specification workflow v
 
 **Scope**: Structural comparison across 8 dimensions and 7 evaluation criteria, developer-executability assessment, and industry-standard alignment.
 
-**Conclusion / Recommendation**: The IMPLEMENTATION `task_specification` family outperforms the `.claude/plans` pattern on 5 of 7 evaluation criteria. The `.claude/plans` pattern retains an advantage only on authoring cost and speed-to-first-draft. For T104-governed activities requiring precision execution, the IMPLEMENTATION family is the recommended specification surface.
+**Conclusion / Recommendation**: The IMPLEMENTATION `task_specification` family outperforms the `.claude/plans` pattern on 6 of 7 evaluation criteria. The `.claude/plans` pattern retains an advantage only on authoring cost. For T104-governed activities requiring precision execution, the IMPLEMENTATION family is the recommended specification surface.
 
 ### Client Summary
 
@@ -36,7 +46,7 @@ purpose: 'Comparative assessment of IMPLEMENTATION task_specification workflow v
 - Industry-standard alignment (IEEE 830, CMMI Level 3, TOGAF ADM, ISO 10007, Agile INVEST) strongly favors the IMPLEMENTATION family's structural properties.
 - The deprecation of `.claude/plans` for governed work (GIR-007) is supported by this evidence. The ad-hoc use case remains valid.
 - Two recyclable prompt artifacts (author + execute variants) are needed to operationalize the IMPLEMENTATION workflow. These are commissioned as SPEC-002 and SPEC-003 in TK003.1.
-- No changes to the IMPLEMENTATION family's two-subtype taxonomy are required by this assessment.
+- No changes to the IMPLEMENTATION family's two-subtype taxonomy are required by this comparative analysis.
 
 ---
 
@@ -117,30 +127,48 @@ purpose: 'Comparative assessment of IMPLEMENTATION task_specification workflow v
 
 ---
 
-## V. ASSESSMENT (READINESS / OPTIONS / TRADEOFFS)
+## V. COMPARATIVE ANALYSIS (TRADE STUDY)
 
 ### A. Options Under Comparison
 
-- **Option A**: Legacy `.claude/plans` workflow -- free-form markdown plan files in `.claude/plans/` directory, outside the governed `prompt/` repository root.
-- **Option B**: New IMPLEMENTATION `task_specification` workflow -- governed YAML-frontmatter artifacts with structured SPEC items, placed within the `prompt/` repository under activity-scoped `implementation/` directories.
+| Option | Label | Description |
+|:--|:--|:--|
+| Option A | Legacy `.claude/plans` workflow | Free-form markdown plan files in `.claude/plans/`, outside the governed `prompt/` repository root. |
+| Option B | IMPLEMENTATION `task_specification` workflow | Governed YAML-frontmatter artifacts with structured SPEC items, placed within the `prompt/` repository under activity-scoped `implementation/` directories. |
 
-### B. Comparative Evaluation Matrix
+### B. Evaluation Criteria & Weighting
 
-| # | Evaluation Criterion | Option A (`.claude/plans`) | Option B (IMPLEMENTATION) | Winner |
+| Criterion | Definition | Weight (High/Medium/Low or numeric) |
+|:--|:--|:--|
+| Requirements Traceability | Per-item traceability from requirement source to target files and decisions. | High |
+| Acceptance Criteria | Deterministic per-item verification conditions. | High |
+| Authority Chain | Explicit plan -> implementation -> dev-report -> verification -> gate sequence. | High |
+| Separation of Concerns | Distinct what/how/evidence artifacts and role boundaries. | High |
+| Change Control | Versioning, changelog, and status metadata. | Medium |
+| Discoverability | Governed placement and validator indexing. | Medium |
+| Authoring Cost | Speed and ceremony overhead to create the artifact. | Low |
+
+At minimum, use ordinal weighting (High/Medium/Low). Numeric weighting is preferred for complex decisions with more than three criteria.
+
+### C. Comparative Assessment Matrix
+
+| Criterion | Weight | Option A | Option B | Notes |
 |:--|:--|:--|:--|:--|
-| 1 | **Requirements Traceability** | No per-item requirement source. Steps reference target files but do not trace to originating decisions. | Per-SPEC `Requirement Source` field with P-STD-005 compliant session-decision references. | **Option B** |
-| 2 | **Acceptance Criteria** | Success criteria at plan level only. No per-step testable conditions. | Per-SPEC `Acceptance Criteria` field with deterministic pass/fail conditions. | **Option B** |
-| 3 | **Authority Chain** | Implicit. Mentions "governing plan" but no formal authority chain statement. Relationship to dev-report unstated. | Explicit: Plan --> IMPLEMENTATION --> Dev-Report --> Verification --> Gate. Stated in §I of every artifact with role-boundary annotations. | **Option B** |
-| 4 | **Separation of Concerns** | Plan and implementation merged into a single surface. The `.claude/plans` file contains both "what to do" (plan-level) and "how to do it" (step-level implementation detail). | Clean separation: Plan (tracked-work authority) vs. IMPLEMENTATION (specification depth) vs. Dev-Report (execution evidence). Each artifact has a distinct owner and lifecycle. | **Option B** |
-| 5 | **Change Control** | No version control metadata. Changes are ad-hoc file edits with no changelog. | Semantic versioning, frontmatter `version`/`date`/`status` fields, mandatory changelog section. | **Option B** |
-| 6 | **Discoverability** | Files located in `.claude/plans/` -- outside the `prompt/` repository. Not indexed by the structure validator. Not discoverable via standard artifact-type directory patterns. | Files located in governed `prompt/artifacts/.../implementation/` directories. Indexed by the structure validator. Discoverable via `P-STD-004` naming and placement conventions. | **Option B** |
-| 7 | **Authoring Cost** | Low ceremony. A consultant can author a `.claude/plans` file in ~5 minutes with no template or frontmatter requirements. | Higher ceremony. Requires template instantiation, 16+ frontmatter fields, structured SPEC items with metadata tables, and adherence to `guideline_workspace_implementation.md`. Typical authoring time ~20 minutes. | **Option A** |
+| Requirements Traceability | High | Weak - no per-item requirement source; steps reference target files only. | Strong - per-SPEC requirement source with session-decision references. | Traceability drives the recommendation. |
+| Acceptance Criteria | High | Weak - plan-level success criteria only; no per-step testable conditions. | Strong - per-SPEC acceptance criteria with deterministic pass/fail conditions. | Verification is easier to execute against Option B. |
+| Authority Chain | High | Weak - implicit plan authority; relationship to dev-report unstated. | Strong - explicit plan -> implementation -> dev-report -> verification -> gate chain. | Clear role separation reduces ambiguity. |
+| Separation of Concerns | High | Weak - plan and implementation merged into one surface. | Strong - distinct plan, implementation, and dev-report roles. | Maintains clean ownership boundaries. |
+| Change Control | Medium | Weak - no version metadata or changelog. | Strong - semantic versioning, status, and changelog. | Option B is easier to audit and revise. |
+| Discoverability | Medium | Weak - ungoverned path outside `prompt/`; not indexed by the structure validator. | Strong - governed `prompt/` path and validator indexing. | Better repo-level navigation and enforcement. |
+| Authoring Cost | Low | Strong - low ceremony and fast first draft. | Moderate - more ceremony and higher authoring cost. | Option A retains the only clear ergonomic advantage. |
 
-### C. Recommendation
+Use a consistent grading scale across all options. Each option cell MUST include both a grade or score and a brief rationale, not just a number.
 
-Option B (IMPLEMENTATION `task_specification`) wins on 5 of 7 criteria. Option A (`.claude/plans`) wins only on authoring cost and speed-to-first-draft.
+### D. Recommendation
 
-For T104-governed activities where execution precision and traceability are requirements, the IMPLEMENTATION family is the clearly superior specification surface. The authoring cost premium (~15 minutes additional per artifact) is justified by the downstream benefits: deterministic developer execution, per-item verification, and full authority chain traceability.
+Option B (IMPLEMENTATION `task_specification`) wins on 6 of 7 criteria. Option A (`.claude/plans`) wins only on authoring cost.
+
+For T104-governed activities where execution precision and traceability are requirements, the IMPLEMENTATION family is the clearly superior specification surface. The authoring cost premium is justified by deterministic developer execution, per-item verification, and full authority chain traceability.
 
 The `.claude/plans` pattern retains value for ad-hoc work outside governed initiatives, where the overhead of formal specification is not warranted.
 
@@ -152,9 +180,9 @@ The `.claude/plans` pattern retains value for ad-hoc work outside governed initi
 
 | downstream_artifact_type | target_reference | trigger_condition | responsible_role | notes |
 |:--|:--|:--|:--|:--|
-| Recyclable Prompt (Author) | `prompt/templates/consultant/workspace/prompt/prompt_implementation-author.md` | This assessment's GAP-002 | LLM_Consultant | SPEC-002 in TK003.1 |
-| Recyclable Prompt (Execute) | `prompt/templates/consultant/workspace/prompt/prompt_implementation-execute.md` | This assessment's GAP-002 | LLM_Consultant | SPEC-003 in TK003.1 |
-| Gate-Disposition Proposal (GIR-007) | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/proposal/proposal_T104-PH001-ST008-AC001.6-GATE-001_gir-disposition-package.md` | This assessment's GAP-001 and GAP-003 | LLM_Consultant | SPEC-005 in TK003.1 |
+| Recyclable Prompt (Author) | `prompt/templates/consultant/workspace/prompt/prompt_implementation-author.md` | This comparative analysis's GAP-002 | LLM_Consultant | SPEC-002 in TK003.1 |
+| Recyclable Prompt (Execute) | `prompt/templates/consultant/workspace/prompt/prompt_implementation-execute.md` | This comparative analysis's GAP-002 | LLM_Consultant | SPEC-003 in TK003.1 |
+| Gate-Disposition Proposal (GIR-007) | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/proposal/proposal_T104-PH001-ST008-AC001.6-GATE-001_gir-disposition-package.md` | This comparative analysis's GAP-001 and GAP-003 | LLM_Consultant | SPEC-005 in TK003.1 |
 
 ---
 
@@ -174,4 +202,5 @@ The `.claude/plans` pattern retains value for ad-hoc work outside governed initi
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-24 | Amendment | Reclassified to `comparative_analysis`, added subtype frontmatter keys, introduced the comparative-analysis section structure, and normalized the weighted evaluation matrix. Source: AC001.7. |
 | v1.0.0 | 2026-03-21 | Initial | Comparative assessment of IMPLEMENTATION `task_specification` workflow vs. legacy `.claude/plans` workflow. IMPLEMENTATION wins on 5/7 evaluation criteria; `.claude/plans` retains advantage on authoring cost and speed-to-first-draft. Three GAPs identified: no governed traceability in `.claude/plans`, no recyclable prompt for IMPLEMENTATION workflow, no deprecation posture. Source: SES002 consultation (SES002-DEC004, SES002-DP002). |
