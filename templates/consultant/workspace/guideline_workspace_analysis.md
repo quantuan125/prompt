@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'analysis_authoring'
-version: '1.7.0'
-date: '2026-03-24'
+version: '1.8.0'
+date: '2026-03-25'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -77,6 +77,8 @@ These lifecycle positions are **Draft 1 preliminary** and SHOULD be refined as m
 | `assessment` | Need to evaluate readiness, hardening, or options tradeoffs | Remediation roadmap, decisions/proposals, implementation tasks |
 | `comparative_analysis` | Need to compare two or more options/approaches against weighted evaluation criteria to support an architectural or process decision | Decision proposal (standards-input or gate-disposition); plan amendment; implementation task specification for the chosen option |
 | `external_review` | Third-party assessment requested; may be transcript-converted. When an `external_review` serves as a gate-readiness input for a consultation-only or implementation-backed gate, the review scope SHOULD include downstream task readiness and plan-guideline compliance for post-gate work. | Consultation-only decision package for client; transition plan and risk register |
+
+Recyclable-loop sub-consultant traceability audits SHALL be authored as `analysis_type: 'compliance_audit'`.
 
 **Gate boundary reminder**:
 - Implementation-backed gates use VERIFICATION as the reviewer evidence surface.
@@ -154,6 +156,35 @@ All non-research analysis types MUST include a **Downstream Actions** section wi
 
 `research_synthesis` uses the template’s Integration Roadmap section instead (DEC007).
 
+### F. Recyclable-Loop Traceability Audit Profile
+
+Trigger:
+- when a recyclable loop has completed a developer -> reviewer -> consultant cycle and a consultant-owned integrity check is required before gate packaging or before consultant recommendation synthesis.
+
+Minimum required evidence inputs:
+- governing plan
+- governing IMPLEMENTATION artifact when one exists
+- active DEV-REPORT package
+- active VERIFICATION artifact when one exists
+- target proposal path or gate package reference when packaging is imminent
+
+Required compliance checklist rows:
+- `Evidence integrity`
+- `Plan-authority compliance`
+- `Role-boundary compliance`
+- `Artifact-lineage completeness`
+
+Criterion definitions:
+- `Evidence integrity` -> all expected artifacts exist, cross-links resolve, and package references are internally consistent.
+- `Plan-authority compliance` -> every executed deliverable can be traced to an authorized plan task and, when applicable, to an IMPLEMENTATION SPEC item.
+- `Role-boundary compliance` -> no role produced an artifact outside its governed ownership boundary for the assessed cycle.
+- `Artifact-lineage completeness` -> version chains, package-linkage keys, handoff references, and gate-facing evidence trails are complete and navigable.
+
+Downstream handoff rules:
+- If the audit finds no governance gap, the Downstream Actions section SHOULD point to proposal packaging or gate evidence indexing.
+- If the audit finds a governance gap requiring execution work, the Downstream Actions section SHOULD point to a plan amendment or IMPLEMENTATION artifact rather than inventing verification findings.
+- The resulting ANALYSIS artifact MUST NOT claim gate closure and MUST NOT replace reviewer-owned VERIFICATION.
+
 ---
 
 ## VI. FRONTMATTER CONVENTIONS (DEC003)
@@ -179,7 +210,7 @@ When applicable, include:
 ### C. Type-specific optional keys (examples)
 
 - `research_synthesis`: `research_id`, `research_brief`, `research_report`, `target_proposal`, `target_sps`
-- `compliance_audit`: `target_artifact`, `reference_standard` (and/or list), `audit_scope`
+- `compliance_audit`: `target_artifact`, `reference_standard` (and/or list), `audit_scope`, `audit_cycle`, `primary_dev_report`, `verification_reference`, `proposal_target`
 - `assessment`: `target_artifact`, `assessment_scope`
 - `comparative_analysis`: `options_compared`, `evaluation_criteria`, `recommended_option`
 - `external_review`: `source_file`, `converted_on`
@@ -216,12 +247,13 @@ Per `P-STD-004-CLAUSE-008E`, `analysis_` artifacts MUST NOT be treated as resear
 - **What**: Single ANALYSIS template with conditional sections for all `analysis_type` values.
 - **When**: Use for all new analysis artifacts.
 - **How**: Copy the template, set frontmatter keys (including `analysis_type`), keep universal sections, then remove non-applicable conditional blocks.
+- No new template is introduced for the recyclable-loop traceability audit profile. The existing ANALYSIS template's `COMPLIANCE_AUDIT` block remains the required surface for this audit profile.
 
 ---
 
 ## IX. SUPERSEDED ANALYSIS ARTIFACTS
 
-This section governs how ANALYSIS artifacts are deprecated when a gate is superseded due to an external baseline change. The rules here implement Layer 1 of the three-layer deprecation model (see `workspace_documentation_rules.md` §7.C for the full model).
+This section governs how ANALYSIS artifacts are deprecated when a gate is superseded due to an external baseline change. The rules here implement Layer 1 of the three-layer deprecation model (see `workspace_documentation_rules.md` §7.C for the full model and §12 for changelog placement).
 
 ### A. When Supersession Applies
 
@@ -257,11 +289,11 @@ Fill in:
 - `[successor artifact path]`: Repo-relative path to the successor artifact
 - `[baseline Y]`: The normative standard/version the successor artifact is produced against (e.g., `P-STD-002 v1.2.0`)
 
-### D. Version Bump and Changelog
+### D. Version Bump and Changelog File
 
 When applying the superseded status:
 - Bump the version (minor version increment, e.g., v1.0.0 → v1.1.0)
-- Add a changelog entry explaining the supersession: which gate triggered it, which baseline changed, and what the successor artifact is
+- Add a changelog entry to `prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_analysis.md` explaining the supersession: which gate triggered it, which baseline changed, and what the successor artifact is
 
 ### E. Body Preservation Rule
 
@@ -269,7 +301,7 @@ The body content of a superseded ANALYSIS artifact MUST NOT be altered. Only the
 1. `status` frontmatter key updated to `superseded`
 2. `superseded_by` frontmatter key added
 3. Deprecation notice added as first body line
-4. Version bumped and changelog entry added
+4. Version bumped and changelog entry added to the dedicated changelog file
 
 The analysis content itself (findings, assessments, recommendations) is preserved unchanged as a historical record of work done under the prior baseline.
 
@@ -283,13 +315,4 @@ Layer 1 (this guideline, §IX) handles the artifact-level deprecation signal. Th
 
 ## X. CHANGELOG
 
-| Version | Date | Type | Summary |
-|:--|:--|:--|:--|
-| v1.7.0 | 2026-03-24 | Amendment | Expanded the `external_review` lifecycle position so gate-readiness inputs SHOULD assess downstream task readiness and plan-guideline compliance for post-gate work. Source: T104-PH001-ST008-AC001.8. |
-| v1.6.0 | 2026-03-24 | Amendment | Added `comparative_analysis` to §III taxonomy, §IV.B lifecycle positions, and §VI.C frontmatter keys. Introduced the formal comparative-analysis subtype for weighted option comparison work. Source: T104-PH001-ST008-AC001.7. |
-| v1.5.0 | 2026-03-20 | Amendment | Added §IX (Superseded Analysis Artifacts): when-to-apply rules, required frontmatter keys (`status: 'superseded'`, `superseded_by`), deprecation notice format, version-bump and changelog requirements, body-preservation rule, and three-layer model context (this guideline covers Layer 1; Layers 2–3 are in proposal guideline and workspace documentation rules). Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
-| v1.4.0 | 2026-03-20 | Amendment | Added IMPLEMENTATION boundary clarification in §II: ANALYSIS artifacts MUST NOT duplicate implementation-level specification detail when an IMPLEMENTATION artifact exists for the same scope. Source: T104-PH001-ST008-AC001.3-GATE-001 Path B approval. |
-| v1.3.0 | 2026-03-16 | Amendment | Clarified the gate boundary for consultation-only workflows. ANALYSIS artifacts may now explicitly feed consultation-only gate packages as inputs, while VERIFICATION remains reserved for implementation-backed gates. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
-| v1.2.0 | 2026-03-15 | Amendment | Added §V.A (Executive Summary Audience-Awareness Rule): when an analysis feeds a gate_disposition proposal, the Executive Summary MUST include a Client Summary subsection written for the decision_owner_role. Existing §V subsections renumbered (A→B, B→C, C→D, D→E). |
-| v1.1.0 | 2026-03-05 | Maintenance | Resolved legacy GDR ownership reference in §II (removed verification artifact as GDR host). |
-| v1.0.0 | 2026-03-01 | Initial | Draft 1 authoring guideline for ANALYSIS artifacts. Encodes AC007 GATE-000 decisions (DEC001–DEC009, DEC011–DEC013) and aligns naming/placement guidance to `P-STD-004` and `P-STD-005`. |
+`prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_analysis.md`

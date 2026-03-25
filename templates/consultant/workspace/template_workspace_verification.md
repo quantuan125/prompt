@@ -7,8 +7,8 @@ phase: '[PH]'
 stream_id: '[SID-PH###-ST###]'
 activity_id: '[SID-PH###-ST###-AC###]'
 gate_id: '[SID-PH###-ST###-AC###-GATE-###]'
-version: '1.2.0'
-date: '2026-03-12'
+version: '1.3.0'
+date: '2026-03-25'
 status: 'draft'
 author: '[LLM_Reviewer | LLM_Consultant]'
 decision_owner_role: 'Client'
@@ -38,14 +38,21 @@ session_reference: '[repo-relative path to session notes, if applicable]'
 
 ## II. Evidence Set (Artifacts Reviewed)
 
-**Task deliverables**:
+**Primary DEV-REPORT**:
 - `[repo-relative path]` ([description])
+
+**Supplementary DEV-REPORTs (omit if not applicable)**:
+- `[repo-relative path]` ([description])
+
+**Other task deliverables**:
 - `[repo-relative path]` ([description])
 
 **Governance references**:
 - `[repo-relative path]` ([description — plan, proposal, standard])
 
 ## III. Verification Checklist
+
+Checklist groups MAY compare the primary DEV-REPORT against one or more supplementary DEV-REPORTs when verifying consolidated package accuracy.
 
 ### A. [Task/Criterion Group Name]
 

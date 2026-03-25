@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '3.3.0'
-date: '2026-03-22'
+version: '3.5.0'
+date: '2026-03-25'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -190,6 +190,28 @@ Reference rule:
 - Same-activity session references MAY use shorthand forms such as `SES003-DEC001` when the activity scope is already explicit from context.
 - Cross-activity session references MUST use fully-qualified timeline UIDs per `P-STD-005`.
 
+### D. Recyclable-Loop Evidence Accumulation and Handoff
+
+Rules:
+- Each recycle cycle MUST produce cycle-local evidence rather than overwriting lineage.
+- Rework under the same gate MUST preserve the same gate identity.
+- Final gate packaging MUST preserve a navigable lineage from the active gate-facing evidence back to prior cycle evidence.
+
+| Boundary | Required Outbound Artifact | Minimum Contents | Blocking Rule |
+|:--|:--|:--|:--|
+| Developer -> Reviewer | DEV-REPORT | `source_plan`, `implementation_reference` when an IMPLEMENTATION artifact exists, `package_role`, `primary_report`, and `consolidated_from` when a multi-report package exists, traceability matrix, handoff section | Reviewer MUST not start gate review until the developer evidence package is complete. |
+| Reviewer -> Consultant | VERIFICATION | Evidence Set coverage of the active producer-evidence package, findings or explicit no-findings posture, reviewer verdict | Consultant MUST not package a gate disposition until reviewer verdict and evidence coverage are present. |
+| Consultant -> Developer | IMPLEMENTATION | Explicit task/gate linkage, references to the controlling approved GIR package or the controlling verification findings, depending on the path | Developer MUST not begin remediation or follow-on execution without explicit authority. |
+| Consultant -> Client | PROPOSAL | Gate Package Index, Evidence Index, consultant recommendation, GDR when the archetype is `gate_disposition` | Client MUST not be asked to disposition the gate without the proposal package. |
+
+Lineage rules:
+- Supplementary DEV-REPORTs accumulate across bounded execution slices within the same package.
+- Consolidated primary DEV-REPORTs point to supplementary reports through `consolidated_from`.
+- VERIFICATION re-assessment remains same-gate and version-bumped rather than renamed to a new gate.
+- Proposal evidence indexes SHOULD surface current active evidence first and preserve historical evidence as lineage context rather than deleting it.
+
+This subsection does not alter the consultant/developer/reviewer ownership model; it governs evidence flow and handoff obligations only.
+
 **Superseded artifact linkage rules** (three-layer deprecation model):
 
 When a gate is superseded (`Client Decision = SUPERSEDE`), artifacts produced for the superseded baseline are deprecated using a three-layer model. Each layer serves a different audience:
@@ -274,19 +296,21 @@ SSOT (SPS + Concept) → Standards → Guidelines → Templates → Workspace ar
 
 ## 12. CHANGELOG
 
-| Version | Date | Type | Summary |
-|:--|:--|:--|:--|
-| v3.3.0 | 2026-03-22 | Amendment | Expanded the implementation-backed workflow chain to make the full complex `RECYCLE` loop explicit (`IMPLEMENTATION remediation_specification` -> remediation deliverables -> DEV-REPORT -> VERIFICATION re-assessment). Added the governed-work note that IMPLEMENTATION is the canonical execution-specification surface where it exists and `.claude/plans/` is legacy/ad hoc only. Added bounded same-activity session-reference shorthand guidance in §7.C. Source: T104-PH001-ST008-AC001.6-GATE-001 GIR-003, GIR-007, GIR-008. |
-| v3.2.0 | 2026-03-20 | Amendment | §7.A: Added conditional external-impact assessment step to the canonical workflow chain — when an external event affects a gate's normative baseline, an impact assessment step precedes gate disposition; supersession path replaces the normal gate close. §7.C: Added three-layer deprecation model for superseded artifacts (frontmatter + Evidence Index + Links Register), deprecation notice format, and preservation rule. §3: Added artifact status vocabulary table with `superseded` definition (distinct from `failed` and `cancelled`). Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
-| v3.1.0 | 2026-03-20 | Amendment | §7.A: Clarified that reviewer verdict stays in VERIFICATION only and PROPOSAL GDR carries consultant recommendation + client decision (three-signal model). §7.C: Updated VERIFICATION and PROPOSAL linkage rules to reflect GDR no longer duplicating reviewer verdict. §10.C: Updated GDR execution history note. Source: T104-PH001-ST008-AC001.5. |
-| v3.0.0 | 2026-03-20 | Amendment | Added IMPLEMENTATION artifact family: §3 artifact type inventory row, §4.H template entries, §5 guideline entry, §7.A workflow chain with IMPLEMENTATION placement, §7.A IMPLEMENTATION linkage rule, §7.C inter-artifact linkage row, §8 role-to-artifact ownership row. New artifact family = major version bump. Source: T104-PH001-ST008-AC001.3-GATE-001 Path B approval. |
-| v2.9.0 | 2026-03-16 | Amendment | Refined §6.D and §7 to distinguish implementation-backed gates from consultation-only gates. Verification is now explicitly limited to implementation-backed flows after DEV-REPORT handoff; consultation-only flows proceed from NOTES/ANALYSIS to PROPOSAL without VERIFICATION. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
-| v2.8.0 | 2026-03-15 | Amendment | Added §7 (Workflow Chain and Handoff Contracts) with canonical workflow chain, Gate-Readiness Stack cross-reference, and inter-artifact linkage rules. Added §8 (Role-to-Artifact Ownership Matrix). Fixed stale "proposals are not final decisions" in anti-drift rules (GAP-008). Source: T104-PH001-ST008-AC001.2; T104-RES-003 Topics 2, 3, 8. |
-| v2.7.0 | 2026-03-13 | Update | Delivered DEV-REPORT Draft 1 authoring surfaces under AC006: registered `guideline_workspace_dev-report.md` and `template_workspace_dev-report.md`, and removed DEV-REPORT “Draft 1 planned” markers from §3, §4.E, and §5. |
-| v2.5.0 | 2026-03-04 | Update | §3 VERIFICATION purpose: removed "Gate Decision Record (GDR)", replaced with "reviewer verdict". §3 PROPOSAL purpose: added "(incl. Gate Decision Record)". §6.D Reviewer boundary: clarified that GDR is hosted in consultant-owned gate_disposition proposal, reviewer produces verdict only. Source: T104-PH001-ST008-AC001 Option B approval. |
-| v2.4.0 | 2026-03-03 | Update | Delivered PROPOSAL Draft 1 inventory for AC008: added archetype-specific proposal templates, marked proposal guideline as delivered, and recorded legacy proposal template deprecation + archive path. |
-| v2.3.0 | 2026-03-01 | Update | Marked ANALYSIS guideline as delivered and updated ANALYSIS purpose to multi-type (via `analysis_type`). |
-| v2.2.1 | 2026-03-01 | Update | §7 authority surface updated to reference `P-STD-004` (standard) instead of the seed proposal. |
-| v2.2.0 | 2026-02-25 | Update | §3: VERIFICATION description updated to include rework handoff and GDR. §5: VERIFICATION guideline updated from "planned" to delivered. §6.D: Reviewer boundary updated with TK-before-gate pattern and cross-reference migrated to verification guideline. Source: T104-PH001-ST005-AC005 delivery. |
-| v2.1.0 | 2026-02-25 | Update | Added VERIFICATION, DEV-REPORT, ANALYSIS, PROPOSAL to §3 Artifact Type Inventory with role owners. Added §4.D–G template entries. Added VERIFICATION/DEV-REPORT/ANALYSIS/PROPOSAL to §5 Guideline Inventory (Draft 1 planned). Updated §6 role boundaries: LLM_Verifier → LLM_Reviewer (canonical); Developer boundary clarified to include dev-reports; Consultant boundary extended to include analyses. Delivery planned under `T104-PH001-ST005` AC005–AC008. |
-| v2.0.0 | 2026-02-11 | Rewrite | Replaced legacy rules with template + guideline inventories, role boundaries, P-STD-004 reference, and anti-drift governance for PLAN/ROADMAP/NOTES (Draft 1) |
+Workspace guideline changelogs are externalized to dedicated files. The `CHANGELOG` section in each main guideline MUST be a pointer only, and the version table MUST live in the dedicated file listed below.
+
+| Document | Dedicated changelog file |
+|:--|:--|
+| `workspace_documentation_rules.md` | `prompt/templates/consultant/workspace/changelog/changelog_workspace_documentation_rules.md` |
+| `guideline_workspace_plan.md` | `prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_plan.md` |
+| `guideline_workspace_analysis.md` | `prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_analysis.md` |
+| `guideline_workspace_dev-report.md` | `prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_dev-report.md` |
+| `guideline_workspace_implementation.md` | `prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_implementation.md` |
+| `guideline_workspace_notes.md` | `prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_notes.md` |
+| `guideline_workspace_proposal.md` | `prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_proposal.md` |
+| `guideline_workspace_roadmap.md` | `prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_roadmap.md` |
+| `guideline_workspace_verification.md` | `prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_verification.md` |
+
+Rule:
+- Every workspace guideline MUST end with a `CHANGELOG` section containing only the repo-relative path to its dedicated changelog file.
+- The dedicated changelog file MUST be the only place where version rows are added, amended, or reordered.
+- The dedicated changelog file MUST live under `prompt/templates/consultant/workspace/changelog/`.

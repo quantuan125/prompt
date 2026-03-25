@@ -5,8 +5,8 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST008'
-version: '2.14.0'
-date: '2026-03-24'
+version: '2.16.0'
+date: '2026-03-25'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -40,6 +40,8 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Activity | Session ID | Name | Notes File |
 |:--|:--|:--|:--|
+| AC001.9 | `T104-PH001-ST008-AC001.9-SES004` | GATE-002 Housekeeping Closeout, Authority Sync & Client Approval Recording | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES004.md` |
+| AC001.9 | `T104-PH001-ST008-AC001.9-SES003` | Orchestration QA, TK004 Amendment, Developer Execution & GATE-002 Packaging | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES003.md` |
 | AC001.9 | `T104-PH001-ST008-AC001.9-SES002` | GATE-001 Closeout, Client Approval Recording & Next-Session Handoff | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES002.md` |
 | AC001.9 | `T104-PH001-ST008-AC001.9-SES001` | Recyclable Loop Artifact Governance — Scope Consultation | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES001.md` |
 | AC001.6 | `T104-PH001-ST008-AC001.6-SES004` | GATE-001 External Review, Orchestration Recovery, Claude Variance Disposition, GATE-002 Package Normalization & GATE-002 Approval | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/snotes/snotes_T104-PH001-ST008-AC001.6-SES004.md` |
@@ -86,6 +88,8 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.16.0 | 2026-03-25 | Gate Closure | Registered AC001.9-SES004 (GATE-002 Housekeeping Closeout, Authority Sync & Client Approval Recording). SES004 records the final housekeeping synchronization, the refreshed GATE-002 proposal evidence trail, client APPROVE decision, and AC001.9 closure. |
+| v2.15.0 | 2026-03-25 | Amendment | Registered AC001.9-SES003 (Orchestration QA, TK004 Amendment, Developer Execution & GATE-002 Packaging) after the revised orchestration plan approval, TK004 changelog-scope amendment, uninterrupted developer execution, TK011 verification, and TK012 packaging. |
 | v2.14.0 | 2026-03-24 | Amendment | Registered AC001.9-SES002 (GATE-001 Closeout, Client Approval Recording & Next-Session Handoff) after GATE-001 approval, closeout, and next-session boundary confirmation. |
 | v2.13.0 | 2026-03-23 | Amendment | Registered AC001.9-SES001 (Recyclable Loop Artifact Governance — Scope Consultation) after AC001.9 planning, assessment, and consultation-only GATE-001 package creation. |
 | v2.12.0 | 2026-03-23 | Amendment | Updated SES004 row title to reflect session continuation covering GATE-002 external review and client approval. |

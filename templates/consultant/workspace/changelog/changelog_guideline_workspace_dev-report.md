@@ -1,0 +1,7 @@
+| Version | Date | Type | Summary |
+|:--|:--|:--|
+| v1.4.0 | 2026-03-25 | Amendment | Added DEV-REPORT package taxonomy delivery for AC001.9: primary/supplementary/consolidated posture, scope-decomposition vs temporal-iteration rules, linkage frontmatter keys, and lineage guidance for multi-report packages. |
+| v1.3.0 | 2026-03-22 | Amendment | Added `implementation_reference` as a recommended frontmatter key for IMPLEMENTATION-governed execution slices and clarified that the Traceability Matrix SHOULD map deliverables back to SPEC item IDs where practical. Source: T104-PH001-ST008-AC001.6-GATE-001 GIR-002 and GIR-010. |
+| v1.2.0 | 2026-03-16 | Amendment | Clarified that DEV-REPORT is required only for implementation-backed gates reviewing developer-mutated deliverables. Consultation-only gates now explicitly omit DEV-REPORT. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
+| v1.1.0 | 2026-03-15 | Amendment | §III.D: Added Gate-Readiness Stack cross-reference to `guideline_workspace_plan.md` §VI.L for plan-level positioning of DEV-REPORT tasks in the pre-gate sequence. Source: T104-PH001-ST008-AC001.2. |
+| v1.0.0 | 2026-03-13 | Initial | Draft 1 DEV-REPORT authoring guideline for AC006. Encodes approved GIR decisions for trigger boundary, frontmatter baseline, required sections, validation evidence posture, traceability/handoff rules, naming/placement, and session-notes boundary. |

@@ -8,8 +8,9 @@ activity_id: '[UID]'
 task_id: '[<TASK-UID> | <TASK-UID>..<GATE-ID>]'
 source_plan: '[repo-relative path to governing plan]'
 implementation_reference: '[repo-relative path to governing IMPLEMENTATION artifact, if applicable]'
-version: '1.0.0'
-date: 'YYYY-MM-DD'
+package_role: '[primary | supplementary; omit only when the package model does not apply]'
+version: '1.1.0'
+date: '2026-03-25'
 status: 'draft'
 author: 'LLM_Developer'
 decision_owner_role: 'Client'
@@ -17,8 +18,9 @@ target_gate: '[gate UID if this slice hands off to a gate; omit otherwise]'
 scope: '[bounded execution slice summary]'
 consumers:
   - '[next artifact, review package, or owner; omit if not needed]'
+primary_report: '[repo-relative path to the primary DEV-REPORT when this file is supplementary; omit otherwise]'
 consolidated_from:
-  - '[source artifact path if this is consolidated or retroactive; omit otherwise]'
+  - '[source artifact path(s) if this is a consolidated primary DEV-REPORT or retroactive bounded slice; omit otherwise]'
 ---
 
 # DEV-REPORT: [Scope Title] (YYYY-MM-DD)

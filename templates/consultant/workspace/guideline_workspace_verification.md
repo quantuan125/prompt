@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'verification_authoring'
-version: '1.10.0'
-date: '2026-03-22'
+version: '1.11.0'
+date: '2026-03-25'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -64,11 +64,13 @@ Verification follows a "TK-before-gate" pattern:
 - When to decompose: When a gate review covers multiple independent verification dimensions (e.g., technical correctness + convention compliance + commissioning readiness).
 - **Revision checklist use case**: Existing `revision-checklist` supplementary files remain valid historical artifacts, and reviewers MAY still use a supplementary verification file with aspect `revision-checklist` for bounded checklist-style elaboration when no separate remediation specification is required. For new complex `RECYCLE` cases that require a developer-executable remediation plan, reviewers SHOULD route the detailed handoff through an `IMPLEMENTATION remediation_specification` instead.
 
+Verification package decomposition is reviewer-side scope decomposition. DEV-REPORT package decomposition, as defined by the DEV-REPORT package taxonomy in `guideline_workspace_dev-report.md`, is producer-side evidence packaging. The two decompositions are independent and MUST NOT be conflated.
+
 
 ### B. Re-assessment (Temporal Iteration)
 
 - When rework is completed after a RECYCLE verdict, the existing verification artifact(s) are **version-bumped**, NOT replaced by new files.
-- Re-assessment evidence is added in a new section or updates to existing sections, with the changelog recording the re-assessment.
+- Re-assessment evidence is added in a new section or updates to existing sections, with `prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_verification.md` recording the re-assessment.
 - This is distinct from Verification Packages: packages are scope decomposition (parallel aspects); re-assessment is temporal iteration (sequential rework cycles).
 
 **Rule**: Do NOT create supplementary files for re-assessment. Use version bumps. Do NOT use version bumps for scope decomposition. Use supplementary files.
@@ -86,14 +88,30 @@ Verification follows a "TK-before-gate" pattern:
 
 - Every verification artifact MUST include an Evidence Set section (§II of template) listing all artifacts reviewed.
 - Group by task/deliverable with repo-relative paths.
+- For multi-report packages, enumerate in this order: primary DEV-REPORT, supplementary DEV-REPORTs, other task deliverables, governance references.
 - Include governance references (plan, proposal, standards) used as the verification baseline.
 
-### C. Per-Task Verification Tables
+### C. Multi-Report DEV-REPORT Intake
+
+1. Read the primary DEV-REPORT first.
+2. Confirm whether the primary report is a consolidated package by checking `consolidated_from`.
+3. Enumerate every supplementary DEV-REPORT referenced by the package.
+4. Read each supplementary DEV-REPORT in the execution order implied by the package or implementation history.
+5. Compare the primary DEV-REPORT Executive Summary, Traceability Matrix, and Handoff sections against the supplementary evidence set.
+6. Record any mismatch, omission, or broken package linkage as a finding or observation.
+
+- The Evidence Set section MUST list the primary DEV-REPORT before any supplementary DEV-REPORTs.
+- When a primary DEV-REPORT declares `consolidated_from`, the reviewer MUST verify that every referenced supplementary DEV-REPORT exists and is represented accurately in the primary report.
+- The reviewer MUST NOT treat a consolidated DEV-REPORT as sufficient evidence if package completeness has not been checked.
+- `Observed Evidence` entries MAY cite either the primary DEV-REPORT or a supplementary DEV-REPORT, but each citation MUST identify the specific artifact path and evidence location.
+
+### D. Per-Task Verification Tables
 
 - Verification checklist MUST be organized by task or criterion group.
 - Each group uses the table schema: `# | Check | Expected | Observed Evidence | Result`
 - `Result` values: `PASS`, `FAIL`, `N/A`
 - `Observed Evidence` MUST include specific evidence (line numbers, grep results, file paths), not general assertions.
+- A single checklist group MAY cite both a primary and one or more supplementary DEV-REPORTs when verifying consolidated package accuracy.
 
 ## VI. FINDINGS SCHEMA
 
@@ -208,7 +226,7 @@ The plan is the developer's work authority. The verification artifact identifies
 ## IX. RE-ASSESSMENT VERSIONING
 
 - After a RECYCLE verdict and completed rework, the verification artifact is **version-bumped** (e.g., v1.0.0 → v2.0.0 for major re-assessment).
-- The changelog records: re-assessment date, findings addressed, new verdict.
+- The dedicated changelog file records: re-assessment date, findings addressed, new verdict.
 - New or updated findings sections are added/modified. Resolved findings have their Resolution Status updated to `resolved` with a Resolution Date.
 - If the verification TASK methodology needs rework (not just the assessed deliverable), a sub-task (TK###.n) is created for the verification task, following `guideline_workspace_plan.md §VII` (Sub-Activity Rules).
 - Re-assessment versioning applies to all artifacts in a Verification Package (primary + supplementary). Version bumps SHOULD be coordinated.
@@ -257,16 +275,4 @@ The verification artifact's role at a gate is to provide evidence and a reviewer
 
 ## XIII. CHANGELOG
 
-| Version | Date | Type | Summary |
-|:--|:--|:--|:--|
-| v1.10.0 | 2026-03-22 | Amendment | Updated complex `RECYCLE` guidance so new complex remediation planning routes primarily through `IMPLEMENTATION remediation_specification` while grandfathering existing `revision-checklist` files and preserving limited checklist-style supplementary use. Source: T104-PH001-ST008-AC001.6-GATE-001 GIR-001. |
-| v1.9.0 | 2026-03-20 | Amendment | §VII: Added scope note clarifying that Situations A and B cover internal rework paths only; external baseline changes are not verification findings and must be escalated to the plan level for impact classification per `guideline_workspace_plan.md` §VI.M. No Situation C added — consistent with GATE-001-approved recommendation (GIR-007) that external impacts are handled at the plan/proposal governance layer, not the verification layer. Source: T104-PH001-ST008-AC001.4 GATE-001 (2026-03-20). |
-| v1.8.0 | 2026-03-20 | Amendment | §VIII.B: Updated Client Decision definitions to remove reviewer-verdict coupling (e.g., "Accept PASS verdict" → "Accept gate outcomes"). Override rule now references consultant recommendation instead of reviewer verdict. §X: Expanded GDR cross-reference to document the three-signal model (reviewer verdict in verification, consultant recommendation in GDR, client decision in GDR). Clarified that the reviewer verdict is NOT duplicated into the GDR. Source: T104-PH001-ST008-AC001.5. |
-| v1.7.0 | 2026-03-16 | Amendment | Clarified that VERIFICATION applies only to implementation-backed gates after developer work and DEV-REPORT handoff. Consultation-only gates now explicitly use `ANALYSIS` + `PROPOSAL` instead of `VERIFICATION`. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
-| v1.6.0 | 2026-03-15 | Amendment | §III: Added Gate-Readiness Stack cross-reference to `guideline_workspace_plan.md` §VI.L for plan-level positioning of verification tasks in the pre-gate sequence. Source: T104-PH001-ST008-AC001.2. |
-| v1.5.0 | 2026-03-15 | Amendment | Added revision-checklist guidance to §IV.A and §VII.A. For complex Situation A deficiencies, reviewers SHOULD produce a supplementary verification file (aspect: revision-checklist) containing explicit revision items with finding references, expected formats, and acceptance criteria. |
-| v1.4.0 | 2026-03-12 | Amendment | Clarified RECYCLE handling across §VII, §VIII, and §IX. Situation B plan amendments now attach remediation to the same gate's reassessment loop, RECYCLE recommendations must name the same gate/remediation/downstream block set, and re-assessment versioning explicitly preserves the original gate ID. |
-| v1.2.0 | 2026-03-05 | Maintenance | Resolved legacy GDR ownership references in §II, §III, and §IV. Workflow and role boundaries now correctly identify the proposal artifact as the GDR host. |
-| v1.1.0 | 2026-03-04 | Amendment | §X (GDR) replaced with cross-reference to `guideline_workspace_proposal.md` §VII. Full GDR specification (field set, lifecycle, enforcement) migrated to proposal guideline per T104-PH001-ST008-AC001 Option B approval. Verification artifact retains Gate Recommendation (§VII template section) for reviewer verdict; GDR now hosted exclusively in gate_disposition proposals. |
-| v1.0.0 | 2026-02-25 | Initial | Draft 1 (exemplar-derived). Covers: role boundary, TK-before-gate workflow, verification package, evidence rules, findings schema, gate outcome rework paths (migrated from guideline_workspace_plan.md §VI.G), verdict taxonomy, re-assessment versioning, GDR, naming convention. Source: T104-PH001-ST005-AC005-SES001 consultation. |
-```
+`prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_verification.md`

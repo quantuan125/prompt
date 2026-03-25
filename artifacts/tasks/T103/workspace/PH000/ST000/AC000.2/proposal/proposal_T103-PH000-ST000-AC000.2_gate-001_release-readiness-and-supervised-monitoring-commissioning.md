@@ -7,8 +7,8 @@ stream_id: 'T103-PH000-ST000'
 activity_id: 'T103-PH000-ST000-AC000.2'
 task_id: 'T103-PH000-ST000-AC000.2-TK003'
 gate_id: 'T103-PH000-ST000-AC000.2-GATE-001'
-version: '1.0.0'
-date: '2026-03-24'
+version: '1.1.0'
+date: '2026-03-25'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -57,8 +57,8 @@ consumers:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--:|:--|
-| GIR-001 | Need for a separate release-readiness lane | Whether the client wants a separate governed planning lane for supervised release-readiness and monitoring | (a) Approve the AC000.2 planning-only successor lane | `T103-PH000-ST000-AC000.2-GATE-001` | No | `pending` |
-| GIR-002 | Boundary control | Whether the successor lane should stay planning-only until later consultation authorizes execution work | (a) Preserve the planning-only boundary and defer runtime execution | `T103-PH000-ST000-AC000.2-GATE-001` | No | `pending` |
+| GIR-001 | Need for a separate release-readiness lane | Whether the client wants a separate governed planning lane for supervised release-readiness and monitoring | (a) Approve the AC000.2 planning-only successor lane | `T103-PH000-ST000-AC000.2-GATE-001` | No | `APPROVE` |
+| GIR-002 | Boundary control | Whether the successor lane should stay planning-only until later consultation authorizes execution work | (a) Preserve the planning-only boundary and defer runtime execution | `T103-PH000-ST000-AC000.2-GATE-001` | No | `APPROVE` |
 
 ---
 
@@ -87,7 +87,7 @@ Rationale:
 - A separate lane keeps the governance chain auditable and prevents the client from confusing runtime-remediation acceptance with broader supervised release-readiness planning.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
 
 ---
 
@@ -112,7 +112,7 @@ Rationale:
 - The planning-only boundary matches the current evidence and avoids overclaiming readiness before the future execution surface is specified.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] Override: _______`
 
 ---
 
@@ -148,14 +148,14 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `T103-PH000-ST000-AC000.2-GATE-001` |
 | Consultant Recommendation | `APPROVE` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
-| Conditions (if any) | `-` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
+| Conditions (if any) | AC000.2 plan must be amended post-gate to register downstream planning tasks (TK004-GATE-002) before execution begins. |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-25` |
+| Decision Reference | Current consultation session (2026-03-25) |
 
-The `Consultant Recommendation` is populated now as the advisory signal for client review. The Gate-001 package is complete and awaits client commissioning of the planning-only successor lane.
+Client decision `APPROVE` recorded on 2026-03-25. Gate-001 is complete. The AC000.2 plan must now be amended with downstream tasks (TK004-GATE-002) per the gate condition before execution begins.
 
 ---
 
@@ -179,3 +179,4 @@ The `Consultant Recommendation` is populated now as the advisory signal for clie
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-03-24 | Initial | Created the AC000.2 Gate-001 commissioning proposal with consultant recommendation `APPROVE` and a pending GDR, preserving the planning-only boundary for future release-readiness work. |
+| v1.1.0 | 2026-03-25 | Decision | Recorded client decision `APPROVE` in the GDR with condition that downstream tasks are registered in the AC000.2 plan amendment. GIR-001 and GIR-002 both approved as recommended. |

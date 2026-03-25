@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'dev-report_authoring'
-version: '1.3.0'
-date: '2026-03-22'
+version: '1.4.0'
+date: '2026-03-25'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -64,7 +64,34 @@ Consolidated or retroactive DEV-REPORT artifacts are allowed only when:
 - the report declares the exact bounded slice being packaged, and
 - the report references the source artifacts or prior execution evidence it is closing out.
 
-### D. Relationship to plan and gates
+### D. DEV-REPORT Package Taxonomy (Scope Decomposition)
+
+| Posture | When To Use | Required Frontmatter Posture | Review / Gate Entry Point |
+|:--|:--|:--|:--|
+| Single-report posture | One DEV-REPORT covers the full bounded execution slice. | `package_role` omitted or `primary`; no `primary_report`; `consolidated_from` omitted unless the report is explicitly consolidated. | Directly to review or gate packaging. |
+| Primary DEV-REPORT | A multi-report package needs one gate-facing producer-evidence surface. | `package_role: 'primary'`; `consolidated_from` MAY list supplementary reports; `primary_report` omitted. | Primary review surface, then gate packaging. |
+| Supplementary DEV-REPORT | A bounded subordinate slice needs its own producer-evidence record under one package. | `package_role: 'supplementary'`; `primary_report` MUST point to the governing primary DEV-REPORT; `consolidated_from` omitted. | Drill-down evidence under the primary report. |
+| Consolidated DEV-REPORT | One primary DEV-REPORT aggregates and links multiple supplementary reports. | `package_role: 'primary'`; `consolidated_from` MUST list every supplementary DEV-REPORT in the package; `primary_report` omitted. | Consolidated gate-facing review surface. |
+
+Rules:
+- A multi-report DEV-REPORT package MUST contain exactly one primary DEV-REPORT.
+- Each supplementary DEV-REPORT MUST set `package_role: 'supplementary'`.
+- Each supplementary DEV-REPORT MUST set `primary_report` to the repo-relative path of its governing primary DEV-REPORT.
+- A primary DEV-REPORT in a multi-report package MUST set `package_role: 'primary'`.
+- A consolidated DEV-REPORT is a primary DEV-REPORT and MUST populate `consolidated_from` with every supplementary DEV-REPORT included in the package.
+- A single-report posture MUST NOT populate `primary_report`; it MAY omit `consolidated_from`; if `package_role` is present it MUST be `primary`.
+
+### E. Scope Decomposition vs Temporal Iteration
+
+| Question | If Yes | If No |
+|:--|:--|:--|
+| Does the execution slice contain multiple bounded evidence segments that belong to one gate-facing package? | Create supplementary DEV-REPORTs beneath one primary report. | Keep a single DEV-REPORT posture. |
+| Is the report scope the same but the evidence needs correction after execution? | Version-bump the existing report. | Create a supplementary DEV-REPORT only if this is a new bounded slice. |
+
+- Scope decomposition creates supplementary DEV-REPORTs beneath one primary report.
+- Temporal correction of the same report scope version-bumps the existing report rather than creating a new supplementary report.
+
+### F. Relationship to plan and gates
 
 - The plan remains the execution authority.
 - The DEV-REPORT records what was implemented under that authority.
@@ -98,16 +125,21 @@ When applicable, include:
 - `task_id`
 - `scope`
 - `implementation_reference`
+- `package_role`
 
 ### C. Bounded optional keys
 
 Use these only when they add real traceability value:
 - `target_gate`
 - `consumers`
-- `consolidated_from`
+- `primary_report`
+- `consolidated_from` for primary DEV-REPORTs that consolidate supplementary reports or close out a retroactive bounded slice
 
 Policy:
 - `task_id` MAY hold a bounded range string when the report covers a grouped task or task-to-gate slice.
+- `package_role` allowed values are exactly `primary` and `supplementary`.
+- `primary_report` is permitted only on supplementary DEV-REPORTs.
+- `consolidated_from` is permitted only on primary DEV-REPORTs.
 - Optional keys MUST NOT replace the required narrative sections that explain scope and evidence.
 
 ---
@@ -246,6 +278,12 @@ DEV-REPORT uses a date suffix by design. The dated filename does not replace the
 - `snotes_` and `raw_` artifacts capture conversation chronology and transcript material.
 - If a decision matters to execution, summarize only the execution-relevant result and point to the session artifact when detailed chronology matters.
 
+### E. Multi-report package linkage
+
+- Supplementary DEV-REPORTs MUST link upward to the primary DEV-REPORT through `primary_report`.
+- Primary consolidated DEV-REPORTs MUST link downward to every supplementary DEV-REPORT through `consolidated_from`.
+- Verification and proposal surfaces SHOULD cite the primary DEV-REPORT first and use supplementary DEV-REPORTs as drill-down evidence. This SHOULD is intentional as a general DEV-REPORT guidance posture; the VERIFICATION guideline independently mandates the ordering for reviewer-owned Evidence Set sections via SPEC-002.
+
 ---
 
 ## IX. TEMPLATE INVENTORY
@@ -258,9 +296,4 @@ DEV-REPORT uses a date suffix by design. The dated filename does not replace the
 
 ## X. CHANGELOG
 
-| Version | Date | Type | Summary |
-|:--|:--|:--|:--|
-| v1.3.0 | 2026-03-22 | Amendment | Added `implementation_reference` as a recommended frontmatter key for IMPLEMENTATION-governed execution slices and clarified that the Traceability Matrix SHOULD map deliverables back to SPEC item IDs where practical. Source: T104-PH001-ST008-AC001.6-GATE-001 GIR-002 and GIR-010. |
-| v1.2.0 | 2026-03-16 | Amendment | Clarified that DEV-REPORT is required only for implementation-backed gates reviewing developer-mutated deliverables. Consultation-only gates now explicitly omit DEV-REPORT. Source: P-PH000-ST002-AC002 Gate 001 consultation. |
-| v1.1.0 | 2026-03-15 | Amendment | §III.D: Added Gate-Readiness Stack cross-reference to `guideline_workspace_plan.md` §VI.L for plan-level positioning of DEV-REPORT tasks in the pre-gate sequence. Source: T104-PH001-ST008-AC001.2. |
-| v1.0.0 | 2026-03-13 | Initial | Draft 1 DEV-REPORT authoring guideline for AC006. Encodes approved GIR decisions for trigger boundary, frontmatter baseline, required sections, validation evidence posture, traceability/handoff rules, naming/placement, and session-notes boundary. |
+`prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_dev-report.md`
