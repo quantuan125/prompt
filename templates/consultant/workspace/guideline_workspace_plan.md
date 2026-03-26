@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.18.0'
-date: '2026-03-21'
+version: '1.19.0'
+date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -320,6 +320,7 @@ When all tasks before a gate are consultant-owned and no developer-mutated deliv
 
 Rule:
 - Consultation-only gates MUST NOT introduce `DEV-REPORT` or `VERIFICATION` tasks unless the gate scope is expanded to review developer-mutated deliverables.
+- If a consultation-only gate discovers premature downstream execution or a prematurely materialized concrete artifact, the governing gate remains open, the premature artifact is preserved but removed from active gate authority, and corrective consultant-owned tasks are inserted before the gate row to reclassify or quarantine the artifact.
 
 #### Task Register Placement
 

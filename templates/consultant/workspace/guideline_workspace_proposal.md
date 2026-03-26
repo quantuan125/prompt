@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'proposal_authoring'
-version: '1.8.0'
-date: '2026-03-20'
+version: '1.9.0'
+date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -133,6 +133,8 @@ Required columns: `| Evidence Type | Artifact | Path | Notes |`
 
 This table retains its current purpose: linking evidence artifacts (verification, analysis, plans, standards) for audit traceability. It MAY include artifacts not listed in the Gate Package Index (e.g., governing standards, prior gate records, session notes).
 
+Active primary evidence for a consultation-only gate MUST NOT include premature downstream execution outputs or prematurely materialized concrete artifacts. If such artifacts exist, they are preserved as historical/lineage evidence or replaced by a proposal-level authority surface such as `standards_input`.
+
 ### C. `promotion_contract`
 
 Required ordered sections:
@@ -155,6 +157,8 @@ Required ordered sections:
 5. Impact and Risks
 6. References
 7. Changelog
+
+Use `standards_input` when the client is being asked to approve a convention, operating rule, or content model that would otherwise be prematurely materialized as a concrete implementation artifact. In that scenario, the `standards_input` proposal is the active pre-implementation authority surface; any existing concrete artifact is lineage-only until downstream execution is explicitly approved.
 
 ---
 

@@ -7,8 +7,8 @@ stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC009'
 task_id: 'P-PH000-ST001-AC009-TK005.5'
 gate_id: 'P-PH000-ST001-AC009-GATE-001'
-version: '1.2.0'
-date: '2026-03-20'
+version: '1.4.0'
+date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -93,33 +93,34 @@ Rationale:
 Client Decision:
 - `[ ] (a) APPROVE` / `[ ] (b) APPROVE WITH CONDITIONS: _______` / `[ ] (c) RECYCLE: _______`
 
-## V. Gate Recommendation
+## V. Consultant Gate Recommendation
 
 Recommendation state:
 - `APPROVE`
 
-Reviewer verdict consumed from primary verification:
-- `PASS`
+Alignment statement:
+- The consultant recommendation of `APPROVE` aligns with the reviewer verdict of `PASS` from the primary verification artifact (`verification_P-PH000-ST001-AC009_gate-001.md` v1.1.0). The independent reassessment external review (`analysis_P-PH000-ST001-AC009_external-review_gate-001-reassessment-package.md` v1.0.0) independently endorses substantive approval while identifying five administrative compliance gaps to be corrected as conditions.
 
 Conditions and/or deferrals:
 - the current package consumes the approved IMPLEMENTATION family as the live remediation-detail model,
-- the historical external review remains part of the evidence chain, but its previously identified gaps are remediated in the current package.
+- the historical external review remains part of the evidence chain, but its previously identified gaps are remediated in the current package,
+- five administrative compliance gaps identified by the reassessment external review (GAP-001 through GAP-005) are to be corrected as a housekeeping pass per TK008.
 
 Downstream enforcement:
-- `TK006` MUST NOT start until this GDR records `APPROVE` or `APPROVE WITH CONDITIONS`.
+- `TK006` MUST NOT start until `P-PH000-ST001-AC009-GATE-002` records `APPROVE` or `APPROVE WITH CONDITIONS`.
 
 ## VI. Gate Decision Record (GDR)
 
 | Field | Value |
 |:--|:--|
 | Gate ID | `P-PH000-ST001-AC009-GATE-001` |
-| Reviewer Verdict | `PASS` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
-| Conditions (if any) | — |
+| Consultant Recommendation | `APPROVE` |
+| Client Decision | `APPROVE WITH CONDITIONS` |
+| Gate Status After Decision | `completed` |
+| Conditions (if any) | (1) Complete TK008: correct five administrative compliance GAPs (GDR field naming, plan register status, gate construct field, section title, stream plan status). (2) Complete P-STD-001 evolution cycle (`TK009` through `TK013` + `GATE-002`) before AC010 handoff. |
 | Decided By | Client |
-| Decision Date | — |
-| Decision Reference | pending |
+| Decision Date | 2026-03-26 |
+| Decision Reference | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/analysis/analysis_P-PH000-ST001-AC009_external-review_gate-001-reassessment-package.md` v1.0.0 + SES003 independent consultant assessment |
 
 ## VII. References
 
@@ -138,6 +139,8 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.4.0 | 2026-03-26 | Correction | Corrected the live Gate-001 GDR condition chain to remove the stale `TK014` reference and align the approved downstream path to `TK009` through `TK013` plus `GATE-002`. No change to the approved Gate-001 decision itself. |
+| v1.3.0 | 2026-03-26 | Gate decision | Recorded client APPROVE WITH CONDITIONS decision. Renamed §V to `Consultant Gate Recommendation` with explicit alignment statement per guideline v1.8.0 §V.B/§VII.B. Updated GDR: `Reviewer Verdict` field renamed to `Consultant Recommendation: APPROVE` per §VII.C three-signal model. Recorded conditions, decision date, and decision reference. Updated downstream enforcement to reference GATE-002. |
 | v1.2.0 | 2026-03-20 | Reassessment | Refreshed the Gate-001 package after the recycle remediation pass. Replaced the temporary revision-checklist with the governed remediation-specification IMPLEMENTATION artifact, added recycle dev-report evidence, removed the obsolete temporary-handling GIR, and updated the recommendation to `APPROVE` based on the remediated package and refreshed reviewer PASS verdict. |
 | v1.1.0 | 2026-03-17 | Amendment | Added consultant external review and temporary revision-checklist to the Gate-001 package. |
 | v1.0.0 | 2026-03-17 | Initial | Authored Gate-001 disposition package for the original metadata-hardening acceptance gate. |

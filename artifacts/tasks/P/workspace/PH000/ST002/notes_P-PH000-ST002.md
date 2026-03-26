@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream: 'ST002'
-version: '1.9.0'
-date: '2026-03-24'
+version: '1.12.0'
+date: '2026-03-26'
 status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -49,6 +49,9 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC004 | `P-PH000-ST002-AC004-SES002` | AC004 Gate-001 Readiness Packaging & AC005 Stub Registration | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES002.md` |
 | AC004 | `P-PH000-ST002-AC004-SES003` | Plan Amendment: Formal GATE-001 Recycle & Package Amendment Commissioning | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES003.md` |
 | AC004 | `P-PH000-ST002-AC004-SES004` | GATE-001 Approval, Finding Resolutions & Summary Surface Alignment | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES004.md` |
+| AC004 | `P-PH000-ST002-AC004-SES005` | AC004 Gate Supersession, Successor GATE-002 Commissioning & AC001.10 Trigger Capture | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES005.md` |
+| AC004 | `P-PH000-ST002-AC004-SES006` | AC004 GATE-002 Integrity Remediation, Session-Close Reclassification & AC001.10 Scope Expansion | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES006.md` |
+| AC004 | `P-PH000-ST002-AC004-SES007` | AC004 GATE-002 QA Remediation Completion, Exact-Detail TK004 Specification & Proposal Re-Presentation | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES007.md` |
 
 ---
 
@@ -64,6 +67,9 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.12.0 | 2026-03-26 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES007` for consultant-owned completion of the GATE-002 QA-remediation pass, including the exact-detail TK004 implementation-spec rewrite, authoritative-review repackaging, and proposal re-presentation. |
+| v1.11.0 | 2026-03-26 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES006` for corrected GATE-002 package remediation, session-close standards-input reclassification, and AC001.10 scope expansion. |
+| v1.10.0 | 2026-03-25 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES005` for post-approval gate supersession, successor GATE-002 commissioning, and AC001.10 governance-trigger capture. |
 | v1.9.0 | 2026-03-24 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES004` for the formal `GATE-001` straight `APPROVE` decision, resolution of assessment findings, and alignment of all summary surfaces. |
 | v1.8.0 | 2026-03-24 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES003` for the formal `GATE-001 RECYCLE` decision, same-gate package amendment commissioning, SES003 decision trail, and later re-presentation under the unchanged gate ID. |
 | v1.7.0 | 2026-03-23 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES002` for the `GATE-001` readiness-package rework, pre-gate implementation-spec packaging, V1 rollout boundary lock for `P/T102/T104`, and AC005 stub registration. |

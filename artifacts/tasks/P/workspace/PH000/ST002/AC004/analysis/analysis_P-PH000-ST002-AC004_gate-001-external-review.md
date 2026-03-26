@@ -7,14 +7,17 @@ phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC004'
 gate_id: 'P-PH000-ST002-AC004-GATE-001'
-version: '2.0.0'
-date: '2026-03-24'
-status: 'draft'
+version: '2.1.0'
+date: '2026-03-25'
+status: 'superseded'
+superseded_by: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004-GATE-002_external-review.md'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md'
 purpose: 'Independent external review of the recycled AC004 GATE-001 package. Supersedes v1.1.0 which was deemed insufficient as an independent assessment. Evaluates all six GIR recommended resolutions, assesses downstream task sufficiency and plan-guideline compliance for post-gate work, and identifies remaining gaps for client decision.'
 ---
+
+> **SUPERSEDED**: This external review assessed the 2026-03-24 AC004 `GATE-001` package that still carried the wrap-up-based reminder/tooling direction. It has been superseded by `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004-GATE-002_external-review.md`, which assesses the successor GATE-002 package after the post-approval decision-boundary change. This artifact is preserved for historical traceability only.
 
 # ANALYSIS: GATE-001 External Review -- Independent Assessment of the Recycled AC004 Operating Model and First-Slice Execution Package (P-PH000-ST002-AC004)
 
@@ -311,6 +314,7 @@ These tasks follow standard gate-readiness stack positions and reference their r
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.1.0 | 2026-03-25 | Amendment | Marked as superseded after AC004 post-approval gate supersession. Added successor external-review backlink and required deprecation notice; body preserved. |
 | v2.0.0 | 2026-03-24 | Major Rewrite | Superseding independent external review produced in a separate session context. Provides fresh GIR-by-GIR evaluation (all six resolutions independently assessed as sound), operating-model completeness verification (all seven decision areas covered), implementation specification mapping (SPEC-001 through SPEC-004 cover all decisions), downstream gate-readiness stack compliance check, cross-surface consistency audit, and plan-guideline compliance assessment. Identifies two findings: GAP-001 (missing formal Recycle Re-entry Block, non-blocking) and GAP-002 (no explicit ledger-narrative drift verification criteria, deferred to TK004). Supersedes v1.1.0 which was deemed insufficient as an independent assessment. |
 | v1.1.0 | 2026-03-24 | Amendment | (Superseded) Reassessed the recycled AC004 `GATE-001` package after consultant amendment. Confirmed the recycle decision was justified, verified that the amended package now covers the missing operating-model decisions, and concluded that the corrected same-gate package is sufficient for re-presentation while the current GDR remains `RECYCLE` / `in_progress`. |
 | v1.0.0 | 2026-03-24 | Initial | (Superseded) Independent external review of the AC004 GATE-001 package. Assessed consultation-only gate-readiness stack compliance, evaluated all four GIR recommended resolutions, verified downstream implementation-backed GATE-002 task sequence, verified AC005 blocking posture, and checked cross-surface alignment. |

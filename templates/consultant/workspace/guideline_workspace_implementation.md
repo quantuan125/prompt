@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'implementation_authoring'
-version: '1.3.0'
-date: '2026-03-24'
+version: '1.4.0'
+date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Developer'
 decision_owner_role: 'Client'
@@ -19,7 +19,7 @@ Define authoring rules for IMPLEMENTATION workspace artifacts so they are:
 - scoped to a single logical implementation boundary (task-ID or gate-remediation-cycle),
 - compatible with program naming/placement authority (`P-STD-004`) and ID/reference authority (`P-STD-005`).
 
-The IMPLEMENTATION family provides detailed implementation specification between plan task authority and developer execution evidence. Two subtypes exist, each with a dedicated trigger:
+The IMPLEMENTATION family provides detailed implementation specification between plan task authority and execution evidence. Two subtypes exist, each with a dedicated trigger:
 - `remediation_specification` — triggered by a gate `RECYCLE` verdict.
 - `task_specification` — triggered when task complexity exceeds plan-step capacity.
 
@@ -29,13 +29,15 @@ The IMPLEMENTATION family provides detailed implementation specification between
 
 ## II. ROLE BOUNDARY (LOCKED)
 
-- **LLM_Consultant** is the author for `remediation_specification` subtype.
-- **LLM_Consultant** or **LLM_Planner** is the author for `task_specification` subtype.
-- **LLM_Developer** is the primary consumer (execution).
+- **LLM_Consultant** is the primary author and commissioner for both subtypes.
+- **LLM_Planner** may assist with `task_specification` decomposition only when explicitly delegated by the consultant.
+- **LLM_Developer** or designated consultant-commissioned agentic execution roles are the primary consumers (execution).
 - **LLM_Reviewer** is a secondary consumer for `remediation_specification` (re-assessment input).
 - **Client** is the decision owner for gates and approvals downstream.
 
 **Boundary rule**: IMPLEMENTATION artifacts MUST NOT hold a GDR section. Gate decisions remain exclusively in `gate_disposition` proposals per `guideline_workspace_proposal.md` §VII. (CONV-006)
+
+**Execution-boundary rule**: Consultant authorship of an IMPLEMENTATION artifact does not make the consultant the execution owner. Execution evidence still belongs to the developer or agentic execution role that performed the work.
 
 Note: Role definitions are informative pending T101 (Role Standardization).
 
@@ -57,7 +59,7 @@ Draft 1 defines exactly two subtypes:
 - **Trigger**: Task complexity exceeds plan-step capacity.
 - **Purpose**: Detailed implementation specification for complex tasks where plan steps alone do not provide sufficient implementation detail.
 - **Template**: `template_workspace_implementation_task-specification.md`
-- **Author**: `LLM_Consultant` or `LLM_Planner`
+- **Author**: `LLM_Consultant` (primary); `LLM_Planner` only when explicitly delegated by the consultant
 
 Each subtype has a dedicated template (CONV-003). Additional subtypes require a future amendment; Draft 1 is capped at these two.
 
@@ -75,8 +77,9 @@ The following conventions govern all IMPLEMENTATION artifacts:
 | CONV-009 | For `remediation_specification`, the artifact SHALL exist as a formal task above the gate in the task register (Directive B) |
 | CONV-010 | One artifact per logical implementation scope. Logical implementation scope is scoped to a task-ID, a gate-remediation-cycle, or a multi-task implementation phase sharing a common design-decision boundary (e.g., tasks seeded by the same gate's GIR resolutions). |
 | CONV-011 | Plan task steps SHALL be high-level summary only when an IMPLEMENTATION artifact exists; the plan step SHALL reference the artifact path |
-| CONV-012 | SPEC items in both IMPLEMENTATION templates SHOULD use the hybrid structure: concise metadata table plus prose `Implementation Detail` block |
-| CONV-013 | `task_specification` MAY declare `execution_audience` to distinguish developer execution from consultant-orchestrated execution without creating a new subtype |
+| CONV-012 | Execution-facing SPEC items in both IMPLEMENTATION templates MUST use the hybrid structure: concise metadata table plus prose `Implementation Detail` block, and the metadata table MUST name exact target files/surfaces, required end-state posture, explicit non-target constraints, validation checks, and a blocking ambiguity rule |
+| CONV-013 | `task_specification` MAY declare `execution_audience` to distinguish developer execution from consultant-orchestrated agentic execution without creating a new subtype |
+| CONV-014 | When a gate is still deciding a convention that would otherwise require a concrete implementation artifact, authors SHOULD route the convention through a `standards_input` proposal first and MUST NOT treat the premature concrete artifact as active gate authority |
 
 ---
 
@@ -117,7 +120,7 @@ None beyond the universal set.
 
 | Field | Value / Description |
 |:--|:--|
-| `execution_audience` | Optional. `'developer'` by default; `'consultant'` when the task specification governs consultant-orchestrated execution rather than developer-owned implementation |
+| `execution_audience` | Optional. `'developer'` by default; `'agentic_executor'` when execution is delegated to designated agentic roles on the consultant's behalf; `'consultant'` only when no downstream execution role exists and the artifact governs consultant-owned non-implementation work |
 
 ---
 
@@ -133,7 +136,7 @@ None beyond the universal set.
 ### B. `task_specification`
 
 1. **Created** during task planning or after a plan amendment introducing complex work.
-2. **Consumed** during developer execution by `LLM_Developer`.
+2. **Consumed** during developer or consultant-commissioned agentic execution.
 3. **Version-bumped** if specification scope changes.
 4. **Closed** when the governing task completes.
 
@@ -158,6 +161,10 @@ Developer execution evidence references the IMPLEMENTATION artifact as the speci
 ### D. Proposal
 
 IMPLEMENTATION does not hold decision authority. Gate decisions remain in `gate_disposition` proposals.
+
+### E. Standards-Input Boundary
+
+When a consultation-only gate is still deciding a convention or operational pattern, a `standards_input` proposal is the correct pre-implementation authority surface. A concrete implementation artifact may exist prematurely in the worktree for lineage reasons, but it MUST NOT be treated as the approved authority source until downstream execution is authorized.
 
 ---
 

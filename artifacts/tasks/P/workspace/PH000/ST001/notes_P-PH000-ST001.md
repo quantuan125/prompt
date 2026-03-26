@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream: 'ST001'
-version: '1.14.0'
-date: '2026-03-17'
+version: '1.15.0'
+date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -44,7 +44,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `planned` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES002.md`<br>SES003: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/snotes/snotes_P-PH000-ST001-AC006-SES003.md` |
 | AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` (Program Status Standard) | `in_progress` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES002.md`<br>SES003: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES003.md`<br>SES004: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES004.md`<br>SES005: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES005.md` |
 | AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `planned` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/snotes/snotes_P-PH000-ST001-AC007-SES001.md` |
-| AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `planned` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES002.md` |
+| AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `planned` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES002.md`<br>SES003: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES003.md`<br>SES004: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES004.md` |
 
 ---
 
@@ -61,6 +61,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.15.0 | 2026-03-26 | Update | Indexed AC009-SES004 (Session Notes Creation & Register Update); AC009 row now includes SES003 and SES004. |
 | v1.14.0 | 2026-03-17 | Update | Indexed AC009-SES002 (Gate-001 External Review, Temporary Revision-Checklist Handling & AC001.3 Dependency). |
 | v1.13.0 | 2026-03-15 | Update | Indexed AC009-SES001 (Plan Amendment: Implementation Readiness Packaging); AC009 row added to Activity Notes Register. |
 | v1.12.0 | 2026-03-08 | Update | Indexed AC003-SES005 (GATE-003 Independent Review, CLAUSE-038 Amendment Authorization & AC008 Registration); SES005 added to AC003 row. |

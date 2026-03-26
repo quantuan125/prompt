@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_standards'
 topic: 'standard_specs_authoring'
-version: '6.1.0'
-date: '2026-03-20'
+version: '6.2.0'
+date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -125,6 +125,15 @@ Authoring boundary:
 - `Amendment History` is concise and version-oriented; git remains the full diff authority.
 - `Input Sources` lists only the lineage inputs materially used to author or amend the standard.
 
+Externalized changelog option `P-STD-001-CLAUSE-036G`:
+- When inline `### Amendment History` exceeds five entries, the full version-indexed changelog SHOULD be externalized to `<SID>/standard/changelog/changelog_standard_<SID-STD>.md`.
+- The inline `### Amendment History` retains the three most recent versioned entries and a blockquote pointer line:
+  ```
+  > Full version history: `prompt/artifacts/tasks/<SID>/standard/changelog/changelog_standard_<SID-STD>.md`
+  ```
+- The externalized changelog file uses tabular format: `| Version | Date | Type | Summary |`
+- The externalized file MUST contain the complete version history including pre-baseline entries.
+
 ---
 
 ## IV. INDEXING RULES `P-STD-001-CLAUSE-012`
@@ -179,6 +188,7 @@ The template (`prompt/templates/consultant/standards/template_standard_specs.md`
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v6.2.0 | 2026-03-26 | Amendment | Added externalized changelog option to §III.E (Provenance taxonomy) per new `P-STD-001-CLAUSE-036G`. Includes threshold (five inline entries), retention (three most recent inline), pointer pattern, and externalized file format. |
 | v6.1.0 | 2026-03-20 | Amendment | Tightened Provenance authoring guidance so `Status` and `Lineage / Authority` prefer compact key/value rendering, and clarified that normative drafting follows the program-scope vocabulary contract in `P-STD-001-CLAUSE-008`. |
 | v6.0.0 | 2026-03-16 | Major | Added governed standard-file frontmatter guidance, normalized `References` into `Normative References` / `Informative References`, normalized `Provenance` into `Status` / `Lineage / Authority` / `Amendment History` / `Input Sources`, and aligned checklist language to `P-STD-001-CLAUSE-031` through `P-STD-001-CLAUSE-036`. |
 | v5.0.0 | 2026-02-22 | Major | Citation format migrated from the legacy per-wrapper form to `<CLAUSE-ID>` per amended `P-STD-001-CLAUSE-005D`. 4 mis-cited governing CLAUSEs corrected (III.A→018B, III.B→025, III.C→028, IV→012; II.B→024A). DR subheadings corrected to CLAUSE-025B (Alternatives, +Traceability). Deferred topics note added. Blast radius enumeration and impact analysis practice added to Section VI. (GATE-002 remediation pass 2) |

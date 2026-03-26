@@ -3,8 +3,8 @@ artifact_type: 'STANDARD'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
 standard_id: 'P-STD-001'
-version: '1.1.0'
-date: '2026-03-20'
+version: '1.2.0'
+date: '2026-03-26'
 status: 'accepted'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -489,6 +489,8 @@ supersedes: 'T102-STD-004'
 
    * **P-STD-001-CLAUSE-036F (Extension control)** — Additional provenance subsections MAY be added only when they do not duplicate the minimum taxonomy and when a governing standard or approved activity explicitly requires them.
 
+   * **P-STD-001-CLAUSE-036G (Externalized amendment changelog)** — When `### Amendment History` inline entries exceed five, the full version-indexed changelog SHOULD be externalized to a dedicated file at `<SID>/standard/changelog/changelog_standard_<SID-STD>.md`. The inline `### Amendment History` subsection MUST retain the three most recent versioned entries and MUST include a blockquote pointer line in the format `> Full version history: \`<repo-relative-path-to-changelog>\`` placed immediately after the `### Amendment History` heading and before the retained inline entries. The externalized changelog file MUST use tabular format with schema `| Version | Date | Type | Summary |` and MUST contain the complete version history including pre-baseline entries.
+
 ## Decision Record
 
 ### ADR Index
@@ -625,11 +627,11 @@ supersedes: 'T102-STD-004'
 
 ### Amendment History
 
+> Full version history: `prompt/artifacts/tasks/P/standard/changelog/changelog_standard_P-STD-001.md`
+
+- v1.2.0 (2026-03-26): Added `CLAUSE-036G` (Externalized Amendment Changelog) enabling standards to externalize full version history to a dedicated changelog file while retaining compact inline summaries. Self-aligned `P-STD-001` to the new pattern.
 - v1.1.0 (2026-03-20): Replaced lower-scope normative vocabulary authority with a program-scope drafting contract, refreshed `References` to a current-state authority set, and tightened the governed compact rendering for `Status` and `Lineage / Authority`.
 - v1.0.0 (2026-03-16): Added metadata-governance clauses `031` through `036`, standardized frontmatter / References / Provenance governance, self-aligned `P-STD-001`, and aligned prompt-owned derivatives and `P-CON-003`.
-- Pre-baseline history (2026-02-22): Amended `P-STD-001-CLAUSE-005D` to align derivative citation format with `P-STD-005-CLAUSE-004`; removed the legacy `[per <CLAUSE-ID>]` wrapper.
-- Pre-baseline history (2026-02-21): Amended `P-STD-001-CLAUSE-019A` to decouple display numbering from CLAUSE ID numbering for non-terminal substandard appends.
-- Pre-baseline history (2026-02-20): Promoted `T102-STD-004` to `P-STD-001` with full in-file authority transfer.
 
 ### Input Sources
 
@@ -640,3 +642,4 @@ supersedes: 'T102-STD-004'
 - `prompt/artifacts/tasks/P/research/P-RES-003/report_P-RES-003_specification-metadata-governance-research.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/analysis/analysis_P-PH000-ST001-AC009-TK001_p-std-001-amendment-map.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_gate-001-remediation-specification.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_p-std-001-evolution-task-specification.md`

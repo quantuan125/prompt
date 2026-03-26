@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC009'
-version: '1.5.0'
-date: '2026-03-20'
+version: '2.1.0'
+date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -59,14 +59,22 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | TK002 | `P-PH000-ST001-AC009-TK002` | Draft metadata-governance amendments in `P-STD-001` | `completed` | LLM_Consultant | TK001 | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | TK001 amendment map | Added metadata-governance clauses `031` through `036` and standardized the governing schema. |
 | TK003 | `P-PH000-ST001-AC009-TK003` | Self-align `P-STD-001` to its new governance model | `completed` | LLM_Consultant | TK002 | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | TK002 drafted CLAUSEs | Added frontmatter and normalized `References` / `Provenance` to the new model. |
 | TK004 | `P-PH000-ST001-AC009-TK004` | Cascade derivative updates required by conformance coupling | `completed` | LLM_Consultant | TK003 | Guideline + template + AGENTS + SPS touchpoints | `P-STD-001-CLAUSE-005B` | Prompt-owned derivatives and `P-CON-003` aligned in the same changeset; see grouped dev-report. |
-| TK005 | `P-PH000-ST001-AC009-TK005` | Produce verification and gate-readiness package | `in_progress` | LLM_Reviewer | TK004 | AC009 recycle / reassessment package | `guideline_workspace_verification.md` | Recycle loop active; see `TK005.1` through `TK005.5`. |
-| GATE-001 | `P-PH000-ST001-AC009-GATE-001` | Gate: Client acceptance of P-STD-001 metadata hardening package | `in_progress` | Client | TK005 | Pass/fail | `guideline_workspace_plan.md` §VI.K, `guideline_workspace_proposal.md` | Recycle path active. Prior proposal recommended `RECYCLE`; same gate ID remains open pending reassessment and approving GDR. |
-| TK005.1 | `P-PH000-ST001-AC009-TK005.1` | Author Gate-001 remediation specification | `planned` | LLM_Consultant | GATE-001 | IMPLEMENTATION remediation spec | `guideline_workspace_implementation.md` | Create `implementation/implementation_P-PH000-ST001-AC009_gate-001-remediation-specification.md` and retire the temporary revision-checklist from live package use. |
-| TK005.2 | `P-PH000-ST001-AC009-TK005.2` | Execute AC009 Gate-001 remediation changes | `planned` | LLM_Developer | TK005.1 | Remediated `P-STD-001` + derivative + package surfaces | TK005.1 remediation specification | Fix authority/reference/provenance/package gaps identified in the recycle loop. |
-| TK005.3 | `P-PH000-ST001-AC009-TK005.3` | Produce recycle dev-report for the remediation pass | `planned` | LLM_Developer | TK005.2 | Recycle-pass dev-report | `guideline_workspace_dev-report.md` | Record remediation execution evidence for reviewer reassessment. |
-| TK005.4 | `P-PH000-ST001-AC009-TK005.4` | Re-run Gate-001 verification after remediation | `planned` | LLM_Reviewer | TK005.3 | Refreshed Gate-001 verification artifact | `guideline_workspace_verification.md` | Reassess the same gate ID against the remediated package and implementation artifact. |
-| TK005.5 | `P-PH000-ST001-AC009-TK005.5` | Refresh Gate-001 disposition proposal for re-presentation | `planned` | LLM_Consultant | TK005.4 | Updated Gate-001 proposal package | `guideline_workspace_proposal.md` | Replace temporary-handling language with IMPLEMENTATION-backed gate package language. |
-| TK006 | `P-PH000-ST001-AC009-TK006` | Prepare AC010 handoff and conformance boundary package | `planned` | LLM_Consultant | GATE-001 | AC010 handoff note / plan amendment inputs | Approved AC009 package | — |
+| TK005 | `P-PH000-ST001-AC009-TK005` | Produce verification and gate-readiness package | `completed` | LLM_Reviewer | TK004 | AC009 recycle / reassessment package | `guideline_workspace_verification.md` | Recycle loop completed; reassessment verification PASS (v1.1.0). |
+| GATE-001 | `P-PH000-ST001-AC009-GATE-001` | Gate: Client acceptance of P-STD-001 metadata hardening package | `completed` | Client | TK005 | Pass/fail | `guideline_workspace_plan.md` §VI, `guideline_workspace_proposal.md` | Client APPROVE WITH CONDITIONS (2026-03-26). GDR: proposal v1.4.0. Conditions: (1) TK008 compliance remediation, (2) `TK009` through `TK013` plus `GATE-002` before AC010 handoff. |
+| TK005.1 | `P-PH000-ST001-AC009-TK005.1` | Author Gate-001 remediation specification | `completed` | LLM_Consultant | GATE-001 | IMPLEMENTATION remediation spec | `guideline_workspace_implementation.md` | Create `implementation/implementation_P-PH000-ST001-AC009_gate-001-remediation-specification.md` and retire the temporary revision-checklist from live package use. |
+| TK005.2 | `P-PH000-ST001-AC009-TK005.2` | Execute AC009 Gate-001 remediation changes | `completed` | LLM_Developer | TK005.1 | Remediated `P-STD-001` + derivative + package surfaces | TK005.1 remediation specification | Fix authority/reference/provenance/package gaps identified in the recycle loop. |
+| TK005.3 | `P-PH000-ST001-AC009-TK005.3` | Produce recycle dev-report for the remediation pass | `completed` | LLM_Developer | TK005.2 | Recycle-pass dev-report | `guideline_workspace_dev-report.md` | Record remediation execution evidence for reviewer reassessment. |
+| TK005.4 | `P-PH000-ST001-AC009-TK005.4` | Re-run Gate-001 verification after remediation | `completed` | LLM_Reviewer | TK005.3 | Refreshed Gate-001 verification artifact | `guideline_workspace_verification.md` | Reassess the same gate ID against the remediated package and implementation artifact. |
+| TK005.5 | `P-PH000-ST001-AC009-TK005.5` | Refresh Gate-001 disposition proposal for re-presentation | `completed` | LLM_Consultant | TK005.4 | Updated Gate-001 proposal package | `guideline_workspace_proposal.md` | Replace temporary-handling language with IMPLEMENTATION-backed gate package language. |
+| TK007 | `P-PH000-ST001-AC009-TK007` | Author Gate-001 compliance remediation spec + session notes (SES003) | `completed` | LLM_Consultant | GATE-001 | IMPLEMENTATION remediation spec + session notes | External review GAP-001 through GAP-005 | Authored SES003 session notes and the split-spec inputs later consolidated into the unified AC009 execution contract. |
+| TK008 | `P-PH000-ST001-AC009-TK008` | Execute Gate-001 compliance remediation | `completed` | LLM_Consultant | TK007 | Updated proposal, AC009 plan, stream plan | `implementation_P-PH000-ST001-AC009_p-std-001-evolution-task-specification.md` | Normalized the live Gate-001 closeout package, removed stale `TK014` references from live authority surfaces, and locked the one-shot downstream package contract through `GATE-002`. |
+| TK009 | `P-PH000-ST001-AC009-TK009` | Author P-STD-001 evolution task specification | `completed` | LLM_Consultant | GATE-001 | IMPLEMENTATION task spec | SES003 analysis findings | Authored `implementation_P-PH000-ST001-AC009_p-std-001-evolution-task-specification.md` as the unified execution contract for the remaining AC009 path. |
+| TK010 | `P-PH000-ST001-AC009-TK010` | Execute P-STD-001 evolution amendments | `planned` | LLM_Developer | TK009 | Updated P-STD-001 + externalized changelog + updated guideline + template + AC010 plan | `implementation_P-PH000-ST001-AC009_p-std-001-evolution-task-specification.md` | — |
+| TK011 | `P-PH000-ST001-AC009-TK011` | Dev-report for P-STD-001 evolution pass | `planned` | LLM_Developer | TK010 | DEV-REPORT | `guideline_workspace_dev-report.md` | — |
+| TK012 | `P-PH000-ST001-AC009-TK012` | Verification for P-STD-001 evolution | `planned` | LLM_Reviewer | TK011 | VERIFICATION | `guideline_workspace_verification.md` | — |
+| TK013 | `P-PH000-ST001-AC009-TK013` | Gate-002 disposition proposal | `planned` | LLM_Consultant | TK012 | PROPOSAL (gate_disposition) | `guideline_workspace_proposal.md` | — |
+| GATE-002 | `P-PH000-ST001-AC009-GATE-002` | Gate: Client acceptance of P-STD-001 evolution amendments | `planned` | Client | TK013 | Pass/fail | `guideline_workspace_plan.md` §VI, `guideline_workspace_proposal.md` | — |
+| TK006 | `P-PH000-ST001-AC009-TK006` | Prepare AC010 handoff and conformance boundary package | `planned` | LLM_Consultant | GATE-002 | AC010 handoff note / plan amendment inputs | Approved AC009 package | — |
 
 ---
 
@@ -370,15 +378,176 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - Client approves or approves with conditions the completed metadata-governance hardening package
 - Approved package becomes the authority surface for `AC010`
 
-**Recycle Re-entry Block**:
-- **Gate Status**: `in_progress`
-- **Recycle Trigger**: Prior Gate-001 package recommended `RECYCLE` because of unresolved authority/reference defects in `P-STD-001`, gate-package inconsistency, and a temporary remediation-detail workaround that has since been superseded by the IMPLEMENTATION family.
-- **Remediation Tasks**: `TK005.1`, `TK005.2`, `TK005.3`, `TK005.4`, `TK005.5`
-- **Re-entry Criteria**: Remediation specification authored; remediated deliverables and recycle dev-report complete; same gate re-verified; refreshed proposal package prepared.
-- **Reassessment Rule**: The same gate ID (`P-PH000-ST001-AC009-GATE-001`) MUST be re-assessed. No derived gate IDs are permitted.
-- **Downstream Block**: `TK006` remains blocked until the Gate Decision Record for `P-PH000-ST001-AC009-GATE-001` records `APPROVE` or `APPROVE WITH CONDITIONS`.
+**Gate-Disposition Proposal**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/proposal/proposal_P-PH000-ST001-AC009_gate-001_metadata-hardening-disposition.md`
+
+**Gate Resolution Block**:
+- **Gate Status**: `completed`
+- **Decision**: Client APPROVE WITH CONDITIONS (2026-03-26)
+- **GDR Reference**: `proposal_P-PH000-ST001-AC009_gate-001_metadata-hardening-disposition.md` v1.4.0
+- **Conditions**: (1) Complete TK008 compliance remediation (five administrative GAPs). (2) Complete the P-STD-001 evolution cycle (`TK009` through `TK013` + `GATE-002`) before AC010 handoff.
+- **Prior Recycle History**: Gate-001 was recycled for authority/reference/provenance defects. Remediation tasks `TK005.1` through `TK005.5` completed the remediation pass. Reassessment verification returned PASS (v1.1.0). The reassessment external review (v1.0.0, 2026-03-25) confirmed all five original GAPs substantively closed and recommended APPROVE WITH CONDITIONS for five new administrative compliance items.
+- **Downstream**: `TK006` (AC010 handoff) remains blocked until `GATE-002` records an approving GDR.
 
 ---
+
+### Task TK007: Author Gate-001 Compliance Remediation Spec + Session Notes (SES003)
+
+**Task ID**: `P-PH000-ST001-AC009-TK007`
+
+**Purpose**: Record the SES003 consultation findings (independent assessment of external review, downstream readiness, P-STD-001 QA) and author the compliance remediation implementation specification for the five administrative GAPs identified by the reassessment external review.
+
+**Deliverables**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES003.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_gate-001-compliance-remediation.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_p-std-001-evolution-task-specification.md`
+
+**Steps**:
+1. Author session notes recording the SES003 consultation analysis and client decisions.
+2. Author the compliance remediation specification (this file) with exact implementation detail for each GAP.
+3. Author the P-STD-001 evolution task specification with exact implementation detail for CLAUSE-036G and derivative updates.
+
+**Success Criteria**:
+- [ ] Session notes exist at the canonical path
+- [ ] Compliance remediation spec exists with REM items for all five GAPs
+- [ ] P-STD-001 evolution task spec exists with SPEC items for CLAUSE amendment, changelog, and derivatives
+
+---
+
+### Task TK008: Execute Gate-001 Compliance Remediation
+
+**Task ID**: `P-PH000-ST001-AC009-TK008`
+
+**Purpose**: Execute the live Gate-001 closeout corrections defined in the updated remediation specification, normalize the downstream task/gate contract, and prepare a coherent package path through `TK010` to `TK013` and `GATE-002`.
+
+**Deliverables**:
+- Updated `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/proposal/proposal_P-PH000-ST001-AC009_gate-001_metadata-hardening-disposition.md` (v1.4.0)
+- Updated `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md` (v2.1.0)
+- Updated `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` (v0.1.22)
+
+**Steps**:
+Execute per the implementation specification at `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_p-std-001-evolution-task-specification.md`.
+
+**Success Criteria**:
+- [ ] Proposal `GDR` uses the corrected downstream condition chain (`TK009` through `TK013` + `GATE-002`)
+- [ ] Plan task register reflects the live post-closeout state for `TK007`, `TK008`, and `TK009`
+- [ ] Plan `GATE-001` section no longer references `TK014`
+- [ ] Plan `TK008` success criteria no longer reference `TK014`
+- [ ] Stream plan live changelog wording no longer references `TK014`
+- [ ] No live AC009/ST001 closeout surface in this chain requires the implementer to infer a missing task ID
+
+---
+
+### Task TK009: Author P-STD-001 Evolution Task Specification
+
+**Task ID**: `P-PH000-ST001-AC009-TK009`
+
+**Purpose**: Author the task specification for the P-STD-001 evolution amendments (CLAUSE-036G changelog externalization, derivative updates, AC010 plan).
+
+**Deliverable**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_p-std-001-evolution-task-specification.md`
+
+**Steps**:
+1. Author the task specification with SPEC items for all P-STD-001 amendments, externalized changelog creation, derivative updates, and AC010 plan creation.
+
+**Success Criteria**:
+- [ ] Task specification exists with SPEC items covering all target files
+
+---
+
+### Task TK010: Execute P-STD-001 Evolution Amendments
+
+**Task ID**: `P-PH000-ST001-AC009-TK010`
+
+**Purpose**: Execute the P-STD-001 CLAUSE-036G amendment, create the externalized changelog, update derivatives, and create the AC010 activity plan.
+
+**Deliverables**:
+- Updated `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` (v1.2.0)
+- New `prompt/artifacts/tasks/P/standard/changelog/changelog_standard_P-STD-001.md`
+- Updated `prompt/templates/consultant/standards/guideline_standard_specs.md` (v6.2.0)
+- Updated `prompt/templates/consultant/standards/template_standard_specs.md`
+- New `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/plan_P-PH000-ST001-AC010.md`
+
+**Steps**:
+Execute per the implementation specification at `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_p-std-001-evolution-task-specification.md`.
+
+**Success Criteria**:
+- [ ] P-STD-001 contains CLAUSE-036G with externalized changelog option
+- [ ] Externalized changelog file exists at the canonical path with full version history
+- [ ] Inline Amendment History retains three most recent entries plus pointer
+- [ ] Guideline §E updated with externalized changelog guidance
+- [ ] Template Provenance section updated with externalized changelog comment
+- [ ] AC010 activity plan exists at the canonical path
+
+---
+
+### Task TK011: Dev-Report for P-STD-001 Evolution Pass
+
+**Task ID**: `P-PH000-ST001-AC009-TK011`
+
+**Purpose**: Produce bounded execution evidence for the P-STD-001 evolution amendments.
+
+**Deliverable**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/dev-report/dev-report_P-PH000-ST001-AC009_p-std-001-evolution.md`
+
+**Steps**:
+1. Record execution evidence per `guideline_workspace_dev-report.md`.
+
+**Success Criteria**:
+- [ ] Dev-report exists with traceability to TK009 task specification SPEC items
+
+---
+
+### Task TK012: Verification for P-STD-001 Evolution
+
+**Task ID**: `P-PH000-ST001-AC009-TK012`
+
+**Purpose**: Independent verification of the P-STD-001 evolution amendments against the task specification.
+
+**Deliverable**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/verification/verification_P-PH000-ST001-AC009_gate-002.md`
+
+**Steps**:
+1. Verify per `guideline_workspace_verification.md`.
+
+**Success Criteria**:
+- [ ] Verification artifact exists with reviewer verdict
+
+---
+
+### Task TK013: Gate-002 Disposition Proposal
+
+**Task ID**: `P-PH000-ST001-AC009-TK013`
+
+**Purpose**: Author the gate-disposition proposal for GATE-002 client acceptance of the P-STD-001 evolution amendments.
+
+**Deliverable**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/proposal/proposal_P-PH000-ST001-AC009_gate-002_p-std-001-evolution-disposition.md`
+
+**Steps**:
+1. Author per `guideline_workspace_proposal.md`.
+
+**Success Criteria**:
+- [ ] Gate-002 proposal exists with GDR section for client decision
+
+---
+
+### GATE-002: Client Acceptance of P-STD-001 Evolution Amendments
+
+**Gate ID**: `P-PH000-ST001-AC009-GATE-002`
+
+**Entry Criteria**:
+- TK010 complete (P-STD-001 evolution amendments executed)
+- TK011 complete (dev-report produced)
+- TK012 complete (verification with reviewer verdict)
+- TK013 complete (gate-disposition proposal with GDR)
+
+**Reviewer**: Client
+
+**Exit Criteria**:
+- Client records `APPROVE` or `APPROVE WITH CONDITIONS` in the GATE-002 GDR
+- Approved P-STD-001 (v1.2.0) becomes the final authority surface for AC010
+
+**Gate-Disposition Proposal**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/proposal/proposal_P-PH000-ST001-AC009_gate-002_p-std-001-evolution-disposition.md`
 
 ### Task TK006: Prepare AC010 Handoff and Conformance Boundary Package
 
@@ -424,6 +593,14 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | External Review | Gate-002 Package Assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST004/AC003/analysis/analysis_P-PH000-ST004-AC003_external-review_gate-002-package.md` |
 | Proposal | Gate-001 Recycle / Reassessment Package | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/proposal/proposal_P-PH000-ST001-AC009_gate-001_metadata-hardening-disposition.md` |
 | Verification | Gate-001 Reviewer Verification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/verification/verification_P-PH000-ST001-AC009_gate-001.md` |
+| External Review | GATE-001 Reassessment Package Assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/analysis/analysis_P-PH000-ST001-AC009_external-review_gate-001-reassessment-package.md` |
+| Session Notes | AC009 SES003 | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES003.md` |
+| IMPLEMENTATION | Gate-001 Compliance Remediation | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_gate-001-compliance-remediation.md` |
+| IMPLEMENTATION | P-STD-001 Evolution Task Specification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_p-std-001-evolution-task-specification.md` |
+| DEV-REPORT | P-STD-001 Evolution | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/dev-report/dev-report_P-PH000-ST001-AC009_p-std-001-evolution.md` |
+| Verification | Gate-002 Reviewer Verification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/verification/verification_P-PH000-ST001-AC009_gate-002.md` |
+| Proposal | Gate-002 P-STD-001 Evolution Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/proposal/proposal_P-PH000-ST001-AC009_gate-002_p-std-001-evolution-disposition.md` |
+| Plan | AC010 Activity Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/plan_P-PH000-ST001-AC010.md` |
 
 ---
 
@@ -431,6 +608,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.1.0 | 2026-03-26 | Correction | Closed the live Gate-001 closeout drift after the v2.0.0 structural amendment. Marked `TK007`, `TK008`, and `TK009` as completed to match the artifacts already authored, corrected stale `TK014` references in the live Gate-001 closeout path, and preserved `TK010` through `TK013` plus `GATE-002` as the remaining downstream stack before `TK006`. |
+| v2.0.0 | 2026-03-26 | Gate decision + plan amendment | Recorded client APPROVE WITH CONDITIONS for `GATE-001` (2026-03-26). Updated `TK005` and `TK005.1` through `TK005.5` to `completed`. Registered `TK007` through `TK013` plus `GATE-002` for the P-STD-001 evolution cycle. Added `GATE-002` section (P-STD-001 evolution acceptance). Updated `TK006` dependency from `GATE-001` to `GATE-002`. Added `Gate-Disposition Proposal` field to the `GATE-001` construct (GAP-003). Updated Links Register with new artifact entries. Major version bump for structural task/gate additions. Evidence: SES003 consultation + reassessment external review v1.0.0. |
 | v1.5.0 | 2026-03-20 | Recycle amendment | Converted `GATE-001` into an active recycle/reassessment loop. Marked `TK005` and `GATE-001` as `in_progress`, added `TK005.1` through `TK005.5` as formal remediation/reassessment subtasks, added the required Recycle Re-entry Block, and registered the new Gate-001 remediation specification artifact. |
 | v1.4.0 | 2026-03-16 | Implementation | Marked `TK001` through `TK004` completed after AC009 metadata-governance execution. Added the TK001 amendment map and grouped TK001-TK004 dev-report to the Links Register. |
 | v1.3.0 | 2026-03-15 | Gate closure | Updated task register: TK000 → `completed`, GATE-000 → `completed` with GDR reference. Added external review analysis to Context and Links Register. Evidence: GATE-000 GDR (proposal v1.1.0), external review v1.0.0. |

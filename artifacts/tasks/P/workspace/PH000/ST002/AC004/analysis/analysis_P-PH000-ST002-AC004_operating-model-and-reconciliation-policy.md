@@ -8,14 +8,17 @@ stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC004'
 task_id: 'P-PH000-ST002-AC004-TK001'
 gate_id: 'P-PH000-ST002-AC004-GATE-001'
-version: '1.1.0'
-date: '2026-03-24'
-status: 'draft'
+version: '1.2.0'
+date: '2026-03-25'
+status: 'superseded'
+superseded_by: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_successor-operating-model-and-reconciliation-policy.md'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md'
 purpose: 'Decision-complete AC004 operating-model assessment covering reconciliation authority, cadence, ownership/evidence expectations, reminder/helper-tooling boundaries, bounded V1 rollout scope, and the post-AC004 V2 commissioning posture.'
 ---
+
+> **SUPERSEDED**: This operating-model analysis supported the 2026-03-24 AC004 `GATE-001` baseline that still accepted the wrap-up-based reminder/tooling direction. It has been superseded by `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_successor-operating-model-and-reconciliation-policy.md`, which assesses the successor GATE-002 baseline after the post-approval decision-boundary change. This artifact is preserved for historical traceability only.
 
 # ANALYSIS: AC004 Operating Model and Reconciliation Policy
 
@@ -213,5 +216,6 @@ Approve **Option B** at same-gate re-presentation with the following operating-m
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-03-25 | Amendment | Marked as superseded after AC004 post-approval gate supersession. Added successor operating-model-analysis backlink and required deprecation notice; body preserved. |
 | v1.1.0 | 2026-03-24 | Amendment | Expanded the AC004 operating-model assessment after the 2026-03-24 recycle decision so the package now explicitly covers cadence, ownership/evidence expectations, and reminder/helper-tooling surface boundaries in addition to authority order, V1 scope, pre-gate visibility, and deferred AC005 posture. |
 | v1.0.0 | 2026-03-23 | Initial | Authored the AC004 operating-model assessment to support `GATE-001`, including explicit reconciliation authority, bounded V1 rollout posture, mandatory status touchpoints, pre-gate implementation-package visibility, and the deferred AC005 V2 commissioning posture. |

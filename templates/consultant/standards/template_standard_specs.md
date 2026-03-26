@@ -77,6 +77,11 @@ deprecation_date: 'YYYY-MM-DD'
 
 ### Amendment History
 
+<!-- When inline entries exceed 5, externalize per CLAUSE-036G to: -->
+<!-- <SID>/standard/changelog/changelog_standard_<SID-STD>.md -->
+<!-- Then add pointer: > Full version history: `path/to/changelog` -->
+<!-- and retain the 3 most recent versioned entries inline. -->
+
 - v1.0.0 (YYYY-MM-DD): Initial authoring.
 
 ### Input Sources

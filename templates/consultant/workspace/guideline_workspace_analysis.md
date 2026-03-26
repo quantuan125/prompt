@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'analysis_authoring'
-version: '1.8.0'
-date: '2026-03-25'
+version: '1.9.0'
+date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -76,7 +76,7 @@ These lifecycle positions are **Draft 1 preliminary** and SHOULD be refined as m
 | `compliance_audit` | Need to check an artifact against standards/guidelines | Remediation tasks; for implementation-backed gates, follow-on VERIFICATION artifact (not inside analysis) |
 | `assessment` | Need to evaluate readiness, hardening, or options tradeoffs | Remediation roadmap, decisions/proposals, implementation tasks |
 | `comparative_analysis` | Need to compare two or more options/approaches against weighted evaluation criteria to support an architectural or process decision | Decision proposal (standards-input or gate-disposition); plan amendment; implementation task specification for the chosen option |
-| `external_review` | Third-party assessment requested; may be transcript-converted. When an `external_review` serves as a gate-readiness input for a consultation-only or implementation-backed gate, the review scope SHOULD include downstream task readiness and plan-guideline compliance for post-gate work. | Consultation-only decision package for client; transition plan and risk register |
+| `external_review` | Third-party assessment requested; may be transcript-converted. When an `external_review` serves as a gate-readiness input for a consultation-only or implementation-backed gate, the review scope MUST include downstream task readiness and plan-guideline compliance for post-gate work. For consultation-only gates it MUST also test evidence integrity, role-boundary compliance, and absence of unauthorized downstream execution or premature concrete-artifact authority. | Consultation-only decision package for client; transition plan and risk register |
 
 Recyclable-loop sub-consultant traceability audits SHALL be authored as `analysis_type: 'compliance_audit'`.
 
@@ -179,10 +179,12 @@ Criterion definitions:
 - `Plan-authority compliance` -> every executed deliverable can be traced to an authorized plan task and, when applicable, to an IMPLEMENTATION SPEC item.
 - `Role-boundary compliance` -> no role produced an artifact outside its governed ownership boundary for the assessed cycle.
 - `Artifact-lineage completeness` -> version chains, package-linkage keys, handoff references, and gate-facing evidence trails are complete and navigable.
+- `Unauthorized downstream execution` -> no downstream task outputs or concrete implementation artifacts are being normalized as active gate evidence before the governing gate approves execution.
 
 Downstream handoff rules:
 - If the audit finds no governance gap, the Downstream Actions section SHOULD point to proposal packaging or gate evidence indexing.
 - If the audit finds a governance gap requiring execution work, the Downstream Actions section SHOULD point to a plan amendment or IMPLEMENTATION artifact rather than inventing verification findings.
+- If the audit finds premature downstream execution or a prematurely materialized concrete artifact inside a consultation-only gate package, the review SHOULD recommend quarantine/reclassification rather than normalizing the artifact as active evidence.
 - The resulting ANALYSIS artifact MUST NOT claim gate closure and MUST NOT replace reviewer-owned VERIFICATION.
 
 ---

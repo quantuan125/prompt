@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '3.5.0'
-date: '2026-03-25'
+version: '3.6.0'
+date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -38,7 +38,7 @@ Phase → Stream → Activity → Task
 | VERIFICATION | `verification_` | Gate evidence + findings register + rework handoff + reviewer verdict | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
 | PROPOSAL | `proposal_` | Archetype-specific proposal authoring: E-ID workspace, gate disposition (incl. Gate Decision Record), promotion contract, standards input | `prompt/templates/consultant/workspace/template_workspace_proposal_<archetype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` |
 | DEV-REPORT | `dev-report_` | Developer execution log + validation evidence + handoff traceability | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` |
-| IMPLEMENTATION | `implementation_` | Detailed implementation specification: remediation specifications (gate RECYCLE response), task specifications (complex implementation detail) | `prompt/templates/consultant/workspace/template_workspace_implementation_<subtype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_implementation.md` |
+| IMPLEMENTATION | `implementation_` | Consultant-authored implementation specifications that commission downstream execution: remediation specifications (gate RECYCLE response), task specifications (complex implementation detail) | `prompt/templates/consultant/workspace/template_workspace_implementation_<subtype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_implementation.md` |
 
 **Artifact status vocabulary** (canonical values for `status` frontmatter key):
 
@@ -119,7 +119,7 @@ Note: `superseded` is distinct from `cancelled` (deliberate early termination) a
 ### A. Consultant (LLM_Consultant)
 - Authors contract-level intent: what + why.
 - Owns: roadmaps, phase plans, stream plans (contract-level), guidelines, templates, proposals, analyses.
-- Boundary: MUST NOT author implementation-level task decomposition or execution proof.
+- Boundary: MUST NOT personally perform implementation execution or claim execution proof as consultant evidence. The consultant MAY author IMPLEMENTATION artifacts, including `task_specification`, and MAY commission execution to `LLM_Developer` or designated lower-intelligence agentic execution roles when plan/gate authority permits.
 
 ### B. Planner (LLM_Planner)
 - Owns: task decomposition, sequencing, estimation.
@@ -164,6 +164,7 @@ Rules:
 - `ROADMAP` sets direction. `PLAN` establishes executable work authority.
 - `NOTES`, `ANALYSIS`, and `DEV-REPORT` are working artifacts that capture session state, synthesis, and implementation evidence respectively. They feed downstream artifacts but do not close gates.
 - `IMPLEMENTATION` provides detailed specification depth between plan task authority and developer execution. It does not hold work authority (PLAN) or decision authority (PROPOSAL GDR).
+- When a consultation-only gate discovers premature downstream execution or a prematurely materialized concrete artifact, the artifact MUST be preserved for lineage but removed from active gate authority until reclassified, quarantined, or later operationalized under an approved downstream task.
 - For governed work where an IMPLEMENTATION artifact exists, that artifact is the canonical execution-specification surface. Legacy `.claude/plans/` usage is ad hoc only and is not a co-equal governed authority surface.
 - `VERIFICATION` produces independent reviewer evidence and a reviewer verdict for implementation-backed gates only. The reviewer verdict is recorded only in the verification artifact.
 - `PROPOSAL` packages decisions and hosts the authoritative Gate Decision Record (GDR) for `gate_disposition` proposals. The GDR carries the consultant's recommendation (advisory) and the client's decision (authoritative). The reviewer verdict is not duplicated into the GDR.
@@ -244,7 +245,7 @@ When a gate is superseded (`Client Decision = SUPERSEDE`), artifacts produced fo
 | PROPOSAL | LLM_Consultant | Reviewer input when gate-backed | Client | Consultant, Client, downstream implementers |
 | VERIFICATION | LLM_Reviewer (preferred) | Client consumes verdict | Client decides through GDR | Consultant, Client |
 | DEV-REPORT | LLM_Developer | Reviewer consumes as evidence | None directly | Reviewer, Consultant |
-| IMPLEMENTATION | LLM_Consultant (`remediation_specification`); LLM_Consultant or LLM_Planner (`task_specification`) | Reviewer consumes as re-assessment input | Client where gated | Developer, Reviewer |
+| IMPLEMENTATION | LLM_Consultant (primary author/commissioner); LLM_Planner only when explicitly delegated by the consultant for decomposition support | Reviewer consumes as re-assessment input | Client where gated | Developer, Reviewer, designated agentic executors |
 
 Source: `T104-RES-003` Topic 8 (Workspace Artifact Integration & Industry Benchmark Analysis).
 

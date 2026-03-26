@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.20'
-date: '2026-03-15'
+version: '0.1.22'
+date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -43,7 +43,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `completed` | LLM_Consultant | AC002 | `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md` |
 | AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `completed` | LLM_Consultant | AC006 | `analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md` + updated `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/plan_P-PH000-ST001-AC007.md` |
 | AC008 | `P-PH000-ST001-AC008` | Author Evidence-Retention Governance Policy (Sibling Artifact) | `planned` | LLM_Consultant | AC003 | Future program-level governance policy artifact for evidence-retention duration | — |
-| AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `planned` | LLM_Consultant | `P-PH000-ST004-AC003-GATE-002` | AC009 readiness package (`TK000` + `GATE-000`) + updated `standard_P-STD-001_program-governance-standard.md` + updated prompt-owned derivatives + `P-CON-003` clarification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md` |
+| AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `in_progress` | LLM_Consultant | `P-PH000-ST004-AC003-GATE-002` | AC009 readiness package (`TK000` + `GATE-000`) + updated `standard_P-STD-001_program-governance-standard.md` + updated prompt-owned derivatives + `P-CON-003` clarification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md` |
 | AC010 | `P-PH000-ST001-AC010` | Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs) | `planned` | LLM_Consultant | AC009 | Updated P-STD-002, P-STD-004, P-STD-005 (YAML + Provenance + References alignment) | — |
 
 ---
@@ -358,6 +358,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.22 | 2026-03-26 | Correction | Normalized the live AC009 closeout wording in the stream-plan history to remove the stale `TK014` reference and align the stream record with AC009 plan v2.1.0 while keeping AC009 at `in_progress` pending `GATE-002`. Evidence: AC009 plan v2.1.0 + Gate-001 proposal v1.4.0. |
+| v0.1.21 | 2026-03-26 | Housekeeping | AC009 status `planned` -> `in_progress` to reflect current execution state (`GATE-001` APPROVE WITH CONDITIONS, `TK007` through `TK013` plus `GATE-002` registered in AC009 plan v2.1.0). Evidence: AC009 plan v2.1.0 + reassessment external review v1.0.0. |
 | v0.1.20 | 2026-03-15 | Gate closure | Checked AC009 GATE-000 readiness success criterion. Evidence: GATE-000 GDR (proposal v1.1.0). |
 | v0.1.19 | 2026-03-15 | Amendment | AC009 contract amended for implementation readiness: added local readiness packaging (`TK000` + `GATE-000`), clarified the explicit upstream dependency on `P-PH000-ST004-AC003-GATE-002`, locked a consume-only boundary for ST004 / `P-RES-003` artifacts, narrowed derivative instruction-surface scope to prompt-owned surfaces, and added `P-CON-003` clarification to the AC009 deliverable contract. |
 | v0.1.18 | 2026-03-13 | Housekeeping | Updated AC009 dependency note to reflect Gate-002 closure (2026-03-13). Evidence: proposal GDR v1.2.0. |

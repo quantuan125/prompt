@@ -185,6 +185,15 @@ When a consultation session concerns plan structure changes (activity consolidat
 - Example title: `# STREAM SESSION NOTES: T104 — PH001 / ST002 / SES002 (Plan Amendment: Activity Consolidation)`
 - The session's Discussion Points, Decisions, and Actions reference the affected plan file(s) and describe the structural changes.
 
+### 5.3 Authority and Corrective Sessions
+
+Session notes record discussion history, decisions, and carry-forward context. They do **not** outrank a pending gate's proposal-hosted Gate Decision Record (GDR) as decision authority.
+
+Rules:
+- When later corrective work changes the interpretation or status context of an earlier session, authors SHOULD create a new Session Notes file rather than rewriting the prior session into the new state.
+- A new corrective session MAY supersede the practical reading context of an older session, but the older session remains historically intact.
+- If a session records premature downstream execution or concrete-artifact contamination inside a still-pending gate, the session SHOULD point to corrective plan/proposal work rather than implying that the gate has already approved the affected artifact.
+
 ---
 
 ## 6. Session Notes File Structure

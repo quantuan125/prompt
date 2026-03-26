@@ -7,9 +7,10 @@ stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC004'
 task_id: 'P-PH000-ST002-AC004-TK003'
 gate_id: 'P-PH000-ST002-AC004-GATE-001'
-version: '1.2.0'
-date: '2026-03-24'
-status: 'completed'
+version: '1.3.0'
+date: '2026-03-25'
+status: 'superseded'
+superseded_by: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md'
@@ -19,6 +20,8 @@ purpose: 'Gate disposition package for AC004 Gate-001: record the client APPROVE
 consumers:
   - 'P-PH000-ST002-AC004-GATE-001'
 ---
+
+> **SUPERSEDED**: This gate-disposition proposal was produced against the 2026-03-24 AC004 `GATE-001` baseline that still accepted the wrap-up-based reminder/tooling direction. `GATE-001` has been closed with `Client Decision: SUPERSEDE` due to a post-approval decision-boundary change requiring a comparative analysis and a new execution contract. This proposal is preserved as the historical `GATE-001` record. The successor gate package is at `proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md`.
 
 # PROPOSAL: Gate Disposition Package — AC004 GATE-001 Operating Model and First-Slice Execution Package
 
@@ -226,19 +229,19 @@ Downstream enforcement:
 | Field | Value |
 |:--|:--|
 | Gate ID | `P-PH000-ST002-AC004-GATE-001` |
-| Consultant Recommendation | `APPROVE` |
-| Client Decision | `APPROVE` |
-| Gate Status After Decision | `completed` |
-| Conditions (if any) | — |
+| Consultant Recommendation | `SUPERSEDE` |
+| Client Decision | `SUPERSEDE` |
+| Gate Status After Decision | `superseded` |
+| Conditions (if any) | `Successor gate: P-PH000-ST002-AC004-GATE-002. Trigger: post-approval decision-boundary change after client rejection of the previously accepted wrap-up-based reminder/tooling direction; comparative analysis and new implementation contract required.` |
 | Decided By | `Client` |
-| Decision Date | `2026-03-24` |
-| Decision Reference | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES004.md` |
+| Decision Date | `2026-03-25` |
+| Decision Reference | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES005.md` |
 
 The `Consultant Recommendation` is populated at authoring time. This is a consultation-only gate: the recommendation synthesizes the operating-model analysis and the bounded downstream execution contract, not reviewer verification evidence.
 
-Because `Client Decision = APPROVE`:
-- `Gate Status After Decision` is `completed`
-- downstream `Depends On: P-PH000-ST002-AC004-GATE-001` tasks are unblocked
+Historical consequence note:
+- The 2026-03-24 approval consequences applied only to the now-superseded baseline.
+- After the 2026-03-25 supersession decision, downstream execution is governed by successor `P-PH000-ST002-AC004-GATE-002`, not by the historical `GATE-001` approval.
 
 ### Same-Gate Re-Entry Basis (Resolved — Gate Approved)
 
@@ -269,6 +272,7 @@ The following artifacts now constitute the corrected same-gate package for later
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.3.0 | 2026-03-25 | Amendment | Recorded Client Decision SUPERSEDE and Gate Status superseded after post-approval decision-boundary change. Frontmatter marked superseded with successor proposal backlink. Body preserved as historical record. |
 | v1.2.0 | 2026-03-24 | Close Gate | Recorded the client APPROVE decision, resolved all independent-assessment findings (including external review promotion and housekeeping), and unblocked downstream execution. |
 | v1.1.0 | 2026-03-24 | Amendment | Recorded the formal `GATE-001 RECYCLE` decision, expanded the GIR set to cover cadence, ownership/evidence expectations, and reminder/helper-tooling boundaries, added the AC004 external review and SES003 to the gate package, and defined the same-gate re-entry basis under the unchanged gate ID. |
 | v1.0.0 | 2026-03-23 | Initial | Authored the AC004 `GATE-001` disposition package for operating-model approval and downstream first-slice execution-package visibility, with four GIR items covering reconciliation authority, V1 status-touchpoint scope, pre-gate implementation-spec visibility, and deferred V2 commissioning posture. |

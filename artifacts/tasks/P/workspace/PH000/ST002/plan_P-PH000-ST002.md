@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
-version: '1.8.0'
-date: '2026-03-24'
+version: '1.9.0'
+date: '2026-03-25'
 status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -23,7 +23,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Dependency resolution**: `P-PH000-ST001-AC003` (Program Status Standard) is accepted. GATE-003 closed with APPROVE (2026-03-09). The blocking constraint is satisfied.
 
-**Current closure state**: AC004 `GATE-001` (consultation) closed with straight `APPROVE` on 2026-03-24 (SES004). All independent-assessment findings are resolved, and `TK004` is unblocked for developer commissioning of the first operationalization slice across the bounded V1 scope (`P`, `T102`, `T104`). AC005 remains the blocked post-AC004 commissioning stub for future V2 productization.
+**Current closure state**: AC004 entered post-approval gate supersession on 2026-03-25 after a decision-boundary change invalidated the previously approved wrap-up-based reminder/tooling direction. Historical `GATE-001` is preserved as superseded. The active milestone is successor consultation `P-PH000-ST002-AC004-GATE-002`; `TK004` remains blocked pending that gate. AC005 remains the blocked post-AC004 commissioning stub for future V2 productization.
 
 **Implementation authority**: P-STD-002E (CLAUSEs 043–054) is the normative authority for all schema, format, placement, and update sequence requirements. Implementation design decisions are documented in `analysis_P-PH000-ST002_status-system-implementation-requirements.md`.
 
@@ -42,7 +42,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | AC001 | `P-PH000-ST002-AC001` | Define status artifact schema + update protocol | `completed` | LLM_Consultant | — | Absorbed by P-STD-002 acceptance (normative authority: P-STD-002E CLAUSEs 043–054) | SES001-DEC002 |
 | AC002 | `P-PH000-ST002-AC002` | Design & Author Program Status Artifact Set | `completed` | LLM_Consultant / LLM_Developer | ST001-AC003 (satisfied) | Ledger (`status_program.yaml`) + Narrative (`status_program.md`) at `prompt/artifacts/tasks/P/status/` | `plan_P-PH000-ST002-AC002.md` |
 | AC003 | `P-PH000-ST002-AC003` | Backfill & Validate Initial Program Entries | `completed` | LLM_Developer / LLM_Reviewer / LLM_Consultant | AC002 | Populated P + T102 + T104 activity entries, derived narrative, external-review-backed gate package, and approved GDR | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/plan_P-PH000-ST002-AC003.md` |
-| AC004 | `P-PH000-ST002-AC004` | Operationalize Status Update Workflow & Automation Baseline | `in_progress` | LLM_Consultant | AC003 | Full `GATE-001` readiness package plus first operationalization implementation path for the bounded V1 rollout across `P`, `T102`, and `T104` | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md` |
+| AC004 | `P-PH000-ST002-AC004` | Operationalize Status Update Workflow & Automation Baseline | `in_progress` | LLM_Consultant | AC003 | Superseded `GATE-001` historical record plus successor `GATE-002` readiness package and downstream `GATE-003` implementation path | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md` |
 | AC005 | `P-PH000-ST002-AC005` | Commission Future Status-System Initiative (`T105` or next available ID) | `planned` | LLM_Consultant | AC004 | Post-AC004 commissioning stub for opening the future V2 status-system initiative and its SPS home | — |
 
 ---
@@ -175,9 +175,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Deliverables**:
 - AC004 activity plan with consultation and implementation gates
-- Recycled consultation gate package for operating-model approval and downstream execution visibility
+- Successor consultation gate package for operating-model approval and downstream execution visibility
 - Pre-authored first operationalization implementation `task_specification`
-- First operationalization implementation package for reconciliation and workflow hardening after `GATE-001`
+- First operationalization implementation package for reconciliation and workflow hardening after successor approval
 - Updated governance, reminder, and planning surfaces for ongoing status maintenance
 
 **Scope**:
@@ -197,12 +197,12 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md`
 
-**Planning Posture**: AC004 `GATE-001` (consultation) is `completed` (`APPROVE`, 2026-03-24). The approved operating model and execution contract are now frozen for the V1 rollout. `TK004` is unblocked for developer commissioning. `GATE-002` remains `planned` to accept the implementation evidence after the first operationalization slice completes.
+**Planning Posture**: AC004 entered post-approval gate supersession on 2026-03-25 after a decision-boundary change invalidated the previously approved wrap-up-based reminder/tooling direction. Historical `GATE-001` is preserved as superseded. The active milestone is successor consultation `GATE-002`; `TK004` remains blocked pending that gate.
 
 **Success Criteria (summary)**:
 - [ ] AC004 planning scope is separated from AC003 closeout scope
 - [ ] The consultation gate precedes the implementation gate in dependency order
-- [ ] The `GATE-001` package includes analysis, implementation specification, external review, and proposal artifacts
+- [ ] The successor package includes analysis, implementation specification, external review, and proposal artifacts
 - [ ] The first operationalization slice is bounded to reconciliation, cadence, helper-tooling, reminder-surface work, and the V1 rollout scope for `P`, `T102`, and `T104`
 - [ ] The AC004 activity plan is linked from the stream register
 
@@ -235,6 +235,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.9.0 | 2026-03-25 | Amendment | Replaced the old AC004 straight-approval posture with post-approval gate supersession. ST002 now points to successor `GATE-002` as the active milestone; `TK004` is blocked again pending successor consultation approval. |
 | v1.8.0 | 2026-03-24 | Close Gate | Aligned stream plan to the AC004 `GATE-001` straight `APPROVE` decision; recorded `TK004` unblocking and transition to implementation mode. |
 | v1.7.0 | 2026-03-24 | Amendment | Updated AC004 stream posture after the formal same-gate `RECYCLE` decision. The stream stub now points to the corrected `GATE-001` package, including the amended operating-model analysis, refreshed external review, bounded reminder-surface decision, and preserved AC005 blocking posture. |
 | v1.6.0 | 2026-03-23 | Amendment | Reframed AC004 around a full `GATE-001` readiness package that now includes the operating-model analysis, pre-authored first-slice implementation specification, and gate-disposition proposal for the bounded V1 rollout across `P`, `T102`, and `T104`. Added AC005 as the blocked post-AC004 commissioning stub for future V2 status-system productization. |
