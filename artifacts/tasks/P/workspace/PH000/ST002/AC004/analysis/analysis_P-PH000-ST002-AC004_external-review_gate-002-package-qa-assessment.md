@@ -7,13 +7,13 @@ phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC004'
 gate_id: 'P-PH000-ST002-AC004-GATE-002'
-version: '1.0.0'
-date: '2026-03-26'
+version: '1.1.0'
+date: '2026-03-27'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md'
-purpose: 'Independent QA-informed external review of the live AC004 successor gate package, testing remaining gaps, GIR resolution quality, and downstream readiness against workspace guidelines.'
+purpose: 'Independent external review of the live AC004 GATE-002 package after SES007, assessing residual gaps, GIR dispositions, implementation-spec sufficiency, and the exact downstream next step.'
 target_proposal: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md'
 ---
 
@@ -21,35 +21,37 @@ target_proposal: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: Provide an independent, QA-informed external review of the live AC004 gate package and determine whether the client should approve the current gate package, reject it, or approve it only with explicit conditions.
+**Purpose**: Provide an independent external review of the live AC004 `GATE-002` package after the SES007 corrective pass, the exact-detail TK004 implementation-spec rewrite, and the final same-gate proposal re-presentation.
 
-**Scope**: Review of the active successor consultation package against the governing plan and workspace guidelines, with specific testing of the three GIR recommendations, the client QA comments, downstream task sufficiency, and the exact next step after gate disposition.
+**Scope**: Review the active successor consultation package against the governing activity plan, `guideline_workspace_analysis.md`, `guideline_workspace_implementation.md`, and `guideline_workspace_plan.md`, with specific focus on remaining gaps, GIR resolution quality, implementation-spec sufficiency, downstream readiness, and the exact next execution step if the client approves the gate.
 
-**Conclusion / Recommendation**: As of **2026-03-26**, the governing activity plan records **`GATE-001` as superseded** and **`GATE-002` as the active gate**. On that live baseline, I agree with the recommended direction for **GIR-001**, **GIR-002**, and **GIR-003**, but not unqualifiedly. The package is approval-safe only as a **manual, non-hook, non-scripted V1 session-close convention** whose role coverage is clarified at disposition time. My recommendation is **APPROVE WITH CONDITIONS**, not straight approval.
+**Conclusion / Recommendation**: As of **2026-03-27**, the activity plan still records **`P-PH000-ST002-AC004-GATE-002`** as the active gate and **`P-PH000-ST002-AC004-TK004`** as blocked behind client disposition. On that live baseline, I agree with the recommended resolution for **GIR-001**, **GIR-002**, and **GIR-003**. The package is now decision-ready and developer-commissionable for the intended V1 path. My recommendation remains **APPROVE WITH CONDITIONS**, but the remaining issues are now residual authority-discipline risks rather than missing package content.
 
 ### Client Summary
 
-- The current decision is not whether to reopen historical `GATE-001`; it is whether to approve the corrected **`GATE-002`** successor package.
-- The package is structurally sound under `guideline_workspace_plan.md` and follows the correct consultation-only gate posture.
-- I agree that the dedicated session-close convention should remain the active gate-time authority and that the quarantined concrete skill should remain lineage-only until TK004.
-- I also agree that the successor implementation specification is commissionable for the intended V1 path.
-- I do **not** agree that the package is fully explicit yet on two points: whether V1 includes automatic Codex/Claude Code hooks/scripts, and whether the convention is role-agnostic or consultant-only in practice.
-- The client QA concern about “missing implementation detail” is only partially correct. The `standards_input` proposal is intentionally convention-level; the target shape is already visible in SPEC-004 and the quarantined draft skill.
-- Approval is reasonable if the GDR conditions explicitly lock the V1 boundary: manual reminder surface only, no automatic hook/script architecture in AC004 V1, and explicit role-coverage wording before TK004 starts.
+- The current decision boundary is the corrected successor **`GATE-002`** package, not the superseded 2026-03-24 `GATE-001` package.
+- The package is structurally compliant with the consultation-only gate posture in the governing activity plan: consultant-owned evidence only, no DEV-REPORT, no VERIFICATION, and no premature TK004 execution.
+- I agree with the package recommendation to keep the approved AC004 V1 reminder surface **manual-only**, **non-hook**, **non-script**, and **non-automated**.
+- I agree with the updated role-boundary posture: the reminder surface is **consultant-only in practice**, while `prompt/artifacts/tasks/P/status/status_program.md` Section 7 remains the broader, role-based operational protocol.
+- I agree that the rewritten successor implementation specification is now explicit enough to commission TK004 without inference, provided execution stays inside the approved V1 boundary.
+- The main remaining risk is not missing implementation detail. It is reader misuse of historical or lineage-only artifacts, especially the older corrected external review and the pre-existing draft `prompt/skills/session-close/SKILL.md`.
+- A smaller residual drift remains inside the standards-input proposal, which still back-links earlier support surfaces (`SES006`, older corrected review) rather than the current decisive review/session surfaces. I do not treat that as gate-blocking because the live gate proposal and GDR already establish the authoritative order.
+- If the client wants automatic Codex/Claude Code hooks, scripts, repo-wide automation, or a broader reminder surface in AC004 V1, the package should **not** be approved as-is because that would change the current decision boundary.
+- If the client accepts the live proposal conditions, the exact next step is straightforward: approve `GATE-002`, execute `TK004` using the rewritten specification, then continue `TK005 -> TK006 -> TK007 -> GATE-003`.
 
 ## II. SCOPE & INPUTS
 
 **In scope**:
 - Live AC004 successor package at `GATE-002`
-- Review of the proposal GIR recommendations
-- Review of the client QA comments against the actual package evidence
+- Independent assessment of GIR-001, GIR-002, and GIR-003
+- Independent assessment of the rewritten successor implementation specification
 - Downstream readiness for `TK004` through `GATE-003`
-- Compliance with `guideline_workspace_plan.md` and `guideline_workspace_analysis.md`
+- Compliance with `guideline_workspace_analysis.md`, `guideline_workspace_implementation.md`, and `guideline_workspace_plan.md`
 
 **Out of scope**:
 - Re-validating the superseded `GATE-001` package as if it were current authority
 - Executing `TK004`
-- Rewriting the live package as part of this review
+- Mutating the proposal, plan, or implementation artifacts as part of this review
 
 **Inputs reviewed (repo-relative paths)**:
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md`
@@ -59,7 +61,8 @@ target_proposal: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_successor-operating-model-and-reconciliation-policy.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004-GATE-002_external-review.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md`
-- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES006.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES007.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/notes_P-PH000-ST002.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md`
 - `prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md`
@@ -71,136 +74,156 @@ target_proposal: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/
 - `prompt/templates/consultant/workspace/guideline_workspace_plan.md`
 - `prompt/templates/consultant/workspace/guideline_workspace_proposal.md`
 - `prompt/templates/consultant/workspace/guideline_workspace_implementation.md`
-- `prompt/templates/consultant/workspace/workspace_documentation_rules.md`
 
 ## III. EVIDENCE / METHODOLOGY
 
 **Method**:
-1. Verified prompt-scope governance and live AGENTS coverage.
-2. Read the live successor plan, proposal, standards-input proposal, successor operating-model analysis, implementation specification, existing external review, and corrective session notes.
-3. Tested the client QA comments against the actual package evidence rather than assuming the QA concerns were defects.
-4. Cross-checked the downstream sequence against the consultation-only and implementation-backed gate patterns in `guideline_workspace_plan.md`.
-5. Reviewed the live `session-close` draft skill and `status_program.md` Section 7 to determine intended V1 behavior and role coverage.
+1. Verified prompt-scoped governance and AGENTS coverage from disk.
+2. Read the live successor plan, proposal, standards-input proposal, successor operating-model analysis, rewritten implementation specification, SES007, notes register, and summary surfaces.
+3. Tested the GIR recommendations against the live package rather than assuming earlier QA concerns still applied unchanged.
+4. Cross-checked the downstream sequence against the consultation-only and implementation-backed gate model in `guideline_workspace_plan.md`.
+5. Reviewed the live draft `prompt/skills/session-close/SKILL.md` and `status_program.md` Section 7 to assess whether the package now expresses a coherent consultant-only reminder surface plus broader role-based protocol split.
 
 **Commands run (if any)**:
 ```bash
 rg --files -g 'AGENTS.md'
-sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md
-sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md
+rg --files prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004 prompt/templates/consultant
+rg -n "TK003\\.1[0-5]|GATE-002|TK004|SES007|authoritative external-review|manual-only|consultant-only" prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md
+rg -n "GATE-002|AC004|AC005|TK004|consultant-only|manual-only|session-close" prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md
+sed -n '1,340p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md
+sed -n '1,360p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md
+sed -n '1,320p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_successor-operating-model-and-reconciliation-policy.md
 sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-TK003.8_session-close-standards-input.md
-sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md
-sed -n '420,455p' prompt/artifacts/tasks/P/status/status_program.md
-rg -n "SPEC-00[1-9]|session-close|wrap-up|GIR-|GATE-002|AC001.10" prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/**/*
+sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES007.md
+sed -n '420,470p' prompt/artifacts/tasks/P/status/status_program.md
 ```
 
 **Evidence notes**:
-- The live activity plan dated `2026-03-26` marks `GATE-001` as `superseded` and `GATE-002` as `in_progress`, so the user-facing review target must be the corrected successor gate.
-- The proposal guideline explicitly allows a `standards_input` proposal to serve as the active pre-implementation authority when a concrete implementation artifact would otherwise be premature.
-- The implementation guideline explicitly treats `standards_input` as the correct pre-implementation authority surface and prohibits treating a premature concrete artifact as active gate authority.
-- `status_program.md` Section 7 is role-agnostic: `LLM_Developer`, `LLM_Consultant`, and `LLM_Reviewer` are all responsible roles for routine non-terminal updates.
-- The live `prompt/skills/session-close/SKILL.md` is already a concise draft of the intended V1 target shape, but the package classifies it as lineage-only until TK004.
+- The live activity plan dated `2026-03-26` records `TK003.12` through `TK003.15` as complete, `GATE-002` as `in_progress`, and `TK004` as `planned` behind that gate.
+- The live proposal dated `2026-03-26` points to this QA assessment as the authoritative external-review surface and treats the older corrected review as historical support only.
+- The successor implementation specification dated `2026-03-26` is materially different from the earlier summary-level draft: it now names exact files, exact end-state posture, explicit non-targets, validation checks, and escalation rules.
+- SES007 dated `2026-03-26` confirms the package now treats the reminder surface as consultant-only in practice while preserving the broader multi-role protocol in `status_program.md` Section 7.
+- The stream plan, phase plan, and roadmap correctly still reflect pre-approval posture. That is expected because `TK004` has not started.
 
 ## IV. FINDINGS / GAP REGISTER
 
 | GAP ID | Category | Title | Description | Disposition | Downstream Target | Notes |
 |:--|:--|:--|:--|:--|:--|:--|
-| GAP-001 | workflow | V1 automation boundary is still implicit | The package consistently points to a manual session-close convention, but it does not state plainly enough in the gate proposal that AC004 V1 excludes automatic Codex/Claude Code hooks or scripts. | `pending_decision` | `P-PH000-ST002-AC004-GATE-002` | This is a gate-condition gap, not a reason to restore the wrap-up path. |
-| GAP-002 | lifecycle | Role-coverage boundary remains inferential | The package implies multi-role applicability through `status_program.md` Section 7 and the generic skill wording, but it does not explicitly say whether the convention is role-agnostic for all governed sessions or limited to consultant gate-packaging work. | `pending_decision` | `P-PH000-ST002-AC004-GATE-002` | The client should lock this in the GDR before TK004 starts. |
-| GAP-003 | structure | Standards-input target-shape preview is thin but sufficient at package level | The `standards_input` proposal does not itself show much of what the final skill will look like, but the implementation spec and quarantined draft skill already provide that visibility. | `accepted_as_is` | `P-PH000-ST002-AC004-TK004` | I do not treat this as a blocking package defect. |
+| GAP-001 | consistency | Standards-input proposal backlinks lag the live decisive package state | `proposal_P-PH000-ST002-AC004-TK003.8_session-close-standards-input.md` still references the older corrected external review and SES006 rather than the current decisive QA assessment and SES007. | `accepted_as_is` | `P-PH000-ST002-AC004-GATE-002` | Non-blocking because the live gate proposal/GDR already establishes the authoritative evidence order. |
+| GAP-002 | workflow | Quarantined draft skill still carries residual misuse risk | The live `prompt/skills/session-close/SKILL.md` is still a pre-operationalization draft and does not yet encode the full approved end state. | `accepted_as_is` | `P-PH000-ST002-AC004-TK004` | This is acceptable only because the package explicitly treats the file as lineage-only until TK004. |
 
 ## V. EXTERNAL REVIEW (INDEPENDENT ASSESSMENT)
 
-**Engagement scope**: Independent reassessment of AC004 gate readiness using the live successor baseline plus the client QA comments.
+**Engagement scope**: Independent reassessment of AC004 gate readiness using the live successor baseline after SES007 and the exact-detail TK004 specification rewrite.
 
 **Materials reviewed**:
 - See Section II inputs
 
 ### A. Strengths
 
-- The package correctly treats `GATE-001` as historical-only and rebinds the live decision to `GATE-002`.
-- The package follows the consultation-only gate pattern in `guideline_workspace_plan.md` and does not normalize the premature concrete skill as active evidence.
-- The standards-input proposal is the correct archetype for this decision boundary under `guideline_workspace_proposal.md`.
-- The successor implementation specification is sufficiently explicit for downstream execution on the intended V1 path.
-- AC001.10 is correctly framed as governance hardening follow-on rather than hidden AC004 execution scope.
+- The package now has a single decisive review surface for client disposition: this QA assessment, as indexed by the live GATE-002 proposal.
+- The proposal, SES007, and the rewritten implementation specification now agree on the practical split between consultant-only reminder surface and broader Section 7 protocol.
+- The successor implementation specification is now genuinely commissionable for the approved V1 path; it no longer relies on summary verbs or implicit file-state inference.
+- The activity plan preserves correct gate sequencing: superseded `GATE-001`, active consultation-only `GATE-002`, implementation-backed `GATE-003`, and blocked AC005 follow-on.
+- The downstream governance-hardening follow-on in AC001.10 is correctly separated from AC004 execution and does not silently expand TK004 scope.
 
 ### B. Concerns / Risks
 
-- The current package could still be read as more automated than intended because it does not plainly state that V1 is not a post-action hook/script architecture for Codex or Claude Code.
-- The role applicability of the session-close convention is not explicit enough in the proposal package, even though the status protocol itself is role-agnostic.
-- Later readers could over-weight the thin live draft skill or under-weight the standards-input proposal unless the GDR conditions restate the authority boundary.
+- The primary standards-input proposal still contains earlier support-surface backlinks, which creates a modest lineage/navigation risk even though the live proposal resolves authority correctly.
+- The pre-existing draft `prompt/skills/session-close/SKILL.md` remains easy to over-read as active authority unless later users respect the package’s explicit quarantine rule.
+- The package remains approval-safe only for the current V1 boundary. Any client expectation of automation hooks/scripts or broader reminder-surface applicability would require amendment before approval.
 
 ### C. Recommendations
 
-1. Approve the successor package only if the GDR conditions explicitly state that AC004 V1 is a **manual session-close reminder/convention**, not an automatic hook/script architecture.
-2. Approve the successor package only if the GDR conditions explicitly state the intended role coverage of the convention before TK004 begins.
-3. Keep the standards-input proposal as the active gate-time authority and keep `prompt/skills/session-close/SKILL.md` lineage-only until TK004 operationalizes the approved convention.
+1. Approve `GATE-002` only under the live proposal conditions: manual-only AC004 V1, no hooks/scripts/repo-wide automation, consultant-only reminder surface, broader Section 7 protocol unchanged.
+2. Treat the QA assessment plus the live GATE-002 proposal/GDR as the decisive authority pair; treat the older corrected external review and the live draft skill as historical or lineage-only until TK004.
+3. If approved, start TK004 immediately against the rewritten implementation specification; do not introduce new architecture or broaden scope during execution.
 
 ## VI. GIR RESOLUTION ASSESSMENT
 
 | GIR | Proposal Recommendation | Assessment | Rationale |
 |:--|:--|:--|:--|
-| GIR-001 | Approve the dedicated session-close convention through the standards-input proposal | `Agree, with condition` | This is the correct authority surface and the correct rejection of the historical wrap-up path. The only missing piece is explicit V1 wording that this convention is manual and non-hook in AC004. |
-| GIR-002 | Approve the corrected successor operating-model baseline | `Agree` | The source-of-truth order, monotonic gate sequence, and quarantine-plus-reclassify posture are the right successor baseline and align with the supersession rules. |
-| GIR-003 | Approve the successor implementation specification as commissionable authority for TK004 | `Agree, narrowly` | The spec is commissionable for the current V1 model. If the client expects automatic hooks/scripts or a materially different role boundary, then the spec would need amendment before execution. |
+| GIR-001 | Approve the dedicated session-close convention through the standards-input proposal | `Agree, with condition` | I agree with the chosen authority surface. The condition is the same one already encoded in the live proposal: AC004 V1 stays manual-only, non-automated, consultant-only for the reminder surface, and the current draft skill remains non-authoritative until TK004. |
+| GIR-002 | Approve the corrected successor operating-model baseline | `Agree` | The live package now expresses a coherent source-of-truth order, monotonic gate sequence, and quarantine posture for the premature concrete skill. This is the correct successor baseline. |
+| GIR-003 | Approve the successor implementation specification as commissionable authority for TK004 | `Agree` | The v1.2.0 implementation artifact closes the earlier ambiguity. It is sufficiently exact for the currently approved V1 scope and does not require downstream inference. |
 
-## VII. QA COMMENT ASSESSMENT
+## VII. IMPLEMENTATION-SPECIFICATION ASSESSMENT
 
-### A. QA Comment 1: Standards-input proposal lacks enough detail to envision the skill
+### A. Independent Assessment
 
-**Assessment**: Partially agree.
+The rewritten TK004 implementation specification is sufficient for downstream execution under `guideline_workspace_implementation.md`.
 
-- I do not treat this as a blocking defect because a `standards_input` proposal is supposed to define conventions, not implementation-spec depth.
-- The package already gives the client the missing target-shape evidence in two other places: SPEC-004 of the successor implementation specification and the quarantined draft `prompt/skills/session-close/SKILL.md`.
-- The real issue is readability, not package sufficiency. A brief non-authoritative preview statement would help, but the current package is still decisionable.
+- It stays inside the proper role boundary: consultant-authored, developer-executed, no GDR, no silent scope opening.
+- It satisfies the exact-detail requirement across all active SPEC items: file targets, required posture, non-targets, validation checks, and blocking ambiguity rules.
+- It correctly keeps AC005 and future-initiative work out of scope.
+- It encodes the approved split between the consultant-only reminder surface and the broader role-based Section 7 protocol without collapsing them.
+
+### B. Remaining Limitation
+
+The implementation specification is sufficient only for the currently proposed V1 contract.
+
+- If the client wants automation hooks/scripts, repo-wide enforcement, or non-consultant use of the reminder surface inside AC004 V1, then this specification would no longer match the approved boundary and should be amended before execution.
+
+## VIII. QA COMMENT ASSESSMENT
+
+### A. QA Comment 1: Standards-input proposal lacks enough detail to envision the final skill
+
+**Assessment**: Partially agree, but not as a gate-blocking defect.
+
+- The standards-input proposal remains a convention-level artifact, which is appropriate for its role.
+- The target-shape visibility now exists where it belongs: the rewritten TK004 implementation specification.
+- The remaining thinness is a readability issue, not a sufficiency defect for `GATE-002`.
 
 ### B. QA Comment 2: Comparative analysis should include hooks/scripts architecture for Codex or Claude Code
 
-**Assessment**: Disagree as a blocking package defect.
+**Assessment**: Disagree as a defect in the live package.
 
-- The corrected package intentionally narrows AC004 V1 away from repo-wide automation and away from automatic CLI hook architecture.
-- What is missing is not hook design, but an explicit statement that hook/script automation is **out of scope for AC004 V1**.
-- If the client wants hook/script automation now, that would change the approved decision boundary and should trigger package amendment rather than silent reinterpretation of GIR-001 or GIR-003.
+- The corrected package intentionally narrows AC004 V1 away from automatic hook/script architecture.
+- That boundary is now explicit in the live proposal and implementation specification.
+- If hook/script automation is desired, that is a new decision boundary, not a missing detail inside the current package.
 
 ### C. QA Comment 3: The dedicated session-close convention may only fit consultant gate work and this limitation must be explicit
 
-**Assessment**: Agree on the need for explicitness; disagree with the implied current interpretation.
+**Assessment**: Agree, and the live package now addresses it sufficiently.
 
-- The live package evidence points the other way: `status_program.md` Section 7 assigns routine non-terminal status responsibilities to `LLM_Developer`, `LLM_Consultant`, and `LLM_Reviewer`, and the draft session-close skill is phrased generically.
-- The remaining gap is that the proposal package does not state that intended role coverage clearly enough.
-- This is a real gate condition issue because the client should approve the intended V1 applicability explicitly, rather than leaving it to downstream inference.
+- SES007, the live GATE-002 proposal, and the rewritten implementation specification all now distinguish the consultant-only reminder surface from the broader role-based Section 7 protocol.
+- This concern remains relevant at execution time only because the draft skill has not yet been operationalized; it is no longer a missing package decision.
 
-## VIII. DOWNSTREAM READINESS ASSESSMENT
+## IX. DOWNSTREAM READINESS ASSESSMENT
 
 ### A. Plan-Guideline Compliance Check
 
 | Check | Expected | Observed | Result |
 |:--|:--|:--|:--|
-| Active gate is the live decision boundary | Successor gate should replace the superseded baseline | AC004 plan, stream plan, phase plan, and roadmap all point to `GATE-002` | PASS |
-| Consultation-only gate posture | No DEV-REPORT or VERIFICATION before this gate | Package remains consultant-owned through proposal/GDR | PASS |
-| Downstream implementation sequence | `TK004 -> TK005 -> TK006 -> TK007 -> GATE-003` after approval | Activity plan encodes the correct implementation-backed sequence | PASS |
-| External governance follow-on is not hidden AC004 scope | AC001.10 should stay follow-on hardening, not a hidden precondition | AC001.10 is planned separately and correctly scoped | PASS |
-| Exact next step after approval is operationally clear | Approval should lead directly to the commissioned first slice | Clear if V1 boundary is accepted; ambiguous if the client expects hooks/scripts or consultant-only coverage | OBS |
+| Active gate is the live decision boundary | Successor gate replaces superseded baseline | Activity plan, stream plan, phase plan, and roadmap all treat `GATE-002` as the active milestone | PASS |
+| Consultation-only gate posture | No DEV-REPORT or VERIFICATION before this gate | Live package remains consultant-owned through analysis, proposal, notes, and implementation-spec surfaces only | PASS |
+| Downstream implementation sequence | `TK004 -> TK005 -> TK006 -> TK007 -> GATE-003` after approval | Activity plan encodes the correct dependency order and keeps TK004 blocked until gate approval | PASS |
+| Exact next step after approval is clear | Gate approval should lead directly to the commissioned first slice | Live proposal, plan, and implementation spec all point to TK004 as the immediate next step | PASS |
+| External governance follow-on is not hidden AC004 scope | AC001.10 should remain separate governance hardening | AC001.10 is separately planned and does not block TK004 unless the client changes the current boundary | PASS |
 
-### B. Overall Readiness
+### B. Overall ReadinessPlease outline
 
-The downstream plan is sufficient **if** the client approves the current V1 boundary. Under that interpretation, the exact next step is:
+The downstream sequence is sufficient and plan-compliant for the current package.
 
-1. Record `APPROVE WITH CONDITIONS` for `GATE-002`.
-2. Start `TK004` using `implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md`.
-3. Produce `TK005` DEV-REPORT, `TK006` verification, `TK007` implementation gate-disposition proposal, then seek `GATE-003` acceptance.
-4. Continue AC001.10 separately as governance hardening; it does not need to block TK004.
+If the client approves the live GATE-002 package, the exact next step is:
 
-If the client wants automatic hooks/scripts or a narrower consultant-only convention, the package is **not** ready for execution as-is and should be amended before approval.
+1. Record `APPROVE WITH CONDITIONS` or `APPROVE` in the `GATE-002` proposal GDR, preserving the live V1 conditions.
+2. Start `P-PH000-ST002-AC004-TK004` using `implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md`.
+3. Produce `TK005` DEV-REPORT, `TK006` verification, and `TK007` implementation gate-disposition proposal.
+4. Present `P-PH000-ST002-AC004-GATE-003` for implementation acceptance.
+5. Continue AC001.10 separately as governance hardening; it does not need to block TK004.
 
-## IX. DOWNSTREAM ACTIONS
+If the client wants any broader V1 contract than the one currently documented, the package should be amended before approval rather than approved and reinterpreted later.
+
+## X. DOWNSTREAM ACTIONS
 
 | downstream_artifact_type | target_reference | trigger_condition | responsible_role | notes |
 |:--|:--|:--|:--|:--|
-| `PROPOSAL` | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md` | Client accepts this review posture | `LLM_Consultant` | Add approval conditions that lock the V1 non-hook boundary and the intended role coverage. |
-| `IMPLEMENTATION` | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md` | `GATE-002` approved with conditions | `LLM_Developer` | Execute TK004 only on the approved manual session-close convention scope. |
-| `PLAN` | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.10/plan_T104-PH001-ST008-AC001.10.md` | AC001.10 progresses | `LLM_Consultant` | Preserve the governance-hardening follow-on for durable rule clarification on pre-implementation artifacts and commissionability. |
+| `PROPOSAL` | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md` | Client accepts this review posture | `LLM_Consultant` | Preserve the live conditions exactly in the GDR; do not broaden V1 during disposition. |
+| `IMPLEMENTATION` | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md` | `GATE-002` approved | `LLM_Developer` | Execute TK004 exactly as written; use the approved standards-input proposal as the convention source. |
+| `PLAN` | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.10/plan_T104-PH001-ST008-AC001.10.md` | Governance hardening continues | `LLM_Consultant` | Carry the authoritative-review and premature-artifact governance lessons into durable rule changes. |
 
-## X. REFERENCES / LINKS REGISTER
+## XI. REFERENCES / LINKS REGISTER
 
 | Item | Reference |
 |:--|:--|
@@ -209,9 +232,11 @@ If the client wants automatic hooks/scripts or a narrower consultant-only conven
 | Standards-input proposal | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-TK003.8_session-close-standards-input.md` |
 | Comparative analysis | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_session-close-reminder-architecture-comparative-assessment.md` |
 | Successor operating-model analysis | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_successor-operating-model-and-reconciliation-policy.md` |
+| Authoritative external review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_external-review_gate-002-package-qa-assessment.md` |
+| Supporting historical review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004-GATE-002_external-review.md` |
 | Successor implementation specification | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md` |
-| Existing corrected external review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004-GATE-002_external-review.md` |
-| Corrective session notes | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES006.md` |
+| Corrective session notes | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES007.md` |
+| Notes register | `prompt/artifacts/tasks/P/workspace/PH000/ST002/notes_P-PH000-ST002.md` |
 | Status protocol | `prompt/artifacts/tasks/P/status/status_program.md` |
 | Draft session-close skill | `prompt/skills/session-close/SKILL.md` |
 | Historical wrap-up skill | `prompt/skills/wrap-up/SKILL.md` |
@@ -220,8 +245,9 @@ If the client wants automatic hooks/scripts or a narrower consultant-only conven
 | Roadmap | `prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md` |
 | Governance follow-on plan | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.10/plan_T104-PH001-ST008-AC001.10.md` |
 
-## XI. CHANGELOG
+## XII. CHANGELOG
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-27 | Amendment | Reassessed the live GATE-002 package after SES007 and the exact-detail TK004 specification rewrite. Updated the GIR dispositions, narrowed the residual risks to authority-discipline and lineage drift, and confirmed the exact downstream next step under the current plan/gate model. |
 | v1.0.0 | 2026-03-26 | Initial | Authored an independent QA-informed external review of the live AC004 `GATE-002` package. Confirms the successor package is structurally approval-safe, agrees with all three GIR recommendations with conditions, and identifies the remaining explicitness gaps around V1 automation scope and role coverage. |

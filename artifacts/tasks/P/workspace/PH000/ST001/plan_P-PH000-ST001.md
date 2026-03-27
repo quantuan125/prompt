@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.22'
-date: '2026-03-26'
+version: '0.1.24'
+date: '2026-03-27'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -43,8 +43,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | AC006 | `P-PH000-ST001-AC006` | Promote T102-STD-005 to P-STD-005 (Universal ID Specification) | `completed` | LLM_Consultant | AC002 | `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/plan_P-PH000-ST001-AC006.md` |
 | AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `completed` | LLM_Consultant | AC006 | `analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md` + updated `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/plan_P-PH000-ST001-AC007.md` |
 | AC008 | `P-PH000-ST001-AC008` | Author Evidence-Retention Governance Policy (Sibling Artifact) | `planned` | LLM_Consultant | AC003 | Future program-level governance policy artifact for evidence-retention duration | — |
-| AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `in_progress` | LLM_Consultant | `P-PH000-ST004-AC003-GATE-002` | AC009 readiness package (`TK000` + `GATE-000`) + updated `standard_P-STD-001_program-governance-standard.md` + updated prompt-owned derivatives + `P-CON-003` clarification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md` |
-| AC010 | `P-PH000-ST001-AC010` | Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs) | `planned` | LLM_Consultant | AC009 | Updated P-STD-002, P-STD-004, P-STD-005 (YAML + Provenance + References alignment) | — |
+| AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `completed` | LLM_Consultant | `P-PH000-ST004-AC003-GATE-002` | AC009 readiness package (`TK000` + `GATE-000`) + updated `standard_P-STD-001_program-governance-standard.md` + updated prompt-owned derivatives + `P-CON-003` clarification + AC010 handoff communication | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md` |
+| AC010 | `P-PH000-ST001-AC010` | Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs) | `in_progress` | LLM_Consultant | AC009 | Consultant-owned commissioning package (`TK000`) + future updates to P-STD-002, P-STD-004, P-STD-005 (YAML + Provenance + References alignment) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/plan_P-PH000-ST001-AC010.md` |
 
 ---
 
@@ -298,13 +298,13 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Success Criteria Checklist (summary)**:
 - [x] AC009 readiness package accepted through `P-PH000-ST001-AC009-GATE-000`
-- [ ] New P-STD-001 CLAUSEs authored for YAML frontmatter, version tracking, Provenance structure, References structure
-- [ ] P-STD-001 self-aligns to its own new CLAUSEs (YAML block added, Provenance restructured, References heading normalized)
-- [ ] Guideline + template updated per conformance coupling (P-STD-001-CLAUSE-005B)
-- [ ] `prompt/AGENTS.md` and `P-CON-003` updated to reflect the new metadata authority model
-- [ ] Specification Index updated for new CLAUSEs
-- [ ] All new CLAUSEs traceable to P-RES-003 findings
-- [ ] AC009 output package accepted and ready for AC010 handoff
+- [x] New P-STD-001 CLAUSEs authored for YAML frontmatter, version tracking, Provenance structure, References structure
+- [x] P-STD-001 self-aligns to its own new CLAUSEs (YAML block added, Provenance restructured, References heading normalized)
+- [x] Guideline + template updated per conformance coupling (P-STD-001-CLAUSE-005B)
+- [x] `prompt/AGENTS.md` and `P-CON-003` updated to reflect the new metadata authority model
+- [x] Specification Index updated for new CLAUSEs
+- [x] All new CLAUSEs traceable to P-RES-003 findings
+- [x] AC009 output package accepted and ready for AC010 handoff
 
 #### Activity AC010: Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs)
 
@@ -313,18 +313,22 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 **Purpose**: Bring all existing P-STD standards (P-STD-002, P-STD-004, P-STD-005) into conformance with the new P-STD-001 metadata governance CLAUSEs authored in AC009. This includes adding YAML frontmatter blocks, normalizing Provenance subsection structure, normalizing References subsection headings, and adding version tracking / amendment history sections where missing.
 
 **Deliverable (contract stub)**:
-- Updated: `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md`
-- Updated: `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`
-- Updated: `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md`
+- Consultant-owned commissioning package:
+  - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/analysis/analysis_P-PH000-ST001-AC010-TK000_execution-readiness-assessment.md`
+  - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/implementation/implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md`
+- Future updated standards:
+  - `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md`
+  - `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`
+  - `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md`
 
 **Scope**:
 - In scope:
   - Audit P-STD-002, P-STD-004, P-STD-005 against new P-STD-001 metadata CLAUSEs
-  - Add YAML frontmatter blocks to all three standards per new CLAUSE requirements
-  - Normalize Provenance subsections to canonical structure per new CLAUSE
-  - Normalize References subsection headings to canonical form per new CLAUSE
-  - Add version tracking / amendment history where missing (P-STD-004, P-STD-005)
-  - SPS row updates if version changes result
+  - Produce the consultant-owned readiness assessment and implementation task specification before downstream execution
+  - Add YAML frontmatter blocks to all three standards per new CLAUSE requirements during future execution
+  - Normalize Provenance subsections to canonical structure per new CLAUSE during future execution
+  - Normalize References subsection headings to canonical form per new CLAUSE during future execution
+  - Perform bounded SPS registration sync only if the future retrofit actually requires it
 - Out of scope:
   - Modifying P-STD-001 (completed in AC009)
   - Modifying normative CLAUSE content within P-STD-002/004/005 (structure-only changes)
@@ -333,19 +337,20 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Depends On**: AC009
 
-**Activity Plan**: TBD (standalone plan to be authored when AC010 transitions to `in_progress`)
+**Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/plan_P-PH000-ST001-AC010.md`
 
 **Success Criteria Checklist (summary)**:
+- [x] Consultant-owned commissioning package exists before developer execution begins
 - [ ] P-STD-002 conforms to new P-STD-001 metadata CLAUSEs (YAML + Provenance + References + version tracking)
 - [ ] P-STD-004 conforms to new P-STD-001 metadata CLAUSEs
 - [ ] P-STD-005 conforms to new P-STD-001 metadata CLAUSEs
 - [ ] No normative CLAUSE content in P-STD-002/004/005 modified (structure-only)
-- [ ] SPS rows updated if versions changed
+- [ ] SPS registration text updated only if the retrofit requires a bounded row refresh
 
 ## IV. DEPENDENCY NOTES (DOWNSTREAM ADOPTERS)
 
-- **AC009** (Harden P-STD-001) depends on `P-PH000-ST004-AC003-GATE-002` (closed 2026-03-13, APPROVE WITH CONDITIONS). The intake surface includes the report, client-facing integration analysis, Gate-002 disposition proposal, and external review analysis. AC009 may now begin local readiness packaging (`TK000` / `GATE-000`), but drafting execution remains blocked until `P-PH000-ST001-AC009-GATE-000` records an approving GDR.
-- **AC010** (Cross-Standard Conformance) depends on AC009 completion. New P-STD-001 CLAUSEs must be finalized before applying conformance fixes to governed standards.
+- **AC009** (Harden P-STD-001) depends on `P-PH000-ST004-AC003-GATE-002` (closed 2026-03-13, APPROVE WITH CONDITIONS). AC009 is now complete, including the downstream handoff communication consumed by AC010 `TK000`.
+- **AC010** (Cross-Standard Conformance) depends on AC009 completion. Consultant-owned commissioning work is now complete under `TK000`; downstream execution remains deferred to a later session.
 - **T104 adoption/binding** (e.g., `T104-PH001-ST002-AC000`) is downstream work and SHOULD be treated as dependent on:
   - `P-PH000-ST001-AC002` (Program Governance Standard authoring) and
   - `P-PH000-ST001-AC003` (Program Status Standard authoring).
@@ -358,6 +363,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.24 | 2026-03-27 | Closeout | Marked AC009 `completed` after TK006 handoff closure, moved AC010 to `in_progress`, and updated the AC010 contract stub to reflect the completed consultant-owned commissioning package plus the deferred future execution path. Evidence: AC009 plan v2.3.0 + AC010 plan v1.1.0. |
+| v0.1.23 | 2026-03-27 | Closeout | Linked the AC010 activity plan in the stream register and activity section, and normalized the AC009 dependency note to reflect Gate-002 closeout and the remaining `TK006` handoff step. Evidence: AC009 plan v2.2.0 + Gate-002 proposal v1.1.0. |
 | v0.1.22 | 2026-03-26 | Correction | Normalized the live AC009 closeout wording in the stream-plan history to remove the stale `TK014` reference and align the stream record with AC009 plan v2.1.0 while keeping AC009 at `in_progress` pending `GATE-002`. Evidence: AC009 plan v2.1.0 + Gate-001 proposal v1.4.0. |
 | v0.1.21 | 2026-03-26 | Housekeeping | AC009 status `planned` -> `in_progress` to reflect current execution state (`GATE-001` APPROVE WITH CONDITIONS, `TK007` through `TK013` plus `GATE-002` registered in AC009 plan v2.1.0). Evidence: AC009 plan v2.1.0 + reassessment external review v1.0.0. |
 | v0.1.20 | 2026-03-15 | Gate closure | Checked AC009 GATE-000 readiness success criterion. Evidence: GATE-000 GDR (proposal v1.1.0). |

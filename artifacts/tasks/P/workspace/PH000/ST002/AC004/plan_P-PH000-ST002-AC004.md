@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC004'
-version: '1.7.0'
-date: '2026-03-26'
+version: '1.10.0'
+date: '2026-03-27'
 status: 'in_progress'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -20,7 +20,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: Define the AC004 successor package after the post-approval decision-boundary change and its QA-refined same-gate correction pass. The client later rejected the previously accepted wrap-up-based reminder/tooling direction, so AC004 now preserves the 2026-03-24 `GATE-001` package as a superseded historical record, commissions a successor consultation package under `GATE-002`, and keeps the implementation-backed first operationalization slice downstream under `GATE-003` for the bounded V1 rollout across `P`, `T102`, and `T104`. The active successor package now tracks the QA assessment as the authoritative `GATE-002` review surface, rewrites the implementation spec to exact detail, and records the implementation-complete corrective session in `SES007` before client disposition.
+**Purpose**: Define the AC004 successor package after the post-approval decision-boundary change and its QA-refined same-gate correction pass. The client later rejected the previously accepted wrap-up-based reminder/tooling direction, so AC004 now preserves the 2026-03-24 `GATE-001` package as a superseded historical record, commissions a successor consultation package under `GATE-002`, and keeps the implementation-backed first operationalization slice downstream under `GATE-003` for the bounded V1 rollout across `P`, `T102`, and `T104`. The live `GATE-002` proposal now records `APPROVE WITH CONDITIONS` on 2026-03-27, the QA assessment remains the authoritative review surface, `SES007` remains the corrective same-gate trail, `TK003.16` has closed the gate-close housekeeping boundary before downstream commissioning, and the TK004/TK005/TK006/TK007 package is now prepared for client disposition at `GATE-003`.
 
 **Non-goal**: Do not mutate the accepted AC003 baseline in this planning artifact. Do not begin developer-owned TK004 execution before the successor consultation gate is approved. Do not treat the pre-existing `prompt/skills/session-close/SKILL.md` as active gate authority. Do not open the future V2 status-system initiative inside AC004.
 
@@ -29,7 +29,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 ## II. ACTIVITY OUTLINE
 
 **Activity ID**: `P-PH000-ST002-AC004`
-**Objective**: Establish the successor operating model and first operationalization slice for ongoing status maintenance after AC003 closeout, package the new consultation gate for client review at `GATE-002`, and preserve the implementation-backed first slice for the downstream `GATE-003` acceptance path.
+**Objective**: Establish the successor operating model and first operationalization slice for ongoing status maintenance after AC003 closeout, close and record the successor consultation gate at `GATE-002`, and commission the downstream `TK004 -> TK005 -> TK006 -> TK007 -> GATE-003` execution loop under the recorded conditions.
 **Execution Mode**: `GATED`
 **Depends On**: `P-PH000-ST002-AC003-GATE-001` (completed)
 
@@ -43,6 +43,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md`
 - `prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/verification/verification_P-PH000-ST002-AC004_gate-003.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-003_first-operationalization-disposition.md`
 
 ### Task Register
 
@@ -67,14 +69,15 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 | TK003.13 | `P-PH000-ST002-AC004-TK003.13` | Rewrite successor TK004 implementation specification to exact execution detail | `completed` | LLM_Consultant | TK003.12 | `implementation/` | `guideline_workspace_implementation.md` | Replaced summary-level implementation language with exact target-file instructions, explicit boundary conditions, and unambiguous validation checks. |
 | TK003.14 | `P-PH000-ST002-AC004-TK003.14` | Record SES007 implementation-complete corrective session and update notes register | `completed` | LLM_Consultant | TK003.13 | `snotes/`, `notes/` | `guideline_workspace_notes.md` | Authored SES007 after the package corrections were complete and registered it in the ST002 notes register as the latest corrective same-gate session trail. |
 | TK003.15 | `P-PH000-ST002-AC004-TK003.15` | Re-present corrected successor GATE-002 gate-disposition proposal | `completed` | LLM_Consultant | TK003.14 | `proposal/` | `guideline_workspace_proposal.md` | Re-authored the live GATE-002 package so the QA assessment is authoritative, SES007 is the current corrective session evidence, the explicit V1 conditions are visible, and the pending GDR matches the corrected evidence stack. |
-| GATE-002 | `P-PH000-ST002-AC004-GATE-002` | Gate: Client approval of successor AC004 operating model and first-slice execution package | `in_progress` | Client | TK003.15 | GDR | `guideline_workspace_proposal.md` | Consultation-only successor gate under corrective same-gate re-presentation. The corrected package now awaits client disposition after the QA assessment has been packaged, the implementation spec has been rewritten to exact detail, SES007 has been recorded, and the proposal has been re-presented. |
-| TK004 | `P-PH000-ST002-AC004-TK004` | Execute first operationalization slice | `planned` | LLM_Developer | GATE-002 | `prompt/artifacts/tasks/P/status/`, plan surfaces, and consultant-led session-close surface(s) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md` | Reconcile the approved AC003 baseline with live registers, codify consultant-led session-close handling, and align helper-tooling/reminder boundaries to the approved session-close convention while preserving the broader role-based status protocol. |
-| TK005 | `P-PH000-ST002-AC004-TK005` | Produce AC004 DEV-REPORT | `planned` | LLM_Developer | TK004 | `dev-report/` | `guideline_workspace_dev-report.md` | Capture bounded execution evidence for the first operationalization slice. |
-| TK006 | `P-PH000-ST002-AC004-TK006` | Produce AC004 verification | `planned` | LLM_Reviewer | TK005 | `verification/` | `guideline_workspace_verification.md` | Independently verify the operationalization slice and drive recycle if needed. |
-| TK007 | `P-PH000-ST002-AC004-TK007` | Produce AC004 implementation gate-disposition proposal | `planned` | LLM_Consultant | TK006 | `proposal/` | `guideline_workspace_proposal.md` | Package the implementation gate decision and prepare the GDR for Client disposition. |
-| GATE-003 | `P-PH000-ST002-AC004-GATE-003` | Gate: Client acceptance of the first operationalization slice | `planned` | Client | TK007 | GDR | `guideline_workspace_proposal.md` | Implementation acceptance is required before AC004 closes. |
+| GATE-002 | `P-PH000-ST002-AC004-GATE-002` | Gate: Client approval of successor AC004 operating model and first-slice execution package | `completed` | Client | TK003.15 | GDR | `guideline_workspace_proposal.md` | Client recorded `APPROVE WITH CONDITIONS` on 2026-03-27; the QA assessment remains the authoritative external-review surface and the live V1 conditions remain binding downstream. |
+| TK003.16 | `P-PH000-ST002-AC004-TK003.16` | Complete GATE-002 closeout housekeeping and commission downstream execution loop | `completed` | LLM_Consultant | GATE-002 | `implementation/`, `proposal/`, `snotes/`, `notes/` | `guideline_workspace_implementation.md` | Consultant-owned post-approval housekeeping specification executed; decisive references were reconciled, `SES008` was recorded, and downstream TK004 commissioning is now unblocked. |
+| TK004 | `P-PH000-ST002-AC004-TK004` | Execute first operationalization slice | `completed` | LLM_Developer | GATE-002, TK003.16 | `prompt/artifacts/tasks/P/status/`, plan surfaces, and consultant-led session-close surface(s) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md` | Executed the first operationalization slice across the canonical ledger, derived narrative, stream/phase/roadmap surfaces, and consultant-only session-close reminder surface within the approved successor boundary. |
+| TK005 | `P-PH000-ST002-AC004-TK005` | Produce AC004 DEV-REPORT | `completed` | LLM_Developer | TK004 | `dev-report/` | `guideline_workspace_dev-report.md` | Published the bounded first-slice DEV-REPORT with implementation log, validation evidence, traceability matrix, and consultant handoff package. |
+| TK006 | `P-PH000-ST002-AC004-TK006` | Produce AC004 verification | `completed` | LLM_Consultant | TK005 | `verification/` | `guideline_workspace_verification.md` | Published consultant-authored evidence-first verification for `GATE-003`, issued `CONDITIONAL PASS`, and recorded one non-blocking DEV-REPORT metadata traceability finding. |
+| TK007 | `P-PH000-ST002-AC004-TK007` | Produce AC004 implementation gate-disposition proposal | `completed` | LLM_Consultant | TK006 | `proposal/` | `guideline_workspace_proposal.md` | Packaged the delivered first-slice implementation, DEV-REPORT, and verification evidence into the pending `GATE-003` client disposition proposal. |
+| GATE-003 | `P-PH000-ST002-AC004-GATE-003` | Gate: Client acceptance of the first operationalization slice | `in_progress` | Client | TK007 | GDR | `guideline_workspace_proposal.md` | Client review is now underway against the delivered implementation package; pending GDR disposition for the first operationalization slice. |
 
-**Gate Model**: `GATE-001` is a superseded historical consultation gate preserved for audit trail only. `GATE-002` is the active consultation-only successor gate and now runs a corrective same-gate re-presentation loop reviewing the comparative analysis, session-close `standards_input` proposal, SES006 historical corrective notes, SES007 implementation-complete corrective notes, successor operating-model analysis, QA assessment, successor implementation `task_specification`, historical supporting review, and corrected gate-disposition proposal. `GATE-003` is the implementation-backed acceptance gate and depends on the first operationalization slice.
+**Gate Model**: `GATE-001` is a superseded historical consultation gate preserved for audit trail only. `GATE-002` is the completed consultation-only successor gate and now records `APPROVE WITH CONDITIONS` on 2026-03-27; the QA assessment remains authoritative, `SES008` carries the post-approval housekeeping trail, and the live V1 conditions remain binding during downstream execution. `GATE-003` is the implementation-backed acceptance gate; the TK004/TK005/TK006/TK007 package is now assembled, the consultant verification verdict is `CONDITIONAL PASS`, and the client GDR is pending.
 
 ---
 
@@ -674,11 +677,57 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 **Gate-Disposition Proposal**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md`
 
+The gate is now closed as `APPROVE WITH CONDITIONS` on 2026-03-27, and the downstream conditions remain in force during `TK004`.
+
+### Task TK003.16: Complete GATE-002 Closeout Housekeeping and Commission Downstream Execution Loop
+
+**Task ID**: `P-PH000-ST002-AC004-TK003.16`
+
+**Purpose**: Author and execute a consultant-owned post-approval housekeeping specification so `GATE-002` is formally closed, the decisive authority surfaces are reconciled, and the downstream `TK004 -> TK005 -> TK006 -> TK007 -> GATE-003` loop is commissioned without preempting any `TK004` implementation targets. This task is now complete and served as the final pre-TK004 housekeeping boundary.
+
+**Deliverable**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_gate-002-closeout-and-loop-commissioning-task-specification.md`
+
+**Scope**:
+- In scope:
+  - consultant-owned implementation specification for the post-approval housekeeping boundary
+  - recording the `GATE-002` approving GDR decision and preserving the QA assessment as the authoritative external-review surface
+  - reconciling the standards-input proposal so its decisive references match the live authoritative package
+  - updating the AC004 activity plan to reflect gate completion and downstream loop commissioning
+  - creating `SES008` and registering it JIT in the ST002 notes register
+  - handing off the bounded downstream execution loop only after housekeeping is complete
+- Out of scope:
+  - mutating any `TK004` execution target surface
+  - producing `TK005` DEV-REPORT, `TK006` verification, or `TK007` / `GATE-003` proposal artifacts
+  - amending `SES007` instead of creating a new corrective session
+
+**Inputs Required**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_external-review_gate-002-package-qa-assessment.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-TK003.8_session-close-standards-input.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES007.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/notes_P-PH000-ST002.md`
+- `prompt/templates/consultant/workspace/guideline_workspace_implementation.md`
+- `prompt/templates/consultant/workspace/guideline_workspace_proposal.md`
+- `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
+
+**Steps**:
+1. Author the consultant-execution `task_specification` artifact for the gate-close housekeeping boundary.
+2. Execute the housekeeping specification through a consultant-commissioned assistant with a write scope limited to proposal, plan, session-notes, and notes-register surfaces.
+3. Verify that no `TK004` implementation target was touched during gate-close housekeeping before commissioning the downstream developer loop.
+
+**Success Criteria**:
+- [ ] The consultant-owned gate-close housekeeping implementation artifact exists and is execution-complete.
+- [ ] `GATE-002` is closed in the proposal GDR while preserving the live manual-only / consultant-only conditions.
+- [ ] The standards-input proposal no longer points to stale decisive review/session surfaces.
+- [ ] `SES008` exists and is registered in the ST002 notes register.
+- [ ] `TK004` remains fully unstarted at the file-system level after housekeeping completes.
+
 ### Task TK004: Execute First Operationalization Slice
 
 **Task ID**: `P-PH000-ST002-AC004-TK004`
 
-**Purpose**: Perform the first bounded operationalization of the status workflow after successor consultation approval, limited to the consultant-led session-close boundary approved by GATE-002.
+**Purpose**: Perform the first bounded operationalization of the status workflow after successor consultation approval, limited to the consultant-led session-close boundary approved by GATE-002. Execution is commissioned through a consultant-supervised `gpt-5.4-mini` `xhigh` developer assistant against the successor TK004 implementation specification.
 
 **Deliverable**:
 - Updated `prompt/artifacts/tasks/P/status/status_program.yaml`
@@ -721,7 +770,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 **Task ID**: `P-PH000-ST002-AC004-TK005`
 
-**Purpose**: Capture bounded evidence for the first operationalization slice.
+**Purpose**: Capture bounded evidence for the first operationalization slice. The developer assistant who performs `TK004` also authors the bounded `TK005` DEV-REPORT handoff for consultant verification.
 
 **Deliverable**:
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md`
@@ -737,7 +786,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 **Task ID**: `P-PH000-ST002-AC004-TK006`
 
-**Purpose**: Independently verify the first operationalization slice.
+**Purpose**: Perform evidence-first verification of the first operationalization slice as the consultant-authored verification artifact for this activity.
 
 **Deliverable**:
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/verification/verification_P-PH000-ST002-AC004_gate-003.md`
@@ -801,6 +850,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 | Analysis | AC004 GATE-002 Package QA Assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_external-review_gate-002-package-qa-assessment.md` |
 | Analysis | AC004 Corrected GATE-002 External Review (historical support) | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004-GATE-002_external-review.md` |
 | Proposal | AC004 GATE-002 Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md` |
+| Implementation | AC004 GATE-002 Closeout And Loop Commissioning Task Specification | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_gate-002-closeout-and-loop-commissioning-task-specification.md` |
 | Proposal | AC003 GATE-001 Disposition | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/proposal/proposal_P-PH000-ST002-AC003-GATE-001_initial-population-acceptance-disposition.md` |
 | Analysis | AC003 External Review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/analysis/analysis_P-PH000-ST002-AC003_gate-001-external-review.md` |
 | Status Ledger | Program Status Ledger | `prompt/artifacts/tasks/P/status/status_program.yaml` |
@@ -817,6 +867,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.10.0 | 2026-03-27 | Amendment | Recorded completion of TK004 through TK007 for the first operationalization slice, published the consultant-authored `GATE-003` verification and pending disposition proposal, and advanced `GATE-003` to active client review with one non-blocking DEV-REPORT metadata condition. |
+| v1.9.0 | 2026-03-27 | Amendment | Recorded the client `APPROVE WITH CONDITIONS` decision for `GATE-002`, completed the post-approval housekeeping boundary in `TK003.16`, reassigned `TK006` verification ownership to the consultant, and commissioned `SES008` plus the downstream loop. |
+| v1.8.0 | 2026-03-27 | Amendment | Added `TK003.16` as the consultant-owned post-approval housekeeping and downstream-loop commissioning task, inserted the dedicated closeout implementation-spec deliverable, and blocked `TK004` on both `GATE-002` and the new housekeeping task. |
 | v1.7.0 | 2026-03-26 | Amendment | Completed the QA-remediation same-gate tracking pass: TK003.12 and TK003.13 are now complete, TK003.14 records consultant-authored SES007 plus notes-register updates, TK003.15 re-presents the corrected proposal, and GATE-002 now depends on the full corrected evidence stack. |
 | v1.6.0 | 2026-03-26 | Amendment | Added the QA-refined same-gate re-presentation loop for successor `GATE-002`. Inserted TK003.12 through TK003.14, reclassified the QA assessment as the authoritative external-review surface, kept the older corrected review as historical support, and tightened the TK004 implementation specification boundary before client disposition. |
 | v1.5.0 | 2026-03-26 | Amendment | Inserted the corrective same-gate re-presentation loop for successor `GATE-002`. Added TK003.8 through TK003.11, reclassified session-close detail into a `standards_input` proposal, registered SES006, recreated the external review, and kept TK004 blocked behind corrected client disposition. |

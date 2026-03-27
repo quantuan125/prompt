@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC010'
-version: '1.0.0'
-date: '2026-03-26'
+version: '1.1.0'
+date: '2026-03-27'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -20,13 +20,14 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: Bring all existing P-STD standards (P-STD-002, P-STD-004, P-STD-005) into conformance with the P-STD-001 metadata governance CLAUSEs (CLAUSE-031 through CLAUSE-036, including CLAUSE-036G) authored and evolved in AC009. This is a structure-only retrofit — no normative CLAUSE content within the target standards is modified.
+**Purpose**: Bring all existing P-STD standards (P-STD-002, P-STD-004, P-STD-005) into conformance with the P-STD-001 metadata governance CLAUSEs (CLAUSE-031 through CLAUSE-036, including CLAUSE-036G) authored and evolved in AC009. This is a structure-only retrofit: consultant-owned readiness/specification work is completed in this session, while downstream execution remains future work.
 
 **Non-goals**:
 - This activity does not modify P-STD-001 (completed and evolved in AC009).
 - This activity does not modify normative CLAUSE content within P-STD-002, P-STD-004, or P-STD-005.
 - This activity does not include P-STD-003 (deprecated placeholder — excluded per client direction).
 - This activity does not perform repo-wide reference sweeps beyond Tier 1.
+- This activity does not execute `TK001` through `TK007` in this session.
 
 ---
 
@@ -42,7 +43,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` (target)
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` (target)
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` (target)
-- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/analysis/analysis_P-PH000-ST001-AC009-TK006_ac010-handoff-boundary.md` (handoff boundary)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/communication/comm_P-PH000-ST001-AC010_ac009-handoff-boundary.md` (AC009 handoff boundary)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/analysis/analysis_P-PH000-ST001-AC010-TK000_execution-readiness-assessment.md` (consultant readiness assessment)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/implementation/implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md` (future execution contract)
 - `prompt/templates/consultant/standards/guideline_standard_specs.md` (authoring guide)
 - `prompt/templates/consultant/standards/template_standard_specs.md` (structural template)
 
@@ -50,11 +53,11 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 | Task | Task ID | Name | Status | Owner | Depends On | Target | Reference | Action |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
-| TK000 | `P-PH000-ST001-AC010-TK000` | Metadata conformance audit of P-STD-002/004/005 | `planned` | LLM_Consultant | — | Gap inventory per CLAUSE-031 through CLAUSE-036 | P-STD-001 v1.2.0 + AC009 handoff | — |
-| TK001 | `P-PH000-ST001-AC010-TK001` | Retrofit P-STD-002 (YAML + Provenance + References + Amendment History) | `planned` | LLM_Developer | TK000 | `standard_P-STD-002_program-status-standard.md` | TK000 audit findings | — |
-| TK002 | `P-PH000-ST001-AC010-TK002` | Retrofit P-STD-004 (YAML + Provenance + References + Amendment History) | `planned` | LLM_Developer | TK000 | `standard_P-STD-004_file-naming-and-directory-convention.md` | TK000 audit findings | — |
-| TK003 | `P-PH000-ST001-AC010-TK003` | Retrofit P-STD-005 (YAML + Provenance + References + Amendment History) | `planned` | LLM_Developer | TK000 | `standard_P-STD-005_universal-id-specification.md` | TK000 audit findings | — |
-| TK004 | `P-PH000-ST001-AC010-TK004` | SPS row updates (version bump propagation) | `planned` | LLM_Developer | TK001, TK002, TK003 | `sps_P-PROGRAM.md` | Version changes from TK001-TK003 | — |
+| TK000 | `P-PH000-ST001-AC010-TK000` | Produce AC010 readiness assessment and retrofit task specification package | `completed` | LLM_Consultant | — | Readiness assessment + IMPLEMENTATION task specification | `P-STD-001` v1.2.0 + AC009 handoff communication | Authored the AC010 readiness assessment and unified future execution specification, and amended the live plan so downstream execution is commissioned from those consultant-owned artifacts. |
+| TK001 | `P-PH000-ST001-AC010-TK001` | Retrofit P-STD-002 (governed metadata surfaces only) | `planned` | LLM_Developer | TK000 | `standard_P-STD-002_program-status-standard.md` | `implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md` | — |
+| TK002 | `P-PH000-ST001-AC010-TK002` | Retrofit P-STD-004 (governed metadata surfaces only) | `planned` | LLM_Developer | TK000 | `standard_P-STD-004_file-naming-and-directory-convention.md` | `implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md` | — |
+| TK003 | `P-PH000-ST001-AC010-TK003` | Retrofit P-STD-005 (governed metadata surfaces only) | `planned` | LLM_Developer | TK000 | `standard_P-STD-005_universal-id-specification.md` | `implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md` | — |
+| TK004 | `P-PH000-ST001-AC010-TK004` | SPS registration sync after metadata retrofit | `planned` | LLM_Developer | TK001, TK002, TK003 | `sps_P-PROGRAM.md` (only if row text needs refresh) | `implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md` | — |
 | TK005 | `P-PH000-ST001-AC010-TK005` | Dev-report for cross-standard retrofit | `planned` | LLM_Developer | TK004 | DEV-REPORT | `guideline_workspace_dev-report.md` | — |
 | TK006 | `P-PH000-ST001-AC010-TK006` | Verification for cross-standard retrofit | `planned` | LLM_Reviewer | TK005 | VERIFICATION | `guideline_workspace_verification.md` | — |
 | TK007 | `P-PH000-ST001-AC010-TK007` | Gate-001 disposition proposal | `planned` | LLM_Consultant | TK006 | PROPOSAL (gate_disposition) | `guideline_workspace_proposal.md` | — |
@@ -64,39 +67,42 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 ## III. TASKS (DETAILED)
 
-### Task TK000: Metadata Conformance Audit of P-STD-002/004/005
+### Task TK000: Produce AC010 Readiness Assessment and Retrofit Task Specification Package
 
 **Task ID**: `P-PH000-ST001-AC010-TK000`
 
-**Purpose**: Audit all three target standards against the P-STD-001 metadata governance CLAUSEs to produce a precise gap inventory before retrofit execution.
+**Purpose**: Complete the consultant-owned commissioning package for AC010 so future developer execution begins from an explicit upstream handoff, a readiness assessment, and a developer-facing implementation specification rather than from plan-only guidance.
 
 **Deliverable**:
-- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/analysis/analysis_P-PH000-ST001-AC010-TK000_metadata-conformance-audit.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/analysis/analysis_P-PH000-ST001-AC010-TK000_execution-readiness-assessment.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/implementation/implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md`
 
 **Scope**:
 - In scope:
-  - Audit each target standard against CLAUSE-031 (YAML frontmatter), CLAUSE-032 (metadata authority), CLAUSE-034 (version tracking), CLAUSE-035 (references taxonomy), CLAUSE-036 (provenance taxonomy including CLAUSE-036G)
-  - Identify which structural elements are present, missing, or non-conformant
-  - Produce a per-standard gap table with specific remediation actions
+  - Consume the AC009 handoff communication as the downstream design-boundary input
+  - Assess AC010 readiness and plan compliance against the current target-standard state
+  - Produce a future execution specification for `TK001` through `TK004`
+  - Amend live AC010 planning language so downstream execution points to the commissioned implementation artifact
 - Out of scope:
   - Modifying P-STD-001
-  - Modifying normative CLAUSE content within target standards
-  - Assessing target standard normative quality
+  - Executing `TK001` through `TK007`
+  - Modifying any target standard in this session
 
 **Inputs Required**:
 - `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` (v1.2.0) — authoritative governance model
-- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/analysis/analysis_P-PH000-ST001-AC009-TK006_ac010-handoff-boundary.md` — handoff boundary and retrofit requirements
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/communication/comm_P-PH000-ST001-AC010_ac009-handoff-boundary.md` — handoff boundary and retrofit requirements
 - Target standards (P-STD-002, P-STD-004, P-STD-005)
+- `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md`
 
 **Steps**:
-1. Read each target standard and compare against CLAUSE-031 through CLAUSE-036 requirements.
-2. For each standard, record: (a) frontmatter presence/completeness, (b) References taxonomy conformance, (c) Provenance taxonomy conformance, (d) Amendment History presence/format, (e) Input Sources presence.
-3. Produce a consolidated gap table mapping each finding to the governing CLAUSE and a specific remediation action.
+1. Author the AC010 execution-readiness assessment capturing the original readiness gaps, the resolved AC009 handoff boundary, and the exact downstream actions needed before developer execution.
+2. Author the unified AC010 implementation task specification that governs future execution of `TK001` through `TK004`.
+3. Amend the live AC010 plan so `TK001` through `TK004` reference the commissioned implementation artifact rather than generic audit findings.
 
 **Success Criteria**:
-- [ ] Audit analysis exists at the canonical path
-- [ ] All three target standards audited against all relevant CLAUSEs
-- [ ] Gap table provides actionable remediation items per standard
+- [ ] Readiness assessment exists at the canonical path
+- [ ] Implementation task specification exists at the canonical path
+- [ ] AC010 future execution is explicitly commissioned from the consultant-owned package
 
 ---
 
@@ -104,20 +110,14 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 **Task ID**: `P-PH000-ST001-AC010-TK001`
 
-**Purpose**: Apply the P-STD-001 metadata governance structure to P-STD-002 (Program Status Standard).
+**Purpose**: Apply the commissioned metadata-governance retrofit to `P-STD-002` without modifying normative `CLAUSE` content.
 
 **Deliverable**:
 - Updated `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md`
 
-**Scope**:
-- In scope: Add YAML frontmatter, normalize References subsections, normalize Provenance subsections, add version tracking
-- Out of scope: Modifying normative CLAUSE content; adding or removing CLAUSEs
-
 **Steps**:
-1. Add governed YAML frontmatter per CLAUSE-031.
-2. Normalize `## References` into `### Normative References` and `### Informative References` per CLAUSE-035.
-3. Normalize `## Provenance` into `### Status`, `### Lineage / Authority`, `### Amendment History`, `### Input Sources` per CLAUSE-036.
-4. Verify internal consistency after structural changes.
+1. Execute `SPEC-001` from `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/implementation/implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md`.
+2. Validate only the governed metadata surfaces changed before handing off to `TK005`.
 
 **Success Criteria**:
 - [ ] P-STD-002 has valid YAML frontmatter per CLAUSE-031
@@ -136,11 +136,15 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 **Deliverable**:
 - Updated `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md`
 
-**Scope**: Same as TK001, applied to P-STD-004.
+**Steps**:
+1. Execute `SPEC-002` from `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/implementation/implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md`.
+2. Validate only the governed metadata surfaces changed before handing off to `TK005`.
 
-**Steps**: Same as TK001, applied to P-STD-004.
-
-**Success Criteria**: Same as TK001, applied to P-STD-004.
+**Success Criteria**:
+- [ ] P-STD-004 has valid YAML frontmatter per CLAUSE-031
+- [ ] References section conforms to CLAUSE-035
+- [ ] Provenance section conforms to CLAUSE-036
+- [ ] No normative CLAUSE content modified
 
 ---
 
@@ -153,29 +157,33 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 **Deliverable**:
 - Updated `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md`
 
-**Scope**: Same as TK001, applied to P-STD-005.
+**Steps**:
+1. Execute `SPEC-003` from `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/implementation/implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md`.
+2. Validate only the governed metadata surfaces changed before handing off to `TK005`.
 
-**Steps**: Same as TK001, applied to P-STD-005.
-
-**Success Criteria**: Same as TK001, applied to P-STD-005.
+**Success Criteria**:
+- [ ] P-STD-005 has valid YAML frontmatter per CLAUSE-031
+- [ ] References section conforms to CLAUSE-035
+- [ ] Provenance section conforms to CLAUSE-036
+- [ ] No normative CLAUSE content modified
 
 ---
 
-### Task TK004: SPS Row Updates
+### Task TK004: SPS Registration Sync After Metadata Retrofit
 
 **Task ID**: `P-PH000-ST001-AC010-TK004`
 
-**Purpose**: Update SPS entries if version changes occurred during TK001-TK003 retrofit.
+**Purpose**: Refresh SPS registration text only if the future metadata retrofit creates a bounded row-text update within the existing SPS schema.
 
 **Deliverable**:
-- Updated `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` (if version bumps occurred)
+- Updated `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` (only if registration text needs refresh)
 
 **Steps**:
-1. Check if TK001-TK003 resulted in version bumps for any target standard.
-2. If yes, update the corresponding SPS STD Index rows.
+1. Execute `SPEC-004` from `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/implementation/implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md`.
+2. If no row-text change is required, record a no-op outcome in the future dev-report rather than forcing an SPS edit.
 
 **Success Criteria**:
-- [ ] SPS rows reflect current versions for all retrofitted standards
+- [ ] SPS remains within its current schema and any bounded registration sync is complete
 
 ---
 
@@ -255,8 +263,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 ## IV. DEPENDENCY NOTES
 
-- **AC009 GATE-002** must record an approving GDR before AC010 execution begins.
-- **AC009 TK006** (handoff boundary document) provides the explicit design-authority freeze for AC010. The handoff surface defines exactly which CLAUSE requirements AC010 must retrofit and what AC010 must not reopen.
+- **AC009 GATE-002** recorded an approving GDR before this consultant-owned AC010 commissioning package was authored.
+- **AC009 TK006** now provides the explicit design-authority freeze for AC010 via the communication artifact `prompt/artifacts/tasks/P/workspace/PH000/ST001/communication/comm_P-PH000-ST001-AC010_ac009-handoff-boundary.md`.
+- Consultant-owned commissioning work (`TK000`) is complete in this session. Downstream execution (`TK001` through `TK007`) is intentionally deferred to a later session.
 - This activity does not modify any T102 or T104 artifacts.
 
 ---
@@ -265,4 +274,5 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-27 | Amendment | Completed the consultant-owned AC010 commissioning package. Replaced the missing AC009 handoff analysis input with the stream-level communication handoff, expanded `TK000` to own the readiness assessment and implementation task specification, narrowed `TK004` to bounded SPS registration sync, and deferred downstream execution to a future session. |
 | v1.0.0 | 2026-03-26 | Initial | Created AC010 activity plan for cross-standard conformance pass. Defines audit, per-standard retrofit, SPS update, and gate-readiness stack. Scope: structure-only conformance of P-STD-002, P-STD-004, P-STD-005 to P-STD-001 metadata governance CLAUSEs (CLAUSE-031 through CLAUSE-036G). Evidence: SES003 consultation + AC009 stream plan contract stub. |

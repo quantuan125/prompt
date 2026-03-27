@@ -28,9 +28,9 @@
 
 schema_version: '1.0'
 program_id: P
-as_of: '2026-03-23'
+as_of: '2026-03-27'
 updated_by: LLM_Developer
-last_updated: '2026-03-23'
+last_updated: '2026-03-27'
 entries:
 - scope_uid: P-PH000-ST001-AC001
   scope_type: activity
@@ -517,10 +517,10 @@ entries:
   scope_type: activity
   initiative_id: P
   name: Operationalize Status Update Workflow & Automation Baseline
-  status: planned
-  as_of: '2026-03-23'
+  status: in_progress
+  as_of: '2026-03-27'
   updated_by: LLM_Developer
-  last_updated: '2026-03-23'
+  last_updated: '2026-03-27'
   health:
     overall: unassessed
     dimensions:
@@ -537,7 +537,7 @@ entries:
     category: internal
     criticality: critical
     owner: LLM_Developer / LLM_Reviewer / LLM_Consultant
-    status: open
+    status: resolved
     evidence:
     - type: note
       ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
@@ -547,9 +547,54 @@ entries:
   evidence:
   - type: note
     ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
-    date: '2026-03-23'
+    date: '2026-03-27'
     by: LLM_Developer
-    summary: 'Source plan row for P-PH000-ST002-AC004 (status planned; raw depends_on: AC003)'
+    summary: 'Source plan row for P-PH000-ST002-AC004 (status in_progress; raw depends_on: AC003)'
+  - type: decision
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md
+    date: '2026-03-27'
+    by: Client
+    summary: 'GATE-002 approved successor operating-model package; TK004 unblocked for manual-only consultant-led session-close V1 operationalization'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST002-AC005
+  scope_type: activity
+  initiative_id: P
+  name: Commission Future Status-System Initiative (`T105` or next available ID)
+  status: planned
+  as_of: '2026-03-27'
+  updated_by: LLM_Developer
+  last_updated: '2026-03-27'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST002-AC004
+    to_id: P-PH000-ST002-AC005
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+      date: '2026-03-27'
+      by: LLM_Developer
+      summary: 'Dependency clause from source plan row for P-PH000-ST002-AC005: AC004'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+    date: '2026-03-27'
+    by: LLM_Developer
+    summary: 'Source plan row for P-PH000-ST002-AC005 (status planned; raw depends_on: AC004)'
   aggregation_policy: null
   execution_refs: []
   extensions: {}

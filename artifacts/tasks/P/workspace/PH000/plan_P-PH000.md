@@ -4,8 +4,8 @@ planning_level: 'PHASE'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
-version: '0.4.9'
-date: '2026-03-25'
+version: '0.4.10'
+date: '2026-03-27'
 status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -46,14 +46,14 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 |:--|:--|:--|:--|:--|:--|:--|
 | 0 | `P-PH000-ST000` | Bootstrap Consultation + Program SPS Shell + Research Commission | SEQUENTIAL | — | `planned` | Stream plans + notes for AC001; `sps_P-PROGRAM.md`; planned `P-RES-001` commission |
 | 1 | `P-PH000-ST001` | Program Standards + ID Governance Enablement | SEQUENTIAL | ST000 | `planned` | Planned `P-RES` enablement (T102-STD-005 change); planned `P-STD-001` / `P-STD-002` authoring activities |
-| 2 | `P-PH000-ST002` | Program Status System (Schema + Protocol + Artifact) | SEQUENTIAL | ST001 | `in_progress` | AC004 historical `GATE-001` is superseded after a post-approval decision-boundary change; successor consultation `GATE-002` is the active milestone; implementation remains blocked |
+| 2 | `P-PH000-ST002` | Program Status System (Schema + Protocol + Artifact) | SEQUENTIAL | ST001 | `in_progress` | `GATE-002` is approved, `TK004` is active, `GATE-003` is the next client milestone, and AC005 remains blocked until AC004 closes |
 | 4 | `P-PH000-ST004` | Program Research Commissioning | PARALLEL | — | `completed` | P-RES-001 + P-RES-002 briefs + reports + integration recommendations |
 
 **Note**: Stream `P-PH000-ST003` is intentionally reserved (no current purpose defined). ST004 numbering is deliberate.
 
 ### Activity Snapshot Index
 
-**Activity Snapshot As-Of**: 2026-03-25
+**Activity Snapshot As-Of**: 2026-03-27
 
 | Stream | Activity | Activity ID | Name | Status (snapshot) | Owner | Source (Stream Plan) |
 |:--|:--|:--|:--|:--|:--|:--|
@@ -109,6 +109,7 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.4.10 | 2026-03-27 | Housekeeping | Recorded the approved `GATE-002` state for ST002, marked `TK004` active, advanced the active milestone to `GATE-003`, and preserved AC005 as the blocked post-AC004 commissioning stub. |
 | v0.4.9 | 2026-03-25 | Housekeeping | Refreshed the PH000 snapshot after AC004 post-approval gate supersession. ST002 now reflects successor consultation `GATE-002` as the active milestone and re-blocks `TK004` until successor approval. |
 | v0.4.8 | 2026-03-24 | Close Gate | Aligned phase plan to the AC004 `GATE-001` straight `APPROVE` decision; recorded the transition of ST002 to the implementation phase (TK004). |
 | v0.4.7 | 2026-03-24 | Housekeeping | Refreshed the PH000 stream and activity snapshot after the AC004 `GATE-001 RECYCLE` decision. ST002 now reflects same-gate consultant correction and re-presentation posture while AC005 remains blocked behind AC004 closure. |

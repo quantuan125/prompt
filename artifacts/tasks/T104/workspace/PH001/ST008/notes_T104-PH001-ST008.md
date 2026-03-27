@@ -5,8 +5,8 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST008'
-version: '2.16.0'
-date: '2026-03-25'
+version: '2.17.0'
+date: '2026-03-27'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -23,7 +23,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 ## I. STREAM SUMMARY
 
 **Stream**: ST008 (Vertical Guideline Integration & Documentation Rules Alignment)
-**Scope**: Supersedes ST005-AC004. Commissions and reviews a dual-lens research report (T104-RES-003) benchmarking the 7-artifact workspace against traditional SE/PM and LLM-agentic patterns, performs a vertical integration audit, and synthesizes findings into an integration model for `workspace_documentation_rules.md`. Downstream activities (AC003: cross-guideline gap resolution, AC004: documentation rules consolidation) consume the accepted research package.
+**Scope**: Supersedes ST005-AC004. Commissions and reviews a dual-lens research report (T104-RES-003) benchmarking the 7-artifact workspace against traditional SE/PM and LLM-agentic patterns, performs a vertical integration audit, and synthesizes findings into an integration model for `workspace_documentation_rules.md`. The stream now also hosts AC006 as the promoted governance-hardening path derived from the former AC001.10 baseline. Downstream activities (AC003: cross-guideline gap resolution, AC004: documentation rules consolidation) consume the accepted research package.
 **Status**: `in_progress`
 
 ---
@@ -40,6 +40,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Activity | Session ID | Name | Notes File |
 |:--|:--|:--|:--|
+| AC006 | `T104-PH001-ST008-AC006-SES001` | AC006 Promotion, Baseline Readiness Assessment & GATE-001 Package Structuring | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES001.md` |
 | AC001.9 | `T104-PH001-ST008-AC001.9-SES004` | GATE-002 Housekeeping Closeout, Authority Sync & Client Approval Recording | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES004.md` |
 | AC001.9 | `T104-PH001-ST008-AC001.9-SES003` | Orchestration QA, TK004 Amendment, Developer Execution & GATE-002 Packaging | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES003.md` |
 | AC001.9 | `T104-PH001-ST008-AC001.9-SES002` | GATE-001 Closeout, Client Approval Recording & Next-Session Handoff | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES002.md` |
@@ -88,6 +89,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.17.0 | 2026-03-27 | Amendment | Registered AC006-SES001 (AC006 Promotion, Baseline Readiness Assessment & GATE-001 Package Structuring) after the AC006 promotion and TK000 baseline assessment were authored. |
 | v2.16.0 | 2026-03-25 | Gate Closure | Registered AC001.9-SES004 (GATE-002 Housekeeping Closeout, Authority Sync & Client Approval Recording). SES004 records the final housekeeping synchronization, the refreshed GATE-002 proposal evidence trail, client APPROVE decision, and AC001.9 closure. |
 | v2.15.0 | 2026-03-25 | Amendment | Registered AC001.9-SES003 (Orchestration QA, TK004 Amendment, Developer Execution & GATE-002 Packaging) after the revised orchestration plan approval, TK004 changelog-scope amendment, uninterrupted developer execution, TK011 verification, and TK012 packaging. |
 | v2.14.0 | 2026-03-24 | Amendment | Registered AC001.9-SES002 (GATE-001 Closeout, Client Approval Recording & Next-Session Handoff) after GATE-001 approval, closeout, and next-session boundary confirmation. |

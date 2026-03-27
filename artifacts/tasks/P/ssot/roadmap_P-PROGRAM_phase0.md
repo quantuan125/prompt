@@ -5,8 +5,8 @@ initiative_code: 'PROGRAM'
 epic_id: '—'
 epic_code: '—'
 phase: '0'
-version: '0.2.5'
-date: '2026-03-25'
+version: '0.2.6'
+date: '2026-03-27'
 status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -53,7 +53,7 @@ roadmap_changelog: 'prompt/artifacts/tasks/P/archive/changelog_roadmap_P-PROGRAM
 | Focus Area | Current State | Next Milestone | Canonical Link |
 |:--|:--|:--|:--|
 | Program Standards Stack | `P-STD-001` and `P-STD-002` are accepted; `P-STD-004` and `P-STD-005` remain active hardening surfaces per current plan state | Continue ST001 standards work and derivative alignment | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
-| Program Status System | AC004 historical `GATE-001` is superseded after a post-approval decision-boundary change. The active package is successor consultation `GATE-002`. | Approve AC004 successor `GATE-002` package before re-commissioning `TK004` | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
+| Program Status System | `GATE-002` approved the successor operating model, and `TK004` / `GATE-003` are now the active implementation and acceptance path. | Complete AC004 `TK004` and present `GATE-003` acceptance package | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | Program Research & Governance Inputs | P research surfaces exist and continue to support standards/status hardening | Reuse research outputs in downstream operationalization and standards hardening work | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 
 ---
@@ -85,6 +85,7 @@ roadmap_changelog: 'prompt/artifacts/tasks/P/archive/changelog_roadmap_P-PROGRAM
 
 | Version | Date | Type | Summary |
 |:-------|:-----|:-----|:--------|
+| v0.2.6 | 2026-03-27 | Amendment | Shifted the program status-system snapshot from successor consultation approval to active implementation: `GATE-002` is approved, `TK004` is active, and `GATE-003` is the next acceptance milestone. |
 | v0.2.5 | 2026-03-25 | Amendment | Replaced the old AC004 straight-approval milestone with post-approval gate supersession. The roadmap now points to successor `GATE-002` rather than immediate `TK004` commissioning. |
 | v0.2.4 | 2026-03-24 | Close Gate | Aligned roadmap to the AC004 `GATE-001` straight `APPROVE` decision; recorded the unblocking of `TK004` for V1 first-slice execution. |
 | v0.2.3 | 2026-03-24 | Amendment | Refreshed the compact roadmap snapshot after the AC004 `GATE-001 RECYCLE` decision so the current milestone is same-gate package correction and re-presentation rather than immediate implementation start. |

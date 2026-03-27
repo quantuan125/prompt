@@ -2,8 +2,8 @@
 artifact_type: 'STATUS'
 initiative_id: 'P'
 schema_version: '1.0'
-version: '1.0.0'
-date: '2026-03-23'
+version: '1.0.1'
+date: '2026-03-27'
 status: 'draft'
 author: 'LLM_Developer'
 decision_owner_role: 'Client'
@@ -25,12 +25,12 @@ Derived from `status_program.yaml` top-level fields and the full entry set.
 | Field | Value |
 |:--|:--|
 | Program | P |
-| As Of | 2026-03-23 |
+| As Of | 2026-03-27 |
 | Updated By | LLM_Developer |
-| Total Entries | 82 |
-| Status Distribution | planned 52, in_progress 4, completed 26 |
+| Total Entries | 83 |
+| Status Distribution | planned 52, in_progress 5, completed 26 |
 
-All 82 entries remain activity-level only, and every health dimension is `unassessed`.
+All 83 entries remain activity-level only, and every health dimension is `unassessed`.
 
 ## 2. Status
 
@@ -53,7 +53,8 @@ Derived from `entries[].scope_uid`, `entries[].name`, `entries[].status`, and `e
 | `P-PH000-ST002-AC001` | Define status artifact schema + update protocol | completed | 2026-03-23 |
 | `P-PH000-ST002-AC002` | Design & Author Program Status Artifact Set | completed | 2026-03-23 |
 | `P-PH000-ST002-AC003` | Backfill & Validate Initial Program Entries | planned | 2026-03-23 |
-| `P-PH000-ST002-AC004` | Operationalize Status Update Workflow & Automation Baseline | planned | 2026-03-23 |
+| `P-PH000-ST002-AC004` | Operationalize Status Update Workflow & Automation Baseline | in_progress | 2026-03-27 |
+| `P-PH000-ST002-AC005` | Commission Future Status-System Initiative (`T105` or next available ID) | planned | 2026-03-27 |
 | `P-PH000-ST004-AC001` | Commission `P-RES-001` (Status Standard Research) | completed | 2026-03-23 |
 | `P-PH000-ST004-AC002` | Commission `P-RES-002` (Agentic Status Systems Research) | completed | 2026-03-23 |
 | `P-PH000-ST004-AC003` | Commission `P-RES-003` (Specification Metadata Governance Research) | in_progress | 2026-03-23 |
@@ -145,6 +146,7 @@ Derived from `entries[].health.overall` and `entries[].health.dimensions`.
 | `P-PH000-ST002-AC002` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
 | `P-PH000-ST002-AC003` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
 | `P-PH000-ST002-AC004` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
+| `P-PH000-ST002-AC005` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
 | `P-PH000-ST004-AC001` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
 | `P-PH000-ST004-AC002` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
 | `P-PH000-ST004-AC003` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
@@ -229,7 +231,7 @@ Derived from `entries[].dependencies[]` and limited to open / at-risk edges surf
 | `P-PH000-ST001-AC003` | `P-PH000-ST001-AC008` | depends_on | critical | at_risk | LLM_Consultant |
 | `P-PH000-ST004-AC003-GATE-002` | `P-PH000-ST001-AC009` | depends_on | critical | open | Client |
 | `P-PH000-ST001-AC009` | `P-PH000-ST001-AC010` | depends_on | critical | open | LLM_Consultant |
-| `P-PH000-ST002-AC003` | `P-PH000-ST002-AC004` | depends_on | critical | open | LLM_Developer / LLM_Reviewer / LLM_Consultant |
+| `P-PH000-ST002-AC004` | `P-PH000-ST002-AC005` | depends_on | critical | open | LLM_Consultant |
 | `T102-PH001-ST001-AC008` | `T102-PH001-ST001-AC009` | depends_on | critical | at_risk | Client |
 | `T102-PH001-ST004-AC004-GATE-002` | `T102-PH001-ST001-AC009` | depends_on | critical | open | Client |
 | `T102-PH001-ST005-AC001-GATE-001` | `T102-PH001-ST002-AC000` | depends_on | critical | open | Client |
@@ -281,7 +283,10 @@ Derived from `entries[].evidence[]` with one source-plan pointer per activity en
 | `P-PH000-ST002-AC001` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST002-AC001 (status completed; raw depends_on: —) |
 | `P-PH000-ST002-AC002` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST002-AC002 (status completed; raw depends_on: ST001-AC003 (satisfied)) |
 | `P-PH000-ST002-AC003` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST002-AC003 (status planned; raw depends_on: AC002) |
-| `P-PH000-ST002-AC004` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST002-AC004 (status planned; raw depends_on: AC003) |
+| `P-PH000-ST002-AC004` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-27 | LLM_Developer | Source plan row for P-PH000-ST002-AC004 (status in_progress; raw depends_on: AC003) |
+| `P-PH000-ST002-AC004` | decision | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md` | 2026-03-27 | Client | GATE-002 approved successor operating-model package; TK004 unblocked for manual-only consultant-led session-close V1 operationalization |
+| `P-PH000-ST002-AC005` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-27 | LLM_Developer | Dependency clause from source plan row for P-PH000-ST002-AC005: AC004 |
+| `P-PH000-ST002-AC005` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-27 | LLM_Developer | Source plan row for P-PH000-ST002-AC005 (status planned; raw depends_on: AC004) |
 | `P-PH000-ST004-AC001` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST004-AC001 (status completed; raw depends_on: —) |
 | `P-PH000-ST004-AC002` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST004-AC002 (status completed; raw depends_on: —) |
 | `P-PH000-ST004-AC003` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST004-AC003 (status in_progress; raw depends_on: —) |
@@ -369,7 +374,8 @@ Derived from the non-terminal ledger entries and their dependency posture.
 | `P-PH000-ST001-AC009` | Advance according to source plan | LLM_Developer | — | status planned; open deps: 1; at-risk deps: 0 |
 | `P-PH000-ST001-AC010` | Advance according to source plan | LLM_Developer | — | status planned; open deps: 1; at-risk deps: 0 |
 | `P-PH000-ST002-AC003` | Advance according to source plan | LLM_Developer | — | status planned; no open upstream dependencies on this row |
-| `P-PH000-ST002-AC004` | Advance according to source plan | LLM_Developer | — | status planned; open deps: 1; at-risk deps: 0 |
+| `P-PH000-ST002-AC004` | Continue active execution | LLM_Developer | — | status in_progress; no open upstream dependencies on this row |
+| `P-PH000-ST002-AC005` | Advance according to source plan | LLM_Developer | — | status planned; open deps: 1; at-risk deps: 0 |
 | `P-PH000-ST004-AC003` | Continue active execution | LLM_Developer | — | status in_progress; no open upstream dependencies on this row |
 | `T102-PH001-ST001-AC008` | Continue active execution | LLM_Developer | — | status in_progress; no open upstream dependencies on this row |
 | `T102-PH001-ST001-AC009` | Advance according to source plan | LLM_Developer | — | status planned; open deps: 1; at-risk deps: 1 |
@@ -431,6 +437,8 @@ _This section is NOT derived from the ledger. It is the governing protocol for m
 | Consulted | LLM_Consultant | Advise on status assessments, health evaluations, dependency analysis |
 | Informed | All roles | Receive stale-state notifications; review narrative summaries |
 
+The dedicated `prompt/skills/session-close/SKILL.md` surface is a consultant-only reminder surface for consultation-session closeout work. It operationalizes the approved session-close convention, but it does not replace this Section 7 protocol: `LLM_Developer`, `LLM_Reviewer`, and `LLM_Consultant` remain bound by the same trigger-point rules whenever their work changes governed status surfaces.
+
 ### 7.2 Update Trigger Points
 
 Agents MUST update the ledger at each of the following trigger points:
@@ -442,6 +450,8 @@ Agents MUST update the ledger at each of the following trigger points:
 5. **Explicit deferral or reactivation** — transition to `deferred` or from `deferred` → `ready`; record target scope/cycle and next review date.
 6. **Health reassessment trigger** — per CLAUSE-017: upon transition to `ready`/`in_progress`, upon entering `blocked`/`on_hold`/`deferred`, and at terminal transitions.
 7. **Stale-state review cycle** — per CLAUSE-038: at least every 7 calendar days; `deferred` items re-evaluated within 30 days.
+
+- Consultant-led consultation-session closeout MAY use `prompt/skills/session-close/SKILL.md` as a reminder surface, but that reminder does not narrow the broader role binding in §7.1.
 
 ### 7.3 Terminal / Reopen Execution Rule
 
@@ -468,5 +478,6 @@ Perform ledger and narrative updates in this order (per CLAUSE-048):
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.0.1 | 2026-03-27 | Amendment | Updated the derived narrative for the TK004 operationalization slice: GATE-002 approval now anchors the ledger, AC004 is in progress, AC005 is registered as the blocked future initiative stub, and the consultant-only session-close reminder surface is distinguished from the broader role-based protocol. |
 | v1.0.0 | 2026-03-23 | Population | Replaced the placeholder-only narrative sections with ledger-derived summary, status, health, dependency, evidence, and next-action tables for the AC003 baseline. Preserved the governing Operational Update Protocol and the ledger-first authority model. |
 | v0.1.0 | 2026-03-23 | Initial | Structural skeleton authored per P-PH000-ST002-AC002-TK003. All sections present; sections 1–6 are placeholder-only pending AC003 population. Operational Update Protocol (§7) embedded verbatim from SPEC-002 (GIR-001(a)). |
