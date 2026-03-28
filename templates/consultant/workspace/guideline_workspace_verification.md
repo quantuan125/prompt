@@ -24,8 +24,8 @@ This guideline defines the authoring rules and gate-oriented verification workfl
 
 The following roles interact with verification artifacts:
 
-- **LLM_Reviewer** (preferred): Primary author of gate verification artifacts. Performs independent cross-verification using evidence-first methodology.
-- **LLM_Consultant**: Permitted for implementation-backed commissioning assessments and readiness reviews. Consultation-only gate assessments belong in `ANALYSIS`, not `VERIFICATION`.
+- **LLM_Reviewer** (preferred future-state primary): Primary verifier for gate verification artifacts. Performs independent cross-verification using evidence-first methodology.
+- **LLM_Consultant**: Currently authorized secondary verifier under the temporary operating model. May author implementation-backed commissioning assessments and readiness reviews when the consultant is independent of the implementation-producing task for that cycle. Consultation-only gate assessments belong in `ANALYSIS`, not `VERIFICATION`.
 - **Client**: Decision owner. All gate decisions require Client approval signal, which is recorded in the proposal's Gate Decision Record (GDR) section.
 - **LLM_Developer**: NOT an author of verification artifacts. Developer-produced evidence (dev-reports, execution logs) serves as verification INPUT, not verification itself.
 
@@ -40,16 +40,16 @@ Verification follows a "TK-before-gate" pattern:
 1. **Plan defines gate**: The gate appears in the task register with entry/exit criteria per `guideline_workspace_plan.md §VI.C`.
 2. **Upstream implementation tasks complete**: All developer-owned tasks listed in the gate's entry criteria reach terminal status.
 3. **DEV-REPORT is authored**: A developer-owned `DEV-REPORT` task captures the bounded implementation evidence and handoff package for review.
-4. **Verification task starts**: A reviewer-owned task (e.g., `TK006`) in the task register is assigned to produce verification evidence. Gate status transitions to `in_progress`.
-5. **Reviewer produces verification artifact**: Following this guideline's evidence rules (§V), findings schema (§VI), and template structure.
-6. **Reviewer issues verdict**: One of the verdict values defined in §VIII.
+4. **Verification task starts**: A verifier-owned task (e.g., `TK006`) in the task register is assigned to produce verification evidence. The verifier role is the plan-authorized role for the current operating model. Gate status transitions to `in_progress`.
+5. **Verifier produces verification artifact**: Following this guideline's evidence rules (§V), findings schema (§VI), and template structure.
+6. **Verifier issues verdict**: One of the verdict values defined in §VIII.
 7. **Client reviews**: Client examines the verification artifact (entry criteria assessment, findings, recommendation).
 8. **Client issues decision**: Decision recorded in the `gate_disposition` proposal's Gate Decision Record (GDR). Gate status transitions per §VIII mapping.
 9. **Downstream enforcement**: Tasks with `Depends On: GATE-###` MUST verify that the gate's `gate_disposition` proposal contains a populated GDR with APPROVE or APPROVE WITH CONDITIONS before starting.
 
 **Mandatory Rule**: The separation of verification task (evidence production) from gate (decision) is mandatory. Verification evidence MUST NOT be produced as part of the gate event itself.
 
-**Plan-level positioning**: In implementation-backed gates, the verification task SHOULD appear as part of the Gate-Readiness Stack — after the DEV-REPORT task and before the gate-disposition proposal task. Consultation-only gates omit verification entirely. For the full pattern, see `guideline_workspace_plan.md` §VI.L.
+**Plan-level positioning**: In implementation-backed gates, the verification task SHOULD appear as part of the Gate-Readiness Stack — after the DEV-REPORT task and before the gate-disposition proposal task. Consultation-only gates omit verification entirely. The verifier role used for that task is the plan-authorized role for the current operating model. For the full pattern, see `guideline_workspace_plan.md` §VI.L.
 
 ## IV. VERIFICATION PACKAGE
 
@@ -195,7 +195,7 @@ The plan is the developer's work authority. The verification artifact identifies
 
 ## VIII. VERDICT TAXONOMY
 
-### A. Reviewer Verdicts
+### A. Verifier Verdicts
 
 | Verdict | Definition | Gate Status After |
 |:--|:--|:--|
@@ -237,11 +237,11 @@ The plan is the developer's work authority. The verification artifact identifies
 The Gate Decision Record (GDR) specification, lifecycle, and enforcement rules are defined in `guideline_workspace_proposal.md` §VII (Gate Semantics & Gate Decision Record).
 
 The gate decision flow produces three distinct signals:
-1. **Reviewer Verdict** (in this artifact's Gate Recommendation section, §VIII): Evidence-based quality/compliance signal using verdict taxonomy (`PASS / CONDITIONAL PASS / PASS WITH DEFERRALS / RECYCLE / FAIL`). Recorded only in the verification artifact — NOT duplicated into the GDR.
+1. **Verifier Verdict** (in this artifact's Gate Recommendation section, §VIII): Evidence-based quality/compliance signal using verdict taxonomy (`PASS / CONDITIONAL PASS / PASS WITH DEFERRALS / RECYCLE / FAIL`). Recorded only in the verification artifact — NOT duplicated into the GDR.
 2. **Consultant Recommendation** (in the proposal's GDR): Consolidated advisory signal synthesizing reviewer findings and GIR dispositions. Uses client decision taxonomy (`APPROVE / APPROVE WITH CONDITIONS / RECYCLE / REJECT`).
 3. **Client Decision** (in the proposal's GDR): Authoritative closure signal. Client MAY override the consultant recommendation.
 
-The verification artifact's role at a gate is to provide evidence and a reviewer verdict. The GDR — which records the consultant's recommendation and the client's decision — is hosted in the `gate_disposition` proposal artifact, not in the verification artifact.
+The verification artifact's role at a gate is to provide evidence and a verifier verdict. The GDR — which records the consultant's recommendation and the client's decision — is hosted in the `gate_disposition` proposal artifact, not in the verification artifact.
 
 **Cross-reference**: For GDR field specification, lifecycle, and enforcement rules, see `guideline_workspace_proposal.md` §VII.C–E.
 

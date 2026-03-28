@@ -34,7 +34,7 @@ This guideline is Draft 1 and is governed by AC008 GATE-000 decisions (GIR-001 t
 
 - **LLM_Consultant** is the primary author of proposal artifacts.
 - **Client** is the decision owner for proposal approval and gate closure.
-- **LLM_Reviewer** owns VERIFICATION artifacts and reviewer verdicts for verification gates.
+- **LLM_Reviewer** (preferred future-state primary) and **LLM_Consultant** (currently authorized secondary under the temporary operating model) own VERIFICATION artifacts when acting as the verifier role for verification gates.
 - **LLM_Developer** consumes approved proposal outputs and executes implementation tasks.
 
 Boundary rules:
@@ -212,14 +212,14 @@ Policy: additional optional keys are permitted when justified by the archetype; 
 - The authoritative approval signal is the proposal-embedded `## Gate Decision Record` section.
 - Decision-gate proposals MAY use a proposal-embedded GDR without a separate verification artifact.
 - When a verification artifact also exists for the same gate, the proposal-embedded GDR is the authoritative decision record.
-- The GDR carries two decision signals: the **Consultant Recommendation** (advisory) and the **Client Decision** (authoritative). The reviewer verdict is recorded only in the verification artifact and is NOT duplicated into the GDR.
+- The GDR carries two decision signals: the **Consultant Recommendation** (advisory) and the **Client Decision** (authoritative). The verifier verdict is recorded only in the verification artifact and is NOT duplicated into the GDR.
 - **Plan-level positioning**: The gate-disposition proposal task SHOULD appear as part of the Gate-Readiness Stack — after the verification task for implementation-backed gates, or immediately before the gate row for consultation-only gates. The gate construct MUST include a `Gate-Disposition Proposal` field referencing the proposal path. For the full pattern, see `guideline_workspace_plan.md` §VI.L.
 
 ### B. Verification gate
 
-- Verification gates require reviewer-owned verification evidence and verdict taxonomy per `guideline_workspace_verification.md`.
-- The verification artifact carries the reviewer verdict in its Gate Recommendation section (§VII of verification template). The reviewer verdict is NOT duplicated into the GDR.
-- The `gate_disposition` proposal's Consultant Gate Recommendation section (§V) MUST state whether the consultant recommendation aligns with or departs from the reviewer's verdict, with a reference to the verification artifact.
+- Verification gates require verifier-owned verification evidence and verdict taxonomy per `guideline_workspace_verification.md`.
+- The verification artifact carries the verifier verdict in its Gate Recommendation section (§VII of verification template). The verifier verdict is NOT duplicated into the GDR.
+- The `gate_disposition` proposal's Consultant Gate Recommendation section (§V) MUST state whether the consultant recommendation aligns with or departs from the verifier's verdict, with a reference to the verification artifact.
 - Proposal artifacts MUST NOT substitute for verification artifacts when gate purpose is quality/compliance verification.
 - When consultant recommendation or client decision is `RECYCLE`, the proposal MUST describe the same-gate reassessment loop and MUST NOT imply that downstream gate-dependent work may start before reassessment.
 
@@ -244,8 +244,8 @@ Every `gate_disposition` proposal MUST include a Gate Decision Record as the pen
 
 **Consultant Recommendation field rules**:
 - The Consultant Recommendation is the consultant's consolidated gate-level advisory signal, synthesizing all GIR item dispositions into a single recommendation using the Client Decision taxonomy (`APPROVE / APPROVE WITH CONDITIONS / RECYCLE / REJECT / SUPERSEDE`).
-- For implementation-backed gates (where a verification artifact exists): the Consultant Gate Recommendation section (§V) MUST state whether the recommendation aligns with or departs from the reviewer's verdict recorded in the verification artifact. The reviewer verdict is NOT duplicated into the GDR.
-- For consultation-only gates (no verification artifact): the Consultant Recommendation is the sole advisory signal. No reviewer verdict exists to reference.
+- For implementation-backed gates (where a verification artifact exists): the Consultant Gate Recommendation section (§V) MUST state whether the recommendation aligns with or departs from the verifier verdict recorded in the verification artifact. The verifier verdict is NOT duplicated into the GDR.
+- For consultation-only gates (no verification artifact): the Consultant Recommendation is the sole advisory signal. No verifier verdict exists to reference.
 
 **Gate Status After Decision field rules**:
 - `pending` is used only while the GDR is awaiting a client decision.

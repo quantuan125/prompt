@@ -1,3 +1,15 @@
+---
+artifact_type: 'STANDARD'
+initiative_id: 'P'
+initiative_code: 'PROGRAM'
+standard_id: 'P-STD-004'
+version: '1.0.0'
+date: '2026-03-28'
+status: 'draft'
+author: 'LLM_Consultant'
+decision_owner_role: 'Client'
+---
+
 # P-STD-004 — File Naming & Directory Convention {#p-std-004-file-naming-and-directory-convention}
 
 ## Specification
@@ -254,26 +266,41 @@
 
 ## References
 
-### External References (Cross-Scope)
+### Normative References
 | ID | Title | Scope | Source Path |
 |:--|:--|:--|:--|
 | P-STD-001 | Program Governance Standard | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` |
 | P-STD-005 | Universal ID Specification | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` |
+
+### Informative References
+| ID | Title | Scope | Source Path |
+|:--|:--|:--|:--|
 | T104-PH001-ST002-AC000 | Directory & File Naming Convention Proposal | Initiative-family (T104) | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` |
 | T102-CON-009 | Normative Keywords | Initiative-family (T102) | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` |
 
 ## Provenance
 
 ### Status
-- `draft` (seeded from approved proposal; GATE-001 passed 2026-02-27; GATE-002 dispositions approved 2026-03-01; pending GATE-003 acceptance review)
+| Field | Value |
+|:--|:--|
+| Current lifecycle posture | `draft` |
+| Review posture | `seeded from approved proposal; GATE-001 passed 2026-02-27; GATE-002 dispositions approved 2026-03-01; pending GATE-003 acceptance review` |
 
-### Seed Source
-- Proposal v3.4.0: `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md`
+### Lineage / Authority
+| Field | Value |
+|:--|:--|
+| Seed source proposal | `prompt/artifacts/tasks/T104/workspace/PH001/ST002/AC000/proposal/proposal_T104-PH001-ST002-AC000_directory-naming-convention.md` |
+| Governing plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/plan_P-PH000-ST001-AC004.md` |
+| Review lineage pointer | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-001.md` |
+| Review lineage pointer | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-002.md` |
+| Review lineage pointer | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/verification/verification_P-PH000-ST001-AC004_gate-003-package-audit.md` |
 
-### Activity Plan
-- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/plan_P-PH000-ST001-AC004.md`
+### Amendment History
+> Full version history: `prompt/artifacts/tasks/P/standard/changelog/changelog_standard_P-STD-004.md`
 
-### Seed Decision Inputs
+### Input Sources
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC004/snotes/snotes_P-PH000-ST001-AC004-SES001.md`
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST007/AC001/snotes/snotes_T104-PH001-ST007-AC001-SES006.md`
 - `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.6/proposal/proposal_T104-PH001-ST008-AC001.6-GATE-001_gir-disposition-package.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/analysis/analysis_P-PH000-ST001-AC010-TK000_execution-readiness-assessment.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/implementation/implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md`

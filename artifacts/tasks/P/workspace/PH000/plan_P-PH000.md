@@ -4,9 +4,9 @@ planning_level: 'PHASE'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
-version: '0.4.10'
-date: '2026-03-27'
-status: 'completed'
+version: '0.4.14'
+date: '2026-03-28'
+status: 'in_progress'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
@@ -29,6 +29,7 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 
 ---
 
+
 ## II. CONTEXT MATERIALS & PREREQUISITES
 
 - Raw consultation transcript: `prompt/artifacts/tasks/P/workspace/PH000/ST000/AC001/raw/raw_P-PH000-ST000-AC001-SES001.txt`
@@ -46,14 +47,14 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 |:--|:--|:--|:--|:--|:--|:--|
 | 0 | `P-PH000-ST000` | Bootstrap Consultation + Program SPS Shell + Research Commission | SEQUENTIAL | — | `planned` | Stream plans + notes for AC001; `sps_P-PROGRAM.md`; planned `P-RES-001` commission |
 | 1 | `P-PH000-ST001` | Program Standards + ID Governance Enablement | SEQUENTIAL | ST000 | `planned` | Planned `P-RES` enablement (T102-STD-005 change); planned `P-STD-001` / `P-STD-002` authoring activities |
-| 2 | `P-PH000-ST002` | Program Status System (Schema + Protocol + Artifact) | SEQUENTIAL | ST001 | `in_progress` | `GATE-002` is approved, `TK004` is active, `GATE-003` is the next client milestone, and AC005 remains blocked until AC004 closes |
+| 2 | `P-PH000-ST002` | Program Status System (Schema + Protocol + Artifact) | SEQUENTIAL | ST001 | `in_progress` | AC004 is closed; AC005 depends on AC006; AC006 is in readiness hardening (Session-Close Skill + Briefing Dashboard) |
 | 4 | `P-PH000-ST004` | Program Research Commissioning | PARALLEL | — | `completed` | P-RES-001 + P-RES-002 briefs + reports + integration recommendations |
 
 **Note**: Stream `P-PH000-ST003` is intentionally reserved (no current purpose defined). ST004 numbering is deliberate.
 
 ### Activity Snapshot Index
 
-**Activity Snapshot As-Of**: 2026-03-27
+**Activity Snapshot As-Of**: 2026-03-28
 
 | Stream | Activity | Activity ID | Name | Status (snapshot) | Owner | Source (Stream Plan) |
 |:--|:--|:--|:--|:--|:--|:--|
@@ -73,8 +74,9 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 | 2 | AC001 | `P-PH000-ST002-AC001` | Define program status schema + update protocol (decision-complete) | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | 2 | AC002 | `P-PH000-ST002-AC002` | Design & Author Program Status Artifact Set | `completed` | LLM_Consultant / LLM_Developer | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | 2 | AC003 | `P-PH000-ST002-AC003` | Backfill & Validate Initial Program Entries | `completed` | LLM_Developer / LLM_Reviewer / LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
-| 2 | AC004 | `P-PH000-ST002-AC004` | Successor Gate Supersession and Status-Workflow Recommissioning | `in_progress` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
-| 2 | AC005 | `P-PH000-ST002-AC005` | Commission Future Status-System Initiative (`T105` or next available ID) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
+| 2 | AC004 | `P-PH000-ST002-AC004` | Successor Gate Supersession and Status-Workflow Recommissioning | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
+| 2 | AC005 | `P-PH000-ST002-AC005` | Commission Future Status-System Initiative (`T105` or next available ID) | `planned` | AC006 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
+| 2 | AC006 | `P-PH000-ST002-AC006` | Session-Close Skill Hardening, Briefing Dashboard & Snotes Closeout Guidance | `in_progress` | AC004 | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | 4 | AC001 | `P-PH000-ST004-AC001` | Commission P-RES-001 (Status Standard Research) | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 | 4 | AC002 | `P-PH000-ST004-AC002` | Commission P-RES-002 (Agentic Status Systems Research) | `completed` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 | 4 | AC003 | `P-PH000-ST004-AC003` | Commission P-RES-003 (Specification Metadata Governance Research) | `planned` | LLM_Consultant | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
@@ -109,6 +111,10 @@ ssot_sps_target: 'prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.4.14 | 2026-03-28 | Housekeeping | Structural alignment for ST002/AC006 expanded scope (Briefing Dashboard) and AC005 dependency reversal. Updated Activity Snapshot and Stream Register. |
+| v0.4.13 | 2026-03-28 | Housekeeping | Refreshed the PH000 snapshot after AC006 readiness hardening began. ST002 still shows AC004 closed, keeps AC005 planned, and now marks AC006 `in_progress` for TK000 assessment and plan hardening. |
+| v0.4.12 | 2026-03-28 | Housekeeping | Refreshed the PH000 snapshot after AC004 closeout completion. ST002 now records the approved `GATE-003` decision, marks AC004 completed, and keeps AC005/AC006 as separate planned follow-on lanes. |
+| v0.4.11 | 2026-03-28 | Housekeeping | Refreshed the PH000 snapshot after AC004 clean-closeout preparation. ST002 now shows the clean `GATE-003` package pending client disposition and adds AC006 alongside the blocked AC005 follow-on lane. |
 | v0.4.10 | 2026-03-27 | Housekeeping | Recorded the approved `GATE-002` state for ST002, marked `TK004` active, advanced the active milestone to `GATE-003`, and preserved AC005 as the blocked post-AC004 commissioning stub. |
 | v0.4.9 | 2026-03-25 | Housekeeping | Refreshed the PH000 snapshot after AC004 post-approval gate supersession. ST002 now reflects successor consultation `GATE-002` as the active milestone and re-blocks `TK004` until successor approval. |
 | v0.4.8 | 2026-03-24 | Close Gate | Aligned phase plan to the AC004 `GATE-001` straight `APPROVE` decision; recorded the transition of ST002 to the implementation phase (TK004). |

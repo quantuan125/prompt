@@ -735,7 +735,7 @@ parent_plan: 'prompt/artifacts/tasks/T102/workspace/PH001/ST002/plan_T102-PH001-
 **Purpose**: Package the AC000 deliverables into a gate-disposition proposal for client review and approval. This is a consultation-only gate -- no DEV-REPORT or VERIFICATION tasks are required.
 
 **Deliverable**:
-- `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/proposal/proposal_T102-PH001-ST002-AC000_gate-disposition.md`
+- `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/proposal/proposal_T102-PH001-ST002-AC000_gate-001-disposition.md`
 
 **Scope**:
 - In scope: Gate-disposition proposal per `guideline_workspace_proposal.md` Section V.B; GDR in pending state
@@ -774,7 +774,7 @@ parent_plan: 'prompt/artifacts/tasks/T102/workspace/PH001/ST002/plan_T102-PH001-
 - If APPROVE WITH CONDITIONS: conditions are recorded and addressed before AC001 begins
 - If RECYCLE: remediation tasks are created per `guideline_workspace_plan.md` Section VI.K
 
-**Gate-Disposition Proposal**: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/proposal/proposal_T102-PH001-ST002-AC000_gate-disposition.md`
+**Gate-Disposition Proposal**: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/proposal/proposal_T102-PH001-ST002-AC000_gate-001-disposition.md`
 
 ---
 

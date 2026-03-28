@@ -1,3 +1,17 @@
+---
+artifact_type: 'STANDARD'
+initiative_id: 'P'
+initiative_code: 'PROGRAM'
+standard_id: 'P-STD-002'
+version: '1.3.0'
+date: '2026-03-28'
+status: 'accepted'
+author: 'LLM_Consultant'
+decision_owner_role: 'Client'
+approval_date: '2026-03-04'
+effective_date: '2026-03-04'
+---
+
 # P-STD-002 — Program Status Standard {#p-std-002-program-status-standard}
 
 ## Specification
@@ -650,12 +664,16 @@
 
 ## References
 
-### External References (Cross-Scope)
+### Normative References
 | ID | Title | Scope | Source Path |
 |:--|:--|:--|:--|
 | P-STD-001 | Program Governance Standard | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` |
 | P-STD-004 | File Naming & Directory Convention | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-004_file-naming-and-directory-convention.md` |
 | P-STD-005 | Universal ID Specification | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-005_universal-id-specification.md` |
+
+### Informative References
+| ID | Title | Scope | Source Path |
+|:--|:--|:--|:--|
 | P-SPS | Program SPS | Program (P) | `prompt/artifacts/tasks/P/ssot/sps_P-PROGRAM.md` |
 | P-RES-001 | Status Standard Research | Program (P) | `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md` |
 | P-RES-002 | Agentic Status Systems Research | Program (P) | `prompt/artifacts/tasks/P/research/P-RES-002/report_P-RES-002_agentic-status-research.md` |
@@ -664,14 +682,27 @@
 ## Provenance
 
 ### Status
-- `accepted` (GATE-001 APPROVE, 2026-03-04)
+| Field | Value |
+|:--|:--|
+| Current lifecycle posture | `accepted` |
+| Approved | `2026-03-04` |
+| Effective | `2026-03-04` |
+
+### Lineage / Authority
+| Field | Value |
+|:--|:--|
+| Governing activity plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md` |
+| Approval surface | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-001_gir-disposition-package.md` |
+| Approval surface | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-003_execution-disposition-package.md` |
+| Approval surface | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/proposal/proposal_P-PH000-ST001-AC003-GATE-004_amendment-disposition-package.md` |
 
 ### Amendment History
-- v1.2.0 (2026-03-18): Added `deferred` as 8th canonical lifecycle state (CLAUSE-001/001A). Added CLAUSE-056 (Status Enum Casing Convention). Updated transition matrix (CLAUSE-005 + G10), stale-state thresholds (CLAUSE-038), tool meta-category mapping (CLAUSE-002), initial/terminal states (CLAUSE-004), and blocked/on-hold/deferred semantics (CLAUSE-009). CDR-15 recorded. Source: T104-PH001-ST008-AC003-SES002 client directive + industry analysis (ITIL 4, PMI PMBOK, ISO 12207).
-- v1.1.0 (2026-03-09): Replaced reserved `P-STD-002-CLAUSE-038` placeholder with approved normative stale-state governance text per GATE-003 approval and TK008 source text.
-- v1.0.0 (2026-02-27): Initial authoring (54 CLAUSEs across P-STD-002A..E) + ADR-001.
-- v1.0.1 (2026-02-27): Remediated Decision Record keyword hygiene per `P-STD-001-CLAUSE-021B` (no Specification changes).
-- v1.0.2 (2026-02-28): Added General Provisions forward-only adoption CLAUSE per `P-ASSUM-001` (Forward-only Adoption).
+> Full version history: `prompt/artifacts/tasks/P/standard/changelog/changelog_standard_P-STD-002.md`
 
-### Activity Plan
+### Input Sources
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/plan_P-PH000-ST001-AC003.md`
+- `prompt/artifacts/tasks/P/research/P-RES-001/report_P-RES-001_status-standard-research.md`
+- `prompt/artifacts/tasks/P/research/P-RES-002/report_P-RES-002_agentic-status-research.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/proposal/proposal_P-PH000-ST001-AC003-TK001_cdr-resolution.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/analysis/analysis_P-PH000-ST001-AC010-TK000_execution-readiness-assessment.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/implementation/implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md`

@@ -2,10 +2,10 @@
 artifact_type: 'STATUS'
 initiative_id: 'P'
 schema_version: '1.0'
-version: '1.0.1'
-date: '2026-03-27'
-status: 'draft'
-author: 'LLM_Developer'
+version: '1.0.6'
+date: '2026-03-28'
+status: 'completed'
+author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 ledger_reference: 'prompt/artifacts/tasks/P/status/status_program.yaml'
 ---
@@ -25,12 +25,12 @@ Derived from `status_program.yaml` top-level fields and the full entry set.
 | Field | Value |
 |:--|:--|
 | Program | P |
-| As Of | 2026-03-27 |
-| Updated By | LLM_Developer |
-| Total Entries | 83 |
-| Status Distribution | planned 52, in_progress 5, completed 26 |
+| As Of | 2026-03-28 |
+| Updated By | LLM_Consultant |
+| Total Entries | 84 |
+| Status Distribution | planned 51, in_progress 5, completed 28 |
 
-All 83 entries remain activity-level only, and every health dimension is `unassessed`.
+All 84 entries remain activity-level only, and every health dimension is `unassessed`.
 
 ## 2. Status
 
@@ -52,9 +52,10 @@ Derived from `entries[].scope_uid`, `entries[].name`, `entries[].status`, and `e
 | `P-PH000-ST001-AC010` | Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs) | planned | 2026-03-23 |
 | `P-PH000-ST002-AC001` | Define status artifact schema + update protocol | completed | 2026-03-23 |
 | `P-PH000-ST002-AC002` | Design & Author Program Status Artifact Set | completed | 2026-03-23 |
-| `P-PH000-ST002-AC003` | Backfill & Validate Initial Program Entries | planned | 2026-03-23 |
-| `P-PH000-ST002-AC004` | Operationalize Status Update Workflow & Automation Baseline | in_progress | 2026-03-27 |
-| `P-PH000-ST002-AC005` | Commission Future Status-System Initiative (`T105` or next available ID) | planned | 2026-03-27 |
+| `P-PH000-ST002-AC003` | Backfill & Validate Initial Program Entries | completed | 2026-03-28 |
+| `P-PH000-ST002-AC004` | Operationalize Status Update Workflow & Automation Baseline | completed | 2026-03-28 |
+| `P-PH000-ST002-AC005` | Commission Future Status-System Initiative (`T105` or next available ID) | planned | 2026-03-28 |
+| `P-PH000-ST002-AC006` | Session-Close Skill Hardening, Briefing Dashboard & Snotes Closeout Guidance | in_progress | 2026-03-28 |
 | `P-PH000-ST004-AC001` | Commission `P-RES-001` (Status Standard Research) | completed | 2026-03-23 |
 | `P-PH000-ST004-AC002` | Commission `P-RES-002` (Agentic Status Systems Research) | completed | 2026-03-23 |
 | `P-PH000-ST004-AC003` | Commission `P-RES-003` (Specification Metadata Governance Research) | in_progress | 2026-03-23 |
@@ -147,6 +148,7 @@ Derived from `entries[].health.overall` and `entries[].health.dimensions`.
 | `P-PH000-ST002-AC003` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
 | `P-PH000-ST002-AC004` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
 | `P-PH000-ST002-AC005` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
+| `P-PH000-ST002-AC006` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
 | `P-PH000-ST004-AC001` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
 | `P-PH000-ST004-AC002` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
 | `P-PH000-ST004-AC003` | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed | unassessed |
@@ -231,7 +233,7 @@ Derived from `entries[].dependencies[]` and limited to open / at-risk edges surf
 | `P-PH000-ST001-AC003` | `P-PH000-ST001-AC008` | depends_on | critical | at_risk | LLM_Consultant |
 | `P-PH000-ST004-AC003-GATE-002` | `P-PH000-ST001-AC009` | depends_on | critical | open | Client |
 | `P-PH000-ST001-AC009` | `P-PH000-ST001-AC010` | depends_on | critical | open | LLM_Consultant |
-| `P-PH000-ST002-AC004` | `P-PH000-ST002-AC005` | depends_on | critical | open | LLM_Consultant |
+| `P-PH000-ST002-AC006` | `P-PH000-ST002-AC005` | depends_on | critical | open | LLM_Consultant |
 | `T102-PH001-ST001-AC008` | `T102-PH001-ST001-AC009` | depends_on | critical | at_risk | Client |
 | `T102-PH001-ST004-AC004-GATE-002` | `T102-PH001-ST001-AC009` | depends_on | critical | open | Client |
 | `T102-PH001-ST005-AC001-GATE-001` | `T102-PH001-ST002-AC000` | depends_on | critical | open | Client |
@@ -282,11 +284,17 @@ Derived from `entries[].evidence[]` with one source-plan pointer per activity en
 | `P-PH000-ST001-AC010` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST001-AC010 (status planned; raw depends_on: AC009) |
 | `P-PH000-ST002-AC001` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST002-AC001 (status completed; raw depends_on: —) |
 | `P-PH000-ST002-AC002` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST002-AC002 (status completed; raw depends_on: ST001-AC003 (satisfied)) |
-| `P-PH000-ST002-AC003` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST002-AC003 (status planned; raw depends_on: AC002) |
-| `P-PH000-ST002-AC004` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-27 | LLM_Developer | Source plan row for P-PH000-ST002-AC004 (status in_progress; raw depends_on: AC003) |
+| `P-PH000-ST002-AC003` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-28 | LLM_Consultant | Source plan row for P-PH000-ST002-AC003 (status completed; raw depends_on: AC002) |
+| `P-PH000-ST002-AC004` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-28 | LLM_Consultant | Source plan row for P-PH000-ST002-AC004 (status completed; raw depends_on: AC003) |
 | `P-PH000-ST002-AC004` | decision | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md` | 2026-03-27 | Client | GATE-002 approved successor operating-model package; TK004 unblocked for manual-only consultant-led session-close V1 operationalization |
-| `P-PH000-ST002-AC005` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-27 | LLM_Developer | Dependency clause from source plan row for P-PH000-ST002-AC005: AC004 |
-| `P-PH000-ST002-AC005` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-27 | LLM_Developer | Source plan row for P-PH000-ST002-AC005 (status planned; raw depends_on: AC004) |
+| `P-PH000-ST002-AC004` | decision | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES010.md` | 2026-03-28 | Client | GATE-003 approved first operationalization slice; AC004 closed after TK008 recorded the authoritative closeout updates |
+| `P-PH000-ST002-AC005` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-28 | LLM_Consultant | Dependency clause from source plan row for P-PH000-ST002-AC005: AC006 (reversed) |
+| `P-PH000-ST002-AC005` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-28 | LLM_Consultant | Source plan row for P-PH000-ST002-AC005 (status planned; raw depends_on: AC006) |
+| `P-PH000-ST002-AC006` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-28 | LLM_Consultant | Dependency clause from source plan row for P-PH000-ST002-AC006: AC004 |
+| `P-PH000-ST002-AC006` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` | 2026-03-28 | LLM_Consultant | Source plan row for P-PH000-ST002-AC006 (status in_progress; raw depends_on: AC004) |
+| `P-PH000-ST002-AC006` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES001.md` | 2026-03-28 | LLM_Consultant | AC006 SES001 recorded the readiness assessment, plan hardening, and cross-surface alignment for the post-AC004 follow-on lane |
+| `P-PH000-ST002-AC006` | check | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/analysis/analysis_P-PH000-ST002-AC006_readiness-and-gate-001-package-boundary-assessment.md` | 2026-03-28 | LLM_Consultant | TK000 readiness assessment completed; AC006 gate-package boundary and missing authority inputs are now explicit |
+| `P-PH000-ST002-AC006` | session | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES002.md` | 2026-03-28 | LLM_Consultant | SES002 recorded the scope expansion to include the briefing dashboard, dependency reversal for AC005, and the task register structural rewrite. |
 | `P-PH000-ST004-AC001` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST004-AC001 (status completed; raw depends_on: —) |
 | `P-PH000-ST004-AC002` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST004-AC002 (status completed; raw depends_on: —) |
 | `P-PH000-ST004-AC003` | note | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` | 2026-03-23 | LLM_Developer | Source plan row for P-PH000-ST004-AC003 (status in_progress; raw depends_on: —) |
@@ -356,7 +364,7 @@ Derived from `entries[].evidence[]` with one source-plan pointer per activity en
 | `T104-PH001-ST008-AC004` | note | `prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md` | 2026-03-23 | LLM_Developer | Source plan row for T104-PH001-ST008-AC004 (status planned; raw depends_on: —) |
 | `T104-PH001-ST008-AC005` | note | `prompt/artifacts/tasks/T104/workspace/PH001/plan_T104-PH001.md` | 2026-03-23 | LLM_Developer | Source plan row for T104-PH001-ST008-AC005 (status planned; raw depends_on: —) |
 
-All evidence pointers are repo-relative plan references produced by the developer backfill.
+Evidence pointers remain repo-relative and now include both source-plan references and later consultant-added session / assessment evidence where the ledger records active follow-on work.
 
 ## 6. Next Actions
 
@@ -373,9 +381,8 @@ Derived from the non-terminal ledger entries and their dependency posture.
 | `P-PH000-ST001-AC008` | Advance according to source plan | LLM_Developer | — | status planned; open deps: 0; at-risk deps: 1 |
 | `P-PH000-ST001-AC009` | Advance according to source plan | LLM_Developer | — | status planned; open deps: 1; at-risk deps: 0 |
 | `P-PH000-ST001-AC010` | Advance according to source plan | LLM_Developer | — | status planned; open deps: 1; at-risk deps: 0 |
-| `P-PH000-ST002-AC003` | Advance according to source plan | LLM_Developer | — | status planned; no open upstream dependencies on this row |
-| `P-PH000-ST002-AC004` | Continue active execution | LLM_Developer | — | status in_progress; no open upstream dependencies on this row |
 | `P-PH000-ST002-AC005` | Advance according to source plan | LLM_Developer | — | status planned; open deps: 1; at-risk deps: 0 |
+| `P-PH000-ST002-AC006` | Continue active execution | LLM_Consultant | — | status in_progress; no open upstream dependencies on this row |
 | `P-PH000-ST004-AC003` | Continue active execution | LLM_Developer | — | status in_progress; no open upstream dependencies on this row |
 | `T102-PH001-ST001-AC008` | Continue active execution | LLM_Developer | — | status in_progress; no open upstream dependencies on this row |
 | `T102-PH001-ST001-AC009` | Advance according to source plan | LLM_Developer | — | status planned; open deps: 1; at-risk deps: 1 |
@@ -475,9 +482,4 @@ Perform ledger and narrative updates in this order (per CLAUSE-048):
 ---
 
 ## 8. Changelog
-
-| Version | Date | Type | Summary |
-|:--|:--|:--|:--|
-| v1.0.1 | 2026-03-27 | Amendment | Updated the derived narrative for the TK004 operationalization slice: GATE-002 approval now anchors the ledger, AC004 is in progress, AC005 is registered as the blocked future initiative stub, and the consultant-only session-close reminder surface is distinguished from the broader role-based protocol. |
-| v1.0.0 | 2026-03-23 | Population | Replaced the placeholder-only narrative sections with ledger-derived summary, status, health, dependency, evidence, and next-action tables for the AC003 baseline. Preserved the governing Operational Update Protocol and the ledger-first authority model. |
-| v0.1.0 | 2026-03-23 | Initial | Structural skeleton authored per P-PH000-ST002-AC002-TK003. All sections present; sections 1–6 are placeholder-only pending AC003 population. Operational Update Protocol (§7) embedded verbatim from SPEC-002 (GIR-001(a)). |
+`prompt/artifacts/tasks/P/status/changelog/changelog_status_program.md`

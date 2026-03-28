@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.19.0'
-date: '2026-03-26'
+version: '1.20.0'
+date: '2026-03-28'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -252,7 +252,7 @@ Phase-level gates govern entry into, or conformance claims within, an entire pha
 
 For gate outcome rework classification (Situation A: deliverable deficiency vs. Situation B: scope gap), rework handoff rules, and the plan authority principle, see `guideline_workspace_verification.md §VII`.
 
-**Summary**: When a gate review identifies an issue, the reviewer classifies it as Situation A (plan specified the requirement but deliverable missed it → rework under same task, no plan change) or Situation B (plan did not specify the requirement → plan amendment required, sub-task added). Full rules, decision test, and cross-boundary handoff guidance are in the verification guideline.
+**Summary**: When a gate review identifies an issue, the verifier classifies it as Situation A (plan specified the requirement but deliverable missed it → rework under same task, no plan change) or Situation B (plan did not specify the requirement → plan amendment required, sub-task added). Full rules, decision test, and cross-boundary handoff guidance are in the verification guideline.
 
 ### J. Cross-Reference: Gate Execution & Decision Rules
 
@@ -294,29 +294,31 @@ Purpose:
 #### Purpose
 
 The Gate-Readiness Stack is a canonical pre-gate task sequence that ensures every gate receives a structured decision package appropriate to the work being reviewed. Two variants exist:
-- **Implementation-backed gates**: review developer-mutated deliverables and therefore require producer evidence plus reviewer verification.
+- **Implementation-backed gates**: review developer-mutated deliverables and therefore require producer evidence plus verifier verification.
 - **Consultation-only gates**: disposition consultant-owned analysis/proposal work before downstream execution and therefore do not require `DEV-REPORT` or `VERIFICATION`.
 
 #### Implementation-Backed Sequence
 
-Every gate that reviews developer-executed deliverables SHOULD be preceded by the following ordered task sequence in the plan's Task Register:
+Every gate that reviews developer-executed deliverables MUST be preceded by the following ordered task sequence in the plan's Task Register:
 
 1. **Implementation tasks** — owned by `LLM_Developer` (or the implementation-responsible role). Produce the deliverables that the gate will review.
 
 > **Note**: When a gate enters `RECYCLE` and remediation work requires detailed specification, a `remediation_specification` IMPLEMENTATION artifact SHOULD be authored to specify the corrective-action detail. The IMPLEMENTATION artifact is a formal task in the remediation loop, placed above the gate row per §VI.K. See `guideline_workspace_implementation.md` for authoring rules.
 
 2. **DEV-REPORT task** — owned by `LLM_Developer`. Produces bounded execution evidence per `guideline_workspace_dev-report.md`. The dev-report is verification input, not verification itself.
-3. **Verification task** — owned by `LLM_Reviewer`. Produces independent evidence-first verification per `guideline_workspace_verification.md`. Records the reviewer verdict in the verification artifact's Gate Recommendation section.
+3. **Verification task** — owned by the verifier role authorized by the plan: `LLM_Reviewer` (preferred future-state primary) or `LLM_Consultant` (currently authorized secondary during the temporary operating model). Produces independent evidence-first verification per `guideline_workspace_verification.md`. Records the verifier verdict in the verification artifact's Gate Recommendation section.
 4. **Gate-disposition proposal task** — owned by `LLM_Consultant` (or `LLM_Planner`). Produces the `gate_disposition` proposal per `guideline_workspace_proposal.md`. Hosts the authoritative Gate Decision Record (GDR).
-5. **Gate** — owned by `Client`. Consumes the gate package and records the decision in the GDR.
+5. **External review task** — owned by `LLM_Subconsultant`. Produces an independent `external_review` analysis per `guideline_workspace_analysis.md` §IV.B. The external review serves as a second-opinion quality audit of the gate package — testing evidence integrity, role-boundary compliance, plan-guideline compliance, and downstream task readiness. The external review is advisory input to the main consultant; it does NOT override the gate-disposition proposal's GDR authority. The main `LLM_Consultant` MUST review the external review findings and incorporate them into a final assessment of the gate package before the gate proceeds to client disposition.
+6. **Gate** — owned by `Client`. Consumes the gate package (including the external review) and records the decision in the GDR.
 
 #### Consultation-Only Sequence
 
-When all tasks before a gate are consultant-owned and no developer-mutated deliverable is being assessed, the gate SHOULD be preceded by this reduced sequence:
+When all tasks before a gate are consultant-owned and no developer-mutated deliverable is being assessed, the gate MUST be preceded by this reduced sequence:
 
 1. **Consultation tasks** — owned by `LLM_Consultant`. Produce the notes, analyses, plan amendments, and other decision-preparation artifacts that the gate will review.
 2. **Gate-disposition proposal task** — owned by `LLM_Consultant` (or `LLM_Planner`). Produces the `gate_disposition` proposal per `guideline_workspace_proposal.md`. Hosts the authoritative Gate Decision Record (GDR).
-3. **Gate** — owned by `Client`. Consumes the gate package and records the decision in the GDR.
+3. **External review task** — owned by `LLM_Subconsultant`. Produces an independent `external_review` analysis per `guideline_workspace_analysis.md` §IV.B. The external review serves as a second-opinion quality audit of the gate package — testing evidence integrity, role-boundary compliance, plan-guideline compliance, and downstream task readiness. The external review is advisory input to the main consultant; it does NOT override the gate-disposition proposal's GDR authority. The main `LLM_Consultant` MUST review the external review findings and incorporate them into a final assessment of the gate package before the gate proceeds to client disposition.
+4. **Gate** — owned by `Client`. Consumes the gate package (including the external review) and records the decision in the GDR.
 
 Rule:
 - Consultation-only gates MUST NOT introduce `DEV-REPORT` or `VERIFICATION` tasks unless the gate scope is expanded to review developer-mutated deliverables.
@@ -334,9 +336,10 @@ Each Gate-Readiness Stack task has a fixed role owner:
 |:--|:--|:--|:--|
 | Implementation tasks | `LLM_Developer` | Deliverables (per plan) | Plan (this guideline) |
 | DEV-REPORT task | `LLM_Developer` | `DEV-REPORT` | `guideline_workspace_dev-report.md` |
-| Verification task | `LLM_Reviewer` | `VERIFICATION` | `guideline_workspace_verification.md` |
+| Verification task | `LLM_Reviewer` (preferred future-state primary) / `LLM_Consultant` (currently authorized secondary) | `VERIFICATION` | `guideline_workspace_verification.md` |
 | Consultation tasks | `LLM_Consultant` | `NOTES` / `ANALYSIS` / plan-owned deliverables | Respective artifact guidelines |
 | Gate-disposition proposal task | `LLM_Consultant` | `PROPOSAL` (`gate_disposition`) | `guideline_workspace_proposal.md` |
+| External review task | `LLM_Subconsultant` | `ANALYSIS` (`external_review`) | `guideline_workspace_analysis.md` §IV.B |
 | IMPLEMENTATION task (where applicable) | `LLM_Consultant` | `IMPLEMENTATION` | `guideline_workspace_implementation.md` |
 | Gate | `Client` | Decision (GDR) | `guideline_workspace_proposal.md` §VII |
 
@@ -345,6 +348,7 @@ Each Gate-Readiness Stack task has a fixed role owner:
 - For DEV-REPORT trigger and lifecycle rules, see `guideline_workspace_dev-report.md` §III.
 - For verification workflow and implementation-backed gate rules, see `guideline_workspace_verification.md` §III.
 - For gate-disposition proposal structure and GDR specification, see `guideline_workspace_proposal.md` §V.B and §VII.
+- For external review authoring rules and gate-readiness scope requirements, see `guideline_workspace_analysis.md` §IV.B.
 - For the workflow chain and role-to-artifact ownership matrix, see `workspace_documentation_rules.md` §7 and §8.
 
 ### M. Gate Impact Classification & External Baseline Change
@@ -357,7 +361,7 @@ This section governs how to respond when an **external event** (such as a standa
 
 | Impact Type | Definition | Origin | Effect on Gate |
 |:--|:--|:--|:--|
-| **Internal** | A gate review outcome identifies deficiencies within the original scope and normative baseline. | Gate's own review process (verification findings, reviewer verdict) | Decision boundary unchanged. Same gate, same question. Apply §VI.K. |
+| **Internal** | A gate review outcome identifies deficiencies within the original scope and normative baseline. | Gate's own review process (verification findings, verifier verdict) | Decision boundary unchanged. Same gate, same question. Apply §VI.K. |
 | **External** | An event outside the gate's review scope alters the normative baseline against which the gate's decision is or was made. | Standard amendment, cross-initiative change, regulatory update, upstream dependency change | Decision boundary may be changed. Apply the Decision-Boundary Test (§VI.M.2). |
 
 **Classification test**: "Did the event originate from this gate's own review process?"

@@ -1,0 +1,10 @@
+| Version | Date | Type | Summary |
+|:--|:--|:--|:--|
+| v1.0.6 | 2026-03-28 | Remediation | Remediated blocking gaps in SPEC-006 (YAML Ledger): corrected AC005 evidence summary and appended SES002 audit trail to AC006. Synced narrative to the remediated ledger. |
+| v1.0.5 | 2026-03-28 | Amendment | Structural alignment for ST002/AC006 expanded scope (Briefing Dashboard) and AC005 dependency reversal. Updated Summary, Status, Dependency, Evidence, and Next Actions sections. |
+| v1.0.4 | 2026-03-28 | Amendment | Moved AC006 from `planned` to `in_progress` after readiness hardening began, added TK000 assessment evidence plus SES001, and refreshed the derived summary, evidence, and next-actions sections to match the ledger. |
+| v1.0.3 | 2026-03-28 | Amendment | Recorded the completed AC004 closeout state, corrected AC003 to `completed`, resolved the AC004 dependency edges to AC005/AC006, and removed the stale blocked-follow-on wording from the derived narrative and next-actions tables. |
+| v1.0.2 | 2026-03-28 | Amendment | Refreshed the derived narrative after ST002 follow-on planning hardening. Added AC006, updated AC004/AC005 evidence dates to the latest stream-plan state, and recorded that AC005 plus AC006 remain blocked behind AC004 closeout. |
+| v1.0.1 | 2026-03-27 | Amendment | Updated the derived narrative for the TK004 operationalization slice: GATE-002 approval now anchors the ledger, AC004 is in progress, AC005 is registered as the blocked future initiative stub, and the consultant-only session-close reminder surface is distinguished from the broader role-based protocol. |
+| v1.0.0 | 2026-03-23 | Population | Replaced the placeholder-only narrative sections with ledger-derived summary, status, health, dependency, evidence, and next-action tables for the AC003 baseline. Preserved the governing Operational Update Protocol and the ledger-first authority model. |
+| v0.1.0 | 2026-03-23 | Initial | Structural skeleton authored per P-PH000-ST002-AC002-TK003. All sections present; sections 1–6 are placeholder-only pending AC003 population. Operational Update Protocol (§7) embedded verbatim from SPEC-002 (GIR-001(a)). |

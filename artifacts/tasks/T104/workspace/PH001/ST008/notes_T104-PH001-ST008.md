@@ -5,8 +5,8 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST008'
-version: '2.17.0'
-date: '2026-03-27'
+version: '2.18.0'
+date: '2026-03-28'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -40,6 +40,8 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Activity | Session ID | Name | Notes File |
 |:--|:--|:--|:--|
+| AC006 | `T104-PH001-ST008-AC006-SES003` | TK001.1 Comparative Analysis, Pre-GATE-001 Readiness Assessment & Plan Amendment | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES003.md` |
+| AC006 | `T104-PH001-ST008-AC006-SES002` | Research Integration, Governance Hardening, and Plan Amendment | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES002.md` |
 | AC006 | `T104-PH001-ST008-AC006-SES001` | AC006 Promotion, Baseline Readiness Assessment & GATE-001 Package Structuring | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES001.md` |
 | AC001.9 | `T104-PH001-ST008-AC001.9-SES004` | GATE-002 Housekeeping Closeout, Authority Sync & Client Approval Recording | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES004.md` |
 | AC001.9 | `T104-PH001-ST008-AC001.9-SES003` | Orchestration QA, TK004 Amendment, Developer Execution & GATE-002 Packaging | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.9/snotes/snotes_T104-PH001-ST008-AC001.9-SES003.md` |
@@ -89,6 +91,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.18.0 | 2026-03-28 | Amendment | Registered AC006-SES002 (Research Integration) and AC006-SES003 (TK001.1 Comparative Analysis/Housekeeping) after the final plan amendments and proposal resolution were authored. |
 | v2.17.0 | 2026-03-27 | Amendment | Registered AC006-SES001 (AC006 Promotion, Baseline Readiness Assessment & GATE-001 Package Structuring) after the AC006 promotion and TK000 baseline assessment were authored. |
 | v2.16.0 | 2026-03-25 | Gate Closure | Registered AC001.9-SES004 (GATE-002 Housekeeping Closeout, Authority Sync & Client Approval Recording). SES004 records the final housekeeping synchronization, the refreshed GATE-002 proposal evidence trail, client APPROVE decision, and AC001.9 closure. |
 | v2.15.0 | 2026-03-25 | Amendment | Registered AC001.9-SES003 (Orchestration QA, TK004 Amendment, Developer Execution & GATE-002 Packaging) after the revised orchestration plan approval, TK004 changelog-scope amendment, uninterrupted developer execution, TK011 verification, and TK012 packaging. |

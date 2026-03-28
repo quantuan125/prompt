@@ -5,9 +5,9 @@ initiative_code: 'PROGRAM'
 epic_id: '—'
 epic_code: '—'
 phase: '0'
-version: '0.2.6'
-date: '2026-03-27'
-status: 'completed'
+version: '0.2.14'
+date: '2026-03-28'
+status: 'in_progress'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
@@ -53,7 +53,7 @@ roadmap_changelog: 'prompt/artifacts/tasks/P/archive/changelog_roadmap_P-PROGRAM
 | Focus Area | Current State | Next Milestone | Canonical Link |
 |:--|:--|:--|:--|
 | Program Standards Stack | `P-STD-001` and `P-STD-002` are accepted; `P-STD-004` and `P-STD-005` remain active hardening surfaces per current plan state | Continue ST001 standards work and derivative alignment | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` |
-| Program Status System | `GATE-002` approved the successor operating model, and `TK004` / `GATE-003` are now the active implementation and acceptance path. | Complete AC004 `TK004` and present `GATE-003` acceptance package | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
+| Program Status System | AC004 is closed; AC005 depends on AC006; AC006 is in readiness hardening for the expanded scope (Session-Close Skill + Briefing Dashboard). | Complete AC006 readiness hardening and later advance the separately governed AC005 and AC006 follow-on lanes as approved | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
 | Program Research & Governance Inputs | P research surfaces exist and continue to support standards/status hardening | Reuse research outputs in downstream operationalization and standards hardening work | `prompt/artifacts/tasks/P/workspace/PH000/ST004/plan_P-PH000-ST004.md` |
 
 ---
@@ -83,8 +83,10 @@ roadmap_changelog: 'prompt/artifacts/tasks/P/archive/changelog_roadmap_P-PROGRAM
 
 ## VI. CHANGELOG
 
-| Version | Date | Type | Summary |
-|:-------|:-----|:-----|:--------|
+| v0.2.14 | 2026-03-28 | Amendment | Structural alignment for ST002/AC006 expanded scope (Briefing Dashboard) and AC005 dependency reversal. Updated compact delivery snapshot. |
+| v0.2.9 | 2026-03-28 | Amendment | Refreshed the compact status-system snapshot after AC006 readiness hardening began. The roadmap keeps AC004 closed, preserves AC005 as a separate planned lane, and marks AC006 as the active next readiness-hardening slice. |
+| v0.2.8 | 2026-03-28 | Amendment | Refreshed the compact status-system snapshot after AC004 closeout completion. The roadmap now records the approved `GATE-003` decision, marks AC004 closed, and keeps AC005/AC006 as separate planned follow-on lanes. |
+| v0.2.7 | 2026-03-28 | Amendment | Refreshed the compact status-system snapshot after AC004 clean-closeout preparation. The roadmap now points to a clean `GATE-003` package pending client disposition and notes blocked AC005/AC006 follow-on lanes behind AC004 closeout. |
 | v0.2.6 | 2026-03-27 | Amendment | Shifted the program status-system snapshot from successor consultation approval to active implementation: `GATE-002` is approved, `TK004` is active, and `GATE-003` is the next acceptance milestone. |
 | v0.2.5 | 2026-03-25 | Amendment | Replaced the old AC004 straight-approval milestone with post-approval gate supersession. The roadmap now points to successor `GATE-002` rather than immediate `TK004` commissioning. |
 | v0.2.4 | 2026-03-24 | Close Gate | Aligned roadmap to the AC004 `GATE-001` straight `APPROVE` decision; recorded the unblocking of `TK004` for V1 first-slice execution. |

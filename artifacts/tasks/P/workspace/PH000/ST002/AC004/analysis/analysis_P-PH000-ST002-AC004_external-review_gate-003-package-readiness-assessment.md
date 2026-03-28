@@ -7,8 +7,8 @@ phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC004'
 gate_id: 'P-PH000-ST002-AC004-GATE-003'
-version: '1.0.0'
-date: '2026-03-27'
+version: '1.0.2'
+date: '2026-03-28'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -17,7 +17,7 @@ purpose: 'Independent external review of the live AC004 GATE-003 readiness packa
 target_proposal: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-003_first-operationalization-disposition.md'
 verification_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/verification/verification_P-PH000-ST002-AC004_gate-003.md'
 implementation_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md'
-dev_report_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md'
+dev_report_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md'
 ---
 
 # ANALYSIS: AC004 GATE-003 Package External Review
@@ -28,7 +28,7 @@ dev_report_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-
 
 **Scope**: Assess the live readiness package against the governing activity plan, the approved `GATE-002` conditions, the successor implementation specification, and the applicable analysis / implementation / plan / dev-report / verification guidelines.
 
-**Conclusion / Recommendation**: The package is substantively gate-ready. I agree with the previously approved `GATE-002` resolutions for GIR-001, GIR-002, and GIR-003, and I agree that the successor implementation specification was sufficient for downstream execution. I also agree with the live proposal's `APPROVE WITH CONDITIONS` posture for `GATE-003`, but I do not agree that the package has only one residual defect. In addition to the already documented broken DEV-REPORT `source_plan` pointer, the DEV-REPORT filename itself is not compliant with the dated naming pattern required by `guideline_workspace_dev-report.md`. Both issues are package-hygiene defects rather than substantive implementation failures, so they do not justify recycling the gate.
+**Conclusion / Recommendation**: The assessed package state was substantively gate-ready. I agree with the previously approved `GATE-002` resolutions for GIR-001, GIR-002, and GIR-003, and I agree that the successor implementation specification was sufficient for downstream execution. This review identified two non-blocking DEV-REPORT hygiene defects in the assessed package state: the broken `source_plan` pointer and the missing dated filename suffix. Those defects have now been normalized in the live package, so this external review continues to add evidence that the remediated `GATE-003` package can pass cleanly.
 
 ### Client Summary
 
@@ -36,9 +36,9 @@ dev_report_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-
 - I agree with all three upstream GIR resolutions, and the delivered outputs confirm that those decisions were operationally sufficient.
 - The successor implementation specification was commissionable in practice: the actual ledger, narrative, stream plan, phase plan, roadmap, and session-close skill all align to `SPEC-001` through `SPEC-005`.
 - I found no evidence that TK004 opened AC005 early or created any `T105` / future-initiative artifact under the `P` status-system workspace.
-- The live proposal is correct to treat the known broken DEV-REPORT `source_plan` pointer as a non-blocking condition.
-- There is one additional non-blocking defect that the current package does not call out: the DEV-REPORT filename omits the date suffix required by the DEV-REPORT guideline.
-- Because both remaining issues are packaging / traceability defects, I still support `APPROVE WITH CONDITIONS` rather than `RECYCLE`.
+- The assessed package state correctly treated the DEV-REPORT hygiene defects as non-blocking issues rather than substantive implementation failures.
+- The two hygiene defects identified in this review have now been normalized in the live package: corrected `source_plan` and dated canonical DEV-REPORT filename.
+- Because those issues were packaging / traceability defects rather than implementation failures, they did not justify recycling the gate and now no longer prevent clean approval of the remediated package.
 - If the client approves this gate, the exact next governed step is to record the `GATE-003` decision, close AC004 in the authoritative plan/status surfaces, and only then consider activating AC005 as the separate future-status-system commissioning stub.
 - `T104-PH001-ST008-AC001.10` remains sufficient as a separate governance-hardening follow-on, but it is not a blocker for this gate and should not be silently folded into AC004 closeout.
 
@@ -60,7 +60,7 @@ dev_report_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-003_first-operationalization-disposition.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/verification/verification_P-PH000-ST002-AC004_gate-003.md`
-- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_external-review_gate-002-package-qa-assessment.md`
@@ -98,7 +98,7 @@ sed -n '1,260p' prompt/templates/consultant/workspace/guideline_workspace_dev-re
 sed -n '1,260p' prompt/templates/consultant/workspace/guideline_workspace_verification.md
 sed -n '1,280p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-003_first-operationalization-disposition.md
 sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/verification/verification_P-PH000-ST002-AC004_gate-003.md
-sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md
+sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md
 sed -n '1,260p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md
 sed -n '1,280p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md
 sed -n '1,280p' prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_external-review_gate-002-package-qa-assessment.md
@@ -114,13 +114,13 @@ test -f prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-
 find prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report -maxdepth 1 -type f | sort
 find prompt/artifacts/tasks/P/workspace/PH000/ST002 -maxdepth 2 \( -path '*/AC005' -o -name '*T105*' \) | sort
 find prompt/artifacts/tasks/P -maxdepth 4 -name '*T105*' | sort
-git -C prompt diff --check -- artifacts/tasks/P/status/status_program.yaml artifacts/tasks/P/status/status_program.md artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md artifacts/tasks/P/workspace/PH000/plan_P-PH000.md artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md skills/session-close/SKILL.md artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md
+git -C prompt diff --check -- artifacts/tasks/P/status/status_program.yaml artifacts/tasks/P/status/status_program.md artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md artifacts/tasks/P/workspace/PH000/plan_P-PH000.md artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md skills/session-close/SKILL.md artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md
 ```
 
 **Evidence notes**:
 - The delivered surfaces are mutually consistent on the post-`GATE-002` posture: AC004 `in_progress`, AC005 planned/block-stub only, consultant-only session-close reminder, broader Section 7 unchanged.
 - `git -C prompt diff --check` returned no output for the delivered slice, so no whitespace / patch-format defects were found.
-- The broken DEV-REPORT `source_plan` pointer is confirmed: the bad path does not exist, and the correct AC004 activity-plan path does exist.
+- The broken DEV-REPORT `source_plan` pointer was confirmed in the assessed package state; the corrected canonical DEV-REPORT now points to the AC004 activity-plan path.
 - No `T105` artifact and no `P/.../AC005` implementation directory was created, which supports compliance with `SPEC-005`.
 - The DEV-REPORT naming defect is real: the live file name omits the date suffix required by `guideline_workspace_dev-report.md §VII.A`, and the surrounding AC004 package references that non-compliant path consistently.
 
@@ -128,8 +128,8 @@ git -C prompt diff --check -- artifacts/tasks/P/status/status_program.yaml artif
 
 | GAP ID | Category | Title | Description | Disposition | Downstream Target | Notes |
 |:--|:--|:--|:--|:--|:--|:--|
-| GAP-001 | references | DEV-REPORT `source_plan` pointer is broken | The DEV-REPORT frontmatter points to `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002.md`, which does not exist. The correct governing plan path is `.../plan_P-PH000-ST002-AC004.md`. | `pending_decision` | `P-PH000-ST002-AC004-GATE-003` | This is already identified in verification and the live proposal; I agree it is non-blocking but still open. |
-| GAP-002 | naming | DEV-REPORT filename omits required date suffix | `guideline_workspace_dev-report.md §VII.A` requires `dev-report_<scope-UID>_<kebab-topic>_<YYYY-MM-DD>.md`, but the live AC004 DEV-REPORT is `dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md`. | `pending_decision` | `P-PH000-ST002-AC004-GATE-003` | Non-blocking package-hygiene defect. If corrected later, all AC004 references must be updated together. |
+| GAP-001 | references | DEV-REPORT `source_plan` pointer was broken in the assessed package state | The DEV-REPORT frontmatter pointed to `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002.md` in the assessed package state. The corrected canonical DEV-REPORT now points to `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md`. | `resolved_in_live_package` | `P-PH000-ST002-AC004-GATE-003` | This review identified the issue as non-blocking, and the live package now reflects the corrected path. |
+| GAP-002 | naming | DEV-REPORT filename omitted required date suffix in the assessed package state | `guideline_workspace_dev-report.md §VII.A` requires `dev-report_<scope-UID>_<kebab-topic>_<YYYY-MM-DD>.md`, but the assessed AC004 DEV-REPORT used an undated filename and is now normalized to `dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md`. | `resolved_in_live_package` | `P-PH000-ST002-AC004-GATE-003` | Non-blocking package-hygiene defect identified by this review and now remediated in the live package. |
 
 ## V. EXTERNAL REVIEW (INDEPENDENT ASSESSMENT)
 
@@ -147,14 +147,14 @@ git -C prompt diff --check -- artifacts/tasks/P/status/status_program.yaml artif
 
 ### B. Concerns / Risks
 
-- The known DEV-REPORT `source_plan` defect remains open and should not be normalized as acceptable metadata quality for future reuse.
-- The AC004 DEV-REPORT filename is non-compliant with the current DEV-REPORT naming rule. This creates avoidable drift against the governing convention even though the package remains navigable.
-- Because the non-compliant DEV-REPORT path is referenced across the plan, verification, proposal, and session notes, any later correction must be coordinated. A partial rename would create new broken-package references.
+- The assessed package state carried two avoidable DEV-REPORT hygiene defects, and they should not be normalized as acceptable metadata quality for future reuse.
+- The coordinated remediation had to be cross-package rather than partial because the DEV-REPORT path was referenced across plan, verification, proposal, and session-note surfaces.
+- The live package is now clean, but future evidence-refresh cycles must preserve the corrected metadata and canonical naming posture.
 
 ### C. Recommendations
 
-1. Retain the live `APPROVE WITH CONDITIONS` posture for `GATE-003`; do not recycle the gate over the two residual DEV-REPORT hygiene defects.
-2. Carry forward the already-documented `source_plan` correction and add the DEV-REPORT filename normalization to the same package-hygiene cleanup set before this evidence bundle is reused as refreshed primary evidence in a later amendment, recycle loop, or downstream audit.
+1. Use this review as evidence that the originally identified DEV-REPORT defects were non-blocking package-hygiene issues, not substantive implementation failures.
+2. Preserve the corrected `source_plan` and dated canonical DEV-REPORT filename in all future evidence-refresh, amendment, recycle, or audit cycles.
 3. Do not reopen any of the upstream `GATE-002` design decisions in AC004 closeout. The GIR resolutions were sufficient, and the delivered implementation confirms that.
 
 ## VI. GIR RESOLUTION ASSESSMENT
@@ -185,18 +185,18 @@ The specification was sufficient for the approved V1 contract only.
 
 ### A. Proposal Recommendation Assessment
 
-**Assessment**: `Partially agree`
+**Assessment**: `Historically agree; live package remediated`
 
-- I agree with the proposal's recommended decision: `APPROVE WITH CONDITIONS`.
-- I agree with the proposal's stated condition regarding the broken DEV-REPORT `source_plan`.
-- I do not agree that this is the package's only remaining defect. The DEV-REPORT naming non-conformance should also be explicitly tracked if this evidence set is preserved for later reuse or audit.
+- In the assessed package state, I agreed with an `APPROVE WITH CONDITIONS` posture because the two DEV-REPORT hygiene defects were real but non-blocking.
+- In the live package, those hygiene defects have been remediated, so this review now adds supporting evidence for a clean approval posture.
+- I continue to agree that the review did not identify any substantive implementation defect.
 
 ### B. Verification Assessment
 
 **Assessment**: `Agree`
 
-- The verification artifact correctly treats the substantive implementation package as passing and the metadata defect as non-blocking.
-- My independent review found no additional substantive implementation defect that would justify overturning the `CONDITIONAL PASS` verdict.
+- The verification artifact correctly treated the substantive implementation package as passing when the hygiene defects were still open.
+- My independent review found no additional substantive implementation defect, and the live package remediation now supports the current clean `PASS` verdict.
 
 ## IX. DOWNSTREAM READINESS ASSESSMENT
 
@@ -212,10 +212,10 @@ The specification was sufficient for the approved V1 contract only.
 
 ### B. Exact Next Step
 
-If the client records `APPROVE` or `APPROVE WITH CONDITIONS` for `GATE-003`, the exact next governed step is:
+If the client records `APPROVE` for `GATE-003`, the exact next governed step is:
 
 1. Record the client decision in the `GATE-003` proposal GDR.
-2. Close AC004 in the authoritative plan/status surfaces and carry forward the package-hygiene conditions.
+2. Close AC004 in the authoritative plan/status surfaces.
 3. Only after AC004 closes, decide whether to activate AC005 as the separate future-status-system commissioning stub.
 
 If the client wants to broaden scope beyond the current AC004 V1 contract, that should be treated as new planning work rather than retroactive reinterpretation of this gate package.
@@ -224,8 +224,8 @@ If the client wants to broaden scope beyond the current AC004 V1 contract, that 
 
 | downstream_artifact_type | target_reference | trigger_condition | responsible_role | notes |
 |:--|:--|:--|:--|:--|
-| `PROPOSAL` | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-003_first-operationalization-disposition.md` | Client accepts this review posture | `LLM_Consultant` | Preserve `APPROVE WITH CONDITIONS`; add the DEV-REPORT naming defect to the tracked package-hygiene set if the client wants complete documentation symmetry. |
-| `DEV-REPORT` | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md` | Package is later refreshed, amended, recycled, or audited | `LLM_Developer` | Correct `source_plan` and normalize the filename together so all cross-references can be updated in one pass. |
+| `PROPOSAL` | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-003_first-operationalization-disposition.md` | Client accepts this review posture and the live package has normalized the identified hygiene defects | `LLM_Consultant` | Use this review as evidence that the assessed defects were non-blocking and that the remediated live package is clean for client disposition. |
+| `DEV-REPORT` | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md` | Package is later refreshed, amended, recycled, or audited | `LLM_Developer` | Preserve the corrected `source_plan` and dated filename together so the live package stays clean in future cycles. |
 | `PLAN` | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md` | `GATE-003` receives an approving client decision | `LLM_Consultant` | Close AC004 and keep AC005 blocked until the authoritative closeout updates are recorded. |
 | `PLAN` | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC001.10/plan_T104-PH001-ST008-AC001.10.md` | Governance hardening continues | `LLM_Consultant` | Continue permanent rule hardening separately; do not use it to retroactively widen AC004. |
 
@@ -236,7 +236,7 @@ If the client wants to broaden scope beyond the current AC004 V1 contract, that 
 | Governing activity plan | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md` |
 | Active gate proposal | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-003_first-operationalization-disposition.md` |
 | Verification artifact | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/verification/verification_P-PH000-ST002-AC004_gate-003.md` |
-| DEV-REPORT | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md` |
+| DEV-REPORT | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md` |
 | Governing implementation specification | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md` |
 | Approved `GATE-002` proposal | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md` |
 | Authoritative `GATE-002` external review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/analysis/analysis_P-PH000-ST002-AC004_external-review_gate-002-package-qa-assessment.md` |
@@ -256,4 +256,6 @@ If the client wants to broaden scope beyond the current AC004 V1 contract, that 
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.0.2 | 2026-03-28 | Amendment | Recorded that the two non-blocking DEV-REPORT hygiene defects identified by this review have now been normalized in the live package. The review remains an independent assessment of the assessed package state and now adds evidence for clean client approval of the remediated package. |
+| v1.0.1 | 2026-03-28 | Amendment | Updated the AC004 `GATE-003` external review to reference the dated canonical DEV-REPORT filename and to describe the package-hygiene condition set as a historical assessment of the reviewed package state. Kept the `APPROVE WITH CONDITIONS` recommendation and downstream-closeout posture unchanged. |
 | v1.0.0 | 2026-03-27 | Initial | Authored an independent external review of the live AC004 `GATE-003` readiness package. Confirms the package is substantively gate-ready, agrees with the prior GIR resolutions and successor implementation-spec sufficiency, supports `APPROVE WITH CONDITIONS`, and identifies one additional non-blocking DEV-REPORT naming defect alongside the already documented broken `source_plan` pointer. |

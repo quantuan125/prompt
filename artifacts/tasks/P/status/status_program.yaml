@@ -28,9 +28,9 @@
 
 schema_version: '1.0'
 program_id: P
-as_of: '2026-03-27'
-updated_by: LLM_Developer
-last_updated: '2026-03-27'
+as_of: '2026-03-28'
+updated_by: LLM_Consultant
+last_updated: '2026-03-28'
 entries:
 - scope_uid: P-PH000-ST001-AC001
   scope_type: activity
@@ -477,10 +477,10 @@ entries:
   scope_type: activity
   initiative_id: P
   name: Backfill & Validate Initial Program Entries
-  status: planned
-  as_of: '2026-03-23'
-  updated_by: LLM_Developer
-  last_updated: '2026-03-23'
+  status: completed
+  as_of: '2026-03-28'
+  updated_by: LLM_Consultant
+  last_updated: '2026-03-28'
   health:
     overall: unassessed
     dimensions:
@@ -507,9 +507,9 @@ entries:
   evidence:
   - type: note
     ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
-    date: '2026-03-23'
-    by: LLM_Developer
-    summary: 'Source plan row for P-PH000-ST002-AC003 (status planned; raw depends_on: AC002)'
+    date: '2026-03-28'
+    by: LLM_Consultant
+    summary: 'Source plan row for P-PH000-ST002-AC003 (status completed; raw depends_on: AC002)'
   aggregation_policy: null
   execution_refs: []
   extensions: {}
@@ -517,10 +517,10 @@ entries:
   scope_type: activity
   initiative_id: P
   name: Operationalize Status Update Workflow & Automation Baseline
-  status: in_progress
-  as_of: '2026-03-27'
-  updated_by: LLM_Developer
-  last_updated: '2026-03-27'
+  status: completed
+  as_of: '2026-03-28'
+  updated_by: LLM_Consultant
+  last_updated: '2026-03-28'
   health:
     overall: unassessed
     dimensions:
@@ -547,14 +547,14 @@ entries:
   evidence:
   - type: note
     ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
-    date: '2026-03-27'
-    by: LLM_Developer
-    summary: 'Source plan row for P-PH000-ST002-AC004 (status in_progress; raw depends_on: AC003)'
+    date: '2026-03-28'
+    by: LLM_Consultant
+    summary: 'Source plan row for P-PH000-ST002-AC004 (status completed; raw depends_on: AC003)'
   - type: decision
-    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md
-    date: '2026-03-27'
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES010.md
+    date: '2026-03-28'
     by: Client
-    summary: 'GATE-002 approved successor operating-model package; TK004 unblocked for manual-only consultant-led session-close V1 operationalization'
+    summary: 'GATE-003 approved first operationalization slice; AC004 closed after TK008 recorded the authoritative closeout updates'
   aggregation_policy: null
   execution_refs: []
   extensions: {}
@@ -563,9 +563,49 @@ entries:
   initiative_id: P
   name: Commission Future Status-System Initiative (`T105` or next available ID)
   status: planned
-  as_of: '2026-03-27'
-  updated_by: LLM_Developer
-  last_updated: '2026-03-27'
+  as_of: '2026-03-28'
+  updated_by: LLM_Consultant
+  last_updated: '2026-03-28'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST002-AC006
+    to_id: P-PH000-ST002-AC005
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+      date: '2026-03-28'
+      by: LLM_Consultant
+      summary: 'Dependency clause from source plan row for P-PH000-ST002-AC005: AC006 (reversed)'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+    date: '2026-03-28'
+    by: LLM_Consultant
+    summary: 'Source plan row for P-PH000-ST002-AC005 (status planned; raw depends_on: AC006, reversed per SES002)'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST002-AC006
+  scope_type: activity
+  initiative_id: P
+  name: Session-Close Skill Hardening, Briefing Dashboard & Snotes Closeout Guidance
+  status: in_progress
+  as_of: '2026-03-28'
+  updated_by: LLM_Consultant
+  last_updated: '2026-03-28'
   health:
     overall: unassessed
     dimensions:
@@ -577,24 +617,39 @@ entries:
       benefits: unassessed
   dependencies:
   - from_id: P-PH000-ST002-AC004
-    to_id: P-PH000-ST002-AC005
+    to_id: P-PH000-ST002-AC006
     relationship: depends_on
     category: internal
     criticality: critical
     owner: LLM_Consultant
-    status: open
+    status: resolved
     evidence:
     - type: note
       ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
-      date: '2026-03-27'
-      by: LLM_Developer
-      summary: 'Dependency clause from source plan row for P-PH000-ST002-AC005: AC004'
+      date: '2026-03-28'
+      by: LLM_Consultant
+      summary: 'Dependency clause from source plan row for P-PH000-ST002-AC006: AC004'
   evidence:
   - type: note
     ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
-    date: '2026-03-27'
-    by: LLM_Developer
-    summary: 'Source plan row for P-PH000-ST002-AC005 (status planned; raw depends_on: AC004)'
+    date: '2026-03-28'
+    by: LLM_Consultant
+    summary: 'Source plan row for P-PH000-ST002-AC006 (status in_progress; raw depends_on: AC004)'
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES001.md
+    date: '2026-03-28'
+    by: LLM_Consultant
+    summary: 'AC006 SES001 recorded the readiness assessment, plan hardening, and cross-surface alignment for the post-AC004 follow-on lane'
+  - type: check
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/analysis/analysis_P-PH000-ST002-AC006_readiness-and-gate-001-package-boundary-assessment.md
+    date: '2026-03-28'
+    by: LLM_Consultant
+    summary: 'TK000 readiness assessment completed; AC006 gate-package boundary and missing authority inputs are now explicit'
+  - type: session
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES002.md
+    date: '2026-03-28'
+    by: LLM_Consultant
+    summary: 'SES002 recorded the scope expansion to include the briefing dashboard, dependency reversal for AC005, and the task register structural rewrite.'
   aggregation_policy: null
   execution_refs: []
   extensions: {}

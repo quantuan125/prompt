@@ -3,8 +3,8 @@ artifact_type: 'STANDARD'
 initiative_id: 'P'
 initiative_code: 'PROGRAM'
 standard_id: 'P-STD-001'
-version: '1.2.0'
-date: '2026-03-26'
+version: '1.3.0'
+date: '2026-03-28'
 status: 'accepted'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -53,7 +53,7 @@ supersedes: 'T102-STD-004'
 | 31 | P-STD-001D | P-STD-001-CLAUSE-027 | ADR Consequences Scope | States consequences belong only in ADR bodies; no separate STD consequences. |
 | 32 | P-STD-001D | P-STD-001-CLAUSE-028 | References & Provenance | Requires References and Provenance sections and governs what each must contain. |
 | 33 | P-STD-001D | P-STD-001-CLAUSE-029 | Decision Promotion Workflow | Defines when to promote content into STDs/CLAUSEs and preserve traceability. |
-| 34 | P-STD-001D | P-STD-001-CLAUSE-034 | Version Tracking & Amendment History | Defines semver use and amendment-history retention for governed standard files. |
+| 34 | P-STD-001D | P-STD-001-CLAUSE-034 | Version Tracking & Amendment History | Defines semver use and dedicated changelog linkage for governed standard files. |
 | 35 | P-STD-001D | P-STD-001-CLAUSE-035 | References Taxonomy & Schema | Defines the required references subsection taxonomy and row schema. |
 | 36 | P-STD-001D | P-STD-001-CLAUSE-036 | Provenance Taxonomy & Extensions | Defines the minimum provenance subsection taxonomy and extension controls. |
 
@@ -453,11 +453,11 @@ supersedes: 'T102-STD-004'
 
    * **P-STD-001-CLAUSE-034A (Semver contract)** — Standard files MUST use semver for the current `version` field stored in frontmatter.
 
-   * **P-STD-001-CLAUSE-034B (Amendment history location)** — A concise `Amendment History` subsection MUST appear under `## Provenance` per `P-STD-001-CLAUSE-036`.
+   * **P-STD-001-CLAUSE-034B (Amendment history location)** — A concise `Amendment History` subsection MUST appear under `## Provenance` as a pointer-only surface that references the dedicated changelog file per `P-STD-001-CLAUSE-036`.
 
    * **P-STD-001-CLAUSE-034C (Increment triggers)** — Patch increments apply to editorial or metadata-only corrections. Minor increments apply to compatible normative additions or compatible structural refinements. Major increments apply to breaking governance changes, incompatible metadata-schema changes, or relocations that alter authoring expectations.
 
-   * **P-STD-001-CLAUSE-034D (Legacy pre-baseline history)** — Historical events that predate governed semver adoption MAY be retained in `Amendment History` without a semver label, but they MUST be clearly marked as pre-baseline history.
+   * **P-STD-001-CLAUSE-034D (Legacy pre-baseline history)** — Historical events that predate governed semver adoption MAY be retained in the dedicated changelog file without a semver label, but they MUST be clearly marked as pre-baseline history. The standard file's `Amendment History` subsection MUST remain pointer-only.
 
 33) **P-STD-001-CLAUSE-035 (References Taxonomy & Schema)**
 
@@ -483,13 +483,13 @@ supersedes: 'T102-STD-004'
 
    * **P-STD-001-CLAUSE-036C (Lineage / Authority subsection)** — `Lineage / Authority` MUST capture supersession, promotion, alias-window, or comparable authority-chain pointers relevant to the current specification. The subsection SHOULD prefer compact key/value rendering over narrative bullets when that keeps the authority chain clearer.
 
-   * **P-STD-001-CLAUSE-036D (Amendment History subsection)** — `Amendment History` MUST record concise dated change summaries and SHOULD defer full diff detail to version control and process artifacts.
+   * **P-STD-001-CLAUSE-036D (Amendment History subsection)** — `Amendment History` MUST remain a pointer-only subsection. It MUST contain only the blockquote pointer to the dedicated changelog file and MUST NOT record dated change summaries inline.
 
    * **P-STD-001-CLAUSE-036E (Input Sources subsection)** — `Input Sources` MUST list the proposals, analyses, session notes, research, or other concise lineage pointers that materially informed the specification. The list SHOULD be limited to materially used sources and SHOULD avoid carrying stale context that no longer informs the current state.
 
    * **P-STD-001-CLAUSE-036F (Extension control)** — Additional provenance subsections MAY be added only when they do not duplicate the minimum taxonomy and when a governing standard or approved activity explicitly requires them.
 
-   * **P-STD-001-CLAUSE-036G (Externalized amendment changelog)** — When `### Amendment History` inline entries exceed five, the full version-indexed changelog SHOULD be externalized to a dedicated file at `<SID>/standard/changelog/changelog_standard_<SID-STD>.md`. The inline `### Amendment History` subsection MUST retain the three most recent versioned entries and MUST include a blockquote pointer line in the format `> Full version history: \`<repo-relative-path-to-changelog>\`` placed immediately after the `### Amendment History` heading and before the retained inline entries. The externalized changelog file MUST use tabular format with schema `| Version | Date | Type | Summary |` and MUST contain the complete version history including pre-baseline entries.
+   * **P-STD-001-CLAUSE-036G (Dedicated amendment changelog)** — Every active standard file MUST have a dedicated changelog file at `<SID>/standard/changelog/changelog_standard_<SID-STD>.md`. The standard file's `### Amendment History` subsection MUST remain pointer-only and MUST include a blockquote pointer line in the format `> Full version history: \`<repo-relative-path-to-changelog>\``. The standard file MUST NOT retain inline change summaries. The dedicated changelog file MUST use tabular format with schema `| Version | Date | Type | Summary |` and MUST contain the complete version history including pre-baseline entries.
 
 ## Decision Record
 
@@ -629,10 +629,6 @@ supersedes: 'T102-STD-004'
 
 > Full version history: `prompt/artifacts/tasks/P/standard/changelog/changelog_standard_P-STD-001.md`
 
-- v1.2.0 (2026-03-26): Added `CLAUSE-036G` (Externalized Amendment Changelog) enabling standards to externalize full version history to a dedicated changelog file while retaining compact inline summaries. Self-aligned `P-STD-001` to the new pattern.
-- v1.1.0 (2026-03-20): Replaced lower-scope normative vocabulary authority with a program-scope drafting contract, refreshed `References` to a current-state authority set, and tightened the governed compact rendering for `Status` and `Lineage / Authority`.
-- v1.0.0 (2026-03-16): Added metadata-governance clauses `031` through `036`, standardized frontmatter / References / Provenance governance, self-aligned `P-STD-001`, and aligned prompt-owned derivatives and `P-CON-003`.
-
 ### Input Sources
 
 - `prompt/artifacts/tasks/T102/workspace/PH001/ST001/AC009/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md`
@@ -643,3 +639,5 @@ supersedes: 'T102-STD-004'
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/analysis/analysis_P-PH000-ST001-AC009-TK001_p-std-001-amendment-map.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_gate-001-remediation-specification.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/implementation/implementation_P-PH000-ST001-AC009_p-std-001-evolution-task-specification.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/analysis/analysis_P-PH000-ST001-AC011_baseline-amendment-impact-assessment.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/implementation/implementation_P-PH000-ST001-AC011_governance-amendment-and-remediation-task-specification.md`

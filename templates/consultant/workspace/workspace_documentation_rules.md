@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '3.6.0'
-date: '2026-03-26'
+version: '3.7.0'
+date: '2026-03-28'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -35,7 +35,7 @@ Phase → Stream → Activity → Task
 | NOTES (Register) | `notes_` | Index/navigation surface | `prompt/templates/consultant/workspace/template_workspace_notes_register_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | NOTES (Session) | `snotes_` | Session records | `prompt/templates/consultant/workspace/template_workspace_notes_session_*.md` | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
 | ANALYSIS | `analysis_` | Workspace synthesis/audits/assessments/external reviews (type-scoped via `analysis_type`) | `prompt/templates/consultant/workspace/template_workspace_analysis.md` | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` |
-| VERIFICATION | `verification_` | Gate evidence + findings register + rework handoff + reviewer verdict | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
+| VERIFICATION | `verification_` | Gate evidence + findings register + rework handoff + verifier verdict | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
 | PROPOSAL | `proposal_` | Archetype-specific proposal authoring: E-ID workspace, gate disposition (incl. Gate Decision Record), promotion contract, standards input | `prompt/templates/consultant/workspace/template_workspace_proposal_<archetype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` |
 | DEV-REPORT | `dev-report_` | Developer execution log + validation evidence + handoff traceability | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` |
 | IMPLEMENTATION | `implementation_` | Consultant-authored implementation specifications that commission downstream execution: remediation specifications (gate RECYCLE response), task specifications (complex implementation detail) | `prompt/templates/consultant/workspace/template_workspace_implementation_<subtype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_implementation.md` |
@@ -129,9 +129,10 @@ Note: `superseded` is distinct from `cancelled` (deliberate early termination) a
 - Owns: execution, implementation, dev-reports.
 - Boundary: MUST NOT alter contract-level scope; implementation evidence belongs in dev-reports; plan task register `Action` column is updated by developer post-execution.
 
-### D. Reviewer (LLM_Reviewer)
+### D. Verifier (LLM_Reviewer / LLM_Consultant)
 - Owns: verification artifacts for gates, findings classification, and rework handoff evidence.
-- Produces verification as a task (TK-before-gate pattern) only for implementation-backed gates after developer execution and DEV-REPORT handoff. The reviewer's verdict is recorded in the verification artifact's Gate Recommendation section; the Gate Decision Record (GDR) is hosted in the consultant-owned `gate_disposition` proposal per `guideline_workspace_proposal.md` §VII.
+- Operating model: `LLM_Reviewer` is the preferred future-state primary verifier. `LLM_Consultant` is the currently authorized secondary verifier under the temporary operating model and MAY author implementation-backed verification when independent of the implementation-producing task for that cycle.
+- Produces verification as a task (TK-before-gate pattern) only for implementation-backed gates after developer execution and DEV-REPORT handoff. The verifier verdict is recorded in the verification artifact's Gate Recommendation section; the Gate Decision Record (GDR) is hosted in the consultant-owned `gate_disposition` proposal per `guideline_workspace_proposal.md` §VII.
 - Boundary: MUST NOT alter contract-level scope; scope gaps discovered in verification escalate as Situation B findings per `guideline_workspace_verification.md §VII`.
 
 ### E. Client
@@ -147,10 +148,13 @@ Note: `superseded` is distinct from `cancelled` (deliberate early termination) a
 The workspace artifact suite follows two canonical workflow variants depending on whether the gate reviews developer-mutated deliverables or consultant-owned decision-preparation artifacts.
 
 Implementation-backed:
-`ROADMAP → PLAN → NOTES / ANALYSIS → [IMPLEMENTATION task_specification where needed] → implementation deliverables → DEV-REPORT → VERIFICATION → [IMPLEMENTATION remediation_specification where RECYCLE] → remediation deliverables → DEV-REPORT → VERIFICATION (re-assessment) → PROPOSAL (GDR where applicable) → SPS / downstream approved artifacts`
+`ROADMAP → PLAN → NOTES / ANALYSIS → [IMPLEMENTATION task_specification where needed] → implementation deliverables → DEV-REPORT → VERIFICATION → [IMPLEMENTATION remediation_specification where RECYCLE] → remediation deliverables → DEV-REPORT → VERIFICATION (re-assessment) → PROPOSAL (GDR where applicable) → ANALYSIS (external_review, LLM_Subconsultant) → SPS / downstream approved artifacts`
 
 Consultation-only:
-`ROADMAP → PLAN → NOTES / ANALYSIS → PROPOSAL (GDR where applicable) → downstream approved artifacts`
+`ROADMAP → PLAN → NOTES / ANALYSIS → PROPOSAL (GDR where applicable) → ANALYSIS (external_review, LLM_Subconsultant) → downstream approved artifacts`
+
+**External review step**:
+The `ANALYSIS (external_review)` step is authored by `LLM_Subconsultant` as an independent second-opinion quality audit of the gate package. The external review is advisory input; it does NOT override the `PROPOSAL`-hosted GDR authority. The main `LLM_Consultant` MUST review the external review findings and incorporate them into a final assessment before the gate proceeds to client disposition. See `guideline_workspace_plan.md` §VI.L for the full Gate-Readiness Stack pattern.
 
 **Conditional external-impact assessment step**:
 
@@ -166,8 +170,8 @@ Rules:
 - `IMPLEMENTATION` provides detailed specification depth between plan task authority and developer execution. It does not hold work authority (PLAN) or decision authority (PROPOSAL GDR).
 - When a consultation-only gate discovers premature downstream execution or a prematurely materialized concrete artifact, the artifact MUST be preserved for lineage but removed from active gate authority until reclassified, quarantined, or later operationalized under an approved downstream task.
 - For governed work where an IMPLEMENTATION artifact exists, that artifact is the canonical execution-specification surface. Legacy `.claude/plans/` usage is ad hoc only and is not a co-equal governed authority surface.
-- `VERIFICATION` produces independent reviewer evidence and a reviewer verdict for implementation-backed gates only. The reviewer verdict is recorded only in the verification artifact.
-- `PROPOSAL` packages decisions and hosts the authoritative Gate Decision Record (GDR) for `gate_disposition` proposals. The GDR carries the consultant's recommendation (advisory) and the client's decision (authoritative). The reviewer verdict is not duplicated into the GDR.
+- `VERIFICATION` produces independent verifier evidence and a verifier verdict for implementation-backed gates only. The verifier verdict is recorded only in the verification artifact.
+- `PROPOSAL` packages decisions and hosts the authoritative Gate Decision Record (GDR) for `gate_disposition` proposals. The GDR carries the consultant's recommendation (advisory) and the client's decision (authoritative). The verifier verdict is not duplicated into the GDR.
 - Approved proposal decisions update plan status surfaces and unblock downstream work.
 
 ### B. Gate-Readiness Stack (Plan-Level Encoding)
@@ -183,7 +187,7 @@ The workflow chain is encoded at the plan level through the **Gate-Readiness Sta
 | `NOTES` captures session history and pending decisions; it is not a baseline authority | Initiative-level |
 | `ANALYSIS` synthesizes evidence and findings, but does not close gates | Initiative-level |
 | `DEV-REPORT` captures producer evidence only; it does not claim gate closure or verdicts | Initiative-level |
-| `VERIFICATION` holds reviewer verdict and findings; it does not host the GDR. The reviewer verdict is not duplicated into the GDR | Initiative-level |
+| `VERIFICATION` holds verifier verdict and findings; it does not host the GDR. The verifier verdict is not duplicated into the GDR | Initiative-level |
 | `PROPOSAL` hosts the authoritative GDR containing the consultant recommendation (advisory) and client decision (authoritative) for `gate_disposition` proposals | Initiative-level |
 | `IMPLEMENTATION` provides detailed specification depth; it does not hold work authority (PLAN) or decision authority (PROPOSAL GDR) | Initiative-level |
 
@@ -200,8 +204,8 @@ Rules:
 
 | Boundary | Required Outbound Artifact | Minimum Contents | Blocking Rule |
 |:--|:--|:--|:--|
-| Developer -> Reviewer | DEV-REPORT | `source_plan`, `implementation_reference` when an IMPLEMENTATION artifact exists, `package_role`, `primary_report`, and `consolidated_from` when a multi-report package exists, traceability matrix, handoff section | Reviewer MUST not start gate review until the developer evidence package is complete. |
-| Reviewer -> Consultant | VERIFICATION | Evidence Set coverage of the active producer-evidence package, findings or explicit no-findings posture, reviewer verdict | Consultant MUST not package a gate disposition until reviewer verdict and evidence coverage are present. |
+| Developer -> Verifier | DEV-REPORT | `source_plan`, `implementation_reference` when an IMPLEMENTATION artifact exists, `package_role`, `primary_report`, and `consolidated_from` when a multi-report package exists, traceability matrix, handoff section | Verifier MUST not start gate review until the developer evidence package is complete. |
+| Verifier -> Consultant | VERIFICATION | Evidence Set coverage of the active producer-evidence package, findings or explicit no-findings posture, verifier verdict | Consultant MUST not package a gate disposition until verifier verdict and evidence coverage are present. |
 | Consultant -> Developer | IMPLEMENTATION | Explicit task/gate linkage, references to the controlling approved GIR package or the controlling verification findings, depending on the path | Developer MUST not begin remediation or follow-on execution without explicit authority. |
 | Consultant -> Client | PROPOSAL | Gate Package Index, Evidence Index, consultant recommendation, GDR when the archetype is `gate_disposition` | Client MUST not be asked to disposition the gate without the proposal package. |
 
@@ -211,7 +215,7 @@ Lineage rules:
 - VERIFICATION re-assessment remains same-gate and version-bumped rather than renamed to a new gate.
 - Proposal evidence indexes SHOULD surface current active evidence first and preserve historical evidence as lineage context rather than deleting it.
 
-This subsection does not alter the consultant/developer/reviewer ownership model; it governs evidence flow and handoff obligations only.
+This subsection does not alter the consultant/developer/verifier ownership model; it governs evidence flow and handoff obligations only.
 
 **Superseded artifact linkage rules** (three-layer deprecation model):
 
@@ -220,7 +224,7 @@ When a gate is superseded (`Client Decision = SUPERSEDE`), artifacts produced fo
 | Layer | Surface | Required Action | Purpose |
 |:--|:--|:--|:--|
 | **Layer 1: Frontmatter** | Superseded artifact (ANALYSIS, PROPOSAL, or VERIFICATION) | Set `status: 'superseded'`; add `superseded_by: '<successor-path>'`; add deprecation notice as first body line | Self-documenting: any reader of the artifact immediately sees it is not current |
-| **Layer 2: Evidence Index** | Active successor gate-disposition proposal | Move superseded artifact from active evidence to a `Historical Evidence` subsection with `SUPERSEDED` annotation | Gate package clarity: reviewer/client see only current evidence in the primary index |
+| **Layer 2: Evidence Index** | Active successor gate-disposition proposal | Move superseded artifact from active evidence to a `Historical Evidence` subsection with `SUPERSEDED` annotation | Gate package clarity: verifier/client see only current evidence in the primary index |
 | **Layer 3: Links Register** | Governing plan (plan-level Links Register) | Add or update links register entry with `superseded` annotation and successor reference | Plan traceability: plan-level audit trail shows the succession chain |
 
 **Deprecation notice format** (Layer 1):
@@ -236,16 +240,17 @@ When a gate is superseded (`Client Decision = SUPERSEDE`), artifacts produced fo
 
 ## 8. ROLE-TO-ARTIFACT OWNERSHIP MATRIX
 
-| Artifact Type | Author | Reviewer | Approver / Decision Owner | Primary Consumer |
+| Artifact Type | Author | Verifier | Approver / Decision Owner | Primary Consumer |
 |:--|:--|:--|:--|:--|
 | ROADMAP | LLM_Consultant | LLM_Consultant / Client as needed | Client where governed decisions apply | Consultant, Client, downstream roles |
-| PLAN | LLM_Consultant or LLM_Planner per scope | Reviewer only when gated | Client where approval gates apply | Consultant, Planner, Developer, Reviewer |
+| PLAN | LLM_Consultant or LLM_Planner per scope | Verifier only when gated | Client where approval gates apply | Consultant, Planner, Developer, Verifier |
 | NOTES | LLM_Consultant | None by default | None by default | All roles |
 | ANALYSIS | LLM_Consultant | Client / Consultant review as needed | Client when analysis drives approval | Consultant, Client |
-| PROPOSAL | LLM_Consultant | Reviewer input when gate-backed | Client | Consultant, Client, downstream implementers |
-| VERIFICATION | LLM_Reviewer (preferred) | Client consumes verdict | Client decides through GDR | Consultant, Client |
-| DEV-REPORT | LLM_Developer | Reviewer consumes as evidence | None directly | Reviewer, Consultant |
-| IMPLEMENTATION | LLM_Consultant (primary author/commissioner); LLM_Planner only when explicitly delegated by the consultant for decomposition support | Reviewer consumes as re-assessment input | Client where gated | Developer, Reviewer, designated agentic executors |
+| ANALYSIS (`external_review`) | LLM_Subconsultant | LLM_Consultant (mandatory review before gate) | Client via GDR (advisory input only) | Consultant, Client |
+| PROPOSAL | LLM_Consultant | Verifier input when gate-backed | Client | Consultant, Client, downstream implementers |
+| VERIFICATION | LLM_Reviewer (preferred future-state primary) / LLM_Consultant (currently authorized secondary) | Client consumes verdict | Client decides through GDR | Consultant, Client |
+| DEV-REPORT | LLM_Developer | Verifier consumes as evidence | None directly | Verifier, Consultant |
+| IMPLEMENTATION | LLM_Consultant (primary author/commissioner); LLM_Planner only when explicitly delegated by the consultant for decomposition support | Verifier consumes as re-assessment input | Client where gated | Developer, Verifier, designated agentic executors |
 
 Source: `T104-RES-003` Topic 8 (Workspace Artifact Integration & Industry Benchmark Analysis).
 

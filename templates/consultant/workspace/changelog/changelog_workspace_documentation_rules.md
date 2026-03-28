@@ -1,5 +1,7 @@
 | Version | Date | Type | Summary |
-|:--|:--|:--|
+|:--|:--|:--|:--|
+| v3.7.0 | 2026-03-28 | Amendment | §7.A: Added mandatory `ANALYSIS (external_review, LLM_Subconsultant)` step to both implementation-backed and consultation-only canonical workflow chains. Added external review step explanatory note. §8: Added `LLM_Subconsultant` external review row to role-to-artifact ownership matrix. Source: T102-PH001-ST002-AC000-TK000 consultation session (2026-03-28). |
+| v3.6.0 | 2026-03-26 | Maintenance | Changelog continuity: this version was the prior release before v3.7.0. No changelog entry was captured at release time. |
 | v3.5.0 | 2026-03-25 | Amendment | Added AC001.9 recyclable-loop evidence accumulation and handoff contract in §7, including cycle-local evidence, same-gate lineage preservation, boundary-specific outbound artifacts, and explicit lineage rules for recycled loops. |
 | v3.4.0 | 2026-03-25 | Amendment | Externalized workspace guideline changelog tables into dedicated files, added a workspace guideline-to-changelog registry in §12, and made the pointer-only changelog rule normative for future workspace guideline updates. |
 | v3.3.0 | 2026-03-22 | Amendment | Expanded the implementation-backed workflow chain to make the full complex `RECYCLE` loop explicit (`IMPLEMENTATION remediation_specification` -> remediation deliverables -> DEV-REPORT -> VERIFICATION re-assessment). Added the governed-work note that IMPLEMENTATION is the canonical execution-specification surface where it exists and `.claude/plans/` is legacy/ad hoc only. Added bounded same-activity session-reference shorthand guidance in §7.C. Source: T104-PH001-ST008-AC001.6-GATE-001 GIR-003, GIR-007, GIR-008. |

@@ -1,3 +1,15 @@
+---
+artifact_type: 'STANDARD'
+initiative_id: 'P'
+initiative_code: 'PROGRAM'
+standard_id: 'P-STD-005'
+version: '1.0.0'
+date: '2026-03-28'
+status: 'draft'
+author: 'LLM_Consultant'
+decision_owner_role: 'Client'
+---
+
 # P-STD-005 — Universal ID Specification {#p-std-005-universal-id-specification}
 ## Specification
 
@@ -446,31 +458,44 @@
 
 ## References
 
-### External References (Cross-Scope)
+### Normative References
 | ID | Title | Scope | Source Path |
 |:--|:--|:--|:--|
 | P-STD-001 | Program Governance Standard | Program (P) | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` |
 | T102-STD-003 | Explicit Inheritance Model | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-003_explicit-inheritance-model.md` |
+
+### Informative References
+| ID | Title | Scope | Source Path |
+|:--|:--|:--|:--|
 | T102-STD-005 | ID Specification & Rules (Superseded Source) | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
 | T102-STD-006 | Research Artifacts Index | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-006_research-artifacts-index.md` |
 | T102-CON-009 | Normative Keywords | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/concept_T102-CONSULTANT.md` |
 
 ## Provenance
-### Promotion
-- Promoted from: `T102-STD-005 (ID Specification & Rules)`
-- Promotion activity: `P-PH000-ST001-AC006 (Promote T102-STD-005 to P-STD-005)`
-- Promotion contract: `proposal_P-PH000-ST001-AC006_promotion-contract-t102-std-005-to-p-std-005.md`
-- Alias window: active until Governance Sync Changeset "P-STD-005 Alias Removal" is executed (changeset-based end condition)
+
+### Status
+| Field | Value |
+|:--|:--|
+| Current lifecycle posture | `draft` |
+
+### Lineage / Authority
+| Field | Value |
+|:--|:--|
+| Promoted from | `T102-STD-005` |
+| Promotion activity | `P-PH000-ST001-AC006 (Promote T102-STD-005 to P-STD-005)` |
+| Promotion contract | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/proposal/proposal_P-PH000-ST001-AC006_promotion-contract-t102-std-005-to-p-std-005.md` |
+| Alias window | `active until Governance Sync Changeset "P-STD-005 Alias Removal" is executed (changeset-based end condition)` |
+
+### Amendment History
+> Full version history: `prompt/artifacts/tasks/P/standard/changelog/changelog_standard_P-STD-005.md`
 
 ### Input Sources
 - `T104-PH001-ST000-SES001 (Planning & Consultation QA Session)` — Inputs: Stable UIDs, Phases, LINK indirection
 - `T104-PH001-ST002 (Standards Stream Plan)` — Input: Timeline UID scope
 - `T104-PH001-ST002-AC000 (Directory & File Naming Convention Proposal)` — Approved naming convention
 - `T104-PH001-ST008-AC001.6-GATE-001` — Clarification input distinguishing `IID-IG` token semantics from the workspace `IMPLEMENTATION` artifact family
-
-### Hardening
-- Activity: `P-PH000-ST001-AC007 (Harden P-STD-005)`
-- Changes: 6 SUBCLAUSE-SPLIT refactorings (R-001 through R-006), 15 LANGUAGE-EDIT fixes (R-007 through R-021), 14 GIR remediations. Zero RE-ARCHITECTURE changes; all 11 main CLAUSE IDs preserved.
-- Analysis: `prompt/artifacts/tasks/P/workspace/PH000/ST001/analysis/analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md`
-- GATE-001 verification: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/verification/verification_P-PH000-ST001-AC007_gate-001.md`
-- Post-hardening amendment: Clarified formal reference vs subclause pointer usage (GIR-010 disposition, 2026-03-01)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC006/analysis/analysis_P-PH000-ST001-AC006_pre-promotion-audit.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/analysis/analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/verification/verification_P-PH000-ST001-AC007_gate-001.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/analysis/analysis_P-PH000-ST001-AC010-TK000_execution-readiness-assessment.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/implementation/implementation_P-PH000-ST001-AC010_cross-standard-metadata-retrofit-task-specification.md`

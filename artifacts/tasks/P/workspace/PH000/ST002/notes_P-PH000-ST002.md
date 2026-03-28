@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream: 'ST002'
-version: '1.13.1'
-date: '2026-03-27'
+version: '1.17.0'
+date: '2026-03-28'
 status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -53,6 +53,10 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC004 | `P-PH000-ST002-AC004-SES006` | AC004 GATE-002 Integrity Remediation, Session-Close Reclassification & AC001.10 Scope Expansion | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES006.md` |
 | AC004 | `P-PH000-ST002-AC004-SES007` | AC004 GATE-002 QA Remediation Completion, Exact-Detail TK004 Specification & Proposal Re-Presentation | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES007.md` |
 | AC004 | `P-PH000-ST002-AC004-SES008` | Gate-002 Closeout, Orchestration, Verification, and Gate-003 Readiness | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES008.md` |
+| AC004 | `P-PH000-ST002-AC004-SES009` | Gate-003 Clean Closeout Preparation, AC005/AC006 Registration, and QA Response | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES009.md` |
+| AC004 | `P-PH000-ST002-AC004-SES010` | GATE-003 Approval Recording, AC004 Closeout Completion, and Downstream Boundary Release | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES010.md` |
+| AC006 | `P-PH000-ST002-AC006-SES001` | Readiness Assessment, Plan Hardening, and GATE-001 Package Boundary | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES001.md` |
+| AC006 | `P-PH000-ST002-AC006-SES002` | Scope Expansion, Dependency Reversal, and Phase A/B Execution | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES002.md` |
 
 ---
 
@@ -68,6 +72,10 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.17.0 | 2026-03-28 | Amendment | Registered AC006 activity session `P-PH000-ST002-AC006-SES002` for scope expansion, dependency reversal, task register rewrite, and Phase A/B execution planning. |
+| v1.16.0 | 2026-03-28 | Amendment | Registered AC006 activity session `P-PH000-ST002-AC006-SES001` for the post-AC004 readiness assessment, plan hardening, and future `GATE-001` package-boundary definition. |
+| v1.15.0 | 2026-03-28 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES010` for client-approved `GATE-003` closeout recording, AC004 completion, stale AC003 correction, and downstream release of AC005/AC006 as separate planned follow-on activities. |
+| v1.14.0 | 2026-03-28 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES009` for client-QA response, delegated `GATE-003` clean-closeout preparation, clean package normalization, and standalone AC005/AC006 follow-on registration. |
 | v1.13.1 | 2026-03-27 | Amendment | Updated the AC004 `SES008` index entry and register summary to match the expanded session-title and full orchestration record. |
 | v1.13.0 | 2026-03-27 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES008` for GATE-002 approval recording, consultant-owned post-approval housekeeping, decisive-authority reconciliation, and downstream loop commissioning. |
 | v1.12.0 | 2026-03-26 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES007` for consultant-owned completion of the GATE-002 QA-remediation pass, including the exact-detail TK004 implementation-spec rewrite, authoritative-review repackaging, and proposal re-presentation. |

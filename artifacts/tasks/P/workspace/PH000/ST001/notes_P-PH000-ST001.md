@@ -5,7 +5,7 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream: 'ST001'
-version: '1.18.0'
+version: '1.19.0'
 date: '2026-03-27'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -46,7 +46,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC003 | `P-PH000-ST001-AC003` | Author `P-STD-002` (Program Status Standard) | `in_progress` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES002.md`<br>SES003: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES003.md`<br>SES004: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES004.md`<br>SES005: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC003/snotes/snotes_P-PH000-ST001-AC003-SES005.md` |
 | AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `planned` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/snotes/snotes_P-PH000-ST001-AC007-SES001.md` |
 | AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `completed` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES002.md`<br>SES003: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES003.md`<br>SES004: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES004.md`<br>SES005: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/snotes/snotes_P-PH000-ST001-AC009-SES005.md` |
-| AC010 | `P-PH000-ST001-AC010` | Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs) | `in_progress` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/snotes/snotes_P-PH000-ST001-AC010-SES001.md` |
+| AC010 | `P-PH000-ST001-AC010` | Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs) | `completed` | SES001: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/snotes/snotes_P-PH000-ST001-AC010-SES001.md`<br>SES002: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/snotes/snotes_P-PH000-ST001-AC010-SES002.md` |
 
 ---
 
@@ -63,6 +63,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.19.0 | 2026-03-28 | Update | Indexed AC010-SES002 in the Activity Notes Register, updated AC010 status to `completed`, and kept the AC010 session trail discoverable from the ST001 notes register. |
 | v1.18.0 | 2026-03-27 | Update | Indexed AC010-SES001 in the Activity Notes Register and updated the AC009 row to `completed` after recording the AC010 commissioning-package session. |
 | v1.17.0 | 2026-03-27 | Update | Renamed AC009-SES005 in the stream notes register to match the expanded session title (Gate-002 Consultation, Orchestration & Final Approval). |
 | v1.16.0 | 2026-03-27 | Update | Indexed AC009-SES005 (Gate-002 Clean Closeout & Final Approval); AC009 row now includes SES005 and status updated to `in_progress`. |

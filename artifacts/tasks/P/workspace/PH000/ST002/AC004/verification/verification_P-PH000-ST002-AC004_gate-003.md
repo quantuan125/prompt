@@ -7,8 +7,8 @@ phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC004'
 gate_id: 'P-PH000-ST002-AC004-GATE-003'
-version: '1.0.0'
-date: '2026-03-27'
+version: '1.0.2'
+date: '2026-03-28'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -20,7 +20,7 @@ targets:
   - 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
   - 'prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md'
   - 'prompt/skills/session-close/SKILL.md'
-  - 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md'
+  - 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md'
 verification_scope: 'Consultant-authored evidence-first verification of the AC004 first operationalization slice delivered under TK004/TK005 for GATE-003 implementation acceptance.'
 method: 'Evidence-first review of the implementation specification, approved GATE-002 package, delivered surfaces, and DEV-REPORT, plus independent traceability and formatting checks.'
 session_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES008.md'
@@ -44,7 +44,7 @@ session_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/
 ## II. Evidence Set (Artifacts Reviewed)
 
 **Primary DEV-REPORT**:
-- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md` (developer handoff and bounded implementation evidence)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md` (developer handoff and bounded implementation evidence)
 
 **Other task deliverables**:
 - `prompt/artifacts/tasks/P/status/status_program.yaml` (canonical ledger updated by TK004)
@@ -91,24 +91,13 @@ session_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/
 
 | # | Check | Expected | Observed Evidence | Result |
 |:--|:--|:--|:--|:--|
-| D1 | DEV-REPORT covers required package sections | DEV-REPORT includes Executive Summary, Implementation Log, Validation Evidence, Traceability Matrix, and Handoff | `dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md` contains all required sections in order at lines 22-159. | **PASS** |
-| D2 | Independent formatting check passes | Delivered slice has no whitespace or patch-format defects | `git -C prompt diff --check -- artifacts/tasks/P/status/status_program.yaml artifacts/tasks/P/status/status_program.md artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md artifacts/tasks/P/workspace/PH000/plan_P-PH000.md artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md skills/session-close/SKILL.md artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md` returned no output (`PASS`). | **PASS** |
-| D3 | DEV-REPORT metadata points to the governing AC004 plan | `source_plan` path resolves to the activity plan used for this slice | DEV-REPORT frontmatter points to `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002.md` at line 9, while independent path check confirms `bad_exists False` and `good_exists True` for `.../plan_P-PH000-ST002-AC004.md`. | **FAIL** |
+| D1 | DEV-REPORT covers required package sections | DEV-REPORT includes Executive Summary, Implementation Log, Validation Evidence, Traceability Matrix, and Handoff | `dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md` contains all required sections in order at lines 22-159. | **PASS** |
+| D2 | Independent formatting check passes | Delivered slice has no whitespace or patch-format defects | `git -C prompt diff --check -- artifacts/tasks/P/status/status_program.yaml artifacts/tasks/P/status/status_program.md artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md artifacts/tasks/P/workspace/PH000/plan_P-PH000.md artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md skills/session-close/SKILL.md artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md` returned no output (`PASS`). | **PASS** |
+| D3 | DEV-REPORT metadata and canonical naming are clean | `source_plan` resolves to the governing AC004 plan and the DEV-REPORT uses the dated canonical filename | DEV-REPORT frontmatter now points to `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md`, and the evidence bundle is retained at the dated canonical path `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md`. | **PASS** |
 
 ## IV. Findings Register
 
-### FINDING-001 — DEV-REPORT Source-Plan Pointer Is Broken
-
-| Field | Detail |
-|:--|:--|
-| Severity | Moderate |
-| Source | Check D3; `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md` |
-| Description | The DEV-REPORT frontmatter `source_plan` points to `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002.md`, which does not exist. The governing AC004 activity plan path is `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md`. This is a package-traceability defect in metadata, not a defect in the implemented deliverables themselves. |
-| Classification | Situation A (deliverable deficiency) |
-| Required Action | Amend the DEV-REPORT metadata so `source_plan` points to the AC004 activity plan before the package is reused as a refreshed primary evidence bundle in any later amendment, recycle loop, or downstream audit. |
-| Owner | Developer |
-| Resolution Status | open |
-| Resolution Date | — |
+No findings. The previously identified DEV-REPORT hygiene defects have been corrected in the live package.
 
 ## V. Observations
 
@@ -126,20 +115,19 @@ The inspected outputs align to the six target surfaces plus one DEV-REPORT. No e
 |:--|:--|:--|
 | `GATE-002` approval recorded and downstream execution authorized | **MET** | The approved `GATE-002` proposal records `APPROVE WITH CONDITIONS`, `Gate Status After Decision = completed`, and the binding downstream conditions in its GDR. |
 | TK004 implementation outputs delivered on all in-scope target surfaces | **MET** | All six target surfaces were updated and independently reviewed: ledger, narrative, stream plan, phase plan, roadmap, and session-close skill. |
-| TK005 DEV-REPORT exists and provides consultant handoff package | **MET WITH NON-BLOCKING DEFECT** | DEV-REPORT exists with the required sections, but `source_plan` metadata is broken (Finding-001). |
+| TK005 DEV-REPORT exists and provides consultant handoff package | **MET** | DEV-REPORT exists with the required sections, points to the governing AC004 plan, and now uses the dated canonical filename. |
 
 ## VII. Gate Recommendation
 
-**Verdict**: **CONDITIONAL PASS**
+**Verdict**: **PASS**
 
 **Rationale**:
 - The implemented surfaces satisfy the substantive requirements of `SPEC-001` through `SPEC-005`.
 - The approved `GATE-002` conditions were carried into the delivered outputs without scope expansion.
 - The planning hierarchy, ledger/narrative pair, and consultant-only session-close skill are mutually consistent.
-- Only one defect was identified, and it is limited to DEV-REPORT metadata traceability rather than the implementation itself.
+- The previously identified DEV-REPORT hygiene defects were corrected in the live package, so no residual gate-blocking or gate-conditioning defect remains.
 
-**Conditions** (if CONDITIONAL PASS):
-- Correct the DEV-REPORT `source_plan` frontmatter to `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md` before this package is reused as refreshed primary evidence in any later amendment, recycle loop, or downstream audit.
+**Conditions**: —
 
 > **Note**: The Gate Decision Record (GDR) is hosted in the `gate_disposition` proposal artifact, not in the verification artifact. See `guideline_workspace_proposal.md` §VII for GDR specification. The verification artifact's Gate Recommendation provides the reviewer verdict consumed by the proposal's GDR.
 
@@ -151,7 +139,7 @@ The inspected outputs align to the six target surfaces plus one DEV-REPORT. No e
 | Successor Implementation Specification | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md` |
 | Approved GATE-002 Proposal | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-GATE-002_operating-model-disposition.md` |
 | Session-Close Standards-Input Proposal | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-TK003.8_session-close-standards-input.md` |
-| DEV-REPORT | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md` |
+| DEV-REPORT | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md` |
 | Canonical Ledger | `prompt/artifacts/tasks/P/status/status_program.yaml` |
 | Derived Narrative | `prompt/artifacts/tasks/P/status/status_program.md` |
 | ST002 Stream Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md` |
@@ -164,4 +152,5 @@ The inspected outputs align to the six target surfaces plus one DEV-REPORT. No e
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
-| v1.0.0 | 2026-03-27 | Initial | Consultant-authored GATE-003 verification for the AC004 first operationalization slice. Verified the six implemented surfaces plus the DEV-REPORT against `SPEC-001` through `SPEC-005`, identified one non-blocking DEV-REPORT metadata traceability defect, and issued a `CONDITIONAL PASS` verdict. |
+| v1.0.2 | 2026-03-28 | Amendment | Corrected the live DEV-REPORT `source_plan`, confirmed the dated canonical filename in the worktree, cleared the package-hygiene finding from the current package, and elevated the reviewer verdict to `PASS`. |
+| v1.0.1 | 2026-03-28 | Amendment | Updated the AC004 GATE-003 verification to reference the dated canonical DEV-REPORT filename and to document the package-hygiene condition set as a tracked non-blocking issue. Kept the `CONDITIONAL PASS` verdict and the AC004 closeout posture unchanged. |

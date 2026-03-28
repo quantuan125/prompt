@@ -6,9 +6,9 @@ phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC004'
 task_id: 'P-PH000-ST002-AC004-TK004..P-PH000-ST002-AC004-TK005'
-source_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002.md'
+source_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md'
 implementation_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/implementation/implementation_P-PH000-ST002-AC004_successor-first-operationalization-task-specification.md'
-version: '1.0.0'
+version: '1.0.1'
 date: '2026-03-27'
 status: 'draft'
 author: 'LLM_Developer'
@@ -120,7 +120,7 @@ Resulting posture:
 - None
 
 **Files created**:
-- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md`
 
 **Applied changes**:
 - Captured the bounded implementation slice, validation evidence, traceability matrix, and consultant handoff.
@@ -135,7 +135,7 @@ Resulting posture:
 
 ### 3.1 Command Results
 
-- `git -C prompt diff --check -- artifacts/tasks/P/status/status_program.yaml artifacts/tasks/P/status/status_program.md artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md artifacts/tasks/P/workspace/PH000/plan_P-PH000.md artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md skills/session-close/SKILL.md` -> `PASS`
+- `git -C prompt diff --check -- artifacts/tasks/P/status/status_program.yaml artifacts/tasks/P/status/status_program.md artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md artifacts/tasks/P/workspace/PH000/plan_P-PH000.md artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md skills/session-close/SKILL.md artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md` -> `PASS`
 - `python3 - <<'PY' ...` -> `PASS`
   - `entries_total 83`
   - `status_counts {'planned': 52, 'completed': 26, 'in_progress': 5}`
@@ -146,7 +146,7 @@ Resulting posture:
   - `ac005_dep_from_to P-PH000-ST002-AC004 P-PH000-ST002-AC005`
   - `ac005_dep_owner LLM_Consultant`
   - `ac005_evidence_types ['note']`
-- `rg -n "v1.0.1|v1.9.1|v0.4.10|v0.2.6|consultant-only reminder surface|GATE-002 approved successor operating-model package|Continue active execution|manual-only reminder surface" artifacts/tasks/P/status/status_program.yaml artifacts/tasks/P/status/status_program.md artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md artifacts/tasks/P/workspace/PH000/plan_P-PH000.md artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md skills/session-close/SKILL.md artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md` -> `PASS`
+- `rg -n "v1.0.1|v1.9.1|v0.4.10|v0.2.6|consultant-only reminder surface|GATE-002 approved successor operating-model package|Continue active execution|manual-only reminder surface" artifacts/tasks/P/status/status_program.yaml artifacts/tasks/P/status/status_program.md artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md artifacts/tasks/P/workspace/PH000/plan_P-PH000.md artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md skills/session-close/SKILL.md artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md` -> `PASS`
   - Confirmed the new version stamps, AC004/AC005 rows, AC004 active wording, consultant-only reminder text, and roadmap/plan transition text on the edited surfaces.
 
 ### 3.2 Evidence Interpretation
@@ -162,7 +162,7 @@ Resulting posture:
 | `P-PH000-ST002-AC004-TK004` | Narrative / Section 7 protocol | completed | `prompt/artifacts/tasks/P/status/status_program.md` |
 | `P-PH000-ST002-AC004-TK004` | Stream / phase / roadmap alignment | completed | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md`, `prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md`, `prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md` |
 | `P-PH000-ST002-AC004-TK004` | Session-close skill operationalization | completed | `prompt/skills/session-close/SKILL.md` |
-| `P-PH000-ST002-AC004-TK005` | Developer DEV-REPORT | completed | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md` |
+| `P-PH000-ST002-AC004-TK005` | Developer DEV-REPORT | completed | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md` |
 | `SPEC-001` | Status ledger reconciliation | completed | `prompt/artifacts/tasks/P/status/status_program.yaml` |
 | `SPEC-002` | Status narrative and Section 7 protocol | completed | `prompt/artifacts/tasks/P/status/status_program.md` |
 | `SPEC-003` | Planning and summary surfaces | completed | `prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md`, `prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md`, `prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md` |
@@ -187,7 +187,7 @@ Resulting posture:
 - `prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md` (phase plan)
 - `prompt/artifacts/tasks/P/ssot/roadmap_P-PROGRAM_phase0.md` (roadmap)
 - `prompt/skills/session-close/SKILL.md` (consultant reminder surface)
-- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice.md` (developer evidence)
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/dev-report/dev-report_P-PH000-ST002-AC004_first-operationalization-slice_2026-03-27.md` (developer evidence)
 
 ### 5.4 Pending decision / next step
 
