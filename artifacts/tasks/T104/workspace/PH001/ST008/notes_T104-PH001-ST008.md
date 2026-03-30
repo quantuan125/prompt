@@ -5,8 +5,8 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST008'
-version: '2.18.0'
-date: '2026-03-28'
+version: '2.21.0'
+date: '2026-03-30'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -40,6 +40,9 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Activity | Session ID | Name | Notes File |
 |:--|:--|:--|:--|
+| AC006 | `T104-PH001-ST008-AC006-SES006` | TK004-TK007.1 Completion, GATE-002 Assessment & Package Synchronization | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES006.md` |
+| AC006 | `T104-PH001-ST008-AC006-SES005` | GATE-001 Client Approval, Plan Amendment & TK003.1 Gap Remediation | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES005.md` |
+| AC006 | `T104-PH001-ST008-AC006-SES004` | GATE-001 Package Assembly, Authoritative External Review & Same-Gate Hardening | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES004.md` |
 | AC006 | `T104-PH001-ST008-AC006-SES003` | TK001.1 Comparative Analysis, Pre-GATE-001 Readiness Assessment & Plan Amendment | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES003.md` |
 | AC006 | `T104-PH001-ST008-AC006-SES002` | Research Integration, Governance Hardening, and Plan Amendment | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES002.md` |
 | AC006 | `T104-PH001-ST008-AC006-SES001` | AC006 Promotion, Baseline Readiness Assessment & GATE-001 Package Structuring | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES001.md` |
@@ -91,6 +94,9 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.21.0 | 2026-03-30 | Amendment | Registered AC006-SES006 (TK004-TK007.1 Completion, GATE-002 Assessment & Package Synchronization) after the developer execution, consultant verification, authoritative external review, final consultant assessment, and package-synchronization closeout path were recorded. |
+| v2.20.0 | 2026-03-30 | Amendment | Registered AC006-SES005 (GATE-001 Client Approval, Plan Amendment & TK003.1 Gap Remediation) after client approval and pre-commissioning amendments were completed. |
+| v2.19.0 | 2026-03-30 | Amendment | Registered AC006-SES004 (GATE-001 Package Assembly, Authoritative External Review & Same-Gate Hardening) after the consultant-owned GATE-001 stack was completed, the authoritative external review was integrated, and the same-gate hardening/session trail was finalized for client disposition. |
 | v2.18.0 | 2026-03-28 | Amendment | Registered AC006-SES002 (Research Integration) and AC006-SES003 (TK001.1 Comparative Analysis/Housekeeping) after the final plan amendments and proposal resolution were authored. |
 | v2.17.0 | 2026-03-27 | Amendment | Registered AC006-SES001 (AC006 Promotion, Baseline Readiness Assessment & GATE-001 Package Structuring) after the AC006 promotion and TK000 baseline assessment were authored. |
 | v2.16.0 | 2026-03-25 | Gate Closure | Registered AC001.9-SES004 (GATE-002 Housekeeping Closeout, Authority Sync & Client Approval Recording). SES004 records the final housekeeping synchronization, the refreshed GATE-002 proposal evidence trail, client APPROVE decision, and AC001.9 closure. |

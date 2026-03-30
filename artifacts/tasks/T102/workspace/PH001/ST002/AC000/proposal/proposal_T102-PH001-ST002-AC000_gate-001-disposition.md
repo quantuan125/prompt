@@ -7,21 +7,23 @@ stream_id: 'T102-PH001-ST002'
 activity_id: 'T102-PH001-ST002-AC000'
 task_id: 'T102-PH001-ST002-AC000-TK008'
 gate_id: 'T102-PH001-ST002-AC000-GATE-001'
-version: '1.2.0'
-date: '2026-03-28'
+version: '1.5.0'
+date: '2026-03-30'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/plan_T102-PH001-ST002-AC000.md'
 analysis_reference: 'prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/analysis/analysis_T102-PH001-ST002-AC000_calibrated-scope-brief.md'
-external_review_reference: 'prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/analysis/analysis_T102-PH001-ST002-AC000-TK009_gate-001-external-review.md'
-purpose: 'Decision disposition package for AC000 GATE-001 recycle/reassessment and downstream scope seeding'
+external_review_reference: 'prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/analysis/analysis_T102-PH001-ST002-AC000-TK010.4_gate-001-recycle-external-review.md'
+purpose: 'Decision disposition package for AC000 GATE-001 client re-presentation after same-gate recycle remediation and fresh second external review'
 consumers:
   - 'T102-PH001-ST002-AC000-GATE-001'
   - 'T102-PH001-ST002-AC000-TK010'
   - 'T102-PH001-ST002-AC000-TK010.1'
   - 'T102-PH001-ST002-AC000-TK010.2'
   - 'T102-PH001-ST002-AC000-TK010.3'
+  - 'T102-PH001-ST002-AC000-TK010.4'
+  - 'T102-PH001-ST002-AC000-TK010.5'
   - 'T102-PH001-ST002-AC001'
   - 'T102-PH001-ST002-AC002'
   - 'T102-PH001-ST002-AC003'
@@ -33,8 +35,8 @@ consumers:
 ## I. EXECUTIVE SUMMARY
 
 - Context: AC000 was commissioned to verify the ST005 amendment deltas across `STD-001`, `STD-003`, `STD-006`, and `STD-007`; assess all nine T102 standards against selected `P-STD-001` structural requirements; and classify the current supersession posture of `STD-004`.
-- Goal at gate: Ask the Client to recycle the gate package and re-present it after the same-gate remediation loop has been completed.
-- Scope: This gate is consultation-only. It recycles diagnostic findings, scope calibration, and downstream conditions into a same-gate corrective loop. It does not approve post-gate implementation completion and does not imply `GATE-002` readiness.
+- Goal at gate: Ask the Client to approve the refreshed Gate-001 package with conditions now that the same-gate remediation, fresh external review, and consultant assessment have been completed.
+- Scope: This gate remains consultation-only. It accepts the diagnostic baseline and downstream calibration package after the same-gate recycle loop has been completed. It does not approve post-gate implementation completion and does not imply `GATE-002` readiness.
 
 ---
 
@@ -50,6 +52,7 @@ consumers:
 | Gate-disposition proposal | `TK008` | `completed` | `pending` | Required | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/proposal/proposal_T102-PH001-ST002-AC000_gate-001-disposition.md` |
 | Pre-GATE downstream seed task specification | `TK010` | `completed` | `accepted-provisional` | Required | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/implementation/implementation_T102-PH001-ST002-AC000_tk010_gate-001-downstream-seed-task-specification.md` |
 | GATE-001 recycle remediation specification | `TK010.1` | `completed` | `accepted-provisional` | Required | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/implementation/implementation_T102-PH001-ST002-AC000_tk010.1_gate-001-package-recycle-remediation-specification.md` |
+| Fresh second external review | `TK010.4` | `completed` | `accepted-provisional` | Required | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/analysis/analysis_T102-PH001-ST002-AC000-TK010.4_gate-001-recycle-external-review.md` |
 
 ### B. Evidence Index
 
@@ -63,10 +66,11 @@ consumers:
 | Implementation lineage | GATE-001 recycle remediation specification | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/implementation/implementation_T102-PH001-ST002-AC000_tk010.1_gate-001-package-recycle-remediation-specification.md` | Consultant-authored remediation spec that instructs the assistant sub-agent and same-gate package refresh |
 | Structural authority | `P-STD-001` | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | Governs the structural gap inventory and supersession posture expectations |
 | Proposal package | Gate-disposition proposal | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/proposal/proposal_T102-PH001-ST002-AC000_gate-001-disposition.md` | Current client decision surface for `GATE-001` |
-| External review | AC000 GATE-001 external review | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/analysis/analysis_T102-PH001-ST002-AC000-TK009_gate-001-external-review.md` | Historical/outdated pre-remediation review retained for traceability only; no longer an active package item |
+| External review | AC000 GATE-001 fresh second external review | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/analysis/analysis_T102-PH001-ST002-AC000-TK010.4_gate-001-recycle-external-review.md` | Active fresh second external review for the client re-presentation package |
+| External review (historical/outdated) | AC000 GATE-001 external review | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/analysis/analysis_T102-PH001-ST002-AC000-TK009_gate-001-external-review.md` | Historical/outdated pre-remediation review retained for traceability only |
 
 Traceability note:
-- GIR-001 through GIR-004 retain the diagnostic rationale that led to the recycle recommendation. They do not supersede the package-level RECYCLE disposition below.
+- GIR-001 through GIR-004 retain the diagnostic rationale that led to the prior recycle recommendation and now support the refreshed client re-presentation package below.
 
 ---
 
@@ -76,8 +80,8 @@ Traceability note:
 |:--|:--|:--|:--|:--|:--|:--|
 | GIR-001 | Diagnostic package completeness | Whether AC000 produced a sufficient evidence baseline for `GATE-001` | (a) Accept the calibrated scope brief as the authoritative diagnostic baseline | `GATE-001` | Yes | `[ ] (a)` / `[ ] (b)` |
 | GIR-002 | Systemic structural backlog | Priority posture for the nine-file `P-STD-001` retrofit backlog | (a) Treat structural remediation as AC001 priority-one scope | `AC001` | Yes | `[ ] (a)` / `[ ] (b)` |
-| GIR-003 | `STD-004` residual housekeeping | Sequencing of supersession normalization and any GATE-001-seeded fixes | (a) Defer bounded mutation work to the same-gate recycle loop (`TK010.1`-`TK010.3`) and later blocked implementation tasks | `TK010.1`-`TK011` | Yes | `[ ] (a)` / `[ ] (b)` |
-| GIR-004 | Downstream sequencing boundary | Whether `GATE-001` approval authorizes only diagnostic acceptance or also implementation closure | (a) Approve diagnostic acceptance only; keep implementation and `GATE-002` separate | `TK010.1`-`TK015`, `AC001`-`AC004` | Yes | `[ ] (a)` / `[ ] (b)` |
+| GIR-003 | `STD-004` residual housekeeping | Sequencing of supersession normalization and any GATE-001-seeded fixes | (a) Defer bounded mutation work to the same-gate recycle loop (`TK010.1`-`TK010.5`) and later blocked implementation tasks | `TK010.1`-`TK010.5`, `TK011`-`TK015` | Yes | `[ ] (a)` / `[ ] (b)` |
+| GIR-004 | Downstream sequencing boundary | Whether `GATE-001` approval authorizes only diagnostic acceptance or also implementation closure | (a) Approve diagnostic acceptance only; keep implementation and `GATE-002` separate | `TK010.1`-`TK010.5`, `TK011`-`TK015`, `AC001`-`AC004` | Yes | `[ ] (a)` / `[ ] (b)` |
 
 ---
 
@@ -147,7 +151,7 @@ Decision prompt:
 
 | Option | Description |
 |:--|:--|
-| **(a) Defer to same-gate recycle remediation (Recommended)** | Author the same-gate recycle remediation specification, then perform any bounded mutation work under `TK010.2`/`TK010.3` and later blocked implementation tasks, then review it at `GATE-002`. |
+| **(a) Defer to same-gate recycle remediation (Recommended)** | Author the same-gate recycle remediation specification, then perform any bounded mutation work under `TK010.2`/`TK010.3`, complete the fresh external review and proposal-refresh steps under `TK010.4`/`TK010.5`, and then review it at `GATE-002`. |
 | (b) Treat the current diagnostic package as implementation closure | Consider the existing supersession notice sufficient to close the residual housekeeping scope without a post-gate implementation cycle. |
 
 Recommendation:
@@ -165,7 +169,7 @@ Client Decision:
 
 Context:
 - `GATE-001` exists to recycle the diagnostic package and calibrated execution focus.
-- Downstream implementation-backed work remains explicitly modeled under `TK010.1`-`TK015` and `GATE-002`.
+- Downstream implementation-backed work remains explicitly modeled under `TK010.1`-`TK010.5` and `GATE-002`.
 - AC001-AC004 need the diagnostic outputs, but they do not need `GATE-001` to misrepresent implementation closure.
 
 Decision prompt:
@@ -190,7 +194,7 @@ Client Decision:
 ## V. CONSULTANT GATE RECOMMENDATION
 
 Consultant recommendation:
-- `RECYCLE`
+- `APPROVE WITH CONDITIONS`
 
 Reviewer verdict alignment (implementation-backed gates only):
 - Reviewer verdict: `N/A — consultation-only gate`
@@ -198,18 +202,28 @@ Reviewer verdict alignment (implementation-backed gates only):
 - Alignment: `Aligned`
 
 Conditions and/or deferrals:
-- `1.` TK010.1-TK010.3 are the required same-gate remediation loop for this package.
-- `2.` The current TK009 external review is historical/outdated evidence only and must not be treated as active package authority.
-- `3.` TK011-TK015 and GATE-002 remain blocked until the same gate is re-presented and a later client approval is recorded.
-- `4.` A fresh external review is deferred to a later session after the recycle remediation has been completed.
+- `1.` TK009 remains historical/outdated evidence only and must not be treated as active package authority.
+- `2.` The immediate next stream-level development step after client approval of `GATE-001` is `ST002-AC001-TK001`; the separate AC000 implementation-backed path remains blocked until that same approval activates `TK010` as the bounded downstream execution contract for `TK011`-`TK015`.
+- `3.` Any further remediation beyond the current package refresh remains subject to later client approval after consultant assessment.
 
-Recycle reassessment path (`RECYCLE` only):
+### Assessment Of TK010.4
+
+- Agreement posture: I agree with MERS on the substance. The refreshed package now supports an approval-oriented client re-presentation and does not justify another same-gate recycle loop.
+- Qualification: MERS identified two advisory package-integrity issues at review commission time: canonical `TK010.4` path normalization and proposal repointing away from historical `TK009`. Both are resolved in this `TK010.5` proposal refresh.
+- Evidence to pass the gate: yes. With the active external-review pointer now moved to `TK010.4`, the package adds enough evidence for a client-side pass at `GATE-001`.
+- Downstream readiness: `AC001` is ready to start after client approval at the stream level; the separate AC000 implementation-backed path is also now contract-complete because `TK010` has been repaired to act as the bounded execution contract for `TK011`-`TK015`, but that path remains blocked until the Client approves this gate.
+- Developer-remediation governance: no new developer remediation group is justified by the current package. If such a group is ever needed later, the need must be presented to the Client before it is commissioned.
+
+### Recycle-Loop Completion Record
+
 - `Same Gate Reassessed: T102-PH001-ST002-AC000-GATE-001`
-- `Required Remediation Tasks: TK010.1 -> TK010.2 -> TK010.3`
-- `Downstream Tasks Still Blocked: TK011-TK015, AC001-AC004 execution work that depends on gate closure`
+- `Completed Recycle Tasks: TK010.1 -> TK010.2 -> TK010.3 -> TK010.4 -> TK010.5`
+- `Active External Review: TK010.4`
+- `Historical External Review Context: TK009`
+- `Downstream Tasks Still Blocked: TK011-TK015, GATE-002`
 
 Downstream enforcement:
-- Downstream implementation-authority artifacts may start only after the Client records an approving GDR decision for `GATE-001` after the recycle loop is re-presented.
+- Downstream implementation-authority artifacts may start only after the Client records an approving GDR decision for `GATE-001`. After that approval, the immediate next stream-level development step is `ST002-AC001-TK001`, while the separate AC000 implementation-backed path may start only by executing `TK011` against `TK010`.
 
 ---
 
@@ -220,10 +234,10 @@ Downstream enforcement:
 | Field | Value |
 |:--|:--|
 | Gate ID | `T102-PH001-ST002-AC000-GATE-001` |
-| Consultant Recommendation | `RECYCLE` |
+| Consultant Recommendation | `APPROVE WITH CONDITIONS` |
 | Client Decision | `pending` |
 | Gate Status After Decision | `pending` |
-| Conditions (if any) | `1. TK010.1-TK010.3 are the same-gate remediation loop; 2. TK009 is historical/outdated evidence only; 3. TK011-TK015 and GATE-002 remain blocked; 4. Fresh external review is deferred to a later session.` |
+| Conditions (if any) | `1. TK009 remains historical/outdated evidence only; 2. Immediate next stream-level development step after approval is ST002-AC001-TK001; 3. The separate AC000 implementation-backed path remains blocked until this same gate approval activates TK010 as the bounded execution contract for TK011-TK015; 4. Any further remediation beyond this package requires later client approval after consultant assessment.` |
 | Decided By | `Client` |
 | Decision Date | `YYYY-MM-DD` |
 | Decision Reference | `pending` |
@@ -238,6 +252,7 @@ Downstream enforcement:
 | Input Analysis | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/analysis/analysis_T102-PH001-ST002-AC000_calibrated-scope-brief.md` |
 | Pre-GATE seed spec | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/implementation/implementation_T102-PH001-ST002-AC000_tk010_gate-001-downstream-seed-task-specification.md` |
 | Recycle remediation spec | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/implementation/implementation_T102-PH001-ST002-AC000_tk010.1_gate-001-package-recycle-remediation-specification.md` |
+| External Review (active) | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/analysis/analysis_T102-PH001-ST002-AC000-TK010.4_gate-001-recycle-external-review.md` |
 | External Review (historical/outdated) | `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/analysis/analysis_T102-PH001-ST002-AC000-TK009_gate-001-external-review.md` |
 
 ---
@@ -246,6 +261,9 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.5.0 | 2026-03-30 | Amendment | Repaired the downstream execution-contract posture by clarifying that AC001 is the immediate next stream-level development step after gate approval while the separate AC000 implementation-backed path remains blocked until the same gate approval activates TK010 as the bounded execution contract for TK011-TK015. |
+| v1.4.0 | 2026-03-30 | Amendment | Refreshed the Gate-001 proposal for client re-presentation after TK010.4. Repointed active external-review authority to the fresh second external review, embedded the main consultant assessment of TK010.4, changed the consultant recommendation to `APPROVE WITH CONDITIONS`, and clarified that AC001 is the immediate next development step after gate approval while TK011-TK015 remain blocked. |
+| v1.3.0 | 2026-03-30 | Amendment | Extended the recycle narrative to include TK010.4 fresh second external review and TK010.5 consultant proposal refresh, updated the recycle/re-presentation path, and kept future remediation client-governed after consultant assessment. |
 | v1.2.0 | 2026-03-28 | Amendment | Recast GATE-001 disposition to `RECYCLE`, moved TK009 into historical/outdated evidence-only posture, added TK010 and TK010.1 to the active package index, and recorded the same-gate remediation path TK010.1-TK010.3. |
 | v1.1.0 | 2026-03-28 | Amendment | Linked the completed TK009 external review into the Gate Package Index and Evidence Index so the client package reflects the current full readiness set. |
 | v1.0.0 | 2026-03-28 | Initial | Created the AC000 `GATE-001` gate-disposition package to disposition diagnostic completeness, structural retrofit priority, `STD-004` residual sequencing, and downstream gate-boundary enforcement. |

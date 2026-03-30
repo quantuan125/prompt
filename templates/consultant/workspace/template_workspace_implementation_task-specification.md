@@ -7,7 +7,7 @@ phase: '{{PHASE}}'
 stream_id: '{{STREAM_ID}}'
 activity_id: '{{ACTIVITY_ID}}'
 task_id: '{{TASK_ID}}'
-version: '1.0.0'
+version: '1.1.0'
 date: '{{DATE}}'
 status: 'draft'
 author: '{{AUTHOR_ROLE}}'
@@ -23,7 +23,8 @@ purpose: '{{PURPOSE}}'
 - Purpose: [what this task specification covers]
 - Authority chain: Plan authorizes work (task_id) -> This artifact specifies HOW ->
   Dev-report records execution
-- Audience: [LLM_Developer / designated agentic executor / LLM_Consultant when `execution_audience: 'consultant'`]
+- Audience: [LLM_Developer / LLM_Assistant / designated agentic executor / LLM_Consultant when `execution_audience: 'consultant'`]
+- Filename note: consultant/assistant orchestration artifacts still use the `-brief` filename convention; do not create a new IMPLEMENTATION subtype for them.
 - This artifact does NOT hold a GDR. Gate decisions (if applicable) are recorded
   in gate_disposition proposals.
 
@@ -33,6 +34,8 @@ purpose: '{{PURPOSE}}'
 - Deliverable contract: [from plan]
 
 ## III. SPECIFICATION ITEMS
+
+Each SPEC item MUST be self-contained and should expose the minimum detail bundle required by CONV-015: exact target file(s) or surfaces, required end-state posture, explicit non-target constraints, validation checks, and a blocking ambiguity rule.
 
 ### SPEC-001 — [Title]
 
@@ -48,7 +51,7 @@ purpose: '{{PURPOSE}}'
 
 #### Implementation Detail
 
-[detailed HOW]
+[Numbered, self-contained HOW steps with exact file/section locators, direct if/then conditions, explicit validation steps, and model-agnostic wording.]
 
 [Repeat for each specification item]
 

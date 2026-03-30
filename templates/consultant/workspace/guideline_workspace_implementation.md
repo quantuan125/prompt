@@ -2,7 +2,7 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'implementation_authoring'
-version: '1.4.0'
+version: '1.5.0'
 date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Developer'
@@ -29,7 +29,7 @@ The IMPLEMENTATION family provides detailed implementation specification between
 
 ## II. ROLE BOUNDARY (LOCKED)
 
-- **LLM_Consultant** is the primary author and commissioner for both subtypes.
+- **LLM_Consultant** is the primary author and commissioner for both subtypes and MAY commission execution to `LLM_Developer`, `LLM_Assistant`, or designated lower-intelligence agentic execution roles when plan/gate authority permits.
 - **LLM_Planner** may assist with `task_specification` decomposition only when explicitly delegated by the consultant.
 - **LLM_Developer** or designated consultant-commissioned agentic execution roles are the primary consumers (execution).
 - **LLM_Reviewer** is a secondary consumer for `remediation_specification` (re-assessment input).
@@ -77,9 +77,13 @@ The following conventions govern all IMPLEMENTATION artifacts:
 | CONV-009 | For `remediation_specification`, the artifact SHALL exist as a formal task above the gate in the task register (Directive B) |
 | CONV-010 | One artifact per logical implementation scope. Logical implementation scope is scoped to a task-ID, a gate-remediation-cycle, or a multi-task implementation phase sharing a common design-decision boundary (e.g., tasks seeded by the same gate's GIR resolutions). |
 | CONV-011 | Plan task steps SHALL be high-level summary only when an IMPLEMENTATION artifact exists; the plan step SHALL reference the artifact path |
-| CONV-012 | Execution-facing SPEC items in both IMPLEMENTATION templates MUST use the hybrid structure: concise metadata table plus prose `Implementation Detail` block, and the metadata table MUST name exact target files/surfaces, required end-state posture, explicit non-target constraints, validation checks, and a blocking ambiguity rule |
-| CONV-013 | `task_specification` MAY declare `execution_audience` to distinguish developer execution from consultant-orchestrated agentic execution without creating a new subtype |
+| CONV-012 | Execution-facing SPEC items in both IMPLEMENTATION templates MUST use the hybrid structure: concise metadata table plus prose `Implementation Detail` block, and the prose block MUST use numbered, self-contained, model-agnostic steps |
+| CONV-013 | `task_specification` MAY declare `execution_audience` to distinguish developer execution from consultant-commissioned assistant execution without creating a new subtype |
 | CONV-014 | When a gate is still deciding a convention that would otherwise require a concrete implementation artifact, authors SHOULD route the convention through a `standards_input` proposal first and MUST NOT treat the premature concrete artifact as active gate authority |
+| CONV-015 | Every execution-facing SPEC item MUST contain exact target file(s) or surfaces, required end-state posture, validation checks, explicit non-target constraints, and a blocking ambiguity rule |
+| CONV-018 | Governed delegated execution MUST flow through an IMPLEMENTATION artifact; the bounded low-risk exception from TK002 remains available only when explicitly stated |
+| CONV-019 | Consultation-only gates use `standards_input` as the active pre-implementation authority surface; premature concrete artifacts remain lineage-only until downstream execution is authorized |
+| CONV-022 | Developer-facing implementation artifacts retain `-task-specification`; consultant/assistant-scoped orchestration artifacts use `-brief`; no new subtype is created |
 
 ---
 
@@ -120,7 +124,9 @@ None beyond the universal set.
 
 | Field | Value / Description |
 |:--|:--|
-| `execution_audience` | Optional. `'developer'` by default; `'agentic_executor'` when execution is delegated to designated agentic roles on the consultant's behalf; `'consultant'` only when no downstream execution role exists and the artifact governs consultant-owned non-implementation work |
+| `execution_audience` | Optional. `'developer'` by default; `'assistant'` when execution is delegated to `LLM_Assistant` on the consultant's behalf; `'consultant'` only when no downstream execution role exists and the artifact governs consultant-owned non-implementation work |
+
+> **Deprecated**: `agentic_executor` is no longer a valid value for new `task_specification` artifacts. Use `assistant` for all `LLM_Assistant`-targeted implementation specifications. Existing artifacts authored with `agentic_executor` before this convention are not retroactively relabeled.
 
 ---
 

@@ -2,7 +2,7 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.20.0'
+version: '1.21.0'
 date: '2026-03-28'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -320,9 +320,12 @@ When all tasks before a gate are consultant-owned and no developer-mutated deliv
 3. **External review task** — owned by `LLM_Subconsultant`. Produces an independent `external_review` analysis per `guideline_workspace_analysis.md` §IV.B. The external review serves as a second-opinion quality audit of the gate package — testing evidence integrity, role-boundary compliance, plan-guideline compliance, and downstream task readiness. The external review is advisory input to the main consultant; it does NOT override the gate-disposition proposal's GDR authority. The main `LLM_Consultant` MUST review the external review findings and incorporate them into a final assessment of the gate package before the gate proceeds to client disposition.
 4. **Gate** — owned by `Client`. Consumes the gate package (including the external review) and records the decision in the GDR.
 
+When a consultation-only gate is explicitly authorizing governed post-gate execution, a consultant-authored `IMPLEMENTATION task_specification` MAY be inserted before the proposal task as part of the package being dispositioned. In that case, the artifact is decision-support evidence only; it does not require `DEV-REPORT` or `VERIFICATION` until downstream execution actually begins.
+
 Rule:
 - Consultation-only gates MUST NOT introduce `DEV-REPORT` or `VERIFICATION` tasks unless the gate scope is expanded to review developer-mutated deliverables.
 - If a consultation-only gate discovers premature downstream execution or a prematurely materialized concrete artifact, the governing gate remains open, the premature artifact is preserved but removed from active gate authority, and corrective consultant-owned tasks are inserted before the gate row to reclassify or quarantine the artifact.
+- When same-gate correction changes package interpretation, evidence status, or readiness posture, the plan task register, notes trail, and proposal evidence index MUST be updated together in the same correction cycle. Authors MUST NOT leave those surfaces temporarily divergent.
 
 #### Task Register Placement
 

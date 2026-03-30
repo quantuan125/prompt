@@ -2,7 +2,7 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'proposal_authoring'
-version: '1.9.0'
+version: '1.10.0'
 date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -133,7 +133,9 @@ Required columns: `| Evidence Type | Artifact | Path | Notes |`
 
 This table retains its current purpose: linking evidence artifacts (verification, analysis, plans, standards) for audit traceability. It MAY include artifacts not listed in the Gate Package Index (e.g., governing standards, prior gate records, session notes).
 
-Active primary evidence for a consultation-only gate MUST NOT include premature downstream execution outputs or prematurely materialized concrete artifacts. If such artifacts exist, they are preserved as historical/lineage evidence or replaced by a proposal-level authority surface such as `standards_input`.
+Active primary evidence for a consultation-only gate MUST NOT include premature downstream execution outputs or prematurely materialized concrete artifacts. If such artifacts exist, they are preserved as historical/lineage evidence or replaced by a proposal-level authority surface such as `standards_input`. When `standards_input` is the active pre-implementation authority surface, any concrete implementation artifact remains lineage-only until downstream execution is explicitly approved.
+
+When a gate package contains more than one `external_review` artifact, the proposal MUST designate exactly one authoritative external review; any others are supporting or historical evidence only.
 
 ### C. `promotion_contract`
 
@@ -199,6 +201,8 @@ When applicable, include:
   - `source_standard`, `target_standard`, `session_reference`
 - `standards_input`:
   - `target_standards`, `analysis_reference`, `external_review_reference`
+
+If more than one `external_review` artifact exists for a proposal, `external_review_reference` MUST point to the authoritative review used for client disposition.
 
 Policy: additional optional keys are permitted when justified by the archetype; common required keys MUST NOT be omitted.
 
@@ -290,6 +294,7 @@ Every `gate_disposition` proposal MUST include a Gate Decision Record as the pen
 >   - The superseded gate's analysis and verification artifacts are deprecated per the three-layer model (see `guideline_workspace_analysis.md` §IX and `workspace_documentation_rules.md` §7.C).
 
 5. Proposal artifact is version-bumped if other content changes accompany the decision recording.
+   - Same-gate corrections that change package interpretation, evidence status, or readiness posture MUST refresh the Gate Package Index and Evidence Index together before the client reading set is frozen.
 6. Gate status in the plan task register is updated per `guideline_workspace_verification.md` §VIII mapping.
 7. A `RECYCLE` decision records a non-closing client disposition: the gate remains `in_progress`, the same gate ID is preserved for reassessment, and downstream gate-dependent tasks remain blocked.
 

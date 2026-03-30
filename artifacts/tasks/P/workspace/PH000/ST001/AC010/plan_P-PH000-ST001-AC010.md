@@ -6,9 +6,9 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC010'
-version: '1.5.2'
-date: '2026-03-28'
-status: 'draft'
+version: '1.6.0'
+date: '2026-03-30'
+status: 'superseded'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
@@ -21,6 +21,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 ## I. EXECUTIVE SUMMARY
 
 **Purpose**: Bring all existing P-STD standards (P-STD-002, P-STD-004, P-STD-005) into conformance with the P-STD-001 metadata governance CLAUSEs (CLAUSE-031 through CLAUSE-036, including CLAUSE-036G) authored and evolved in AC009. This is a structure-only retrofit: consultant-owned readiness/specification work is complete, and downstream execution is commissioned from the consultant-authored implementation specification.
+
+> **Supersession Notice**: This activity has been superseded by `P-PH000-ST001-AC011-GATE-001` (approved 2026-03-30). AC010 remains historically valid for its original baseline (`P-STD-001` v1.2.0 metadata-governance model). The successor baseline established by AC011 amends the changelog-governance rules and temporary verification operating model. All AC010 artifacts are preserved as historical evidence and are no longer the active authority for this scope.
 
 **Non-goals**:
 - This activity does not modify P-STD-001 (completed and evolved in AC009).
@@ -62,7 +64,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | TK006 | `P-PH000-ST001-AC010-TK006` | Verification for cross-standard retrofit | `completed` | LLM_Reviewer | TK005 | VERIFICATION | `guideline_workspace_verification.md` | Verified the AC010 retrofit package against the implementation specification and P-STD-001 metadata clauses, and issued a `PASS` verdict with no findings. |
 | TK007 | `P-PH000-ST001-AC010-TK007` | Gate-001 disposition proposal | `completed` | LLM_Consultant | TK006 | PROPOSAL (gate_disposition) | `guideline_workspace_proposal.md` | Authored the baseline GATE-001 disposition package; the final conditional-closeout posture and recorded client decision were completed under `TK007.1`. |
 | TK007.1 | `P-PH000-ST001-AC010-TK007.1` | Conditional gate-closeout package alignment after external review | `completed` | LLM_Consultant | TK007 | Proposal + plan alignment package | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/implementation/implementation_P-PH000-ST001-AC010_gate-001-conditional-closeout-task-specification.md` | Executed the consultant-owned conditional-closeout alignment after external review, updated the proposal/GDR and planning surfaces, and recorded `AC010-SES002` as the durable decision-reference session note. |
-| GATE-001 | `P-PH000-ST001-AC010-GATE-001` | Gate: Client acceptance of cross-standard conformance retrofit | `completed` | Client | TK007.1 | Pass/fail | `guideline_workspace_plan.md` §VI | Closed as APPROVE WITH CONDITIONS on 2026-03-28. The accepted condition is the TK006 verification-ownership exception; no further developer rework was required. |
+| GATE-001 | `P-PH000-ST001-AC010-GATE-001` | Gate: Client acceptance of cross-standard conformance retrofit | `completed` | Client | TK007.1 | Pass/fail | `guideline_workspace_plan.md` §VI | Closed as APPROVE WITH CONDITIONS on 2026-03-28. The accepted condition is the TK006 verification-ownership exception; no further developer rework was required. Superseded by P-PH000-ST001-AC011-GATE-001 (APPROVE, 2026-03-30). |
 
 ---
 
@@ -313,6 +315,11 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - The accepted condition explicitly captures the TK006 verification-ownership exception
 - All P-STD standards remain structurally conformant to P-STD-001 metadata governance
 
+**Supersession**:
+- Superseded by: `P-PH000-ST001-AC011-GATE-001`
+- Successor decision: `APPROVE` (2026-03-30)
+- Historical validity: AC010 GATE-001 remains valid for its original baseline; the successor gate establishes the amended baseline.
+
 **Gate-Disposition Proposal**: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/proposal/proposal_P-PH000-ST001-AC010_gate-001_cross-standard-retrofit-disposition.md`
 
 This gate is now closed on the APPROVE WITH CONDITIONS path recorded in the proposal GDR dated 2026-03-28.
@@ -332,6 +339,7 @@ This gate is now closed on the APPROVE WITH CONDITIONS path recorded in the prop
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.6.0 | 2026-03-30 | Supersession | Applied the AC011 successor-baseline supersession per the approved closeout matrix at P-PH000-ST001-AC011-GATE-001. AC010 is now superseded; all artifacts are preserved as historical evidence under the original baseline. |
 | v1.5.2 | 2026-03-28 | Closeout | Created and indexed `AC010-SES002` as the durable Gate-001 decision-reference session note, while keeping `GATE-001` closed as `APPROVE WITH CONDITIONS`. |
 | v1.5.1 | 2026-03-28 | Closeout | Completed `TK007.1`, closed `GATE-001` as `APPROVE WITH CONDITIONS`, and recorded the initial SES002-deferred closeout posture before the durable session note was authored. |
 | v1.5.0 | 2026-03-28 | Amendment | Added `TK007.1` as the consultant-owned conditional-closeout alignment task, re-pointed `GATE-001` to depend on that closeout boundary, and commissioned the new Gate-001 conditional-closeout implementation specification. |

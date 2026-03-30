@@ -2,7 +2,7 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'analysis_authoring'
-version: '1.9.0'
+version: '1.10.0'
 date: '2026-03-26'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -76,7 +76,7 @@ These lifecycle positions are **Draft 1 preliminary** and SHOULD be refined as m
 | `compliance_audit` | Need to check an artifact against standards/guidelines | Remediation tasks; for implementation-backed gates, follow-on VERIFICATION artifact (not inside analysis) |
 | `assessment` | Need to evaluate readiness, hardening, or options tradeoffs | Remediation roadmap, decisions/proposals, implementation tasks |
 | `comparative_analysis` | Need to compare two or more options/approaches against weighted evaluation criteria to support an architectural or process decision | Decision proposal (standards-input or gate-disposition); plan amendment; implementation task specification for the chosen option |
-| `external_review` | Third-party assessment requested; may be transcript-converted. When an `external_review` serves as a gate-readiness input for a consultation-only or implementation-backed gate, the review scope MUST include downstream task readiness and plan-guideline compliance for post-gate work. For consultation-only gates it MUST also test evidence integrity, role-boundary compliance, and absence of unauthorized downstream execution or premature concrete-artifact authority. | Consultation-only decision package for client; transition plan and risk register |
+| `external_review` | Third-party assessment requested; may be transcript-converted. When an `external_review` serves as a gate-readiness input for a consultation-only or implementation-backed gate, the review scope MUST include downstream task readiness and plan-guideline compliance for post-gate work. When an `IMPLEMENTATION` artifact is present in the package, the review MUST also assess per-SPEC commissionability for each execution-facing SPEC item. For consultation-only gates it MUST also test evidence integrity, role-boundary compliance, and absence of unauthorized downstream execution or premature concrete-artifact authority. | Consultation-only decision package for client; transition plan and risk register |
 
 Recyclable-loop sub-consultant traceability audits SHALL be authored as `analysis_type: 'compliance_audit'`.
 
@@ -84,6 +84,7 @@ Recyclable-loop sub-consultant traceability audits SHALL be authored as `analysi
 - Implementation-backed gates use VERIFICATION as the reviewer evidence surface.
 - Consultation-only gates MAY use ANALYSIS artifacts, including `external_review`, as package inputs to a `gate_disposition` proposal.
 - In both cases, ANALYSIS artifacts MUST NOT claim gate closure or replace the proposal-hosted GDR.
+- When a gate package contains more than one `external_review` artifact, the package MUST designate exactly one authoritative external review; any others become supporting or historical evidence.
 
 ---
 

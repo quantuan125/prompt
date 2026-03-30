@@ -191,6 +191,7 @@ Session notes record discussion history, decisions, and carry-forward context. T
 
 Rules:
 - When later corrective work changes the interpretation or status context of an earlier session, authors SHOULD create a new Session Notes file rather than rewriting the prior session into the new state.
+- When that corrective work changes package interpretation, evidence status, or readiness posture, authors SHOULD also synchronize the governing plan, proposal evidence index, and session trail in the same correction cycle.
 - A new corrective session MAY supersede the practical reading context of an older session, but the older session remains historically intact.
 - If a session records premature downstream execution or concrete-artifact contamination inside a still-pending gate, the session SHOULD point to corrective plan/proposal work rather than implying that the gate has already approved the affected artifact.
 

@@ -7,9 +7,9 @@ phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC011'
 task_id: 'P-PH000-ST001-AC011-TK001'
-version: '1.0.0'
-date: '2026-03-28'
-status: 'draft'
+version: '1.0.1'
+date: '2026-03-30'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/plan_P-PH000-ST001-AC011.md'
@@ -198,4 +198,5 @@ Prepare the AC010 supersession matrix under `TK008` and apply it only after AC01
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.0.1 | 2026-03-30 | Amendment | Aligned lifecycle metadata to reflect `TK001` as completed rather than draft; no scope changes to the execution contract. |
 | v1.0.0 | 2026-03-28 | Initial | Authored the AC011 unified task specification covering the `P-STD-001` baseline amendment, derivative and workspace-governance alignment, downstream standards remediation, successor gate package, and AC010 supersession handling. |

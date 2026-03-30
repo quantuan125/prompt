@@ -7,8 +7,8 @@ phase: '0'
 stream: 'ST001'
 activity_id: 'P-PH000-ST001-AC010'
 session: 'SES002'
-version: '1.0.0'
-date: '2026-03-28'
+version: '1.1.0'
+date: '2026-03-30'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -80,8 +80,20 @@ This note is the canonical session record for the orchestration and closeout seq
 - The ST001 notes register now indexes AC010-SES002.
 - The AC010 retrofit package remains closed; no further implementation work is required.
 
+## Successor-Gate Linkage
+
+This session note remains the durable decision-reference artifact for the AC010 Gate-001 closeout. The AC010 baseline has been superseded by the AC011 successor baseline:
+
+| Field | Value |
+|:--|:--|
+| Successor Gate | `P-PH000-ST001-AC011-GATE-001` |
+| Successor Decision | `APPROVE` |
+| Supersession Date | `2026-03-30` |
+| Effect | AC010 is preserved as historically valid for its original baseline; the AC011 successor baseline is now the active authority for changelog governance and the temporary verification operating model. |
+
 ## H. Changelog
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-30 | Supersession | Added successor-gate linkage after AC011 GATE-001 approval. AC010 is now superseded; this note remains the durable decision-reference artifact. |
 | v1.0.0 | 2026-03-28 | Initial | Session notes created for AC010-SES002 covering the full Gate-001 orchestration and closeout record, the canonical decision-reference linkage, the AC010/ST001 plan alignment, and the ST001 register update. |

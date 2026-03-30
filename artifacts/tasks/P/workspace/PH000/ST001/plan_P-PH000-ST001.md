@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
-version: '0.1.27'
-date: '2026-03-28'
+version: '0.1.28'
+date: '2026-03-30'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -44,8 +44,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | AC007 | `P-PH000-ST001-AC007` | Harden P-STD-005 (Compliance, Refactoring & GIR Assessment) | `completed` | LLM_Consultant | AC006 | `analysis_P-PH000-ST001-AC007_p-std-005-hardening-assessment.md` + updated `standard_P-STD-005_universal-id-specification.md` | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC007/plan_P-PH000-ST001-AC007.md` |
 | AC008 | `P-PH000-ST001-AC008` | Author Evidence-Retention Governance Policy (Sibling Artifact) | `planned` | LLM_Consultant | AC003 | Future program-level governance policy artifact for evidence-retention duration | — |
 | AC009 | `P-PH000-ST001-AC009` | Harden P-STD-001 (Research-Backed Metadata & Structure Governance) | `completed` | LLM_Consultant | `P-PH000-ST004-AC003-GATE-002` | AC009 readiness package (`TK000` + `GATE-000`) + updated `standard_P-STD-001_program-governance-standard.md` + updated prompt-owned derivatives + `P-CON-003` clarification + AC010 handoff communication | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC009/plan_P-PH000-ST001-AC009.md` |
-| AC010 | `P-PH000-ST001-AC010` | Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs) | `completed` | LLM_Consultant | AC009 | Consultant-owned commissioning package (`TK000`) + completed cross-standard metadata retrofit package + Gate-001 closed as APPROVE WITH CONDITIONS (decision reference recorded in AC010-SES002) | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/plan_P-PH000-ST001-AC010.md` |
-| AC011 | `P-PH000-ST001-AC011` | Amend P-STD-001 Changelog Governance + Temporary Verification Operating Model | `in_progress` | LLM_Consultant | AC010 | AC011 analysis + implementation specification + downstream governance-amendment/remediation package + successor gate package | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/plan_P-PH000-ST001-AC011.md` |
+| AC010 | `P-PH000-ST001-AC010` | Cross-Standard Conformance Pass (P-STD-001 Metadata CLAUSEs) | `superseded` | LLM_Consultant | AC009 | Consultant-owned commissioning package (`TK000`) + completed cross-standard metadata retrofit package + Gate-001 closed as APPROVE WITH CONDITIONS (decision reference recorded in AC010-SES002). Superseded by P-PH000-ST001-AC011-GATE-001 (2026-03-30). | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/plan_P-PH000-ST001-AC010.md` |
+| AC011 | `P-PH000-ST001-AC011` | Amend P-STD-001 Changelog Governance + Temporary Verification Operating Model | `completed` | LLM_Consultant | AC010 | AC011 analysis + implementation specification + downstream governance-amendment/remediation package + successor gate package. GATE-001 closed as APPROVE on 2026-03-30; AC010 supersession applied. | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/plan_P-PH000-ST001-AC011.md` |
 
 ---
 
@@ -311,6 +311,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Activity ID**: `P-PH000-ST001-AC010`
 
+> **Supersession Notice**: This activity has been superseded by `P-PH000-ST001-AC011-GATE-001` (approved 2026-03-30). AC010 remains historically valid for its original baseline. See AC011 for the active successor baseline.
+
 **Purpose**: Bring all existing P-STD standards (P-STD-002, P-STD-004, P-STD-005) into conformance with the new P-STD-001 metadata governance CLAUSEs authored in AC009. This includes adding YAML frontmatter blocks, normalizing Provenance subsection structure, normalizing References subsection headings, and adding version tracking / amendment history sections where missing.
 
 **Deliverable (contract stub)**:
@@ -392,16 +394,16 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 **Success Criteria Checklist (summary)**:
 - [x] AC011 analysis artifact exists and classifies the work as a baseline amendment plus AC010 supersession-impact case
 - [x] AC011 implementation specification exists and is the single execution contract for `TK002` through `TK009`
-- [ ] `P-STD-001` and derivative governance surfaces align to the mandatory dedicated-changelog model
-- [ ] Workspace verification-governance surfaces align to the temporary operating model without reviewer-only contradictions
-- [ ] `P-STD-002`, `P-STD-004`, and `P-STD-005` all use pointer-only Amendment History sections backed by dedicated changelog files
-- [ ] AC011 `GATE-001` closes with a client decision on the successor baseline package
+- [x] `P-STD-001` and derivative governance surfaces align to the mandatory dedicated-changelog model
+- [x] Workspace verification-governance surfaces align to the temporary operating model without reviewer-only contradictions
+- [x] `P-STD-002`, `P-STD-004`, and `P-STD-005` all use pointer-only Amendment History sections backed by dedicated changelog files
+- [x] AC011 `GATE-001` closes with a client decision on the successor baseline package
 
 ## IV. DEPENDENCY NOTES (DOWNSTREAM ADOPTERS)
 
 - **AC009** (Harden P-STD-001) depends on `P-PH000-ST004-AC003-GATE-002` (closed 2026-03-13, APPROVE WITH CONDITIONS). AC009 is now complete, including the downstream handoff communication consumed by AC010 `TK000`.
 - **AC010** (Cross-Standard Conformance) depends on AC009 completion. Consultant-owned commissioning, downstream retrofit execution, and Gate-001 closeout are now complete for AC010; the activity is closed for current scope.
-- **AC011** (Baseline amendment + operating-model correction) depends on AC010 completion. `TK000` and `TK001` are now complete, and the activity is the new contract-level unit that will carry the changelog baseline amendment, temporary verifier-model amendment, downstream standards remediation, and AC010 supersession handling.
+- **AC011** (Baseline amendment + operating-model correction) depends on AC010 completion. AC011 is now complete: GATE-001 closed as APPROVE on 2026-03-30, the successor baseline is active, and AC010 has been superseded per the approved closeout matrix.
 - **T104 adoption/binding** (e.g., `T104-PH001-ST002-AC000`) is downstream work and SHOULD be treated as dependent on:
   - `P-PH000-ST001-AC002` (Program Governance Standard authoring) and
   - `P-PH000-ST001-AC003` (Program Status Standard authoring).
@@ -414,6 +416,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.1.28 | 2026-03-30 | Closeout | Closed AC011 as completed after GATE-001 APPROVE decision on 2026-03-30. Marked AC010 as superseded per the approved closeout matrix. Updated both contract stubs, success criteria, and dependency notes to reflect the completed successor-baseline transition. |
 | v0.1.27 | 2026-03-28 | Amendment | Registered AC011 as a new in-progress activity after AC010 closeout, added the AC011 contract stub, and recorded that `TK000` (baseline-amendment impact assessment) plus `TK001` (single execution contract) are complete while downstream mutation work remains planned. Evidence: AC011 plan v1.0.0 + AC011 TK000/TK001 artifacts. |
 | v0.1.26 | 2026-03-28 | Closeout | Kept AC010 `completed`, retained the Gate-001 closure as `APPROVE WITH CONDITIONS`, and referenced `AC010-SES002` as the durable decision-reference session note in the stream record. |
 | v0.1.25 | 2026-03-28 | Closeout | Marked AC010 `completed`, updated the stream summary to reflect Gate-001 closure as `APPROVE WITH CONDITIONS`, and recorded the initial SES002-deferred closeout posture before the session note was authored. |

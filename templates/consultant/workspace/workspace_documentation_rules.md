@@ -2,7 +2,7 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '3.7.0'
+version: '3.8.0'
 date: '2026-03-28'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -38,7 +38,7 @@ Phase → Stream → Activity → Task
 | VERIFICATION | `verification_` | Gate evidence + findings register + rework handoff + verifier verdict | `prompt/templates/consultant/workspace/template_workspace_verification.md` | `prompt/templates/consultant/workspace/guideline_workspace_verification.md` |
 | PROPOSAL | `proposal_` | Archetype-specific proposal authoring: E-ID workspace, gate disposition (incl. Gate Decision Record), promotion contract, standards input | `prompt/templates/consultant/workspace/template_workspace_proposal_<archetype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_proposal.md` |
 | DEV-REPORT | `dev-report_` | Developer execution log + validation evidence + handoff traceability | `prompt/templates/consultant/workspace/template_workspace_dev-report.md` | `prompt/templates/consultant/workspace/guideline_workspace_dev-report.md` |
-| IMPLEMENTATION | `implementation_` | Consultant-authored implementation specifications that commission downstream execution: remediation specifications (gate RECYCLE response), task specifications (complex implementation detail) | `prompt/templates/consultant/workspace/template_workspace_implementation_<subtype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_implementation.md` |
+| IMPLEMENTATION | `implementation_` | Consultant-authored implementation specifications that commission downstream execution: remediation specifications (gate RECYCLE response), task specifications (complex implementation detail for developer or assistant execution) | `prompt/templates/consultant/workspace/template_workspace_implementation_<subtype>.md` | `prompt/templates/consultant/workspace/guideline_workspace_implementation.md` |
 
 **Artifact status vocabulary** (canonical values for `status` frontmatter key):
 
@@ -119,7 +119,7 @@ Note: `superseded` is distinct from `cancelled` (deliberate early termination) a
 ### A. Consultant (LLM_Consultant)
 - Authors contract-level intent: what + why.
 - Owns: roadmaps, phase plans, stream plans (contract-level), guidelines, templates, proposals, analyses.
-- Boundary: MUST NOT personally perform implementation execution or claim execution proof as consultant evidence. The consultant MAY author IMPLEMENTATION artifacts, including `task_specification`, and MAY commission execution to `LLM_Developer` or designated lower-intelligence agentic execution roles when plan/gate authority permits.
+- Boundary: MUST NOT personally perform implementation execution or claim execution proof as consultant evidence. The consultant MAY author IMPLEMENTATION artifacts, including `task_specification`, and MAY commission execution to `LLM_Developer`, `LLM_Assistant`, or designated lower-intelligence agentic execution roles when plan/gate authority permits.
 
 ### B. Planner (LLM_Planner)
 - Owns: task decomposition, sequencing, estimation.
@@ -139,6 +139,10 @@ Note: `superseded` is distinct from `cancelled` (deliberate early termination) a
 - Decision owner for all approval gates.
 - Boundary: All normative decisions require Client approval signal.
 
+### F. Assistant (LLM_Assistant)
+- Owns: consultant-commissioned execution support when explicitly named by an IMPLEMENTATION artifact or equivalent commissioning surface.
+- Boundary: MUST NOT own `DEV-REPORT`, MUST NOT replace `LLM_Developer`, and MUST NOT alter contract-level scope.
+
 ---
 
 ## 7. WORKFLOW CHAIN AND HANDOFF CONTRACTS
@@ -151,7 +155,9 @@ Implementation-backed:
 `ROADMAP → PLAN → NOTES / ANALYSIS → [IMPLEMENTATION task_specification where needed] → implementation deliverables → DEV-REPORT → VERIFICATION → [IMPLEMENTATION remediation_specification where RECYCLE] → remediation deliverables → DEV-REPORT → VERIFICATION (re-assessment) → PROPOSAL (GDR where applicable) → ANALYSIS (external_review, LLM_Subconsultant) → SPS / downstream approved artifacts`
 
 Consultation-only:
-`ROADMAP → PLAN → NOTES / ANALYSIS → PROPOSAL (GDR where applicable) → ANALYSIS (external_review, LLM_Subconsultant) → downstream approved artifacts`
+`ROADMAP → PLAN → NOTES / ANALYSIS → [IMPLEMENTATION task_specification where post-gate execution is commissioned] → PROPOSAL (GDR where applicable) → ANALYSIS (external_review, LLM_Subconsultant) → downstream approved artifacts`
+
+The `[IMPLEMENTATION ...]` step is conditional: it applies only when the consultation-only gate authorizes governed post-gate execution through a commissioning artifact per `guideline_workspace_implementation.md` / CONV-018. When the consultation-only gate does not authorize downstream execution, this step is omitted.
 
 **External review step**:
 The `ANALYSIS (external_review)` step is authored by `LLM_Subconsultant` as an independent second-opinion quality audit of the gate package. The external review is advisory input; it does NOT override the `PROPOSAL`-hosted GDR authority. The main `LLM_Consultant` MUST review the external review findings and incorporate them into a final assessment before the gate proceeds to client disposition. See `guideline_workspace_plan.md` §VI.L for the full Gate-Readiness Stack pattern.
@@ -250,7 +256,7 @@ When a gate is superseded (`Client Decision = SUPERSEDE`), artifacts produced fo
 | PROPOSAL | LLM_Consultant | Verifier input when gate-backed | Client | Consultant, Client, downstream implementers |
 | VERIFICATION | LLM_Reviewer (preferred future-state primary) / LLM_Consultant (currently authorized secondary) | Client consumes verdict | Client decides through GDR | Consultant, Client |
 | DEV-REPORT | LLM_Developer | Verifier consumes as evidence | None directly | Verifier, Consultant |
-| IMPLEMENTATION | LLM_Consultant (primary author/commissioner); LLM_Planner only when explicitly delegated by the consultant for decomposition support | Verifier consumes as re-assessment input | Client where gated | Developer, Verifier, designated agentic executors |
+| IMPLEMENTATION | LLM_Consultant (primary author/commissioner); LLM_Planner only when explicitly delegated by the consultant for decomposition support | Verifier consumes as re-assessment input | Client where gated | Developer, LLM_Assistant, Verifier, designated agentic executors |
 
 Source: `T104-RES-003` Topic 8 (Workspace Artifact Integration & Industry Benchmark Analysis).
 
@@ -263,6 +269,7 @@ This workspace adopts the approved directory and file naming conventions defined
 
 **Summary (workspace-relevant)**:
 - Artifact file prefixes MUST match artifact type (e.g., `plan_`, `notes_`, `roadmap_`, `analysis_`, `proposal_`).
+- Developer-facing implementation task specifications retain `-task-specification`; consultant/assistant orchestration artifacts use `-brief`; remediation artifacts retain `-remediation-specification`.
 - Timeline UID tokens (`PH###`, `ST###`, `AC###`, `SES###`) determine planning/notes scope and MUST be used consistently.
 - Standalone sub-activity artifacts with `AC###.N` scope use the dedicated sibling directory `workspace/PH###/ST###/AC###.N/`; parent `AC###/` placement is legacy-compatibility only.
 - Task decomposition inside plans uses tracked Tasks / dotted Sub-Tasks (`TK###.n`) / informal Steps. Tasks and sub-tasks do not create directories.

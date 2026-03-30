@@ -7,9 +7,9 @@ stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC010'
 task_id: 'P-PH000-ST001-AC010-TK007'
 gate_id: 'P-PH000-ST001-AC010-GATE-001'
-version: '1.0.2'
-date: '2026-03-28'
-status: 'draft'
+version: '1.1.0'
+date: '2026-03-30'
+status: 'superseded'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/plan_P-PH000-ST001-AC010.md'
@@ -27,6 +27,8 @@ consumers:
 - Context: AC010 commissioned the cross-standard metadata retrofit under `TK000`, executed the developer-owned retrofit under `TK001` through `TK005`, and completed independent gate verification under `TK006`.
 - Goal at gate: Obtain client disposition on whether the AC010 retrofit package is acceptable as the program-level conformance pass for `P-STD-002`, `P-STD-004`, and `P-STD-005` against the `P-STD-001` metadata-governance model.
 - Scope: This gate covers the metadata-governance retrofit package only. It does not reopen AC009 design decisions and does not authorize normative CLAUSE changes in the retrofitted standards.
+
+> **Supersession Notice**: This gate package has been superseded by `P-PH000-ST001-AC011-GATE-001` (approved 2026-03-30). The AC010 cross-standard retrofit was valid under the original `P-STD-001` v1.2.0 baseline. The AC011 successor baseline amends the changelog-governance model; this proposal is now preserved as historical evidence under the original baseline.
 
 ---
 
@@ -127,13 +129,16 @@ Downstream enforcement:
 | Gate ID | `P-PH000-ST001-AC010-GATE-001` |
 | Consultant Recommendation | `APPROVE WITH CONDITIONS` |
 | Client Decision | `APPROVE WITH CONDITIONS` |
-| Gate Status After Decision | `completed` |
+| Gate Status After Decision | `superseded` |
 | Conditions (if any) | `Accepted verification-ownership exception: TK006 verification evidence is accepted for this gate even though the artifact was consultant-authored while the gate package framed TK006 as reviewer-owned; no further developer rework required.` |
 | Decided By | `Client` |
 | Decision Date | `2026-03-28` |
 | Decision Reference | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/snotes/snotes_P-PH000-ST001-AC010-SES002.md` |
+| Successor Gate | `P-PH000-ST001-AC011-GATE-001` |
+| Supersession Date | `2026-03-30` |
+| Supersession Basis | `AC011 successor-baseline approval supersedes the AC010 baseline for changelog governance and temporary verification operating model scope.` |
 
-The consultant recommendation is the consolidated advisory signal based on the completed package and the `PASS` verification verdict. The client decision has now been recorded in `AC010-SES002`.
+The original client decision of APPROVE WITH CONDITIONS was recorded on 2026-03-28. This gate has been subsequently superseded by P-PH000-ST001-AC011-GATE-001 (APPROVE, 2026-03-30), which establishes the successor baseline for changelog governance and the temporary verification operating model. The AC010 package remains historically valid for its original baseline.
 
 ---
 
@@ -152,6 +157,7 @@ The consultant recommendation is the consolidated advisory signal based on the c
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-30 | Supersession | Applied the AC011 successor-baseline supersession per the approved closeout matrix at P-PH000-ST001-AC011-GATE-001. Updated the GDR to record superseded status with successor-gate linkage while preserving the original APPROVE WITH CONDITIONS client decision and all historical content. |
 | v1.0.2 | 2026-03-28 | Amendment | Recorded `AC010-SES002` as the Gate-001 decision reference, keeping the external review indexed and the GDR closed on the `APPROVE WITH CONDITIONS` path. |
 | v1.0.1 | 2026-03-28 | Amendment | Indexed the external review into the gate package, updated the consultant recommendation and GDR to `APPROVE WITH CONDITIONS`, and closed the gate using the SES002-deferred inline-decision-reference path. |
 | v1.0.0 | 2026-03-28 | Initial | Authored the GATE-001 disposition package for the AC010 cross-standard metadata retrofit with consultant recommendation `APPROVE`, aligned to the `PASS` verification verdict and pending client GDR. |

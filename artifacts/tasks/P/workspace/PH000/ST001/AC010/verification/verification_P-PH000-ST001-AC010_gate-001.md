@@ -7,9 +7,9 @@ phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC010'
 gate_id: 'P-PH000-ST001-AC010-GATE-001'
-version: '1.0.0'
-date: '2026-03-28'
-status: 'completed'
+version: '1.1.0'
+date: '2026-03-30'
+status: 'superseded'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 target_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/plan_P-PH000-ST001-AC010.md'
@@ -24,6 +24,8 @@ method: 'Evidence-first review of the governing plan, implementation specificati
 ---
 
 # VERIFICATION: P-PH000-ST001-AC010-GATE-001
+
+> **Deprecation Notice**: This verification artifact has been superseded by the AC011 successor baseline established at `P-PH000-ST001-AC011-GATE-001` (approved 2026-03-30). The verifier verdict and all findings remain valid-for-baseline as historical evidence under the original `P-STD-001` v1.2.0 metadata-governance model. No re-verification is required.
 
 ## I. Scope & Method
 
@@ -136,4 +138,5 @@ No observations.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-30 | Supersession | Deprecated under the AC011 successor baseline per the approved closeout matrix at P-PH000-ST001-AC011-GATE-001. Verifier verdict and all findings preserved as historical evidence. |
 | v1.0.0 | 2026-03-28 | Initial | Verified the AC010 TK001-TK005 retrofit package against the commissioned implementation specification and `P-STD-001` metadata-governance clauses, confirmed the SPS no-op, and issued a `PASS` verdict for GATE-001 packaging. |

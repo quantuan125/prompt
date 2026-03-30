@@ -6,9 +6,9 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC011'
-version: '1.1.0'
-date: '2026-03-29'
-status: 'draft'
+version: '1.4.0'
+date: '2026-03-30'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
@@ -66,10 +66,11 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 | TK004 | `P-PH000-ST001-AC011-TK004` | Encode the temporary verification operating model across workspace governance surfaces | `completed` | LLM_Developer | TK001 | Workspace governance files | `implementation_P-PH000-ST001-AC011_governance-amendment-and-remediation-task-specification.md` | Updated the workspace verification, plan, proposal, documentation, and activity-template surfaces so consultant-authored implementation-backed verification is allowed under the temporary operating model. |
 | TK005 | `P-PH000-ST001-AC011-TK005` | Remediate downstream standards to the mandatory changelog model | `completed` | LLM_Developer | TK002, TK003, TK004 | `P-STD-002`, `P-STD-004`, `P-STD-005`, and changelog files | `implementation_P-PH000-ST001-AC011_governance-amendment-and-remediation-task-specification.md` | Converged `P-STD-002`, `P-STD-004`, and `P-STD-005` to the pointer-only Amendment History model and created the missing dedicated changelog files. |
 | TK006 | `P-PH000-ST001-AC011-TK006` | Dev-report for the AC011 governance-amendment and remediation pass | `completed` | LLM_Developer | TK005 | DEV-REPORT | `guideline_workspace_dev-report.md` | Authored the AC011 dev-report with implementation-reference traceability, task-slice evidence, and validation results for `TK002` through `TK005`. |
-| TK007 | `P-PH000-ST001-AC011-TK007` | Verification for the AC011 successor baseline package | `planned` | LLM_Consultant | TK006 | VERIFICATION | `guideline_workspace_verification.md` + temporary operating model encoded by TK004 | — |
-| TK008 | `P-PH000-ST001-AC011-TK008` | Gate-001 disposition proposal and AC010 supersession recommendation | `planned` | LLM_Consultant | TK007 | PROPOSAL (`gate_disposition`) | `guideline_workspace_proposal.md` | — |
-| TK009 | `P-PH000-ST001-AC011-TK009` | External review of the AC011 Gate-001 package | `planned` | LLM_Subconsultant | TK008 | ANALYSIS (`external_review`) | `guideline_workspace_analysis.md` | — |
-| GATE-001 | `P-PH000-ST001-AC011-GATE-001` | Gate: Client acceptance of the AC011 successor baseline package | `planned` | Client | TK009 | Pass/fail | `guideline_workspace_plan.md` §VI | — |
+| TK007 | `P-PH000-ST001-AC011-TK007` | Verification for the AC011 successor baseline package | `completed` | LLM_Consultant | TK006 | VERIFICATION | `guideline_workspace_verification.md` + temporary operating model encoded by TK004 | Verification artifact exists and is structurally usable. |
+| TK008 | `P-PH000-ST001-AC011-TK008` | Gate-001 disposition proposal and AC010 supersession recommendation | `completed` | LLM_Consultant | TK007 | PROPOSAL (`gate_disposition`) | `guideline_workspace_proposal.md` | Proposal artifact exists and is structurally usable. |
+| TK009 | `P-PH000-ST001-AC011-TK009` | External review of the AC011 Gate-001 package | `completed` | LLM_Subconsultant | TK008 | ANALYSIS (`external_review`) | `guideline_workspace_analysis.md` | Completed the external review; the main consultant reviewed and incorporated it before gate presentation. |
+| GATE-001 | `P-PH000-ST001-AC011-GATE-001` | Gate: Client acceptance of the AC011 successor baseline package | `completed` | Client | TK009 | Pass/fail | `guideline_workspace_plan.md` §VI | Closed as APPROVE on 2026-03-30. Client approved both GIR-001 (successor-baseline package) and GIR-002 (AC010 supersession path). AC010 supersession applied per the approved closeout matrix. |
+| TK010 | `P-PH000-ST001-AC011-TK010` | GATE-001 closure, AC010 supersession, and planning surface closeout | `completed` | LLM_Consultant | GATE-001 | Plan + proposal + AC010 surfaces + stream plan | `implementation_P-PH000-ST001-AC011_gate-001-closure-and-ac010-supersession-task-specification.md` | Recorded the client APPROVE decision in the GDR, applied the AC010 supersession per the approved closeout matrix, and updated all planning surfaces to close the AC011 successor-baseline activity. |
 
 ---
 
@@ -282,8 +283,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 2. Verify the amended baseline, downstream standards, and no-unrelated-change constraints against the AC011 execution package.
 
 **Success Criteria**:
-- [ ] Verification artifact exists with a verifier verdict under the temporary operating model
-- [ ] Verification confirms the successor baseline package is ready for gate packaging
+- [x] Verification artifact exists with a verifier verdict under the temporary operating model
+- [x] Verification confirms the successor baseline package is ready for gate packaging
 
 ---
 
@@ -301,8 +302,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 2. Prepare the GDR in pending state and include the AC010 supersession recommendation, successor-gate reference, and post-decision closeout matrix.
 
 **Success Criteria**:
-- [ ] Gate-disposition proposal exists with a populated pending-state GDR
-- [ ] AC010 supersession handling is prepared as a historically-valid-for-baseline transition, not a failure path
+- [x] Gate-disposition proposal exists with a populated pending-state GDR
+- [x] AC010 supersession handling is prepared as a historically-valid-for-baseline transition, not a failure path
 
 ---
 
@@ -320,8 +321,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 2. Assess evidence integrity, role-boundary compliance, plan-guideline compliance, successor-baseline framing, and downstream readiness.
 
 **Success Criteria**:
-- [ ] External review exists with findings and recommendation
-- [ ] Main consultant has reviewed the external review before gate presentation
+- [x] External review exists with findings and recommendation
+- [x] Main consultant has reviewed the external review before gate presentation
 
 ---
 
@@ -335,6 +336,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 - The amended baseline requires dedicated changelog files for each active standard and the remediated standards conform to that rule
 - Workspace governance surfaces encode the temporary consultant-verifier operating model without reviewer-only contradictions
 - The gate-disposition proposal includes the AC010 supersession recommendation and successor closeout matrix
+*(All entry criteria are now satisfied and the gate is closed.)*
 
 **Reviewer**: Client
 
@@ -363,5 +365,8 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.4.0 | 2026-03-30 | Closeout | Closed GATE-001 as APPROVE after the client approved both GIR-001 and GIR-002. Registered and completed TK010 (gate closure, AC010 supersession, and planning surface closeout). All AC010 supersession updates applied per the approved closeout matrix. |
+| v1.3.0 | 2026-03-30 | Amendment | Marked `TK009` completed after the external review was incorporated into the gate package, moved `GATE-001` to `in_progress` pending client disposition, and refreshed the task-register action text to reflect the assembled successor-baseline package. |
+| v1.2.0 | 2026-03-30 | Amendment | Marked `TK007` and `TK008` complete after housekeeping aligned the existing verification and proposal artifacts with the plan register, while keeping `TK009` and `GATE-001` pending. |
 | v1.1.0 | 2026-03-29 | Amendment | Marked `TK002` through `TK006` complete after execution of the AC011 implementation tranche; recorded the standards, workspace-governance, and dev-report outputs now available for consultant review and downstream gate packaging. |
 | v1.0.0 | 2026-03-28 | Initial | Created AC011 as the successor activity for the mandatory dedicated-changelog baseline amendment and temporary verification operating-model correction. Recorded `TK000` and `TK001` as completed consultant-owned preparatory deliverables, left `TK002` through `TK009` plus `GATE-001` planned, and locked the single-gate execution shape. |

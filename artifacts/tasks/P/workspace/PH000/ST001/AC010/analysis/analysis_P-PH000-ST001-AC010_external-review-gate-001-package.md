@@ -7,9 +7,9 @@ phase: '0'
 stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC010'
 gate_id: 'P-PH000-ST001-AC010-GATE-001'
-version: '1.0.0'
-date: '2026-03-28'
-status: 'draft'
+version: '1.1.0'
+date: '2026-03-30'
+status: 'superseded'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/plan_P-PH000-ST001-AC010.md'
@@ -18,6 +18,8 @@ source_file: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/proposal/prop
 ---
 
 # ANALYSIS: AC010 GATE-001 Package External Review (`P-PH000-ST001-AC010-GATE-001`)
+
+> **Deprecation Notice**: This external review has been superseded by the AC011 successor baseline established at `P-PH000-ST001-AC011-GATE-001` (approved 2026-03-30). All findings and assessments remain valid-for-baseline as historical evidence under the original AC010 gate package. No re-review is required.
 
 ## I. EXECUTIVE SUMMARY
 
@@ -223,4 +225,5 @@ The proposal's `GIR-001` recommendation is not fully sound as currently written.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-30 | Supersession | Deprecated under the AC011 successor baseline per the approved closeout matrix at P-PH000-ST001-AC011-GATE-001. All review findings preserved as historical evidence. |
 | v1.0.0 | 2026-03-28 | Initial | Independent external second-opinion review of the AC010 GATE-001 package. Confirmed the retrofit is substantively sound, identified a verification-ownership governance gap, assessed `GIR-001` as too strong for unconditional approval, and recommended `APPROVE WITH CONDITIONS`. |

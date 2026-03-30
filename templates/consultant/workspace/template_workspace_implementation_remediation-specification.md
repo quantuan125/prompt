@@ -8,7 +8,7 @@ stream_id: '{{STREAM_ID}}'
 activity_id: '{{ACTIVITY_ID}}'
 gate_id: '{{GATE_ID}}'
 task_id: '{{TASK_ID}}'
-version: '1.0.0'
+version: '1.1.0'
 date: '{{DATE}}'
 status: 'draft'
 author: '{{AUTHOR_ROLE}}'
@@ -26,6 +26,7 @@ purpose: '{{PURPOSE}}'
 - Authority chain: Plan authorizes work (task_id) -> This artifact specifies HOW ->
   Dev-report records execution -> Verification re-assesses
 - Audience: LLM_Developer (primary), LLM_Reviewer (re-assessment input)
+- Filename note: this subtype remains `-remediation-specification`; do not apply the `-brief` convention here and do not broaden the RECYCLE-only trigger.
 - This artifact does NOT hold a GDR. Gate decision is recorded in the
   gate_disposition proposal.
 
@@ -36,6 +37,8 @@ purpose: '{{PURPOSE}}'
 - Findings addressed: [list of FINDING-### IDs from verification]
 
 ## III. REMEDIATION ITEMS
+
+Each remediation item MUST be self-contained and should expose the minimum detail bundle required for re-assessment: exact target file(s) or surfaces, required revision deliverable, acceptance criteria, and explicit validation steps.
 
 ### REM-001 — [Title]
 
@@ -49,7 +52,7 @@ purpose: '{{PURPOSE}}'
 
 #### Implementation Detail
 
-[detailed HOW]
+[Numbered, self-contained HOW steps with exact file/section locators, direct if/then conditions, explicit validation steps, and model-agnostic wording.]
 
 [Repeat for each remediation item]
 

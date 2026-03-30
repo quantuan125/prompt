@@ -7,9 +7,9 @@ stream_id: 'P-PH000-ST001'
 activity_id: 'P-PH000-ST001-AC011'
 task_id: 'P-PH000-ST001-AC011-TK008'
 gate_id: 'P-PH000-ST001-AC011-GATE-001'
-version: '1.0.0'
-date: '2026-03-29'
-status: 'draft'
+version: '1.1.0'
+date: '2026-03-30'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/plan_P-PH000-ST001-AC011.md'
@@ -24,9 +24,9 @@ consumers:
 
 ## I. EXECUTIVE SUMMARY
 
-- Context: AC011 was opened as the successor activity after AC010 because the client directed a baseline change to `P-STD-001` and a cross-family governance correction for implementation-backed verification ownership. `TK000` and `TK001` locked the assessment and execution contract; `TK002` through `TK006` applied the baseline/governance/standards changes; `TK007` verified the completed package and closed one same-gate recycle correction.
-- Goal at gate: Obtain client disposition on whether the AC011 successor-baseline package should become the active authority for this scope and whether AC010 should be prepared for post-approval supersession as historically valid for its original baseline.
-- Scope: This gate covers the AC011 baseline amendment, derivative alignment, workspace verification-governance alignment, downstream standards remediation, and successor-baseline recommendation package. It does not yet apply the AC010 supersession updates; those remain post-decision actions only if this gate is approved.
+- Context: AC011 was opened as the successor activity after AC010 because the client directed a baseline change to `P-STD-001` and a cross-family governance correction for implementation-backed verification ownership. `TK000` and `TK001` locked the assessment and execution contract; `TK002` through `TK006` applied the baseline/governance/standards changes; `TK007` verified the completed package and closed one same-gate recycle correction; `TK009` completed the external second-opinion review and the main consultant incorporated it before gate presentation.
+- Goal at gate: Obtain client disposition on whether the AC011 successor-baseline package should become the active authority for this scope and whether AC010 should be prepared for post-approval supersession through the closeout matrix below.
+- Scope: This gate covers the AC011 baseline amendment, derivative alignment, workspace verification-governance alignment, downstream standards remediation, completed external review incorporation, and successor-baseline recommendation package. It does not yet apply the AC010 supersession updates; those remain post-decision actions only if this gate is approved.
 
 ---
 
@@ -44,7 +44,7 @@ consumers:
 | Downstream standards remediation package | `TK005` | `completed` | `accepted` | Recommended | `prompt/artifacts/tasks/P/standard/standard_P-STD-002_program-status-standard.md` |
 | AC011 developer evidence package | `TK006` | `completed` | `accepted` | Required | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/dev-report/dev-report_P-PH000-ST001-AC011_governance-amendment-and-remediation.md` |
 | AC011 verification | `TK007` | `completed` | `accepted` | Required | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/verification/verification_P-PH000-ST001-AC011_gate-001.md` |
-| AC011 external review | `TK009` | `planned` | `pending` | Required | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/analysis/analysis_P-PH000-ST001-AC011_external-review_gate-001-package.md` |
+| AC011 external review | `TK009` | `completed` | `accepted` | Required | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/analysis/analysis_P-PH000-ST001-AC011_external-review_gate-001-package.md` |
 
 ### B. Evidence Index
 
@@ -55,7 +55,7 @@ consumers:
 | Implementation | AC011 task specification | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/implementation/implementation_P-PH000-ST001-AC011_governance-amendment-and-remediation-task-specification.md` | Execution contract governing `TK002` through `TK009` |
 | Dev-report | AC011 developer evidence | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/dev-report/dev-report_P-PH000-ST001-AC011_governance-amendment-and-remediation.md` | Developer evidence for `TK002` through `TK006`, including recycle correction refresh |
 | Verification | AC011 gate review | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/verification/verification_P-PH000-ST001-AC011_gate-001.md` | Verifier verdict for the successor-baseline package |
-| External Review | AC011 gate package second-opinion review | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/analysis/analysis_P-PH000-ST001-AC011_external-review_gate-001-package.md` | Independent second-opinion review before client disposition |
+| External Review | AC011 gate package second-opinion review | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/analysis/analysis_P-PH000-ST001-AC011_external-review_gate-001-package.md` | Completed second-opinion review incorporated into the consultant recommendation and successor closeout matrix refresh |
 | Standard | Governing standard (`P-STD-001`) | `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md` | Active authority for the dedicated-changelog baseline and temporary operating-model derivative coupling |
 | Stream Plan | ST001 stream plan | `prompt/artifacts/tasks/P/workspace/PH000/ST001/plan_P-PH000-ST001.md` | Stream-level AC011 registration and AC010 successor linkage |
 
@@ -67,8 +67,8 @@ Use `GIR-###` identifiers.
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--|:--|
-| GIR-001 | AC011 successor-baseline governance-amendment and remediation package | Gate closure | (a) Approve: accept the AC011 package as the new active baseline for this scope | `P-PH000-ST001-AC011-GATE-001` | Yes | pending |
-| GIR-002 | AC010 historical posture after AC011 approval | Successor/supersession handling | (a) Approve the prepared supersession path: preserve AC010 as historically valid for its original baseline, then supersede it only after AC011 approval | Post-gate AC010 closeout matrix | Yes | pending |
+| GIR-001 | AC011 successor-baseline governance-amendment and remediation package | Gate closure | (a) Approve: accept the AC011 package as the new active baseline for this scope | `P-PH000-ST001-AC011-GATE-001` | Yes | APPROVE |
+| GIR-002 | AC010 historical posture after AC011 approval | Successor/supersession handling | (a) Approve the prepared supersession path: preserve AC010 as historically valid for its original baseline, then supersede it only after AC011 approval | Post-gate AC010 closeout matrix | Yes | APPROVE |
 
 ---
 
@@ -80,6 +80,7 @@ Context:
 - `TK002` through `TK006` completed the baseline amendment, derivative alignment, workspace-governance alignment, downstream standards remediation, and developer evidence package under one AC011 execution contract.
 - `TK007` verified the package against the successor baseline, issued an initial `RECYCLE` on a bounded `P-STD-002` deliverable miss, and then closed the same-gate recycle with a `PASS` verdict after the correction landed.
 - The remediated standards and governance surfaces now align to the dedicated-changelog model and the temporary consultant-verifier operating model.
+- The external review has now been completed and incorporated; the package-governance gap identified in that review has been resolved in this refreshed proposal.
 
 Decision prompt:
 - Should the client accept the AC011 package as the active successor baseline for this scope and close `P-PH000-ST001-AC011-GATE-001` on an approving path?
@@ -97,10 +98,11 @@ Recommendation:
 Rationale:
 - The substantive baseline amendment, derivative alignment, workspace-governance alignment, and downstream standards remediation are complete and were independently rechecked in `TK007`.
 - The same-gate recycle stayed bounded to an implementation miss and is now closed with a `PASS` verdict.
+- The external review has been incorporated, and its only substantive package-governance gap was the missing successor-reference matrix now added below.
 - No remaining issue currently blocks the client from approving AC011 as the active baseline package for this scope.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] (d)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] (d)` / `[ ] Override: _______`
 
 ---
 
@@ -110,6 +112,7 @@ Context:
 - AC010 was valid under the old baseline. The changelog-file concern that triggered the later discussion was compliant at the time because `P-STD-001` had not yet required a dedicated changelog file per standard.
 - AC011 exists because the client directed a new baseline and a temporary verification-governance correction. That changes the decision boundary externally rather than exposing an internal AC010 implementation defect.
 - The AC011 implementation specification already constrains AC010 handling to a successor-baseline supersession path after AC011 approval.
+- The external review now confirms that the only remaining package-governance gap was the missing successor-reference matrix, which is included below.
 
 Decision prompt:
 - If AC011 is approved, should AC010 be preserved as historically valid for its original baseline and then superseded by the AC011 successor baseline, rather than being reframed as a failed or recycled package?
@@ -127,9 +130,22 @@ Rationale:
 - `SUPERSEDE` is the correct classification for an external baseline change; it preserves the historical validity of the prior package while clearly linking it to the successor baseline.
 - Leaving AC010 untouched would preserve history but lose decision-trace clarity and create unnecessary audit ambiguity.
 - Reframing AC010 as wrong under the old baseline would be historically inaccurate.
+- The closeout matrix below maps the impacted AC010 surfaces to their post-approval handling and successor reference without applying any AC010 update yet.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] (c)` / `[ ] Override: _______`
+
+### AC010 Successor-Reference / Post-Decision Closeout Matrix
+
+This matrix is prospective only. It becomes operative only after AC011 `GATE-001` records an approving client decision; until then, it is advisory and AC010 remains unchanged.
+
+| AC010 Surface | Post-Approval Supersession Handling | Successor Reference | Notes |
+|:--|:--|:--|:--|
+| `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/plan_P-PH000-ST001-AC010.md` | Update the gate row / closeout posture to `superseded`, preserve the plan history, and add deprecation wording only after approval. | `P-PH000-ST001-AC011-GATE-001` | AC010 remains historically valid for its original baseline until the successor decision is recorded. |
+| `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/proposal/proposal_P-PH000-ST001-AC010_gate-001_cross-standard-retrofit-disposition.md` | Amend the GDR to `Client Decision: SUPERSEDE`, `Gate Status After Decision: superseded`, and retain the prior assessment as historical baseline context. | `P-PH000-ST001-AC011-GATE-001` | This proposal becomes the historical supersession record after approval. |
+| `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/verification/verification_P-PH000-ST001-AC010_gate-001.md` | Preserve the verifier verdict as historical evidence and deprecate the artifact under the superseded baseline rather than rewriting the verdict. | `P-PH000-ST001-AC011-GATE-001` | The verification remains valid-for-baseline. |
+| `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/analysis/analysis_P-PH000-ST001-AC010_external-review-gate-001-package.md` | Preserve the external review as historical evidence and deprecate it under the superseded baseline after approval. | `P-PH000-ST001-AC011-GATE-001` | No re-review is needed. |
+| `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC010/snotes/snotes_P-PH000-ST001-AC010-SES002.md` | Retain the session note as the durable decision-reference artifact and add successor-gate linkage after approval. | `P-PH000-ST001-AC011-GATE-001` | This note remains the historical closeout anchor. |
 
 ---
 
@@ -143,8 +159,13 @@ Verifier verdict alignment (implementation-backed gates only):
 - Verification artifact: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/verification/verification_P-PH000-ST001-AC011_gate-001.md`
 - Alignment: `Aligned`
 
+External review incorporation:
+- External review: `completed`
+- External review artifact: `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/analysis/analysis_P-PH000-ST001-AC011_external-review_gate-001-package.md`
+- Incorporation: `Incorporated`
+- Effect: The external review's only substantive package-governance gap was the missing successor-reference matrix, now captured in the detailed disposition register above.
+
 Conditions and/or deferrals:
-- External review (`TK009`) remains the final package-level second-opinion input before client disposition is recorded.
 - AC010 supersession updates remain deferred until after an approving client decision at `P-PH000-ST001-AC011-GATE-001`.
 
 Recycle reassessment path (`RECYCLE` only):
@@ -166,14 +187,14 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `P-PH000-ST001-AC011-GATE-001` |
 | Consultant Recommendation | `APPROVE` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
 | Conditions (if any) | `—` |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-30` |
+| Decision Reference | `prompt/artifacts/tasks/P/workspace/PH000/ST001/AC011/implementation/implementation_P-PH000-ST001-AC011_gate-001-closure-and-ac010-supersession-task-specification.md` |
 
-The consultant recommendation is the consolidated advisory signal based on the completed AC011 package and the `PASS` verifier verdict. The client decision remains pending until `GATE-001` is concluded.
+The consultant recommendation is the consolidated advisory signal based on the completed AC011 package, the `PASS` verifier verdict, and the completed external review incorporated into this proposal. The client decision has been recorded as APPROVE on 2026-03-30.
 
 ---
 
@@ -192,4 +213,7 @@ The consultant recommendation is the consolidated advisory signal based on the c
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-30 | Closeout | Recorded the client APPROVE decision for GIR-001 and GIR-002 in the GDR, marked both disposition items as approved, and closed the gate on the approving path. Decision reference: AC011 GATE-001 closure implementation specification. |
+| v1.0.2 | 2026-03-30 | Amendment | Completed `TK009`, incorporated the external review into the gate package, added the AC010 successor-reference / post-decision closeout matrix, and kept the GDR pending while preserving the `APPROVE` consultant recommendation. |
+| v1.0.1 | 2026-03-30 | Amendment | Clarified that `TK009` remains outstanding/pending external review while the GDR stays pending and the consultant recommendation remains unchanged. |
 | v1.0.0 | 2026-03-29 | Initial | Authored the AC011 Gate-001 disposition package with a pending-state GDR, aligned consultant recommendation `APPROVE`, and a post-approval AC010 supersession recommendation that preserves AC010 as historically valid for its original baseline. |
