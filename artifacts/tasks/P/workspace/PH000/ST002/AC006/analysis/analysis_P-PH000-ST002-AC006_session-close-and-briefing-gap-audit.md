@@ -7,9 +7,9 @@ phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC006'
 task_id: 'P-PH000-ST002-AC006-TK001'
-version: '1.0.0'
-date: '2026-03-28'
-status: 'draft'
+version: '1.1.0'
+date: '2026-03-30'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/plan_P-PH000-ST002-AC006.md'
@@ -207,4 +207,5 @@ Need (1) maps to handoff pack surfacing. Need (2) maps to status filtering. Need
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-30 | Amendment | Normalized the artifact as the completed TK001 three-domain gap audit after the AC006 plan and session-history surfaces were aligned to the live repository state. |
 | v1.0.0 | 2026-03-28 | Initial | Three-domain gap audit covering session-close skill operational gaps (GAP-001 through GAP-005), snotes closeout guidance integration gaps (GAP-002, GAP-003), client-facing briefing surface gap (GAP-006 through GAP-009), and the multi-feature proposal governance gap (GAP-010). Includes authority-source mapping and lower-intelligence assistant support matrix. |

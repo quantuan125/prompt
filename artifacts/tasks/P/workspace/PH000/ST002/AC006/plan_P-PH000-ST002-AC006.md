@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC006'
-version: '2.0.0'
-date: '2026-03-28'
+version: '2.2.0'
+date: '2026-03-30'
 status: 'in_progress'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -53,19 +53,21 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 | Task | Task ID | Name | Status | Owner | Depends On | Target | Reference | Action |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
 | TK000 | `P-PH000-ST002-AC006-TK000` | Assess AC006 readiness and harden the `GATE-001` package boundary | `completed` | LLM_Consultant | `P-PH000-ST002-AC004` | `analysis/` | `guideline_workspace_analysis.md` | Published the readiness assessment, added the missing authority inputs, and hardened the plan boundary so later AC006 work can proceed without package ambiguity. |
-| TK001 | `P-PH000-ST002-AC006-TK001` | Audit current session-close skill and briefing surface gap | `planned` | LLM_Consultant | TK000 | `analysis/` | `guideline_workspace_notes.md` | Produce the three-domain gap audit covering: (a) session-close skill operational gaps, (b) snotes closeout guidance gaps, (c) client-facing briefing surface gap. Includes authority-source mapping and lower-intelligence assistant support matrix. |
-| TK002 | `P-PH000-ST002-AC006-TK002` | Comparative analysis: briefing dashboard architectural options | `planned` | LLM_Consultant | TK001 | `analysis/` | `guideline_workspace_analysis.md` | Produce a comparative analysis evaluating architectural options for the briefing dashboard placement, filtering logic, and derivation method. Session-close skill direction is already covered by the TK001 audit and the existing AC004 standards-input authority. |
-| TK003 | `P-PH000-ST002-AC006-TK003` | Standards-input proposal: briefing dashboard | `planned` | LLM_Consultant | TK002 | `proposal/` | `guideline_workspace_proposal.md` | Author a standards-input proposal defining the briefing dashboard conventions, high-level architecture, and implementation boundary. Includes per-feature decision requests for client disposition. |
-| TK004 | `P-PH000-ST002-AC006-TK004` | Implementation spec: session-close skill hardening | `planned` | LLM_Consultant | TK001 | `implementation/` | `guideline_workspace_implementation.md` | Author the execution contract for rewriting and validating `prompt/skills/session-close/SKILL.md` as a prompt-assist-only consultant skill with detailed `snotes_` guidance. References the AC004 standards-input proposal as authority source. |
-| TK005 | `P-PH000-ST002-AC006-TK005` | Implementation spec: briefing dashboard | `planned` | LLM_Consultant | TK003 | `implementation/` | `guideline_workspace_implementation.md` | Author the execution contract for creating the briefing dashboard artifact. References the TK003 standards-input proposal as authority source. |
-| TK006 | `P-PH000-ST002-AC006-TK006` | GATE-001 disposition proposal package assembly | `planned` | LLM_Consultant | TK004, TK005 | `proposal/` | `guideline_workspace_proposal.md` | Assemble the full GATE-001 evidence package referencing: TK000 readiness assessment, TK001 audit, TK002 comparative analysis, TK003 briefing standards-input, TK004 session-close impl spec, TK005 briefing impl spec, and the AC004 standards-input proposal as inherited authority. |
-| GATE-001 | `P-PH000-ST002-AC006-GATE-001` | Gate: Client approval of AC006 expanded scope | `planned` | Client | TK006 | GDR | `guideline_workspace_proposal.md` | Decide whether AC006 may proceed from planning into execution-backed work for both the session-close skill rewrite and the briefing dashboard creation. |
-| TK007 | `P-PH000-ST002-AC006-TK007` | Execute session-close skill hardening | `planned` | LLM_Consultant | GATE-001 | `prompt/skills/session-close/` | TK004 impl spec | Rewrite `SKILL.md` via skill-creator + writing-skills superpowers skill. Create symlinks to `.agents/skills/session-close` and `.claude/skills/session-close`. Validate operational reachability. |
-| TK008 | `P-PH000-ST002-AC006-TK008` | Execute briefing dashboard creation | `planned` | LLM_Consultant | GATE-001 | `prompt/artifacts/tasks/P/status/` | TK005 impl spec | Create the briefing dashboard artifact at the path determined by the approved TK003 standards-input proposal and TK005 implementation spec. |
+| TK001 | `P-PH000-ST002-AC006-TK001` | Audit current session-close skill and briefing surface gap | `completed` | LLM_Consultant | TK000 | `analysis/` | `guideline_workspace_analysis.md` | Published the three-domain gap audit artifact covering session-close reachability, snotes guidance integration, briefing-surface gaps, authority mapping, and lower-intelligence assistant support requirements. |
+| TK002 | `P-PH000-ST002-AC006-TK002` | Comparative analysis: briefing dashboard architectural options | `completed` | LLM_Consultant | TK001 | `analysis/` | `guideline_workspace_analysis.md` | Published the comparative analysis selecting a separate `briefing_program.md` file as the bounded V1.1 briefing architecture and deferred richer prioritization to the future status-system initiative. |
+| TK003 | `P-PH000-ST002-AC006-TK003` | Standards-input proposal: briefing dashboard | `completed` | LLM_Consultant | TK002 | `proposal/` | `guideline_workspace_proposal.md` | Authored the briefing dashboard standards-input proposal defining the separate-file placement, ledger-first derivation hierarchy, three-section V1.1 model, and manual prompt-assist-only execution boundary. |
+| TK004 | `P-PH000-ST002-AC006-TK004` | Implementation spec: session-close skill hardening | `completed` | LLM_Consultant | TK001 | `implementation/` | `guideline_workspace_implementation.md` | Authored the detailed post-gate execution specification for the hardened session-close skill, dual-symlink reachability, explicit snotes guidance, and lower-intelligence assistant scaffolding. |
+| TK005 | `P-PH000-ST002-AC006-TK005` | Implementation spec: briefing dashboard | `completed` | LLM_Consultant | TK003 | `implementation/` | `guideline_workspace_implementation.md` | Authored the detailed post-gate execution specification for creating `briefing_program.md` as a separate derived client briefing surface with bounded Active Work, Recent Movement, and Dependency Watch sections. |
+| TK006 | `P-PH000-ST002-AC006-TK006` | GATE-001 disposition proposal package assembly | `completed` | LLM_Consultant | TK004, TK005 | `proposal/` | `guideline_workspace_proposal.md` | Authored the base GATE-001 gate-disposition proposal, indexed the current evidence set, and recorded `TK006.1` and `TK006.2` as deferred next-session inputs before client disposition. |
+| TK006.1 | `P-PH000-ST002-AC006-TK006.1` | External review: GATE-001 package | `planned` | LLM_Subconsultant | TK006 | `analysis/` | `guideline_workspace_analysis.md` | Produce the authoritative independent external-review analysis of the GATE-001 package, including downstream task readiness, plan-guideline compliance, and implementation-spec commissionability. |
+| TK006.2 | `P-PH000-ST002-AC006-TK006.2` | Consultant assessment: external review and downstream readiness | `planned` | LLM_Consultant | TK006.1 | `analysis/` | `guideline_workspace_analysis.md` | Produce the consultant's independent assessment of the external review, determine whether the package is ready for client disposition, and define the clean post-gate path toward later GATE-002 packaging. |
+| GATE-001 | `P-PH000-ST002-AC006-GATE-001` | Gate: Client approval of AC006 expanded scope | `planned` | Client | TK006.2 | GDR | `guideline_workspace_proposal.md` | Decide whether AC006 may proceed from planning into execution-backed work for both the session-close skill rewrite and the briefing dashboard creation. |
+| TK007 | `P-PH000-ST002-AC006-TK007` | Execute session-close skill hardening | `planned` | LLM_Assistant | GATE-001 | `prompt/skills/session-close/` | TK004 impl spec | Rewrite `SKILL.md` via skill-creator + writing-skills superpowers skill. Create symlinks to `.agents/skills/session-close` and `.claude/skills/session-close`. Validate operational reachability. |
+| TK008 | `P-PH000-ST002-AC006-TK008` | Execute briefing dashboard creation | `planned` | LLM_Assistant | GATE-001 | `prompt/artifacts/tasks/P/status/` | TK005 impl spec | Create the briefing dashboard artifact at the path determined by the approved TK003 standards-input proposal and TK005 implementation spec. |
 
-**Gate Model**: `GATE-001` is a consultation gate for AC006's expanded scope covering both session-close skill hardening and briefing dashboard creation. The gate package MUST include the completed readiness assessment (TK000), the three-domain gap audit (TK001), the briefing comparative analysis (TK002), the briefing standards-input proposal (TK003), and both implementation specifications (TK004, TK005). The session-close skill's authority source is the existing AC004 standards-input proposal, not a new AC006 proposal. Post-gate execution tasks (TK007, TK008) remain blocked until the client approves the gate package.
+**Gate Model**: `GATE-001` is a consultation gate for AC006's expanded scope covering both session-close skill hardening and briefing dashboard creation. The gate package MUST include the completed readiness assessment (TK000), the three-domain gap audit (TK001), the briefing comparative analysis (TK002), the briefing standards-input proposal (TK003), both implementation specifications (TK004, TK005), the package-assembly proposal (TK006), the authoritative external review (TK006.1), and the consultant assessment (TK006.2). The session-close skill's authority source is the existing AC004 standards-input proposal, not a new AC006 proposal. Post-gate execution tasks (TK007, TK008) remain blocked until the client approves the gate package.
 
-**Dependency graph:**
+**Dependency graph (legacy snapshot):**
 
 TK000 (completed)
   └─ TK001 (audit: session-close + briefing gap)
@@ -77,6 +79,19 @@ TK000 (completed)
                                                                                                               └─ TK008 (execute: briefing)
 
 ---
+
+**Dependency graph (current):**
+
+TK000 (completed)
+  └─ TK001 (audit: session-close + briefing gap)
+       ├─ TK002 (comparative: briefing) → TK003 (proposal: briefing) → TK005 (impl: briefing)
+       └─ TK004 (impl: session-close)
+            └─ TK006 (GATE-001 package)
+                 └─ TK006.1 (external review)
+                      └─ TK006.2 (consultant assessment)
+                           └─ GATE-001
+                                ├─ TK007 (execute: session-close)
+                                └─ TK008 (execute: briefing)
 
 ## III. TASKS (DETAILED)
 
@@ -121,7 +136,7 @@ TK000 (completed)
 **Purpose**: Define the exact gap across three domains: (a) session-close skill operational gaps, (b) snotes closeout guidance gaps, (c) client-facing briefing surface gap.
 
 **Deliverable**:
-- Inputs and audit matrix for the AC006 hardening analysis
+- `analysis/analysis_P-PH000-ST002-AC006_session-close-and-briefing-gap-audit.md`
 
 **Inputs Required**:
 - `prompt/skills/session-close/SKILL.md`
@@ -143,12 +158,12 @@ TK000 (completed)
   - any change to AC004's accepted V1 scope
 
 **Success Criteria**:
-- [ ] Skill gap list is explicit and file-grounded
-- [ ] Client-facing briefing surface gap is explicit with downstream recommendation
-- [ ] Guideline_workspace_proposal.md multi-feature gap is captured as open question
-- [ ] Notes/status/standards-input authority surfaces are explicit
-- [ ] Lower-intelligence assistant support expectations are explicit
-- [ ] Prompt-assist-only boundary is explicit
+- [x] Skill gap list is explicit and file-grounded
+- [x] Client-facing briefing surface gap is explicit with downstream recommendation
+- [x] Guideline_workspace_proposal.md multi-feature gap is captured as open question
+- [x] Notes/status/standards-input authority surfaces are explicit
+- [x] Lower-intelligence assistant support expectations are explicit
+- [x] Prompt-assist-only boundary is explicit
 
 ### Task TK002: Comparative Analysis: Briefing Dashboard Architectural Options
 
@@ -173,9 +188,9 @@ TK000 (completed)
   - actual dashboard creation
 
 **Success Criteria**:
-- [ ] At least two placement options are compared
-- [ ] Evaluation criteria include client usability, maintenance burden, authority-hierarchy compliance
-- [ ] Recommendation is scoring-based
+- [x] At least two placement options are compared
+- [x] Evaluation criteria include client usability, maintenance burden, authority-hierarchy compliance
+- [x] Recommendation is scoring-based
 
 ### Task TK003: Standards-Input Proposal: Briefing Dashboard
 
@@ -198,9 +213,9 @@ TK000 (completed)
   - session-close skill conventions (already covered by AC004 standards-input)
 
 **Success Criteria**:
-- [ ] Conventions are explicit and file-grounded
-- [ ] Decision requests allow independent feature approval
-- [ ] No implementation work is authorized prematurely
+- [x] Conventions are explicit and file-grounded
+- [x] Decision requests allow independent feature approval
+- [x] No implementation work is authorized prematurely
 
 ### Task TK004: Implementation Spec: Session-Close Skill Hardening
 
@@ -225,10 +240,10 @@ TK000 (completed)
   - briefing dashboard (that is TK005)
 
 **Success Criteria**:
-- [ ] Skill rewrite boundary is explicit
-- [ ] Symlink creation for .agents/skills/ and .claude/skills/ is specified
-- [ ] snotes_ authoring guidance is governed by guideline_workspace_notes.md
-- [ ] Codex skill-creator and writing-skills superpowers are specified as implementation method
+- [x] Skill rewrite boundary is explicit
+- [x] Symlink creation for .agents/skills/ and .claude/skills/ is specified
+- [x] snotes_ authoring guidance is governed by guideline_workspace_notes.md
+- [x] Codex skill-creator and writing-skills superpowers are specified as implementation method
 
 ### Task TK005: Implementation Spec: Briefing Dashboard
 
@@ -251,9 +266,9 @@ TK000 (completed)
   - session-close skill (that is TK004)
 
 **Success Criteria**:
-- [ ] Dashboard creation boundary is explicit
-- [ ] Filtering and derivation logic is specified
-- [ ] Artifact placement is determined by TK003 approved architecture
+- [x] Dashboard creation boundary is explicit
+- [x] Filtering and derivation logic is specified
+- [x] Artifact placement is determined by TK003 approved architecture
 
 ### Task TK006: GATE-001 Disposition Proposal Package Assembly
 
@@ -269,18 +284,80 @@ TK000 (completed)
 - AC004 standards-input proposal
 
 **Success Criteria**:
-- [ ] All pre-gate evidence is indexed
-- [ ] Session-close and briefing dashboard features have independently decidable GIR entries
-- [ ] Readiness assessment is included as required evidence
+- [x] All pre-gate evidence is indexed for the base proposal package through TK006
+- [x] Session-close and briefing dashboard features have independently decidable GIR entries
+- [x] Readiness assessment is included as required evidence
+
+### Task TK006.1: External Review: GATE-001 Package
+
+**Task ID**: `P-PH000-ST002-AC006-TK006.1`
+
+**Purpose**: Produce the authoritative independent external review for the GATE-001 package.
+
+**Deliverable**:
+- `analysis/analysis_P-PH000-ST002-AC006-GATE-001_external-review.md`
+
+**Inputs Required**:
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/plan_P-PH000-ST002-AC006.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/proposal/proposal_P-PH000-ST002-AC006-GATE-001_session-close-and-briefing-disposition.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/implementation/implementation_P-PH000-ST002-AC006_gate-001-pre-package-hardening-brief.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/implementation/implementation_P-PH000-ST002-AC006_session-close-hardening-task-specification.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/implementation/implementation_P-PH000-ST002-AC006_briefing-dashboard-task-specification.md`
+- `prompt/templates/consultant/workspace/guideline_workspace_plan.md`
+- `prompt/templates/consultant/workspace/guideline_workspace_analysis.md`
+
+**Scope**:
+- In scope:
+  - independent package review
+  - evidence integrity and role-boundary compliance checks
+  - downstream-task readiness and implementation-spec commissionability
+- Out of scope:
+  - consultant synthesis and client disposition
+
+**Success Criteria**:
+- [ ] Evidence integrity is explicitly assessed
+- [ ] Role-boundary compliance is explicitly assessed
+- [ ] Downstream-task readiness is explicitly assessed
+- [ ] Implementation-spec commissionability is explicitly assessed
+
+### Task TK006.2: Consultant Assessment: External Review And Downstream Readiness
+
+**Task ID**: `P-PH000-ST002-AC006-TK006.2`
+
+**Purpose**: Produce the consultant's independent assessment of the external review and determine downstream readiness before client disposition.
+
+**Deliverable**:
+- `analysis/analysis_P-PH000-ST002-AC006-GATE-001_external-review-and-downstream-readiness-assessment.md`
+
+**Inputs Required**:
+- TK006.1 external review
+- `proposal/proposal_P-PH000-ST002-AC006-GATE-001_session-close-and-briefing-disposition.md`
+- `prompt/templates/consultant/workspace/guideline_workspace_plan.md`
+- `prompt/templates/consultant/workspace/guideline_workspace_analysis.md`
+
+**Scope**:
+- In scope:
+  - independent assessment of the external review
+  - downstream readiness determination
+  - high-level post-gate path toward later GATE-002 readiness
+- Out of scope:
+  - direct client disposition
+
+**Success Criteria**:
+- [ ] External review agreement or disagreement is explicit
+- [ ] Remaining risks and gaps are explicit
+- [ ] Downstream readiness is explicit
+- [ ] High-level post-gate implementation path is explicit
 
 ### GATE-001: Gate: Client Approval Of AC006 Expanded Scope
 
 **Gate ID**: `P-PH000-ST002-AC006-GATE-001`
 
 **Entry Criteria**:
-- TK000 through TK006 complete
+- TK000 through TK006.2 complete
 - Both features are explicitly scoped
 - Both implementation specs are included
+- The authoritative external review and consultant assessment are included
 
 **Exit Criteria**:
 - Client records decision in GDR
@@ -321,6 +398,14 @@ TK000 (completed)
 | Upstream Activity | AC004 Activity Plan | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md` |
 | Analysis | AC006 Phase A Implementation Spec | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/implementation/implementation_P-PH000-ST002-AC006_phase-a-scope-amendment-task-specification.md` |
 | Analysis | AC006 Readiness Assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/analysis/analysis_P-PH000-ST002-AC006_readiness-and-gate-001-package-boundary-assessment.md` |
+| Analysis | AC006 Briefing Comparative Analysis | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/analysis/analysis_P-PH000-ST002-AC006_briefing-dashboard-comparative-assessment.md` |
+| Proposal | AC006 Briefing Standards Input | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/proposal/proposal_P-PH000-ST002-AC006_briefing-dashboard-standards-input.md` |
+| Implementation | AC006 Pre-Package Hardening Brief | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/implementation/implementation_P-PH000-ST002-AC006_gate-001-pre-package-hardening-brief.md` |
+| Implementation | AC006 Session-Close Hardening Spec | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/implementation/implementation_P-PH000-ST002-AC006_session-close-hardening-task-specification.md` |
+| Implementation | AC006 Briefing Dashboard Spec | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/implementation/implementation_P-PH000-ST002-AC006_briefing-dashboard-task-specification.md` |
+| Proposal | AC006 GATE-001 Disposition Package | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/proposal/proposal_P-PH000-ST002-AC006-GATE-001_session-close-and-briefing-disposition.md` |
+| Analysis | AC006 GATE-001 External Review | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/analysis/analysis_P-PH000-ST002-AC006-GATE-001_external-review.md` |
+| Analysis | AC006 GATE-001 Consultant Assessment | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/analysis/analysis_P-PH000-ST002-AC006-GATE-001_external-review-and-downstream-readiness-assessment.md` |
 | Skill | Session-Close Skill | `prompt/skills/session-close/SKILL.md` |
 | Upstream Authority | AC004 Session-Close Standards Input | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-TK003.8_session-close-standards-input.md` |
 | Guideline | Notes Guideline | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
@@ -332,6 +417,8 @@ TK000 (completed)
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.2.0 | 2026-03-30 | Amendment | Completed consultant-authored TK002 through TK006 deliverables, promoted the new artifact paths into the links register, and recorded the deferred-next-session boundary for TK006.1 and TK006.2. |
+| v2.1.0 | 2026-03-30 | Amendment | Normalized TK001 as a completed artifact, inserted future pre-gate review tasks TK006.1 and TK006.2 before GATE-001, corrected post-gate execution ownership to assistant execution, and aligned the gate package boundary to the consultation-only gate-readiness stack. |
 | v2.0.0 | 2026-03-28 | Structural Rewrite | Expanded AC006 scope to include briefing dashboard feature per SES002 client decisions. Eliminated standalone TK002 hardening analysis. Added briefing-focused comparative analysis (TK002), briefing standards-input proposal (TK003), and briefing implementation spec (TK005). Moved all implementation specs pre-gate. Renumbered entire task register (TK000–TK008 + GATE-001). Reversed AC005 dependency to depend on AC006 instead of AC004. |
 | v1.1.0 | 2026-03-28 | Amendment | Activated AC006 into readiness hardening, added completed `TK000`, registered the readiness assessment as required future `GATE-001` evidence, added the AC004 standards-input proposal as an authority input, and tightened TK001-TK004 contracts for later execution. |
 | v1.0.0 | 2026-03-28 | Initial | Created the standalone AC006 activity plan for deeper session-close skill hardening after AC004. Defines the prompt-assist-only, no-automation boundary, the `snotes_` guidance objective, and the later implementation-spec path that would use Codex plus native skill-creator guidance if approved. |

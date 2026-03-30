@@ -7,9 +7,9 @@ stream_id: 'T104-PH001-ST008'
 activity_id: 'T104-PH001-ST008-AC006'
 task_id: 'T104-PH001-ST008-AC006-TK007'
 gate_id: 'T104-PH001-ST008-AC006-GATE-002'
-version: '1.3.0'
+version: '1.4.0'
 date: '2026-03-30'
-status: 'draft'
+status: 'final'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/plan_T104-PH001-ST008-AC006.md'
@@ -121,12 +121,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `T104-PH001-ST008-AC006-GATE-002` |
 | Consultant Recommendation | `APPROVE` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `approved` |
 | Conditions (if any) | `—` |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-30` |
+| Decision Reference | `T104-PH001-ST008-AC006-SES007` |
 
 ## VII. REFERENCES
 
@@ -148,6 +148,7 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.4.0 | 2026-03-30 | Gate Closure | Recorded client `APPROVE` decision in the GDR. Gate status advanced to `approved`. Status updated to `final`. Decision reference: `T104-PH001-ST008-AC006-SES007`. AC006 is now closed. |
 | v1.3.0 | 2026-03-30 | Amendment | Finalized the AC006 GATE-002 proposal after SES006, the AC006 plan, and the ST008 notes register were synchronized. The package is client-ready, the consultant recommendation is `APPROVE`, and the GDR remains pending client decision. |
 | v1.2.0 | 2026-03-30 | Amendment | Integrated the authoritative external review and the final consultant assessment into the GATE-002 package, refreshed the package indexes, and prepared the closeout trail for final session/register synchronization. |
 | v1.0.0 | 2026-03-30 | Initial | Initial GATE-002 gate-disposition proposal for AC006 after TK006 verification passed. Proposal published with pending GDR and explicit pending integration of TK007.1 authoritative external review plus the final consultant assessment artifact. |

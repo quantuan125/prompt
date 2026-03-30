@@ -5,7 +5,7 @@ initiative_id: 'T104'
 initiative_code: 'CWS'
 phase: '1'
 stream: 'ST008'
-version: '2.21.0'
+version: '2.22.0'
 date: '2026-03-30'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -40,6 +40,7 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Activity | Session ID | Name | Notes File |
 |:--|:--|:--|:--|
+| AC006 | `T104-PH001-ST008-AC006-SES007` | GATE-002 Client Approval & AC006 Closeout | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES007.md` |
 | AC006 | `T104-PH001-ST008-AC006-SES006` | TK004-TK007.1 Completion, GATE-002 Assessment & Package Synchronization | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES006.md` |
 | AC006 | `T104-PH001-ST008-AC006-SES005` | GATE-001 Client Approval, Plan Amendment & TK003.1 Gap Remediation | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES005.md` |
 | AC006 | `T104-PH001-ST008-AC006-SES004` | GATE-001 Package Assembly, Authoritative External Review & Same-Gate Hardening | `prompt/artifacts/tasks/T104/workspace/PH001/ST008/AC006/snotes/snotes_T104-PH001-ST008-AC006-SES004.md` |

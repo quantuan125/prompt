@@ -8,8 +8,8 @@ stream: 'ST002'
 activity_id: 'P-PH000-ST002-AC006'
 session: 'SES002'
 session_id: 'P-PH000-ST002-AC006-SES002'
-version: '1.0.0'
-date: '2026-03-28'
+version: '1.1.0'
+date: '2026-03-30'
 status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -46,11 +46,11 @@ The consultant's assessment identified all three concerns as legitimate gaps wit
 
 **Task register renumbering**: The client approved renumbering the entire register (TK000–TK008 + GATE-001) for clean sequencing rather than interstitial numbering. Rationale: a v2.0.0 structural rewrite is the appropriate moment for clean numbering.
 
-**Implementation approach**: The consultant produced two artifacts before Phase A execution:
+**Implementation approach**: The consultation produced two artifacts before the scoped hardening pass:
 1. **Phase A implementation specification** — detailed contract for the nine-surface scope amendment (AC006 plan v2.0.0, AC005 dependency, stream/phase/roadmap, status ledger/narrative, session notes, notes register).
 2. **TK001 gap audit analysis** — three-domain audit covering session-close skill gaps (GAP-001–005), snotes integration gaps (GAP-002–003), client-facing briefing surface gap (GAP-006–009), plus the multi-feature proposal governance gap (GAP-010) captured as an open question.
 
-The current session intentionally stopped at planning-level artifacts (implementation spec + audit). No actual plan amendments or session notes registration were performed yet — that is Phase A execution, which the client will delegate to an assistant.
+The current consultation stopped at planning-level artifacts, and this follow-up hardening pass now reflects the AC006 plan amendment, the TK001 audit normalization, and the SES002 history cleanup in the live repository. The broader Phase A follow-on items outside the current write scope remain pending for later execution.
 
 ---
 
@@ -86,12 +86,12 @@ The current session intentionally stopped at planning-level artifacts (implement
 
 | ID | Action | Owner | Status |
 |:---|:-------|:------|:-------|
-| `P-PH000-ST002-AC006-SES002-ACT001` | Amend AC006 plan to v2.0.0 with full task register rewrite (per Phase A implementation spec SPEC-001) | LLM_Consultant | `pending` |
+| `P-PH000-ST002-AC006-SES002-ACT001` | Amend AC006 plan to v2.0.0 with full task register rewrite (per Phase A implementation spec SPEC-001) | LLM_Consultant | `completed` |
 | `P-PH000-ST002-AC006-SES002-ACT002` | Amend AC005 plan dependency from AC004 to AC006 (per Phase A implementation spec SPEC-002) | LLM_Consultant | `pending` |
 | `P-PH000-ST002-AC006-SES002-ACT003` | Update stream plan, phase plan, and roadmap for AC005/AC006 changes (per Phase A implementation spec SPEC-003 through SPEC-005) | LLM_Consultant | `pending` |
 | `P-PH000-ST002-AC006-SES002-ACT004` | Update status ledger (YAML) and derived narrative (per Phase A implementation spec SPEC-006 through SPEC-007) | LLM_Consultant | `pending` |
 | `P-PH000-ST002-AC006-SES002-ACT005` | Register SES002 in the ST002 stream notes register (per Phase A implementation spec SPEC-009) | LLM_Consultant | `pending` |
-| `P-PH000-ST002-AC006-SES002-ACT006` | Execute TK001 three-domain gap audit (per TK001 gap audit analysis artifact) | LLM_Consultant | `pending` |
+| `P-PH000-ST002-AC006-SES002-ACT006` | Execute TK001 three-domain gap audit (per TK001 gap audit analysis artifact) | LLM_Consultant | `completed` |
 
 ---
 
@@ -111,9 +111,8 @@ The current session intentionally stopped at planning-level artifacts (implement
 - **AC005 dependency**: Reversed from AC004 to AC006 per client direction.
 - **Task register**: Structurally rewritten (TK000–TK008 + GATE-001) with clean integer sequencing.
 - **Artifacts produced this session**: Phase A implementation specification (9 SPEC items, detailed execution contract) + TK001 gap audit analysis (10 GAP findings, authority mapping, support matrix).
-- **Phase A execution**: Pending — all nine governed surfaces (AC006 plan, AC005 plan, stream/phase/roadmap, status ledger/narrative, session notes, notes register) need amendment per the implementation spec.
-- **Phase B execution**: Pending — TK001 audit was produced in this session; TK002–TK006 remain future work.
-- **No concrete edits made**: Plan amendments, status updates, and session notes registration remain pending delegation to an executing consultant.
+- **Phase A execution**: Scoped hardening pass complete for the AC006 plan, TK001 audit normalization, and SES002 history cleanup; broader Phase A follow-on surfaces (AC005 plan, stream/phase/roadmap, status ledger/narrative, notes register) remain pending.
+- **Phase B execution**: TK001 is complete; TK002–TK006.2 remain future work.
 
 ---
 
@@ -121,4 +120,5 @@ The current session intentionally stopped at planning-level artifacts (implement
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-03-30 | Amendment | Reconciled SES002 history to the live repository after the scoped AC006 plan amendment and TK001 audit normalization were executed, removing stale statements that those governed edits had not occurred. |
 | v1.0.0 | 2026-03-28 | Initial | Recorded SES002 scope expansion, dependency reversal, task register rewrite, and proposal architecture decisions. Captured seven confirmed decisions (DEC001–007), six carry-forward actions, three open questions, and the complete consultation narrative establishing AC006's expanded boundary and AC005's dependency reversal. |
