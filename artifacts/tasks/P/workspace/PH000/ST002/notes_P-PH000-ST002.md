@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream: 'ST002'
-version: '1.17.0'
-date: '2026-03-28'
+version: '1.20.0'
+date: '2026-04-01'
 status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -57,6 +57,9 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC004 | `P-PH000-ST002-AC004-SES010` | GATE-003 Approval Recording, AC004 Closeout Completion, and Downstream Boundary Release | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/snotes/snotes_P-PH000-ST002-AC004-SES010.md` |
 | AC006 | `P-PH000-ST002-AC006-SES001` | Readiness Assessment, Plan Hardening, and GATE-001 Package Boundary | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES001.md` |
 | AC006 | `P-PH000-ST002-AC006-SES002` | Scope Expansion, Dependency Reversal, and Phase A/B Execution | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES002.md` |
+| AC006 | `P-PH000-ST002-AC006-SES003` | TK006 Cutoff and Deferred Gate Work | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES003.md` |
+| AC006 | `P-PH000-ST002-AC006-SES004` | GATE-001 Review Lane Completion and Proposal Refresh | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES004.md` |
+| AC006 | `P-PH000-ST002-AC006-SES005` | Independent Consultant Assessment, GATE-001 Approval & Normalization Planning | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES005.md` |
 
 ---
 
@@ -72,6 +75,9 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.20.0 | 2026-04-01 | Amendment | Registered AC006 activity session `P-PH000-ST002-AC006-SES005` for the independent consultant assessment, GATE-001 client approval, plan compliance audit, normalization planning, and implementation spec authoring. |
+| v1.19.0 | 2026-03-31 | Amendment | Registered AC006 activity session `P-PH000-ST002-AC006-SES004` for the completed external-review lane, assistant-scoped proposal refresh, and refreshed GATE-001 package handoff. |
+| v1.18.0 | 2026-03-31 | Amendment | Registered AC006 activity session `P-PH000-ST002-AC006-SES003` for the TK006 cutoff, assistant-scoped hardening brief, and next-session deferral of `TK006.1`, `TK006.2`, and `GATE-001`. |
 | v1.17.0 | 2026-03-28 | Amendment | Registered AC006 activity session `P-PH000-ST002-AC006-SES002` for scope expansion, dependency reversal, task register rewrite, and Phase A/B execution planning. |
 | v1.16.0 | 2026-03-28 | Amendment | Registered AC006 activity session `P-PH000-ST002-AC006-SES001` for the post-AC004 readiness assessment, plan hardening, and future `GATE-001` package-boundary definition. |
 | v1.15.0 | 2026-03-28 | Amendment | Registered AC004 activity session `P-PH000-ST002-AC004-SES010` for client-approved `GATE-003` closeout recording, AC004 completion, stale AC003 correction, and downstream release of AC005/AC006 as separate planned follow-on activities. |

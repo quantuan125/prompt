@@ -78,10 +78,10 @@ Traceability note:
 
 | GIR ID | Gap/Topic | Decision Area | Recommended Option | Execution Target | Blocking | Client Decision |
 |:--|:--|:--|:--|:--|:--|:--|
-| GIR-001 | Diagnostic package completeness | Whether AC000 produced a sufficient evidence baseline for `GATE-001` | (a) Accept the calibrated scope brief as the authoritative diagnostic baseline | `GATE-001` | Yes | `[ ] (a)` / `[ ] (b)` |
-| GIR-002 | Systemic structural backlog | Priority posture for the nine-file `P-STD-001` retrofit backlog | (a) Treat structural remediation as AC001 priority-one scope | `AC001` | Yes | `[ ] (a)` / `[ ] (b)` |
-| GIR-003 | `STD-004` residual housekeeping | Sequencing of supersession normalization and any GATE-001-seeded fixes | (a) Defer bounded mutation work to the same-gate recycle loop (`TK010.1`-`TK010.5`) and later blocked implementation tasks | `TK010.1`-`TK010.5`, `TK011`-`TK015` | Yes | `[ ] (a)` / `[ ] (b)` |
-| GIR-004 | Downstream sequencing boundary | Whether `GATE-001` approval authorizes only diagnostic acceptance or also implementation closure | (a) Approve diagnostic acceptance only; keep implementation and `GATE-002` separate | `TK010.1`-`TK010.5`, `TK011`-`TK015`, `AC001`-`AC004` | Yes | `[ ] (a)` / `[ ] (b)` |
+| GIR-001 | Diagnostic package completeness | Whether AC000 produced a sufficient evidence baseline for `GATE-001` | (a) Accept the calibrated scope brief as the authoritative diagnostic baseline | `GATE-001` | Yes | `[x] (a)` / `[ ] (b)` |
+| GIR-002 | Systemic structural backlog | Priority posture for the nine-file `P-STD-001` retrofit backlog | (a) Treat structural remediation as AC001 priority-one scope | `AC001` | Yes | `[x] (a)` / `[ ] (b)` |
+| GIR-003 | `STD-004` residual housekeeping | Sequencing of supersession normalization and any GATE-001-seeded fixes | (a) Defer bounded mutation work to the same-gate recycle loop (`TK010.1`-`TK010.5`) and later blocked implementation tasks | `TK010.1`-`TK010.5`, `TK011`-`TK015` | Yes | `[x] (a)` / `[ ] (b)` |
+| GIR-004 | Downstream sequencing boundary | Whether `GATE-001` approval authorizes only diagnostic acceptance or also implementation closure | (a) Approve diagnostic acceptance only; keep implementation and `GATE-002` separate | `TK010.1`-`TK010.5`, `TK011`-`TK015`, `AC001`-`AC004` | Yes | `[x] (a)` / `[ ] (b)` |
 
 ---
 
@@ -266,4 +266,6 @@ Downstream enforcement:
 | v1.3.0 | 2026-03-30 | Amendment | Extended the recycle narrative to include TK010.4 fresh second external review and TK010.5 consultant proposal refresh, updated the recycle/re-presentation path, and kept future remediation client-governed after consultant assessment. |
 | v1.2.0 | 2026-03-28 | Amendment | Recast GATE-001 disposition to `RECYCLE`, moved TK009 into historical/outdated evidence-only posture, added TK010 and TK010.1 to the active package index, and recorded the same-gate remediation path TK010.1-TK010.3. |
 | v1.1.0 | 2026-03-28 | Amendment | Linked the completed TK009 external review into the Gate Package Index and Evidence Index so the client package reflects the current full readiness set. |
+| v1.0.0 | 2026-03-28 | Initial | Created the AC000 `GATE-001` gate-disposition package to disposition diagnostic completeness, structural retrofit priority, `STD-004` residual sequencing, and downstream gate-boundary enforcement. |
+the current full readiness set. |
 | v1.0.0 | 2026-03-28 | Initial | Created the AC000 `GATE-001` gate-disposition package to disposition diagnostic completeness, structural retrofit priority, `STD-004` residual sequencing, and downstream gate-boundary enforcement. |

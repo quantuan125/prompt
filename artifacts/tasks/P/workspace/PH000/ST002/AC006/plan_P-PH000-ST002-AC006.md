@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC006'
-version: '2.2.0'
-date: '2026-03-30'
+version: '2.3.0'
+date: '2026-03-31'
 status: 'in_progress'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -50,48 +50,27 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 ### Task Register
 
-| Task | Task ID | Name | Status | Owner | Depends On | Target | Reference | Action |
-|:--|:--|:--|:--|:--|:--|:--|:--|:--|
-| TK000 | `P-PH000-ST002-AC006-TK000` | Assess AC006 readiness and harden the `GATE-001` package boundary | `completed` | LLM_Consultant | `P-PH000-ST002-AC004` | `analysis/` | `guideline_workspace_analysis.md` | Published the readiness assessment, added the missing authority inputs, and hardened the plan boundary so later AC006 work can proceed without package ambiguity. |
-| TK001 | `P-PH000-ST002-AC006-TK001` | Audit current session-close skill and briefing surface gap | `completed` | LLM_Consultant | TK000 | `analysis/` | `guideline_workspace_analysis.md` | Published the three-domain gap audit artifact covering session-close reachability, snotes guidance integration, briefing-surface gaps, authority mapping, and lower-intelligence assistant support requirements. |
-| TK002 | `P-PH000-ST002-AC006-TK002` | Comparative analysis: briefing dashboard architectural options | `completed` | LLM_Consultant | TK001 | `analysis/` | `guideline_workspace_analysis.md` | Published the comparative analysis selecting a separate `briefing_program.md` file as the bounded V1.1 briefing architecture and deferred richer prioritization to the future status-system initiative. |
-| TK003 | `P-PH000-ST002-AC006-TK003` | Standards-input proposal: briefing dashboard | `completed` | LLM_Consultant | TK002 | `proposal/` | `guideline_workspace_proposal.md` | Authored the briefing dashboard standards-input proposal defining the separate-file placement, ledger-first derivation hierarchy, three-section V1.1 model, and manual prompt-assist-only execution boundary. |
-| TK004 | `P-PH000-ST002-AC006-TK004` | Implementation spec: session-close skill hardening | `completed` | LLM_Consultant | TK001 | `implementation/` | `guideline_workspace_implementation.md` | Authored the detailed post-gate execution specification for the hardened session-close skill, dual-symlink reachability, explicit snotes guidance, and lower-intelligence assistant scaffolding. |
-| TK005 | `P-PH000-ST002-AC006-TK005` | Implementation spec: briefing dashboard | `completed` | LLM_Consultant | TK003 | `implementation/` | `guideline_workspace_implementation.md` | Authored the detailed post-gate execution specification for creating `briefing_program.md` as a separate derived client briefing surface with bounded Active Work, Recent Movement, and Dependency Watch sections. |
-| TK006 | `P-PH000-ST002-AC006-TK006` | GATE-001 disposition proposal package assembly | `completed` | LLM_Consultant | TK004, TK005 | `proposal/` | `guideline_workspace_proposal.md` | Authored the base GATE-001 gate-disposition proposal, indexed the current evidence set, and recorded `TK006.1` and `TK006.2` as deferred next-session inputs before client disposition. |
-| TK006.1 | `P-PH000-ST002-AC006-TK006.1` | External review: GATE-001 package | `planned` | LLM_Subconsultant | TK006 | `analysis/` | `guideline_workspace_analysis.md` | Produce the authoritative independent external-review analysis of the GATE-001 package, including downstream task readiness, plan-guideline compliance, and implementation-spec commissionability. |
-| TK006.2 | `P-PH000-ST002-AC006-TK006.2` | Consultant assessment: external review and downstream readiness | `planned` | LLM_Consultant | TK006.1 | `analysis/` | `guideline_workspace_analysis.md` | Produce the consultant's independent assessment of the external review, determine whether the package is ready for client disposition, and define the clean post-gate path toward later GATE-002 packaging. |
-| GATE-001 | `P-PH000-ST002-AC006-GATE-001` | Gate: Client approval of AC006 expanded scope | `planned` | Client | TK006.2 | GDR | `guideline_workspace_proposal.md` | Decide whether AC006 may proceed from planning into execution-backed work for both the session-close skill rewrite and the briefing dashboard creation. |
-| TK007 | `P-PH000-ST002-AC006-TK007` | Execute session-close skill hardening | `planned` | LLM_Assistant | GATE-001 | `prompt/skills/session-close/` | TK004 impl spec | Rewrite `SKILL.md` via skill-creator + writing-skills superpowers skill. Create symlinks to `.agents/skills/session-close` and `.claude/skills/session-close`. Validate operational reachability. |
-| TK008 | `P-PH000-ST002-AC006-TK008` | Execute briefing dashboard creation | `planned` | LLM_Assistant | GATE-001 | `prompt/artifacts/tasks/P/status/` | TK005 impl spec | Create the briefing dashboard artifact at the path determined by the approved TK003 standards-input proposal and TK005 implementation spec. |
-
-**Gate Model**: `GATE-001` is a consultation gate for AC006's expanded scope covering both session-close skill hardening and briefing dashboard creation. The gate package MUST include the completed readiness assessment (TK000), the three-domain gap audit (TK001), the briefing comparative analysis (TK002), the briefing standards-input proposal (TK003), both implementation specifications (TK004, TK005), the package-assembly proposal (TK006), the authoritative external review (TK006.1), and the consultant assessment (TK006.2). The session-close skill's authority source is the existing AC004 standards-input proposal, not a new AC006 proposal. Post-gate execution tasks (TK007, TK008) remain blocked until the client approves the gate package.
-
-**Dependency graph (legacy snapshot):**
-
-TK000 (completed)
-  └─ TK001 (audit: session-close + briefing gap)
-       ├─ TK002 (comparative: briefing) → TK003 (proposal: briefing) → TK005 (impl: briefing) ─┐
-       └─ TK004 (impl: session-close) ─────────────────────────────────────────────────────────────┤
-                                                                                                    └─ TK006 (GATE-001 package)
-                                                                                                         └─ GATE-001
-                                                                                                              ├─ TK007 (execute: session-close)
-                                                                                                              └─ TK008 (execute: briefing)
-
----
-
-**Dependency graph (current):**
-
-TK000 (completed)
-  └─ TK001 (audit: session-close + briefing gap)
-       ├─ TK002 (comparative: briefing) → TK003 (proposal: briefing) → TK005 (impl: briefing)
-       └─ TK004 (impl: session-close)
-            └─ TK006 (GATE-001 package)
-                 └─ TK006.1 (external review)
-                      └─ TK006.2 (consultant assessment)
-                           └─ GATE-001
-                                ├─ TK007 (execute: session-close)
-                                └─ TK008 (execute: briefing)
+| Task ID | Description | Status | Action |
+|:--|:--|:--|:--|
+| `P-PH000-ST002-AC006-TK000` | Assess AC006 readiness and harden the GATE-001 package boundary | `completed` | Published the readiness assessment, added the missing authority inputs, and hardened the plan boundary so later AC006 work can proceed without package ambiguity. |
+| `P-PH000-ST002-AC006-TK001` | Audit current session-close skill and briefing surface gap | `completed` | Published the three-domain gap audit artifact covering session-close reachability, snotes guidance integration, briefing-surface gaps, authority mapping, and lower-intelligence assistant support requirements. |
+| `P-PH000-ST002-AC006-TK002` | Comparative analysis: briefing dashboard architectural options | `completed` | Published the comparative analysis selecting a separate `briefing_program.md` file as the bounded V1.1 briefing architecture and deferred richer prioritization to the future status-system initiative. |
+| `P-PH000-ST002-AC006-TK003` | Standards-input proposal: briefing dashboard | `completed` | Authored the briefing dashboard standards-input proposal defining the separate-file placement, ledger-first derivation hierarchy, three-section V1.1 model, and manual prompt-assist-only execution boundary. |
+| `P-PH000-ST002-AC006-TK004` | Implementation spec: session-close skill hardening | `completed` | Authored the detailed post-gate execution specification for the hardened session-close skill, dual-symlink reachability, explicit snotes guidance, and lower-intelligence assistant scaffolding. |
+| `P-PH000-ST002-AC006-TK005` | Implementation spec: briefing dashboard | `completed` | Authored the detailed post-gate execution specification for creating `briefing_program.md` as a separate derived client briefing surface with bounded Active Work, Recent Movement, and Dependency Watch sections. |
+| `P-PH000-ST002-AC006-TK006` | GATE-001 disposition proposal package assembly | `completed` | Authored the base GATE-001 gate-disposition proposal, indexed the current evidence set, and recorded TK006.1 and TK006.2 as deferred next-session inputs before client disposition. |
+| `P-PH000-ST002-AC006-TK006.1` | External review: GATE-001 package | `completed` | Produced the authoritative independent external-review analysis confirming package coherence, GIR soundness, and downstream implementation-spec commissionability. |
+| `P-PH000-ST002-AC006-TK006.2` | Consultant assessment: external review and downstream readiness | `completed` | Assessed the external review, confirmed agreement with all findings, identified packaging posture as the sole remaining blocker, and defined the post-gate path toward GATE-002. |
+| `P-PH000-ST002-AC006-TK006.3` | Post-review normalization and GDR recording | `completed` | Recorded client GATE-001 APPROVE decision in the GDR, normalized the plan to guideline compliance, and formalized the GATE-002 execution-evidence path. |
+| `P-PH000-ST002-AC006-GATE-001` | Gate: client approval of AC006 expanded scope | `completed` | Client approved all four GIR items (a). GDR recorded 2026-03-31. |
+| `P-PH000-ST002-AC006-TK007` | Execute session-close skill hardening | `planned` | — |
+| `P-PH000-ST002-AC006-TK008` | Execute briefing dashboard creation | `planned` | — |
+| `P-PH000-ST002-AC006-TK009` | Dev-report: session-close skill hardening execution evidence | `planned` | — |
+| `P-PH000-ST002-AC006-TK010` | Dev-report: briefing dashboard creation execution evidence | `planned` | — |
+| `P-PH000-ST002-AC006-TK011` | Verification: AC006 execution evidence review | `planned` | — |
+| `P-PH000-ST002-AC006-TK012` | GATE-002 disposition proposal package | `planned` | — |
+| `P-PH000-ST002-AC006-TK012.1` | External review: GATE-002 package | `planned` | — |
+| `P-PH000-ST002-AC006-GATE-002` | Gate: client approval of AC006 execution evidence | `planned` | — |
 
 ## III. TASKS (DETAILED)
 
@@ -315,10 +294,10 @@ TK000 (completed)
   - consultant synthesis and client disposition
 
 **Success Criteria**:
-- [ ] Evidence integrity is explicitly assessed
-- [ ] Role-boundary compliance is explicitly assessed
-- [ ] Downstream-task readiness is explicitly assessed
-- [ ] Implementation-spec commissionability is explicitly assessed
+- [x] Evidence integrity is explicitly assessed
+- [x] Role-boundary compliance is explicitly assessed
+- [x] Downstream-task readiness is explicitly assessed
+- [x] Implementation-spec commissionability is explicitly assessed
 
 ### Task TK006.2: Consultant Assessment: External Review And Downstream Readiness
 
@@ -344,10 +323,45 @@ TK000 (completed)
   - direct client disposition
 
 **Success Criteria**:
-- [ ] External review agreement or disagreement is explicit
-- [ ] Remaining risks and gaps are explicit
-- [ ] Downstream readiness is explicit
-- [ ] High-level post-gate implementation path is explicit
+- [x] External review agreement or disagreement is explicit
+- [x] Remaining risks and gaps are explicit
+- [x] Downstream readiness is explicit
+- [x] High-level post-gate implementation path is explicit
+
+### Task TK006.3: Post-Review Normalization And GDR Recording
+
+**Task ID**: `P-PH000-ST002-AC006-TK006.3`
+
+**Purpose**: Record the client's GATE-001 approval in the GDR, normalize the activity plan to full guideline compliance, and formalize the GATE-002 execution-evidence path.
+
+**Deliverable**:
+- Updated GDR in the gate-disposition proposal
+- Normalized activity plan (compliant Task Register, removed non-standard sections, GATE-002 path)
+
+**Inputs Required**:
+- Independent consultant assessment findings (F-001, F-002, F-003, F-004)
+- Client verbal approval of GATE-001 during SES005
+
+**Scope**:
+- In scope:
+  - GDR recording
+  - Task Register schema normalization
+  - Non-standard section removal
+  - GATE-001 Reviewer field addition
+  - GATE-002 path formalization
+  - Plan version bump and changelog
+- Out of scope:
+  - executing TK007 or TK008
+  - modifying any completed analysis, proposal, or implementation artifact other than the GDR update
+
+**Success Criteria**:
+- [x] GDR records Client Decision = APPROVE with all four GIR items at (a)
+- [x] Task Register uses the required §IV.B schema
+- [x] Non-standard sections removed
+- [x] GATE-001 has all four required §VI.C fields
+- [x] GATE-002 is registered with implementation-backed gate-readiness stack
+
+**Implementation Spec**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/implementation/implementation_P-PH000-ST002-AC006_gate-001-normalization-and-gdr-recording-brief.md`
 
 ### GATE-001: Gate: Client Approval Of AC006 Expanded Scope
 
@@ -355,15 +369,16 @@ TK000 (completed)
 
 **Entry Criteria**:
 - TK000 through TK006.2 complete
-- Both features are explicitly scoped
-- Both implementation specs are included
-- The authoritative external review and consultant assessment are included
+
+**Reviewer**: Client
 
 **Exit Criteria**:
 - Client records decision in GDR
 - Post-gate tasks (TK007, TK008) remain blocked until approval
 
 **Gate-Disposition Proposal**: `proposal/proposal_P-PH000-ST002-AC006-GATE-001_session-close-and-briefing-disposition.md`
+
+**Gate Status**: `completed` — Client approved 2026-03-31. GDR recorded in the gate-disposition proposal.
 
 ### Task TK007: Execute Session-Close Skill Hardening
 
@@ -374,7 +389,7 @@ TK000 (completed)
 **Deliverable**:
 - Rewritten `prompt/skills/session-close/SKILL.md` + symlinks to `.agents/skills/` and `.claude/skills/`.
 
-**Blocked by**: GATE-001
+**Depends On**: GATE-001 (completed), GATE-002 (planned)
 
 ### Task TK008: Execute Briefing Dashboard Creation
 
@@ -385,7 +400,94 @@ TK000 (completed)
 **Deliverable**:
 - Briefing dashboard artifact at approved path.
 
-**Blocked by**: GATE-001
+**Depends On**: GATE-001 (completed), GATE-002 (planned)
+
+### Task TK009: Dev-Report: Session-Close Skill Hardening Execution Evidence
+
+**Task ID**: `P-PH000-ST002-AC006-TK009`
+
+**Purpose**: Produce bounded execution evidence for TK007 per `guideline_workspace_dev-report.md`.
+
+**Deliverable**:
+- `dev-report_P-PH000-ST002-AC006-TK007.md` (path TBD at execution time)
+
+**Depends On**: TK007
+
+**Owner**: LLM_Assistant
+
+### Task TK010: Dev-Report: Briefing Dashboard Creation Execution Evidence
+
+**Task ID**: `P-PH000-ST002-AC006-TK010`
+
+**Purpose**: Produce bounded execution evidence for TK008 per `guideline_workspace_dev-report.md`.
+
+**Deliverable**:
+- `dev-report_P-PH000-ST002-AC006-TK008.md` (path TBD at execution time)
+
+**Depends On**: TK008
+
+**Owner**: LLM_Assistant
+
+### Task TK011: Verification: AC006 Execution Evidence Review
+
+**Task ID**: `P-PH000-ST002-AC006-TK011`
+
+**Purpose**: Independent verification of TK007 and TK008 execution evidence per `guideline_workspace_verification.md`.
+
+**Deliverable**:
+- `verification_P-PH000-ST002-AC006-GATE-002.md` (path TBD at execution time)
+
+**Depends On**: TK009, TK010
+
+**Owner**: LLM_Consultant (currently authorized secondary verifier per workspace_documentation_rules.md §6.D)
+
+### Task TK012: GATE-002 Disposition Proposal Package
+
+**Task ID**: `P-PH000-ST002-AC006-TK012`
+
+**Purpose**: Assemble the GATE-002 evidence package for client disposition per `guideline_workspace_proposal.md`.
+
+**Deliverable**:
+- `proposal/proposal_P-PH000-ST002-AC006-GATE-002_execution-evidence-disposition.md`
+
+**Depends On**: TK011
+
+**Owner**: LLM_Consultant
+
+### Task TK012.1: External Review: GATE-002 Package
+
+**Task ID**: `P-PH000-ST002-AC006-TK012.1`
+
+**Purpose**: Independent external review of the GATE-002 package per `guideline_workspace_analysis.md` §IV.B.
+
+**Deliverable**:
+- `analysis/analysis_P-PH000-ST002-AC006-GATE-002_external-review.md`
+
+**Depends On**: TK012
+
+**Owner**: LLM_Subconsultant
+
+### GATE-002: Gate: Client Approval Of AC006 Execution Evidence
+
+**Gate ID**: `P-PH000-ST002-AC006-GATE-002`
+
+**Entry Criteria**:
+- TK007 and TK008 execution is complete
+- Dev-reports (TK009, TK010) document execution evidence
+- Verification (TK011) provides independent assessment with verifier verdict
+- Gate-disposition proposal (TK012) packages all evidence
+- External review (TK012.1) provides independent second-opinion audit
+
+**Reviewer**: Client
+
+**Exit Criteria**:
+- Client records decision in GDR
+- If APPROVE: AC006 execution is accepted and the activity can proceed toward completion
+- If RECYCLE: remediation tasks are created per §VI.K
+
+**Gate-Disposition Proposal**: `proposal/proposal_P-PH000-ST002-AC006-GATE-002_execution-evidence-disposition.md` (pending — to be authored as TK012)
+
+**Gate Type**: Implementation-backed (reviews developer/assistant-mutated deliverables)
 
 ---
 
@@ -409,6 +511,7 @@ TK000 (completed)
 | Skill | Session-Close Skill | `prompt/skills/session-close/SKILL.md` |
 | Upstream Authority | AC004 Session-Close Standards Input | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-TK003.8_session-close-standards-input.md` |
 | Guideline | Notes Guideline | `prompt/templates/consultant/workspace/guideline_workspace_notes.md` |
+| Implementation | AC006 GATE-001 Normalization Brief | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/implementation/implementation_P-PH000-ST002-AC006_gate-001-normalization-and-gdr-recording-brief.md` |
 | Protocol | Program Status Narrative Section 7 | `prompt/artifacts/tasks/P/status/status_program.md` |
 
 ---
@@ -417,6 +520,7 @@ TK000 (completed)
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.3.0 | 2026-03-31 | Amendment | Recorded GATE-001 client approval. Normalized Task Register to §IV.B required schema (Task ID / Description / Status / Action). Removed non-standard Gate Model and Dependency Graph sections. Added Reviewer field to GATE-001 detailed section. Registered TK006.3 (normalization task). Formalized GATE-002 as the implementation-backed execution-evidence gate with the full readiness stack (TK009–TK012.1). Updated TK006.1 and TK006.2 to completed. Updated TK007/TK008 dependency references. |
 | v2.2.0 | 2026-03-30 | Amendment | Completed consultant-authored TK002 through TK006 deliverables, promoted the new artifact paths into the links register, and recorded the deferred-next-session boundary for TK006.1 and TK006.2. |
 | v2.1.0 | 2026-03-30 | Amendment | Normalized TK001 as a completed artifact, inserted future pre-gate review tasks TK006.1 and TK006.2 before GATE-001, corrected post-gate execution ownership to assistant execution, and aligned the gate package boundary to the consultation-only gate-readiness stack. |
 | v2.0.0 | 2026-03-28 | Structural Rewrite | Expanded AC006 scope to include briefing dashboard feature per SES002 client decisions. Eliminated standalone TK002 hardening analysis. Added briefing-focused comparative analysis (TK002), briefing standards-input proposal (TK003), and briefing implementation spec (TK005). Moved all implementation specs pre-gate. Renumbered entire task register (TK000–TK008 + GATE-001). Reversed AC005 dependency to depend on AC006 instead of AC004. |
