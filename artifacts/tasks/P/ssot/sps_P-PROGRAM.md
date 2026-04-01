@@ -56,7 +56,7 @@ Program-level determinism reduces governance overhead and prevents cross-initiat
 
 * **P-CON-001 (Authority Boundary)** — Program standards govern `prompt/artifacts/tasks/**` only (including raw + SSOT + workspace artifacts) and do not govern all of `prompt/**`.
 * **P-CON-002 (Link Don’t Duplicate)** — Adopter initiatives SHALL reference program standards by ID/path and SHALL NOT duplicate program normative content.
-* **P-CON-003 (Artifact Format Governance)** — (A) Planning, SSOT, and governance specification artifacts — including plans, notes, roadmaps, SPS files, combined standard-specification files, a`nd decision records — SHALL be Markdown files (`.md`) with YAML frontmatter. For combined standard-specification files, the required metadata schema and current-state-versus-Provenance authority split are governed by `P-STD-001-CLAUSE-031` through `P-STD-001-CLAUSE-036`. (B) Programmatic execution artifacts — including status ledgers and machine-readable schema files — MAY use non-Markdown formats (e.g., `.yaml`, `.json`) when explicitly permitted by the governing standard for that artifact type. File naming and placement SHALL still conform to `P-STD-004`.
+* **P-CON-003 (Artifact Format Governance)** — (A) Planning, SSOT, and governance specification artifacts — including plans, notes, roadmaps, SPS files, combined standard-specification files, and decision records — SHALL be Markdown files (`.md`) with YAML frontmatter. (B) Programmatic execution artifacts — including status ledgers and machine-readable schema files — MAY use non-Markdown formats (e.g., `.yaml`, `.json`) when explicitly permitted by the governing standard for that artifact type.
 
 #### 4. Quality Goals
 
