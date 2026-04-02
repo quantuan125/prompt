@@ -28,9 +28,9 @@
 
 schema_version: '1.0'
 program_id: P
-as_of: '2026-03-28'
-updated_by: LLM_Consultant
-last_updated: '2026-03-28'
+as_of: '2026-04-02'
+updated_by: LLM_Assistant
+last_updated: '2026-04-02'
 entries:
 - scope_uid: P-PH000-ST001-AC001
   scope_type: activity
@@ -478,9 +478,9 @@ entries:
   initiative_id: P
   name: Backfill & Validate Initial Program Entries
   status: completed
-  as_of: '2026-03-28'
+  as_of: '2026-04-02'
   updated_by: LLM_Consultant
-  last_updated: '2026-03-28'
+  last_updated: '2026-04-02'
   health:
     overall: unassessed
     dimensions:
@@ -589,6 +589,19 @@ entries:
       date: '2026-03-28'
       by: LLM_Consultant
       summary: 'Dependency clause from source plan row for P-PH000-ST002-AC005: AC006 (reversed)'
+  - from_id: P-PH000-ST002-AC007
+    to_id: P-PH000-ST002-AC005
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: open
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+      date: '2026-04-02'
+      by: LLM_Consultant
+      summary: 'Dependency clause from SES007: AC005 now depends on AC007 (V1 stabilization) in addition to AC006'
   evidence:
   - type: note
     ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
@@ -602,10 +615,10 @@ entries:
   scope_type: activity
   initiative_id: P
   name: Session-Close Skill Hardening, Briefing Dashboard & Snotes Closeout Guidance
-  status: in_progress
-  as_of: '2026-03-28'
-  updated_by: LLM_Consultant
-  last_updated: '2026-03-28'
+  status: completed
+  as_of: '2026-04-02'
+  updated_by: LLM_Assistant
+  last_updated: '2026-04-02'
   health:
     overall: unassessed
     dimensions:
@@ -634,7 +647,7 @@ entries:
     ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
     date: '2026-03-28'
     by: LLM_Consultant
-    summary: 'Source plan row for P-PH000-ST002-AC006 (status in_progress; raw depends_on: AC004)'
+    summary: 'Source plan row for P-PH000-ST002-AC006 (status completed; raw depends_on: AC004)'
   - type: note
     ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES001.md
     date: '2026-03-28'
@@ -650,6 +663,86 @@ entries:
     date: '2026-03-28'
     by: LLM_Consultant
     summary: 'SES002 recorded the scope expansion to include the briefing dashboard, dependency reversal for AC005, and the task register structural rewrite.'
+  - type: session
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES006.md
+    date: '2026-04-02'
+    by: LLM_Consultant
+    summary: 'SES006 recorded the AC006 orchestration update, fresh-worker recycle rules, and assistant closeout boundary'
+  - type: check
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/verification/verification_P-PH000-ST002-AC006_gate-002.md
+    date: '2026-04-02'
+    by: LLM_Consultant
+    summary: 'TK011 verified the GATE-002 package and confirmed the evidence-backed PASS posture'
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/analysis/analysis_P-PH000-ST002-AC006-GATE-002_external-review.md
+    date: '2026-04-02'
+    by: LLM_Consultant
+    summary: 'TK012.1 recorded the external review of the AC006 GATE-002 package'
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/analysis/analysis_P-PH000-ST002-AC006-GATE-002_external-review-and-downstream-readiness-assessment.md
+    date: '2026-04-02'
+    by: LLM_Consultant
+    summary: 'TK012.2 recorded the consultant assessment and downstream readiness review'
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/implementation/implementation_P-PH000-ST002-AC006_gate-002-package-refresh-and-closeout-brief.md
+    date: '2026-04-02'
+    by: LLM_Consultant
+    summary: 'Assistant closeout brief captured the post-TK012.2 package refresh and housekeeping contract'
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/proposal/proposal_P-PH000-ST002-AC006-GATE-002_execution-evidence-disposition.md
+    date: '2026-04-02'
+    by: LLM_Consultant
+    summary: 'Refreshed GATE-002 proposal package now serves as the client-facing reading set'
+  - type: decision
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/proposal/proposal_P-PH000-ST002-AC006-GATE-002_execution-evidence-disposition.md
+    date: '2026-04-02'
+    by: Client
+    summary: 'GATE-002 approved. All three GIR items accepted as option (a). AC006 closed.'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
+- scope_uid: P-PH000-ST002-AC007
+  scope_type: activity
+  initiative_id: P
+  name: V1 Status System Operational Stabilization
+  status: planned
+  as_of: '2026-04-02'
+  updated_by: LLM_Assistant
+  last_updated: '2026-04-02'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies:
+  - from_id: P-PH000-ST002-AC006
+    to_id: P-PH000-ST002-AC007
+    relationship: depends_on
+    category: internal
+    criticality: critical
+    owner: LLM_Consultant
+    status: resolved
+    evidence:
+    - type: note
+      ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+      date: '2026-04-02'
+      by: LLM_Consultant
+      summary: 'Dependency clause from source plan row for P-PH000-ST002-AC007: AC006'
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.md
+    date: '2026-04-02'
+    by: LLM_Consultant
+    summary: 'Source plan row for P-PH000-ST002-AC007 (status planned; raw depends_on: AC006)'
+  - type: session
+    ref: prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES007.md
+    date: '2026-04-02'
+    by: LLM_Consultant
+    summary: 'SES007 commissioned AC007 after AC006 GATE-002 approval and split-path decision'
   aggregation_policy: null
   execution_refs: []
   extensions: {}

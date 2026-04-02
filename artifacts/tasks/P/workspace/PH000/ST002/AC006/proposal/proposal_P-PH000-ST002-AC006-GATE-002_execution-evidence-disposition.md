@@ -7,9 +7,9 @@ stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC006'
 task_id: 'P-PH000-ST002-AC006-TK012'
 gate_id: 'P-PH000-ST002-AC006-GATE-002'
-version: '1.1.0'
-date: '2026-04-01'
-status: 'draft'
+version: '1.2.0'
+date: '2026-04-02'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/plan_P-PH000-ST002-AC006.md'
@@ -95,7 +95,7 @@ Rationale:
 - The live file and both symlink roots satisfy the approved implementation contract without widening scope.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] Override: _______`
 
 ### GIR-002 - Briefing Dashboard Acceptance
 
@@ -120,7 +120,7 @@ Rationale:
 - The artifact remains subordinate to `status_program.yaml` and does not widen AC006 into automation or planning-system redesign.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] Override: _______`
 
 ### GIR-003 - Combined Evidence-Package Sufficiency
 
@@ -145,7 +145,7 @@ Rationale:
 - The external review agreed with all GIR resolutions and the consultant assessment confirmed that the only remaining gaps were package-refresh items, which are now closed in this final reading set.
 
 Client Decision:
-- `[ ] (a)` / `[ ] (b)` / `[ ] Override: _______`
+- `[x] (a)` / `[ ] (b)` / `[ ] Override: _______`
 
 ## V. CONSULTANT GATE RECOMMENDATION
 
@@ -176,12 +176,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `P-PH000-ST002-AC006-GATE-002` |
 | Consultant Recommendation | `APPROVE` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `closed` |
 | Conditions (if any) | `—` |
 | Decided By | `Client` |
-| Decision Date | `—` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-04-02` |
+| Decision Reference | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES007.md` |
 
 ## VII. REFERENCES
 
@@ -201,5 +201,5 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
-| v1.1.0 | 2026-04-01 | Amendment | Refreshed the AC006 GATE-002 proposal after completion of TK012.1 and TK012.2, added the authoritative external review and consultant assessment to the gate package, and finalized the client reading set. |
+| v1.2.0 | 2026-04-02 | Amendment | Recorded client GATE-002 APPROVE decision for all three GIR items (a). Updated GDR with decision date 2026-04-02 and closed gate status. Proposal status moved to completed. |
 | v1.0.0 | 2026-04-01 | Initial | Created the base AC006 GATE-002 disposition package after completion of TK007 through TK011, with the external-review lane and final consultant package refresh still pending. |

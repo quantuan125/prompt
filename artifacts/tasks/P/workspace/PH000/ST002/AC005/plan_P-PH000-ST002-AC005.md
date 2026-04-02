@@ -6,8 +6,8 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC005'
-version: '1.1.0'
-date: '2026-03-28'
+version: '1.2.0'
+date: '2026-04-02'
 status: 'planned'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -31,13 +31,14 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 **Activity ID**: `P-PH000-ST002-AC005`
 **Objective**: Establish a decision-complete commissioning package for potential future status-system productization, including candidate initiative/home selection, bounded bootstrap requirements, and the communication-handoff contract that would govern a later implementation pass.
 **Execution Mode**: `GATED`
-**Depends On**: `P-PH000-ST002-AC006`
+**Depends On**: `P-PH000-ST002-AC006, P-PH000-ST002-AC007`
 
 **Context**:
 - `prompt/artifacts/tasks/P/status/status_program.md`
 - `prompt/artifacts/tasks/P/status/status_program.yaml`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md`
 - `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/plan_P-PH000-ST002-AC006.md`
+- `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC007/plan_P-PH000-ST002-AC007.md`
 - `prompt/templates/consultant/workspace/guideline_workspace_plan.md`
 - `prompt/templates/consultant/workspace/guideline_workspace_analysis.md`
 - `prompt/templates/consultant/workspace/guideline_workspace_proposal.md`
@@ -47,7 +48,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 | Task | Task ID | Name | Status | Owner | Depends On | Target | Reference | Action |
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|
-| TK001 | `P-PH000-ST002-AC005-TK001` | Assess Status System commissioning readiness | `planned` | LLM_Consultant | `P-PH000-ST002-AC006` | `analysis/` | `guideline_workspace_analysis.md` | Examine the current status ledger, AC004/AC006 outputs, and briefing dashboard state; determine whether the future initiative is ready to be named and formal tasks registered. |
+| TK001 | `P-PH000-ST002-AC005-TK001` | Assess Status System commissioning readiness | `planned` | LLM_Consultant | `P-PH000-ST002-AC006, P-PH000-ST002-AC007` | `analysis/` | `guideline_workspace_analysis.md` | Examine the current status ledger, AC004/AC006 outputs, and briefing dashboard state; determine whether the future initiative is ready to be named and formal tasks registered. |
 | TK002 | `P-PH000-ST002-AC005-TK002` | Author consultation-first commissioning analysis | `planned` | LLM_Consultant | TK001 | `analysis/` | `guideline_workspace_analysis.md` | Publish the commissioning analysis covering initiative-opening criteria, bootstrap artifact set, ownership split, and `comm_` placement strategy. |
 | TK003 | `P-PH000-ST002-AC005-TK003` | Produce initiative-opening consultation proposal | `planned` | LLM_Consultant | TK002 | `proposal/` | `guideline_workspace_proposal.md` | Package the candidate initiative-opening boundary, bootstrap contract, and recipient-side handoff expectations for client disposition. |
 | GATE-001 | `P-PH000-ST002-AC005-GATE-001` | Gate: Client approval of future initiative-opening boundary | `planned` | Client | TK003 | GDR | `guideline_workspace_proposal.md` | Decide whether AC005 may proceed from consultation-only commissioning into the bounded initiative-opening implementation path. |
@@ -180,5 +181,6 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.2.0 | 2026-04-02 | Amendment | Amended AC005 dependency to include AC007 (V1 Status System Operational Stabilization) in addition to AC006. AC005 commissioning work is now blocked until both AC006 and AC007 are completed. Added AC007 plan to context list. |
 | v1.1.0 | 2026-03-28 | Amendment | Reversed dependency: AC005 now depends on AC006 (briefing dashboard) instead of AC004. Updated context list and TK001 action summary. |
 | v1.0.0 | 2026-03-23 | Initial | Created the AC005 placeholder activity plan for commissioning the future status-system initiative. Defines the deferred planning boundary and the requirement for AC004 to close before readiness assessment begins. |

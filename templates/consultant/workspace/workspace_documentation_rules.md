@@ -2,8 +2,8 @@
 artifact_type: 'GUIDE'
 scope: 'consultant_workspace'
 purpose: 'Governance rules for workspace artifacts: templates, guidelines, role boundaries, and file conventions'
-version: '3.8.0'
-date: '2026-03-28'
+version: '3.9.0'
+date: '2026-04-02'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -152,7 +152,7 @@ Note: `superseded` is distinct from `cancelled` (deliberate early termination) a
 The workspace artifact suite follows two canonical workflow variants depending on whether the gate reviews developer-mutated deliverables or consultant-owned decision-preparation artifacts.
 
 Implementation-backed:
-`ROADMAP → PLAN → NOTES / ANALYSIS → [IMPLEMENTATION task_specification where needed] → implementation deliverables → DEV-REPORT → VERIFICATION → [IMPLEMENTATION remediation_specification where RECYCLE] → remediation deliverables → DEV-REPORT → VERIFICATION (re-assessment) → PROPOSAL (GDR where applicable) → ANALYSIS (external_review, LLM_Subconsultant) → SPS / downstream approved artifacts`
+`ROADMAP → PLAN → NOTES / ANALYSIS → [IMPLEMENTATION task_specification where needed] → implementation deliverables → DEV-REPORT (primary) → VERIFICATION (primary) → [IMPLEMENTATION remediation_specification where RECYCLE] → remediation deliverables → DEV-REPORT (supplementary recycle cycle) → VERIFICATION (supplementary recycle cycle) → primary package refresh → PROPOSAL (GDR where applicable) → ANALYSIS (external_review, LLM_Subconsultant) → SPS / downstream approved artifacts`
 
 Consultation-only:
 `ROADMAP → PLAN → NOTES / ANALYSIS → [IMPLEMENTATION task_specification where post-gate execution is commissioned] → PROPOSAL (GDR where applicable) → ANALYSIS (external_review, LLM_Subconsultant) → downstream approved artifacts`
@@ -216,9 +216,13 @@ Rules:
 | Consultant -> Client | PROPOSAL | Gate Package Index, Evidence Index, consultant recommendation, GDR when the archetype is `gate_disposition` | Client MUST not be asked to disposition the gate without the proposal package. |
 
 Lineage rules:
+- Each recycle cycle creates a new supplementary DEV-REPORT under the same gate package.
+- Each recycle cycle creates a new supplementary VERIFICATION under the same gate package.
+- The primary DEV-REPORT and primary VERIFICATION remain the gate-facing entry points.
+- Primary artifacts may be refreshed only to index, summarize, and link the new cycle artifacts.
+- Recycle-cycle evidence MUST NOT be overwritten or collapsed into a replacement artifact.
 - Supplementary DEV-REPORTs accumulate across bounded execution slices within the same package.
 - Consolidated primary DEV-REPORTs point to supplementary reports through `consolidated_from`.
-- VERIFICATION re-assessment remains same-gate and version-bumped rather than renamed to a new gate.
 - Proposal evidence indexes SHOULD surface current active evidence first and preserve historical evidence as lineage context rather than deleting it.
 
 This subsection does not alter the consultant/developer/verifier ownership model; it governs evidence flow and handoff obligations only.

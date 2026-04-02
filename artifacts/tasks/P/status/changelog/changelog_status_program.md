@@ -1,5 +1,7 @@
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.1.0 | 2026-04-02 | Amendment | Recorded AC006 completion (GATE-002 APPROVE 2026-04-02). Registered AC007 (V1 Status System Operational Stabilization) as planned. Amended AC005 dependency edges to include AC007. Refreshed derived narrative sections 1-6, briefing dashboard, and dependency watchlist. |
+| v1.0.7 | 2026-04-02 | Amendment | Reconciled the AC006 SES006 session-close pass against the authoritative ledger, appended the GATE-002 evidence trail, and synchronized the derived narrative with the updated status timestamps. |
 | v1.0.6 | 2026-03-28 | Remediation | Remediated blocking gaps in SPEC-006 (YAML Ledger): corrected AC005 evidence summary and appended SES002 audit trail to AC006. Synced narrative to the remediated ledger. |
 | v1.0.5 | 2026-03-28 | Amendment | Structural alignment for ST002/AC006 expanded scope (Briefing Dashboard) and AC005 dependency reversal. Updated Summary, Status, Dependency, Evidence, and Next Actions sections. |
 | v1.0.4 | 2026-03-28 | Amendment | Moved AC006 from `planned` to `in_progress` after readiness hardening began, added TK000 assessment evidence plus SES001, and refreshed the derived summary, evidence, and next-actions sections to match the ledger. |

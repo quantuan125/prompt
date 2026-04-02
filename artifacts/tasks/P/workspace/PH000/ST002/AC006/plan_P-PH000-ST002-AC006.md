@@ -6,9 +6,9 @@ initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
 activity_id: 'P-PH000-ST002-AC006'
-version: '2.4.2'
-date: '2026-04-01'
-status: 'in_progress'
+version: '2.5.0'
+date: '2026-04-02'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
@@ -72,7 +72,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 | TK012 | `P-PH000-ST002-AC006-TK012` | GATE-002 disposition proposal package | `completed` | LLM_Consultant | TK011 | `proposal/` | `guideline_workspace_proposal.md` | Assembled the GATE-002 disposition proposal package. |
 | TK012.1 | `P-PH000-ST002-AC006-TK012.1` | External review: GATE-002 package | `completed` | LLM_Subconsultant | TK012 | `analysis/` | `guideline_workspace_analysis.md` | Completed the independent external review of the GATE-002 package. |
 | TK012.2 | `P-PH000-ST002-AC006-TK012.2` | Consultant assessment: external review, package refresh, and downstream readiness | `completed` | LLM_Consultant | TK012.1 | `analysis/` | `guideline_workspace_analysis.md` | Completed the consultant assessment, refreshed the final reading set, and closed out the package. |
-| GATE-002 | `P-PH000-ST002-AC006-GATE-002` | Gate: client approval of AC006 execution evidence | `planned` | Client | TK012.2 | `GDR` | `guideline_workspace_proposal.md` | — |
+| GATE-002 | `P-PH000-ST002-AC006-GATE-002` | Gate: client approval of AC006 execution evidence | `completed` | Client | TK012.2 | `GDR` | `guideline_workspace_proposal.md` | Client approved GATE-002 on 2026-04-02. All three GIR items accepted as option (a). GDR closed. |
 
 ### Task TK000: Assess AC006 Readiness And Harden The `GATE-001` Package Boundary
 
@@ -559,6 +559,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/ST002/plan_P-PH000-ST002.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v2.5.0 | 2026-04-02 | Amendment | Recorded client GATE-002 APPROVE decision. GATE-002 row moved to completed. Plan status moved to completed. AC006 is now closed. |
 | v2.4.2 | 2026-04-01 | Amendment | Normalized the AC006 task register to the live completed state for TK007 through TK012.2, removed the stale pending note from the GATE-002 proposal pointer, and added the GATE-002 external review, consultant assessment, and assistant closeout brief to the links register. |
 | v2.4.1 | 2026-04-01 | Amendment | Corrected the TK010.1 detailed dependency to `TK009, TK010` and added the active GATE-002 verification/proposal artifacts to the links register after completion of the implementation and verification lane. |
 | v2.4.0 | 2026-04-01 | Amendment | Added the GATE-002 consolidated producer-evidence task (`TK010.1`), registered `TK012.2` as the consultant-owned external-review assessment and package-refresh task, clarified that post-`TK012.2` assistant closeout may remain implicit within `TK012.2`, removed the erroneous `GATE-002` dependency from TK007/TK008, and formalized the recycle-loop rule requiring fresh remediation sub-agents plus additive supplementary DEV-REPORT evidence under a refreshed primary package. |

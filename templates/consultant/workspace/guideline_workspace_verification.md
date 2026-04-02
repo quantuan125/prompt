@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'verification_authoring'
-version: '1.11.0'
-date: '2026-03-25'
+version: '1.12.0'
+date: '2026-04-02'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -64,16 +64,20 @@ Verification follows a "TK-before-gate" pattern:
 - When to decompose: When a gate review covers multiple independent verification dimensions (e.g., technical correctness + convention compliance + commissioning readiness).
 - **Revision checklist use case**: Existing `revision-checklist` supplementary files remain valid historical artifacts, and reviewers MAY still use a supplementary verification file with aspect `revision-checklist` for bounded checklist-style elaboration when no separate remediation specification is required. For new complex `RECYCLE` cases that require a developer-executable remediation plan, reviewers SHOULD route the detailed handoff through an `IMPLEMENTATION remediation_specification` instead.
 
+For same-gate recycle cycles, supplementary verification artifacts MAY accumulate under one primary verification artifact for the same gate; the primary verification remains the gate-facing verdict surface.
+
 Verification package decomposition is reviewer-side scope decomposition. DEV-REPORT package decomposition, as defined by the DEV-REPORT package taxonomy in `guideline_workspace_dev-report.md`, is producer-side evidence packaging. The two decompositions are independent and MUST NOT be conflated.
 
 
 ### B. Re-assessment (Temporal Iteration)
 
-- When rework is completed after a RECYCLE verdict, the existing verification artifact(s) are **version-bumped**, NOT replaced by new files.
-- Re-assessment evidence is added in a new section or updates to existing sections, with `prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_verification.md` recording the re-assessment.
-- This is distinct from Verification Packages: packages are scope decomposition (parallel aspects); re-assessment is temporal iteration (sequential rework cycles).
+- When rework is completed after a RECYCLE verdict and the work is a new recycle cycle, create new supplementary verification artifact(s) under the same primary verification artifact rather than version-bumping the existing file.
+- When the same verification artifact itself needs correction, version-bump that artifact.
+- Re-assessment evidence is recorded in the new supplementary artifact(s) or corrected artifact, with `prompt/templates/consultant/workspace/changelog/changelog_guideline_workspace_verification.md` recording the re-assessment.
+- The primary verification remains the gate-facing verdict surface; supplementary artifacts capture each recycle cycle beneath it.
+- This is distinct from Verification Packages: packages are scope decomposition (parallel aspects); recycle re-assessment is temporal iteration (sequential rework cycles).
 
-**Rule**: Do NOT create supplementary files for re-assessment. Use version bumps. Do NOT use version bumps for scope decomposition. Use supplementary files.
+**Rule**: Do NOT create supplementary files for a correction to the same verification artifact. Use version bumps. Do NOT use version bumps for a new recycle cycle. Use supplementary files.
 
 ## V. EVIDENCE RULES
 
@@ -225,11 +229,12 @@ The plan is the developer's work authority. The verification artifact identifies
 
 ## IX. RE-ASSESSMENT VERSIONING
 
-- After a RECYCLE verdict and completed rework, the verification artifact is **version-bumped** (e.g., v1.0.0 → v2.0.0 for major re-assessment).
+- After a RECYCLE verdict and completed rework, the verification package may add supplementary verification artifact(s) for a new recycle cycle under the same gate-facing primary artifact.
+- Version bumps are reserved for corrections to one verification artifact.
 - The dedicated changelog file records: re-assessment date, findings addressed, new verdict.
 - New or updated findings sections are added/modified. Resolved findings have their Resolution Status updated to `resolved` with a Resolution Date.
 - If the verification TASK methodology needs rework (not just the assessed deliverable), a sub-task (TK###.n) is created for the verification task, following `guideline_workspace_plan.md §VII` (Sub-Activity Rules).
-- Re-assessment versioning applies to all artifacts in a Verification Package (primary + supplementary). Version bumps SHOULD be coordinated.
+- Re-assessment versioning applies to corrections inside a single verification artifact; supplementary cycle artifacts are used for new recycle cycles. Version bumps SHOULD be coordinated when a single artifact is corrected.
 - Re-assessment remains tied to the same governing gate ID; `RECYCLE` does not create a new gate identity for the subsequent review cycle.
 
 ## X. GATE DECISION RECORD (GDR) — CROSS-REFERENCE
@@ -264,6 +269,8 @@ The verification artifact's role at a gate is to provide evidence and a verifier
 - `gate_id`: Full gate UID (e.g., `T104-PH001-ST007-AC004-GATE-001`)
 - `verification_type`: Descriptor (e.g., `GATE_REVIEW`, `commissioning_readiness`, `convention_compliance`)
 - `primary_verification`: Repo-relative path to primary artifact (supplementary artifacts only)
+
+For recycle-cycle supplementary verification artifacts, the aspect suffix SHOULD encode the cycle descriptor (for example, `recycle-cycle-2` or `recycle-iteration-3`).
 
 ## XII. TEMPLATE INVENTORY
 

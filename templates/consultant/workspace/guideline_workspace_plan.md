@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'plan_authoring'
-version: '1.21.0'
-date: '2026-03-28'
+version: '1.22.0'
+date: '2026-04-02'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -275,6 +275,7 @@ Rules:
 - Remediation tasks or sub-tasks created because of the recycle outcome provide formal work authority for that reassessment loop and MUST appear immediately after the governing gate row.
 - Downstream tasks that depend on the gate remain blocked and MUST continue to use `Depends On: GATE-###` until the same gate's GDR records `APPROVE` or `APPROVE WITH CONDITIONS`.
 - The gate detail section MUST include a `Recycle Re-entry Block` whenever recycle-path tasks exist.
+- When same-gate recycle work produces new cycle-local evidence artifacts, dotted sub-tasks such as TK012.n and TK013.n MAY be registered to keep the supplementary DEV-REPORT and supplementary VERIFICATION cycles explicit without minting a derived gate ID.
 
 Required `Recycle Re-entry Block` fields:
 - **Gate Status**
@@ -305,6 +306,7 @@ Every gate that reviews developer-executed deliverables MUST be preceded by the 
 
 > **Note**: When a gate enters `RECYCLE` and remediation work requires detailed specification, a `remediation_specification` IMPLEMENTATION artifact SHOULD be authored to specify the corrective-action detail. The IMPLEMENTATION artifact is a formal task in the remediation loop, placed above the gate row per §VI.K. See `guideline_workspace_implementation.md` for authoring rules.
 
+- When same-gate recycle work produces new cycle-local evidence artifacts, the plan MAY register dotted sub-tasks such as TK012.n and TK013.n under the same gate so the supplementary DEV-REPORT and supplementary VERIFICATION cycles remain explicit. The gate identity itself does not change.
 2. **DEV-REPORT task** — owned by `LLM_Developer`. Produces bounded execution evidence per `guideline_workspace_dev-report.md`. The dev-report is verification input, not verification itself.
 3. **Verification task** — owned by the verifier role authorized by the plan: `LLM_Reviewer` (preferred future-state primary) or `LLM_Consultant` (currently authorized secondary during the temporary operating model). Produces independent evidence-first verification per `guideline_workspace_verification.md`. Records the verifier verdict in the verification artifact's Gate Recommendation section.
 4. **Gate-disposition proposal task** — owned by `LLM_Consultant` (or `LLM_Planner`). Produces the `gate_disposition` proposal per `guideline_workspace_proposal.md`. Hosts the authoritative Gate Decision Record (GDR).

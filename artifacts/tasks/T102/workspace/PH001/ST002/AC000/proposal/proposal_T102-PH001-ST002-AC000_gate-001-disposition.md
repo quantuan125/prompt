@@ -7,9 +7,9 @@ stream_id: 'T102-PH001-ST002'
 activity_id: 'T102-PH001-ST002-AC000'
 task_id: 'T102-PH001-ST002-AC000-TK008'
 gate_id: 'T102-PH001-ST002-AC000-GATE-001'
-version: '1.5.0'
-date: '2026-03-30'
-status: 'draft'
+version: '1.6.0'
+date: '2026-03-31'
+status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/plan_T102-PH001-ST002-AC000.md'
@@ -235,12 +235,12 @@ Downstream enforcement:
 |:--|:--|
 | Gate ID | `T102-PH001-ST002-AC000-GATE-001` |
 | Consultant Recommendation | `APPROVE WITH CONDITIONS` |
-| Client Decision | `pending` |
-| Gate Status After Decision | `pending` |
+| Client Decision | `APPROVE` |
+| Gate Status After Decision | `completed` |
 | Conditions (if any) | `1. TK009 remains historical/outdated evidence only; 2. Immediate next stream-level development step after approval is ST002-AC001-TK001; 3. The separate AC000 implementation-backed path remains blocked until this same gate approval activates TK010 as the bounded execution contract for TK011-TK015; 4. Any further remediation beyond this package requires later client approval after consultant assessment.` |
 | Decided By | `Client` |
-| Decision Date | `YYYY-MM-DD` |
-| Decision Reference | `pending` |
+| Decision Date | `2026-03-31` |
+| Decision Reference | `snotes_T102-PH001-ST002-AC000-SES005.md` |
 
 ---
 
@@ -261,11 +261,10 @@ Downstream enforcement:
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.6.0 | 2026-03-31 | Amendment | Recorded the client APPROVE decision for GATE-001. All four GIR dispositions accepted at option (a). GDR fields populated with decision date 2026-03-31 and reference to SES005 session notes. Proposal status changed to completed. |
 | v1.5.0 | 2026-03-30 | Amendment | Repaired the downstream execution-contract posture by clarifying that AC001 is the immediate next stream-level development step after gate approval while the separate AC000 implementation-backed path remains blocked until the same gate approval activates TK010 as the bounded execution contract for TK011-TK015. |
 | v1.4.0 | 2026-03-30 | Amendment | Refreshed the Gate-001 proposal for client re-presentation after TK010.4. Repointed active external-review authority to the fresh second external review, embedded the main consultant assessment of TK010.4, changed the consultant recommendation to `APPROVE WITH CONDITIONS`, and clarified that AC001 is the immediate next development step after gate approval while TK011-TK015 remain blocked. |
 | v1.3.0 | 2026-03-30 | Amendment | Extended the recycle narrative to include TK010.4 fresh second external review and TK010.5 consultant proposal refresh, updated the recycle/re-presentation path, and kept future remediation client-governed after consultant assessment. |
 | v1.2.0 | 2026-03-28 | Amendment | Recast GATE-001 disposition to `RECYCLE`, moved TK009 into historical/outdated evidence-only posture, added TK010 and TK010.1 to the active package index, and recorded the same-gate remediation path TK010.1-TK010.3. |
 | v1.1.0 | 2026-03-28 | Amendment | Linked the completed TK009 external review into the Gate Package Index and Evidence Index so the client package reflects the current full readiness set. |
-| v1.0.0 | 2026-03-28 | Initial | Created the AC000 `GATE-001` gate-disposition package to disposition diagnostic completeness, structural retrofit priority, `STD-004` residual sequencing, and downstream gate-boundary enforcement. |
-the current full readiness set. |
 | v1.0.0 | 2026-03-28 | Initial | Created the AC000 `GATE-001` gate-disposition package to disposition diagnostic completeness, structural retrofit priority, `STD-004` residual sequencing, and downstream gate-boundary enforcement. |

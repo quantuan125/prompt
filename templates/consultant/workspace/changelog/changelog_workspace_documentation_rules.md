@@ -1,5 +1,6 @@
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v3.9.0 | 2026-04-02 | Amendment | Clarified recycle-cycle package accumulation so implementation-backed gates produce supplementary DEV-REPORT and VERIFICATION artifacts per cycle, keep primary gate-facing artifacts as index/summarize/link surfaces, and preserve cycle-local lineage without overwrite or replacement. |
 | v3.7.0 | 2026-03-28 | Amendment | §7.A: Added mandatory `ANALYSIS (external_review, LLM_Subconsultant)` step to both implementation-backed and consultation-only canonical workflow chains. Added external review step explanatory note. §8: Added `LLM_Subconsultant` external review row to role-to-artifact ownership matrix. Source: T102-PH001-ST002-AC000-TK000 consultation session (2026-03-28). |
 | v3.6.0 | 2026-03-26 | Maintenance | Changelog continuity: this version was the prior release before v3.7.0. No changelog entry was captured at release time. |
 | v3.5.0 | 2026-03-25 | Amendment | Added AC001.9 recyclable-loop evidence accumulation and handoff contract in §7, including cycle-local evidence, same-gate lineage preservation, boundary-specific outbound artifacts, and explicit lineage rules for recycled loops. |

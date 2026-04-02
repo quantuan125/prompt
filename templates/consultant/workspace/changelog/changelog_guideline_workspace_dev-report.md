@@ -1,5 +1,6 @@
 | Version | Date | Type | Summary |
 |:--|:--|:--|
+| v1.5.0 | 2026-04-02 | Amendment | Added recycle-cycle DEV-REPORT guidance so same-gate remediation slices use supplementary reports beneath one primary report, distinguished corrections to the same artifact from new recycle cycles, and introduced recycle linkage keys for package indexing. |
 | v1.4.0 | 2026-03-25 | Amendment | Added DEV-REPORT package taxonomy delivery for AC001.9: primary/supplementary/consolidated posture, scope-decomposition vs temporal-iteration rules, linkage frontmatter keys, and lineage guidance for multi-report packages. |
 | v1.3.0 | 2026-03-22 | Amendment | Added `implementation_reference` as a recommended frontmatter key for IMPLEMENTATION-governed execution slices and clarified that the Traceability Matrix SHOULD map deliverables back to SPEC item IDs where practical. Source: T104-PH001-ST008-AC001.6-GATE-001 GIR-002 and GIR-010. |
 | v1.2.0 | 2026-03-16 | Amendment | Clarified that DEV-REPORT is required only for implementation-backed gates reviewing developer-mutated deliverables. Consultation-only gates now explicitly omit DEV-REPORT. Source: P-PH000-ST002-AC002 Gate 001 consultation. |

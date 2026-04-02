@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'dev-report_authoring'
-version: '1.4.0'
-date: '2026-03-25'
+version: '1.5.0'
+date: '2026-04-02'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -73,6 +73,8 @@ Consolidated or retroactive DEV-REPORT artifacts are allowed only when:
 | Supplementary DEV-REPORT | A bounded subordinate slice needs its own producer-evidence record under one package. | `package_role: 'supplementary'`; `primary_report` MUST point to the governing primary DEV-REPORT; `consolidated_from` omitted. | Drill-down evidence under the primary report. |
 | Consolidated DEV-REPORT | One primary DEV-REPORT aggregates and links multiple supplementary reports. | `package_role: 'primary'`; `consolidated_from` MUST list every supplementary DEV-REPORT in the package; `primary_report` omitted. | Consolidated gate-facing review surface. |
 
+Same-gate recycle remediation slices are bounded evidence segments and SHOULD be represented as supplementary DEV-REPORT artifacts beneath one primary gate-facing report.
+
 Rules:
 - A multi-report DEV-REPORT package MUST contain exactly one primary DEV-REPORT.
 - Each supplementary DEV-REPORT MUST set `package_role: 'supplementary'`.
@@ -86,10 +88,11 @@ Rules:
 | Question | If Yes | If No |
 |:--|:--|:--|
 | Does the execution slice contain multiple bounded evidence segments that belong to one gate-facing package? | Create supplementary DEV-REPORTs beneath one primary report. | Keep a single DEV-REPORT posture. |
-| Is the report scope the same but the evidence needs correction after execution? | Version-bump the existing report. | Create a supplementary DEV-REPORT only if this is a new bounded slice. |
+| Is the change only a correction to the same report artifact? | Version-bump the existing report. | Create a supplementary DEV-REPORT when this is a new recycle cycle under the same gate. |
 
 - Scope decomposition creates supplementary DEV-REPORTs beneath one primary report.
-- Temporal correction of the same report scope version-bumps the existing report rather than creating a new supplementary report.
+- Temporal correction of the same report artifact version-bumps the existing report.
+- New recycle cycles produce supplementary DEV-REPORTs rather than reusing version bumps.
 
 ### F. Relationship to plan and gates
 
@@ -282,6 +285,7 @@ DEV-REPORT uses a date suffix by design. The dated filename does not replace the
 
 - Supplementary DEV-REPORTs MUST link upward to the primary DEV-REPORT through `primary_report`.
 - Primary consolidated DEV-REPORTs MUST link downward to every supplementary DEV-REPORT through `consolidated_from`.
+- Recycle-cycle supplementary DEV-REPORTs SHOULD also carry `recycle_gate_id`, `recycle_iteration`, and `cycle_scope` alongside the required linkage model. These keys supplement, but do not replace, `package_role`, `primary_report`, and `consolidated_from`.
 - Verification and proposal surfaces SHOULD cite the primary DEV-REPORT first and use supplementary DEV-REPORTs as drill-down evidence. This SHOULD is intentional as a general DEV-REPORT guidance posture; the VERIFICATION guideline independently mandates the ordering for reviewer-owned Evidence Set sections via SPEC-002.
 
 ---

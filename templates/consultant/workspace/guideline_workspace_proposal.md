@@ -2,8 +2,8 @@
 artifact_type: 'PROCEDURAL_GUIDELINE'
 domain: 'consultant_workspace'
 topic: 'proposal_authoring'
-version: '1.10.0'
-date: '2026-03-26'
+version: '1.11.0'
+date: '2026-04-02'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -132,6 +132,8 @@ Column definitions:
 Required columns: `| Evidence Type | Artifact | Path | Notes |`
 
 This table retains its current purpose: linking evidence artifacts (verification, analysis, plans, standards) for audit traceability. It MAY include artifacts not listed in the Gate Package Index (e.g., governing standards, prior gate records, session notes).
+
+When same-gate recycle artifacts exist, the Evidence Index MUST order entries as primary current-cycle package evidence first, supplementary recycle-cycle evidence second, and historical/superseded evidence last.
 
 Active primary evidence for a consultation-only gate MUST NOT include premature downstream execution outputs or prematurely materialized concrete artifacts. If such artifacts exist, they are preserved as historical/lineage evidence or replaced by a proposal-level authority surface such as `standards_input`. When `standards_input` is the active pre-implementation authority surface, any concrete implementation artifact remains lineage-only until downstream execution is explicitly approved.
 

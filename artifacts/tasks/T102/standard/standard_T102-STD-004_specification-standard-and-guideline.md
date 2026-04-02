@@ -1,11 +1,27 @@
+---
+artifact_type: 'STANDARD'
+initiative_id: 'T102'
+initiative_code: 'CWD'
+standard_id: 'T102-STD-004'
+version: '1.0.0'
+date: '2026-02-15'
+status: 'deprecated'
+author: 'LLM_Consultant'
+decision_owner_role: 'Client'
+superseded_by: 'P-STD-001'
+deprecation_date: '2026-02-20'
+---
+
 # T102-STD-004 — Specification Standard & Guideline
 {#t102-std-004-specification-standard-and-guideline}
 
-> **SUPERSEDED**: This standard has been promoted to **P-STD-001** (Program Governance Standard) as of 2026-02-20. See `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`.
+> **Status**: `deprecated` as of 2026-02-20.
 >
-> **Alias Window (Active)**: Existing references to `T102-STD-004-CLAUSE-*` remain valid as aliases for `P-STD-001-CLAUSE-*` during the migration period. New authoring MUST reference `P-STD-001`. Alias support will be removed after a dedicated governance sync changeset.
+> **Superseded by**: `P-STD-001` (Program Governance Standard) — `prompt/artifacts/tasks/P/standard/standard_P-STD-001_program-governance-standard.md`
 >
-> **This file is retained as a read-only historical artifact. Do not modify normative content.**
+> **Alias window** (active): Existing references to `T102-STD-004-CLAUSE-*` remain valid as aliases for `P-STD-001-CLAUSE-*` during the migration period. New authoring MUST reference `P-STD-001`. Alias support will be removed after a dedicated governance sync changeset.
+>
+> This file is retained as a read-only historical artifact. Do not modify normative content.
 
 ## Specification
 
@@ -443,20 +459,47 @@
  
 ## References
 
-`T102-QG-001 (Client Readability)`,
-`T102-CON-009 (Controlled Vocabulary for Normative Language)`,
-`T102-STD-005 (ID Specification & Rules)`,
-`T102-IG-007 (ID Standard)`,
-`T102-IG-008 (Decision Logging)`,
-`T102-IG-009 (Traceability Framework)`,
-`T102-STD-001 (Consultancy Operating Model Standard)`,
-`T102-STD-009 (Governance Standards Specification)`
+### Normative References
+
+| ID | Title | Scope | Source Path |
+|:--|:--|:--|:--|
+| T102-STD-005 | ID Specification & Rules | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-005_id-specification-rules.md` |
+| T102-STD-001 | Consultancy Operating Model Standard | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-001_consultancy-operating-model.md` |
+
+### Informative References
+
+| ID | Title | Scope | Source Path |
+|:--|:--|:--|:--|
+| T102-QG-001 | Client Readability | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| T102-CON-009 | Controlled Vocabulary for Normative Language | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| T102-IG-007 | ID Standard | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| T102-IG-008 | Decision Logging | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| T102-IG-009 | Traceability Framework | Initiative (T102) | `prompt/artifacts/tasks/T102/ssot/sps_T102-CONSULTANT.md` |
+| T102-STD-009 | Governance Standards Specification | Initiative (T102) | `prompt/artifacts/tasks/T102/standard/standard_T102-STD-009_governance-standards-specification.md` |
 
 ## Provenance
 
+### Status
+
+| Field | Value |
+|:--|:--|
+| Current lifecycle posture | `deprecated` |
+| Deprecation date | 2026-02-20 |
+
+### Lineage / Authority
+
+| Field | Value |
+|:--|:--|
+| Superseded by | `P-STD-001` (Program Governance Standard) |
+| Supersession date | 2026-02-20 |
+| Promotion decision | `P-STD-001-ADR-003` |
+| Alias window | Active — existing `T102-STD-004-CLAUSE-*` references remain valid aliases for `P-STD-001-CLAUSE-*` until migration completion |
+
+### Amendment History
+
+> Full version history: `prompt/artifacts/tasks/T102/standard/changelog/changelog_standard_T102-STD-004.md`
+
+### Input Sources
+
 - `prompt/artifacts/tasks/T102/workspace/PH001/ST001/AC009/proposal/proposal_T102-CWD_PH001-ST001-AC009_std-004-redesign.md`
 - `prompt/artifacts/tasks/T102/workspace/PH001/ST001/AC009.1/proposal/proposal_T102-CWD_PH001-ST001-AC009.1_tk003_std-004-clause-019-sequencing-amendment.md`
-
-| Superseded By | `P-STD-001` (Program Governance Standard) |
-| Supersession Date | 2026-02-20 |
-| Promotion Decision | `P-STD-001-ADR-003` |

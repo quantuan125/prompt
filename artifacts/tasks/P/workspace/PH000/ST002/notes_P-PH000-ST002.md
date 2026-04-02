@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream: 'ST002'
-version: '1.20.0'
-date: '2026-04-01'
+version: '1.22.0'
+date: '2026-04-02'
 status: 'completed'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -60,6 +60,8 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 | AC006 | `P-PH000-ST002-AC006-SES003` | TK006 Cutoff and Deferred Gate Work | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES003.md` |
 | AC006 | `P-PH000-ST002-AC006-SES004` | GATE-001 Review Lane Completion and Proposal Refresh | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES004.md` |
 | AC006 | `P-PH000-ST002-AC006-SES005` | Independent Consultant Assessment, GATE-001 Approval & Normalization Planning | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES005.md` |
+| AC006 | `P-PH000-ST002-AC006-SES006` | AC006 GATE-002 Orchestration Update, Fresh-Worker Recycles, and Assistant Closeout | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES006.md` |
+| AC006 | `P-PH000-ST002-AC006-SES007` | GATE-002 Client Disposition, AC006 Closure, AC007 Planning & Status Reconciliation | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC006/snotes/snotes_P-PH000-ST002-AC006-SES007.md` |
 
 ---
 
@@ -75,6 +77,8 @@ Register sessions and activity notes as they occur (JIT §5.1). Do NOT pre-regis
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.22.0 | 2026-04-02 | Amendment | Registered AC006 activity session `P-PH000-ST002-AC006-SES007` for the GATE-002 client disposition, AC006 closure, AC007 planning approval, split-path V1/V2 boundary decision, and assistant-execution brief commissioning. |
+| v1.21.0 | 2026-04-02 | Amendment | Registered AC006 activity session `P-PH000-ST002-AC006-SES006` for the post-GATE-001 orchestration update, fresh-worker recycle rule, assistant-scoped closeout boundary, and refreshed GATE-002 package posture. |
 | v1.20.0 | 2026-04-01 | Amendment | Registered AC006 activity session `P-PH000-ST002-AC006-SES005` for the independent consultant assessment, GATE-001 client approval, plan compliance audit, normalization planning, and implementation spec authoring. |
 | v1.19.0 | 2026-03-31 | Amendment | Registered AC006 activity session `P-PH000-ST002-AC006-SES004` for the completed external-review lane, assistant-scoped proposal refresh, and refreshed GATE-001 package handoff. |
 | v1.18.0 | 2026-03-31 | Amendment | Registered AC006 activity session `P-PH000-ST002-AC006-SES003` for the TK006 cutoff, assistant-scoped hardening brief, and next-session deferral of `TK006.1`, `TK006.2`, and `GATE-001`. |

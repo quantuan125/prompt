@@ -5,8 +5,8 @@ initiative_id: 'P'
 initiative_code: 'PROGRAM'
 phase: '0'
 stream_id: 'P-PH000-ST002'
-version: '1.13.0'
-date: '2026-03-28'
+version: '1.14.0'
+date: '2026-04-02'
 status: 'in_progress'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -21,11 +21,11 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Purpose**: Establish and maintain the Program Status System, including canonical status ledger (`status_program.yaml`), derived status narrative (`status_program.md`), briefing dashboard (briefing_), session-close skill hardening, and the governing update protocol (P-STD-002).
 
-**Objective**: Define, author, and operationalize the status system for Program P. (Current focus: AC006 expanded-scope hardening and AC005 commissioning boundary).
+**Objective**: Define, author, and operationalize the status system for Program P. (Current focus: AC007 V1 stabilization and AC005 commissioning boundary).
 
 **Dependency resolution**: `P-PH000-ST001-AC003` (Program Status Standard) is accepted. GATE-003 closed with APPROVE (2026-03-09). The blocking constraint is satisfied.
 
-**Current closure state**: `GATE-002` passed on 2026-03-27, `GATE-003` was approved on 2026-03-28, and AC004 is now closed after the assistant-boundary closeout updates completed through `TK008`. AC006 is in active scope expansion after SES002 widened its boundary to include both session-close skill hardening and the client-facing briefing dashboard. AC005 now depends on AC006. Historical `GATE-001` remains preserved as superseded.
+**Current closure state**: `GATE-002` was approved on 2026-04-02, `GATE-003` remains approved and recorded, and AC004 is closed after the assistant-boundary closeout updates completed through `TK008`. AC006 is now completed after GATE-002 approval, AC007 is registered as the next planned activity for V1 stabilization, and AC005 now depends on AC006 and AC007. Historical `GATE-001` remains preserved as superseded.
 
 **Implementation authority**: P-STD-002E (CLAUSEs 043–054) is the normative authority for all schema, format, placement, and update sequence requirements. Implementation design decisions are documented in `analysis_P-PH000-ST002_status-system-implementation-requirements.md`.
 
@@ -45,8 +45,9 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 | AC002 | `P-PH000-ST002-AC002` | Design & Author Program Status Artifact Set | `completed` | LLM_Consultant / LLM_Developer | ST001-AC003 (satisfied) | Ledger (`status_program.yaml`) + Narrative (`status_program.md`) at `prompt/artifacts/tasks/P/status/` | `plan_P-PH000-ST002-AC002.md` |
 | AC003 | `P-PH000-ST002-AC003` | Backfill & Validate Initial Program Entries | `completed` | LLM_Developer / LLM_Reviewer / LLM_Consultant | AC002 | Populated P + T102 + T104 activity entries, derived narrative, external-review-backed gate package, and approved GDR | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC003/plan_P-PH000-ST002-AC003.md` |
 | AC004 | `P-PH000-ST002-AC004` | Operationalize Status Update Workflow & Automation Baseline | `completed` | LLM_Consultant | AC003 | Approved `GATE-003` record is historical approval evidence; AC004 closed through `TK008` and downstream lanes are released | `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md` |
-| AC005 | `P-PH000-ST002-AC005` | Commission Future Status-System Initiative (`T105` or next available ID) | `planned` | LLM_Consultant | AC006 | `plan_P-PH000-ST002-AC005.md` | Authoritative placeholder for deciding whether the next status-system phase should open as a separate initiative. Dependency reversed to AC006. |
-| AC006 | `P-PH000-ST002-AC006` | Session-Close Skill Hardening, Briefing Dashboard & Snotes Closeout Guidance | `in_progress` | LLM_Consultant | AC004 | `plan_P-PH000-ST002-AC006.md` | Expanded AC006 scope covering both session-close skill hardening (snotes_ guidance) and the client-facing briefing dashboard. |
+| AC005 | `P-PH000-ST002-AC005` | Commission Future Status-System Initiative (`T105` or next available ID) | `planned` | LLM_Consultant | AC006, AC007 | `plan_P-PH000-ST002-AC005.md` | Authoritative placeholder for deciding whether the next status-system phase should open as a separate initiative. Dependency reversed to AC006. |
+| AC006 | `P-PH000-ST002-AC006` | Session-Close Skill Hardening, Briefing Dashboard & Snotes Closeout Guidance | `completed` | LLM_Consultant | AC004 | GATE-002 approved 2026-04-02. All execution evidence accepted. Activity closed. | Expanded AC006 scope covering both session-close skill hardening (snotes_ guidance) and the client-facing briefing dashboard. |
+| AC007 | `P-PH000-ST002-AC007` | V1 Status System Operational Stabilization | `planned` | LLM_Consultant | AC006 | `plan_P-PH000-ST002-AC007.md` | Bounded stabilization of V1 operational gaps identified during AC006 GATE-002 review. Prerequisite for AC005 (T105 commissioning). |
 
 ---
 
@@ -200,7 +201,7 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 
 **Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/plan_P-PH000-ST002-AC004.md`
 
-**Planning Posture**: `GATE-002` is approved, `GATE-003` has been approved and recorded, and AC004 is closed through `TK008`. AC005 remains a separate planned follow-on activity, AC006 is now in readiness hardening, and neither lane is blocked by the AC004 closeout boundary. Historical `GATE-001` is preserved as superseded.
+**Planning Posture**: `GATE-002` is approved, `GATE-003` has been approved and recorded, and AC004 is closed through `TK008`. AC005 remains a separate planned follow-on activity, AC006 is completed, AC007 is the planned stabilization lane, and neither lane is blocked by the AC004 closeout boundary. Historical `GATE-001` is preserved as superseded.
 
 **Success Criteria (summary)**:
 - [x] AC004 planning scope is separated from AC003 closeout scope
@@ -275,12 +276,44 @@ parent_plan: 'prompt/artifacts/tasks/P/workspace/PH000/plan_P-PH000.md'
 - [x] Prompt-assist-only and no-automation boundaries remain explicit
 - [x] The `session-close` hardening lane is tracked separately from AC004 and AC005
 
+#### Activity AC007: V1 Status System Operational Stabilization (Planned)
+
+**Activity ID**: `P-PH000-ST002-AC007`
+
+**Status**: `planned`
+
+**Purpose**: Address the V1 operational gaps identified during the AC006 GATE-002 review and the SES007 QA consultation. This activity stabilizes the already-delivered session-close skill (`prompt/skills/session-close/SKILL.md`) and briefing dashboard (`prompt/artifacts/tasks/P/status/briefing_program.md`) so the V1 status system operates reliably before AC005 commissions the T105 initiative for V2 productization.
+
+**Deliverable**: Stabilized V1 status system with session-close skill amendment, briefing staleness governance, inclusion/exclusion rules, and scope-type column.
+
+**Scope**:
+- In scope:
+  - Session-close skill amendment (add explicit `briefing_program.md` reconciliation check)
+  - Staleness threshold and inclusion/exclusion rules for the briefing dashboard
+  - Scope-type ID column addition to Active Work Briefing
+  - Formal documentation of the V1 three-file status architecture
+- Out of scope:
+  - Next-step awareness / advisor skill (deferred to T105)
+  - Script-assisted refresh / automation (deferred to T105)
+  - Browser/app UI (deferred to T105)
+  - Any new derived surface beyond the existing three files
+
+**Activity Plan**: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC007/plan_P-PH000-ST002-AC007.md`
+
+**Success Criteria Checklist (summary)**:
+- [ ] Session-close skill explicitly references `briefing_program.md` reconciliation
+- [ ] Briefing staleness, inclusion/exclusion rules are documented and applied
+- [ ] Active Work Briefing table includes a Scope column
+- [ ] V1 three-file architecture is formally documented
+- [ ] Client approves AC007 stabilization output
+
 ---
 
 ## IV. CHANGELOG
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v1.14.0 | 2026-04-02 | Amendment | Recorded AC006 completion (GATE-002 APPROVE 2026-04-02). Registered AC007 (V1 Status System Operational Stabilization) as a new planned activity in the Activity Register. Amended AC005 dependency to include AC007. Updated executive summary to reflect current state. |
 | v1.13.0 | 2026-03-28 | Amendment | Structural alignment for AC006 expanded scope (Briefing Dashboard) and AC005 dependency reversal. Updated Executive Summary, Activity Register, and Detailed Activity entries. |
 | v1.12.0 | 2026-03-28 | Amendment | Registered AC006 as the follow-on activity for session-close skill hardening, moving the readiness-assessment pass out of AC004 closeout into a dedicated activity-plan baseline. Corrected AC003 status to `completed` in Activity Register. |
 | v1.10.0 | 2026-03-28 | Amendment | Registered standalone AC005 and AC006 activity plans, normalized AC005 dependency wording to AC004 closeout rather than `GATE-002`, and updated ST002 to show a clean `GATE-003` package pending client disposition with both follow-on lanes blocked behind AC004 `TK008`. |
