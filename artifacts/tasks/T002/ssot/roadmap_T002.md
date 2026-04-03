@@ -5,9 +5,9 @@ initiative_code: 'TECOM'
 epic_id: '—'
 epic_code: '—'
 phase: '0'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-04-03'
-status: 'draft'
+status: 'active'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 governance_rules: 'prompt/templates/consultant/workspace/workspace_documentation_rules.md'
@@ -51,8 +51,8 @@ roadmap_changelog: '—'
 
 | Focus Area | Current State | Next Milestone | Canonical Link |
 |:--|:--|:--|:--|
-| PH000 Advisory Baseline | Activity plan, stream notes, session notes, hypothesis brief, SPS, and roadmap now exist for the initial advisory cycle | Use the internal SSOT baseline to support the advisory note and SES002 discovery preparation | `prompt/artifacts/tasks/T002/ssot/sps_T002.md` |
-| Discovery Gaps | Workflow mapping, tool/data clarification, and review-bottleneck diagnosis remain open | Complete SES002 workflow walkthrough and update readiness posture | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_hypothesis-brief.md` |
+| PH000 Advisory Baseline | Activity plan, stream notes, session notes, hypothesis brief, SPS, roadmap, and GATE-001 package now exist for the initial advisory cycle | Use the internal SSOT baseline to support GATE-001 package finalization and client review | `prompt/artifacts/tasks/T002/ssot/sps_T002.md` |
+| Discovery Gaps | Workflow mapping, tool/data clarification, and review-bottleneck diagnosis remain open | Complete the later workflow walkthrough session and update readiness posture | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_hypothesis-brief.md` |
 | PH001 Readiness | PH001 is explicitly contingent and has no implementation authority yet | Obtain discovery evidence and explicit TECOM approval before any MVP planning | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES001.md` |
 
 ---
@@ -65,7 +65,9 @@ roadmap_changelog: '—'
 | SSOT | T002 SPS | `prompt/artifacts/tasks/T002/ssot/sps_T002.md` |
 | Plan | AC000 Activity Plan | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/plan_T002-PH000-ST000-AC000.md` |
 | Notes | ST000 Notes Register | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/notes_T002-PH000-ST000.md` |
+| Notes | AC000 Activity Notes Register | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/notes_T002-PH000-ST000-AC000.md` |
 | Notes | SES001 Session Notes | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES001.md` |
+| Analysis | Consultant Assessment | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_gate-001-external-review-and-downstream-readiness-assessment.md` |
 | Analysis | Hypothesis Brief | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_hypothesis-brief.md` |
 | Raw Transcript | PH000 Raw Conversation | `prompt/artifacts/tasks/T002/raw_T002-PH000.txt` |
 
@@ -86,3 +88,4 @@ roadmap_changelog: '—'
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-04-03 | Initial | Created the initial thin-spine T002 roadmap with the phase register, delivery snapshot, links register, and roadmap-level open questions. |
+| v1.1.0 | 2026-04-03 | Amendment | Normalized the delivery snapshot after SES003 package finalization, added the AC000 activity notes register to the links register, and kept the roadmap thin-spine while deferring the later workflow walkthrough to a future session. |

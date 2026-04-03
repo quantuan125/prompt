@@ -5,7 +5,7 @@ initiative_id: 'T002'
 initiative_code: 'TECOM'
 phase: '0'
 stream_id: 'T002-PH000-ST000'
-version: '1.1.0'
+version: '1.2.0'
 date: '2026-04-03'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -35,14 +35,15 @@ Index of session notes and activity notes registers for Stream ST000 (TECOM Advi
 |:--------|:-----------|:------|:-----|:-----------|:-------|
 | SES001 | `T002-PH000-ST000-SES001` | Kickoff & Architecture Advisory Session | 2026-04-03 | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES001.md` | `draft` |
 | SES002 | `T002-PH000-ST000-SES002` | Plan Amendment & SSOT Planning Session | 2026-04-03 | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES002.md` | `draft` |
-| SES003 | `T002-PH000-ST000-SES003` | PH000 Discovery: Workflow Walkthrough | — | — | `pending` |
+| SES003 | `T002-PH000-ST000-SES003` | GATE-001 Package Finalization & Session Registration | 2026-04-03 | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES003.md` | `draft` |
+| SES004 | `T002-PH000-ST000-SES004` | SPS III.B RID Realignment & Proposal Authoring Session | 2026-04-03 | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES004.md` | `draft` |
 ---
 
 ## Activity Notes Register
 
 | Activity | Activity ID | Title | Notes Register | Status |
 |:---------|:-----------|:------|:----------------|:-------|
-| AC000 | `T002-PH000-ST000-AC000` | Agent Architecture Advisory | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES001.md` (SES001 only) | `in_progress` |
+| AC000 | `T002-PH000-ST000-AC000` | Agent Architecture Advisory | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/notes_T002-PH000-ST000-AC000.md` | `in_progress` |
 
 ---
 
@@ -51,9 +52,10 @@ Index of session notes and activity notes registers for Stream ST000 (TECOM Advi
 | Item | Path |
 |:-----|:-----|
 | **Activity Plan** | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/plan_T002-PH000-ST000-AC000.md` |
+| **Activity Notes Register** | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/notes_T002-PH000-ST000-AC000.md` |
 | **Hypothesis Brief** | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_hypothesis-brief.md` |
 | **Raw Transcript** | `prompt/artifacts/tasks/T002/raw_T002-PH000.txt` |
-| **Phase Plan** | — (deferred to SPS/roadmap co-production next session) |
+| **Phase Plan** | — (deferred to the later discovery session) |
 
 ---
 
@@ -61,4 +63,4 @@ Index of session notes and activity notes registers for Stream ST000 (TECOM Advi
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
-| v1.1.0 | 2026-04-03 | Amendment | Registered SES002 (Plan Amendment & SSOT Planning Session, 2026-04-03). Relabeled former SES002 placeholder (TECOM workflow walkthrough) to SES003 to reflect actual session sequence. |
+| v1.3.0 | 2026-04-03 | Amendment | Registered SES004 (SPS III.B RID Realignment & Proposal Authoring Session, 2026-04-03). |

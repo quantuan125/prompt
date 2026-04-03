@@ -4,7 +4,7 @@ initiative_id: 'T002'
 initiative_code: 'TECOM'
 version: '1.0.0'
 date: '2026-04-03'
-status: 'draft'
+status: 'active'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 ---
