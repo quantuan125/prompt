@@ -5,7 +5,7 @@ initiative_id: 'T002'
 initiative_code: 'TECOM'
 phase: '0'
 stream_id: 'T002-PH000-ST000'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-04-03'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -34,8 +34,8 @@ Index of session notes and activity notes registers for Stream ST000 (TECOM Advi
 | Session | Session ID | Title | Date | Notes File | Status |
 |:--------|:-----------|:------|:-----|:-----------|:-------|
 | SES001 | `T002-PH000-ST000-SES001` | Kickoff & Architecture Advisory Session | 2026-04-03 | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES001.md` | `draft` |
-| SES002 | `T002-PH000-ST000-SES002` | PH000 Discovery: Workflow Walkthrough | — | — | `pending` |
-
+| SES002 | `T002-PH000-ST000-SES002` | Plan Amendment & SSOT Planning Session | 2026-04-03 | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES002.md` | `draft` |
+| SES003 | `T002-PH000-ST000-SES003` | PH000 Discovery: Workflow Walkthrough | — | — | `pending` |
 ---
 
 ## Activity Notes Register
@@ -61,4 +61,4 @@ Index of session notes and activity notes registers for Stream ST000 (TECOM Advi
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
-| v1.0.0 | 2026-04-03 | Initial | Stream notes register created for T002-PH000-ST000. Indexes SES001 session notes (Kickoff & Architecture Advisory). Registers AC000 as in-progress activity. SES002 (discovery walkthrough) placeholder registered pending execution before 2026-04-10. |
+| v1.1.0 | 2026-04-03 | Amendment | Registered SES002 (Plan Amendment & SSOT Planning Session, 2026-04-03). Relabeled former SES002 placeholder (TECOM workflow walkthrough) to SES003 to reflect actual session sequence. |

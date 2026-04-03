@@ -7,14 +7,14 @@ phase: '0'
 stream: 'ST000'
 activity_id: 'T002-PH000-ST000-AC000'
 session: 'SES001'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-04-03'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 register_reference: 'prompt/artifacts/tasks/T002/workspace/PH000/ST000/notes_T002-PH000-ST000.md'
 plan_reference: 'prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/plan_T002-PH000-ST000-AC000.md'
-raw_transcript_reference: 'prompt/artifacts/tasks/T002/raw_T002-PH000.txt'
+raw_transcript_reference: 'prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/raw/raw_T002-PH000-ST000-AC000-SES001.txt'
 ---
 
 # ACTIVITY SESSION NOTES: T002 (TECOM) — PH000 / ST000 / AC000 / SES001 (T002 Initiative Kickoff & Architecture Advisory Session)
@@ -161,6 +161,7 @@ Industry research (PRINCE2, SAFe, Lean Startup, IEEE 830, Sprint Zero patterns) 
 | `T002-PH000-ST000-AC000-SES001-DEC005` | **Start with order tracking vertical for MVP (if/when PH001 approved)** | Technical | `Confirmed` | LLM_Consultant | 2026-04-03 | Order tracking has highest daily urgency for TECOM (core business metric), clearest data boundary, most directly measurable. Success here validates hybrid architecture before expanding to email stats, creative, etc. | NMAQ has confirmed this aligns with Lean Startup and value-stream-slice principles. | Microsoft: value-stream-slice approach; Lean Startup: start with highest-uncertainty/highest-value assumption. |
 | `T002-PH000-ST000-AC000-SES001-DEC006` | **Defer SPS + roadmap to next session (co-produce with them)** | Planning | `Confirmed` | LLM_Consultant | 2026-04-03 | SPS and roadmap both depend on having clear phase structure and activity context. That context is now established (activity plan created, hypothesis brief finalized). Co-producing them in next session ensures they remain lightweight and high-fidelity. | User approved: "Co-produce it with the SPS" (roadmap + SPS together). | Codex: "trim internal documentation or keep it razor-thin"; guideline_workspace_plan.md: "keep phase plans lightweight, snapshot-only, no execution detail." |
 | `T002-PH000-ST000-AC000-SES001-DEC007` | **Register hypothesis brief as TK000 (not TK002) in activity plan** | Governance | `Confirmed` | LLM_Consultant | 2026-04-03 | Hypothesis brief is a completed precondition for activity plan. Registering it as TK000 reflects that it was done before formal activity plan was created. | User explicitly instructed: "TK000-AC000 snote file instead along with the st000 stream level notes index file." | Activity plan task register now shows TK000 completed. |
+| `T002-PH000-ST000-AC000-SES001-DEC008` | **Register T002 in the program status system** | Governance | `Confirmed` | Client | 2026-04-03 | T002 initiative must be visible in the program ledger for program-level coordination. Was deferred during session, then approved explicitly by Client at session close. | Client approval: "You have approval from me to update the status system. Please proceed." | status_program.yaml, status_program.md (v1.2.0), briefing_program.md all updated. T002-PH000-ST000-AC000 registered as `in_progress`. |
 
 ---
 
@@ -168,9 +169,11 @@ Industry research (PRINCE2, SAFe, Lean Startup, IEEE 830, Sprint Zero patterns) 
 
 | ID | Action | Owner | Status |
 |:---|:-------|:------|:--------|
-| `T002-PH000-ST000-AC000-SES001-ACT001` | Create SES001 session notes (this document) | LLM_Consultant | `in_progress` |
-| `T002-PH000-ST000-AC000-SES001-ACT002` | Create stream-level notes register (notes_T002-PH000-ST000.md) | LLM_Consultant | `pending` |
-| `T002-PH000-ST000-AC000-SES001-ACT003` | Fix hypothesis brief frontmatter: change `task_id: TK002` to `task_id: TK000` | LLM_Consultant | `pending` |
+| `T002-PH000-ST000-AC000-SES001-ACT001` | Create SES001 session notes (this document) | LLM_Consultant | `completed` |
+| `T002-PH000-ST000-AC000-SES001-ACT002` | Create stream-level notes register (notes_T002-PH000-ST000.md) | LLM_Consultant | `completed` |
+| `T002-PH000-ST000-AC000-SES001-ACT003` | Fix hypothesis brief frontmatter: change `task_id: TK002` to `task_id: TK000` | LLM_Consultant | `completed` |
+| `T002-PH000-ST000-AC000-SES001-ACT003.1` | Register T002-PH000-ST000-AC000 in program status system (status_program.yaml, status_program.md, briefing_program.md) — per explicit Client approval | LLM_Consultant | `completed` |
+| `T002-PH000-ST000-AC000-SES001-ACT003.2` | Move session raw transcript to `workspace/PH000/ST000/AC000/raw/` directory; update snote raw_transcript_reference | LLM_Consultant | `completed` |
 | `T002-PH000-ST000-AC000-SES001-ACT004` | Produce advisory note (English SSOT) — answer TECOM's architectural question directly | LLM_Consultant | `pending` |
 | `T002-PH000-ST000-AC000-SES001-ACT005` | Produce advisory note (Vietnamese translation) with cross-check for technical term translation | LLM_Consultant | `pending` |
 | `T002-PH000-ST000-AC000-SES001-ACT006` | Conduct deeper workflow walkthrough session with TECOM CEO before 2026-04-10 (per raw transcript agreement) | TECOM + LLM_Consultant | `pending` |
@@ -235,3 +238,4 @@ Industry research (PRINCE2, SAFe, Lean Startup, IEEE 830, Sprint Zero patterns) 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-04-03 | Initial | Session notes created for T002-PH000-ST000-AC000-SES001 (Kickoff & Architecture Advisory Session). Captured: NMAQ-TECOM relationship context, engagement model (informal trusted advisory), research synthesis (6 subagents + industry standards + Codex adversarial review), three-option architecture assessment with hybrid recommendation, deliverable strategy pivot (1 external advisory note only), PH000 scope decision (discovery-only), 7 decisions formalized, 6 open questions captured for SES002 discovery session, 8 carry-forward actions identified. |
+| v1.1.0 | 2026-04-03 | Amendment | Session close completed. Added DEC008 (status system registration, Client-approved). Updated ACT001-ACT003 to completed. Added ACT003.1 (status system update) and ACT003.2 (raw transcript move). Updated raw_transcript_reference to AC000/raw/ location. Stream notes register created. Hypothesis brief frontmatter corrected (TK002 → TK000). Program status surfaces updated (status_program.yaml, status_program.md v1.2.0, briefing_program.md). Raw session transcript exported and placed at `workspace/PH000/ST000/AC000/raw/raw_T002-PH000-ST000-AC000-SES001.txt`. |

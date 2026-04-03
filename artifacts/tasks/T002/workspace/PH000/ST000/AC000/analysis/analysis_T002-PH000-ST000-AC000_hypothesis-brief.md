@@ -7,7 +7,7 @@ phase: '0'
 stream_id: 'T002-PH000-ST000'
 activity_id: 'T002-PH000-ST000-AC000'
 task_id: 'T002-PH000-ST000-AC000-TK000'
-version: '1.0.0'
+version: '1.1.0'
 date: '2026-04-03'
 status: 'draft'
 author: 'LLM_Consultant'
@@ -137,15 +137,59 @@ Decentralized specialist agents own bounded domains. Each publishes a standardiz
 | Time to first value | Fast — first specialist provides standalone value immediately |
 | CEO coordination reduction | High — reporting layer eliminates manual synthesis |
 
+### B2. Evaluation Criteria & Weighting
+
+The following criteria are derived from TECOM's stated pain points (SES001 raw transcript), industry evidence (Microsoft orchestration patterns, Akka supervisor patterns, Lean Startup), and the Codex adversarial review. Weights reflect the relative importance to TECOM's specific context (4-person e-commerce company with manual CEO coordination bottleneck).
+
+| Criterion | Definition | Weight |
+|:--|:--|:--|
+| CEO Coordination Reduction | Degree to which the architecture reduces manual CEO coordination overhead — the PRIMARY stated pain point | 30% |
+| Time to First Value | How quickly the architecture delivers initial measurable value to TECOM operations | 20% |
+| Complexity | Development and operational complexity appropriate for a 4-person team with no dedicated engineering staff | 15% |
+| Build Effort | Initial development effort required relative to TECOM's capacity | 15% |
+| Failure Resilience | Graceful degradation when individual components fail, minimizing blast radius | 10% |
+| Scalability | Ability to add new domains/tools without rearchitecting the system | 10% |
+
+**Weighting rationale**: CEO Coordination Reduction receives the highest weight (30%) because it is the explicit motivating question from the TECOM CEO ("Should I build one central manager agent...?"). Time to First Value receives 20% because TECOM is a small company that needs to see results quickly to justify continued investment. Complexity and Build Effort each receive 15% because TECOM's 4-person team cannot absorb high development overhead. Failure Resilience and Scalability each receive 10% as important but secondary considerations for the initial architecture decision.
+
+### B3. Comparative Assessment Matrix
+
+Grading scale: 1 (worst) to 5 (best) for TECOM's context. Each cell includes a grade and brief rationale.
+
+| Criterion | Weight | Option A: Centralized Orchestrator | Option B: Independent Agents | Option C: Hybrid (Recommended) | Notes |
+|:--|:--|:--|:--|:--|:--|
+| CEO Coordination Reduction | 30% | **5** — If successful, single daily summary eliminates all manual coordination | **1** — Does not address the problem; CEO still manually synthesizes multiple independent reports | **4** — Reporting layer synthesizes specialist outputs into unified daily brief; substantial coordination reduction | This is the decisive criterion. Option B fails it entirely. |
+| Time to First Value | 20% | **1** — Nothing works until the complete workflow is mapped and all sub-agents connected | **5** — First agent provides immediate standalone value on day one | **4** — First specialist provides standalone value; reporting layer follows as second step | Lean Startup: validate incrementally with smallest valuable slice |
+| Complexity | 15% | **1** — Must understand all 10 tools and all business domains in a single system; high coupling | **5** — Each agent is simple, bounded, and independently understandable | **3** — Specialists are simple; reporting layer adds modest integration complexity via standardized status format | TECOM has no dedicated engineering staff; complexity must stay low |
+| Build Effort | 15% | **1** — Requires complete workflow mapping before any value; large upfront investment | **5** — Minimal effort per agent; start immediately with one domain | **3** — Moderate: specialists + standardized status blocks + thin reporting layer | Proportionate to 4-person company capacity |
+| Failure Resilience | 10% | **1** — Single point of failure; one orchestrator error cascades to all reporting | **5** — Fully isolated; one agent's failure has zero impact on others | **4** — Graceful degradation; if one specialist fails, others still report normally | Microsoft pattern guidance: minimize blast radius |
+| Scalability | 10% | **2** — Every new domain increases orchestrator complexity; central bottleneck grows | **4** — Add agents independently, but no standardized interface for future reporting integration | **5** — New specialists plug in via standardized status format; reporting layer handles aggregation automatically | Akka: keep workers simple, interface via standard format |
+
+**Weighted Scores**:
+
+| Option | Calculation | Weighted Score |
+|:--|:--|:--|
+| **Option A: Centralized** | (5×30) + (1×20) + (1×15) + (1×15) + (1×10) + (2×10) = 150 + 20 + 15 + 15 + 10 + 20 | **230 / 500 (46%)** |
+| **Option B: Independent** | (1×30) + (5×20) + (5×15) + (5×15) + (5×10) + (4×10) = 30 + 100 + 75 + 75 + 50 + 40 | **370 / 500 (74%)** |
+| **Option C: Hybrid** | (4×30) + (4×20) + (3×15) + (3×15) + (4×10) + (5×10) = 120 + 80 + 45 + 45 + 40 + 50 | **380 / 500 (76%)** |
+
+**Result**: Option C (Hybrid) scores highest at 76%, narrowly exceeding Option B (74%) and substantially exceeding Option A (46%).
+
 ### C. Recommendation
 
-**Recommend Option C (Hybrid)** based on the following reasoning:
+**Recommend Option C (Hybrid)** based on weighted comparative assessment scoring (76% vs Option B at 74%, Option A at 46%).
 
-1. **Matches TECOM's constraint profile**: 4-person company cannot absorb the complexity of a monolithic orchestrator (Option A), but needs more than independent agents (Option B) to solve the coordination bottleneck
-2. **Aligns with industry patterns**: Microsoft's orchestration guidance recommends the lowest level of complexity that reliably meets requirements. Akka's supervisor pattern centralizes reliability concerns while keeping workers simple.
-3. **Enables incremental delivery**: Start with one high-value vertical (order tracking), prove value, then expand
-4. **Preserves the standardized-output principle**: Each specialist publishes a status block in a defined format, making the reporting layer's job trivial aggregation rather than complex interpretation
-5. **Maintains human-in-the-loop**: Customer-facing and financially sensitive actions remain under human approval
+The scoring confirms the qualitative assessment: the hybrid architecture optimally balances TECOM's constraint profile across all evaluation dimensions.
+
+**Key scoring drivers**:
+
+1. **CEO Coordination Reduction (30% weight)**: This is the decisive criterion — it is the explicit reason TECOM CEO asked the question. Option A scores highest here (5/5) but is eliminated by catastrophic scores on Time to First Value, Complexity, Build Effort, and Failure Resilience. Option B scores lowest (1/5) because it does not address the coordination bottleneck at all. Option C scores well (4/5) via the thin reporting layer.
+
+2. **Time to First Value (20% weight)**: Option C matches Option B's incremental delivery advantage — the first specialist provides standalone value immediately. The reporting layer is additive, not blocking.
+
+3. **Complexity + Build Effort (15% + 15%)**: Option C trades Option B's perfect simplicity scores for moderate complexity that purchases the coordination reduction Option B cannot provide.
+
+**Dissenting considerations**: Option B scored nearly as well (74% vs 76%) and offers superior simplicity. If TECOM's coordination bottleneck proves less severe than stated (e.g., discovery reveals the CEO's manual synthesis takes <10 minutes daily), Option B becomes the correct choice — the reporting layer overhead is not justified. This is precisely what GAP-004 (review bottleneck root cause) must validate in the PH000 discovery session.
 
 **Recommended starting vertical**: Order tracking — highest daily urgency, most directly measurable, clearest data boundary.
 
@@ -189,8 +233,8 @@ Decentralized specialist agents own bounded domains. Each publishes a standardiz
 |:--|:--|:--|:--|:--|
 | Advisory Note (EN) | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/advisory_T002-PH000_agent-architecture-recommendation.md` | This analysis completed | LLM_Consultant | External deliverable for TECOM; distills Section V recommendation |
 | Advisory Note (VI) | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/advisory_T002-PH000_agent-architecture-recommendation_vi.md` | EN advisory note completed | LLM_Consultant | Vietnamese translation; pending TECOM cross-check |
-| SPS (Initiative Level) | `prompt/artifacts/tasks/T002/ssot/sps_T002-TECOM.md` | Next consultation session | LLM_Consultant | Internal; records TECOM requirements per P-STD-005 |
-| Roadmap (Thin-Spine) | `prompt/artifacts/tasks/T002/ssot/roadmap_T002-TECOM.md` | Co-produced with SPS | LLM_Consultant | Internal; PH000 + PH001 high-level only |
+| SPS (Initiative Level) | `prompt/artifacts/tasks/T002/ssot/sps_T002.md` | Next consultation session | LLM_Consultant | Internal; records TECOM requirements per P-STD-005 |
+| Roadmap (Thin-Spine) | `prompt/artifacts/tasks/T002/ssot/roadmap_T002.md` | Co-produced with SPS | LLM_Consultant | Internal; PH000 + PH001 high-level only |
 | PH000 Discovery Session | — | Before 2026-04-10 | TECOM + LLM_Consultant | Deep workflow walkthrough to validate/invalidate GAP-001 through GAP-004 |
 
 ---
@@ -213,4 +257,4 @@ Decentralized specialist agents own bounded domains. Each publishes a standardiz
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
-| v1.0.0 | 2026-04-03 | Initial | Hypothesis brief created for T002-PH000-ST000-AC000. Assessed three architectural options for TECOM agent system. Recommended hybrid (specialist agents + thin reporting layer). Formalized testable hypothesis with validation conditions. Integrated evidence from internal orchestration patterns (T103-AC001), external industry research, and Codex adversarial review. |
+| v1.1.0 | 2026-04-03 | Enhancement | Added formal comparative assessment methodology to Section V: evaluation criteria with percentage-based weighting (6 criteria), comparative assessment matrix (3 options graded 1-5 per criterion), weighted scoring calculation, and scoring-based recommendation with dissenting considerations. Enhancement driven by SES002 consultation (Client Comment 1) and validated by Codex GPT 5.4 adversarial review. Existing Sections I-IV, VI-X unchanged. Analysis type remains `assessment` (compliant per guideline_workspace_analysis.md line 77 for options tradeoffs). |
