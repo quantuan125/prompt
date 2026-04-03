@@ -1,7 +1,7 @@
 # Program Briefing Dashboard - P
 
 Authority note: Derived from `status_program.yaml`; this dashboard is not an authority surface.
-As Of: 2026-04-02
+As Of: 2026-04-03
 
 ## Active Work Briefing
 
@@ -11,6 +11,7 @@ As Of: 2026-04-02
 | P-PH000-ST004-AC003 | Commission `P-RES-003` (Specification Metadata Governance Research) | in_progress | 2026-03-23 | — | Keeps the metadata-governance research thread active for downstream standard work. |
 | T102-PH001-ST001-AC008 | STD-004 Self-Compliance Audit & Exemplar Hardening | in_progress | 2026-03-23 | — | Continues the self-compliance audit that supports T102 documentation hardening. |
 | T102-PH001-ST004-AC003 | Commission `T102-RES-006` (Concept Role + Dynamic SSOT Registers) | in_progress | 2026-03-23 | — | Keeps the concept-role and dynamic SSOT register work open for the T102 stream. |
+| T002-PH000-ST000-AC000 | Agent Architecture Advisory | in_progress | 2026-04-03 | — | New initiative (TECOM) — informal advisory engagement on agentic workflow orchestration architecture. Hybrid architecture (specialist agents + thin reporting layer) recommended. Discovery session to follow. |
 
 ## Recent Movement Watchlist
 

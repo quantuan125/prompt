@@ -4,8 +4,8 @@ initiative_id: 'T102'
 initiative_code: 'CWD'
 phase: '1'
 stream: 'ST002'
-version: '0.5.0'
-date: '2026-04-02'
+version: '0.6.0'
+date: '2026-04-03'
 status: 'in_progress'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -28,7 +28,7 @@ See: prompt/templates/consultant/workspace/guideline_workspace_notes.md
 
 **Key context**:
 - AC000 already has three session notes files under `AC000/snotes/`.
-- AC001 now has a session note under `AC001/snotes/` and is indexed below.
+- AC001 now has two activity session notes under `AC001/snotes/` and is indexed below.
 - No stream-level session notes are registered yet.
 - This register is the index-only surface for ST002.
 
@@ -48,7 +48,7 @@ No stream-level session notes are registered yet.
 | Activity | Activity ID | Name | Status | Notes File |
 |:--|:--|:--|:--|:--|
 | AC000 | `T102-PH001-ST002-AC000` | ST005 Verification, P-STD-001 Gap Assessment & Scope Calibration | `in_progress` | SES001: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/snotes/snotes_T102-PH001-ST002-AC000-SES001.md` / SES002: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/snotes/snotes_T102-PH001-ST002-AC000-SES002.md` / SES003: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/snotes/snotes_T102-PH001-ST002-AC000-SES003.md` / SES004: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/snotes/snotes_T102-PH001-ST002-AC000-SES004.md` / SES005: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/snotes/snotes_T102-PH001-ST002-AC000-SES005.md` |
-| AC001 | `T102-PH001-ST002-AC001` | STD adoption & verification gap analysis (post-amendment) | `ready` | SES001: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC001/snotes/snotes_T102-PH001-ST002-AC001-SES001.md` |
+| AC001 | `T102-PH001-ST002-AC001` | STD adoption & verification gap analysis (post-amendment) | `ready` | SES001: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC001/snotes/snotes_T102-PH001-ST002-AC001-SES001.md` / SES002: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC001/snotes/snotes_T102-PH001-ST002-AC001-SES002.md` |
 
 ---
 
@@ -64,6 +64,7 @@ No stream-level session notes are registered yet.
 - AC000 SES004 session notes: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/snotes/snotes_T102-PH001-ST002-AC000-SES004.md`
 - AC000 SES005 session notes: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC000/snotes/snotes_T102-PH001-ST002-AC000-SES005.md`
 - AC001 SES001 session notes: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC001/snotes/snotes_T102-PH001-ST002-AC001-SES001.md`
+- AC001 SES002 session notes: `prompt/artifacts/tasks/T102/workspace/PH001/ST002/AC001/snotes/snotes_T102-PH001-ST002-AC001-SES002.md`
 - Phase notes register: `prompt/artifacts/tasks/T102/workspace/PH001/notes_T102-PH001.md`
 - Notes guideline: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
 
@@ -73,6 +74,7 @@ No stream-level session notes are registered yet.
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
+| v0.6.0 | 2026-04-03 | Amendment | Indexed AC001 SES002 (Plan Amendment: Client QA and Commissioning Readiness), updated the AC001 activity notes row to include the new session record, and refreshed the stream summary and primary links accordingly. |
 | v0.5.0 | 2026-04-02 | Amendment | Indexed AC001 SES001 (Readiness Normalization and Commissioning), added the AC001 activity session note to the Activity Notes Register, and linked the AC001 activity plan and session note from the stream register. |
 | v0.4.0 | 2026-03-31 | Amendment | Indexed AC000 SES005 (GATE-001 Client Approval and Post-Gate Activation Planning) and updated the AC000 activity register entry to include the gate approval and implementation specification commissioning session record. |
 | v0.3.0 | 2026-03-30 | Amendment | Indexed AC000 SES004 (Gate-001 Recycle External Review and Implementation Specification Assessment) and updated the AC000 activity register entry to include the fresh external review session record. |

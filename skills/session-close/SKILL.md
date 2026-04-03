@@ -5,7 +5,7 @@ description: Use for governed consultation-session closeout and status-surface r
 
 # Session Close
 
-Use this skill when a governed AC006-style consultation or execution session is ending and the acting executor is either the main consultant or a consultant-commissioned assistant.
+Use this skill when a governed consultation or execution session is ending and the acting executor is either the main consultant or a consultant-commissioned assistant.
 
 ## Use Conditions
 
@@ -19,7 +19,6 @@ Use this skill when a governed AC006-style consultation or execution session is 
 - Inherited session-close convention source: `prompt/artifacts/tasks/P/workspace/PH000/ST002/AC004/proposal/proposal_P-PH000-ST002-AC004-TK003.8_session-close-standards-input.md`
 - Status reconciliation protocol source: `prompt/artifacts/tasks/P/status/status_program.md` Section 7
 - Session notes authoring source: `prompt/templates/consultant/workspace/guideline_workspace_notes.md`
-- Legacy wrap-up skill: `prompt/skills/wrap-up/SKILL.md` is historical context only and does not add authority here.
 - During rewrite authoring, use the environment's skill-creator reference if available, and use writing-skill assistance if available, but keep the final behavior within this exact boundary.
 
 ## Closeout Workflow

@@ -3141,3 +3141,40 @@ entries:
   aggregation_policy: null
   execution_refs: []
   extensions: {}
+- scope_uid: T002-PH000-ST000-AC000
+  scope_type: activity
+  initiative_id: T002
+  name: Agent Architecture Advisory
+  status: in_progress
+  as_of: '2026-04-03'
+  updated_by: LLM_Consultant
+  last_updated: '2026-04-03'
+  health:
+    overall: unassessed
+    dimensions:
+      time: unassessed
+      cost: unassessed
+      scope: unassessed
+      quality: unassessed
+      risk: unassessed
+      benefits: unassessed
+  dependencies: []
+  evidence:
+  - type: note
+    ref: prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/plan_T002-PH000-ST000-AC000.md
+    date: '2026-04-03'
+    by: LLM_Consultant
+    summary: 'Activity plan created for T002-PH000-ST000-AC000. TK000 (hypothesis brief) completed. TK001 (workspace establishment) in progress.'
+  - type: session
+    ref: prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES001.md
+    date: '2026-04-03'
+    by: LLM_Consultant
+    summary: 'SES001 (Kickoff & Architecture Advisory Session) — established engagement model, architecture recommendation, deliverable strategy.'
+  - type: note
+    ref: prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_hypothesis-brief.md
+    date: '2026-04-03'
+    by: LLM_Consultant
+    summary: 'Hypothesis brief completed. Three architectural options assessed. Hybrid architecture (specialist agents + thin reporting layer) recommended.'
+  aggregation_policy: null
+  execution_refs: []
+  extensions: {}
