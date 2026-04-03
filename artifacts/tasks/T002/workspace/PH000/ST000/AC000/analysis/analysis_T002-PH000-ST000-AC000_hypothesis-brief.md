@@ -6,26 +6,26 @@ initiative_code: 'TECOM'
 phase: '0'
 stream_id: 'T002-PH000-ST000'
 activity_id: 'T002-PH000-ST000-AC000'
-task_id: 'T002-PH000-ST000-AC000-TK000'
-version: '1.1.0'
-date: '2026-04-03'
+task_id: 'T002-PH000-ST000-AC000-TK002.5'
+version: '2.0.0'
+date: '2026-04-04'
 status: 'active'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/plan_T002-PH000-ST000-AC000.md'
-purpose: 'Assess TECOM agent architecture options and formalize the hypothesis for PH000 discovery'
-assessment_scope: 'TECOM agentic workflow orchestration — centralized vs decentralized agent architecture'
+purpose: 'Assess TECOM agent workflow improvement options and formalize the hypothesis for PH000 discovery - revised from Options A/B/C to P0-P4 incremental proposal framework with deferred orchestration'
+assessment_scope: 'TECOM agentic workflow improvement - incremental proposal framework (P0-P4) with orchestration as validated endpoint'
 ---
 
-# ANALYSIS: Hypothesis Brief — TECOM Agent Architecture Assessment (T002-PH000-ST000-AC000)
+# ANALYSIS: Hypothesis Brief - TECOM Agent Workflow Improvement Assessment (T002-PH000-ST000-AC000)
 
 ## I. EXECUTIVE SUMMARY
 
-**Purpose**: Assess the two architectural directions TECOM has identified for their agentic workflow (centralized orchestrator vs independent agents), synthesize evidence from industry patterns and internal NMAQ orchestration experience, and formalize a testable hypothesis to guide the PH000 discovery phase.
+**Purpose**: Assess TECOM's workflow improvement proposals as an incremental validation framework rather than an architecture-selection exercise. The revised brief is about identifying the smallest evidence-backed steps that reduce CEO coordination overhead.
 
-**Scope**: TECOM's current operational context (4-person US e-commerce company, car license plates, Vietnamese supplier chain), their 10-tool workflow, and the CEO's specific question about agent architecture direction.
+**Scope**: TECOM's current operational context, the P0-P4 proposal framework, deferred orchestration as a validated endpoint, and the research/comparison artifacts that now sit alongside the brief.
 
-**Conclusion / Recommendation**: A **hybrid architecture** — decentralized specialist agents with a thin central reporting layer — is the recommended approach. Neither a monolithic CEO agent nor fully independent agents optimally addresses TECOM's stated pain points. The hypothesis is testable through a single vertical slice (order tracking) before broader rollout.
+**Conclusion / Recommendation**: A phased, incremental improvement approach - starting with workflow census (P0), then domain-specific review policies (P1), structured report schemas (P2), skill-level improvements (P3), and contingent self-improvement capability (P4) - is recommended over immediate orchestrator architecture selection. Orchestration is the validated endpoint, not the starting point. "No orchestration" is explicitly allowed as a successful final state if P0-P3 resolve the coordination bottleneck without it.
 
 ---
 
@@ -33,22 +33,22 @@ assessment_scope: 'TECOM agentic workflow orchestration — centralized vs decen
 
 **In scope**:
 - TECOM's stated operational pain points and current workflow characteristics
-- The CEO's two-option architectural question (centralized vs independent agents)
-- Industry evidence on multi-agent orchestration patterns
-- NMAQ internal orchestration execution patterns (T103-AC001 SPEC-D001 through SPEC-D005)
-- Formulation of a testable hypothesis for PH000 discovery
+- The P0-P4 proposal framework and deferred orchestration
+- SES003 consultation findings and Codex GPT 5.4 adversarial review findings
+- Research brief T002-RES-001 as a pending input
+- Comparative analysis extraction into a dedicated artifact
 
 **Out of scope**:
-- Detailed technical specification of the orchestrator MVP (deferred to PH001 if approved)
-- TECOM's internal business financials or commercial terms
-- Tool-specific integration design (requires deep workflow walkthrough)
-- Story-level requirements or acceptance criteria
+- Detailed comparative scoring, weighting, and matrix construction (moved to `comparative-assessment.md`)
+- TECOM's internal workflow mapping details (pending PH000 discovery)
+- Research report findings (pending T002-RES-001)
+- Implementation-level task sequencing beyond the hypothesis brief's own recommendations
 
 **Inputs reviewed (repo-relative paths)**:
-- `prompt/artifacts/tasks/T002/raw_T002-PH000.txt` — Raw conversation transcript (2026-04-01/02)
-- `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC001/implementation/implementation_T103-PH000-ST000-AC001_orchestration-execution-patterns.md` — NMAQ orchestration execution specification (SPEC-D001 through SPEC-D005)
-- External research: Microsoft AI agent orchestration patterns, Akka supervisor patterns, autonomy-supportive consultation research (Kors et al., Nys)
-- External adversarial review: Codex GPT 5.4 high (2026-04-03 session)
+- `prompt/artifacts/tasks/T002/raw_T002-PH000.txt` - Raw conversation transcript (2026-04-01/02)
+- `prompt/artifacts/tasks/T103/workspace/PH000/ST000/AC001/implementation/implementation_T103-PH000-ST000-AC001_orchestration-execution-patterns.md` - NMAQ orchestration execution specification (SPEC-D001 through SPEC-D005)
+- `prompt/artifacts/tasks/T002/research/T002-RES-001/brief_T002-RES-001_agentic-cli-orchestration-research.md` - Pending research brief (research report not yet produced)
+- `SES003 Codex GPT 5.4 adversarial review (session output, 2026-04-03; findings integrated into this revision)`
 
 ---
 
@@ -58,15 +58,17 @@ assessment_scope: 'TECOM agentic workflow orchestration — centralized vs decen
 1. Extracted and translated TECOM CEO's requirements from raw Vietnamese conversation transcript
 2. Conducted parallel research via subagents across 6 internal knowledge areas (T002 raw, program status, T103 orchestrator, T102 SPS/REQUEST, T104 roadmap, workspace guidelines)
 3. Commissioned external industry-standard comparison research (IEEE 830, ISO 29148, PRINCE2, SAFe, Lean Startup, Agile/Scrum Sprint Zero) via dedicated research agent
-4. Commissioned adversarial review via Codex CLI (GPT 5.4, high reasoning) with two sessions — initial critique and follow-up validation
+4. Commissioned adversarial review via Codex CLI (GPT 5.4, high reasoning) with two sessions - initial critique and follow-up validation
 5. Synthesized findings across all sources to evaluate architecture options and formalize hypothesis
+6. Conducted SES003 consultation reassessment with client - identified that Options A/B/C framework is premature; converged on P0-P4 incremental proposal framework
+7. Commissioned SES003 adversarial review via Codex CLI (GPT 5.4, high reasoning) - identified GAP-006, GAP-007, RISK-001 through RISK-003 and challenged Proposal 4 risk level
+8. Commissioned agentic CLI orchestration research brief (T002-RES-001) - deferred to next session for execution
 
 **Evidence notes**:
-- TECOM CEO explicitly stated the two options under consideration in the raw transcript (2026-04-01 22:35)
-- Microsoft Learn documentation on AI agent orchestration patterns distinguishes sequential, concurrent, handoff, group chat, and magentic patterns — recommending the lowest complexity that reliably meets requirements
-- Akka supervisor pattern documentation advocates centralizing reliability concerns in the workflow coordinator while keeping worker agents simple and reusable
-- Codex adversarial review confirmed the hybrid recommendation and flagged solution bias risk (premature commitment to "orchestrator" before discovery validates it)
-- Industry research confirmed PH000 should be discovery-only; MVP execution belongs in PH001
+- TECOM CEO explicitly stated the original two-option question in the raw transcript (2026-04-01 22:35), but SES003 showed that question is a false dichotomy when treated as a complete solution space.
+- The revised brief treats the original question as the starting point, not the final design constraint.
+- The detailed comparative analysis now lives in `analysis_T002-PH000-ST000-AC000_comparative-assessment.md`.
+- Research brief T002-RES-001 is commissioned but the research report is still pending.
 
 ---
 
@@ -78,7 +80,15 @@ assessment_scope: 'TECOM agentic workflow orchestration — centralized vs decen
 | GAP-002 | references | Tool inventory unknown | The specific 10 tools (VBA, Python, Google Apps Script, others) and their integration points are not enumerated | `pending_decision` | PH000 discovery session | Affects specialist agent boundary design |
 | GAP-003 | lifecycle | Data sources unverified | Order tracking, email stats, and creative workflow data sources/APIs are unknown | `pending_decision` | PH000 discovery session | Determines technical feasibility of agent automation |
 | GAP-004 | workflow | Review bottleneck root cause unclear | CEO states human review is required but root cause (quality, compliance, trust, process) is unknown | `pending_decision` | PH000 discovery session | May change whether an agent or a workflow redesign is the right intervention |
-| GAP-005 | consistency | Solution bias risk | "CEO Orchestrator MVP" pre-assumes the solution before discovery validates the problem. The real intervention may be workflow design, documentation, or tool consolidation. | `accepted_as_is` | — | Mitigated by framing PH000 as hypothesis-driven discovery, not solution delivery |
+| GAP-005 | consistency | Solution bias risk | "CEO Orchestrator MVP" pre-assumes the solution before discovery validates the problem. The real intervention may be workflow design, documentation, or tool consolidation. | `mitigated` | — | Mitigated by allowing "no orchestration" as a valid final state and framing P0-P4 as incremental validation gates rather than a committed build plan |
+| GAP-006 | technical | Execution substrate per workflow undefined | TECOM's workflows have not been classified by execution model (interactive CLI session, headless/SDK, external scheduler). This determines what is technically buildable for each workflow. Identified by SES003 Codex adversarial review. | `pending_decision` | `T002-RES-001 (Topics 3, 6)` and PH000 discovery session | Topic 3 of research brief provides the taxonomy; Topic 6 (deferred) maps TECOM workflows to it |
+| GAP-007 | governance | Skill ownership and change governance undefined | No one has defined who owns each skill, who can change prompts, how changes are tested, or how failures are rolled back. Critical if Proposal 4 (self-improvement skill) enters scope. Identified by SES003 Codex adversarial review. | `pending_decision` | PH000 discovery session | Prerequisite for P4; informative for P1-P3 |
+
+| RISK ID | Category | Title | Description | Disposition | Downstream Target | Notes |
+|:--|:--|:--|:--|:--|:--|:--|
+| RISK-001 | adoption | Proposal stack perceived as overengineering | The P0-P4 framework plus deferred orchestration could overwhelm a 4-person company if presented as a committed build plan rather than incremental validation gates. Identified by SES003 Codex adversarial review and consultant assessment. | `accepted_as_is` | Advisory note framing (TK003) | Mitigated by framing: each proposal is validated independently before the next is attempted; TECOM can stop at any point |
+| RISK-002 | cost | Token/cost expansion with multi-agent review | Multi-agent review plus aggregation can multiply token usage. For a 4-person company, costs must be measured before recommending layered agents. Identified by SES003 Codex adversarial review. | `pending_decision` | `T002-RES-001 (Topic 4)` and PH001 implementation | Research brief Topic 4 commissions cost model investigation |
+| RISK-003 | technical | Approval friction in unattended execution | Agentic CLI workflows may break when moved from interactive to unattended execution due to permissions, credentials, or prompts requiring human intervention. Identified by SES003 Codex adversarial review. | `pending_decision` | `T002-RES-001 (Topic 3)` and PH000 discovery session | Execution substrate taxonomy (Topic 3) will clarify which workflows can go headless |
 
 ---
 
@@ -88,132 +98,89 @@ assessment_scope: 'TECOM agentic workflow orchestration — centralized vs decen
 
 TECOM operates as a 4-person US e-commerce company specializing in car license plates with Vietnamese supplier connections. The CEO directly coordinates 3 staff members, acting as the human orchestrator for all workflow handoffs. Key operational characteristics:
 
-- **10 tools in active use** spanning VBA, Python, and Google Apps Script — CEO reports forgetting tool usage between intervals due to fragmentation
-- **90% AI utilization** — the company is already heavily AI-native, using agentic CLI tools (Codex CLI, potentially Anti-Gravity) for product image creation and content
-- **Manual coordination bottleneck** — CEO personally checks completion status of each person before passing work to the next, consuming daily overhead
-- **No structured documentation** — workflow evolved through trial-and-error cycles; staff turnover requires extensive retraining
-- **Human review required on all AI outputs** — despite high AI usage, every output requires manual validation before proceeding
+- 10 tools in active use spanning VBA, Python, and Google Apps Script - CEO reports forgetting tool usage between intervals due to fragmentation
+- 90% AI utilization - the company is already heavily AI-native, using agentic CLI tools (Codex CLI, potentially Anti-Gravity) for product image creation and content
+- Manual coordination bottleneck - CEO personally checks completion status of each person before passing work to the next, consuming daily overhead
+- No structured documentation - workflow evolved through trial-and-error cycles; staff turnover requires extensive retraining
+- Human review required on all AI outputs - despite high AI usage, every output requires manual validation before proceeding
 
-The CEO's specific question (2026-04-01): *"Should I build one central manager agent that collects reports from sub-agents and sends me a daily summary? Or just build them one by one, each runs independently, each sends its own report?"*
+The CEO's original question (2026-04-01) asked whether to build one central manager agent that collects reports and sends a daily summary, or to build specialist agents independently. That question was the starting point, but the revised assessment identifies a wider solution space.
 
-### B. Options
+### B. Revised Proposal Framework
 
-**Option A: Centralized Monolithic Orchestrator ("CEO Agent")**
+**Proposal P0: Workflow Census and Failure Baseline**
 
-A single top-level agent that owns all coordination, dispatches work to sub-agents, collects their outputs, and produces a unified daily summary.
+- **What**: Map TECOM's 10-tool workflow end-to-end: data sources, handoff points, review checkpoints, current failure/rework rates, and execution substrate per workflow (interactive vs headless vs scheduled).
+- **Why**: Every other proposal depends on understanding what currently exists. Without this, recommendations remain abstract.
+- **Prerequisite for**: P1, P2, P3, P4, and orchestration.
+- **Timing**: PH000 discovery session (pre-April 10).
+- **Source**: Elevated from GAP-001/GAP-002 based on SES003 consultation and Codex adversarial review.
 
-| Dimension | Assessment |
-|-----------|-----------|
-| Complexity | High — must understand all 10 tools and all business domains |
-| Failure mode | Single point of failure; one error affects all reporting |
-| Build effort | Large — requires complete workflow mapping before any value |
-| Scalability | Poor — every new tool/domain increases orchestrator complexity |
-| Time to first value | Slow — nothing works until everything works |
-| CEO coordination reduction | High (if successful) |
+**Proposal P1: Domain-Specific Review Policies with Shared Reporting Contract**
 
-**Option B: Fully Independent Agents ("Each On Its Own")**
+- **What**: Instead of one generic "review agent," create artifact-specific review modules - different rubrics, tolerances, and source checks for different work types (product images, copy, supplier data, pricing, operational reports). All review modules share a common reporting contract (structured output format).
+- **Why**: Directly addresses the CEO's stated pain ("human review required on all AI outputs"). A single generic review agent creates false confidence because reviewing images requires different criteria than reviewing supplier data.
+- **Prerequisite for**: Orchestration (review quality must be proven before automated aggregation).
+- **Implementation**: Each review module is a Claude Code/Codex skill with its own system prompt and domain-specific acceptance criteria.
+- **Source**: SES003 consultation (client proposal), refined by Codex adversarial review (artifact-specific decomposition).
 
-Build specialist agents one at a time, each running independently with its own report sent directly to the CEO.
+**Proposal P2: Structured Report Schema with Machine-Checkable Validation**
 
-| Dimension | Assessment |
-|-----------|-----------|
-| Complexity | Low per agent — each agent is simple and bounded |
-| Failure mode | Isolated — one agent's failure doesn't affect others |
-| Build effort | Small per agent — can start immediately with one domain |
-| Scalability | Good — add agents incrementally |
-| Time to first value | Fast — first agent provides value immediately |
-| CEO coordination reduction | Low — CEO must still manually synthesize multiple reports |
+- **What**: Define a structured report schema for all workflow outputs - not just standardized prose templates, but machine-checkable fields: required fields, status taxonomy, unique job IDs, timestamps, provenance/source links, pass/fail semantics, retry/error codes, and next-action codes.
+- **Why**: This is the single highest-value intervention. Standardized, machine-readable output is the prerequisite that makes future orchestration trivially composable. Without it, any "thin reporting layer" becomes a fragile summarizer over inconsistent prose.
+- **Prerequisite for**: Orchestration (agents cannot aggregate what they cannot parse).
+- **Implementation**: Schema definition + validation checks integrated into each skill's workflow.
+- **Source**: SES003 consultation (client proposal), hardened by Codex adversarial review (schema-first, not template-first).
 
-**Option C (Recommended): Hybrid — Specialist Agents + Thin Reporting Layer**
+**Proposal P3: Incremental Skill-Level Improvements**
 
-Decentralized specialist agents own bounded domains. Each publishes a standardized status block. One thin central reporting agent collects status blocks and produces the CEO daily brief. The reporting layer does aggregation only, not execution.
+- **What**: Fix the atomic units (individual skills/workflows) before adding orchestration on top. Each skill improvement delivers standalone value immediately.
+- **Why**: Orchestration on top of broken or inconsistent sub-workflows amplifies problems. Lean Startup principle: validate incrementally with the smallest valuable slice.
+- **Implementation**: Improve one skill at a time, starting with the highest-urgency domain (likely order tracking, pending P0 census).
+- **Source**: SES003 consultation (client proposal).
 
-| Dimension | Assessment |
-|-----------|-----------|
-| Complexity | Medium — specialists are simple; reporting layer is thin |
-| Failure mode | Graceful degradation — if one specialist fails, others still report |
-| Build effort | Incremental — start with one specialist, add reporting layer second |
-| Scalability | Good — new specialists plug in via standardized status format |
-| Time to first value | Fast — first specialist provides standalone value immediately |
-| CEO coordination reduction | High — reporting layer eliminates manual synthesis |
+**Proposal P4: Self-Improvement Skill + Maintenance System (Contingent - Deferred)**
 
-### B2. Evaluation Criteria & Weighting
+- **What**: Develop a meta-skill that allows TECOM's agentic CLI to improve its own skill system incrementally, with a maintenance system that updates skills when standards/PIDs change.
+- **Why**: Avoids manual skill-by-skill maintenance as the system grows.
+- **Contingency**: Explicitly deferred until P1-P3 are mature and TECOM has stable skill ownership, version control for prompts/skills, acceptance tests, and rollback processes. Building this before those prerequisites exist creates governance risk (version drift, silent regressions, prompt mutation) without proportional value.
+- **Source**: SES003 consultation (client addition), risk-assessed by Codex adversarial review (highest-risk, not highest-leverage).
 
-The following criteria are derived from TECOM's stated pain points (SES001 raw transcript), industry evidence (Microsoft orchestration patterns, Akka supervisor patterns, Lean Startup), and the Codex adversarial review. Weights reflect the relative importance to TECOM's specific context (4-person e-commerce company with manual CEO coordination bottleneck).
+**Deferred: Orchestration Layer**
 
-| Criterion | Definition | Weight |
-|:--|:--|:--|
-| CEO Coordination Reduction | Degree to which the architecture reduces manual CEO coordination overhead — the PRIMARY stated pain point | 30% |
-| Time to First Value | How quickly the architecture delivers initial measurable value to TECOM operations | 20% |
-| Complexity | Development and operational complexity appropriate for a 4-person team with no dedicated engineering staff | 15% |
-| Build Effort | Initial development effort required relative to TECOM's capacity | 15% |
-| Failure Resilience | Graceful degradation when individual components fail, minimizing blast radius | 10% |
-| Scalability | Ability to add new domains/tools without rearchitecting the system | 10% |
-
-**Weighting rationale**: CEO Coordination Reduction receives the highest weight (30%) because it is the explicit motivating question from the TECOM CEO ("Should I build one central manager agent...?"). Time to First Value receives 20% because TECOM is a small company that needs to see results quickly to justify continued investment. Complexity and Build Effort each receive 15% because TECOM's 4-person team cannot absorb high development overhead. Failure Resilience and Scalability each receive 10% as important but secondary considerations for the initial architecture decision.
-
-### B3. Comparative Assessment Matrix
-
-Grading scale: 1 (worst) to 5 (best) for TECOM's context. Each cell includes a grade and brief rationale.
-
-| Criterion | Weight | Option A: Centralized Orchestrator | Option B: Independent Agents | Option C: Hybrid (Recommended) | Notes |
-|:--|:--|:--|:--|:--|:--|
-| CEO Coordination Reduction | 30% | **5** — If successful, single daily summary eliminates all manual coordination | **1** — Does not address the problem; CEO still manually synthesizes multiple independent reports | **4** — Reporting layer synthesizes specialist outputs into unified daily brief; substantial coordination reduction | This is the decisive criterion. Option B fails it entirely. |
-| Time to First Value | 20% | **1** — Nothing works until the complete workflow is mapped and all sub-agents connected | **5** — First agent provides immediate standalone value on day one | **4** — First specialist provides standalone value; reporting layer follows as second step | Lean Startup: validate incrementally with smallest valuable slice |
-| Complexity | 15% | **1** — Must understand all 10 tools and all business domains in a single system; high coupling | **5** — Each agent is simple, bounded, and independently understandable | **3** — Specialists are simple; reporting layer adds modest integration complexity via standardized status format | TECOM has no dedicated engineering staff; complexity must stay low |
-| Build Effort | 15% | **1** — Requires complete workflow mapping before any value; large upfront investment | **5** — Minimal effort per agent; start immediately with one domain | **3** — Moderate: specialists + standardized status blocks + thin reporting layer | Proportionate to 4-person company capacity |
-| Failure Resilience | 10% | **1** — Single point of failure; one orchestrator error cascades to all reporting | **5** — Fully isolated; one agent's failure has zero impact on others | **4** — Graceful degradation; if one specialist fails, others still report normally | Microsoft pattern guidance: minimize blast radius |
-| Scalability | 10% | **2** — Every new domain increases orchestrator complexity; central bottleneck grows | **4** — Add agents independently, but no standardized interface for future reporting integration | **5** — New specialists plug in via standardized status format; reporting layer handles aggregation automatically | Akka: keep workers simple, interface via standard format |
-
-**Weighted Scores**:
-
-| Option | Calculation | Weighted Score |
-|:--|:--|:--|
-| **Option A: Centralized** | (5×30) + (1×20) + (1×15) + (1×15) + (1×10) + (2×10) = 150 + 20 + 15 + 15 + 10 + 20 | **230 / 500 (46%)** |
-| **Option B: Independent** | (1×30) + (5×20) + (5×15) + (5×15) + (5×10) + (4×10) = 30 + 100 + 75 + 75 + 50 + 40 | **370 / 500 (74%)** |
-| **Option C: Hybrid** | (4×30) + (4×20) + (3×15) + (3×15) + (4×10) + (5×10) = 120 + 80 + 45 + 45 + 40 + 50 | **380 / 500 (76%)** |
-
-**Result**: Option C (Hybrid) scores highest at 76%, narrowly exceeding Option B (74%) and substantially exceeding Option A (46%).
+- **What**: A coordination layer that aggregates outputs from specialist skills into a unified CEO daily brief.
+- **Why deferred**: The CEO's original question assumed orchestration is the solution. The revised assessment determines that orchestration is the last step, not the first - and it may not be needed if P0-P3 resolve the coordination bottleneck independently.
+- **Threshold for introduction**: Orchestrate only the top 2-3 workflows once they have stable schemas, measurable quality, and known failure modes. Perfection is not required; observability is.
+- **Valid final state**: "No orchestration" - independent, well-instrumented agents with a simple digest layer - is explicitly allowed as a successful endpoint.
+- **Source**: SES003 consultation (consultant + client aligned position), validated by Codex adversarial review.
 
 ### C. Recommendation
 
-**Recommend Option C (Hybrid)** based on weighted comparative assessment scoring (76% vs Option B at 74%, Option A at 46%).
+Recommend the P0-P4 incremental framework with deferred orchestration. The key insight from SES003 is that the CEO's binary question (one central manager vs many independent agents) is a false dichotomy. The real solution space is wider and requires understanding the actual agentic CLI capabilities, the specific workflow bottlenecks, and the incremental improvement opportunities before committing to any architecture.
 
-The scoring confirms the qualitative assessment: the hybrid architecture optimally balances TECOM's constraint profile across all evaluation dimensions.
+The recommended sequence is: P0 (workflow census) -> P1 (review policies) -> P2 (report schemas) -> P3 (skill improvements) -> P4 (contingent on P1-P3 maturity) -> Orchestration (only if validated).
 
-**Key scoring drivers**:
+Each proposal is independently valuable and independently testable. TECOM can stop at any point where the coordination bottleneck is sufficiently reduced.
 
-1. **CEO Coordination Reduction (30% weight)**: This is the decisive criterion — it is the explicit reason TECOM CEO asked the question. Option A scores highest here (5/5) but is eliminated by catastrophic scores on Time to First Value, Complexity, Build Effort, and Failure Resilience. Option B scores lowest (1/5) because it does not address the coordination bottleneck at all. Option C scores well (4/5) via the thin reporting layer.
+Note: The detailed comparative analysis (evaluation criteria, weighting, scoring) for the P0-P4 framework is maintained in a dedicated artifact: `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_comparative-assessment.md`.
 
-2. **Time to First Value (20% weight)**: Option C matches Option B's incremental delivery advantage — the first specialist provides standalone value immediately. The reporting layer is additive, not blocking.
-
-3. **Complexity + Build Effort (15% + 15%)**: Option C trades Option B's perfect simplicity scores for moderate complexity that purchases the coordination reduction Option B cannot provide.
-
-**Dissenting considerations**: Option B scored nearly as well (74% vs 76%) and offers superior simplicity. If TECOM's coordination bottleneck proves less severe than stated (e.g., discovery reveals the CEO's manual synthesis takes <10 minutes daily), Option B becomes the correct choice — the reporting layer overhead is not justified. This is precisely what GAP-004 (review bottleneck root cause) must validate in the PH000 discovery session.
-
-**Recommended starting vertical**: Order tracking — highest daily urgency, most directly measurable, clearest data boundary.
-
-**Where to start (practical sequence)**:
-1. Map the order tracking workflow (data sources, handoff points, review checkpoints)
-2. Build one specialist agent for order status reporting (delayed/delivered/pending)
-3. Validate that the specialist's standardized output is useful to the CEO
-4. Add a second specialist (email stats) and introduce the thin reporting layer
-5. Expand incrementally based on validated learning
+Note: The agentic CLI capability research that grounds these proposals is commissioned via research brief `T002-RES-001`. The research report is pending; findings will be integrated into this assessment and the advisory note when available.
 
 ---
 
 ## VI. HYPOTHESIS STATEMENT
 
-> **If** TECOM implements a hybrid architecture of decentralized specialist agents with a thin central reporting layer, starting with a single order-tracking vertical slice,
-> **then** the CEO's daily coordination overhead will be measurably reduced (target: eliminate manual status-checking for the automated domain),
-> **as measured by**: (a) number of manual coordination touchpoints per day for the automated domain drops to zero, (b) CEO receives a synthesized daily report within the first 2 weeks of operation, (c) no increase in error rate or customer-facing issues relative to the manual baseline.
+> **If** TECOM implements an incremental improvement framework starting with workflow census (P0), then domain-specific review policies (P1), structured report schemas (P2), and skill-level improvements (P3),
+> **then** the CEO's daily coordination overhead will be measurably reduced at each stage, with orchestration introduced only when validated by evidence from the prior stages,
+> **as measured by**: (a) P0: complete workflow map with execution substrate classification for all 10 tools; (b) P1: review time per domain reduced and review accuracy maintained or improved; (c) P2: all active workflows produce machine-checkable status reports; (d) P3: individual workflow reliability improved (measurable via error/rework rate); (e) orchestration (if introduced): CEO receives a synthesized daily report and manual coordination touchpoints for automated domains drop to zero.
 
 **Hypothesis validation conditions**:
-- **Validated** if all three measurements are achieved within a 30-day trial on the first vertical (order tracking)
-- **Invalidated** if: the specialist agent produces unreliable output requiring more review than manual process, OR the CEO finds the standardized report format insufficient for decision-making, OR the tool integration proves technically infeasible
-- **If invalidated**: pivot to workflow documentation and process redesign rather than additional agent architecture
+- **Validated** if: each proposal stage achieves its measurement target before the next stage begins.
+- **Partially validated** if: P0-P3 reduce coordination overhead sufficiently that orchestration is not needed. This is an acceptable final state.
+- **Invalidated** if: P0 discovery reveals that the coordination bottleneck is driven by irreducible domain judgment rather than information synthesis (ASSUM-001 fails), OR the agentic CLI capability research (T002-RES-001) reveals that the proposed improvements are technically infeasible within TECOM's tool ecosystem.
+- **If invalidated**: pivot to workflow documentation and process redesign rather than agent architecture.
 
-**Critical assumption to test in PH000 discovery**: The root cause of TECOM's coordination overhead is information synthesis, not judgment complexity. If the CEO's review bottleneck exists because outputs require domain judgment (not just status aggregation), the agent approach may not be the right intervention.
+**Critical assumption to test in PH000 discovery**: The agentic CLI tools TECOM uses (Codex CLI, Claude Code, Anti-Gravity) provide sufficient automation primitives to support at minimum P1 and P2 without custom infrastructure development. This will be validated by T002-RES-001.
 
 ---
 
@@ -231,11 +198,13 @@ The scoring confirms the qualitative assessment: the hybrid architecture optimal
 
 | downstream_artifact_type | target_reference | trigger_condition | responsible_role | notes |
 |:--|:--|:--|:--|:--|
-| Advisory Note (EN) | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/advisory_T002-PH000_agent-architecture-recommendation.md` | This analysis completed | LLM_Consultant | External deliverable for TECOM; distills Section V recommendation |
+| Advisory Note (EN) | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/advisory_T002-PH000_agent-architecture-recommendation.md` | Research report completed and comparative assessment integrated | LLM_Consultant | External deliverable for TECOM; distills the revised proposal framework |
 | Advisory Note (VI) | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/advisory_T002-PH000_agent-architecture-recommendation_vi.md` | EN advisory note completed | LLM_Consultant | Vietnamese translation; pending TECOM cross-check |
-| SPS (Initiative Level) | `prompt/artifacts/tasks/T002/ssot/sps_T002.md` | Next consultation session | LLM_Consultant | Internal; records TECOM requirements per P-STD-005 |
-| Roadmap (Thin-Spine) | `prompt/artifacts/tasks/T002/ssot/roadmap_T002.md` | Co-produced with SPS | LLM_Consultant | Internal; PH000 + PH001 high-level only |
-| PH000 Discovery Session | — | Before 2026-04-10 | TECOM + LLM_Consultant | Deep workflow walkthrough to validate/invalidate GAP-001 through GAP-004 |
+| Comparative Assessment | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_comparative-assessment.md` | Hypothesis brief v2.0.0 completed | LLM_Consultant | Dedicated trade study for P0-P4 + deferred orchestration |
+| Research Report (Deferred) | `prompt/artifacts/tasks/T002/research/T002-RES-001/report_T002-RES-001_agentic-cli-orchestration-research.md` | T002-RES-001 research session executed | LLM_Consultant | Deferred to a subsequent session; feeds technical feasibility refresh |
+| SPS (Initiative Level) | `prompt/artifacts/tasks/T002/ssot/sps_T002.md` | After standards-input approval and hypothesis brief revision | LLM_Consultant | Internal; records TECOM requirements per P-STD-005 |
+| Roadmap (Thin-Spine) | `prompt/artifacts/tasks/T002/ssot/roadmap_T002.md` | Co-produced with updated SPS | LLM_Consultant | Internal; PH000 + PH001 high-level only |
+| PH000 Discovery Session | — | Before 2026-04-10, after advisory note release | TECOM + LLM_Consultant | Deep workflow walkthrough to validate/invalidate P0-P4 assumptions |
 
 ---
 
@@ -250,6 +219,10 @@ The scoring confirms the qualitative assessment: the hybrid architecture optimal
 | Akka Orchestrating Multiple Agents | `https://doc.akka.io/sdk/agents/orchestrating.html` |
 | Codex Adversarial Review | Session output, 2026-04-03 (not persisted as artifact; findings integrated into this analysis) |
 | Industry Research Agent | Session output, 2026-04-03 (not persisted as artifact; findings integrated into this analysis) |
+| Research Brief | `prompt/artifacts/tasks/T002/research/T002-RES-001/brief_T002-RES-001_agentic-cli-orchestration-research.md` |
+| Comparative Assessment | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_comparative-assessment.md` |
+| SES003 Codex Adversarial Review | Session output, 2026-04-03 (findings integrated into v2.0.0 revision) |
+| SES003 Consultation Notes | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES003.md` |
 
 ---
 
@@ -257,4 +230,4 @@ The scoring confirms the qualitative assessment: the hybrid architecture optimal
 
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
-| v1.1.0 | 2026-04-03 | Enhancement | Added formal comparative assessment methodology to Section V: evaluation criteria with percentage-based weighting (6 criteria), comparative assessment matrix (3 options graded 1-5 per criterion), weighted scoring calculation, and scoring-based recommendation with dissenting considerations. Enhancement driven by SES002 consultation (Client Comment 1) and validated by Codex GPT 5.4 adversarial review. Existing Sections I-IV, VI-X unchanged. Analysis type remains `assessment` (compliant per guideline_workspace_analysis.md line 77 for options tradeoffs). |
+| v2.0.0 | 2026-04-04 | Major revision | SES003 GATE-001 RECYCLE remediation. Replaced Options A/B/C framework with P0-P4 incremental proposal set + deferred orchestration. Extracted comparative analysis to dedicated artifact. Updated gap register with GAP-006, GAP-007, RISK-001 through RISK-003 (sourced from SES003 Codex GPT 5.4 adversarial review). Revised hypothesis statement to reflect incremental validation and "no orchestration" as valid final state. Added research brief T002-RES-001 as pending input. Sections VII (Engagement Context) unchanged. Driven by SES003 client consultation assessment and Codex adversarial review.

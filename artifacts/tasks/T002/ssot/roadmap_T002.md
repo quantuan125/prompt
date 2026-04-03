@@ -5,8 +5,8 @@ initiative_code: 'TECOM'
 epic_id: '—'
 epic_code: '—'
 phase: '0'
-version: '1.1.0'
-date: '2026-04-03'
+version: '1.2.0'
+date: '2026-04-04'
 status: 'active'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
@@ -22,7 +22,7 @@ parent_activity: '—'
 roadmap_changelog: '—'
 ---
 
-# ROADMAP: T002 (TECOM) — Initiative Master Roadmap
+# ROADMAP: T002 (TECOM) - Initiative Master Roadmap
 
 ## I. EXECUTIVE SUMMARY
 
@@ -51,8 +51,8 @@ roadmap_changelog: '—'
 
 | Focus Area | Current State | Next Milestone | Canonical Link |
 |:--|:--|:--|:--|
-| PH000 Advisory Baseline | Activity plan, stream notes, session notes, hypothesis brief, SPS, roadmap, and GATE-001 package now exist for the initial advisory cycle | Use the internal SSOT baseline to support GATE-001 package finalization and client review | `prompt/artifacts/tasks/T002/ssot/sps_T002.md` |
-| Discovery Gaps | Workflow mapping, tool/data clarification, and review-bottleneck diagnosis remain open | Complete the later workflow walkthrough session and update readiness posture | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_hypothesis-brief.md` |
+| PH000 Advisory Baseline | Activity plan amended to v3.0.0 with GATE-001 reset into a same-gate RECYCLE loop. Remediation tasks TK002.4 through TK002.7 are registered ahead of recycled external review task TK002.8. Hypothesis brief revision, comparative assessment creation, research brief production, and SPS/roadmap updates are the active remediation surfaces. | Complete TK002.5 through TK002.7, commission TK002.8 recycled external review, then refresh the GATE-001 package for re-disposition. | `prompt/artifacts/tasks/T002/ssot/sps_T002.md` |
+| Discovery Gaps | Original gaps (GAP-001 through GAP-005) plus new gaps from SES003: GAP-006 (execution substrate undefined), GAP-007 (skill governance undefined). New risks: RISK-001 (overengineering perception), RISK-002 (token cost expansion), RISK-003 (approval friction in unattended execution). | Use T002-RES-001 brief/report outputs and later PH000 discovery evidence to ground technical feasibility and workflow-specific gap validation before any PH001 commitment. | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_hypothesis-brief.md` |
 | PH001 Readiness | PH001 is explicitly contingent and has no implementation authority yet | Obtain discovery evidence and explicit TECOM approval before any MVP planning | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES001.md` |
 
 ---
@@ -70,6 +70,10 @@ roadmap_changelog: '—'
 | Analysis | Consultant Assessment | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_gate-001-external-review-and-downstream-readiness-assessment.md` |
 | Analysis | Hypothesis Brief | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_hypothesis-brief.md` |
 | Raw Transcript | PH000 Raw Conversation | `prompt/artifacts/tasks/T002/raw_T002-PH000.txt` |
+| Analysis | Comparative Assessment | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_comparative-assessment.md` |
+| Brief | Research Brief (T002-RES-001) | `prompt/artifacts/tasks/T002/research/T002-RES-001/brief_T002-RES-001_agentic-cli-orchestration-research.md` |
+| Notes | SES003 Session Notes | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES003.md` |
+| Notes | SES004 Session Notes | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES004.md` |
 
 ---
 
@@ -80,6 +84,9 @@ roadmap_changelog: '—'
 | `OQ-T002-001` | Bottleneck Type | Does PH000 discovery confirm that the main coordination burden is information synthesis rather than judgment-heavy review? | Client | Proposed | 2026-04-03 | — |
 | `OQ-T002-002` | Workflow Feasibility | Are the workflow, tool inventory, and data-source boundaries clear enough to support a first vertical slice? | Client | Proposed | 2026-04-03 | — |
 | `OQ-T002-003` | Phase 1 Trigger | After PH000 discovery, does TECOM want NMAQ involvement in a PH001 MVP pilot? | Client | Proposed | 2026-04-03 | — |
+| `OQ-T002-004` | Execution Substrates | For each of TECOM's 10 tools, which execution model applies: interactive CLI, headless/SDK, or external scheduler? | Client | Proposed | 2026-04-04 | — |
+| `OQ-T002-005` | Skill Governance | Who owns each skill in TECOM's system? How are prompt/skill changes tested and rolled back? | Client | Proposed | 2026-04-04 | — |
+| `OQ-T002-006` | Agentic CLI Feasibility | Do Claude Code and/or Codex CLI provide sufficient automation primitives for P1 (review policies) and P2 (report schemas) without custom infrastructure? | LLM_Consultant | Proposed | 2026-04-04 | — (Pending T002-RES-001) |
 
 ---
 
@@ -89,3 +96,4 @@ roadmap_changelog: '—'
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-04-03 | Initial | Created the initial thin-spine T002 roadmap with the phase register, delivery snapshot, links register, and roadmap-level open questions. |
 | v1.1.0 | 2026-04-03 | Amendment | Normalized the delivery snapshot after SES003 package finalization, added the AC000 activity notes register to the links register, and kept the roadmap thin-spine while deferring the later workflow walkthrough to a future session. |
+| v1.2.0 | 2026-04-04 | Amendment | SES004 recycle alignment: updated the delivery snapshot to reflect the same-gate RECYCLE loop and pending TK002.8 external review, added OQ-T002-004 through OQ-T002-006, and expanded the links register with the remediation-cycle artifacts that were not already indexed. |

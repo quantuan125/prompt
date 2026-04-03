@@ -7,31 +7,33 @@ phase: '0'
 stream_id: 'T002-PH000-ST000'
 activity_id: 'T002-PH000-ST000-AC000'
 task_id: 'T002-PH000-ST000-AC000-TK002.4'
-version: '1.0.0'
-date: '2026-04-03'
+gate_id: 'T002-PH000-ST000-AC000-GATE-001'
+version: '1.2.0'
+date: '2026-04-04'
 status: 'draft'
 author: 'LLM_Consultant'
 decision_owner_role: 'Client'
 plan_reference: 'prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/plan_T002-PH000-ST000-AC000.md'
+proposal_reference: 'prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/proposal/proposal_T002-PH000-ST000-AC000-GATE-001_gate-disposition.md'
 execution_audience: 'assistant'
-purpose: 'Assistant-scoped implementation specification for the SES003 GATE-001 RECYCLE remediation cycle: plan amendment, research brief production, hypothesis brief major revision, comparative assessment creation, and SPS/roadmap update'
+purpose: 'Assistant-scoped execution contract for the next-session GATE-001 RECYCLE remediation cycle: governance reset, research brief production, hypothesis brief major revision, comparative assessment creation, SPS/roadmap update, and in-plan registration of the recycled external review task'
 ---
 
 # IMPLEMENTATION (Task Specification): T002 SES003 GATE-001 RECYCLE Remediation Brief
 
 ## I. PURPOSE & AUTHORITY
 
-- Purpose: Specify the exact implementation steps for the SES003 GATE-001 remediation cycle. This cycle was triggered by the client's SES003 consultation assessment that the existing GATE-001 package is substantively insufficient: the hypothesis brief's Options A/B/C framework does not reflect the revised proposal set (P0-P4 + deferred orchestration), the comparative analysis is misplaced, and critical gap/risk items are missing.
-- Authority chain: The governing activity plan (`plan_T002-PH000-ST000-AC000.md`) authorizes TK002.4 through TK002.7 as GATE-001 remediation tasks. This artifact specifies HOW each task is executed. The plan amendment (SPEC-001) establishes the task authority; subsequent SPECs execute against that authority.
-- Audience: `LLM_Assistant` — execution is delegated by the main consultant to preserve orchestrator context.
+- Purpose: Specify the implementation details that will be consumed in the next session to reset GATE-001 into an explicit RECYCLE loop and execute the approved remediation work. The underlying remediation need was triggered by the client's SES003/SES004 consultation assessment that the existing GATE-001 package is substantively insufficient: the hypothesis brief's Options A/B/C framework does not reflect the revised proposal set (P0-P4 + deferred orchestration), the comparative analysis is misplaced, critical gap/risk items are missing, and the SPS also requires the approved `III.B` realignment.
+- Authority chain: The governing activity plan (`plan_T002-PH000-ST000-AC000.md`) remains the tracked-work authority. The gate-disposition proposal (`proposal_T002-PH000-ST000-AC000-GATE-001_gate-disposition.md`) is the triggering proposal surface. This artifact is the execution contract that specifies HOW the commissioned assistant execution must amend the plan and produce the remediation artifacts in the next session. It does not itself execute those deliverables in the current authoring session.
+- Audience: `LLM_Assistant` in the next session. The consultant's role in this session is to finalize this contract so delegated execution can proceed without relying on unstated assumptions.
 - Filename note: This is an assistant-scoped orchestration artifact and uses the `-brief` naming convention per CONV-022.
 - This artifact does NOT hold a GDR. Gate decisions remain in the gate-disposition proposal.
 
 ## II. TASK SCOPE
 
 - Governing plan tasks: `TK002.4`, `TK002.5`, `TK002.6`, `TK002.7`
-- Trigger: Client SES003 consultation determined that the GATE-001 package requires substantive revision based on: (a) revised proposal framework (P0-P4 replacing Options A/B/C), (b) Codex GPT 5.4 adversarial review findings (GAP-006, GAP-007, RISK-001 through RISK-003), (c) client direction to extract comparative analysis into dedicated artifact, (d) client direction to produce research brief for deferred agentic CLI capability research.
-- Deliverable contract: (1) Amended plan with GATE-001 RECYCLE remediation tasks registered, (2) research brief at `research/T002-RES-001/`, (3) revised hypothesis brief, (4) new comparative assessment artifact, (5) updated SPS and roadmap.
+- Trigger: Client SES003 consultation determined that the GATE-001 package requires substantive revision based on: (a) revised proposal framework (P0-P4 replacing Options A/B/C), (b) Codex GPT 5.4 adversarial review findings (GAP-006, GAP-007, RISK-001 through RISK-003), (c) client direction to extract comparative analysis into a dedicated artifact, (d) client direction to produce a research brief for deferred agentic CLI capability research, and (e) approved standards-input authority for SPS `III.B` realignment.
+- Deliverable contract: (1) amended plan with GATE-001 RECYCLE remediation tasks registered in the correct same-gate recycle order, including a recycled external review task with a proper task ID, (2) research brief at `research/T002-RES-001/`, (3) revised hypothesis brief, (4) new comparative assessment artifact, and (5) updated SPS and roadmap. This artifact is the next-session execution contract for SPEC-001 through SPEC-006. `TK002.8` remains planning-scope only in this brief: it is registered in-plan but not executed here.
 
 ## III. SPECIFICATION ITEMS
 
@@ -39,11 +41,11 @@ purpose: 'Assistant-scoped implementation specification for the SES003 GATE-001 
 
 | Field | Detail |
 |:--|:--|
-| Requirement Source | SES003 consultation: client approved plan amendment to register GATE-001 remediation tasks |
+| Requirement Source | SES004 RECYCLE consultation plus 2026-04-04 QA direction: governance reset is the primary amendment surface and MUST register the recycled external review as a future same-gate task |
 | Target file(s) | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/plan_T002-PH000-ST000-AC000.md` |
-| Required end-state posture | Plan v3.0.0: Task Register includes TK002.4 through TK002.7 as GATE-001 remediation tasks; GATE-001 depends on TK002.7 (updated from TK002.3); GATE-001 status reflects `RECYCLE` posture; plan changelog records the SES003 amendment. |
-| Explicit non-target / do-not-change constraints | Do NOT alter TK000 through TK002.3 (completed tasks). Do NOT alter the two-gate structure. Do NOT change TK003-TK006 sequencing. Do NOT alter GATE-002 or its dependencies. Do NOT create detailed task sections for TK002.5-TK002.7 — this implementation artifact provides that specification depth per CONV-011. |
-| Validation check | (1) Task Register contains TK002.4, TK002.5, TK002.6, TK002.7 with correct IDs, owners, dependencies, and targets. (2) GATE-001 row shows `Depends On: TK002.7`. (3) GATE-001 status is `in_progress` (unchanged). (4) Version is `3.0.0`. (5) Changelog entry exists for v3.0.0. |
+| Required end-state posture | Plan v3.0.0: GATE-001 is reset into an explicit same-gate RECYCLE loop; the Task Register places GATE-001 before the recycle remediation tasks; the recycle loop includes TK002.4 through TK002.7 plus a new recycled external review task `TK002.8`; GATE-001 depends on `TK002.8`; downstream TK003-TK006 remain blocked behind the same gate; and the changelog records the RECYCLE governance reset. |
+| Explicit non-target / do-not-change constraints | Do NOT alter TK000 through TK002.3 other than preserving them as completed lineage. Do NOT alter the two-gate structure. Do NOT change TK003-TK006 sequencing or dependencies. Do NOT alter GATE-002 or its dependencies. Do NOT create detailed implementation-level sections for TK002.5-TK002.7 in the plan beyond summary contract stubs that reference this brief. Do NOT specify how TK002.8 executes; only register its task authority and plan-level contract. |
+| Validation check | (1) Task Register places `GATE-001` immediately before TK002.4-TK002.8. (2) Task Register contains TK002.4, TK002.5, TK002.6, TK002.7, and `TK002.8` with correct IDs, owners, dependencies, and targets. (3) `GATE-001` shows `Status: in_progress` and `Depends On: TK002.8`. (4) The detailed GATE-001 section explicitly describes the same-gate recycle loop and the recycled external review as a prerequisite to re-disposition. (5) Version is `3.0.0`. (6) Changelog entry exists for v3.0.0. |
 | Blocking ambiguity rule | If adding these tasks would conflict with existing gate sequencing or require restructuring the two-gate model, STOP and escalate to the consultant. |
 | Status | `open` |
 
@@ -52,19 +54,21 @@ purpose: 'Assistant-scoped implementation specification for the SES003 GATE-001 
 1. Open `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/plan_T002-PH000-ST000-AC000.md`.
 2. Update frontmatter:
    1. Set `version` to `'3.0.0'`.
-   2. Set `date` to `'2026-04-03'`.
-3. In the Task Register table (Section II), insert four new rows immediately BEFORE the `GATE-001` row and AFTER the `TK002.3` row. The new rows are:
+   2. Set `date` to the execution date of the amendment session.
+3. In the Task Register table (Section II), keep `TK000` through `TK002.3` unchanged as completed lineage.
+4. Move `GATE-001` so it remains the governing row immediately before the recycle-loop tasks and immediately before the downstream blocked tasks (`TK003+`). Do not create a new gate ID.
+5. Immediately AFTER the `GATE-001` row, insert five new rows in this order. The first four are the remediation tasks already governed by this implementation brief; the fifth is the recycled external review task that is registered in-plan only:
 
    Row 1:
    - Task: `TK002.4`
    - Task ID: `T002-PH000-ST000-AC000-TK002.4`
-   - Name: `SES003 plan amendment + research brief production`
+   - Name: `GATE-001 RECYCLE governance reset + research brief production`
    - Status: `planned`
    - Owner: `LLM_Consultant`
-   - Depends On: `TK002.3`
+   - Depends On: `GATE-001`
    - Target: `plan_T002-PH000-ST000-AC000.md`, `research/T002-RES-001/`
    - Reference: `guideline_workspace_plan.md`, `template_research_brief.md`
-   - Action: `Plan amendment for GATE-001 RECYCLE remediation tasks and research brief commissioning artifact.`
+   - Action: `Reset GATE-001 into a same-gate recycle loop and commission the research brief artifact for later execution.`
 
    Row 2:
    - Task: `TK002.5`
@@ -97,16 +101,40 @@ purpose: 'Assistant-scoped implementation specification for the SES003 GATE-001 
    - Depends On: `TK002.5`
    - Target: `ssot/sps_T002.md`, `ssot/roadmap_T002.md`
    - Reference: `guideline_ssot_sps.md`, `guideline_workspace_roadmap.md`
-   - Action: `Update SPS problem framing, constraints, and ASSUM register; update roadmap delivery snapshot and open questions register.`
+   - Action: `Update SPS problem framing and `III.B` authority surface; update roadmap delivery snapshot and open questions register.`
 
-4. Update the GATE-001 row:
-   1. Change `Depends On` from `TK002.3` to `TK002.7`.
-   2. Change `Action` to: `Package refreshed after SES003 RECYCLE remediation. Ready for re-disposition.`
-5. Add a changelog entry at the bottom of the file:
+   Row 5:
+   - Task: `TK002.8`
+   - Task ID: `T002-PH000-ST000-AC000-TK002.8`
+   - Name: `Recycled external review (GATE-001)`
+   - Status: `planned`
+   - Owner: `LLM_Subconsultant`
+   - Depends On: `TK002.7`
+   - Target: `analysis/`
+   - Reference: `guideline_workspace_analysis.md`
+   - Action: `Future same-gate external review of the remediated GATE-001 package. Register task authority only in this amendment; execution is not specified by this brief.`
+
+6. Update the `GATE-001` row:
+   1. Keep `Status` as `in_progress`.
+   2. Change `Depends On` from `TK002.3` to `TK002.8`.
+   3. Change `Action` to: `Gate reset to RECYCLE posture. Same-gate remediation and recycled external review required before re-disposition.`
+7. Update the detailed `GATE-001` section:
+   1. Revise the entry criteria so the recycle loop requires TK002.4 through TK002.8 rather than the pre-recycle package-refresh path alone.
+   2. Keep the same gate ID and the same gate-disposition proposal path.
+   3. Add a short recycle re-entry note making clear that the gate remains open, remediation occurs under the same gate, and the recycled external review is the final prerequisite before the refreshed proposal can be re-presented.
+8. Add or amend detailed task sections after the `GATE-001` section so dependency order is readable:
+   1. `TK002.4` through `TK002.7` receive summary contract stubs only, each pointing back to this implementation brief for execution detail.
+   2. `TK002.8` receives a summary task section with:
+      - Purpose: independent second-opinion review of the remediated GATE-001 package
+      - Deliverable: recycled external review analysis artifact under `analysis/`
+      - Scope: review the remediated package only; confirm readiness for re-disposition; remain advisory and do not close the gate
+      - Out of scope: authoring the proposal GDR, performing client disposition, or re-reviewing the superseded pre-recycle package as if it were current
+      - Steps: high-level summary only
+9. Add a changelog entry at the bottom of the file:
    - Version: `v3.0.0`
-   - Date: `2026-04-03`
+   - Date: execution date of the amendment session
    - Type: `Amendment`
-   - Summary: `SES003 GATE-001 RECYCLE remediation: registered TK002.4 through TK002.7 as GATE-001 remediation tasks. GATE-001 dependency updated to TK002.7. Triggered by SES003 client consultation assessment that Options A/B/C framework is insufficient; revised to P0-P4 proposal set with deferred orchestration. Implementation specification at implementation/implementation_T002-PH000-ST000-AC000_ses003-gate-001-recycle-remediation-brief.md.`
+   - Summary: `SES004 GATE-001 governance reset: converted GATE-001 into an explicit same-gate RECYCLE loop, registered TK002.4 through TK002.8 after the gate row, preserved TK002.3 and earlier work as lineage, and added the recycled external review as a future prerequisite to re-disposition. Implementation detail remains governed by implementation/implementation_T002-PH000-ST000-AC000_ses003-gate-001-recycle-remediation-brief.md.`
 
 ---
 
@@ -134,7 +162,7 @@ purpose: 'Assistant-scoped implementation specification for the SES003 GATE-001 
    - `research_id`: `'T002-RES-001'`
    - `version`: `'1.0.0'`
    - `iteration`: `'1'`
-   - `date`: `'2026-04-03'`
+   - `date`: execution date of the research-brief authoring session
    - `status`: `'draft'`
    - `author`: `'LLM_Consultant'`
    - `decision_owner_role`: `'Client'`
@@ -280,7 +308,7 @@ purpose: 'Assistant-scoped implementation specification for the SES003 GATE-001 
 1. Open `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_hypothesis-brief.md`.
 2. Update frontmatter:
    1. Set `version` to `'2.0.0'`.
-   2. Set `date` to `'2026-04-03'`.
+   2. Set `date` to the execution date of the hypothesis-brief revision session.
    3. Set `task_id` to `'T002-PH000-ST000-AC000-TK002.5'`.
    4. Update `purpose` to: `'Assess TECOM agent workflow improvement options and formalize the hypothesis for PH000 discovery — revised from Options A/B/C to P0-P4 incremental proposal framework with deferred orchestration'`.
    5. Update `assessment_scope` to: `'TECOM agentic workflow improvement — incremental proposal framework (P0-P4) with orchestration as validated endpoint'`.
@@ -440,7 +468,7 @@ purpose: 'Assistant-scoped implementation specification for the SES003 GATE-001 
 
 12. Add changelog entry:
     - Version: `v2.0.0`
-    - Date: `2026-04-03`
+    - Date: execution date of the hypothesis-brief revision session
     - Type: `Major revision`
     - Summary: `SES003 GATE-001 RECYCLE remediation. Replaced Options A/B/C framework with P0-P4 incremental proposal set + deferred orchestration. Extracted comparative analysis to dedicated artifact. Updated gap register with GAP-006, GAP-007, RISK-001 through RISK-003 (sourced from SES003 Codex GPT 5.4 adversarial review). Revised hypothesis statement to reflect incremental validation and "no orchestration" as valid final state. Added research brief T002-RES-001 as pending input. Sections VII (Engagement Context) unchanged. Driven by SES003 client consultation assessment and Codex adversarial review.`
 
@@ -473,7 +501,7 @@ purpose: 'Assistant-scoped implementation specification for the SES003 GATE-001 
    - `task_id`: `'T002-PH000-ST000-AC000-TK002.6'`
    - `gate_id`: `'T002-PH000-ST000-AC000-GATE-001'`
    - `version`: `'1.0.0'`
-   - `date`: `'2026-04-03'`
+   - `date`: execution date of the comparative-assessment authoring session
    - `status`: `'draft'`
    - `author`: `'LLM_Consultant'`
    - `decision_owner_role`: `'Client'`
@@ -579,7 +607,7 @@ purpose: 'Assistant-scoped implementation specification for the SES003 GATE-001 
 
 11. Add changelog entry:
     - Version: `v1.0.0`
-    - Date: `2026-04-03`
+    - Date: execution date of the comparative-assessment authoring session
     - Type: `Initial`
     - Summary: `Created comparative assessment for P0-P4 + deferred orchestration framework. Extracted from hypothesis brief v1.1.0 (which hosted the original A/B/C comparison) per SES003 client direction. Expanded to cover six comparison items with percentage-based weighting. Historical A/B/C scores preserved for traceability.`
 
@@ -589,41 +617,81 @@ purpose: 'Assistant-scoped implementation specification for the SES003 GATE-001 
 
 | Field | Detail |
 |:--|:--|
-| Requirement Source | SES003 consultation: revised problem framing requires SPS alignment |
+| Requirement Source | SES003/SES004 recycle consultation plus the approved standards-input proposal `proposal_T002-PH000-ST000-AC000_sps-iii-b-rid-realignment-standards-input.md` |
 | Target file(s) | `prompt/artifacts/tasks/T002/ssot/sps_T002.md` |
-| Required end-state posture | SPS v1.1.0: (1) Problem Definition updated to reference P0-P4 framework as the recommended approach direction (without embedding proposal details — those live in the hypothesis brief); (2) Constraints updated: add `T002-CON-004` stating "no orchestration" is a valid final state; (3) ASSUM register reviewed and updated if warranted. |
-| Explicit non-target / do-not-change constraints | Do NOT embed P0-P4 proposal details in the SPS — the SPS records the problem and constraints, not the solution. Do NOT alter the RACI matrix unless the revised framework changes role definitions. Do NOT alter CON-001, CON-002, or CON-003 unless directly impacted. |
-| Validation check | (1) Version is `1.1.0`. (2) Problem Definition mentions the revised assessment direction without duplicating proposal details. (3) `T002-CON-004` exists with the "no orchestration as valid final state" constraint. (4) ASSUM register is reviewed (may or may not change). (5) Changelog entry exists. |
-| Blocking ambiguity rule | If the SPS update would require restructuring the Epics & Breakdown section or adding new epics, STOP and escalate. The P0-P4 framework is a PH000 advisory recommendation, not a committed epic structure. |
+| Required end-state posture | SPS v1.1.0: (1) Section `III.A` is updated so the problem framing and desired outcome reflect the revised P0-P4 direction at high level without embedding proposal-detail mechanics; (2) Section `III.B.1` through `III.B.8` are rewritten using the approved TECOM-centered standards-input proposal as the primary authority surface; (3) current draft RID bodies that are misframed around NMAQ consultation mechanics are rebased in place exactly where the approved proposal directs; (4) the normative RID set under `III.B.2` through `III.B.6` contains the exact TECOM-centered bodies specified in this SPEC, with `T002-CON-004` added as the compatible recycle-cycle constraint for "no orchestration" as a valid final state; and (5) the resulting SPS reflects TECOM operating realities, proper RID category discipline, and clear separation between initiative content and NMAQ internal mechanics. |
+| Explicit non-target / do-not-change constraints | Do NOT ignore or narrow the approved standards-input proposal. Do NOT embed full P0-P4 proposal details in the SPS — the SPS records the initiative problem, constraints, and governing considerations, not the full remediation design. Do NOT alter the RACI matrix unless the revised `III.B.1` authority reset directly requires a role-boundary clarification. Do NOT invent new RID categories or speculative RID bodies not supported by the approved proposal or later confirmed recycle decisions. |
+| Validation check | (1) Version is `1.1.0`. (2) Section `III.A.1` contains the SES003 reframing paragraph and Section `III.A.2` reflects the TECOM-centered desired-outcome bullets from this SPEC. (3) Section `III.B.1` through `III.B.8` reflect the approved section-by-section reclassification from the standards-input proposal. (4) `T002-ASSUM-001` through `T002-ASSUM-003`, `T002-CON-001` through `T002-CON-004`, `T002-QG-001` through `T002-QG-004`, `T002-DEP-001` through `T002-DEP-004`, and `T002-IF-001` through `T002-IF-002` exist with the exact semantic posture defined in this SPEC. (5) `III.B.8` no longer carries the prior NMAQ-internal IG/INT/NOTE bundle as normative initiative content. (6) Changelog entry exists and explicitly records the `III.B` semantic reset authority. |
+| Blocking ambiguity rule | If the SPS update would require departing from the approved standards-input proposal, STOP and escalate. If the approved proposal and the current recycle requirements appear to conflict, resolve in favor of the approved `III.B` standards-input authority and only layer in later recycle decisions where they are clearly compatible and evidence-backed. |
 | Status | `open` |
 
 #### Implementation Detail
 
 1. Open `prompt/artifacts/tasks/T002/ssot/sps_T002.md`.
-2. Update frontmatter:
+2. Open `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/proposal/proposal_T002-PH000-ST000-AC000_sps-iii-b-rid-realignment-standards-input.md` and treat it as the approved primary authority surface for `III.B`.
+3. Update frontmatter:
    1. Set `version` to `'1.1.0'`.
-   2. Set `date` to `'2026-04-03'`.
-3. In Section III.A.1 (The Problem), add a paragraph after the existing content:
+   2. Set `date` to the execution date of the SPS amendment session.
+4. In Section `III.A.1 (The Problem)`, add the following paragraph immediately after the existing two-paragraph problem description and before `#### 2. The Desired Outcome`:
 
-   `SES003 consultation (2026-04-03) reassessed the initial framing. The CEO's binary question (centralized orchestrator vs independent agents) was identified as a false dichotomy that constrains the solution space. The revised assessment identifies an incremental improvement path (P0-P4) that addresses the coordination bottleneck through workflow census, domain-specific review policies, structured report schemas, and skill-level improvements — with orchestration as a validated endpoint rather than an assumed destination. Proposal details are maintained in the hypothesis brief (analysis_T002-PH000-ST000-AC000_hypothesis-brief.md v2.0.0).`
+   `SES003 consultation (2026-04-03) reassessed the initial framing. The CEO's binary question (centralized orchestrator vs independent agents) was identified as a false dichotomy that constrains the solution space. The revised assessment identifies an incremental improvement path (P0-P4) that addresses the coordination bottleneck through workflow census, domain-specific review policies, structured report schemas, and skill-level improvements, with orchestration as a validated endpoint rather than an assumed destination. Proposal details remain in the hypothesis brief rather than in the SPS.`
 
-4. In Section III.A.2 (The Desired Outcome), add a fifth bullet:
-
-   `5. explicitly allows "no orchestration" as a valid final state if incremental improvements (P0-P3) sufficiently reduce coordination overhead`
-
-5. In Section III.B.3 (Project Constraints), add:
-
-   `* **T002-CON-004 (No-Orchestration Valid Endpoint)** — The initiative SHALL treat "no orchestration" as a valid and successful final state. If P0-P3 improvements sufficiently reduce the CEO's coordination overhead without requiring an orchestration layer, the initiative is complete. Orchestration SHALL NOT be pursued for its own sake.`
-
-6. In Section III.B.2 (Project Assumptions), review ASSUM-001 and ASSUM-002:
-   1. ASSUM-001 (Bottleneck Nature): No change needed — the revised framework still depends on this assumption.
-   2. ASSUM-002 (Pilot Slice Sufficiency): Update the description to note that the "pilot slice" concept has evolved into the P0-P4 sequential validation framework. Update the validation method to: `Validate through the P0-P4 incremental framework — each proposal stage validates independently before the next begins`.
-
-7. Add a changelog entry:
+5. Replace the numbered list in Section `III.A.2 (The Desired Outcome)` with the following exact bullets:
+   1. `clarifies TECOM's real workflow, handoffs, and coordination bottlenecks before any MVP commitment`
+   2. `fits a 4-person operating environment with heterogeneous tools and no heavy ongoing administration`
+   3. `supports stepwise adoption by domain or workflow slice rather than requiring whole-workflow replacement before first value is tested`
+   4. `improves executive visibility, onboarding clarity, and workflow recall in the first validated slice`
+   5. `explicitly allows "no orchestration" as a valid final state if incremental improvements (P0-P3) sufficiently reduce coordination overhead`
+6. Keep the closing paragraph under `III.A.2` that defines what "done" means for PH000, unless a small wording adjustment is required to keep it compatible with the revised bullets.
+7. Replace Section `III.B.1 (Organization & Responsibilities)` with a lean TECOM-centered role boundary using the same two-table structure already present:
+   1. `Role Definitions` table rows:
+      - `Client` | `TECOM Decision Owner / Executive Sponsor` | `Approves direction, approves any PH001 progression, owns build decisions` | `Provides workflow facts, reviews advisory outputs, confirms whether follow-on work proceeds` | `Initiative-wide`
+      - `TECOM Team` | `Workflow Subject-Matter Contributors` | `No baseline approval authority recorded` | `Supplies operational context, tool usage detail, and current-state workflow facts when requested` | `Discovery support`
+      - `LLM_Consultant` | `Technical Advisor` | `Proposes analysis and requirement baselines; no final approval authority` | `Produces SPS, hypothesis, comparative analysis, and advisory guidance` | `Advisory-only in PH000`
+   2. `Governance RACI` table rows:
+      - `Establish initiative baseline` | `LLM_Consultant` | `Client` | `TECOM Team` | `—`
+      - `Provide workflow and tooling facts` | `Client` | `Client` | `TECOM Team` | `LLM_Consultant`
+      - `Decide whether PH001 proceeds` | `Client` | `Client` | `TECOM Team` | `LLM_Consultant`
+8. Replace Section `III.B.2 (Project Assumptions)` with the following exact assumption set:
+   1. Update the `ASSUM Validation Lifecycle Summary` table so it contains these three rows:
+      - `T002-ASSUM-001` | `Bottleneck Nature` | `Pending` | `Validate in PH000 discovery by mapping the workflow and determining whether a meaningful share of the CEO's coordination burden can be reduced through better status synthesis, workflow clarity, or agent support rather than requiring personal judgment at every handoff` | `PH000` | `Client + LLM_Consultant` | `Pivot from agent-first framing toward workflow redesign / documentation-first remediation` | `T002-CON-001`
+      - `T002-ASSUM-002` | `Pilot Sufficiency` | `Pending` | `Validate through staged P0-P4 discovery by confirming one bounded workflow slice is sufficient to test whether agent-supported coordination creates useful value before wider rollout is considered` | `PH000 / PH001 readiness` | `Client + LLM_Consultant` | `Expand discovery scope before committing to implementation` | `T002-CON-003`
+      - `T002-ASSUM-003` | `Tool Extractability` | `Pending` | `Validate by confirming at least one initial business domain can be instrumented across the current tool estate without first replacing the entire stack` | `PH000` | `Client + LLM_Consultant` | `Reframe the initiative toward documentation / reporting improvements before automation expansion` | `T002-CON-002`
+   2. Replace the assumption bullets with these exact bodies:
+      - `T002-ASSUM-001 (Bottleneck Nature)` — `The initiative assumes that a meaningful share of the CEO's current coordination burden can be reduced through better status synthesis, workflow clarity, or agent support rather than requiring the CEO's personal judgment at every handoff.`
+      - `T002-ASSUM-002 (Pilot Sufficiency)` — `The initiative assumes that one bounded workflow slice is sufficient to test whether agent-supported coordination can create useful value before wider rollout is considered.`
+      - `T002-ASSUM-003 (Tool Extractability)` — `The initiative assumes that at least one initial business domain can be instrumented across the current tool estate without first replacing the entire stack.`
+9. Replace Section `III.B.3 (Project Constraints)` with these exact bullets:
+   - `T002-CON-001 (Team Capacity)` — `The initial solution SHALL fit a 4-person operating environment and SHALL NOT depend on a large support function or heavy ongoing administration.`
+   - `T002-CON-002 (Tool Heterogeneity)` — `The initiative SHALL account for a workflow spanning roughly 10 tools across VBA, Python, Google Apps Script, and manual steps; it SHALL NOT assume a greenfield single-stack environment.`
+   - `T002-CON-003 (Incremental Adoption)` — `The initial approach SHALL support stepwise adoption by domain or workflow slice and SHALL NOT require whole-workflow replacement before first value can be tested.`
+   - `T002-CON-004 (No-Orchestration Valid Endpoint)` — `The initiative SHALL treat "no orchestration" as a valid and successful final state. If P0-P3 improvements sufficiently reduce the CEO's coordination overhead without requiring an orchestration layer, the initiative is complete. Orchestration SHALL NOT be pursued for its own sake.`
+10. Replace Section `III.B.4 (Quality Goals)` with these exact bullets:
+    - `T002-QG-001 (Coordination Relief)` — `The initiative SHOULD materially reduce the CEO's manual status-checking and handoff overhead in the first validated slice.`
+    - `T002-QG-002 (Onboarding Clarity)` — `The initiative SHOULD make the workflow easier to summarize, teach, and hand over when staff changes occur.`
+    - `T002-QG-003 (Executive Reporting)` — `The initiative SHOULD produce a concise executive summary surface that gives the CEO usable visibility across delegated work domains.`
+    - `T002-QG-004 (Workflow Recall)` — `The initiative SHOULD reduce dependence on remembering how infrequently used tools or steps operate by making the workflow more explicit and repeatable.`
+11. Replace Section `III.B.5 (Dependencies)` with these exact bullets:
+    - `T002-DEP-001 (Workflow Walkthrough)` — `Further scoping depends on a mapped walkthrough of TECOM's current end-to-end workflow, handoffs, and review points.`
+    - `T002-DEP-002 (Tool Inventory)` — `Further scoping depends on a verified inventory of the active tools, scripts, owners, and integration points used in the current workflow.`
+    - `T002-DEP-003 (Data Access)` — `Further scoping depends on clarifying what data access exists for candidate domains such as order tracking, email reporting, and creative operations.`
+    - `T002-DEP-004 (Pilot Selection)` — `Further scoping depends on confirming which domain should serve as the first validation slice and how success will be judged.`
+12. Replace Section `III.B.6 (Interfaces)` with these exact bullets:
+    - `T002-IF-001 (Executive Summary)` — `The CEO-facing interface SHALL provide a consolidated view of key workflow status rather than forcing manual synthesis from many separate reports.`
+    - `T002-IF-002 (Status Blocks)` — `Domain-level agents or automations SHALL expose bounded, comparable status outputs that can be consumed consistently by a higher-level reporting surface.`
+13. Leave Section `III.B.7 (Project Standards)` minimal. Keep the existing empty standards table and the statement that no initiative-local T002 standard is registered yet unless a formatting-only cleanup is required.
+14. Replace Section `III.B.8 (Project Guidances & Notes)` with a minimal non-normative note block only:
+    - Remove `T002-IG-001`, `T002-INT-001`, `T002-NOTE-001`, and `T002-NOTE-002`.
+    - Add a short note paragraph: `This section is intentionally minimal after the III.B reset. NMAQ internal consultation mechanics, gate posture, and SSOT hygiene belong in plan, proposal, and notes artifacts rather than in the TECOM initiative requirement baseline.`
+15. Resolve RID-body conflicts explicitly:
+    1. Where the current SPS draft body conflicts with the approved standards-input proposal, rewrite the SPS body in place to match the approved proposal and the exact bodies listed above.
+    2. Preserve RID identifiers in place when the approved proposal authorizes rebasing rather than minting a new clean sequence.
+    3. Keep still-deferred speculative items out of the normative RID set, including Python-first standardization, order tracking as a formal first slice, and any human-review interface requirement not yet evidenced strongly enough for SPS encoding.
+16. Add a changelog entry:
    - Version: `v1.1.0`
-   - Date: `2026-04-03`
+   - Date: execution date of the SPS amendment session
    - Type: `Amendment`
-   - Summary: `SES003 GATE-001 remediation: updated Problem Definition with revised assessment direction (P0-P4 incremental framework); added CON-004 (no-orchestration valid endpoint); updated ASSUM-002 validation method to reflect sequential proposal validation.`
+   - Summary: `SES004 recycle alignment: rewrote SPS Section III.B using the approved TECOM-centered standards-input proposal as the primary authority surface; rebased draft RID bodies in place where authorized; retained the high-level P0-P4 problem-direction note in Section III.A; and added CON-004 (no-orchestration valid endpoint) as a compatible recycle-cycle constraint.`
 
 ---
 
@@ -633,9 +701,9 @@ purpose: 'Assistant-scoped implementation specification for the SES003 GATE-001 
 |:--|:--|
 | Requirement Source | SES003 consultation: revised PH000 deliverables and new open questions require roadmap alignment |
 | Target file(s) | `prompt/artifacts/tasks/T002/ssot/roadmap_T002.md` |
-| Required end-state posture | Roadmap v1.1.0: (1) Current Delivery Snapshot updated to reflect the SES003 remediation cycle and revised proposal framework; (2) Open Questions Register includes new questions from SES003; (3) Links Register includes new artifacts. |
-| Explicit non-target / do-not-change constraints | Do NOT alter the Phase Register (Section II) — PH000 and PH001 definitions remain unchanged. Do NOT add phase-level detail beyond the thin-spine rule. Do NOT embed proposal details — reference the hypothesis brief. |
-| Validation check | (1) Version is `1.1.0`. (2) Current Delivery Snapshot reflects SES003 state. (3) At least two new Open Questions from SES003 are registered. (4) Links Register includes comparative assessment and research brief paths. (5) Changelog entry exists. |
+| Required end-state posture | Roadmap v1.2.0: (1) Current Delivery Snapshot reflects the active GATE-001 RECYCLE loop, including the registration of `TK002.8` as the final same-gate prerequisite before re-disposition; (2) Open Questions Register includes the new execution-substrate, skill-governance, and agentic-CLI-feasibility questions; (3) Links Register includes the remediation-cycle artifacts that are not already present, without duplicating existing rows; and (4) the roadmap remains a thin-spine initiative surface rather than an execution-log surface. |
+| Explicit non-target / do-not-change constraints | Do NOT alter the Phase Register (Section II) — PH000 and PH001 definitions remain unchanged. Do NOT add phase-level detail beyond the thin-spine rule. Do NOT embed proposal details — reference the hypothesis brief and comparative assessment. Do NOT duplicate Links Register rows that already exist in the current roadmap. |
+| Validation check | (1) Version is `1.2.0`. (2) Current Delivery Snapshot reflects the RECYCLE same-gate loop and the pending `TK002.8` external review prerequisite. (3) Open Questions Register contains `OQ-T002-004` through `OQ-T002-006`. (4) Links Register includes the comparative assessment, research brief, and SES003/SES004 session-note references without duplicating pre-existing rows. (5) Changelog entry exists. |
 | Blocking ambiguity rule | If the roadmap update would require adding new phases or restructuring the phase register, STOP and escalate. |
 | Status | `open` |
 
@@ -643,45 +711,46 @@ purpose: 'Assistant-scoped implementation specification for the SES003 GATE-001 
 
 1. Open `prompt/artifacts/tasks/T002/ssot/roadmap_T002.md`.
 2. Update frontmatter:
-   1. Set `version` to `'1.1.0'`.
-   2. Set `date` to `'2026-04-03'`.
+   1. Set `version` to `'1.2.0'`.
+   2. Set `date` to the execution date of the roadmap amendment session.
 3. Update Section III (Current Delivery Snapshot):
    1. Replace the first row ("PH000 Advisory Baseline"):
-      - Current State: `Activity plan amended to v3.0.0 with GATE-001 RECYCLE remediation tasks (TK002.4-TK002.7). Hypothesis brief undergoing major revision (P0-P4 framework replacing Options A/B/C). Comparative assessment being extracted to dedicated artifact. Research brief (T002-RES-001) commissioned for agentic CLI capability research.`
-      - Next Milestone: `Complete GATE-001 remediation cycle (TK002.5-TK002.7) and refresh GATE-001 package for re-disposition.`
+      - Current State: `Activity plan amended to v3.0.0 with GATE-001 reset into a same-gate RECYCLE loop. Remediation tasks TK002.4 through TK002.7 are registered ahead of recycled external review task TK002.8. Hypothesis brief revision, comparative assessment creation, research brief production, and SPS/roadmap updates are the active remediation surfaces.`
+      - Next Milestone: `Complete TK002.5 through TK002.7, commission TK002.8 recycled external review, then refresh the GATE-001 package for re-disposition.`
       - Canonical Link: `prompt/artifacts/tasks/T002/ssot/sps_T002.md`
    2. Replace the second row ("Discovery Gaps"):
       - Current State: `Original gaps (GAP-001 through GAP-005) plus new gaps from SES003: GAP-006 (execution substrate undefined), GAP-007 (skill governance undefined). New risks: RISK-001 (overengineering perception), RISK-002 (token cost expansion), RISK-003 (approval friction in unattended execution).`
-      - Next Milestone: `T002-RES-001 research report (Topics 1-5) to ground technical feasibility; PH000 discovery session (SES004+) to validate workflow-specific gaps.`
+      - Next Milestone: `Use T002-RES-001 brief/report outputs and later PH000 discovery evidence to ground technical feasibility and workflow-specific gap validation before any PH001 commitment.`
       - Canonical Link: `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_hypothesis-brief.md`
    3. Keep the third row ("PH001 Readiness") unchanged.
 4. Update Section V (Open Questions Register). Add the following new rows:
-   1. `OQ-T002-004` | Execution Substrates | For each of TECOM's 10 tools, which execution model applies: interactive CLI, headless/SDK, or external scheduler? | Client | Proposed | 2026-04-03 | —
-   2. `OQ-T002-005` | Skill Governance | Who owns each skill in TECOM's system? How are prompt/skill changes tested and rolled back? | Client | Proposed | 2026-04-03 | —
-   3. `OQ-T002-006` | Agentic CLI Feasibility | Do Claude Code and/or Codex CLI provide sufficient automation primitives for P1 (review policies) and P2 (report schemas) without custom infrastructure? | LLM_Consultant | Proposed | 2026-04-03 | — (Pending T002-RES-001)
-5. Update Section IV (Links Register). Add the following new rows:
+   1. `OQ-T002-004` | Execution Substrates | For each of TECOM's 10 tools, which execution model applies: interactive CLI, headless/SDK, or external scheduler? | Client | Proposed | execution date of the roadmap amendment session | —
+   2. `OQ-T002-005` | Skill Governance | Who owns each skill in TECOM's system? How are prompt/skill changes tested and rolled back? | Client | Proposed | execution date of the roadmap amendment session | —
+   3. `OQ-T002-006` | Agentic CLI Feasibility | Do Claude Code and/or Codex CLI provide sufficient automation primitives for P1 (review policies) and P2 (report schemas) without custom infrastructure? | LLM_Consultant | Proposed | execution date of the roadmap amendment session | — (Pending T002-RES-001)
+5. Update Section IV (Links Register). Add only the missing rows below; do NOT duplicate any row already present in the roadmap:
    1. Analysis | Comparative Assessment | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_comparative-assessment.md`
    2. Brief | Research Brief (T002-RES-001) | `prompt/artifacts/tasks/T002/research/T002-RES-001/brief_T002-RES-001_agentic-cli-orchestration-research.md`
-   3. Analysis | Consultant Assessment (SES003) | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_gate-001-external-review-and-downstream-readiness-assessment.md`
-   4. Notes | SES002 Session Notes | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES002.md`
+   3. Notes | SES003 Session Notes | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES003.md`
+   4. Notes | SES004 Session Notes | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/snotes/snotes_T002-PH000-ST000-AC000-SES004.md`
 6. Add changelog entry:
-   - Version: `v1.1.0`
-   - Date: `2026-04-03`
+   - Version: `v1.2.0`
+   - Date: execution date of the roadmap amendment session
    - Type: `Amendment`
-   - Summary: `SES003 GATE-001 remediation: updated delivery snapshot to reflect RECYCLE remediation cycle and P0-P4 framework; added OQ-T002-004 through OQ-T002-006; added comparative assessment and research brief to links register.`
+   - Summary: `SES004 recycle alignment: updated the delivery snapshot to reflect the same-gate RECYCLE loop and pending TK002.8 external review, added OQ-T002-004 through OQ-T002-006, and expanded the links register with the remediation-cycle artifacts that were not already indexed.`
 
 ## IV. IMPLEMENTATION SEQUENCE
 
 | Order | SPEC | Task | Depends On | Notes |
 |:--|:--|:--|:--|:--|
-| 1 | SPEC-001 | Plan amendment (TK002.4, Part A) | — | Establishes authority for all subsequent SPECs |
+| 1 | SPEC-001 | Governance reset + plan amendment (TK002.4, Part A) | — | Establishes same-gate RECYCLE ordering and registers the future recycled external review task |
 | 2 | SPEC-002 | Research brief (TK002.4, Part B) | SPEC-001 | New file; no dependency on other artifacts |
 | 3 | SPEC-003 | Hypothesis brief revision (TK002.5) | SPEC-001, SPEC-002 | References research brief path; major revision of existing artifact |
 | 4 | SPEC-004 | Comparative assessment (TK002.6) | SPEC-003 | References hypothesis brief v2.0.0 for proposal definitions |
-| 5a | SPEC-005 | SPS update (TK002.7, Part A) | SPEC-003 | Can run in parallel with SPEC-006 |
+| 5a | SPEC-005 | SPS update (TK002.7, Part A) | SPEC-003 | Uses the approved `III.B` standards-input proposal as primary authority; can run in parallel with SPEC-006 |
 | 5b | SPEC-006 | Roadmap update (TK002.7, Part B) | SPEC-003, SPEC-004 | References comparative assessment path |
+| 6 | Plan-registered task | Recycled external review (TK002.8) | SPEC-005, SPEC-006 | Registered by SPEC-001 only; this brief defines the plan-level registration contract, not the execution procedure for TK002.8 |
 
-Note: SPEC-005 and SPEC-006 can be executed in parallel (5a/5b) since they target different files with no cross-dependencies beyond their shared dependency on SPEC-003.
+Note: SPEC-005 and SPEC-006 can be executed in parallel (5a/5b) since they target different files with no cross-dependencies beyond their shared dependency on SPEC-003. This artifact is the next-session execution contract for SPEC-001 through SPEC-006. `TK002.8` remains intentionally limited to in-plan task registration and scope-setting inside SPEC-001.
 
 ## V. REFERENCES
 
@@ -691,6 +760,7 @@ Note: SPEC-005 and SPEC-006 can be executed in parallel (5a/5b) since they targe
 | Hypothesis Brief (current) | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/analysis/analysis_T002-PH000-ST000-AC000_hypothesis-brief.md` |
 | SPS | `prompt/artifacts/tasks/T002/ssot/sps_T002.md` |
 | Roadmap | `prompt/artifacts/tasks/T002/ssot/roadmap_T002.md` |
+| Approved Standards-Input Proposal | `prompt/artifacts/tasks/T002/workspace/PH000/ST000/AC000/proposal/proposal_T002-PH000-ST000-AC000_sps-iii-b-rid-realignment-standards-input.md` |
 | Research Brief Template | `prompt/templates/researcher/template_research_brief.md` |
 | Analysis Template | `prompt/templates/consultant/workspace/template_workspace_analysis.md` |
 | Analysis Guideline | `prompt/templates/consultant/workspace/guideline_workspace_analysis.md` |
@@ -704,3 +774,5 @@ Note: SPEC-005 and SPEC-006 can be executed in parallel (5a/5b) since they targe
 | Version | Date | Type | Summary |
 |:--|:--|:--|:--|
 | v1.0.0 | 2026-04-03 | Initial | Created SES003 GATE-001 RECYCLE remediation implementation specification. Six SPECs covering: plan amendment, research brief production, hypothesis brief major revision, comparative assessment creation, SPS update, and roadmap update. Commissioned by LLM_Consultant for LLM_Assistant execution. |
+| v1.1.0 | 2026-04-04 | Amendment | Narrowed this artifact to an authoring-only planning surface for the next session. Rewrote SPEC-001 as the governance reset authority surface, including registration of the recycled external review task (`TK002.8`) inside the same-gate RECYCLE loop without adding a new standalone SPEC. Updated SPEC-005 to treat the approved `proposal_T002-PH000-ST000-AC000_sps-iii-b-rid-realignment-standards-input.md` as the primary authority for the SPS `III.B` rewrite and resolved conflicts between that approved authority and the earlier narrower SPS-update wording. |
+| v1.2.0 | 2026-04-04 | Amendment | Re-promoted this artifact to a next-session execution contract for assistant sub-agents. Added the missing triggering `proposal_reference` backlink, removed planning-only framing, normalized execution-date instructions across the SPEC set, rewrote SPEC-005 into an exact SPS section-by-section replacement contract using the approved standards-input proposal, and corrected SPEC-006 so roadmap updates reflect TK002.8, avoid duplicate links, and index SES003/SES004 rather than stale SES002 references. |
